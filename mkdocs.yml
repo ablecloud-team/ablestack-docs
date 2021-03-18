@@ -1,3 +1,41 @@
+# Copyright (c) 2021 ABLECLOUD Co. Ltd.
+
+# 이 파일은 ABLESTACK Docs의 도큐먼트 설정 및 테마 설정을 위한 설정 파일입니다.
+# 최초 작성일 : 2021. 03. 18
+# 작성자 : 박동혁
+
+# 프로젝트 정보
 site_name: ABLESTACK
+site_author: ABLECLOUD Co. Ltd
+
+# Repository
+repo_name: ablecloud-team/ablestack-docs
+repo_url: https://github.com/ablecloud-team/ablestack-docs
+edit_url: ""
+
+# Copyright
+copyright: Copyright &copy; 2021 ABLECLOUD Co. Ltd.
+
+# Configuration
 theme:
   name: material
+
+  static_templates:
+    - 404.html
+
+  features:
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  favicon: assets/favicon.png
+  logo: assets/logo.png
