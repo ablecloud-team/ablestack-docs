@@ -11,7 +11,6 @@ site_author: ABLECLOUD Co. Ltd
 # Repository
 repo_name: ablecloud-team/ablestack-docs
 repo_url: https://github.com/ablecloud-team/ablestack-docs
-edit_url: ""
 
 # Copyright
 copyright: Copyright &copy; 2021 ABLECLOUD Co. Ltd.
@@ -39,3 +38,70 @@ theme:
 
   favicon: assets/favicon.png
   logo: assets/logo.png
+
+# Plugin
+plugins:
+  - search
+  #- mike
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ablecloud-team
+  #version:
+  #  provider: mike
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page Tree
+nav:
+  - 환영합니다: index.md
+  - 아키텍처:
+    - 시작하며: architecture/architecture-overview.md
+  - 시작하기:
+    - 시작하며: getting-started/getting-started-overview.md
+  - 설정 및 구성:
+    - 시작하며: setup/setup-overview.md
+  - 관리자 가이드:
+    - 시작하며: administration/administration-overview.md
+  - 사용자 가이드:
+    - 시작하며: reference/reference-overview.md
