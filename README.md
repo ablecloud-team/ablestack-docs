@@ -94,3 +94,10 @@ $ mkdocs build -t material -d ~/Documents/mkdocs-sites/ablestack-docs
 빌드가 완료된 소스는 일반 웹서버의 루트 디렉토리에 바로 업로드 하여 배포할 수 있습니다. 웹 서버의 루트디렉토리는 웹서버 제품에 따라 다르기 때문에 해당 웹 서버의 가이드를 참고해야 합니다. 
 
 예를 들어 CentOS에서 기본적으로 사용하는 Apache Http Server(httpd)의 경우 /var/www/html이 기본적인 루트 디렉토리입니다. 해당 디렉토리에 빌드 완료된 결과를 배포하면 웹 서버를 통해 바로 결과를 확인할 수 있습니다. 
+
+## 참고
+
+문서 작성 시 스타일, 구성요소 등을 적용하기 위해 기본 Markdown 및 확장 Markdown의 문법 등을 참고하고자 하는 경우 다음의 도움말을 참고합니다. 
+
+- [MkDocs 가이드](https://www.mkdocs.org/)
+- [Material for MkDocs 가이드](https://squidfunk.github.io/mkdocs-material/)

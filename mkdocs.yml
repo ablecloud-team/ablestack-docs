@@ -1,3 +1,107 @@
+# Copyright (c) 2021 ABLECLOUD Co. Ltd.
+
+# 이 파일은 ABLESTACK Docs의 도큐먼트 설정 및 테마 설정을 위한 설정 파일입니다.
+# 최초 작성일 : 2021. 03. 18
+# 작성자 : 박동혁
+
+# 프로젝트 정보
 site_name: ABLESTACK
+site_author: ABLECLOUD Co. Ltd
+
+# Repository
+repo_name: ablecloud-team/ablestack-docs
+repo_url: https://github.com/ablecloud-team/ablestack-docs
+
+# Copyright
+copyright: Copyright &copy; 2021 ABLECLOUD Co. Ltd.
+
+# Configuration
 theme:
   name: material
+
+  static_templates:
+    - 404.html
+
+  features:
+    # - navigation.instant
+    - navigation.sections
+    - navigation.tabs
+
+  palette:
+    scheme: default
+    primary: indigo
+    accent: indigo
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  favicon: assets/favicon.png
+  logo: assets/logo.png
+
+# Plugin
+plugins:
+  - search
+  #- mike
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ablecloud-team
+  #version:
+  #  provider: mike
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page Tree
+nav:
+  - 환영합니다: index.md
+  - 아키텍처:
+    - 시작하며: architecture/architecture-overview.md
+  - 시작하기:
+    - 시작하며: getting-started/getting-started-overview.md
+  - 설정 및 구성:
+    - 시작하며: setup/setup-overview.md
+  - 관리자 가이드:
+    - 시작하며: administration/administration-overview.md
+  - 사용자 가이드:
+    - 시작하며: reference/reference-overview.md
