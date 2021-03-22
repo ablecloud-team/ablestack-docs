@@ -96,7 +96,7 @@ markdown_extensions:
 nav:
   - 환영합니다: index.md
   - 아키텍처:
-    - 시작하며: architecture/architecture-overview.md
+    - 데이터센터가 직면한 난관: architecture/architecture-overview.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
   - 설정 및 구성:
