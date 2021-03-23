@@ -33,8 +33,8 @@ theme:
     accent: indigo
 
   font:
-    text: Roboto
-    code: Roboto Mono
+    text: Nanum Gothic
+    code: Nanum Gothic Coding
 
   favicon: assets/favicon.png
   logo: assets/logo.png
@@ -97,6 +97,7 @@ nav:
   - 환영합니다: index.md
   - 아키텍처:
     - 데이터센터가 직면한 난관: architecture/architecture-overview.md
+    - ABLESTACK의 탄생: architecture/birth-of-ablestack.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
   - 설정 및 구성:
