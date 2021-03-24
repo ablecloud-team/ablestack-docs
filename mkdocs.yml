@@ -40,8 +40,8 @@ theme:
   logo: assets/logo.png
 
 # Plugin
-plugins:
-  - search
+# plugins:
+  #- search
   #- mike
 
 # Customization
