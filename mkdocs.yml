@@ -28,13 +28,13 @@ theme:
     - navigation.tabs
 
   palette:
-    scheme: default
+    scheme: default 
     primary: indigo
     accent: indigo
 
   font:
-    text: Nanum Gothic
-    code: Nanum Gothic Coding
+    text: Noto Sans KR
+    code: Cutive Mono
 
   favicon: assets/favicon.png
   logo: assets/logo.png
@@ -99,6 +99,7 @@ nav:
     - 데이터센터의 역사와 문제점: architecture/architecture-overview.md
     - 문제해결방법-ABLESTACK: architecture/birth-of-ablestack.md
     - ABLESTACK 기본구조 : architecture/ablestack-basic-structure.md
+    - 호스트 아키텍처 : architecture/host-architecture.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
   - 설정 및 구성:
