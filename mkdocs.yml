@@ -103,5 +103,6 @@ nav:
     - 시작하며: setup/setup-overview.md
   - 관리자 가이드:
     - 시작하며: administration/administration-overview.md
+    - ABLESTACK 시스템점검: administration/system-check.md
   - 사용자 가이드:
     - 시작하며: reference/reference-overview.md
