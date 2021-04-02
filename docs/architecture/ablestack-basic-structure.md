@@ -9,6 +9,12 @@ ABLESTACK은 다양한 기술을 적용해서 상용 서버에 적용하기 위�
     - Glue : 소프트웨어 정의 스토리지를 통해 통합 스토리지를 제공하고, 다양한 게이트웨이를 제공하는 스토리지 플랫폼
     - Cube : x86 기반의 서버에 Linux Kernel을 제공하고, 호스트 관리 환경을 제공하는 서버 OS
 
+다음의 그림은 ABLESTACK HCI 플랫폼의 전체적인 구조를 보여줍니다. 
+
+<center>
+![ablestack-platform-architecture](../assets/images/ablestack-platform-architecture.png)
+</center>
+
 각각의 구성요소의 주요 내용과 특징은 다음과 같습니다. 
 
 ## Cube : 호스트용 Linux OS
