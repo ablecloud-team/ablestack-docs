@@ -71,7 +71,7 @@ ceph -s
 
   io:
     client:   4.4 KiB/s wr, 0 op/s rd, 0 op/s wr
-```
+``` 
 !!! result "상태확인"
     출력 결과에서 health의 값이 HEALTH_OK이면 클러스터의 전체 상태가 정상이라는 뜻이며 문제가 있을 경우에는 HEALTH_Warning 혹은 HEALTH_ERR라고 출력됩니다.
 
@@ -84,6 +84,11 @@ OSD는 스토리지 클러스터를 구성하는 Disk로 각 OSD의 상태 및 �
 !!! tip "웹 UI 주소는 일반적으로 Glue 가상머신의 management 대역의 IP의 8443포트입니다(ex. https://[IP]:8443)"
 
 ![ceph-osd-ok-WebUI](images/ceph_osd_ok_webUI.png)
+!!! result "상태확인"
+    각 OSD별 Status가 ![ceph-osd-in-ok](images/cepph_osd_in_ok.png) 상태이고 Usage가 80% 이하일 경우 정상
+
+!!! warning "Usgae가 80% 이상일 경우 반드시 확인 필요"
+    OSD Usage가 85%가 될 경우 'near full' 경고가 발생하게 되고, 90%를 넘을 경우 'full'이 발생하여 해당 OSD가 Lock이 발생하게 되여 반드시 확인이 필요합니다.
 
 `CLI를 통하여 확인 하는 방법`
 : SCVM 가상머신에 SSH 접속 후 다음과 같이 명령어를 입력합니다
@@ -110,6 +115,8 @@ ID  CLASS  WEIGHT    TYPE NAME       STATUS  REWEIGHT  PRI-AFF
  6    ssd   0.87329          osd.6       up   1.00000  1.00000
  9    ssd   0.87329          osd.9       up   1.00000  1.00000
 ```
+!!! result "상태확인"
+    각 OSD별 Status가 `up` 상태이고 REWEIGHT가 `1.0` 일 경우 정상
 ``` shell
 ceph osd df 
 ```
@@ -131,6 +138,10 @@ ID  CLASS  WEIGHT   REWEIGHT  SIZE     RAW USE  DATA     OMAP  META     AVAIL   
                        TOTAL   10 TiB  105 GiB  104 GiB   0 B  1.6 GiB   10 TiB  0.98
 MIN/MAX VAR: 0.57/1.69  STDDEV: 0.30
 ```
+!!! result "상태확인"
+    각 OSD별 %USE가 85.00 이하일 경우 정상
+
+#### 전체 Pool 사용량 점검
 
 ### Mold
 !!! info "Mold"
