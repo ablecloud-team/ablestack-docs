@@ -24,8 +24,9 @@ theme:
 
   features:
     # - navigation.instant
-    - navigation.sections
+    # - navigation.sections
     - navigation.tabs
+    - navigation.tabs.sticky
 
   palette:
     scheme: default 
@@ -96,18 +97,24 @@ markdown_extensions:
 nav:
   - 환영합니다: index.md
   - 아키텍처:
-    - 데이터센터의 역사와 문제점: architecture/architecture-overview.md
-    - 문제해결방법-ABLESTACK: architecture/birth-of-ablestack.md
-    - ABLESTACK 기본구조 : architecture/ablestack-basic-structure.md
-    - 호스트 아키텍처 : architecture/host-architecture.md
-    - 네트워크 아키텍처 : architecture/network-architecture.md
-    - Book of Cube : architecture/book-of-cube.md
-    - Book of Mold : architecture/book-of-mold.md
-    - Book of Glue : architecture/book-of-glue.md
-    - Book of Cell : architecture/book-of-cell.md
-    - Book of vSphere : architecture/book-of-vsphere.md
-    - Book of Citrix : architecture/book-of-citrix.md
-    - Book of HyperV : architecture/book-of-hyperv.md
+    - ABLESTACK의 탄생:
+      - 데이터센터의 역사와 문제점: architecture/architecture-overview.md
+      - 문제해결방법-ABLESTACK: architecture/birth-of-ablestack.md
+    - ABLESTACK 물리 아키텍처:
+      - ABLESTACK 기본구조 : architecture/ablestack-basic-structure.md
+      - 호스트 아키텍처 : architecture/host-architecture.md
+      - 네트워크 아키텍처 : architecture/network-architecture.md
+    - ABLESTACK Core:
+      - Cube 알아보기 : architecture/book-of-cube.md
+      - Mold 알아보기 : architecture/book-of-mold.md
+      - Glue 알아보기 : architecture/book-of-glue.md
+      - Cell 알아보기 : architecture/book-of-cell.md
+      - Wall 알아보기 : architecture/book-of-wall.md
+    - ABLESTACK on Others:
+      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
+      - Citrix 기반 ABLESTACK: architecture/book-of-citrix.md
+      - HyperV 기반 ABLESTACK: architecture/book-of-hyperv.md
+      - ABLESTACK과 OpenStack: architecture/book-of-openstack.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
   - 설정 및 구성:
