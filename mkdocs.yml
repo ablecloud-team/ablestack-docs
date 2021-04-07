@@ -107,7 +107,7 @@ nav:
       - 계정 및 사용자 관리: administration/account-mngt-guide.md
       - 프로젝트 관리: administration/project-mngt-guide.md
       - 서비스오퍼링 관리 : administration/serviceoffering-mngt-guide.md
-      - 가상네트워크 관리 : administration/network-mngt-guide.md
+      - 사용자 네트워크 관리 : administration/network-mngt-guide.md
       - 가상머신 관리: administration/vm-mngt-guide.md
       - 템플릿 및 ISO 관리: administration/template&ISO-mngt-guide.md
       - 호스트 관리: administration/host-mngt-guide.md
