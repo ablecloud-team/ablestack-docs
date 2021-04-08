@@ -14,6 +14,8 @@ ABLESTACK을 설치하고 구성하기 위해서는 다음과 같은 구성 요�
     서버와 네트워크 구성에 대한 내용은 [호스트 아키텍처](../architecture/host-architecture/.md), [네트워크 아키텍처](../architecture/network-architecture/.md) 문서를 참조하시길 바랍니다.
  
 ## 설치절차
+설치를 위한 물리적인 구성이 완료되었다면 다음과 같은 절차에 의하여 ABLESTACK 설치를 시작합니다.
+
 1. ....
 2. .....
 ### 
