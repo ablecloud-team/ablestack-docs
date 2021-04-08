@@ -1,5 +1,4 @@
 # ABLESTACK 시스템 점검
-
  ABLESTACK HCI를 안정적으로 운영을 하기 위하서는 시스템에 대한 점검이 필요합니다.
  정기 혹은 비정기적인 점검을 통하여 시스템의 상태를 확인하여 장애를 미리 예방할 수 있으며, 자원에 대한 사용율을 확인하여 증설 혹은 재배치 계획등을 통하여 서비스의 연속성을 확보 할 수 있습니다
  점검대상 및 방법은 다음과 같습니다. 
@@ -43,7 +42,7 @@
 : 웹 UI에 접속하여 login을 합니다.
 !!! tip "웹 UI 주소는 일반적으로 Glue 가상머신의 management 대역의 IP의 8443포트입니다(ex. https://[IP]:8443)"
 
-![ceph-health-ok-WebUI](images/ceph_health_ok_webUI.png)
+![ceph-health-ok-WebUI](../assets/images/ceph_health_ok_webUI.png)
 !!! result "상태확인"
     대시보드의 Cluster Status가 HEALTH_OK이면 클러스터의 전체 상태가 정상이라는 뜻이며 문제가 있을 경우에는 HEALTH_Warning 혹은 HEALTH_ERR라고 출력됩니다.
     
@@ -84,9 +83,9 @@ OSD는 스토리지 클러스터를 구성하는 Disk로 각 OSD의 상태 및 �
 : 웹 UI에 접속하여 login을 합니다.
 !!! tip "웹 UI 주소는 일반적으로 Glue 가상머신의 management 대역의 IP의 8443포트입니다(ex. https://[IP]:8443)"
 
-![ceph-osd-ok-WebUI](images/ceph_osd_ok_webUI.png)
+![ceph-osd-ok-WebUI](../assets/images/ceph_osd_ok_webUI.png)
 !!! result "상태확인"
-    각 OSD별 Status가 ![ceph-osd-in-ok](images/cepph_osd_in_ok.png) 상태이고 Usage가 80% 이하일 경우 정상
+    각 OSD별 Status가 ![ceph-osd-in-ok](../assets/images/cepph_osd_in_ok.png) 상태이고 Usage가 80% 이하일 경우 정상
 
 !!! warning "Usgae가 80% 이상일 경우 반드시 확인 필요"
     OSD Usage가 85%가 될 경우 'near full' 경고가 발생하게 되고, 90%를 넘을 경우 'full'이 발생하여 해당 OSD가 Lock이 발생하게 되여 반드시 확인이 필요합니다.
@@ -150,7 +149,7 @@ Pool은 데이터 저장을 위한 논리적인 파티션 입니다. 1개이상�
 : 웹 UI에 접속하여 login을 합니다.
 !!! tip "웹 UI 주소는 일반적으로 Glue 가상머신의 management 대역의 IP의 8443포트입니다(ex. https://[IP]:8443)"
 
-![ceph-pool-df-WebUI](images/ceph_pool_df.png)
+![ceph-pool-df-WebUI](../assets/images/ceph_pool_df.png)
 !!! result "상태확인"
    Pool 별 Usage의 용량을 확인하여 80% 이상 사용 중일경우 증설 혹은 데이터 정리가 필요합니다
 
