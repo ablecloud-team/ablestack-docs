@@ -7,6 +7,17 @@ Mold는 관리자와 최종 사용자가 모두 사용할 수있는 웹 기반 U
 
 ![mold-login-webui](../../assets/images/mold_login_webUI.png)
 
+사용자 명 : 계정의 사용자 ID 입니다. 최초 기본 사용자 이름은 admin 입니다
+
+암호 : 사용자 ID에 대한 암호. 최초 기본 사용자에 대한 암호는 password 입니다
+!!! info
+    초기 로그인 후 Zone 구성 시에 admin 계정에 대한 비밀번호 변경을 해야 합니다
+
+도메인 : 계정이 소속된 도메인 전체 경로를 입력합니다. 
+!!! tip
+    예를 들어 ablecloud라는 도메인이 있고 그 하위에 dev1, dev2와 같이 여러 수준의 도메인이 만들어 져있다고 할 경우 ablecloud라는 도메인의 사용자는 도메인 항목에 ablecloud 라고 입력하고 dev1 도메인 사용자는 ablecloud/dev1 이라고 입력해야 합니다
+    
+    만일, 루트 사용자인 경우는 입력하지 않아도 됩니다.
 
 
 
