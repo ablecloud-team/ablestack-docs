@@ -23,15 +23,25 @@ theme:
     - 404.html
 
   features:
-    # - navigation.instant
-    # - navigation.sections
+    - navigation.instant
+    - navigation.sections
     - navigation.tabs
-    - navigation.tabs.sticky
+    - navigation.top
+
 
   palette:
-    scheme: default 
-    primary: indigo
-    accent: indigo
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: red
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
 
   font:
     text: Noto Sans KR
