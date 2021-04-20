@@ -117,10 +117,15 @@ nav:
       - ABLESTACK과 OpenStack: architecture/book-of-openstack.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
+    - 설치 가이드:
+      - Cube 설치 가이드: getting-started/install-guide-cube.md
+      - Cell 설치 가이드: getting-started/install-guide-cell.md
+      - Glue 설치 가이드: getting-started/install-guide-glue.md
+      - Mold 설치 가이드: getting-started/install-guide-mold.md
   - 설정 및 구성:
     - 시작하며: setup/setup-overview.md
   - 관리가이드:
-    - Cube 가이드: 
+    - Cube 가이드:
       - 시작하며 : administration/cube/cube-guide-overview.md
       - 사용자 인터페이스 : administration/cube/userinterface-guide.md
     - Mold 가이드:
