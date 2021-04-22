@@ -1,7 +1,7 @@
 # Cloud 관리
 
 ## 태그를 사용하여 클라우드에서 리소스 구성
-태그는 클라우드의 리소스에 대한 메타 데이터를 저장하는 키-값 쌍입니다. 태그는 리소스를 분류하는 데 유용합니다. 예를 들어 사용자의 거주 도시를 나타내는 값으로 사용자 VM에 태그를 지정할 수 있습니다. 이 경우 키는 "city"이고 값은 "Toronto"또는 "Tokyo"가 될 수 있습니다. 그런 다음 CloudStack에 요청하여 지정된 태그가 있는 모든 리소스를 찾을 수 있습니다. 예를 들어 특정 도시의 사용자를 위한 VM입니다.
+태그는 클라우드의 리소스에 대한 메타 데이터를 저장하는 키-값 쌍입니다. 태그는 리소스를 분류하는 데 유용합니다. 예를 들어 사용자의 거주 도시를 나타내는 값으로 사용자 VM에 태그를 지정할 수 있습니다. 이 경우 키는 "city"이고 값은 "Toronto"또는 "Tokyo"가 될 수 있습니다. 그런 다음 ABLESTACK에 요청하여 지정된 태그가 있는 모든 리소스를 찾을 수 있습니다. 예를 들어 특정 도시의 사용자를 위한 VM입니다.
 
 사용자 가상 머신, 볼륨, 스냅 샷, 게스트 네트워크, 템플릿, ISO, 방화벽 규칙, 포트 전달 규칙, 퍼블릭 IP 주소, 보안 그룹,로드 밸런서 규칙, 프로젝트, VPC, 네트워크 ACL 또는 고정 경로에 태그를 지정할 수 있습니다. 원격 액세스 VPN에는 태그를 지정할 수 없습니다.
 
@@ -45,17 +45,17 @@ PRODUCT는 하나 이상의 물리적 CPU 소켓을 포함하는 여러 유형�
     CPU 소켓 페이지가 표시됩니다. 이 페이지에는 하이퍼 바이저 유형에 따라 호스트 및 CPU 소켓 수가 표시됩니다.
 
 ## 데이터베이스 구성 변경
-CloudStack 관리 서버는 **/etc/cloudstack/management/db.properties** 파일에 데이터베이스 구성 정보 (예 : 호스트 이름, 포트, 자격 증명)를 저장합니다. 변경 사항을 적용하려면 각 Management Server에서이 파일을 편집 한 다음 Management Server를 다시 시작하십시오.
+ABLESTACK 관리 서버는 **/etc/cloudstack/management/db.properties** 파일에 데이터베이스 구성 정보 (예 : 호스트 이름, 포트, 자격 증명)를 저장합니다. 변경 사항을 적용하려면 각 Management Server에서 이 파일을 편집 한 다음 Management Server를 다시 시작하십시오.
 
 ## 데이터베이스 비밀번호 변경
-CloudStack에서 사용하는 MySQL 계정의 비밀번호를 변경해야 할 수 있습니다. 그렇다면 MySQL에서 비밀번호를 변경 한 다음 암호화 된 비밀번호를 **/etc/cloudstack/management/db.properties** 에 추가해야합니다.
+ABLESTACK에서 사용하는 MySQL 계정의 비밀번호를 변경해야 할 수 있습니다. 그렇다면 MySQL에서 비밀번호를 변경 한 다음 암호화된 비밀번호를 **/etc/cloudstack/management/db.properties** 에 추가해야합니다.
 
-1. 암호를 변경하기 전에 해당 구성 요소를 배포 한 경우 CloudStack의 관리 서버 및 사용 엔진을 중지해야합니다.
+1. 암호를 변경하기 전에 해당 구성 요소를 배포 한 경우 ABLESTACK의 관리 서버 및 사용 엔진을 중지해야합니다.
     ````
     # service cloudstack-management stop
     # service cloudstack-usage stop
     ````
-2. 다음으로 MySQL 서버에서 CloudStack 사용자의 비밀번호를 업데이트합니다.
+2. 다음으로 MySQL 서버에서 ABLESTACK 사용자의 비밀번호를 업데이트합니다.
     ````
     # mysql -u root -p
     ````
@@ -67,7 +67,7 @@ CloudStack에서 사용하는 MySQL 계정의 비밀번호를 변경해야 할 �
     flush privileges;
     quit;
     ````
-3. 다음 단계는 비밀번호를 암호화하고 암호화 된 비밀번호를 CloudStack의 데이터베이스 구성 ( **/etc/cloudstack/management/db.properties**)에 복사하는 것 입니다.
+3. 다음 단계는 비밀번호를 암호화하고 암호화된 비밀번호를 ABLESTACK의 데이터베이스 구성 ( **/etc/cloudstack/management/db.properties**)에 복사하는 것 입니다.
     ````
     # java -classpath /usr/share/cloudstack-common/lib/jasypt-1.9.2.jar \ org.jasypt.intf.cli.JasyptPBEStringEncryptionCLI encrypt.sh \ input="newpassword123" password="`cat /etc/cloudstack/management/key`" \ verbose=false
     ````
@@ -80,7 +80,7 @@ CloudStack에서 사용하는 MySQL 계정의 비밀번호를 변경해야 할 �
     db.cloud.password=ENC(encrypted_password_from_above)
     db.usage.password=ENC(encrypted_password_from_above)
     ````
-2.새 비밀번호를 복사 한 후 이제 CloudStack (및 필요한 경우 사용 엔진)을 시작할 수 있습니다.
+2.새 비밀번호를 복사 한 후 이제 ABLESTACK(필요하다면 usage engine도 함께)을 시작할 수 있습니다. 
     ````
     # service cloudstack-management start
     # service cloud-usage start
@@ -98,9 +98,9 @@ CloudStack에서 사용하는 MySQL 계정의 비밀번호를 변경해야 할 �
 - 호스트 클러스터의 CPU, 메모리 또는 스토리지 리소스가 부족합니다.
 
 ### 외부 SNMP 및 Syslog 관리자로 경고 보내기
-CloudStack UI의 대시 보드에 관리자 경고를 표시하고 이메일로 보내는 것 외에도 CloudStack은 동일한 경고를 외부 SNMP 또는 Syslog 관리 소프트웨어로 보낼 수도 있습니다. 이는 SNMP 또는 Syslog 관리자를 사용하여 클라우드를 모니터링하려는 경우 유용합니다.
+ABLESTACK UI의 대시 보드에 관리자 경고를 표시하고 이메일로 보내는 것 외에도 ABLESTACK은 동일한 경고를 외부 SNMP 또는 Syslog 관리 소프트웨어로 보낼 수도 있습니다. 이는 SNMP 또는 Syslog 관리자를 사용하여 클라우드를 모니터링하려는 경우 유용합니다.
 
-보낼 수있는 경고는 다음과 같습니다.
+보낼 수 있는 경고는 다음과 같습니다.
 
 다음은 경고 유형 번호 목록입니다. 현재 경보는 listAlerts를 호출하여 찾을 수 있습니다.
 ````
@@ -187,13 +187,15 @@ RESOURCE_LIMIT_EXCEEDED = 26 //Generated when the resource limit exceeds the lim
 
 API 명령 (**listAlerts**)을 호출하여 최신 목록을 표시 할 수도 있습니다.
 
-#### SNMP 경고 세부 정보
+**SNMP 경고 세부 정보**
+
 지원되는 프로토콜은 SNMP 버전 2입니다.
 
 각 SNMP 트랩에는 message, podId, dataCenterId, clusterId 및 generationTime 정보가 포함됩니다.
 
-#### Syslog 경고 세부 정보
-CloudStack은 모든 경고에 대해 syslog 메시지를 생성합니다. 각 syslog 메시지는 다음 형식으로 alertType, message, podId, dataCenterId 및 clusterId 필드를 포함합니다. 필드에 유효한 값이 없으면 포함되지 않습니다.
+**Syslog 경고 세부 정보**
+
+ABLESTACK은 모든 경고에 대해 syslog 메시지를 생성합니다. 각 syslog 메시지는 다음 형식으로 alertType, message, podId, dataCenterId 및 clusterId 필드를 포함합니다. 필드에 유효한 값이 없으면 포함되지 않습니다.
 ````
 Date severity_level Management_Server_IP_Address/Name  alertType:: value dataCenterId:: value  podId:: value  clusterId:: value  message:: value
 ````
@@ -201,10 +203,11 @@ Date severity_level Management_Server_IP_Address/Name  alertType:: value dataCen
 ````
 Mar  4 10:13:47    WARN    localhost    alertType:: managementNode message:: Management server node 127.0.0.1 is up
 ````
-#### SNMP 및 Syslog 관리자 구성
-CloudStack에서 경고를 수신하도록 하나 이상의 SNMP 관리자 또는 Syslog 관리자를 구성하려면 :
+**SNMP 및 Syslog 관리자 구성**
 
-1. SNMP 관리자의 경우 SNMP 관리자 시스템에 CloudStack MIB 파일을 설치합니다. 이것은 SNMP OID를 사용자가 더 쉽게 읽을 수있는 트랩 유형에 매핑합니다. 파일은 공개적으로 사용 가능해야합니다. 이 파일을 설치하는 방법에 대한 자세한 내용은 SNMP 관리자와 함께 제공된 설명서를 참조하십시오.
+ABLESTACK에서 경고를 수신하도록 하나 이상의 SNMP 관리자 또는 Syslog 관리자를 구성하려면 :
+
+1. SNMP 관리자의 경우 SNMP 관리자 시스템에 ABLESTACK MIB 파일을 설치합니다. 이것은 SNMP OID를 사용자가 더 쉽게 읽을 수 있는 트랩 유형에 매핑합니다. 파일은 공개적으로 사용 가능해야합니다. 이 파일을 설치하는 방법에 대한 자세한 내용은 SNMP 관리자와 함께 제공된 설명서를 참조하십시오.
 
 2. /etc/cloudstack/management/log4j-cloud.xml 파일을 편집하십시오.
 ````
@@ -245,17 +248,18 @@ CloudStack에서 경고를 수신하도록 하나 이상의 SNMP 관리자 또�
 
 **문제 해결** : 적절한 시간이 지난 후에도 구성된 SNMP 또는 Syslog 관리자에 경고가 나타나지 않으면 log4j-cloud.xml의 <appender> 항목 구문에 오류가있을 수 있습니다. 형식과 설정이 올바른지 확인하십시오.
 
-#### SNMP 또는 Syslog 관리자 삭제
-CloudStack에서 더 이상 경고를 수신하지 않도록 외부 SNMP 관리자 또는 Syslog 관리자를 제거하려면 **/etc/cloudstack/management/log4j-cloud.xml** 파일에서 해당 항목을 제거하십시오.
+**SNMP 또는 Syslog 관리자 삭제**
+
+ABLESTACK에서 더 이상 경고를 수신하지 않도록 외부 SNMP 관리자 또는 Syslog 관리자를 제거하려면 **/etc/cloudstack/management/log4j-cloud.xml** 파일에서 해당 항목을 제거하십시오.
 
 ## 네트워크 도메인 이름 사용자 지정
-루트 관리자는 선택적으로 네트워크, 계정, 도메인, 영역 또는 전체 CloudStack 설치 수준에서 사용자 지정 DNS 접미사를 할당 할 수 있으며 도메인 관리자는 자신의 도메인 내에서이를 수행 할 수 있습니다. 사용자 정의 도메인 이름을 지정하고 적용하려면 다음 단계를 따르십시오.
+루트 관리자는 선택적으로 네트워크, 계정, 도메인, 영역 또는 전체 ABLESTACK 설치 수준에서 사용자 지정 DNS 접미사를 할당할 수 있으며 도메인 관리자는 자신의 도메인 내에서이를 수행 할 수 있습니다. 사용자 정의 도메인 이름을 지정하고 적용하려면 다음 단계를 따르십시오.
 
 1. 원하는 범위에서 DNS 접미사 설정
-    - 네트워크 수준에서 DNS 접미사는 "추가 게스트 네트워크 추가" 에 설명 된대로 새 네트워크를 만들 때 UI를 통해 할당 되거나 CloudStack API의 updateNetwork 명령을 사용하여 할당 될 수 있습니다 .
-    - 계정, 도메인 또는 영역 수준에서 적절한 CloudStack API 명령 (createAccount, editAccount, createDomain, editDomain, createZone 또는 editZone)을 사용하여 DNS 접미사를 할당 할 수 있습니다.
-    - 전역 수준에서 구성 매개 변수 guest.domain.suffix를 사용합니다. CloudStack API 명령 updateConfiguration을 사용할 수도 있습니다. 이 전역 구성을 수정 한 후 관리 서버를 다시 시작하여 새 설정을 적용하십시오.
-2. 새 DNS 접미사를 기존 네트워크에 적용하려면 CloudStack API 명령 updateNetwork를 호출합니다. 새 네트워크를 생성하는 동안 DNS 접미사가 지정된 경우이 단계는 필요하지 않습니다.
+    - 네트워크 수준에서 DNS 접미사는 새 네트워크를 만들 때 UI를 통해 할당 되거나 ABLESTACK API의 updateNetwork 명령을 사용하여 할당될 수 있습니다 .
+    - 계정, 도메인 또는 영역 수준에서 적절한 ABLESTACK API 명령 (createAccount, editAccount, createDomain, editDomain, createZone 또는 editZone)을 사용하여 DNS 접미사를 할당할 수 있습니다.
+    - 전역 수준에서 구성 매개 변수 guest.domain.suffix를 사용합니다. ABLESTACK API 명령 updateConfiguration을 사용할 수도 있습니다. 이 전역 구성을 수정 한 후 관리 서버를 다시 시작하여 새 설정을 적용하십시오.
+2. 새 DNS 접미사를 기존 네트워크에 적용하려면 ABLESTACK API 명령 updateNetwork를 호출합니다. 새 네트워크를 생성하는 동안 DNS 접미사가 지정된 경우이 단계는 필요하지 않습니다.
 
 사용되는 네트워크 도메인의 소스는 다음 규칙에 따라 다릅니다.
 
