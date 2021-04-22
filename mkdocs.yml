@@ -9,8 +9,8 @@ site_name: ABLESTACK
 site_author: ABLECLOUD Co. Ltd
 
 # Repository
-repo_name: ycyun/ablestack-docs
-repo_url: https://github.com/ycyun/ablestack-docs
+repo_name: ablecloud-team/ablestack-docs
+repo_url: https://github.com/ablecloud-team/ablestack-docs
 
 # Copyright
 copyright: Copyright &copy; 2021 ABLECLOUD Co. Ltd.
