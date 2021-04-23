@@ -128,7 +128,6 @@ nav:
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
     - Cube 설치 가이드: getting-started/install-guide-cube.md
-    - Cell 설치 가이드: getting-started/install-guide-cell.md
     - Glue 설치 가이드: getting-started/install-guide-glue.md
     - Mold 설치 가이드: getting-started/install-guide-mold.md
   - 설정 및 구성:
