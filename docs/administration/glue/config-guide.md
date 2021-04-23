@@ -135,136 +135,95 @@ GLUE의 기본 사용자 계정은 `ablecloud/password` 입니다.
 ## Object Gateway 관리 콘솔 활성화
 
 Object Gateway 관리 기능을 사용하려면 `system` 플래그가 지정된 사용자 계정이 필요합니다.
-만약 아직 `system` 플래그의 
-To use the Object Gateway management functionality of the GLUE, you
-will need to provide the login credentials of a user with the `system`
-flag enabled. If you do not have a `system` user already, you must
-create one::
+만약 아직 `system` 사용자가 없다면 다음과 같이 생성할 수 있습니다.
 
-\$ radosgw-admin user create --uid=<user_id\>
---display-name=<display_name\>  
---system
+```shell
+$ radosgw-admin user create --uid=<user_id> --display-name=<display_name> --system
+```
+그 다음 표시되는 `access_key`와 `secret_key`를 기록해 둡니다.
 
-Take note of the keys `access_key` and `secret_key` in the output.
+기존 사용자의 키를 얻고자 한다면 다음과 같이 하면 됩니다.
+```shell
+$ radosgw-admin user info --uid=<user_id\>
+```
 
-To obtain the credentials of an existing user via `radosgw-admin`::
+여러개의 Object Gateway가 있다면 각각 사용자의 인증정보가 있어야 합니다.
+다음과 같이 인증정보를 GLUE에 등록할 수 있습니다.
+```shell
+$ echo -n "{'<daemon1.id\>': '<user1-access-key\>', '<daemon2.id\>': '<user2-access-key\>', ...}" > <file-containing-access-key>
+$ echo -n "{'<daemon1.id\>': '<user1-secret-key\>', '<daemon2.id\>': '<user2-secret-key\>', ...}" > <file-containing-secret-key> 
+$ ceph dashboard set-rgw-api-access-key -i <file-containing-access-key>
+$ ceph dashboard set-rgw-api-secret-key -i <file-containing-secret-key>
+```
 
-\$ radosgw-admin user info --uid=<user_id\>
+!!! note
+    단일 게이트웨이의 경우 다음과 같이 지정할 수 도 있습니다.
+    ```shell
+    $ echo -n "<access-key>" > <file-containing-access-key> 
+    $ echo -n "<secret-key>" > <file-containing-secret-key>
+    ```
 
-In case of having several Object Gateways, you will need the required
-users' credentials to connect to each Object Gateway. Finally, provide
-these credentials to the GLUE::
+단일 RGW 접속점이 있는 간단한 구성에서는 위 작업만 수행하면 GLUE를 통해 Object Gateway 관리 기능을 사용할 수 있습니다.
 
-\$ echo -n "{'<daemon1.id\>': '<user1-access-key\>', '<daemon2.id\>':
-'<user2-access-key\>', ...}" \> <file-containing-access-key\> \$ echo -n
-"{'<daemon1.id\>': '<user1-secret-key\>', '<daemon2.id\>':
-'<user2-secret-key\>', ...}" \> <file-containing-secret-key\> \$ ceph
-GLUE set-rgw-api-access-key -i <file-containing-access-key\> \$ ceph
-GLUE set-rgw-api-secret-key -i <file-containing-secret-key\>
+만일 여러개의 Object Gateway가 있는경우 아래 작업을 통해 기본값을 설정 해 주어야 합니다.
 
-.. note::
+```shell
+$ ceph dashboard set-rgw-api-host <host> 
+$ ceph dashboard set-rgw-api-port <port>
+```
 
-Legacy way of providing credentials (connect to single Object Gateway)::
+추가로 다음 설정이 필요 할 수도 있습니다.
 
-\$ echo -n "<access-key\>" \> <file-containing-access-key\> \$ echo -n
-"<secret-key\>" \> <file-containing-secret-key\>
+```shell
+$ ceph dashboard set-rgw-api-scheme <scheme> # http or https 
+$ ceph dashboard set-rgw-api-admin-resource <admin_resource>
+```
 
-In a simple configuration with a single RGW endpoint, this is all you
-have to do to get the Object Gateway management functionality working.
-The GLUE will try to automatically determine the host and port from
-the Ceph Manager's service map.
+다음 설정은 사용해 GLUE가 자체서명 인증서를 사용한 호스트의 접속을 서명되지 않았거나, 호스트이름이 일치하지 않는다고 거부하는것을 방지해야 합니다.
 
-In case of having several Object Gateways, you might want to set the
-default one by setting its host and port manually::
+```shell
+$ ceph GLUE set-rgw-api-ssl-verify False
+```
 
-\$ ceph GLUE set-rgw-api-host <host\> \$ ceph GLUE
-set-rgw-api-port <port\>
+만약 Object Gateway가 요청을 처리하는데 시간이 오래 걸려 timeout이 발생한다면 다음과 같이 시간을 지정할 수 있습니다.
 
-In addition to the settings mentioned so far, the following settings do
-also exist and you may find yourself in the situation that you have to
-use them::
+```shell
+$ ceph dashboard set-rest-requests-timeout <seconds>
+```
+기본값은 45초 입니다.
 
-\$ ceph GLUE set-rgw-api-scheme <scheme\> \# http or https \$ ceph
-GLUE set-rgw-api-admin-resource <admin_resource\>
+## iSCSI관리 활성화
 
-If you are using a self-signed certificate in your Object Gateway setup,
-you should disable certificate verification in the GLUE to avoid
-refused connections, e.g. caused by certificates signed by unknown CA or
-not matching the host name::
+GLUE는 [`ceph-iscsi`]()로 구성된 iSCSI target을 `rbd-target-api`의 REST API를 이용하여 관리할 수 있습니다.
 
-\$ ceph GLUE set-rgw-api-ssl-verify False
+!!! note
+    GLUE의 iSCSI관리 기능은 [`ceph-iscsi`](https://github.com/ceph/ceph-iscsi) 프로젝트의 최종 3개 버전을 지원합니다.
+    
 
-If the Object Gateway takes too long to process requests and the
-GLUE runs into timeouts, you can set the timeout value to your
-needs::
+`ceph-iscsi` REST API가 HTTPS mode로 설정되고 자체서명인증서를 사용한다면 GLUE가 ceph-iscsi API에 접근할때 거부하지 않도록 방지해야 합니다.
 
-\$ ceph GLUE set-rest-requests-timeout <seconds\>
+이러한 SSL 확인 기능을 해제하기 위해서 다음과 같이 합니다.
+```shell
+$ ceph dashboard set-iscsi-api-ssl-verification false
+```
 
-The default value is 45 seconds.
+활성화된 iSCSI gateway는 다음과 같이 등록해주어야 합니다.
 
-.. \_GLUE-iscsi-management:
+```shell
+$ ceph dashboard iscsi-gateway-list 
+$ # 새로운 Gateway URL은 다음과 같은 형식으로 넣습니다. <scheme>://<username>:<password>@<host>[:port] 
+$ ceph dashboard iscsi-gateway-add -i <file-containing-gateway-url> [<gateway_name>] 
+$ ceph dashboard iscsi-gateway-rm <gateway_name>
+```
 
-## Enabling iSCSI Management
+## GLUE 내장 Grafana 활성화 
 
+`Grafana`는 [`Prometheus`](https://prometheus.io/) 로 부터 데이터를 받아옵니다.
+`Prometheus`는 [`mgr-prometheus`]() 모듈이 제공하며, 이것은 [`Node exporter`](https://prometheus.io/docs/guides/node-exporter/>)를 사용해 
+장비의 측정값을 수집합니다.
 
-The Ceph GLUE can manage iSCSI targets using the REST API provided
-by the `rbd-target-api` service of the [`ceph-iscsi`.]() Please make
-sure that it is installed and enabled on the iSCSI gateways.
-
-.. note::
-
-The iSCSI management functionality of Ceph GLUE depends on the
-latest version 3 of the
-`ceph-iscsi <https://github.com/ceph/ceph-iscsi\>`\_ project. Make sure
-that your operating system provides the correct version, otherwise the
-GLUE will not enable the management features.
-
-If the `ceph-iscsi` REST API is configured in HTTPS mode and its using a
-self-signed certificate, you need to configure the GLUE to avoid
-SSL certificate verification when accessing ceph-iscsi API.
-
-To disable API SSL verification run the following command::
-
-\$ ceph GLUE set-iscsi-api-ssl-verification false
-
-The available iSCSI gateways must be defined using the following
-commands::
-
-\$ ceph GLUE iscsi-gateway-list \$ \# Gateway URL format for a new
-gateway: <scheme\>://<username\>:<password\>@<host\>[:port] \$ ceph
-GLUE iscsi-gateway-add -i <file-containing-gateway-url\>
-[<gateway_name\>] \$ ceph GLUE iscsi-gateway-rm <gateway_name\>
-
-.. \_GLUE-grafana:
-
-## Enabling the Embedding of Grafana GLUEs
-
-
-`Grafana`\_ pulls data from `Prometheus <https://prometheus.io/\>`*.
-Although Grafana can use other data sources, the Grafana GLUEs we
-provide contain queries that are specific to Prometheus. Our Grafana
-GLUEs therefore require Prometheus as the data source. The Ceph
-[`mgr-prometheus`]() module exports its data in the Prometheus
-exposition format. These Grafana GLUEs rely on metric names from
-the Prometheus module and
-`Node exporter <https://prometheus.io/docs/guides/node-exporter/\>`*. The
-Node exporter is a separate application that provides machine metrics.
-
-.. note::
-
-Prometheus' security model presumes that untrusted users have access to
-the Prometheus HTTP endpoint and logs. Untrusted users have access to
-all the (meta)data Prometheus collects that is contained in the
-database, plus a variety of operational and debugging information.
-
-However, Prometheus' HTTP API is limited to read-only operations.
-Configurations can *not* be changed using the API and secrets are not
-exposed. Moreover, Prometheus has some built-in measures to mitigate the
-impact of denial of service attacks.
-
-Please see
-`Prometheus' Security model   <https://prometheus.io/docs/operating/security/\>`
-for more detailed information.
+!!! note
+    Prometheus의 보안 모델은 신뢰되지 않은 사용자가 HTTP 엔드포인트와 로그에 접속할 수 있다고 가정합니다. 신뢰할 수 없는 사용자는 Prometheus가 수집하는 모든 데이터 및 디버깅 정보를 접근할 수 있습니다. 하지만 이것은 읽기 전용 작업으로 제한됩니다. 자세한 내용은 [`Prometheus의 보안모델`](https://prometheus.io/docs/operating/security/)을 참고하세요.
 
 ### Installation and Configuration using cephadm
 
