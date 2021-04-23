@@ -4,9 +4,6 @@ Cube 웹 콘솔의 기록메뉴는 시스템에 발생하는 로그정보에 접
 ## 기록 관리
 Cube 웹 콘솔 기록 메뉴는 journalctl 유틸리티의 UI입니다. Cube 웹 콘솔 인터페이스에서 시스템 로그에 액세스하는 다양한 방법에 대해 설명합니다.
 
-**기록 확인**
-
-* 기록메뉴를 클릭 합니다.
 ![cube-log1-webui](../../assets/images/cube_log1_webUI.png)
 
 **로그 필터링**
