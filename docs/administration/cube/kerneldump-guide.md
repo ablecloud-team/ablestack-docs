@@ -1,9 +1,8 @@
-## 커널 덤프
 Cube의 웹콘솔에서 kdump 상태 및 구성을 표시하고, kdump 서비스를 활성화 또는 비활성화하며 커널을 크래시하여 kdump를 테스트 할 수 있습니다.
 
 ![cube-kdump.png](../../assets/images/cube-kdump.png)
 
-### 커널 덤프 설정 및 테스트
+## 커널 덤프 설정 및 테스트
 
 kdump 설정 및 테스트를 실행하려면 : 
 

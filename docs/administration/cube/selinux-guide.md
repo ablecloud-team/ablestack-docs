@@ -1,9 +1,8 @@
-## SELinux 정책 
 Cube의 웹 콘솔에서 SELinux 모드를 강제 또는 허용으로 설정할 수 있으며 오류, 제안된 솔루션 및 감사 로그에 대한 자세한 정보를 보려면 액세스 컨트롤 오류 항목에서 확인 할 수 있습니다.
 
 ![cube-selinux.png](../../assets/images/cube-selinux.png)
 
-### ANSIBLE 플레이북 적용
+## ANSIBLE 플레이북 적용
 SELinux 관련 문제를 해결할 때 웹 콘솔은 쉘 스크립트 또는 Ansible 플레이북을 생성하여 더 많은 머신에 내보내고 적용하여 원격 시스템에 적용하고자 하는 정책이나 IT 프로세스하에 단계별로 설정 작업을 할 수 있습니다.
 
 ANSIBLE 플레이북을 적용하려면 : 
