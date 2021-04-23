@@ -20,11 +20,11 @@ GLUE는 다음과 같은 기능을 제공합니다.
 
 -   **다중 사용자 및 역할 관리**: GLUE는 여러 사용자에게 각기 다른 권한(역할)을 제공합니다.
     사용자 계정과 역할은 WebUI를 통해 관리 됩니다. GLUE는 암호 보안을 위해 여려가지 방식을 제공합니다. 암호 복잡성규칙, 초기 로그인후 암호변경, 암호의 기간제한등
-    자세한 내용은 [사용자 역할 관리](under-construction.md) 메뉴얼을 참조하세요.
+    자세한 내용은 [사용자 및 역할 관리](account&role-guide.md#_1) 메뉴얼을 참조하세요.
 -   **SSL/TLS 지원**: GLUE와 브라우저간의 모든 HTTP통신은 SSL을 통해 암호화됩니다. 기본적으로 자체 서명 인증서를 사용하지만, CA를 통해 서명된 인증서를
-    불러올 수 있습니다. 자세한 내용은 [SSL-TLS지원](under-construction.md)을 참조하세요
+    불러올 수 있습니다. 자세한 내용은 [SSL-TLS지원](config-guide.md#ssltls)을 참조하세요
 -   **감사**: GLUE는 모든 `PUT`, `POST`, `DELETE` API 요청에 대해 감사기록을 남길 수 있습니다.
-    설정방법은 [`GLUE-auditing`](under-construction.md) 문서를 참고하세요.
+    설정방법은 [`API 요청 감사`](api-request-audit-guide.md#api) 문서를 참고하세요.
 -   **다국어화 (I18N)**: 실행중 GLUE의 언어를 변경할 수 있습니다.
 
 GLUE는 다음과 같은 관리/모니터링 기능을 제공합니다.
