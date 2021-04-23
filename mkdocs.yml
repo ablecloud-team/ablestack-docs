@@ -31,8 +31,8 @@ theme:
 
   palette:
     - scheme: default
-      primary: blue
-      accent: blue
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
@@ -136,12 +136,16 @@ nav:
       - 스토리지 : administration/cube/storage-guide.md
       - 네트워킹 : administration/cube/networking-guide.md
       - 가상머신 : administration/cube/vm-guide.md
+      - 계정 : administration/cube/account-guide.md
       - 서비스 : administration/cube/service-guide.md
       - ABLESTACK : administration/cube/ablestack-guide.md
-      - 소프트웨어최신화 : administration/cube/update-software-guide.md
-      - 커널덤프 : administration/cube/kerneldump-guide.md
-      - SELinux : administration/cube/selinux-guide.md
+      - 개발 : administration/cube/development-guide.md
+      - 소프트웨어 최신화 : administration/cube/update-software-guide.md
+      - 애플리케이션 : administration/cube/application-guide.md
+      - 진단 보고서 : administration/cube/diagnostic-guide.md
+      - 커널 덤프 : administration/cube/kerneldump-guide.md
       - 터미널 : administration/cube/terminal-guide.md
+      - SELinux : administration/cube/selinux-guide.md
     - Mold 가이드:
       - 사용자 인터페이스: administration/mold/userinterface-guide.md
       - 계정 및 사용자 관리: administration/mold/account-mngt-guide.md
