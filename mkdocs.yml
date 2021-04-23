@@ -132,8 +132,9 @@ nav:
   - 관리가이드:
     - Cube 가이드: 
       - 사용자 인터페이스 : administration/cube/userinterface-guide.md
-      - 로그 : administration/cube/log-guide.md
-      - 스토리지 : administration/cube/storage-guide.md
+      - 개요 : administration/cube/overview-guide.md
+      - 기록 : administration/cube/log-guide.md
+      - 저장소 : administration/cube/storage-guide.md
       - 네트워킹 : administration/cube/networking-guide.md
       - 가상머신 : administration/cube/vm-guide.md
       - 계정 : administration/cube/account-guide.md
