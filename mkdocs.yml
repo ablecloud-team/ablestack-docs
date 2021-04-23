@@ -139,7 +139,6 @@ nav:
       - 계정 : administration/cube/account-guide.md
       - 서비스 : administration/cube/service-guide.md
       - ABLESTACK : administration/cube/ablestack-guide.md
-      - 개발 : administration/cube/development-guide.md
       - 소프트웨어 최신화 : administration/cube/update-software-guide.md
       - 애플리케이션 : administration/cube/application-guide.md
       - 진단 보고서 : administration/cube/diagnostic-guide.md
