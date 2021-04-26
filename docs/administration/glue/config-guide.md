@@ -219,373 +219,288 @@ $ ceph dashboard iscsi-gateway-rm <gateway_name>
 ## GLUE 내장 Grafana 활성화 
 
 `Grafana`는 [`Prometheus`](https://prometheus.io/) 로 부터 데이터를 받아옵니다.
-`Prometheus`는 [`mgr-prometheus`]() 모듈이 제공하며, 이것은 [`Node exporter`](https://prometheus.io/docs/guides/node-exporter/>)를 사용해 
+`Prometheus`는 [`mgr-prometheus`](under-construction.md) 모듈이 제공하며, 이것은 [`Node exporter`](https://prometheus.io/docs/guides/node-exporter/>)를 사용해 
 장비의 측정값을 수집합니다.
 
 !!! note
     Prometheus의 보안 모델은 신뢰되지 않은 사용자가 HTTP 엔드포인트와 로그에 접속할 수 있다고 가정합니다. 신뢰할 수 없는 사용자는 Prometheus가 수집하는 모든 데이터 및 디버깅 정보를 접근할 수 있습니다. 하지만 이것은 읽기 전용 작업으로 제한됩니다. 자세한 내용은 [`Prometheus의 보안모델`](https://prometheus.io/docs/operating/security/)을 참고하세요.
 
-### Installation and Configuration using cephadm
+### cephadm을 사용한 설치 및 설정
 
 
-Grafana and Prometheus can be installed using [`cephadm`.]() They will
-automatically be configured by `cephadm`. Please see
-[`mgr-cephadm-monitoring`]() documentation for more details on how to
-use `cephadm` for installing and configuring Prometheus and Grafana.
+Grafana와 Prometheus는 [`cephadm`](under-construction.md)을 사용하여 설치가 가능합니다. 이들은 `cephadm`을 사용하여 자동으로 설정까지 완료됩니다.
+[`mgr-cephadm-monitoring`](under-construction.md) 문서를 참고하여 Grafana와 Prometheus의 설치 및 구성방법을 확인하세요.
 
-### Manual Installation and Configuration
+### 수동 설치 및 구성
 
 
-The following process describes how to configure Grafana and Prometheus
-manually. After you have installed Prometheus, Grafana, and the Node
-exporter on appropriate hosts, proceed with the following steps.
+아래 설명하는 과정은 Grafana와 Prometheus를 수동으로 구성하는 방법입니다.Prometheus, Grafana, 그리고 Node
+exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행합니다.
 
-1.  Enable the Ceph Exporter which comes as Ceph Manager module by
-    running::
+1.  Ceph Manager 모듈의 Ceph Exporter를 다음 명령을 통해 실행합니다.
 
-    \$ ceph mgr module enable prometheus
+    ```shell
+    $ ceph mgr module enable prometheus
+    ```
 
-    More details can be found in the documentation of the
-    [`mgr-prometheus`]().
+    자세한 내용은 [`mgr-prometheus`](under-construction.md)를 참고하세요.
 
-2.  Add the corresponding scrape configuration to Prometheus. This may
-    look like::
+2.  Prometheus에 다음과 같은 수집정책을 설정합니다.
 
-    global: scrape\_interval: 5s
+    ```editorconfig
+    global:
+        scrape_interval: 5s
 
-    scrape\_configs: - job\_name: 'prometheus' static\_configs: -
-    targets: ['localhost:9090'] - job\_name: 'ceph' static\_configs: -
-    targets: ['localhost:9283'] - job\_name: 'node-exporter'
-    static\_configs: - targets: ['localhost:9100']
+    scrape_configs: 
+        - job_name: 'prometheus'
+          static_configs:
+            - targets: ['localhost:9090']
+        - job_name: 'ceph'
+          static_configs:
+            - targets: ['localhost:9283']
+        - job_name: 'node-exporter'
+          static_configs:
+            - targets: ['localhost:9100']
+    ```
+    
+    !!! note
+        
+        위 예시에서 Prometheus는 자기자신(9090), Ceph manager module `prometheus`의 ceph 내부 정보(9283), Node Exporter의 OS와 하드웨어 정보(9100)을 수집합니다.
+        설정에 따라 Node Exporter의 host명을 변경하거나, 추가 설정을 할 수 있습니다.
+        
+        또한 Ceph의 정보를 얻기 위해 `prometheus` mgr 모듈을 하나 이상 등록할 *필요는* 없습니다. 하지만 모든 Ceph manager를 등록하는것이 권장 되는데, 이것은 내부의
+        HA(High Availability)구조를 활성화 하여 일부 Ceph Manager가 중단되더라도 다른 Manager를 통해 정보를 수집할 수 있기 때문입니다.
 
-    .. note::
+3.  Prometheus를 Grafana에 [`Grafana Web UI`](https://grafana.com/docs/grafana/latest/features/datasources/add-a-data-source/)를 사용해 데이터 소스로 추가합니다.
+    
 
-    Please note that in the above example, Prometheus is configured to
-    scrape data from itself (port 9090), the Ceph manager module
-    `prometheus` (port 9283), which exports Ceph internal data, and the
-    Node Exporter (port 9100), which provides OS and hardware metrics
-    for each host.
+4.  `vonage-status-panel`과 `grafana-piechart-panel` plugins을 설치합니다.
+    ```shell
+        $ grafana-cli plugins install vonage-status-panel
+        $ grafana-cli plugins install grafana-piechart-panel
+    ```
+5.  Grafana에 dashboard를 추가합니다.:
 
-    Depending on your configuration, you may need to change the hostname
-    in or add additional configuration entries for the Node Exporter. It
-    is unlikely that you will need to change the default TCP ports.
+    dashboard JSON 파일을 사용하여 Grafana에 대시보드를 추가할 수 있습니다.
 
-    Moreover, you don't *need* to have more than one target for Ceph
-    specific data, provided by the `prometheus` mgr module. But it is
-    recommended to configure Prometheus to scrape Ceph specific data
-    from all existing Ceph managers. This enables a built-in high
-    availability mechanism, so that services run on a manager host will
-    be restarted automatically on a different manager host if one Ceph
-    Manager goes down.
+    `wget https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/<GLUE-name>.json`
 
-3.  Add Prometheus as data source to Grafana
-    `using the Grafana Web UI     <https://grafana.com/docs/grafana/latest/features/datasources/add-a-data-source/\>`\_.
+    dashboard JSON 파일은 [여기](https://github.com/ceph/ceph/tree/ master/monitoring/grafana/GLUEs)에서 찾을 수 있습니다.
+    
+    예를 들어 ceph-cluster overview dashboard를 추가하고자 한다면
+    
+    `wget https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/ceph-cluster.json` 를 사용할 수 있습니다.
 
-4.  Install the `vonage-status-panel and grafana-piechart-panel` plugins
-    using::
+    혹은 직점 새로운 dashboard를 생성할 수도 있습니다.
 
-    grafana-cli plugins install vonage-status-panel grafana-cli plugins
-    install grafana-piechart-panel
+6.  `/etc/grafana/grafana.ini`에서 익명 모드를 사용할 수 있습니다.
 
-5.  Add GLUEs to Grafana:
+    ```editorconfig
+    [auth.anonymous]
+    enabled = true
+    org_name = Main Org.
+    org_role = Viewer
+    ```
+    
+    6.2.0-beta1 버전 이상의 Grafana에는 `allow_embedding` 옵션이 추가되었습니다. 이 옵션은 반드시 `true`로 되어 있어야 GLUE에 내장할 수 있습니다.
+    기본값은 `false`입니다..
+    ```editorconfig
+    [security]
+    allow_embedding = true
+    ```
+    
+### RBD-Image monitoring 활성화
 
-    GLUEs can be added to Grafana by importing GLUE JSON
-    files. Use the following command to download the JSON files::
+RBD 이미지의 모니터링은 기본적으로 비활성화 되어있고, 성능에 상당향 영향을 줍니다. 자세한 내용은 [`prometheus-rbd-io-statistics`](under-construction.md)을 참고하세요.
+비활성화 된 경우 Grafana의 overview와 상세 dashboard가 표시되지 않습니다.
 
-    wget
-    https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/<GLUE-name\>.json
+### dashboard 설정
 
-    You can find various GLUE JSON files
-    `here <https://github.com/ceph/ceph/tree/ master/monitoring/grafana/GLUEs\>`\_
-    .
+Grafana와 Prometheus를 설치한 뒤, Grafana의 연결정보를 GLUE에 등록해야 합니다. Grafana의 URL을 GLUE에 등록하기 위해 다음 명령을 사용합니다.
 
-    For Example, for ceph-cluster overview you can use::
+```shell
+$ ceph dashboard set-grafana-api-url <grafana-server-url> # default: ''
+```
 
-    wget
-    https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/ceph-cluster.json
+URL 형식은 다음과 같습니다 `<protocol>:<IP-address>:<port>`
 
-    You may also author your own GLUEs.
+!!! note
 
-6.  Configure anonymous mode in `/etc/grafana/grafana.ini`::
+    GLUE는 Grafana dashboard를 `iframe`으로 내장합니다. 만약 Grafana가 SSL/TLS없이 설정되었다면, 대부분의 브라우저는 보안되지 않은 콘텐츠를
+    SSL을 지원하는 페이지(GLUE는 기본적으로 SSL이 적용됩니다)에 내장하는것을 차단하기 때문에 사용에 지장이 있을 수 있습니다.
+    만약 내장 Grafana dashboard가 보이지 않는다면, 브라우저의 문서를 통해 이러한 혼합 content를 허용하도록 해야 합니다.
+    혹은 SSL/TLS를 Grafana에 적용하는것을 고려하세요.
 
-    [auth.anonymous] enabled = true org\_name = Main Org. org\_role =
-    Viewer
+Grafana에 자체서명 인증서를 사용하는경우 GLUE가 연결을 거부하지 않도록 다음과 같은 명령이 필요합니다.
 
-    In newer versions of Grafana (starting with 6.2.0-beta1) a new
-    setting named `allow_embedding` has been introduced. This setting
-    must be explicitly set to `true` for the Grafana integration in Ceph
-    GLUE to work, as the default is `false`.
+```shell
+$ ceph GLUE set-grafana-api-ssl-verify False
+```
 
-    ::
+직접 Grafana에 접근하여 클러스터를 모니터링 할 수도 있습니다.
 
-    [security] allow\_embedding = true
+!!! note
 
-### Enabling RBD-Image monitoring
+    GLUE에서 다음 명령을 사용하여 위에서 설정한 설정정보를 초기화 시킬 수 있습니다.
+    ```shell
+    $ ceph dashboard reset-grafana-api-url
+    ```
 
-Monitoring of RBD images is disabled by default, as it can significantly
-impact performance. For more information please see
-[`prometheus-rbd-io-statistics`.]() When disabled, the overview and
-details GLUEs will be empty in Grafana and metrics will not be
-visible in Prometheus.
+### 브라우저를 위한 대체 URL
 
-### Configuring GLUE
+GLUE는 Grafana dashboard를 화면상에 보여주기 이전부터 Grafana의 존재를 확인하기 위해 URL를 필요로 합니다.
+그렇기 때문에 다음과 같이 2시점의 연결이 필요하게 됩니다.
 
-After you have set up Grafana and Prometheus, you will need to configure
-the connection information that the Ceph GLUE will use to access
-Grafana.
+-   Backend(Ceph Mgr module): 요청한 그래프의 존재를 확인하기 위해 필요합니다. 이 요청이 정상적으로 처리되면, Frontend에 Grafana에 접근이 가능하다고 알립니다.
+-   Frontend: Grafana 그래프에 iframe을 사용하여 직접 접속합니다. 이 요청은 GLUE를 거치지 않고, 사용자의 브라우저에서 처리됩니다.
 
-You need to tell the GLUE on which URL the Grafana instance is
-running/deployed::
+이제 사용자 브라우저가 GLUE에 설정된 Grafana주소에 접근하기 어려운 상황을 가정해 봅시다. 이 문제를 해결하기 위해 Frontend(사용자 브라우저)가 접근할 수 있는
+Grafana의 주소를 추가로 등록 해 주면 됩니다. [`cephadm`](under-construction.md)(cephadm을 사용하여 설치한 경우)에 등록하는 `GRAFANA_API_URL`과 달리
+이 설정은 자동으로 변경되지 않습니다.
 
-\$ ceph GLUE set-grafana-api-url <grafana-server-url\> \# default:
-''
+이런 경우를 해결하기 위해 다음 명령어를 사용할 수 있습니다.
+```shell
+$ ceph dashboard set-grafana-frontend-api-url <grafana-server-url\>
+```
 
-The format of url is : `<protocol\>:<IP-address\>:<port\>`
+이 옵션에 아무 값도 설정되지 않은경우 `GRAFANA_API_URL`의 값으로 접속을 시도합니다. 옵션에 값이 설정되어있다면, 설정된 주소의 Grafana에 접속합니다.
 
-.. note::
-
-The Ceph GLUE embeds Grafana GLUEs via `iframe` HTML elements.
-If Grafana is configured without SSL/TLS support, most browsers will
-block the embedding of insecure content if SSL support is enabled for
-the GLUE (which is the default). If you can't see the embedded
-Grafana GLUEs after enabling them as outlined above, check your
-browser's documentation on how to unblock mixed content. Alternatively,
-consider enabling SSL/TLS support in Grafana.
-
-If you are using a self-signed certificate for Grafana, disable
-certificate verification in the GLUE to avoid refused connections,
-which can be a result of certificates signed by an unknown CA or that do
-not matchn the host name::
-
-\$ ceph GLUE set-grafana-api-ssl-verify False
-
-You can also access Grafana directly to monitor your cluster.
-
-.. note::
-
-Ceph GLUE configuration information can also be unset. For example,
-to clear the Grafana API URL we configured above::
-
-    $ ceph GLUE reset-grafana-api-url
-
-### Alternative URL for Browsers
-
-The Ceph GLUE backend requires the Grafana URL to be able to verify
-the existence of Grafana GLUEs before the frontend even loads them.
-Due to the nature of how Grafana is implemented in Ceph GLUE, this
-means that two working connections are required in order to be able to
-see Grafana graphs in Ceph GLUE:
-
--   The backend (Ceph Mgr module) needs to verify the existence of the
-    requested graph. If this request succeeds, it lets the frontend know
-    that it can safely access Grafana.
--   The frontend then requests the Grafana graphs directly from the
-    user's browser using an iframe. The Grafana instance is accessed
-    directly without any detour through Ceph GLUE.
-
-Now, it might be the case that your environment makes it difficult for
-the user's browser to directly access the URL configured in Ceph
-GLUE. To solve this issue, a separate URL can be configured which
-will solely be used to tell the frontend (the user's browser) which URL
-it should use to access Grafana. This setting won't ever be changed
-automatically, unlike the GRAFANA\_API\_URL which is set by
-[`cephadm`]() (only if cephadm is used to deploy monitoring services).
-
-To change the URL that is returned to the frontend issue the following
-command::
-
-\$ ceph GLUE set-grafana-frontend-api-url <grafana-server-url\>
-
-If no value is set for that option, it will simply fall back to the
-value of the GRAFANA\_API\_URL option. If set, it will instruct the
-browser to use this URL to access Grafana.
-
-.. \_GLUE-sso-support:
-
-## Enabling Single Sign-On (SSO)
+## Single Sign-On (SSO) 설정
 
 
-The Ceph GLUE supports external authentication of users via the
-`SAML 2.0 <https://en.wikipedia.org/wiki/SAML_2.0\>`\_ protocol. You need
-to first create user accounts and associate them with desired roles, as
-authorization is performed by the GLUE. However, the authentication
-process can be performed by an existing Identity Provider (IdP).
+GLUE는 [`SAML 2.0`](https://en.wikipedia.org/wiki/SAML_2.0)프로토콜을 사용한 외부 인증을 지원합니다.
+먼저 GLUE에 적절한 역할과 그 역할에 연결된 사용자가 생성되어야 합니다.
+하지만 인증과정은 외부 인증 제공자(IdP: Identity Provider)에 의해 진행됩니다.
 
-.. note::
+!!! note
+    GLUE SSO지원은 onelogin의
+    [`python-saml`](https://pypi.org/project/python-saml/)라이브러리에 제공됩니다. 이 라이브러리가 시스템에 설치되었는지 확인하세요
 
-Ceph GLUE SSO support relies on onelogin's
-`python-saml <https://pypi.org/project/python-saml/\>`\_ library. Please
-ensure that this library is installed on your system, either by using
-your distribution's package management or via Python's `pip` installer.
-
-To configure SSO on Ceph GLUE, you should use the following
-command::
-
-\$ ceph GLUE sso setup saml2 <ceph_GLUE_base_url\>
-<idp_metadata\> {<idp_username_attribute\>} {<idp_entity_id\>}
-{<sp_x_509_cert\>} {<sp_private_key\>}
-
+SSO는 다음과 같이 설정할 수 있습니다.
+```shell
+$ ceph dashboard sso setup saml2 <ceph_GLUE_base_url> <idp_metadata> {<idp_username_attribute>} {<idp_entity_id>} {<sp_x_509_cert>} {<sp_private_key>}
+```
 Parameters:
 
--   **<ceph_GLUE_base_url\>**: Base URL where Ceph GLUE is
-    accessible (e.g., `https://cephGLUE.local`)
--   **<idp_metadata\>**: URL to remote (`http://`, `https://`) or local
-    (`file://`) path or content of the IdP metadata XML (e.g.,
+-   **<ceph_GLUE_base_url\>**: GLUE 에 접속하는 기본 URL(e.g., `https://cephGLUE.local`)
+-   **<idp_metadata\>**: 원격(`http://`, `https://`)이나 로컬(`file://`) IdP metadata XML 경로(e.g.,
     `https://myidp/metadata`, `file:///home/myuser/metadata.xml`).
--   **<idp_username_attribute\>** *(optional)*: Attribute that should be
-    used to get the username from the authentication response. Defaults
-    to `uid`.
--   **<idp_entity_id\>** *(optional)*: Use this when more than one entity
-    id exists on the IdP metadata.
--   **<sp_x_509_cert\> / <sp_private_key\>** *(optional)*: File path of
-    the certificate that should be used by Ceph GLUE (Service
-    Provider) for signing and encryption.
+-   **<idp_username_attribute\>** *(optional)*: 요청 중 사용자명을 갖고 오는 attribute 이름. 기본값은 `uid`.
+-   **<idp_entity_id\>** *(optional)*: IdP metadata에 하나 이상의 entity가 있는경우.
+-   **<sp_x_509_cert\> / <sp_private_key\>** *(optional)*: GLUE Service 제공자가 서명과 암호화에 사용할 인증서 파일경로
 
-.. note::
-
-The issuer value of SAML requests will follow this pattern:
-**<ceph_GLUE_base_url\>**/auth/saml2/metadata
-
-To display the current SAML 2.0 configuration, use the following
-command::
-
-\$ ceph GLUE sso show saml2
-
-.. note::
-
-For more information about `onelogin_settings`, please check the
-`onelogin documentation <https://github.com/onelogin/python-saml\>`\_.
-
-To disable SSO::
-
-\$ ceph GLUE sso disable
-
-To check if SSO is enabled::
-
-\$ ceph GLUE sso status
-
-To enable SSO::
-
-\$ ceph GLUE sso enable saml2
-
-.. \_GLUE-alerting:
-
-## Enabling Prometheus Alerting
+!!! note
+    SAML 요청의 요청자 값은 다음과 같은 패턴으로 만들어집니다.
+    ```
+    <ceph_GLUE_base_url>/auth/saml2/metadata
+    ```
 
 
-To use Prometheus for alerting you must define
-`alerting rules <https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules\>`*.
-These are managed by the
-`Alertmanager <https://prometheus.io/docs/alerting/alertmanager\>`*. If
-you are not yet using the Alertmanager,
-`install it <https://github.com/prometheus/alertmanager#install\>`\_ as
-it receives and manages alerts from Prometheus.
+현재 설정된 `SAML 2.0`구성을 확인하려면 다음 명령어를 사용합니다.
+```shell
+$ ceph GLUE sso show saml2
+```
+!!! note
+    
+    `onelogin_setting`에 대한 자세한 내용은 [`onelogin documentation`](https://github.com/onelogin/python-saml)을 참고하세요.
 
-Alertmanager capabilities can be consumed by the GLUE in three
-different ways:
+추가 명령어
+```shell
+# SSO 설정 확인
+$ ceph GLUE sso status
 
-1.  Use the notification receiver of the GLUE.
+# SSO 비활성화
+$ ceph GLUE sso disable
 
-2.  Use the Prometheus Alertmanager API.
+# SSO 활성화
+$ ceph GLUE sso enable saml2
+```
 
-3.  Use both sources simultaneously.
+## Prometheus를 사용한 경고 설정
 
-All three methods notify you about alerts. You won't be notified twice
-if you use both sources, but you need to consume at least the
-Alertmanager API in order to manage silences.
 
-1.  Use the notification receiver of the GLUE
+Prometheus 경고 기능을 사용하려면 먼저 [`alerting rules`](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules)을 설정해야 합니다.
+이 기능은
+[`Alertmanager`](https://prometheus.io/docs/alerting/alertmanager)에서 관리합니다.
+만약 Alertmanager가 설치되지 않았다면 [`설치`](https://github.com/prometheus/alertmanager#install)를 먼저 진행해야 Prometheus로부터 경고를 받을 수 있습니다.
 
-This allows you to get notifications as
-`configured   <https://prometheus.io/docs/alerting/configuration/\>`\_
-from the Alertmanager. You will get notified inside the GLUE once a
-notification is send out, but you are not able to manage alerts.
+Alertmanager기능을 다음과 같은 3가지 모드로 사용할 수 있습니다.
 
-Add the GLUE receiver and the new route to your Alertmanager
-configuration. This should look like::
+1.  dashboard의 알림만 받기
 
+2.  Prometheus Alertmanager API를 사용한 알림 받기
+
+3.  두가지 알림 모두 받기
+
+세가지 모드 모두 경고에 대한 알림을 받을 수 있습니다. 3번의 모두 받기의 경우 알림이 두번 오지는 않습니다. 침묵(silence)기능을 사용하기 위해서는 API기능을 사용하는 2번, 3번 중 선택해야 합니다.
+
+1.  dashboard의 알림만 받기
+
+이 방법은 Alertmanager의 [`설정`](https://prometheus.io/docs/alerting/configuration/)에 따라 알림을 받습니다. 경고가 발생하면 GLUE에 알림이 표시됩니다.
+하지만 경고를 관리 할 수는 없습니다.
+GLUE 수신자를 추가하고 새로운 전송경로를 AlertManager의 설정에 넣습니다. 설정파일은 다음과 같이 구성되어야 합니다.
+```editorconfig
     route:
-      receiver: 'ceph-GLUE'
+      receiver: 'ceph-dashboard'
     ...
     receivers:
-      - name: 'ceph-GLUE'
+      - name: 'ceph-dashboard'
         webhook_configs:
         - url: '<url-to-GLUE\>/api/prometheus_receiver'
+```
 
-Ensure that the Alertmanager considers your SSL certificate in terms of
-the GLUE as valid. For more information about the correct
-configuration checkout the
-`<http_config\> documentation   <https://prometheus.io/docs/alerting/configuration/#%3Chttp_config%3E\>`\_.
+Alertmanager에 SSL 인증서를 설정하는것이 좋습니다. 자세한 내용은 [`<http_config>문서`](https://prometheus.io/docs/alerting/configuration/#%3Chttp_config%3E)를 참고하세요.
 
-1.  Use the API of Prometheus and the Alertmanager
+2.  Prometheus Alertmanager API를 사용한 알림 받기
 
-This allows you to manage alerts and silences and will enable the
-"Active Alerts", "All Alerts" as well as the "Silences" tabs in the
-"Monitoring" section of the "Cluster" menu entry.
+경고와 침묵(silence)를 관리 할 수 있고, "Cluster" 메뉴의 "Monitoring" 섹션에 "Active Alerts", "All Alerts", "Silences" 탭이 생성됩니다.
+경고는 이름, 작업, 중요성, 상태, 발생시간으로 정렬이 가능합니다. 사용자의 구성에 따라 Alertmanager가 알림을 전송한 시기를 알 수는 없습니다.
 
-Alerts can be sorted by name, job, severity, state and start time.
-Unfortunately it's not possible to know when an alert was sent out
-through a notification by the Alertmanager based on your configuration,
-that's why the GLUE will notify the user on any visible change to
-an alert and will notify the changed alert.
+침묵(Silence) 또한 id, 생성자, 상태, 시작/수정/종료 시간에 따라 정렬이 가능합니다. 침묵은 다양한 방법으로 만들어지고, 파기될 수 있습니다.
 
-Silences can be sorted by id, creator, status, start, updated and end
-time. Silences can be created in various ways, it's also possible to
-expire them.
+1.  처츰부터 생성
 
-1.  Create from scratch
+2.  선택된 경고로 부터 생성
 
-2.  Based on a selected alert
+3.  파기된 침묵으로 재생성
 
-3.  Recreate from expired silence
+4.  기존 침묵 수정(새로 생성하고 기존의 것을 파기)
 
-4.  Update a silence (which will recreate and expire it (default
-    Alertmanager behaviour))
+이 모드를 사용하려면 Alertmanager server의 호스트 및 포트를 지정해야 합니다.
 
-To use it, specify the host and port of the Alertmanager server::
+```shell
+    $ ceph dashboard set-alertmanager-api-host <alertmanager-host:port>  # default: ''
+```
+예시:
+```shell
+    $ ceph dashboard set-alertmanager-api-host 'http://localhost:9093'
+```
 
-    $ ceph GLUE set-alertmanager-api-host <alertmanager-host:port\>  # default: ''
+모든 설정된 경고를 보기 위해서 Prometheus API에 URL을 설정해야 합니다. 이 API를 사용하면 UI가 새로운 침묵을 해당 경고와 일치하는지 확인해는데 도움이됩니다.
 
-For example::
+```shell
+    $ ceph dashboard set-prometheus-api-host <prometheus-host:port\>  # default: ''
+```
+예시:
+```shell
+    $ ceph dashboard set-prometheus-api-host 'http://localhost:9090'
+```
+설정한 다음 GLUE 창이나 탭을 새로고침 합니다.
 
-    $ ceph GLUE set-alertmanager-api-host 'http://localhost:9093'
+3.  두가지 알림 모두 받기
 
-To be able to see all configured alerts, you will need to configure the
-URL to the Prometheus API. Using this API, the UI will also help you in
-verifying that a new silence will match a corresponding alert.
+이 모드는 중복된 알림이 서로를 방해하는일이 발생하지 않도록 구성되어야 합니다.
 
-::
+Prometheus와 Alertmanager에 자체서명 인증서를 사용하는경우 인증서 검증을 비활성화 하여 GLUE가 연결을 거부하지 않도록 해야합니다.
 
-    $ ceph GLUE set-prometheus-api-host <prometheus-host:port\>  # default: ''
-
-For example::
-
-    $ ceph GLUE set-prometheus-api-host 'http://localhost:9090'
-
-After setting up the hosts, refresh your browser's GLUE window or
-tab.
-
-1.  Use both methods
-
-The behaviors of both methods are configured in a way that they should
-not disturb each other, through annoying duplicated notifications may
-pop up.
-
-If you are using a self-signed certificate in your Prometheus or your
-Alertmanager setup, you should disable certificate verification in the
-GLUE to avoid refused connections caused by certificates signed by
-an unknown CA or that do not match the host name.
-
--   For Prometheus::
-
-\$ ceph GLUE set-prometheus-api-ssl-verify False
-
--   For Alertmanager::
-
-\$ ceph GLUE set-alertmanager-api-ssl-verify False
-
-.. \_GLUE-user-role-management:
-
+-   Prometheus:
+```shell
+$ ceph dashboard set-prometheus-api-ssl-verify False
+```
+-   Alertmanager:
+```shell
+$ ceph dashboard set-alertmanager-api-ssl-verify False
+```
 
 
 
