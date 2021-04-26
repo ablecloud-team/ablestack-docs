@@ -9,7 +9,7 @@ GLUE는 웹 기반 분산 스토리지 관리/모니터링 서비스입니다.
   https://<SCVM ip>:8443 
  ```
 !!! tip
-    클러스터링된 모든 scvm의 ip를 통하여 접속할 수 있으며 /etc/hosts 파일을 참조하여 IP를 알 수 있습니다.
+클러스터링된 모든 scvm의 ip를 통하여 접속할 수 있으며 /etc/hosts 파일을 참조하여 IP를 알 수 있습니다.
 
 ![glue-login-webui](../../assets/images/glue_login_webUI.png)
 
