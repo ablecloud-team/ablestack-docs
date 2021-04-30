@@ -144,13 +144,13 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
             ![Public Storage Network IP 설정](../assets/images/install-guide-cube-19.png){ align=center }
             - 네트워킹 > enp179s0f1 화면에서 IPv4 행의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
             - 주소 입력 창의 오른쪽에 있는 **자동(DHCP)** 선택 박스를 눌러 **수동** 으로 변경을 합니다.
-            - **Adress** 입력창에 **100.100.10.1** 을 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24**를 입력하고 **적용** 버튼을 클릭합니다.
-
+            - **Adress** 입력창에 **100.100.10.1** 을 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
+        
         2. Public Storage Network MTU 설정
             ![Public Storage Network MTU 설정](../assets/images/install-guide-cube-20.png){ align=center }
-            - 네트워킹 > enp179s0f1 화면에서 MTU 행의 **편집** 버튼을 눌러 들어온 MTU 설정 화면입니다.
+            - **네트워킹 > enp179s0f1** 화면에서 MTU 행의 **편집** 버튼을 눌러 들어온 MTU 설정 화면입니다.
             - 라디오 버튼을 **설정** 으로 선택하고 입력값을 **9000** 으로 입력 후에 **적용** 버튼을 클릭합니다.
-    
+        
         3. Public Storage 자동연결 및 활성화 설정
             ![Public Storage 자동연결 및 활성화 설정](../assets/images/install-guide-cube-21.png){ align=center }
             - **자동으로 연결** 체크박스 체크 및 NIC 활성화 라디오 버튼 활성화
@@ -158,14 +158,17 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     3. 방화벽 설정
         ![방화벽 설정](../assets/images/install-guide-cube-22.png){ align=center }
         - 방화벽을 설정하기 위한 절차 입니다. 네트워킹 화면에서 방화벽 세션에서 **규칙 및 영역 편집** 을 클릭하여 들어온 화면입니다.
-    
+        
         <br/>
 
         1. ABLESTACK 방화벽 설정
             ![ABLESTACK 방화벽 설정](../assets/images/install-guide-cube-23.png){ align=center }
             - 방화벽 설정 화면에서 **서비스 추가** 버튼을 클릭하여 들어온 화면 입니다.
             - 서비스 목록에서 **Ablestack** 체크를 선택하고 **서비스 추가** 버튼을 클릭하여 방화벽을 추가합니다.
-    
+
+!!! info
+    ABLESTACK Cube 설치 진행절차는 2번, 3번 호스트도 동일합니다. 위 설치 절차를 2번, 3번 호스트에도 진행하시기 바랍니다.
+
 !!! check
     ABLESTACK Cube 및 ABLESTACK Cell의 설치 및 구성이 끝났습니다.
     ABLESTACK Glue 및 ABLESTACK Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.
