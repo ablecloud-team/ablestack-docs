@@ -260,7 +260,7 @@ Template 은 수동으로 등록되어야 합니다.
 해당 문서에서는 Zone 구성까지만 설명을 하고 있으며 Zone 구성 이후의 클라우드센터 웹콘솔 사용방법은 다른 문서를 참고하시기 바랍니다.
 
 ![클라우드센터연결](../assets/images/install-guide-mold-클라우드센터연결.png){ align=center }
-Bootstrap 실행 완료 후 상단의 리본 창에서 **클라우드센터 연결** 링크를 클릭합니다.
+- Bootstrap 실행 완료 후 상단의 리본 창에서 **클라우드센터 연결** 링크를 클릭합니다.
 
 !!! info
     ![클라우드센터연결 실패](../assets/images/install-guide-mold-클라우드센터연결-실패.png){ align=center }
@@ -277,8 +277,9 @@ Bootstrap 실행 완료 후 상단의 리본 창에서 **클라우드센터 연�
     버튼을 클릭합니다.
 
 3. 클라우드센터 Zone 유형 선택
-   ![클라우드센터 Zone Type 선택](../assets/images/install-guide-mold-클라우드센터-Zone-Type-선택.png){ align=center }
-   - Zone 의 유형을 선택하는 화면입니다. **확장** 을 선택 한 후에 **다음** 버튼을 클릭 합니다.
+    ![클라우드센터 Zone Type 선택](../assets/images/install-guide-mold-클라우드센터-Zone-Type-선택.png){ align=center }
+    - Zone 의 유형을 선택하는 화면입니다.
+    - **확장** 을 선택한 후에 **다음** 버튼을 클릭합니다．
 
 4. 클라우드센터 Zone 정보
    ![클라우드센터 Zone 정보](../assets/images/install-guide-mold-클라우드센터-Zone-정보.png){ align=center }
@@ -294,13 +295,14 @@ Bootstrap 실행 완료 후 상단의 리본 창에서 **클라우드센터 연�
     - Zone 의 네트워크 정보를 입력하는 화면입니다.
         ![클라우드센터 Zone 물리 네트워크 정보 입력](../assets/images/install-guide-mold-클라우드센터-Zone-물리-네트워크-정보-입력.png){ align=center }
         - **트래픽 유형** 의 **MANAGEMENT**, **GUEST**, **PUBLIC** 각각의 **편집** 버튼을 클릭하여 **트래필 라벨** 항목에 **bridge0** 을 입력합니다.
+    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 6. 클라우드센터 Zone 서비스용 네트워크 정보
     ![클라우드센터 Zone 서비스용 네트워크 정보](../assets/images/install-guide-mold-클라우드센터-Zone-서비스용-네트워크.png){ align=center }
     - Zone 의 서비스용 네트워크 정보를 입력 하는 화면입니다.
     - **케이트웨이** 항목에는 **10.10.0.1**, **넷마스크** 항목에는 **255.255.0.0**, **시작 IP 주소** 항목에는 **10.10.10.101**, 
     **종료 IP 주소** 항목에는 **10.10.10.150**을 입력하고 **추가** 버튼을 클릭합니다.
-    - 입력 항목 확인 후 **다음** 버튼을 클릭 합니다.
+    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 7. 클라우드센터 Pod 네트워크 정보
     ![클라우드센터 Pod 네트워크 정보](../assets/images/install-guide-mold-클라우드센터-Pod-네트워크.png){ align=center }
@@ -314,11 +316,15 @@ Bootstrap 실행 완료 후 상단의 리본 창에서 **클라우드센터 연�
 
 8. 클라우드센터 가상머신용 네트워크 정보
     ![클라우드센터 가상머신용 네트워크 정보](../assets/images/install-guide-mold-클라우드센터-가상머신용-네트워크.png){ align=center }
-    - 가상머신용 네트워크 정보를 입력하는 화면입니다. **VLAN 범위** 에 **200**, **300** 을 입력한 후에 **다음** 버튼을 클릭합니다.
+    - 가상머신용 네트워크 정보를 입력하는 화면입니다. 
+    - **VLAN 범위** 에 **200**, **300** 을 입력합니다.
+    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 9. 클라우드센터 클러스터 정보
    ![클라우드센터 클러스터 정보](../assets/images/install-guide-mold-클라우드센터-클러스터-정보.png){ align=center }
-    - 클라우드센터 클러스터 정보를 입력하는 화면입니다. **클러스터 이름** 항목에 **cluster** 를 입력한 후에 **다음** 버튼을 클릭합니다.
+    - 클라우드센터 클러스터 정보를 입력하는 화면입니다.
+    - **클러스터 이름** 항목에 **cluster** 를 입력합니다.
+    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 10. 클라우드센터 호스트 추가
     ![클라우드센터 호스트 추가](../assets/images/install-guide-mold-클라우드센터-호스트-추가.png){ align=center }
@@ -327,16 +333,36 @@ Bootstrap 실행 완료 후 상단의 리본 창에서 **클라우드센터 연�
     - **사용자 이름** 항목에는 **root** 를 입력합니다.
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
     - **태그** 항목에는 **ablecube1** 을 입력합니다.
-    - 입력정보 확인후에 **다음** 버튼을 클릭합니다.
+    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
+    !!! info
+        기본 스토리지 추가를 위해서는 Glue 사용자의 이름과 시크릿 키를 확인하셔야 합니다. 확인 방법은 ABLESTACK Cube 호스트나 
+        ABLESTACK Mold 가상머신에서 아래 명령어를 통해 확인 가능합니다.
+        ``` bash
+        ceph auth list
+        ```
+        위 명령어를 통한 리스트 중에 `client.admin` 의 키값을 복사 하시면 됩니다.
+        ![스토리지 클러스터 admin key 확인](../assets/images/install-guide-mold-스토리지-클러스터-admin-key-확인.png){ align=center }
+    
 11. 클라우드센터 기본스토리지 추가
     ![클라우드센터 기본스토리지 추가](../assets/images/install-guide-mold-클라우드센터-기본스토리지-추가.png){ align=center }
+    - 기본 스토리지 추가하는 화면입니다.
+    - **이름** 항목에는 **ps** 를 입력합니다.
+    - **범위** 선택 박스에는 **zone** 을 선택합니다.
+    - **프로토콜** 선택 박스에는 **RBD** 를 선택합니다.
+    - **RADOS 풀** 항목에는 **scvm** 을 입력합니다.
+    - **RADO 시크릿** 항목에는 **client.admin의 key값** 을 입력합니다.
+    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
     
-12. 스토리지 클러스터 admin key 확인
-    ![스토리지 클러스터 admin key 확인](../assets/images/install-guide-mold-스토리지-클러스터-admin-key-확인.png){ align=center }
-
 13. 클라우드센터 2차 스토리지 추가
     ![클라우드센터 2차 스토리지 추가](../assets/images/install-guide-mold-클라우드센터-2차-스토리지-추가.png){ align=center }
+    - 2차 스토리지를 추가하는 화면입니다.
+    - **제공자** 선택 박스에서 **NFS** 를 선택 합니다.
+    - **이름** 항목에는 **ss** 를 입력합니다.
+    - **서버** 항목에는 **10.10.10.11** 를 입력합니다.
+    - **경로** 항목에는 **secondary** 를 입력합니다.
+    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 14. 클라우드센터 Zone 추가중
     ![클라우드센터 Zone 추가중](../assets/images/install-guide-mold-클라우드센터-Zone-추가중.png){ align=center }
+    - zone 추가 중 화면 입니다.
