@@ -5,7 +5,7 @@
 # 작성자 : 박동혁
 
 # 프로젝트 정보
-site_name: Mold
+site_name: ABLESTACK
 site_author: ABLECLOUD Co. Ltd
 
 # Repository
@@ -107,31 +107,31 @@ markdown_extensions:
 nav:
   - 환영합니다: index.md
   - 아키텍처:
-    - Mold의 탄생:
+    - ABLESTACK의 탄생:
       - 데이터센터의 역사와 문제점: architecture/architecture-overview.md
-      - 문제해결방법-Mold: architecture/birth-of-ablestack.md
-    - Mold 물리 아키텍처:
-      - Mold 기본구조 : architecture/ablestack-basic-structure.md
+      - 문제해결방법-ABLESTACK: architecture/birth-of-ablestack.md
+    - ABLESTACK 물리 아키텍처:
+      - ABLESTACK의 기본구조 : architecture/ablestack-basic-structure.md
       - 호스트 아키텍처 : architecture/host-architecture.md
       - 네트워크 아키텍처 : architecture/network-architecture.md
-    - Mold Core:
+    - ABLESTACK Core:
       - Cube 알아보기 : architecture/book-of-cube.md
       - Mold 알아보기 : architecture/book-of-mold.md
       - Glue 알아보기 : architecture/book-of-glue.md
       - Cell 알아보기 : architecture/book-of-cell.md
-      - Wall 알아보기 : architecture/book-of-wall.md
-    - Mold on Others:
-      - vSphere 기반 Mold: architecture/book-of-vsphere.md
-      - Citrix 기반 Mold: architecture/book-of-citrix.md
-      - HyperV 기반 Mold: architecture/book-of-hyperv.md
-      - Mold과 OpenStack: architecture/book-of-openstack.md
+#      - Wall 알아보기 : architecture/book-of-wall.md
+#    - ABLESTACK on Others:
+#      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
+#      - Citrix 기반 ABLESTACK: architecture/book-of-citrix.md
+#      - HyperV 기반 ABLESTACK: architecture/book-of-hyperv.md
+#      - ABLESTACK과 OpenStack: architecture/book-of-openstack.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
     - Cube 설치 가이드: getting-started/install-guide-cube.md
     - Glue 설치 가이드: getting-started/install-guide-glue.md
     - Mold 설치 가이드: getting-started/install-guide-mold.md
-  - 설정 및 구성:
-    - 시작하며: setup/setup-overview.md
+#  - 설정 및 구성:
+#    - 시작하며: setup/setup-overview.md
   - 관리가이드:
     - Cube 가이드: 
       - 사용자 인터페이스 : administration/cube/userinterface-guide.md
@@ -174,8 +174,8 @@ nav:
       - NFS-Ganesha 관리 : administration/glue/nfs-ganesha-mngt-guide.md
       - 플러그인 : administration/glue/plugin-guide.md
       - 문제해결 : administration/glue/troubleshooting-guide.md
-    - Cell 가이드: administration/cell/cell-guide-overview.md
-    - Wall 가이드: administration/wall/wall-guide-overview.md
-    - Mold 시스템점검: administration/system-check.md
-  - 레퍼런스:
-    - 시작하며: reference/reference-overview.md
+#    - Cell 가이드: administration/cell/cell-guide-overview.md
+#    - Wall 가이드: administration/wall/wall-guide-overview.md
+    - ABLESTACK 시스템점검: administration/system-check.md
+#  - 레퍼런스:
+#    - 시작하며: reference/reference-overview.md
