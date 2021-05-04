@@ -127,6 +127,9 @@ nav:
       - Mold과 OpenStack: architecture/book-of-openstack.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
+    - Cube 설치 가이드: getting-started/install-guide-cube.md
+    - Glue 설치 가이드: getting-started/install-guide-glue.md
+    - Mold 설치 가이드: getting-started/install-guide-mold.md
   - 설정 및 구성:
     - 시작하며: setup/setup-overview.md
   - 관리가이드:
