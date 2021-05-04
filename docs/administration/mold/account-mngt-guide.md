@@ -162,7 +162,7 @@ cloudmonkey add ldapconfiguration hostname=localhost\
                                   domainid=12345678-90ab-cdef-fedc-ba0987654321
 ```
 
-이것은 LDAP 사용자의 수동 가져오기를 활성화하는 데 필요한 전부입니다. LisLdapUsers API를 사용하여 가져올 사용자를 쿼리할 수 있습니다.
+이것은 LDAP 사용자의 수동 가져오기를 활성화하는 데 필요한 전부입니다. LisLdapUsers API를 사용하여 가져올 사용자를 쿼리할 수 ​​있습니다.
 
 자동 가져오기 방법의 경우 Mold 도메인을 LDAP에 연결해야 합니다. 예를 들어
 
