@@ -1,10 +1,10 @@
-# ABLESTACK 사용자 가이드
+# Mold 사용자 가이드
 
-ABLESTACK은 일반적인 x86 기반 서버를 클러스터링하여 스토리지, 가상화, 클라우드 환경을 통합하여 제공할 수 있도록 오픈소스를 기반으로 만들어진 HCI 배포판입니다. 본 리파지터리는 이러한 ABLESTACK의 전반적인 아키텍처 및 사용법, 그리고 각 구성요소에 대한 사용자 설명서를 제공하기 위한 공간입니다. 
+Mold는 일반적인 x86 기반 서버를 클러스터링하여 스토리지, 가상화, 클라우드 환경을 통합하여 제공할 수 있도록 오픈소스를 기반으로 만들어진 HCI 배포판입니다. 본 리파지터리는 이러한 Mold의 전반적인 아키텍처 및 사용법, 그리고 각 구성요소에 대한 사용자 설명서를 제공하기 위한 공간입니다. 
 
 ## 개발환경 준비
 
-ABLESTACK 사용자 가이드는 [MkDocs](https://www.mkdocs.org/)를 사용하여 도큐먼트를 빌드합니다. 따라서 개발을 위해서는 해당 환경을 준비해야 합니다. MkDocs는 다양한 환경에 설치하여 개발환경을 만들 수 있습니다. 각각의 운영체제에서 지원하는 패키지 관리자를 사용할 수 있으며 지원되는 패키지 관리자는 다음과 같습니다. 
+Mold 사용자 가이드는 [MkDocs](https://www.mkdocs.org/)를 사용하여 도큐먼트를 빌드합니다. 따라서 개발을 위해서는 해당 환경을 준비해야 합니다. MkDocs는 다양한 환경에 설치하여 개발환경을 만들 수 있습니다. 각각의 운영체제에서 지원하는 패키지 관리자를 사용할 수 있으며 지원되는 패키지 관리자는 다음과 같습니다. 
 
 - apt-get : Debian, Ubuntu 계열
 - dnf, yum : fedora, RHEL, CentOS 계열
@@ -42,7 +42,7 @@ $ pip install mkdocs
 ```
 ### Docs Theme 설치
 
-ABLESTACK Docs 사이트는 MkDocs의 Third Party 테마인 Material Theme을 사용합니다. 해당 테마를 개발환경에 설치하여 테마를 적용해야 합니다. 
+Mold Docs 사이트는 MkDocs의 Third Party 테마인 Material Theme을 사용합니다. 해당 테마를 개발환경에 설치하여 테마를 적용해야 합니다. 
 
 다음의 명령을 개발환경에서 실행합니다. 
 
@@ -51,11 +51,11 @@ $ pip install mkdocs-material
 ```
 ## 개발 참여
 
-개발환경을 설정했다면 ABLESTACK 사용자 가이드 소스를 GitHub 사용자 계정애 Fork하여 개발에 참여할 수 있습니다. GitHub 소스를 Fork 하고, 사용자 개발 환경에 Clone하여 개발에 참여하는 것은 GitHub의 사용자 가이드를 참고합니다. 
+개발환경을 설정했다면 Mold 사용자 가이드 소스를 GitHub 사용자 계정애 Fork하여 개발에 참여할 수 있습니다. GitHub 소스를 Fork 하고, 사용자 개발 환경에 Clone하여 개발에 참여하는 것은 GitHub의 사용자 가이드를 참고합니다. 
 
 ## 테스트
 
-ABLESTACK Docs 소스를 Clone 한 디렉토리로 이동하면 mkdocs.yml 파일을 확인할 수 있습니다. 해당 파일이 있는 위치에서 다음의 명령을 실행합니다. 
+Mold Docs 소스를 Clone 한 디렉토리로 이동하면 mkdocs.yml 파일을 확인할 수 있습니다. 해당 파일이 있는 위치에서 다음의 명령을 실행합니다. 
 
 ```
 $ mkdocs serve
