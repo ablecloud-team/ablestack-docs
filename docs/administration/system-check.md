@@ -32,6 +32,19 @@ Mold는 다음과 같이 크게 5가지의 구성요소로 이루어져 있습�
 !!! result "상태확인"
     호스트 서버의 외관 혹은 IPMI 콘솔상의 문제가 있을 경우에는 벤더사를 통하여 기술지원을 받아 조치를 해야합니다.
 
+#### ABLESTACK 시스템 상태 점검
+호스트 및 ABLESTACK의 전체적인 상태를 Cube는 웹 UI를 통하여 점검할 수 있습니다 
+
+!!! info
+    각 호스트별 Cube 웹 UI 접속 URL은 다음과 같습니다
+    https://[호스트IP]:9090
+
+![cube-ablestack-health](../assets/images/cube_ablestack_health.png)
+
+!!! result
+    상단 ABLESTACK 리본의 상태가 정상이면 모든 클러스터 및 관련 가상머신들의 상태가 정상입니다
+    각 클러스터 및 관련 가상머신들의 문제가 있을 경우 경고 혹은 에러 상태가 되며 각 구성요소별로 점검이 필요합니다
+
 #### 호스트 OS 점검
 호스트 OS의 상태를 점검하기 위해서는 호스트 OS에 접속하여 다음과 같은 요소들을 점검하여야 합니다
 호스트 가상며신에 접속하여 명령어를 통해서 확인 할 수 있습니다.
@@ -262,8 +275,16 @@ rtt min/avg/max/mdev = 0.154/0.394/0.794/0.213 ms
 #### NTP 점검
 클러스터링 되어 있는 스토리지에서 시간동기화는 매우 중요합니다. 클러스터링된 모든 호스트 및 SCVM에 대한 NTP 설정 및 동기화 여부를 확인해야 합니다. 확인하는 방법은 Glue 가상머신에 접속하여 명령어를 통해서 확인하는 방법이 있습니다
 
-!!! warning 
-    NTP 설정에 문제가 있어서 클러스터링간 시간동기화가 되지 않은 상태가 지속이 되면 시스템에 심각한 장애가 발생할 수 있습니다.
+!!! warning
+    시간 동기화가 되지 않은 상태일 경우에는 스토리지의 상태가 warning 상태가 되며 다음과 같은 메시지가 출력됩니다.
+    ``` shell
+     health HEALTH_WARN
+
+            clock skew detected on scvm1, scvm2, scvm3
+
+            Monitor clock skew detected 
+    ```
+    이와 같은 상태가 일정시간 지속이 되면 클러스터에 장애가 생길 수 있으며, NTP등의 설정을 확인하여 정상화 시켜야 합니다
 
 호스트 및 SCVM에 접속 후 다음과 같이 명령어를 입력합니다
 ``` shell
@@ -285,11 +306,62 @@ System clock synchronized: yes
 !!! info "NTP 구성"
     NTP는 기본적으로 인터넷을 통한 공인 NTP 서버를 사용하거나 별도로 구축된 내부 NTP를 사용합니다. 경우에 따라서 외부 통신과 단절되어있거나 내부 NTP 서버가 없을 경우 ABLECLOUD 자체에 NTP 서버를 구성하여 NTP 동기화를 구성합니다
 
+#### root(/) 영역 디스크 사용량 점검
+Glue 가상머신의 root(/) 디스트 영역에는 프로세스들의 로그등이 기록 됩니다. 해당 영역에 사용공간이 있어야 프로세스들이 정상적으로 동작 됩니다 
+!!! warning
+    디스크 사용량이 70% 이상일 경우 클러스터의 상태가 warning 상태가 되며 다음과 같은 메시지가 출력됩니다.
+    ``` shell
+     health HEALTH_WARN
+
+            scvm1, scvm2, scvm3  is low on available space 
+    ```
+    이와 같은 상태가 계속되어 사용량이 100%에 도달할 경우 클러스터에 장애가 발생 할 수 있으며, 데이터를 확인하여 공간을 확보하여야 합니다.
+
+다음과 같이 root(/)영역의 사용량을 확인하여 점검 할 수 있습니다 
+``` shell
+df -h
+```
+```
+[root@ablecube1 ~]# df -h
+Filesystem                            Size  Used Avail Use% Mounted on
+devtmpfs                               32G     0   32G   0% /dev
+tmpfs                                  32G   47M   32G   1% /dev/shm
+tmpfs                                  32G   28M   32G   1% /run
+tmpfs                                  32G     0   32G   0% /sys/fs/cgroup
+/dev/mapper/ablestack_ablecube1-root  862G   20G  842G   3% /
+/dev/sda2                            1014M  235M  780M  24% /boot
+/dev/sda1                             599M  6.9M  592M   2% /boot/efi
+tmpfs                                 6.3G   32K  6.3G   1% /run/user/976
+tmpfs                                 6.3G   48K  6.3G   1% /run/user/1000
+/dev/sde                              9.1G  9.1G     0 100% /run/media/ablecloud/CentOS-8-3-2011-x86_64-dvd
+```
+!!! result "상태확인"
+    루트(/) 영역의 사용량(Use%)가 70% 이하이면 정상이며, 이상일 경우에는 파일정리 혹은 증설등을 통하여 공간을 확보하여야 합니다.
+
+    루트(/) 영역이 100%가 되면 프로세스들의 로깅등이 동작하지 못하게되여 장애가 발생할 수 있습니다.
+
+!!! tip
+    ``` du -h --max-depth=1 ``` 
+
+    명령어를 통하여 각 디렉토리별 사용량을 확인하고 데이터를 정리할 수 있습니다.
+
  
 ### Mold
 !!! info "Mold"
     Mold는 가상머신 관리 및 소프트웨어 정의 네트워크, 오케스트레이션 및 오토메이션을 제공하는 클라우드 플랫폼 입니다.
     해당 구성 요소를 점검하기 위해서는 Mold 가상머신의 상태와 Cloud 관리 플랫폼 및 PCS Clustering 상태가 정상인지 확인을 해야합니다.
+#### 클라우드센터 클러스터 상태 점검
+클라우드센터 클러스터는 Mold를 서비스 하기 위한 가상머신 및 호스트 장애 시 HA를 위한 구성입니다. Cube UI 및 터미널을 통하여 점검할 수 있습니다
+
+Cube 웹 UI에 접속하여 AblecStack 클러스터 상태를 확인합니다.
+!!! info
+    각 호스트별 Cube 웹 UI 접속 URL은 다음과 같습니다
+    https://[호스트IP]:9090
+
+![cube-ablestack-health](../assets/images/cube_ablestack_health.png)
+
+!!! result
+    클라우드센터 클러스터 상태가 'Health_ok'이고 클라우드 가상머신 상태가 'Running' 상태이면 정상입니다
 
 ### Wall
 !!! info "Wall"

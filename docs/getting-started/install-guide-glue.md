@@ -504,7 +504,7 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
         이 경우에는 해당 화면에서 **thisisunsafe** 입력 후 엔터키를 입력하면 해당 페이지에 접속 할 수 있습니다.
 
 2. Glue 대시보드 접속 및 비밀번호 변경
-    ![Glue 대시보드 로그인 화면](../assets/images/install-guide-glue-Glue-대시보드-로그인-화면.png){ align=center }
+    ![Glue 대시보드 로그인 화면](../assets/images/install-guide-glue-Glue-dashboard-login.png){ align=center }
     - Glue 대시보드 로그인 화면입니다.
     - **Username** 과 **Password** 를 입력하고 **Log in** 버튼을 클릭하여 로그인 합니다.
 
@@ -512,7 +512,7 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
         ABLESTACK Glue 대시보드 로그인 Username 은 **ablecloud**, 초기 Password 는 **password** 입니다.
         해당 계정 및 비밀번호로 최초 로그인을 하시면 비밀번호를 무조건 변경 하셔야 합니다.
 
-    ![Glue 대시보드 비밀번호 변경](../assets/images/install-guide-glue-Glue-대시보드-비밀번호-변경.png){ align=center }
+    ![Glue 대시보드 비밀번호 변경](../assets/images/install-guide-glue-Glue-dashboard-chgpw.png){ align=center }
     - 초기 비밀번호 변경하는 화면입니다.  
     - **Old password** 입력창에는 기존의 비밀번호를 입력하고 **New password** 와 **Confirm new password** 입력창에 신규 비밀번호를 입력하고 **Change Password** 버튼을 클릭합니다.
     
@@ -520,7 +520,7 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
         초기 비밀번호를 변경하시고 나면 바뀐 비밀번호로 다시 로그인 하셔야 합니다.
 
 3. 클러스터 구성 정보 확인
-    ![클러스터 구성 정보 확인1](../assets/images/install-guide-glue-클러스터-구성-정보-확인1.png){ align=center }
+    ![클러스터 구성 정보 확인1](../assets/images/install-guide-glue-cluster-configinfo-01.png){ align=center }
     - **Cluster > Hosts** 를 클릭하면 보여지는 클러스터 구성될 Host 정보를 확인하는 화면입니다.
     - Bootstrap 실행시 Hosts 파일의 정보를 자동으로 읽어와 호스트에 자동으로 추가가 됩니다.
     
@@ -528,7 +528,7 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
         Hostname 에 추가된 Host 정보를 확인하셔야 합니다. ABLESTACK Cube 가 설치된 모든 호스트가 정상적으로 추가 되여 있는지 확인하셔야 합니다.
         Services 항목은 이미지와 동일한 순서대로 입력이 안되여 있을 수도 있습니다.
 
-    ![클러스터 구성 정보 확인2](../assets/images/install-guide-glue-클러스터-구성-정보-확인2.png){ align=center }
+    ![클러스터 구성 정보 확인2](../assets/images/install-guide-glue-cluster-configinfo-02.png){ align=center }
     - **Cluster > Inventory** 를 클릭하면 보여지는 클러스터로 구성될 디스크를 확인하는 화면입니다.
 
     !!! check
@@ -536,29 +536,29 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
         또한 Available 항목이 모든 디스크에 체크가 되여 있는지 확인 하셔야 합니다.
    
 4. OSDs 추가
-    ![OSDs 추가 화면](../assets/images/install-guide-glue-OSDs-추가-화면.png){ align=center }
+    ![OSDs 추가 화면](../assets/images/install-guide-glue-OSDs-add.png){ align=center }
     - **Cluster > OSDs** 클릭하시면 보여지는 OSDs 추가하는 화면입니다.
     - **Create** 버튼을 클릭합니다.
 
-    ![OSDs 추가 화면 상세화면](../assets/images/install-guide-glue-OSDs-추가-상세화면.png){ align=center }
+    ![OSDs 추가 화면 상세화면](../assets/images/install-guide-glue-OSDs-add-detail.png){ align=center }
     - OSDs 추가하는 화면입니다. **Primary devices** 항목의 **Add* 버튼을 클릭합니다.  
 
-    ![OSDs 추가 OSDs 선택화면](../assets/images/install-guide-glue-OSDs-추가-OSDs-선택화면.png){ align=center }
+    ![OSDs 추가 OSDs 선택화면](../assets/images/install-guide-glue-OSDs-add-OSDs-select.png){ align=center }
     - OSDs 할 디스크를 선택하는 화면입니다. 오른쪽 상단의 Hostname 으로 되여있는 Filter 클릭하여 **Type** 으로 변경하고, Any 로 되여있는 Filter 를 클릭하여
     **ssd**를 선택합니다.
     - 추가된 OSD 의 수량 및 Size 를 확인하고 이상 없는경우 **Add** 버튼을 클릭합니다.
 
-    ![OSDs 추가 OSDs 프리뷰](../assets/images/install-guide-glue-OSDs-추가-OSDs-프리뷰.png){ align=center }
+    ![OSDs 추가 OSDs 프리뷰](../assets/images/install-guide-glue-OSDs-add-OSDs-preview.png){ align=center }
     - **Preview** 버튼을 클릭하여 OS creation preview 를 확인하고 **Create** 버튼을 클릭합니다.
 
-    ![OSDs 추가 확인](../assets/images/install-guide-glue-OSDs-추가-확인.png){ align=center }
+    ![OSDs 추가 확인](../assets/images/install-guide-glue-OSDs-add-confirm.png){ align=center }
     - 추가된 OSD 수량 및 **Status** 상태가 **`In up`** 상태를 확인해야 합니다.
     
 5. Pools 생성
-    ![Pools 생성 메인화면](../assets/images/install-guide-glue-Pools-생성-메인화면.png){ align=center }
+    ![Pools 생성 메인화면](../assets/images/install-guide-glue-Pools-create-main.png){ align=center }
     - **Pools** 메뉴를 클릭하면 보이는 화면 입니다. **Create** 버튼을 클릭하여 Pool 생성 화면으로 들어갑니다.
 
-    ![Pools 생성](../assets/images/install-guide-glue-Pools-생성.png){ align=center }
+    ![Pools 생성](../assets/images/install-guide-glue-Pools-create.png){ align=center }
     - **name** 항목에 **rbd** 입력, **Pool type** 선택 박스에서 **replicated** 를 선택, **PG Autoscale** 선택 박스에서 **on** 을 선택, 
     **Replicated size** 항목에 **2** 입력, **Applications** 항목에서 **편집** 버튼을 클릭하여 **rbd** 항목을 선택합니다.
 
@@ -567,14 +567,14 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
     - **name** 항목에는 **rbd**, **Root** 선택 박스는 **default** 를 선택하고, **Failure domain type** 선택 박스는 **host (3)** 을 선택하고, 
     **Device class** 선택 박스는 **ssd** 를 선택 하고 **Create Crush Rule** 버튼을 클릭합니다.
 
-    ![Pools 생성 완료](../assets/images/install-guide-glue-Pools-생성-완료.png){ align=center }
+    ![Pools 생성 완료](../assets/images/install-guide-glue-Pools-create-completed.png){ align=center }
     - **Create Pool** 버튼을 클릭하여 Pool 생성을 완료합니다.
 
-    ![Pools 생성 완료 리스트](../assets/images/install-guide-glue-Pools-생성-완료-리스트.png){ align=center }
+    ![Pools 생성 완료 리스트](../assets/images/install-guide-glue-Pools-create-completed-list.png){ align=center }
     - Pool 생성이 정상적으로 완료가 되었는지 확인합니다.
     
 6. ABLESTACK 확인
-    ![ABLESTACK 확인](../assets/images/install-guide-glue-ABLESTACK-확인.png){ align=center }
+    ![ABLESTACK 확인](../assets/images/install-guide-glue-ABLESTACK-check.png){ align=center }
     - ABLESTACK 메인화면에서 스토리지센터 클러스터 상태 카드에서 클러스터가 상태가 **Health OK** 인지 확인합니다.
     
 !!! info
