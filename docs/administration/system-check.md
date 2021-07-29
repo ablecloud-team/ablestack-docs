@@ -368,6 +368,9 @@ Cube 웹 UI에 접속하여 AblecStack 클러스터 상태를 확인합니다.
     Wall은 인프라 전체에 대한 모니터링, 알람 등을 위한 통합 모니터링 플랫폼 입니다.
     해당 구성 요소를 점검하기 위해서는 Wall 가상머신의 상태와 Process들이 정상인지 확인을 해야합니다.
 
+#### SSVM(Secondary Stroage VM) 에이전트 상태가 disconnect 일 경우 확인 방법
+대시보드의 secondary storage 용량이 0으로 표기되며 연결이 안되는 경우에는 Secondary Storage VM에 접속해서 로그를 확인 후 조치를 취해야 합니다.
+
 
 
 
