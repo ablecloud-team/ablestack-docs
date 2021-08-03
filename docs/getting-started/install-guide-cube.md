@@ -7,7 +7,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
 !!! info
     - 해당 문서는 사용자의 네트워크 환경 및 설정 정보를 고려하지 않고 작성된 문서 입니다. 이 문서를 기준으로 활용을 하셔야 하며 수정 및 변경 할 부분은 **강조** 표시를 해두었습니다.
-    - ABLESTACK Cube 설치시 ABLESTACK Cell이 동시에 설치가 진행되며, ABLESTACK Cell의 설치가이드는 따로 제공 되고 있지 않습니다.. 
+    - ABLESTACK Cube 설치시 ABLESTACK Cell이 동시에 설치가 진행되며, ABLESTACK Cell의 설치가이드는 따로 제공 되고 있지 않습니다. 
 
 !!! 사전준비내용 info
     - ABLESTACK 설치용 ISO 또는 ABLESTACK 설치용 USB  
@@ -142,8 +142,15 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     
     - 설치시간은 설치 환경에 따라 다소 상이할 수 있습니다.
     - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되여 있는 ABLESTACK ISO 또는 USB를 제거 한 후에 ABLESTACK Cube설치를 마무리 합니다.
+
+    ![ABLESTACK Cube 설치완료](../assets/images/install-guide-cube-13-2.png){ align=center }
+    - 설치가 정상적으로 완료되고 재부팅이 되면 ABLESTACK 콘솔 로그인 화면이 보이게 되며 이 후 과정은 웹을 통하여 진행됩니다.
   
 ## ABLESTACK Cube Network 셋팅
+
+!!! info
+    이 문서는 설치와 관련된 정보만 작성되여 있습니다. 
+    Cube의 다른 메뉴의 정보는 "관리가이드 > Cube 가이드" 를 참조하시기 바랍니다.
 
 1. ABLESTACK Cube 로그인
     ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.png){ align=center }
@@ -155,42 +162,58 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     ![ABLESTACK Cube 메인 화면](../assets/images/install-guide-cube-15.png){ align=center }
     - ABLESTACK Cube 로그인 후 화면입니다.
     
-    !!! info
-        이 문서는 설치와 관련된 정보만 작성되여 있습니다. 다른 메뉴의 정보는 다른 문서를 참조하시기 바랍니다.
+    
 
 3. ABLESTACK Cube 네트워킹 구성
     ![ABLESTACK Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ align=center }
     - ABLESTACK Cube 네트워킹 구성 화면입니다. 해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
     
+    !!! note 
+        인터페이스 목록 및 IP주소 등은 물리적 네트워크의 구성과 하드웨어 벤더사 및 초기 설정한 IP주소에 따라 다르게 표기될 수 있습니다.
+    
     !!! info
-        해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다. 이 문서를 바탕으로 설치 사이트에 맞게 구성을 변경 및 IP 주소를 입력 하셔야 합니다.
+        해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다. 
+        이 문서를 바탕으로 설치 사이트에 맞게 구성을 변경 및 IP 주소를 입력 하셔야 합니다.
+        
         그리고 본드(bond) 구성이 필요한 경우 본드(bond)구성 완료 후 진행하셔야 합니다.
+        현재 과정에서는 Management Network에 대한 본드 구성 혹은 Storage Network 구성이 Bridge일 경우에만 본드 구성을 진행하며
+        Storage Network가 NIC pass-through 일 경우에는 SCVM 구성완료 후 해당 가상머신에서 본드 구성을 진행합니다.
+
+        **본 설치 가이드는 Storage Network가 NIC pass-through 이며, 본드구성 없이 단일 NIC로 구성된 형태 입니다.**
    
     1. Management Network 브릿지 설정
         ![Management Network 브릿지 설정](../assets/images/install-guide-cube-17.png){ align=center }
-        - 네트워킹 화면에서 브릿지 추가 버튼을 클릭하면 보이는 화면이며, 브릿지를 설정하는 화면입니다.
-        - 브릿지 이름을 **bridge0** 을 입력해주고, 포트는 **enp179s0f0** 를 선택하고 **적용** 버튼을 클릭합니다.
+        - 화면 중간 버튼그룹 중 **브릿지 추가** 버튼을 클릭하면 보이는 화면이며, 브릿지를 설정하는 팝업 화면입니다.
+        - 브릿지 이름을 **bridge0** 을 입력해주고, 포트는 **Management NIC(Cube OS 설치 시 Management IP를 설정했던 포트(인터페이스))** 를 선택하고 **적용** 버튼을 클릭합니다.
         
         !!! info
+            해당 과정은 물리적인 Management Network를 SystemVM 및 다른 가상머신에서 사용할 수 있게 브릿지를 하는 과정입니다.
+            
             브릿지의 IP 설정은 ABLESTACK Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
     
     2. Public Storage Network 설정
         ![Public Storage Network 설정](../assets/images/install-guide-cube-18.png){ align=center }
-        - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **enp179s0f1** NIC를 클릭하여 들어온 화면입니다.
+        - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **Public Storage NIC** 를 클릭하여 들어온 화면입니다.
     
         <br/>
    
         1. Public Storage Network IP 설정
             ![Public Storage Network IP 설정](../assets/images/install-guide-cube-19.png){ align=center }
-            - 네트워킹 > enp179s0f1 화면에서 IPv4 행의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
+            - IPv4 항목의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
             - 주소 입력 창의 오른쪽에 있는 **자동(DHCP)** 선택 박스를 눌러 **수동** 으로 변경을 합니다.
             - **Adress** 입력창에 **100.100.10.1** 을 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
-        
+            !!! note
+                Storage Network에서 사용하는 IP는 내부적으로만 통신하기 위한 IP입니다.
+                
+                일반적으로 ABLESTACK에서는 100.100.OOO(Management와 동일한 C클래스를 사용).OOO(호스트와 동일한 Host ID 사용)로 구성됩니다.
+                만약 스위치를 혼용해서 사용하고 해당 IP 대역이 기존 내부 네트워크와 겹쳐서 충돌이 발생될 수 있을 경우에는 사용하지 않는 대역으로 변경해야 합니다.
+
+
         2. Public Storage Network MTU 설정
             ![Public Storage Network MTU 설정](../assets/images/install-guide-cube-20.png){ align=center }
-            - **네트워킹 > enp179s0f1** 화면에서 MTU 행의 **편집** 버튼을 눌러 들어온 MTU 설정 화면입니다.
+            - MTU 항목의 **편집** 버튼을 눌러 들어온 MTU 설정 화면입니다.
             - 라디오 버튼을 **설정** 으로 선택하고 입력값을 **9000** 으로 입력 후에 **적용** 버튼을 클릭합니다.
-        
+
         3. Public Storage 자동연결 및 활성화 설정
             ![Public Storage 자동연결 및 활성화 설정](../assets/images/install-guide-cube-21.png){ align=center }
             - **자동으로 연결** 체크박스 체크 및 NIC 활성화 라디오 버튼 활성화
