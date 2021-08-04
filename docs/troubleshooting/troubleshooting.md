@@ -53,4 +53,7 @@ sed -i 's$resource=com.cloud.storage.resource.PremiumSecondaryStorageResource$re
  systemctl restart cloud
 ```
 
+### 디스크 장애(불량)으로 교체하는 방법
 
+[에러 확인 방법]
+SCVM에 접속하여 다음의 명령어

@@ -10,13 +10,15 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 ## ABLESTACK 메인 화면  
 ![ABLESTACK 메인 화면](../assets/images/install-guide-glue-01.png){ align=center }
 - 왼쪽 ABLESTACK 메뉴 클릭시 보이는 화면입니다.
-    
-## 클러스터 구성 준비(1번 호스트)
 
 !!! note
     ABLESTACK 클러스터는 최소 3식이상의 호스트로 구성되어야 합니다.
     
     이 문서에서는 3식의 호스트를 기준으로 가이드가 되어있으며 만약 4식이상의 호스트로 구성된다면 호스트 구성 작업을 반복하면 됩니다.
+
+
+## 클러스터 구성 준비(1번 호스트)
+
 
 1. 개요
     ![클러스터 구성 준비 개요](../assets/images/install-guide-glue-02.png){ align=center }
