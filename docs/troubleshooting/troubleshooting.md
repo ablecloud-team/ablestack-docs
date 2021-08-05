@@ -55,5 +55,55 @@ sed -i 's$resource=com.cloud.storage.resource.PremiumSecondaryStorageResource$re
 
 ### 디스크 장애(불량)으로 교체하는 방법
 
-[에러 확인 방법]
-SCVM에 접속하여 다음의 명령어
+SCVM에 접속하여 다음의 절차를 진행하여 교체
+
+1. 장애가 발생한 OSD out
+    ``` shell
+    cehp osd out osd.{osd_id}
+    ```
+2. 해당 OSD 서비스를 정지
+    ``` shell
+    systemctl stop ceph-osd@{osd_id}
+    ```
+3. 해당 OSD를 포멧
+    ``` shell
+    ceph-volume lvm zap /dev/{device_id} --destroy
+    ```
+    
+    !!! info
+        해당 OSD가 어떤 디바이스인지 알기 위해서는 "ceph-volume lvm list"를 통하여 osd.id의 devices 정보를 확인
+(osd 정보가 남아있을 경우 다음 4,5 절차 진행)       
+
+4. 장애가 발생한 OSD를 제거
+    ``` shell
+    ceph osd rm osd.{osd_id}
+    ```
+5. 제거한 OSD를 Crushmap에서 제거   
+    ``` shell
+    ceph osd crush rm osd.{osd_id}
+    ```
+!!! note
+    디스크를 추가 시에는 해당 초기 구성방법에 따라 Raid에 인식이 되어야 하며 OS 상에서도 인식이 되어야 합니다
+    경우에 따라서는 호스트 혹은 scvm의 재기동이 필요합니다.
+    
+6. 추가된 디스크를 OSD로 배포
+    ``` shell
+    ceph-deploy osd create –data /dev/{device_id} --bluestore {scvm이름}
+    ```
+
+    !!! info
+        6번의 절차는 ceph 계정으로 실행하여야 합니다. "su - ceph "
+
+7. 배포된 OSD를 풀에 추가
+    ``` shell
+    ceph osd crush move osd.{osd_id} host={host명}
+    ```
+
+    !!! info
+        host명은 "ceph osd tree" 의 결과에서 host 항목의 이름입니다
+
+8. OSD에 가중치 할당(구 버전에서만 적용)
+    ``` shell
+    ceph osd crush reweight-subtree {pool-name} 1
+    ```
+9. 자동으로 밸런싱이 실행되며 완료 됩니다
