@@ -2,10 +2,14 @@
 
 ### 2차스토리지 연결이 안되는 현상
 
+[<span style="color:#ff9900;">문제유형</span>]
+
+<span style="color:gray;font-weight:bold">
+초기 구성 혹은 운영 중 Secondary Storage VM Agent 상태가 "disconnect" 혹은 "Alert" 상태가 되어 2차 스토리지와 관련된 작업에 에러가 있거나 2차 스토리지 용량 표기가 안되는 현상
+</span>
+
 ![Mold 대시보드 2차스토리지 오류](../assets/images/mold_secondarystorage_error.png){ align=center }
 
-[에러 확인 방법]
- 
  ssvm에 접속해서
  
  (접속하는 방법은 웹에서 웹콘솔로 접속하거나 ssvm 이 있는 호스트에 접속해서 virsh console s-oo-oo 로 접속) 
@@ -16,7 +20,7 @@ tail -f /var/log/cloud.log 를 확인하여 다음과 같은 에러메시지가 
 !!! error
     Unable to start agent: Resource class not found: com.cloud.storage.resource.PremiumSecondaryStorageResource due to: java.lang.ClassNotFoundException: com.cloud.storage.resource.PremiumSecondaryStorageResource 
 
-[조치방법]
+[<span style="color:#ff9900;">조치방법</span>]
 
 /var/cache/cloud/cmdline  파일을 vi 편집기로 연 후에
 
@@ -54,6 +58,14 @@ sed -i 's$resource=com.cloud.storage.resource.PremiumSecondaryStorageResource$re
 ```
 
 ### 디스크 장애(불량)으로 교체하는 방법
+
+[<span style="color:#ff9900;">문제유형</sapn>]
+
+<span style="color:gray;font-weight:bold">
+디스크의 하드웨어 장애 혹은 논리적인 장애로 인하여 OSD가 정상적이지 않아 해당 OSD가 down 혹은 out 되고, 재시작이 안되는 현상
+</span>
+
+[<span style="color:#ff9900;">조치방법</span>]
 
 SCVM에 접속하여 다음의 절차를 진행하여 교체
 
@@ -108,3 +120,40 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
     ceph osd crush reweight-subtree {pool-name} 1
     ```
 9. 자동으로 밸런싱이 실행되며 완료 됩니다
+
+### 기본스토리지 추가 시 RBD RADOS 시크릿 키 에러 발생 시
+
+[<span style="color:#ff9900;">문제유형</span>]
+
+<span style="color:gray;font-weight:bold">
+기본스토리지 RBD 프로토콜 형태로 추가 시 RADOS 시크릿 오류로 추가가 되지 않는 현상
+</span>
+
+[<span style="color:#ff9900;">조치방법</span>]
+
+RADOS 시크릿 키에 특수기호(/)가 포함될 경우 오류가 발생하며 이와 같은 경우에는 RADOS 시크릿 키를 새로 생성하여 입력하여야 합니다.
+
+정상적인 시크릿 키 형식(예) : AQAi2gBhhph/HBAAf5MgATyuQPI6KaiBooyXzw== </br>
+오류가 발생하는 시크릿 키 형식(예) : AQAY2gBhk7i<span style="color:red">/</span>OhAAoEUC5<span style="color:red">/</span>A9It2P2jQsJcJbMg==
+
+시크릿 키를 새로 생성하는 방법은 다음과 같습니다.
+!!! note
+    기존에 생성되어 있는 admin 사용자는 수정 및 삭제가 불가능합니다.</br>
+    새로운 사용자명으로 시크릿 키를 생성하고 만약 새로 생성된 시크릿 키에서도 특수기호(/)가 포함되어 있다면 해당 사용자명을 삭제 후 다시 생성하시면 됩니다
+
+1. glue 관리 콘솔(scvm에 ssh로) 접속 합니다
+2. 다음의 명령어롤 통하여 시크릿키 생성합니다.
+``` shell
+ceph auth get-or-create client.사용자명 mon 'allow *' osd 'allow *' mds 'allow *' mgr 'allow *'
+```
+3. 생성된 키를 확인 합니다.
+``` shell
+[client.ablecube]
+	key = AQDkcBNhsEsFKBAAyuchQ6S+wfXaYk0S1M98vw==
+```
+4. 만일 생성된 키에 특수 문자(/)가 포함이 되어 있으면 다음의 명령어를 통하여 사용자를 삭제한 후 다시 생성합니다.
+``` shell
+ceph auth del client.사용자명
+```
+5. 생성된 시크릿 키를 복사하여 기본 스토리지 추가 시 사용합니다.
+6. 기본 스토리지 추가 시 **RADOS 사용자** 항목에는 새로 생성한 사용자를 입력합니다.
