@@ -10,11 +10,15 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 ## ABLESTACK 메인 화면  
 ![ABLESTACK 메인 화면](../assets/images/install-guide-glue-01.png){ align=center }
 - 왼쪽 ABLESTACK 메뉴 클릭시 보이는 화면입니다.
+
+!!! note
+    ABLESTACK 클러스터는 최소 3식이상의 호스트로 구성되어야 합니다.
     
+    이 문서에서는 3식의 호스트를 기준으로 가이드가 되어있으며 만약 4식이상의 호스트로 구성된다면 호스트 구성 작업을 반복하면 됩니다.
+
+
 ## 클러스터 구성 준비(1번 호스트)
 
-!!! info
-    1번 호스트 구성 방법 입니다. 
 
 1. 개요
     ![클러스터 구성 준비 개요](../assets/images/install-guide-glue-02.png){ align=center }
@@ -33,9 +37,14 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - **Host 프로파일** 에서 내용을 수정 한 후에 **다음** 버튼을 클릭합니다.  
     
     !!! info
-        호스트 프로파일 작성 시 IP 및 Host Name, Alias 구분은 **탭(TAB)** 을 사용해야 합니다.
+        호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수만큼의 예제 항목이 생성됩니다.<br/>
+        해당 파일의 IP와 호스트 명을 수정하시면 됩니다.<br/>
+        호스트 프로파일 작성 시 IP 및 Host Name, Alias 구분은 **탭(TAB)** 을 사용해야 하며,</br> 
+        IP 및 Host Name은 설치 환경에 맞게 변경하시면 됩니다.(다만 Host명은 해당 예제의 Host명 규칙을 권장합니다)</br>
+        현재 구성중인 호스트 및 스토리지 VM에 Alias에는 **ablecube**, **scvm-mngt**, **scvm**, **scvm-cn** 을 뒤에 꼭 입력하셔야 합니다.
+
    
-    !!! example
+    !!! example 
         - 호스트 프로파일 예제  
         10.10.10.10 ccvm-mngt   ccvm  
         10.10.10.1  ablecube4   ablecube  
@@ -50,15 +59,23 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         100.200.10.11    scvm4-cn    scvm-cn  
         100.200.10.12    scvm5-cn  
         100.200.10.13    scvm6-cn  
-
-    !!! important
-        호스트 프로파일 작성 시 구성중인 호스트 및 스토리지 VM의 IP 에는 **ablecube**, **scvm**, **scvm**, **scvm-cn** 을 뒤에 꼭 입력하셔야 합니다.  
    
-4. 시간서버
+4. 시간서버 
+    
+    !!! info
+        ABLESTACK에서 시간서버는 매우 중요한 역활을 합니다. </br>
+        시간동기화가 맞지 않으면 스토리지 데이터들의 무결성 확보에 치명적일 수 있습니다.</br>
+        따라서 시간서버는 반드시 구성해야하며 시간서버 구성에는 두가지 방식이 있습니다.</br>
+        인터넷등 외부 통신이 가능한 환경이어서 외부 공인된 시간서버(NTP)에 접속이 가능하거나 내부에 별도의 시간서버(NTP)가 존재하는 경우에는 "외부시간서버"를 선택하여 진행하고,</br>
+        폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 ABLESTACK에서 자체적으로 시간서버를 구성합니다. 이때에는 "로컬 시간서버"를 선택하여 진행하면 됩니다.
+
+        이 문서는 "로컬 시간서버"로 구성하는 방식에 대하여 설명되어 있습니다.
+
     ![Host 파일](../assets/images/install-guide-glue-05.png){ align=center }
+    
     - 시간 서버 구성하는 화면 입니다.
     - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Host1** 을 선택합니다.
-    - **시간서버 1** 에는 **100.100.10.1**, **시간서버 2** 에는 **100.100.10.2** **시간서버 3** 에는 **100.100.10.3** 을 
+    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** **시간서버 3** 에는 **3번 호스트의 Public Storage IP** 을 
       입력하고 **다음** 버튼을 클릭합니다.
       
 5. 설정확인
@@ -92,6 +109,15 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         ROOT Disk의 크기는 **70GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
 
 3. 가상머신 장치구성 - 디스크
+    
+    !!! info
+        스토리지 센터 가상머신의 디스크로 스토리지 클러스터를 구성하게 됩니다.</br>
+        구성 방법에 따라 Raid-Passthrough와 LUN-Passthrough를 선택하게 됩니다.</br>
+        Raid-Passthrough는 Raid 카드를 스토리지 센터 가성머신에 할당할 경우이며, 해당 항목을 선택하면 Raid 카드 목록이 출력됩니다.</br>
+        LUN-Passthrough는 기 구성된 LUN을 스토리지 센터 가상머신에 할당하는 경우이며, 해당 항목을 선택하면 LUN 목록이 출력됩니다.
+
+        이 문서는 "LUN Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
+
     ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-10.png){ align=center }
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **공유스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
@@ -101,21 +127,27 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 ABLESTACK Cube 가 삭제가 될 수 있습니다.
 
 4. 가상머신 장치구성 - 네트워크
+    
+    !!! info
+        스토리지 센터 가상머신의 관리 및 스토리지 전용 네트워크를 구성하게 됩니다.</br>
+        구성 방법에 따라 NIC-Passthrough, NIC-Passthrough-Bonding, Bridge-Network를 선택하게 됩니다.</br>
+        NIC-Passthrough 및 NIC-Passthrough-Bonding 일 경우에는 물리적인 NIC 디바이스 목록이 출력됩니다.</br>
+        서버용 NIC, 복제용 NIC를 선택하시면 됩니다.</br>
+        NIC-Passthrough-Bonding 경우에는 NIC 별로 2개씩 디바이스 목록을 선택하게 됩니다. 실제로 본딩 구성이 되는것은 아니며 스토리지센터 가상머신 배포 후에 해당 관리화면(Cube)에서 본딩 구성을 완료하셔야 합니다.</br>
+        Bridge-Network는 Cube 구성 시 생성했던 Bridge 목록이 출력됩니다.
+
+        이 문서는 "NIC-Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
+
     ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-11.png){ align=center }
     - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **bridge0** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **enp23s0f0 ethernet** 를 **복제용 NIC** 
-    선택 박스에서는 **enp23s0f1 ethernet** 을 선택하고 **다음** 버튼을 클릭합니다.
+    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
+    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-glue-12.png){ align=center }
     - **정보 입력 소스** 에서 **Hosts 파일 사용** 선택을 하고 **파일 선택** 버튼을 클릭하여 클러스터 구성 준비에서 다운로드한 **hosts** 파일을 업로드 합니다.
-    - **호스트명** 에는 **scvm4**, **관리 NIC IP** 에는 **10.10.10.11/16**, **관리 NIC Gateway** 에는 **10.10.0.1**, **스토리지 서버 NIC IP** 에는 **100.100.10.11/24**,
-    **스토리지 복제 NIC IP** 에는 **100.200.10.11/24** 입력하고 **다음** 버튼을 클릭합니다.
-      
-    !!! info
-        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
-
+    
     !!! example
         - 호스트 프로파일 예제  
         10.10.10.10 ccvm-mngt   ccvm  
@@ -131,6 +163,24 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         100.200.10.11    scvm4-cn    scvm-cn  
         100.200.10.12    scvm5-cn  
         100.200.10.13    scvm6-cn
+
+    - 호스트 프로파일을 업로드 하면 상기와 같은 호스트 프로파일 내용이 표시되며, 해당 파일에서 alias 부분을 현재 호스트에 맞게 변경해 주시면 됩니다
+
+    - **호스트명** 에는 **scvm의 호스트명**, **관리 NIC IP** 에는 **SCVM 관리 IP**, **관리 NIC Gateway** 에는 **관리 네트워크 GW**, **스토리지 서버 NIC IP** 에는 **SCVM 서버 NIC IP/24**,
+    **스토리지 복제 NIC IP** 에는 **SCVM 복제 NIC IP/24** 입력하고 **다음** 버튼을 클릭합니다.
+      
+    !!! info
+        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
+        
+    !!! tip
+        사전에 작성되었던 호스트 프로파일에서 매칭되는 IP는 다음과 같습니다 </br>
+        <각 호스트 프로파일 alias 기준> </br>
+        관리 NIC IP : scvm-mngt </br>
+        스토리지 서버 NIC IP : scvm </br>
+        스토리지 복제 NIC IP : scvm-cn </br>
+        
+
+    
 
 6. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-glue-13.png){ align=center }
@@ -150,22 +200,18 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     ![배포](../assets/images/install-guide-glue-15.png){ align=center }
     - 스토리지센터 가상머시 배포 진행상황을 확인 할 수 있는 화면입니다.
     
-9. 완료
+9.  완료
     ![완료](../assets/images/install-guide-glue-16.png){ align=center }
     - 스토리지센터 가상머시 배포 완료 후 화면 입니다.
-    - https://<스토리지센터 IP>:8443 에 접속 하여 스토리지 클러스터 구성을 진행하시면 됩니다.
     
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-glue-17.png){ align=center }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
 
-!!! info
-    해당 http://<스토리지센터 IP>:8443 으로 접속하기 전에 2번 호스트, 3번 호스트 구성을 마무리 후에 접속을 하셔야 합니다.
-
 ## 클러스터 구성 준비(2번  호스트)
 
 !!! info
-    2번 호스트 구성 방법 입니다.
+    2번 호스트 구성 방법 입니다. (기본적인 절차는 1번 호스트와 동일합니다)
 
 1. 개요
    ![클러스터 구성 준비 개요](../assets/images/install-guide-glue-18.png){ align=center }
@@ -214,7 +260,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
    ![Host 파일](../assets/images/install-guide-glue-21.png){ align=center }
     - 시간 서버 구성하는 화면 입니다.
     - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Host2** 을 선택합니다.
-    - **시간서버 1** 에는 **100.100.10.1**, **시간서버 2** 에는 **100.100.10.2** **시간서버 3** 에는 **100.100.10.3** 을
+    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** **시간서버 3** 에는 **3번 호스트의 Public Storage IP** 을 
       입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
@@ -259,15 +305,15 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 4. 가상머신 장치구성 - 네트워크
    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-27.png){ align=center }
     - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **bridge0** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **enp23s0f0 ethernet** 를 **복제용 NIC**
-      선택 박스에서는 **enp23s0f1 ethernet** 을 선택하고 **다음** 버튼을 클릭합니다.
+    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
+    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
    ![추가 네트워크 정보](../assets/images/install-guide-glue-28.png){ align=center }
+    
     - **정보 입력 소스** 에서 **Hosts 파일 사용** 선택을 하고 **파일 선택** 버튼을 클릭하여 클러스터 구성 준비에서 다운로드한 **hosts** 파일을 업로드 합니다.
-    - **호스트명** 에는 **scvm5**, **관리 NIC IP** 에는 **10.10.10.12/16**, **관리 NIC Gateway** 에는 **10.10.0.1**, **스토리지 서버 NIC IP** 에는 **100.100.10.12/24**,
-      **스토리지 복제 NIC IP** 에는 **100.200.10.12/24** 입력하고 **다음** 버튼을 클릭합니다.
+    - **호스트명** 에는 **scvm의 호스트명**, **관리 NIC IP** 에는 **SCVM 관리 IP**, **관리 NIC Gateway** 에는 **관리 네트워크 GW**, **스토리지 서버 NIC IP** 에는 **SCVM 서버 NIC IP/24**, **스토리지 복제 NIC IP** 에는 **SCVM 복제 NIC IP/24** 입력하고 **다음** 버튼을 클릭합니다.
 
     !!! info
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
@@ -309,17 +355,10 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 9. 완료
     ![완료](../assets/images/install-guide-glue-32.png){ align=center }
     - 스토리지센터 가상머시 배포 완료 후 화면 입니다.
-    - https://<스토리지센터 IP>:8443 에 접속 하여 스토리지 클러스터 구성을 진행하시면 됩니다.
-
-    !!! info
-        해당 http://<스토리지센터 IP>:8443 으로 접속하기 전에 3번 호스트 구성을 마무리 후에 접속을 하셔야 합니다.
 
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-glue-33.png){ align=center }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
-
-    !!! info
-        해당 http://<스토리지센터 IP>:8443 으로 접속하기 전에 3번 호스트 구성을 마무리 후에 접속을 하셔야 합니다.
 
 
 
@@ -375,7 +414,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     ![Host 파일](../assets/images/install-guide-glue-37.png){ align=center }
     - 시간 서버 구성하는 화면 입니다.
     - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Host3** 을 선택합니다.
-    - **시간서버 1** 에는 **100.100.10.1**, **시간서버 2** 에는 **100.100.10.2** **시간서버 3** 에는 **100.100.10.3** 을
+    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** **시간서버 3** 에는 **3번 호스트의 Public Storage IP** 을 
       입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
@@ -420,15 +459,15 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 4. 가상머신 장치구성 - 네트워크
     ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-43.png){ align=center }
     - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **bridge0** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **enp23s0f0 ethernet** 를 **복제용 NIC**
-      선택 박스에서는 **enp23s0f1 ethernet** 을 선택하고 **다음** 버튼을 클릭합니다.
+    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
+    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
 
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-glue-44.png){ align=center }
     - **정보 입력 소스** 에서 **Hosts 파일 사용** 선택을 하고 **파일 선택** 버튼을 클릭하여 클러스터 구성 준비에서 다운로드한 **hosts** 파일을 업로드 합니다.
-    - **호스트명** 에는 **scvm6**, **관리 NIC IP** 에는 **10.10.10.12/16**, **관리 NIC Gateway** 에는 **10.10.0.1**, **스토리지 서버 NIC IP** 에는 **100.100.10.12/24**,
-      **스토리지 복제 NIC IP** 에는 **100.200.10.12/24** 입력하고 **다음** 버튼을 클릭합니다.
+    - **호스트명** 에는 **scvm의 호스트명**, **관리 NIC IP** 에는 **SCVM 관리 IP**, **관리 NIC Gateway** 에는 **관리 네트워크 GW**, **스토리지 서버 NIC IP** 에는 **SCVM 서버 NIC IP/24**, **스토리지 복제 NIC IP** 에는 **SCVM 복제 NIC IP/24** 입력하고 **다음** 버튼을 클릭합니다.
 
     !!! info
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
@@ -477,6 +516,12 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 !!! info
     1번, 2번, 3번 호스트의 스토리지 센터 가상머신 생성이 마무리 되였습니다. ABLESTACK Glue 대쉬보드 사용을 위한 절차를 진행 후 Glue 대시보를 이용하여 스토리지 센터 클러스터를 구성하시면 됩니다.
+
+!!! check
+    모든 스토리지센터 가상머신이 배포가 된 후에는 각 호스트 및 스토리지센터 가상머신간의 네트워크 통신이 정상적으로 되는지 확인이 반드시 필요합니다.</br>
+    관리 네트워크 및 스토리지 네트워크간의 PING 체크를 통하여 정상적으로 통신이 되는지 확인 후 다음 단계를 진행하여야 하며, 통신이 정상적이지 않을 경우에는 네트워크 구간을 체크하여야 합니다.</br>
+    특히 스토리지 네트워크(스토리지 서버 네트워크, 스토리지 복제 네트워크)간에는 일반 PING 과 점보프레임 PING 체크를 해야 합니다.</br>
+    점보프레임 PING 체크는 "ping -M do -s 8972 [IP주소]" 를 통하여 수행 합니다
 
 ## 스토리지센터 클러스터 구성
 스토리지센터 클러스터 구성은 ABLESTACK Glue 대시보드를 이용하여 구성을 할 수 있습니다. 

@@ -15,7 +15,7 @@ ABLESTACK을 설치하고 구성하기 위해서는 다음과 같은 구성 요�
 - 스위치의 MTU 설정은 최소 9000이상으로 셋팅 되어 있어야 합니다.
 
 !!! Warning
-    호스트와 스위치 연결한 Port의 램프가 정상적으로 점멸되는지 확인을 해야하며, 호스트에 ABLESTACK을 구성하기 전에 스위치의 Glue Network(Cluster, Server, Client) Port는 MTU 9000이상 설정이 되여 있어야 합니다. 
+    호스트와 스위치 연결한 Port의 램프가 정상적으로 점멸되는지 확인을 해야하며, 호스트에 ABLESTACK을 구성하기 전에 스위치의 Glue Network(Cluster, Server, Client) Port는 MTU 9000이상 설정이 되여 있어야 합니다.</br> 
     셋팅이나 설정이 안되여 있는경우 스토리지 클러스터 구성시 정상적으로 구성되지 않을수도 있습니다. 
 
 !!! Tip
