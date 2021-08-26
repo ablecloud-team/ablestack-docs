@@ -19,6 +19,8 @@ copyright: Copyright &copy; 2021 ABLECLOUD Co. Ltd.
 theme:
   name: material
 
+  language: kr
+
   static_templates:
     - 404.html
 
