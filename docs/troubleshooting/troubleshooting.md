@@ -94,20 +94,31 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
     ``` shell
     ceph osd crush rm osd.{osd_id}
     ```
+6. 제거한 OSD를 Auth에서 제거
+   ``` shell
+   ceph auth rm osd.{osd_id}
+   ```
 
     !!! note
         디스크를 추가 시에는 해당 초기 구성방법에 따라 Raid에 인식이 되어야 하며 OS 상에서도 인식이 되어야 합니다
         경우에 따라서는 호스트 혹은 scvm의 재기동이 필요합니다.      
     
-6. 추가된 디스크를 OSD로 배포
-    ``` shell
-    ceph-deploy osd create –data /dev/{device_id} --bluestore {scvm이름}
-    ```
-
+7. 추가된 디스크를 OSD로 배포
+    
     !!! info
-        6번의 절차는 ceph 계정으로 실행하여야 합니다. "su - ceph "
+        7번의 절차는 ceph 계정으로 실행하여야 합니다. "su - ceph "
 
-7. 배포된 OSD를 풀에 추가
+    ``` shell
+    ceph-deploy osd create –-data /dev/{device_id} --bluestore {scvm이름}
+    ```
+    해당 작업 중에 다음과 같은 에러가 발생하는 경우에는
+    !!! error
+        [ceph_deploy.osd][DEBUG ] Deploying osd to scvm3 </br>
+        [ceph_deploy.osd][ERROR ] RuntimeError: config file /etc/ceph/ceph.conf exists with different content; use --overwrite-conf to overwrite </br>
+        [ceph_deploy][ERROR ] GenericError: Failed to create 1 OSDs
+    "/etc/ceph/ceph.conf" 파일을 ceph 계정 홈 디렉토리(현재작업중인 디렉토리)로 복사(이미 있는경우 덮어쓰기)한 후에 다시 실행 합니다.    
+
+8. 배포된 OSD를 풀에 추가
     ``` shell
     ceph osd crush move osd.{osd_id} host={host명}
     ```
@@ -115,11 +126,11 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
     !!! info
         host명은 "ceph osd tree" 의 결과에서 host 항목의 이름입니다
 
-8. OSD에 가중치 할당(구 버전에서만 적용)
+9.  OSD에 가중치 할당(구 버전에서만 적용)
     ``` shell
     ceph osd crush reweight-subtree {pool-name} 1
     ```
-9. 자동으로 밸런싱이 실행되며 완료 됩니다
+10. 자동으로 밸런싱이 실행되며 완료 됩니다
 
 ### 기본스토리지 추가 시 RBD RADOS 시크릿 키 에러 발생 시
 

@@ -7,4 +7,4 @@ ABLESTACK은 상용(Off-the-Shelf) x86 서버를
 
 이제 단 1시간 이내에 사용자 사이트에 HCI 인프라를 구성하고 클라우드 서비스를 바로 시작하십시오.
 
-[아키텍처 살펴보기](architecture/architecture-overview.html){ .md-button } [ABLESTACK 시작하기](getting-started/getting-started-overview.html){ .md-button .md-button--primary }
+[아키텍처 살펴보기](architecture/architecture-overview.md){ .md-button } [ABLESTACK 시작하기](getting-started/getting-started-overview.md){ .md-button .md-button--primary }
