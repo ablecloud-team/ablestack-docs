@@ -22,6 +22,23 @@ Cell은 전체 디스크 중 호스트의 OS 영역으로 할당되어 있는 �
 
 ### 하이퍼바이저 아키텍처
 
+Cell은 CentOS KVM을 기반으로 ABLESTACK 운영에 최적화된 기능을 추가한 내장된 하이퍼바이저입니다. Cell 하이퍼바이저는 다음과 같은 주요 컴포넌트로 구성됩니다. 
+
+* KVM Kernel Module : CentOS Linux Kernel을 베어메탈 하이퍼바이저로 전환하기 위한 커널 모듈
+* libvirtd : KVM 및 QEMU 관리를 위한 API, 데몬 및 관리 도구. Cube/Mold와 KVM/QEMU 간의 통신은 libvirtd를 통해 이루어짐
+* qemu-kvm : 가상머신 실행을 위해 유저 스페이스에서 실행되는 하드웨어 에뮬레이터 및 가상화 프로세스이며, 하드웨어 지원 가상화 등에 사용됨
+
+다음의 그림은 Cell 하이퍼바이저의 아키텍처를 묘사합니다. 
+
+<center>
+![cube-hypervisor-architecture](../assets/images/cube-hypervisor-architecture.png)
+</center>
+
+!!! info "CPU 세대 호환성"
+    호스트의 CPU가 서로 모델이 다르고 세대가 다른 경우, 각 호스트에서 실행 중인 가상머신이 다른 호스트로 마이그레이션 되는 것이 불가능할 수 있는데, 이러한 문제를 해결하고 가상머신의 마이그레이션 및 호환성을 보장하는 기술이 Cell에 적용되어 있습니다. 
+
+    Cell은 CPU 세대 호환성을 적용할 것인지를 사용자가 선택할 수 있으며, 호환성을 적용하는 경우 클러스터 내에서 가장 세대가 낮은 프로세서를 이용해 가상머신의 CPU를 QEMU로 에뮬레이트하여 각 가상머신의 프로세서 호환성을 보장합니다.  
+
 ### 구성 최대 제한
 
 ### 네트워크
