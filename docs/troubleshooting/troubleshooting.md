@@ -168,3 +168,28 @@ ceph auth del client.사용자명
 ```
 5. 생성된 시크릿 키를 복사하여 기본 스토리지 추가 시 사용합니다.
 6. 기본 스토리지 추가 시 **RADOS 사용자** 항목에는 새로 생성한 사용자를 입력합니다.
+
+### OSD META 용량이 (near)Full이 발생하는 경우
+
+[<span style="color:#ff9900;">문제유형</span>]
+
+<span style="color:gray;font-weight:bold">
+실제 데이터 사용은 미비하나 META가 비정상적으로 많이 사용되어 OSD의 (near)Full 이 발생하는 현상
+</span>
+
+![osdmetafull_error](../assets/images/osdmetafull_error.png){ align=center }
+
+
+[<span style="color:#ff9900;">조치방법</span>]
+
+다음의 명령어를 통하여 OSD의 META Data를 정리합니다
+
+``` shell
+ceph tell osd.{osd.id} compact
+```
+
+만일 모든 OSD를 전체 정리가 필요하다면 다음의 명령어를 통하여 한번에 적용합니다.
+
+``` shell
+ceph tell osd.\* compact
+```
