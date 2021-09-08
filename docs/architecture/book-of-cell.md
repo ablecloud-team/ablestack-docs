@@ -141,7 +141,44 @@ ABLESTACK은 모든 가상머신 네트워킹에 Native Bridge를 사용합니�
 
 ## 동작 방식
 
+본 문서에서는 ABLESTACK의 Glue 스토리지 연결 방식과 고가용성 동작 방식 등 다양한 내부 동장 방식에 대해 설명합니다. 
+
 ### 스토리지 I/O 경로
+
+Cell은 Glue 스토리지와의 연결, 가상머신에의 할당, 마이그레이션 및 고가용성 처리 등을 위한 최적화된 경로 선택 방식을 활용합니다. 모든 디스크는 RAW 타입의 블록 디바이스로 가상머신에 전달됩니다. 
+
+!!! warning "libvirt, virsh 명령 사용 금지"
+    Cell은 기본적으로 KVM을 기반으로 하고 있기 때문에 kvm, qemu, libvirt의 스토리지 드라이버를 추상화하여 모든 백엔드 설정을 처리합니다. 이는 사용자가 Mold를 통해 편리하게 가상머신 사용에 집중할 수 있게 도와줍니다.
+
+    다음의 동작방식 설명은 아키텍처의 이해를 돕기 위한 설명이며, 이러한 구성을 이해했다고 해서 virsh 명령이나 kvm 명령을 직접 사용해서 작업하는 것을 허용하는 것은 아닙니다. 
+
+Cell은 Glue 스토리지 연결을 위해서 커스터마이징 된 librbd를 사용합니다. librbd는 Glue 스토리지의 블록 이미지를 Cell 하이버파이저가 인식할 수 있도록 도와주는 라이브러리 입니다. 다음의 그림은 Cell 하이퍼바이저가 Glue 스토리지를 이용해 가상머신 블록 디스크를 연결하는 경로를 묘사합니다. 
+
+<center>
+![cell-general-storage-path](../assets/images/cell-general-storage-path.png)
+</center>
+
+가상머신에 블록 디스크를 연결할 때 가장 권장하는 컨트롤러는 virtio-blk입니다. 그리고 다음으로 권장하는 컨트롤러는 virtio-scsi 입니다. ide 컨트롤러의 사용이 가능하지만 대부분의 환경에서 권장되지 않습니다. IO 성능이 매우 저하되기 때문입니다. virtio-blk 또는 virtio-scsi를 Windows 가상머신에서 사용하기 위해서는 virtio 드라이버와 에이전트를 반드시 설치해야 합니다. 최신 Linux 배포판에는 virtio 드라이버가 기본적으로 설치되어 있습니다. 
+
+Cell의 librbd는 주기적으로 Glue 컨트롤 VM의 모니터 데몬의 실행 여부를 확인하고 최적의 경로를 선택하여 스토리지 IO가 발생하도록 관리합니다. 기본적으로 스토리지 연결은 가상머신이 실행 중인 호스트의 Glue 컨트롤러의 모니터 데몬에 연결합니다. 다음의 그림은 호스트가 3대 있는 경우 가상머신의 IO가 어떻게 발생하는지를 묘사합니다. 
+
+<center>
+![cell-storage-multi-path](../assets/images/cell-storage-multi-path.png)
+</center>
+
+만약 가상머신이 실행 중인 호스트의 스토리지 컨트롤러가 중지된 경우, librbd는 자동으로 다음으로 가까운 Glue 컨트롤러의 모니터 데몬에 연결하여 지속적인 IO가 발생하도록 처리합니다. 다음의 그림은 가상머신이 실행 중인 호스트의 스토리지 컨트롤러가 응답이 없는 경우의 IO 경로를 묘사합니다. 
+
+<center>
+![cell-storage-fail-over](../assets/images/cell-storage-fail-over.png)
+</center>
+
+만약 응답이 없던 스토리지 컨트롤러가 되살아 나는 경우 librbd는 바로 이를 인식하고, 다시 가상머신이 실행 중인 로컬 스토리지 컨트롤러로 IO가 발생하도록 설정합니다. 다음의 그림은 스토리지 컨트롤러의 장애가 해결되어 다시 스토리지 IO 경로가 복구되는 상황을 묘사합니다. 
+
+<center>
+![cell-storage-fail-back](../assets/images/cell-storage-fail-back.png)
+</center>
+
+이와 같이 Cell은 librbd를 통해 Glue Storage와 연결하여, 최적의 IO Path를 탐색하고, 일부 Glue Storage 컨트롤러에 문제가 발생하는 경우에도 지속적으로 IO가 발생하도록 경로를 재설정하는 기능을 제공하도록 설계되어 있습니다. 
 
 ### 고가용성
 
