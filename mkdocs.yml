@@ -118,9 +118,9 @@ nav:
       - 네트워크 아키텍처 : architecture/network-architecture.md
     - ABLESTACK Core:
       - Cube 알아보기 : architecture/book-of-cube.md
-      - Mold 알아보기 : architecture/book-of-mold.md
-      - Glue 알아보기 : architecture/book-of-glue.md
       - Cell 알아보기 : architecture/book-of-cell.md
+      - Glue 알아보기 : architecture/book-of-glue.md      
+      - Mold 알아보기 : architecture/book-of-mold.md
 #      - Wall 알아보기 : architecture/book-of-wall.md
 #    - ABLESTACK on Others:
 #      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
