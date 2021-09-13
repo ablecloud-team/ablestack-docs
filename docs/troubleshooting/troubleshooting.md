@@ -193,3 +193,31 @@ ceph tell osd.{osd.id} compact
 ``` shell
 ceph tell osd.\* compact
 ```
+
+### 스토리지 클러스터 상태가 reclaim 관련 Warn 인 경우
+
+[<span style="color:#ff9900;">문제유형</span>]
+
+<span style="color:gray;font-weight:bold">
+스토리지 클러스터의 상태가 Warn 이고, 메시지가 "mons are allowing insecure global_id reclaim"로 나오는 경우
+</span>
+
+![osdmetafull_error](../assets/images/cluster_warn_reclaim.png){ align=center }
+
+Ceph 14.2.20 릴리스와 함께 Ceph 인증 프레임워크에서 보안 취약점이 해결되어 클러스터가 패치되면서 경고가 표시되는 현상
+
+[<span style="color:#ff9900;">조치방법</span>]
+
+다음의 명령어를 통하여 경고메시지를 예외처리 합니다.
+
+``` shell
+ceph config set mon mon_warn_on_insecure_global_id_reclaim false
+ceph config set mon mon_warn_on_insecure_global_id_reclaim_allowed false
+```
+향 후 버전패치가 완료되는 경우에는 다음의 명령어를 통하여 경고를 활성화 합니다
+
+``` shell
+ceph config set mon mon_warn_on_insecure_global_id_reclaim true
+ceph config set mon mon_warn_on_insecure_global_id_reclaim_allowed true
+ceph config set mon auth_allow_insecure_global_id_reclaim false
+```
