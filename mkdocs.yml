@@ -55,15 +55,15 @@ theme:
 # Plugin
 plugins:
   - search
-  #- mike
+  - mike
 
 # Customization
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/ablecloud-team
-  #version:
-  #  provider: mike
+  version:
+    provider: mike
 
 # Extensions
 markdown_extensions:
