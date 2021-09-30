@@ -1,0 +1,2239 @@
+
+<!doctype html>
+<html lang="kr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="ABLECLOUD Co. Ltd">
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>설정 - ABLESTACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,400i,700%7CCutive+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Noto Sans KR";--md-code-font-family:"Cutive Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#glue" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ABLESTACK" class="md-header__button md-logo" aria-label="ABLESTACK" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ABLESTACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              설정
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="지우기" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ablecloud-team/ablestack-docs/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      환영합니다
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../architecture/architecture-overview/" class="md-tabs__link">
+        아키텍처
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../getting-started/getting-started-overview/" class="md-tabs__link">
+        시작하기
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cube/userinterface-guide/" class="md-tabs__link md-tabs__link--active">
+        관리가이드
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../troubleshooting/troubleshooting/" class="md-tabs__link">
+        문제해결
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ABLESTACK" class="md-nav__button md-logo" aria-label="ABLESTACK" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    ABLESTACK
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ablecloud-team/ablestack-docs/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        환영합니다
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          아키텍처
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="아키텍처" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          아키텍처
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ABLESTACK의 탄생
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK의 탄생" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK의 탄생
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architecture-overview/" class="md-nav__link">
+        데이터센터의 역사와 문제점
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/birth-of-ablestack/" class="md-nav__link">
+        문제해결방법-ABLESTACK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ABLESTACK 물리 아키텍처
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK 물리 아키텍처" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK 물리 아키텍처
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/ablestack-basic-structure/" class="md-nav__link">
+        ABLESTACK의 기본구조
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/host-architecture/" class="md-nav__link">
+        호스트 아키텍처
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/network-architecture/" class="md-nav__link">
+        네트워크 아키텍처
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK Core" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-cube/" class="md-nav__link">
+        Cube 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-cell/" class="md-nav__link">
+        Cell 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-glue/" class="md-nav__link">
+        Glue 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-mold/" class="md-nav__link">
+        Mold 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          시작하기
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="시작하기" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          시작하기
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/getting-started-overview/" class="md-nav__link">
+        시작하며
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/install-guide-cube/" class="md-nav__link">
+        Cube 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/install-guide-glue/" class="md-nav__link">
+        Glue 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/install-guide-mold/" class="md-nav__link">
+        Mold 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          관리가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="관리가이드" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          관리가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Cube 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cube 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cube 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/overview-guide/" class="md-nav__link">
+        개요
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/log-guide/" class="md-nav__link">
+        기록
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/storage-guide/" class="md-nav__link">
+        저장소
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/networking-guide/" class="md-nav__link">
+        네트워킹
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/vm-guide/" class="md-nav__link">
+        가상머신
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/account-guide/" class="md-nav__link">
+        계정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/service-guide/" class="md-nav__link">
+        서비스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/ablestack-guide/" class="md-nav__link">
+        ABLESTACK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/update-software-guide/" class="md-nav__link">
+        소프트웨어 최신화
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/application-guide/" class="md-nav__link">
+        애플리케이션
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/diagnostic-guide/" class="md-nav__link">
+        진단 보고서
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/kerneldump-guide/" class="md-nav__link">
+        커널 덤프
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/terminal-guide/" class="md-nav__link">
+        터미널
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/selinux-guide/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Mold 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mold 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mold 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/account-mngt-guide/" class="md-nav__link">
+        계정 및 사용자 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/project-mngt-guide/" class="md-nav__link">
+        프로젝트 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/serviceoffering-mngt-guide/" class="md-nav__link">
+        서비스오퍼링 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/network-mngt-guide/" class="md-nav__link">
+        사용자 네트워크 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/vm-mngt-guide/" class="md-nav__link">
+        가상머신 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/template%26ISO-mngt-guide/" class="md-nav__link">
+        템플릿 및 ISO 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/host-mngt-guide/" class="md-nav__link">
+        호스트 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/storage-mngt-guide/" class="md-nav__link">
+        스토리지 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/network%26traffic-mngt-guide/" class="md-nav__link">
+        네트워크 및 트래픽 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/systemvm-mngt-guide/" class="md-nav__link">
+        시스템VM 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/usage-mngt-guide/" class="md-nav__link">
+        Usage 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/cloud-mngt-guide/" class="md-nav__link">
+        Cloud 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/ha-mngt-guide/" class="md-nav__link">
+        고가용성(HA) 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mold/event-mngt-guide/" class="md-nav__link">
+        이벤트 관리
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Glue 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Glue 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Glue 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          설정
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        설정
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    SSL/TLS 지원
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    호스트명과 port
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    사용자명과 비밀번호
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    사용자 잠금
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    사용자 잠금 해제
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue_1" class="md-nav__link">
+    GLUE 접속
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-gateway" class="md-nav__link">
+    Object Gateway 관리 콘솔 활성화
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iscsi" class="md-nav__link">
+    iSCSI관리 활성화
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue-grafana" class="md-nav__link">
+    GLUE 내장 Grafana 활성화
+  </a>
+  
+    <nav class="md-nav" aria-label="GLUE 내장 Grafana 활성화">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cephadm" class="md-nav__link">
+    cephadm을 사용한 설치 및 설정
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    수동 설치 및 구성
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rbd-image-monitoring" class="md-nav__link">
+    RBD-Image monitoring 활성화
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    dashboard 설정
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    브라우저를 위한 대체 URL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-sign-on-sso" class="md-nav__link">
+    Single Sign-On (SSO) 설정
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus" class="md-nav__link">
+    Prometheus를 사용한 경고 설정
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account%26role-guide/" class="md-nav__link">
+        사용자 및 역할 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../proxyconfig-guide/" class="md-nav__link">
+        프록시 설정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api-request-audit-guide/" class="md-nav__link">
+        API 요청 감사
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nfs-ganesha-mngt-guide/" class="md-nav__link">
+        NFS-Ganesha 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugin-guide/" class="md-nav__link">
+        플러그인
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting-guide/" class="md-nav__link">
+        문제해결
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-check/" class="md-nav__link">
+        ABLESTACK 시스템점검
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          문제해결
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="문제해결" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          문제해결
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/troubleshooting/" class="md-nav__link">
+        문제해결사례
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ssltls" class="md-nav__link">
+    SSL/TLS 지원
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    호스트명과 port
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    사용자명과 비밀번호
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    사용자 잠금
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    사용자 잠금 해제
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue_1" class="md-nav__link">
+    GLUE 접속
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-gateway" class="md-nav__link">
+    Object Gateway 관리 콘솔 활성화
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iscsi" class="md-nav__link">
+    iSCSI관리 활성화
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glue-grafana" class="md-nav__link">
+    GLUE 내장 Grafana 활성화
+  </a>
+  
+    <nav class="md-nav" aria-label="GLUE 내장 Grafana 활성화">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cephadm" class="md-nav__link">
+    cephadm을 사용한 설치 및 설정
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    수동 설치 및 구성
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rbd-image-monitoring" class="md-nav__link">
+    RBD-Image monitoring 활성화
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard" class="md-nav__link">
+    dashboard 설정
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    브라우저를 위한 대체 URL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#single-sign-on-sso" class="md-nav__link">
+    Single Sign-On (SSO) 설정
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prometheus" class="md-nav__link">
+    Prometheus를 사용한 경고 설정
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ablecloud-team/ablestack-docs/edit/master/docs/administration/glue/config-guide.md" title="이 페이지를 편집" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>이 문서는 관리자용 문서입니다. 관리자가 아닌 사용자가 동작시 문제가 발생할수도 있습니다.</p>
+</div>
+<h1 id="glue">GLUE 설정 가이드<a class="headerlink" href="#glue" title="Permanent link">&para;</a></h1>
+<p>GLUE를 설정하는 방법에 대한 안내입니다.</p>
+<h2 id="ssltls">SSL/TLS 지원<a class="headerlink" href="#ssltls" title="Permanent link">&para;</a></h2>
+<p>모든 GLUE의 HTTP 연결은 SSL/TLS를 통해 보안을 유지하는것을 기본으로 합니다.</p>
+<p>자체 서명 인증서를 새로 생성하기 위해서는 다음과 같은 명령으로 생성할 수 있습니다.
+<div class="highlight"><pre><span></span><code>$ ceph dashboard create-self-signed-cert
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>대부분의 브라우저들은 이러한 자체 서명 인증서에 대하여 신뢰할 수 없는 인증서로 표시하며, 신규 연결시 확인과정이 필요합니다.</p>
+</div>
+<p>자체서명 인증서에 대한 경고를 제거하고, 정규 인증서를 사용하기 위해서는 다음과 같은 작업이 필요합니다.</p>
+<ol>
+<li>인증서 키 쌍 생성</li>
+<li>인증서 인증</li>
+<li>인증서 적용</li>
+</ol>
+<p>다음은 인증서 키 쌍을 생성하기 위한 예시입니다. 다른 도구를 사용하여 키 쌍을 생성하고 인증기관의 인증을 받는 과정은 생략합니다.</p>
+<div class="highlight"><pre><span></span><code>$ openssl req -new -nodes -x509  <span class="se">\</span>
+-subj <span class="s2">&quot;/O=IT/CN=ceph-mgr-dashboard&quot;</span> -days <span class="m">3650</span> <span class="se">\ </span> 
+-keyout GLUE.key -out GLUE.crt -extensions v3_ca
+</code></pre></div>
+<p>위와 같은 작업을 진행하면 <code>GLUE.key</code>, <code>GLUE.crt</code> 파일이 생성됩니다.
+이러한 <code>GLUE.crt</code> 파일은 CA(인증기관)에 의해 인증받아야 합니다.  인증을 받은 뒤 다음 명령어를 통해 해당 인증서를 사용할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-ssl-certificate -i GLUE.crt
+$ ceph dashboard set-ssl-certificate-key -i GLUE.key
+</code></pre></div>
+<p>만약 각각의 manager 에 대해 별도의 인증서가 발급되었다면, 다음과 같은 방법으로 등록할 수 있습니다.(<code>$name</code>은 manager의 이름입니다. 보통 hostname이 사용됩니다.)
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-ssl-certificate <span class="nv">$name</span> −i GLUE.crt
+$ ceph dashboard set-ssl-certificate-key <span class="nv">$name</span> -i GLUE.key
+</code></pre></div></p>
+<p>다음의 방법으로 SSL 설정을 비활성화 시킬 수 도 있습니다.
+<div class="highlight"><pre><span></span><code>$ ceph config <span class="nb">set</span> mgr mgr/dashboard/ssl <span class="nb">false</span>
+</code></pre></div></p>
+<p>이것은 GLUE가 SSL을 지원하지 않는 proxy 뒤에 있거나, 기타 필요한 경우에 사용됩니다.
+<a href="" title="proxyconfig-guide.md#_1"><code>프록시 설정</code></a> 문서를 통해 자세한 내용을 확인하세요.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>위 방법을 통해 SSL을 비활성화한 경우, 사용자명과 암호가 암호화되지 않은 상태로 전달됩니다.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SSL 인증서와 키를 변경한 경우 반드시 manager 프로세스를 재시작 해야 합니다. 이 과정은
+<code>ceph mgr fail mgr</code> 명령을 사용하거나 다음과 같은 GLUE 명령을 사용해 비활성화 후 활성화 하는 방법으로 적용할 수 있습니다.
+<div class="highlight"><pre><span></span><code>$ ceph mgr module disable dashboard
+$ ceph mgr module <span class="nb">enable</span> dashboard
+</code></pre></div></p>
+</div>
+<h2 id="port">호스트명과 port<a class="headerlink" href="#port" title="Permanent link">&para;</a></h2>
+<p>다른 웹 어플리케이션과 같이 GLUE는 TCP/IP 주소와 TCP 포트가 사용됩니다.</p>
+<p>기본적으로 <code>ceph-mgr</code> 데몬이  (특히 현재 활성 상태인 mgr이 ) 8443(혹은 SSL을 사용하지 않는다면 8080)번 포트를 사용해 GLUE를 제공합니다.</p>
+<p>TCP/IP 주소가 별도로 특정되지 않았다면 웹앱은 <code>::</code>, 즉 모든 IPv4및 IPv6 주소로 연결대기 상태가 됩니다.</p>
+<p>이러한 기본값은 다음과 같은 전역 설정 변경으로 설정할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph config <span class="nb">set</span> mgr mgr/GLUE/server_addr <span class="nv">$IP</span>
+$ ceph config <span class="nb">set</span> mgr mgr/GLUE/server_port <span class="nv">$PORT</span>
+$ ceph config <span class="nb">set</span> mgr mgr/GLUE/ssl_server_port <span class="nv">$PORT</span>
+</code></pre></div>
+<p><code>ceph-mgr</code>이 각각의 GLUE 인스턴스를 제공하므로 이 값은 다음과 같이 별도로 설정 해야 할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph config <span class="nb">set</span> mgr mgr/GLUE/<span class="nv">$name</span>/server_addr <span class="nv">$IP</span>
+$ ceph config <span class="nb">set</span> mgr mgr/GLUE/<span class="nv">$name</span>/server_port <span class="nv">$PORT</span>
+$ ceph config <span class="nb">set</span> mgr mgr/GLUE/<span class="nv">$name</span>/ssl_server_port <span class="nv">$PORT</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>ceph mgr services</code>명령은 현재 설정된 서비스의 연결점을 안내해줍니다. <code>dashboard</code>키를 통해 현재 GLUE에 접속할 수 있는 주소를 얻을 수 있습니다.</p>
+</div>
+<h2 id="_1">사용자명과 비밀번호<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>GLUR는 로그인을 하기 위한 사용자를 추가하는 명령어를 제공합니다.
+생성되는 계정은 하나 이상의 역할이 지정되어야 합니다. GLUE는 사전에 정의된 *system role*을 제공합니다.
+자세한 내용은 <a href="../account%26role-guide/"><code>사용자 및 역할관리</code></a>를 참고하세요.</p>
+<p>관리자 역할의 사용자를 만들고 싶으면 다음 명령어를 입력하면 됩니다.</p>
+<div class="highlight"><pre><span></span><code> <span class="nv">$ceph</span> dashboard ac-user-create &lt;username&gt; -i &lt;file-containing-password&gt; administrator
+</code></pre></div>
+<h2 id="_2">사용자 잠금<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>만약 여러번의 잘못된 로그인 시도가 있다면 사용자의 계정은 <code>brute-force</code>공격이나 <code>dictionary</code>공격을 방지하기 위해 계정에 잠금을 걸게 된다.
+이러한 잠금 설정을 변경하기 위해서 다음 명령어를 사용할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph dashboard get-account-lockout-attempts 
+$ ceph bashboard set-account-lockout-attempts &lt;value:int&gt;
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>이 기능은 다음과 같이 시도횟수를 0으로 변경하면 해제됩니다. 하지만 이 기능을 해제하면, <code>brute-force</code>공격이나 <code>dictionary</code>공격에 취약해집니다.
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-account-lockout-attempts <span class="m">0</span>
+</code></pre></div></p>
+</div>
+<h2 id="_3">사용자 잠금 해제<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>만약 사용자가 여러번의 잘못된 로그인 시도로 인해 잠겼다면, 관리자가 다음 명령어를 사용하여 잠금을 해제 할 수 있습니다.
+<div class="highlight"><pre><span></span><code>$ ceph dashboard ac-user-enable &lt;username&gt;
+</code></pre></div></p>
+<h2 id="glue_1">GLUE 접속<a class="headerlink" href="#glue_1" title="Permanent link">&para;</a></h2>
+<p>사용자는 자바스크립트가 사용가능한 웹 브라우저를 통해 <code>http(s)://&lt;SCVM IP&gt;:&lt;PORT(기본값:8443)&gt;</code> 으로 GLUE에 접근 가능합니다.</p>
+<p>GLUE의 기본 사용자 계정은 <code>ablecloud/password</code> 입니다.</p>
+<h2 id="object-gateway">Object Gateway 관리 콘솔 활성화<a class="headerlink" href="#object-gateway" title="Permanent link">&para;</a></h2>
+<p>Object Gateway 관리 기능을 사용하려면 <code>system</code> 플래그가 지정된 사용자 계정이 필요합니다.
+만약 아직 <code>system</code> 사용자가 없다면 다음과 같이 생성할 수 있습니다.</p>
+<p><div class="highlight"><pre><span></span><code>$ radosgw-admin user create --uid<span class="o">=</span>&lt;user_id&gt; --display-name<span class="o">=</span>&lt;display_name&gt; --system
+</code></pre></div>
+그 다음 표시되는 <code>access_key</code>와 <code>secret_key</code>를 기록해 둡니다.</p>
+<p>기존 사용자의 키를 얻고자 한다면 다음과 같이 하면 됩니다.
+<div class="highlight"><pre><span></span><code>$ radosgw-admin user info --uid<span class="o">=</span>&lt;user_id<span class="se">\&gt;</span>
+</code></pre></div></p>
+<p>여러개의 Object Gateway가 있다면 각각 사용자의 인증정보가 있어야 합니다.
+다음과 같이 인증정보를 GLUE에 등록할 수 있습니다.
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> -n <span class="s2">&quot;{&#39;&lt;daemon1.id\&gt;&#39;: &#39;&lt;user1-access-key\&gt;&#39;, &#39;&lt;daemon2.id\&gt;&#39;: &#39;&lt;user2-access-key\&gt;&#39;, ...}&quot;</span> &gt; &lt;file-containing-access-key&gt;
+$ <span class="nb">echo</span> -n <span class="s2">&quot;{&#39;&lt;daemon1.id\&gt;&#39;: &#39;&lt;user1-secret-key\&gt;&#39;, &#39;&lt;daemon2.id\&gt;&#39;: &#39;&lt;user2-secret-key\&gt;&#39;, ...}&quot;</span> &gt; &lt;file-containing-secret-key&gt; 
+$ ceph dashboard set-rgw-api-access-key -i &lt;file-containing-access-key&gt;
+$ ceph dashboard set-rgw-api-secret-key -i &lt;file-containing-secret-key&gt;
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>단일 게이트웨이의 경우 다음과 같이 지정할 수 도 있습니다.
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> -n <span class="s2">&quot;&lt;access-key&gt;&quot;</span> &gt; &lt;file-containing-access-key&gt; 
+$ <span class="nb">echo</span> -n <span class="s2">&quot;&lt;secret-key&gt;&quot;</span> &gt; &lt;file-containing-secret-key&gt;
+</code></pre></div></p>
+</div>
+<p>단일 RGW 접속점이 있는 간단한 구성에서는 위 작업만 수행하면 GLUE를 통해 Object Gateway 관리 기능을 사용할 수 있습니다.</p>
+<p>만일 여러개의 Object Gateway가 있는경우 아래 작업을 통해 기본값을 설정 해 주어야 합니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-rgw-api-host &lt;host&gt; 
+$ ceph dashboard set-rgw-api-port &lt;port&gt;
+</code></pre></div>
+<p>추가로 다음 설정이 필요 할 수도 있습니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-rgw-api-scheme &lt;scheme&gt; <span class="c1"># http or https </span>
+$ ceph dashboard set-rgw-api-admin-resource &lt;admin_resource&gt;
+</code></pre></div>
+<p>다음 설정은 사용해 GLUE가 자체서명 인증서를 사용한 호스트의 접속을 서명되지 않았거나, 호스트이름이 일치하지 않는다고 거부하는것을 방지해야 합니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph GLUE set-rgw-api-ssl-verify False
+</code></pre></div>
+<p>만약 Object Gateway가 요청을 처리하는데 시간이 오래 걸려 timeout이 발생한다면 다음과 같이 시간을 지정할 수 있습니다.</p>
+<p><div class="highlight"><pre><span></span><code>$ ceph dashboard set-rest-requests-timeout &lt;seconds&gt;
+</code></pre></div>
+기본값은 45초 입니다.</p>
+<h2 id="iscsi">iSCSI관리 활성화<a class="headerlink" href="#iscsi" title="Permanent link">&para;</a></h2>
+<p>GLUE는 <a href=""><code>ceph-iscsi</code></a>로 구성된 iSCSI target을 <code>rbd-target-api</code>의 REST API를 이용하여 관리할 수 있습니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GLUE의 iSCSI관리 기능은 <a href="https://github.com/ceph/ceph-iscsi"><code>ceph-iscsi</code></a> 프로젝트의 최종 3개 버전을 지원합니다.</p>
+</div>
+<p><code>ceph-iscsi</code> REST API가 HTTPS mode로 설정되고 자체서명인증서를 사용한다면 GLUE가 ceph-iscsi API에 접근할때 거부하지 않도록 방지해야 합니다.</p>
+<p>이러한 SSL 확인 기능을 해제하기 위해서 다음과 같이 합니다.
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-iscsi-api-ssl-verification <span class="nb">false</span>
+</code></pre></div></p>
+<p>활성화된 iSCSI gateway는 다음과 같이 등록해주어야 합니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph dashboard iscsi-gateway-list 
+$ <span class="c1"># 새로운 Gateway URL은 다음과 같은 형식으로 넣습니다. &lt;scheme&gt;://&lt;username&gt;:&lt;password&gt;@&lt;host&gt;[:port] </span>
+$ ceph dashboard iscsi-gateway-add -i &lt;file-containing-gateway-url&gt; <span class="o">[</span>&lt;gateway_name&gt;<span class="o">]</span> 
+$ ceph dashboard iscsi-gateway-rm &lt;gateway_name&gt;
+</code></pre></div>
+<h2 id="glue-grafana">GLUE 내장 Grafana 활성화<a class="headerlink" href="#glue-grafana" title="Permanent link">&para;</a></h2>
+<p><code>Grafana</code>는 <a href="https://prometheus.io/"><code>Prometheus</code></a> 로 부터 데이터를 받아옵니다.
+<code>Prometheus</code>는 <a href="../under-construction/"><code>mgr-prometheus</code></a> 모듈이 제공하며, 이것은 <a href="https://prometheus.io/docs/guides/node-exporter/&gt;"><code>Node exporter</code></a>를 사용해 
+장비의 측정값을 수집합니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Prometheus의 보안 모델은 신뢰되지 않은 사용자가 HTTP 엔드포인트와 로그에 접속할 수 있다고 가정합니다. 신뢰할 수 없는 사용자는 Prometheus가 수집하는 모든 데이터 및 디버깅 정보를 접근할 수 있습니다. 하지만 이것은 읽기 전용 작업으로 제한됩니다. 자세한 내용은 <a href="https://prometheus.io/docs/operating/security/"><code>Prometheus의 보안모델</code></a>을 참고하세요.</p>
+</div>
+<h3 id="cephadm">cephadm을 사용한 설치 및 설정<a class="headerlink" href="#cephadm" title="Permanent link">&para;</a></h3>
+<p>Grafana와 Prometheus는 <a href="../under-construction/"><code>cephadm</code></a>을 사용하여 설치가 가능합니다. 이들은 <code>cephadm</code>을 사용하여 자동으로 설정까지 완료됩니다.
+<a href="../under-construction/"><code>mgr-cephadm-monitoring</code></a> 문서를 참고하여 Grafana와 Prometheus의 설치 및 구성방법을 확인하세요.</p>
+<h3 id="_4">수동 설치 및 구성<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>아래 설명하는 과정은 Grafana와 Prometheus를 수동으로 구성하는 방법입니다.Prometheus, Grafana, 그리고 Node
+exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행합니다.</p>
+<ol>
+<li>
+<p>Ceph Manager 모듈의 Ceph Exporter를 다음 명령을 통해 실행합니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph mgr module <span class="nb">enable</span> prometheus
+</code></pre></div>
+<p>자세한 내용은 <a href="../under-construction/"><code>mgr-prometheus</code></a>를 참고하세요.</p>
+</li>
+<li>
+<p>Prometheus에 다음과 같은 수집정책을 설정합니다.</p>
+<div class="highlight"><pre><span></span><code>global:
+    scrape_interval: 5s
+
+scrape_configs: 
+    - job_name: &#39;prometheus&#39;
+      static_configs:
+        - targets: [&#39;localhost:9090&#39;]
+    - job_name: &#39;ceph&#39;
+      static_configs:
+        - targets: [&#39;localhost:9283&#39;]
+    - job_name: &#39;node-exporter&#39;
+      static_configs:
+        - targets: [&#39;localhost:9100&#39;]
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>위 예시에서 Prometheus는 자기자신(9090), Ceph manager module <code>prometheus</code>의 ceph 내부 정보(9283), Node Exporter의 OS와 하드웨어 정보(9100)을 수집합니다.
+설정에 따라 Node Exporter의 host명을 변경하거나, 추가 설정을 할 수 있습니다.</p>
+<p>또한 Ceph의 정보를 얻기 위해 <code>prometheus</code> mgr 모듈을 하나 이상 등록할 <em>필요는</em> 없습니다. 하지만 모든 Ceph manager를 등록하는것이 권장 되는데, 이것은 내부의
+HA(High Availability)구조를 활성화 하여 일부 Ceph Manager가 중단되더라도 다른 Manager를 통해 정보를 수집할 수 있기 때문입니다.</p>
+</div>
+</li>
+<li>
+<p>Prometheus를 Grafana에 <a href="https://grafana.com/docs/grafana/latest/features/datasources/add-a-data-source/"><code>Grafana Web UI</code></a>를 사용해 데이터 소스로 추가합니다.</p>
+</li>
+<li>
+<p><code>vonage-status-panel</code>과 <code>grafana-piechart-panel</code> plugins을 설치합니다.
+    <div class="highlight"><pre><span></span><code>    $ grafana-cli plugins install vonage-status-panel
+    $ grafana-cli plugins install grafana-piechart-panel
+</code></pre></div></p>
+</li>
+<li>
+<p>Grafana에 dashboard를 추가합니다.:</p>
+<p>dashboard JSON 파일을 사용하여 Grafana에 대시보드를 추가할 수 있습니다.</p>
+<p><code>wget https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/&lt;GLUE-name&gt;.json</code></p>
+<p>dashboard JSON 파일은 <a href="https://github.com/ceph/ceph/tree/ master/monitoring/grafana/GLUEs">여기</a>에서 찾을 수 있습니다.</p>
+<p>예를 들어 ceph-cluster overview dashboard를 추가하고자 한다면</p>
+<p><code>wget https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/ceph-cluster.json</code> 를 사용할 수 있습니다.</p>
+<p>혹은 직점 새로운 dashboard를 생성할 수도 있습니다.</p>
+</li>
+<li>
+<p><code>/etc/grafana/grafana.ini</code>에서 익명 모드를 사용할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>[auth.anonymous]
+enabled = true
+org_name = Main Org.
+org_role = Viewer
+</code></pre></div>
+<p>6.2.0-beta1 버전 이상의 Grafana에는 <code>allow_embedding</code> 옵션이 추가되었습니다. 이 옵션은 반드시 <code>true</code>로 되어 있어야 GLUE에 내장할 수 있습니다.
+기본값은 <code>false</code>입니다..
+<div class="highlight"><pre><span></span><code>[security]
+allow_embedding = true
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="rbd-image-monitoring">RBD-Image monitoring 활성화<a class="headerlink" href="#rbd-image-monitoring" title="Permanent link">&para;</a></h3>
+<p>RBD 이미지의 모니터링은 기본적으로 비활성화 되어있고, 성능에 상당향 영향을 줍니다. 자세한 내용은 <a href="../under-construction/"><code>prometheus-rbd-io-statistics</code></a>을 참고하세요.
+비활성화 된 경우 Grafana의 overview와 상세 dashboard가 표시되지 않습니다.</p>
+<h3 id="dashboard">dashboard 설정<a class="headerlink" href="#dashboard" title="Permanent link">&para;</a></h3>
+<p>Grafana와 Prometheus를 설치한 뒤, Grafana의 연결정보를 GLUE에 등록해야 합니다. Grafana의 URL을 GLUE에 등록하기 위해 다음 명령을 사용합니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-grafana-api-url &lt;grafana-server-url&gt; <span class="c1"># default: &#39;&#39;</span>
+</code></pre></div>
+<p>URL 형식은 다음과 같습니다 <code>&lt;protocol&gt;:&lt;IP-address&gt;:&lt;port&gt;</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GLUE는 Grafana dashboard를 <code>iframe</code>으로 내장합니다. 만약 Grafana가 SSL/TLS없이 설정되었다면, 대부분의 브라우저는 보안되지 않은 콘텐츠를
+SSL을 지원하는 페이지(GLUE는 기본적으로 SSL이 적용됩니다)에 내장하는것을 차단하기 때문에 사용에 지장이 있을 수 있습니다.
+만약 내장 Grafana dashboard가 보이지 않는다면, 브라우저의 문서를 통해 이러한 혼합 content를 허용하도록 해야 합니다.
+혹은 SSL/TLS를 Grafana에 적용하는것을 고려하세요.</p>
+</div>
+<p>Grafana에 자체서명 인증서를 사용하는경우 GLUE가 연결을 거부하지 않도록 다음과 같은 명령이 필요합니다.</p>
+<div class="highlight"><pre><span></span><code>$ ceph GLUE set-grafana-api-ssl-verify False
+</code></pre></div>
+<p>직접 Grafana에 접근하여 클러스터를 모니터링 할 수도 있습니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GLUE에서 다음 명령을 사용하여 위에서 설정한 설정정보를 초기화 시킬 수 있습니다.
+<div class="highlight"><pre><span></span><code>$ ceph dashboard reset-grafana-api-url
+</code></pre></div></p>
+</div>
+<h3 id="url">브라우저를 위한 대체 URL<a class="headerlink" href="#url" title="Permanent link">&para;</a></h3>
+<p>GLUE는 Grafana dashboard를 화면상에 보여주기 이전부터 Grafana의 존재를 확인하기 위해 URL를 필요로 합니다.
+그렇기 때문에 다음과 같이 2시점의 연결이 필요하게 됩니다.</p>
+<ul>
+<li>Backend(Ceph Mgr module): 요청한 그래프의 존재를 확인하기 위해 필요합니다. 이 요청이 정상적으로 처리되면, Frontend에 Grafana에 접근이 가능하다고 알립니다.</li>
+<li>Frontend: Grafana 그래프에 iframe을 사용하여 직접 접속합니다. 이 요청은 GLUE를 거치지 않고, 사용자의 브라우저에서 처리됩니다.</li>
+</ul>
+<p>이제 사용자 브라우저가 GLUE에 설정된 Grafana주소에 접근하기 어려운 상황을 가정해 봅시다. 이 문제를 해결하기 위해 Frontend(사용자 브라우저)가 접근할 수 있는
+Grafana의 주소를 추가로 등록 해 주면 됩니다. <a href="../under-construction/"><code>cephadm</code></a>(cephadm을 사용하여 설치한 경우)에 등록하는 <code>GRAFANA_API_URL</code>과 달리
+이 설정은 자동으로 변경되지 않습니다.</p>
+<p>이런 경우를 해결하기 위해 다음 명령어를 사용할 수 있습니다.
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-grafana-frontend-api-url &lt;grafana-server-url<span class="se">\&gt;</span>
+</code></pre></div></p>
+<p>이 옵션에 아무 값도 설정되지 않은경우 <code>GRAFANA_API_URL</code>의 값으로 접속을 시도합니다. 옵션에 값이 설정되어있다면, 설정된 주소의 Grafana에 접속합니다.</p>
+<h2 id="single-sign-on-sso">Single Sign-On (SSO) 설정<a class="headerlink" href="#single-sign-on-sso" title="Permanent link">&para;</a></h2>
+<p>GLUE는 <a href="https://en.wikipedia.org/wiki/SAML_2.0"><code>SAML 2.0</code></a>프로토콜을 사용한 외부 인증을 지원합니다.
+먼저 GLUE에 적절한 역할과 그 역할에 연결된 사용자가 생성되어야 합니다.
+하지만 인증과정은 외부 인증 제공자(IdP: Identity Provider)에 의해 진행됩니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>GLUE SSO지원은 onelogin의
+<a href="https://pypi.org/project/python-saml/"><code>python-saml</code></a>라이브러리에 제공됩니다. 이 라이브러리가 시스템에 설치되었는지 확인하세요</p>
+</div>
+<p>SSO는 다음과 같이 설정할 수 있습니다.
+<div class="highlight"><pre><span></span><code>$ ceph dashboard sso setup saml2 &lt;ceph_GLUE_base_url&gt; &lt;idp_metadata&gt; <span class="o">{</span>&lt;idp_username_attribute&gt;<span class="o">}</span> <span class="o">{</span>&lt;idp_entity_id&gt;<span class="o">}</span> <span class="o">{</span>&lt;sp_x_509_cert&gt;<span class="o">}</span> <span class="o">{</span>&lt;sp_private_key&gt;<span class="o">}</span>
+</code></pre></div>
+Parameters:</p>
+<ul>
+<li><strong>&lt;ceph_GLUE_base_url></strong>: GLUE 에 접속하는 기본 URL(e.g., <code>https://cephGLUE.local</code>)</li>
+<li><strong>&lt;idp_metadata></strong>: 원격(<code>http://</code>, <code>https://</code>)이나 로컬(<code>file://</code>) IdP metadata XML 경로(e.g.,
+    <code>https://myidp/metadata</code>, <code>file:///home/myuser/metadata.xml</code>).</li>
+<li><strong>&lt;idp_username_attribute></strong> <em>(optional)</em>: 요청 중 사용자명을 갖고 오는 attribute 이름. 기본값은 <code>uid</code>.</li>
+<li><strong>&lt;idp_entity_id></strong> <em>(optional)</em>: IdP metadata에 하나 이상의 entity가 있는경우.</li>
+<li><strong>&lt;sp_x_509_cert> / &lt;sp_private_key></strong> <em>(optional)</em>: GLUE Service 제공자가 서명과 암호화에 사용할 인증서 파일경로</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>SAML 요청의 요청자 값은 다음과 같은 패턴으로 만들어집니다.
+<div class="highlight"><pre><span></span><code>&lt;ceph_GLUE_base_url&gt;/auth/saml2/metadata
+</code></pre></div></p>
+</div>
+<p>현재 설정된 <code>SAML 2.0</code>구성을 확인하려면 다음 명령어를 사용합니다.
+<div class="highlight"><pre><span></span><code>$ ceph GLUE sso show saml2
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>onelogin_setting</code>에 대한 자세한 내용은 <a href="https://github.com/onelogin/python-saml"><code>onelogin documentation</code></a>을 참고하세요.</p>
+</div>
+<p>추가 명령어
+<div class="highlight"><pre><span></span><code><span class="c1"># SSO 설정 확인</span>
+$ ceph GLUE sso status
+
+<span class="c1"># SSO 비활성화</span>
+$ ceph GLUE sso disable
+
+<span class="c1"># SSO 활성화</span>
+$ ceph GLUE sso <span class="nb">enable</span> saml2
+</code></pre></div></p>
+<h2 id="prometheus">Prometheus를 사용한 경고 설정<a class="headerlink" href="#prometheus" title="Permanent link">&para;</a></h2>
+<p>Prometheus 경고 기능을 사용하려면 먼저 <a href="https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules"><code>alerting rules</code></a>을 설정해야 합니다.
+이 기능은
+<a href="https://prometheus.io/docs/alerting/alertmanager"><code>Alertmanager</code></a>에서 관리합니다.
+만약 Alertmanager가 설치되지 않았다면 <a href="https://github.com/prometheus/alertmanager#install"><code>설치</code></a>를 먼저 진행해야 Prometheus로부터 경고를 받을 수 있습니다.</p>
+<p>Alertmanager기능을 다음과 같은 3가지 모드로 사용할 수 있습니다.</p>
+<ol>
+<li>
+<p>dashboard의 알림만 받기</p>
+</li>
+<li>
+<p>Prometheus Alertmanager API를 사용한 알림 받기</p>
+</li>
+<li>
+<p>두가지 알림 모두 받기</p>
+</li>
+</ol>
+<p>세가지 모드 모두 경고에 대한 알림을 받을 수 있습니다. 3번의 모두 받기의 경우 알림이 두번 오지는 않습니다. 침묵(silence)기능을 사용하기 위해서는 API기능을 사용하는 2번, 3번 중 선택해야 합니다.</p>
+<ol>
+<li>dashboard의 알림만 받기</li>
+</ol>
+<p>이 방법은 Alertmanager의 <a href="https://prometheus.io/docs/alerting/configuration/"><code>설정</code></a>에 따라 알림을 받습니다. 경고가 발생하면 GLUE에 알림이 표시됩니다.
+하지만 경고를 관리 할 수는 없습니다.
+GLUE 수신자를 추가하고 새로운 전송경로를 AlertManager의 설정에 넣습니다. 설정파일은 다음과 같이 구성되어야 합니다.
+<div class="highlight"><pre><span></span><code>    route:
+      receiver: &#39;ceph-dashboard&#39;
+    ...
+    receivers:
+      - name: &#39;ceph-dashboard&#39;
+        webhook_configs:
+        - url: &#39;&lt;url-to-GLUE\&gt;/api/prometheus_receiver&#39;
+</code></pre></div></p>
+<p>Alertmanager에 SSL 인증서를 설정하는것이 좋습니다. 자세한 내용은 <a href="https://prometheus.io/docs/alerting/configuration/#%3Chttp_config%3E"><code>&lt;http_config&gt;문서</code></a>를 참고하세요.</p>
+<ol>
+<li>Prometheus Alertmanager API를 사용한 알림 받기</li>
+</ol>
+<p>경고와 침묵(silence)를 관리 할 수 있고, "Cluster" 메뉴의 "Monitoring" 섹션에 "Active Alerts", "All Alerts", "Silences" 탭이 생성됩니다.
+경고는 이름, 작업, 중요성, 상태, 발생시간으로 정렬이 가능합니다. 사용자의 구성에 따라 Alertmanager가 알림을 전송한 시기를 알 수는 없습니다.</p>
+<p>침묵(Silence) 또한 id, 생성자, 상태, 시작/수정/종료 시간에 따라 정렬이 가능합니다. 침묵은 다양한 방법으로 만들어지고, 파기될 수 있습니다.</p>
+<ol>
+<li>
+<p>처츰부터 생성</p>
+</li>
+<li>
+<p>선택된 경고로 부터 생성</p>
+</li>
+<li>
+<p>파기된 침묵으로 재생성</p>
+</li>
+<li>
+<p>기존 침묵 수정(새로 생성하고 기존의 것을 파기)</p>
+</li>
+</ol>
+<p>이 모드를 사용하려면 Alertmanager server의 호스트 및 포트를 지정해야 합니다.</p>
+<p><div class="highlight"><pre><span></span><code>    $ ceph dashboard set-alertmanager-api-host &lt;alertmanager-host:port&gt;  <span class="c1"># default: &#39;&#39;</span>
+</code></pre></div>
+예시:
+<div class="highlight"><pre><span></span><code>    $ ceph dashboard set-alertmanager-api-host <span class="s1">&#39;http://localhost:9093&#39;</span>
+</code></pre></div></p>
+<p>모든 설정된 경고를 보기 위해서 Prometheus API에 URL을 설정해야 합니다. 이 API를 사용하면 UI가 새로운 침묵을 해당 경고와 일치하는지 확인해는데 도움이됩니다.</p>
+<p><div class="highlight"><pre><span></span><code>    $ ceph dashboard set-prometheus-api-host &lt;prometheus-host:port<span class="se">\&gt;</span>  <span class="c1"># default: &#39;&#39;</span>
+</code></pre></div>
+예시:
+<div class="highlight"><pre><span></span><code>    $ ceph dashboard set-prometheus-api-host <span class="s1">&#39;http://localhost:9090&#39;</span>
+</code></pre></div>
+설정한 다음 GLUE 창이나 탭을 새로고침 합니다.</p>
+<ol>
+<li>두가지 알림 모두 받기</li>
+</ol>
+<p>이 모드는 중복된 알림이 서로를 방해하는일이 발생하지 않도록 구성되어야 합니다.</p>
+<p>Prometheus와 Alertmanager에 자체서명 인증서를 사용하는경우 인증서 검증을 비활성화 하여 GLUE가 연결을 거부하지 않도록 해야합니다.</p>
+<ul>
+<li>Prometheus:
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-prometheus-api-ssl-verify False
+</code></pre></div></li>
+<li>Alertmanager:
+<div class="highlight"><pre><span></span><code>$ ceph dashboard set-alertmanager-api-ssl-verify False
+</code></pre></div></li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            맨위로
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../userinterface-guide/" class="md-footer__link md-footer__link--prev" aria-label="이전: 사용자 인터페이스" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                이전
+              </span>
+              사용자 인터페이스
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../account%26role-guide/" class="md-footer__link md-footer__link--next" aria-label="다음: 사용자 및 역할 관리" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                다음
+              </span>
+              사용자 및 역할 관리
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 ABLECLOUD Co. Ltd.
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/ablecloud-team" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "search.config.lang": "en", "search.config.pipeline": " ", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\uac80\uc0c9", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version.title": "\ubc84\uc804 \uc120\ud0dd"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>

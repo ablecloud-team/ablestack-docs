@@ -1,0 +1,2097 @@
+
+<!doctype html>
+<html lang="kr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="ABLECLOUD Co. Ltd">
+      
+      
+      <link rel="icon" href="../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>Cell 알아보기 - ABLESTACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,400i,700%7CCutive+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Noto Sans KR";--md-code-font-family:"Cutive Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ABLESTACK" class="md-header__button md-logo" aria-label="ABLESTACK" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ABLESTACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cell 알아보기
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="지우기" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ablecloud-team/ablestack-docs/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      환영합니다
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture-overview/" class="md-tabs__link md-tabs__link--active">
+        아키텍처
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../getting-started/getting-started-overview/" class="md-tabs__link">
+        시작하기
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../administration/cube/userinterface-guide/" class="md-tabs__link">
+        관리가이드
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../troubleshooting/troubleshooting/" class="md-tabs__link">
+        문제해결
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ABLESTACK" class="md-nav__button md-logo" aria-label="ABLESTACK" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    ABLESTACK
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ablecloud-team/ablestack-docs/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        환영합니다
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          아키텍처
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="아키텍처" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          아키텍처
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ABLESTACK의 탄생
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK의 탄생" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK의 탄생
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture-overview/" class="md-nav__link">
+        데이터센터의 역사와 문제점
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../birth-of-ablestack/" class="md-nav__link">
+        문제해결방법-ABLESTACK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ABLESTACK 물리 아키텍처
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK 물리 아키텍처" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK 물리 아키텍처
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ablestack-basic-structure/" class="md-nav__link">
+        ABLESTACK의 기본구조
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host-architecture/" class="md-nav__link">
+        호스트 아키텍처
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-architecture/" class="md-nav__link">
+        네트워크 아키텍처
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK Core" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-of-cube/" class="md-nav__link">
+        Cube 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Cell 알아보기
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Cell 알아보기
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    아키텍처
+  </a>
+  
+    <nav class="md-nav" aria-label="아키텍처">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    호스트 아키텍처
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    하이퍼바이저 아키텍처
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cell" class="md-nav__link">
+    Cell 제한 사항
+  </a>
+  
+    <nav class="md-nav" aria-label="Cell 제한 사항">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    일반 제한 사항
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    하드웨어 구성 제한 사항
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    성능 제한
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    네트워크
+  </a>
+  
+    <nav class="md-nav" aria-label="네트워크">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    Bridge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    VLAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bond" class="md-nav__link">
+    Bond
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    업링크 로드밸런싱
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    동작 방식
+  </a>
+  
+    <nav class="md-nav" aria-label="동작 방식">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    스토리지 I/O 경로
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    고가용성
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    라이브 마이그레이션
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-of-glue/" class="md-nav__link">
+        Glue 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../book-of-mold/" class="md-nav__link">
+        Mold 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          시작하기
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="시작하기" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          시작하기
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/getting-started-overview/" class="md-nav__link">
+        시작하며
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/install-guide-cube/" class="md-nav__link">
+        Cube 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/install-guide-glue/" class="md-nav__link">
+        Glue 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/install-guide-mold/" class="md-nav__link">
+        Mold 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          관리가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="관리가이드" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          관리가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Cube 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cube 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cube 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/overview-guide/" class="md-nav__link">
+        개요
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/log-guide/" class="md-nav__link">
+        기록
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/storage-guide/" class="md-nav__link">
+        저장소
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/networking-guide/" class="md-nav__link">
+        네트워킹
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/vm-guide/" class="md-nav__link">
+        가상머신
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/account-guide/" class="md-nav__link">
+        계정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/service-guide/" class="md-nav__link">
+        서비스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/ablestack-guide/" class="md-nav__link">
+        ABLESTACK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/update-software-guide/" class="md-nav__link">
+        소프트웨어 최신화
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/application-guide/" class="md-nav__link">
+        애플리케이션
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/diagnostic-guide/" class="md-nav__link">
+        진단 보고서
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/kerneldump-guide/" class="md-nav__link">
+        커널 덤프
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/terminal-guide/" class="md-nav__link">
+        터미널
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/cube/selinux-guide/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Mold 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mold 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mold 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/account-mngt-guide/" class="md-nav__link">
+        계정 및 사용자 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/project-mngt-guide/" class="md-nav__link">
+        프로젝트 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/serviceoffering-mngt-guide/" class="md-nav__link">
+        서비스오퍼링 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/network-mngt-guide/" class="md-nav__link">
+        사용자 네트워크 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/vm-mngt-guide/" class="md-nav__link">
+        가상머신 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/template%26ISO-mngt-guide/" class="md-nav__link">
+        템플릿 및 ISO 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/host-mngt-guide/" class="md-nav__link">
+        호스트 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/storage-mngt-guide/" class="md-nav__link">
+        스토리지 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/network%26traffic-mngt-guide/" class="md-nav__link">
+        네트워크 및 트래픽 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/systemvm-mngt-guide/" class="md-nav__link">
+        시스템VM 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/usage-mngt-guide/" class="md-nav__link">
+        Usage 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/cloud-mngt-guide/" class="md-nav__link">
+        Cloud 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/ha-mngt-guide/" class="md-nav__link">
+        고가용성(HA) 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/mold/event-mngt-guide/" class="md-nav__link">
+        이벤트 관리
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Glue 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Glue 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Glue 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/config-guide/" class="md-nav__link">
+        설정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/account%26role-guide/" class="md-nav__link">
+        사용자 및 역할 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/proxyconfig-guide/" class="md-nav__link">
+        프록시 설정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/api-request-audit-guide/" class="md-nav__link">
+        API 요청 감사
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/nfs-ganesha-mngt-guide/" class="md-nav__link">
+        NFS-Ganesha 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/plugin-guide/" class="md-nav__link">
+        플러그인
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/glue/troubleshooting-guide/" class="md-nav__link">
+        문제해결
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../administration/system-check/" class="md-nav__link">
+        ABLESTACK 시스템점검
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          문제해결
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="문제해결" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          문제해결
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/troubleshooting/" class="md-nav__link">
+        문제해결사례
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    아키텍처
+  </a>
+  
+    <nav class="md-nav" aria-label="아키텍처">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    호스트 아키텍처
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    하이퍼바이저 아키텍처
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cell" class="md-nav__link">
+    Cell 제한 사항
+  </a>
+  
+    <nav class="md-nav" aria-label="Cell 제한 사항">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    일반 제한 사항
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    하드웨어 구성 제한 사항
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    성능 제한
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    네트워크
+  </a>
+  
+    <nav class="md-nav" aria-label="네트워크">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bridge" class="md-nav__link">
+    Bridge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan" class="md-nav__link">
+    VLAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    Port
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bond" class="md-nav__link">
+    Bond
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    업링크 로드밸런싱
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    동작 방식
+  </a>
+  
+    <nav class="md-nav" aria-label="동작 방식">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    스토리지 I/O 경로
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    고가용성
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    라이브 마이그레이션
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ablecloud-team/ablestack-docs/edit/master/docs/architecture/book-of-cell.md" title="이 페이지를 편집" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  <h1>Cell 알아보기</h1>
+                
+                <p>Cell은 '세포, 방' 등의 의미를 가진 명사로,  하나의 개체를 구성하기 위한 요소가 각자의 역할을 수행하는 상태를 묘사합니다. ABLESTACK은 호스트 내에서 구역을 정해 실행되는 가상머신 또는 컨테이너를 실행하기 위한 하이퍼바이저에 이 이름을 붙였습니다. 말 그대로 하나의 호스트의 자원을 쪼개서 각각의 역할을 수행하는 작은 단위의 세포 또는 방인 가상머신을 실행하기 위한 환경을 제공하는 플랫폼입니다. </p>
+<p>Cell은 ABLESTACK에 내장되어 있는 하이퍼바이저이며, CentOS KVM을 기반으로 합니다. 기본적인 KVM에 HA, 라이브 마이그레이션, 네트워크 자동화 및 격리 등의 기능이 ABLESTACK에 맞게 작동하도록 기본 기능을 확장하였씁니다. Cell은 리눅스 뿐 아니라, Windows 및 관련 응용 프로그램이 실행되는 것에 대해 검증되어 있으며, 다양한 형태의 드라이버 지원을 통해 유연하게 관련 애플리케이션을 실행하도록 설계되어 있습니다. </p>
+<p>본 문서에서는 Cell의 아키텍처 및 기능을 설명합니다. </p>
+<h2 id="_1">아키텍처<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Cell의 가상화 환경 제공 방식을 이해하고, 효과적으로 가상머신을 운영하기 위해서는 가상화 아키텍처를 이해하는 것이 필요합니다. 본 문서에서는 가상화 환경을 제공하기 위한 ABLESTACK의 호스트 아키텍처와, 하이퍼바이저의 아키텍처를 설명하고, 개별 가상머신의 구성요소의 구성 시 최대로 할당 가능한 자원의 제한값, 그리고 네트워크의 구성 아키텍처에 대해 설명합니다. </p>
+<h3 id="_2">호스트 아키텍처<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>호스트에 Cube OS를 설치하고 스토리지 컨트롤러를 배포하면 컨트롤러는 가상머신으로 실행됩니다. 그리고 해당 가상머신에는 Glue 스토리지를 구성하기 위한 디스크 인벤토리로 SCSI 컨트롤러를 패스스루해서 전체 디스크를 컨트롤러 가상머신에 할당하거나, LUN 패스스루를 이용해 호스트의 특정 디스크를 가상머신에 할당합니다. 이를 통해 호스트에 있는 디스크는 하이퍼바이저를 우회하여 컨트롤러 가상머신에 직접 전달됩니다. 즉, 하이퍼바이저는 Glue를 구성하기 위해 설치된 호스트의 디스크를 컨트롤하지 않습니다. </p>
+<p>Cell은 전체 디스크 중 호스트의 OS 영역으로 할당되어 있는 디스크만 컨트롤하며 각각의 가상머신의 루트디스크 등의 볼륨으로 사용합니다. Cell은 CentOS KVM을 기반으로 하며 사용자가 생성한 게스트 VM을 위해 베어메탈 하드웨어 가상화를 사용합니다. </p>
+<p>다음의 그림은 Cell 하이퍼바이저의 호스트 관점에서의 아키텍처를 묘사합니다. </p>
+<p><center>
+<img alt="cell-host-architecture" src="../../assets/images/cell-host-architecture.png" />
+</center></p>
+<h3 id="_3">하이퍼바이저 아키텍처<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Cell은 CentOS KVM을 기반으로 ABLESTACK 운영에 최적화된 기능을 추가한 내장된 하이퍼바이저입니다. Cell 하이퍼바이저는 다음과 같은 주요 컴포넌트로 구성됩니다. </p>
+<ul>
+<li>KVM Kernel Module : CentOS Linux Kernel을 베어메탈 하이퍼바이저로 전환하기 위한 커널 모듈</li>
+<li>libvirtd : KVM 및 QEMU 관리를 위한 API, 데몬 및 관리 도구. Cube/Mold와 KVM/QEMU 간의 통신은 libvirtd를 통해 이루어짐</li>
+<li>qemu-kvm : 가상머신 실행을 위해 유저 스페이스에서 실행되는 하드웨어 에뮬레이터 및 가상화 프로세스이며, 하드웨어 지원 가상화 등에 사용됨</li>
+</ul>
+<p>다음의 그림은 Cell 하이퍼바이저의 아키텍처를 묘사합니다. </p>
+<p><center>
+<img alt="cube-hypervisor-architecture" src="../../assets/images/cube-hypervisor-architecture.png" />
+</center></p>
+<div class="admonition info">
+<p class="admonition-title">CPU 세대 호환성</p>
+<p>호스트의 CPU가 서로 모델이 다르고 세대가 다른 경우, 각 호스트에서 실행 중인 가상머신이 다른 호스트로 마이그레이션 되는 것이 불가능할 수 있는데, 이러한 문제를 해결하고 가상머신의 마이그레이션 및 호환성을 보장하는 기술이 Cell에 적용되어 있습니다. </p>
+<p>Cell은 CPU 세대 호환성을 적용할 것인지를 사용자가 선택할 수 있으며, 호환성을 적용하는 경우 클러스터 내에서 가장 세대가 낮은 프로세서를 이용해 가상머신의 CPU를 QEMU로 에뮬레이트하여 각 가상머신의 프로세서 호환성을 보장합니다.  </p>
+</div>
+<h2 id="cell">Cell 제한 사항<a class="headerlink" href="#cell" title="Permanent link">&para;</a></h2>
+<p>가상화된 시스템, 즉 Cell에 의해 만들어진 가상머신은 물리적인 서버와 거의 비슷하게 작동하지만 몇 가지 제한 사항이 적용됩니다. 이는 가상머신과 호스트 서버 시스템 모두에 영향을 미칩니다. </p>
+<h3 id="_4">일반 제한 사항<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Cell 사용 시 다음과 같은 일반 제한 사항이 적용됩니다. </p>
+<p><strong>Over Commit</strong></p>
+<p>Cell은 메모리와 디스크 공간 Over Commit을 모두 허용합니다. Over Commit을 명시적으로 허용하는 경우 이 기술을 사용해서 발생할 수 있는 예기치 않은 자원의 부족이나 성능의 저하 등에 대한 이슈의 여부를 사용자가 이해해야 합니다 만약 사용가능한 리소스를 초과하여 발생하는 하드웨어 오류는 가상머신 오류로 이어집니다. CPU 오버커밋을 성능에 영향을 미치므로 테스트 후 필요한 경우 사용해야 합니다.  </p>
+<p><strong>시간동기화</strong></p>
+<p>대부분의 가상머신은 정확한 시간 기록을 위해 몇가지 추가 지원이 필요합니다. 기본적으로 가상머신에 게스트 에이전트가 사용되는 경우 kvm-clock을 사용합니다. 별도로 안정적인 시간 유지를 위해 NTP 또는 유사한 네트워크 기반 시간 유지 프로토콜 사용을 권장합니다. </p>
+<p><strong>MAC 주소</strong></p>
+<p>NIC에 MAC 주소를 명시적으로 지정하지 않은 경우 기본적으로 난수 발생된 MAC 주소가 할당됩니다. 매우 드물게 이러한 자동 할당에 의해 둘 이상의 NIC가 동일한 MAC 주소를 수신하면 네트워크 문제가 발생하고 모든 가상머신에 영향을 줄 수 있습니다. 따라서 각 NIC에 대해 고유한 MAC 주소가 할당되었는지 확인해야 합니다.(Mold는 MAC 주소를 자동할당하고 이를 관리하기 때문에 자동할당에 의한 동일 MAC 주소 문제가 발생하지 않습니다.)</p>
+<p><strong>라이브 마이그레이션</strong></p>
+<p>라이브 마이그레이션은 동일한 CPU 기능을 가진 Cube 호스트 간에만 가능합니다. Cell은 CPU를 가상화할 때 3가지 가상화 모드(custom, host-mode, host-passthrough)를 지원합니다. 각 가상화 모드와 호스트 CPU 모델에 따라 라이브 마이그레이션의 가능 여부가 결정되며, 높은 성능을 제공하면서 가장 호환성이 높은 설정은 host-mode이고, 자동으로 마이그레이션 시 CPU의 기능을 조정합니다. host-passthrough는 가장 높은 성능을 제공하지만, 클러스터를 구성하는 CPU가 모두 동일 모델인 경우에만 마이그레이션이 허용됩니다. custom은 Mold가 직접 CPU의 기능을 클러스터 내의 호스트 중 가장 낮은 기능으로 설정하게 됩니다.</p>
+<p><strong>호스트 일시중단/최대절전모드</strong></p>
+<p>가상머신이 실행되는 동안에는 Cube 호스트 서버 시스템을 일시 중단하거나 최대 절전 모드로 전환하는 것은 지원되지 않습니다. </p>
+<h3 id="_5">하드웨어 구성 제한 사항<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Cell은 가상머신에 대해 다음의 구성 제한에 대해 테스트 되었습니다. 가상머신 및 호스트가 다음의 한계에 도달하여 구성되고, 운영되더라도 성능에 영향 없이 동작하는 것을 보장합니다. </p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>구성 제한값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>최대 가상머신 메모리 크기</td>
+<td>4TB</td>
+</tr>
+<tr>
+<td>가상머신 당 최대 가상CPU</td>
+<td>256 Core</td>
+</tr>
+<tr>
+<td>가상머신 당 최대 NIC 수</td>
+<td>8개</td>
+</tr>
+<tr>
+<td>가상머신 당 최대 가상디스크 수</td>
+<td>4개 IDE, 20개 SCSI (virtio-blk)</td>
+</tr>
+<tr>
+<td>호스트 당 최대 가상머신</td>
+<td>가상머신은 호스트의 총 CPU 코어 수의 8배까지 가상머신 CPU를 생성할 수 있으며 가상머신의 수는 이 제한의 영향을 받음</td>
+</tr>
+</tbody>
+</table>
+<p>가상화를 위한 호스트 서버에 대해서는 다음의 하드웨어 제한이 테스트 되었습니다. </p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>구성 제한값</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>최대 물리적 CPU</td>
+<td>4096 Core</td>
+</tr>
+<tr>
+<td>최대 물리적 메모리</td>
+<td>16TB</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">성능 제한<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>기본적으로 물리적인 환경에서 설치되고 실행되도록 디자인된 워크로드는 최신의 가상화 기술을 통해 그 기능이 상속되어 실행될 수 있으며, 여러가지 이점을 누릴 수 있습니다. 그럼에도 불구하고, 가상화는 물리적인 호스트에 비해 약간의 성능 감소를 가져올 수 있습니다. 따라서 사용자는 실행하고자 하는 워크로드의 최대 요구 성능을 가상머신이 만족하는지 테스트해야 하며, 이를 통해 가상화를 적용해야 합니다. 우리는 모든 워크로드가 Cell 가상화 환경에서 실행되도록 테스트하고 설계하지만, 경우에 따라 사용자가 설계한 워크로드가 가상화 환경에 적합하지 않을 수 있습니다. </p>
+<p>따라서 우리는 사용자가 워크로드를 실행할 때 참고할 수 있도록 가상머신에서 기대할 수 있는 성능을 테스트하여 제안합니다. 아래의 표에 표시된 백분율은 동일한 워크로드가 가상화 되지 않은 상황에서 얻을 수 있는 성능에 대한 비교치이며, 100%에 가까울 수록 좋은 성능입니다. 제시된 값을 일반적인 워크로드에 대한 대략적인 값이므로 모든 환경에서 동일하다고 보장할 수는 없습니다. </p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>전가상화</th>
+<th>반 가상화</th>
+<th>호스트 패스스루</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPU, MMU</td>
+<td>7%</td>
+<td>해당없음</td>
+<td>97% (Intel/AMD CPU), 85% (ARM CPU)</td>
+</tr>
+<tr>
+<td>네트워크 입출력</td>
+<td>60% (e1000 에뮬레이트)</td>
+<td>75% (virtio-net)</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>디스크 입출력</td>
+<td>40% (IDE 에뮬레이트)</td>
+<td>85% (virtio-blk)</td>
+<td>95%</td>
+</tr>
+<tr>
+<td>그래픽 (비가속)</td>
+<td>50% (Cirrus)</td>
+<td>85% (virtio-gpu)</td>
+<td>95%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_7">네트워크<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>ABLESTACK은 모든 가상머신 네트워킹에 Native Bridge를 사용합니다. Native Bridge는 또 다른 브릿지 플랫폼인 Open vSwitch에 비해 다루기 어렵지만, 높은 성능을 제공합니다. </p>
+<p>다음의 그림은 Cell의 Native Bridge 기반의 네트워킹 개념을 묘사합니다. </p>
+<p><center>
+<img alt="cell-network-architecture" src="../../assets/images/cell-network-architecture.png" />
+</center></p>
+<h3 id="bridge">Bridge<a class="headerlink" href="#bridge" title="Permanent link">&para;</a></h3>
+<p>브릿지는 물리적 및 가상 네트워크 인터페이스 간의 네트워크 트래픽을 관리하는 가상 스위치 역할을 합니다. </p>
+<p>기본 Cell 설정에는 br-MGMT라고 불리는 관리 네트워크 브릿지, br-VM 이라고 불리는 게스트 네트워크, br-PN, br-CN이라고 불리는 스토리지 네트워크 브릿지가 구성됩니다. br-MGMT는 호스트와 컨트롤 VM 사이의 연결을 제공합니다. br-PN, br-CN은 스토리지 컨트롤 VM(SCVM) 간의 연결을 제공합니다. </p>
+<p>또한 Cell은 cloud0라고 하는 특별한 내부 브릿지를 포함합니다. 이 브릿지는 시스템 VM과 호스트 사이의 보안 연결을 제공하여 시스템 VM의 내부 접속 시 반드시 호스트를 통해서만 보안 접속하도록 강제합니다. </p>
+<h3 id="vlan">VLAN<a class="headerlink" href="#vlan" title="Permanent link">&para;</a></h3>
+<p>브릿지는 가상머신의 트래픽을 분리하기 위해 VLAN으로 격리합니다. 브릿지는 VLAN 태깅을 통해 액세스 포트를 생성합니다. 예를 들어 VLAN ID가 101인 네트워크 브릿지를 만드는 경우 br-VM.101 이라는 브릿지를 만들고 해당 브릿지의 vnet 포트를 이용해 가상머신이 해당 VLAN으로 통신할 수 있도록 연결합니다. </p>
+<h3 id="port">Port<a class="headerlink" href="#port" title="Permanent link">&para;</a></h3>
+<p>포트는 가상머신과 가상스위치인 브릿지와의 연결을 제공하는 논리적 구성요소이며, vnet 이라고 표시됩니다. 가상머신이 특정 브릿지에 연결할 때에는 반드시 vnet으로 시작하는 이름의 포트를 만들게 되며, 각 vnet은 만들어진 순서로 일련번호가 생성됩니다. </p>
+<h3 id="bond">Bond<a class="headerlink" href="#bond" title="Permanent link">&para;</a></h3>
+<p>본드된 포트는 Cell이 설치된 Cube 호스트의 물리적 인터페이스를 통합합니다. 기본적으로 bond로 시작되는 이름의 본드가 만들어지며, MGMT 트래픽을 담당하는 본드는 bond-MGMT의 형식으로 생성됩니다. 생성된 본드는 다양한 트래픽 로드밸런싱을 제공합니다. </p>
+<h3 id="_8">업링크 로드밸런싱<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>위에서 언급한 바와 같이 Bond는 트래픽을 로드밸런싱을 사용할 수 있습니다. 다음과 같은 본드 모드를 사용할 수 있습니다. </p>
+<ul>
+<li>round-robin : active-active 방식의 본딩으로 네트워크 트래픽을 본딩된 네트워크 인트페이스에 번갈아가며 분산합니다. 트래픽 처리량은 한 개의 NIC 대역폭으로 제한됩니다.</li>
+<li>active-backup : 하나의 액티브 어댑터를 통해 모든 트래픽을 전송하는 것으로 기본 설정입니다. 액티브 어댑터를 사용할 수 없게 되면 본드 내의 다른 어댑터가 액티브로 전환되며 트래픽 처리량은 한 개의 NIC 대역폭으로 제한됩니다.</li>
+<li>balance-xor : XOR 연산을 이용해 목적지 MAC과 소스 MAC을 이용한 분배를 하게 됩니다. 목적지 MAC으로의 트래픽이 본드된 인터페이스 중 하나를 선택하면 해당 트래픽은 그 동안 해당 인터페이스로 트래픽이 전송됩니다.</li>
+<li>broadcast : 특정한 규칙 없이 모든 슬레이브 인터페이스에 트래픽을 전송합니다. </li>
+<li>802.3ad LACP : Ling Aggregation으로 스위치에서 해당 설정이 지원되어야 합니다. 모든 인터페이스로 트래픽이 전송되며 트래픽 처리량은 2개의 NIC 대역폭을 제공합니다. </li>
+</ul>
+<h2 id="_9">동작 방식<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>본 문서에서는 ABLESTACK의 Glue 스토리지 연결 방식과 고가용성 동작 방식 등 다양한 내부 동장 방식에 대해 설명합니다. </p>
+<h3 id="io">스토리지 I/O 경로<a class="headerlink" href="#io" title="Permanent link">&para;</a></h3>
+<p>Cell은 Glue 스토리지와의 연결, 가상머신에의 할당, 마이그레이션 및 고가용성 처리 등을 위한 최적화된 경로 선택 방식을 활용합니다. 모든 디스크는 RAW 타입의 블록 디바이스로 가상머신에 전달됩니다. </p>
+<div class="admonition warning">
+<p class="admonition-title">libvirt, virsh 명령 사용 금지</p>
+<p>Cell은 기본적으로 KVM을 기반으로 하고 있기 때문에 kvm, qemu, libvirt의 스토리지 드라이버를 추상화하여 모든 백엔드 설정을 처리합니다. 이는 사용자가 Mold를 통해 편리하게 가상머신 사용에 집중할 수 있게 도와줍니다.</p>
+<p>다음의 동작방식 설명은 아키텍처의 이해를 돕기 위한 설명이며, 이러한 구성을 이해했다고 해서 virsh 명령이나 kvm 명령을 직접 사용해서 작업하는 것을 허용하는 것은 아닙니다. </p>
+</div>
+<p>Cell은 Glue 스토리지 연결을 위해서 커스터마이징 된 librbd를 사용합니다. librbd는 Glue 스토리지의 블록 이미지를 Cell 하이버파이저가 인식할 수 있도록 도와주는 라이브러리 입니다. 다음의 그림은 Cell 하이퍼바이저가 Glue 스토리지를 이용해 가상머신 블록 디스크를 연결하는 경로를 묘사합니다. </p>
+<p><center>
+<img alt="cell-general-storage-path" src="../../assets/images/cell-general-storage-path.png" />
+</center></p>
+<p>가상머신에 블록 디스크를 연결할 때 가장 권장하는 컨트롤러는 virtio-blk입니다. 그리고 다음으로 권장하는 컨트롤러는 virtio-scsi 입니다. ide 컨트롤러의 사용이 가능하지만 대부분의 환경에서 권장되지 않습니다. IO 성능이 매우 저하되기 때문입니다. virtio-blk 또는 virtio-scsi를 Windows 가상머신에서 사용하기 위해서는 virtio 드라이버와 에이전트를 반드시 설치해야 합니다. 최신 Linux 배포판에는 virtio 드라이버가 기본적으로 설치되어 있습니다. </p>
+<p>Cell의 librbd는 주기적으로 Glue 컨트롤 VM의 모니터 데몬의 실행 여부를 확인하고 최적의 경로를 선택하여 스토리지 IO가 발생하도록 관리합니다. 기본적으로 스토리지 연결은 가상머신이 실행 중인 호스트의 Glue 컨트롤러의 모니터 데몬에 연결합니다. 다음의 그림은 호스트가 3대 있는 경우 가상머신의 IO가 어떻게 발생하는지를 묘사합니다. </p>
+<p><center>
+<img alt="cell-storage-multi-path" src="../../assets/images/cell-storage-multi-path.png" />
+</center></p>
+<p>만약 가상머신이 실행 중인 호스트의 스토리지 컨트롤러가 중지된 경우, librbd는 자동으로 다음으로 가까운 Glue 컨트롤러의 모니터 데몬에 연결하여 지속적인 IO가 발생하도록 처리합니다. 다음의 그림은 가상머신이 실행 중인 호스트의 스토리지 컨트롤러가 응답이 없는 경우의 IO 경로를 묘사합니다. </p>
+<p><center>
+<img alt="cell-storage-fail-over" src="../../assets/images/cell-storage-fail-over.png" />
+</center></p>
+<p>만약 응답이 없던 스토리지 컨트롤러가 되살아 나는 경우 librbd는 바로 이를 인식하고, 다시 가상머신이 실행 중인 로컬 스토리지 컨트롤러로 IO가 발생하도록 설정합니다. 다음의 그림은 스토리지 컨트롤러의 장애가 해결되어 다시 스토리지 IO 경로가 복구되는 상황을 묘사합니다. </p>
+<p><center>
+<img alt="cell-storage-fail-back" src="../../assets/images/cell-storage-fail-back.png" />
+</center></p>
+<p>이와 같이 Cell은 librbd를 통해 Glue Storage와 연결하여, 최적의 IO Path를 탐색하고, 일부 Glue Storage 컨트롤러에 문제가 발생하는 경우에도 지속적으로 IO가 발생하도록 경로를 재설정하는 기능을 제공하도록 설계되어 있습니다. </p>
+<h3 id="_10">고가용성<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Cell은 호스트 고가용성을 제공하기 위해 libvirt의 상태를 확인하여 호스트의 이상 유무를 확인하고 호스트에 장애가 발생 시 해당 호스트에서 실행 중인 가상머신을 다른 호스트로 이관하는 고가용성을 제공합니다. </p>
+<p>호스트 고가용성은 어떠한 스토리지를 사용하든 동일한 고가용성 아키텍처를 제공합니다. 다음의 그림은 Cell의 고가용성 아키텍처를 설명합니다. </p>
+<p><center>
+<img alt="cell-ha-regardless-storage" src="../../assets/images/cell-ha-regardless-storage.png" />
+</center></p>
+<p>각 호스트에는 Cell HA Helper 데몬이 실행됩니다. 해당 데몬은 libvirt를 이용해 스토리지의 연결상태 및 가상머신의 실행상태를 점검하는 Heartbeat 프로세스를 실행합니다. 그리고 이러한 점검을 자신만 하는 것이 아니라, 클러스터 내에 있는 이웃 호스트에도 요청하여 호스트가 정상적인지를 주기적으로 확인합니다. </p>
+<p>만약 호스트에 장애가 발생하면 Cell HA Helper는 자기 자신의 이상유무를 파악할 수 없게 되고, 이웃에 있는 Cell HA Helper가 이상이 발생한 호스트를 식별하게 되며, 이러한 이상을 전달 받은 Mold는 해당 호스트의 ipmitool을 이용해 전원명령을 전달하여 Fencing을 하고, 해당 호스트에서 실행 중인 가상머신을 다른 호스트에서 실행하도록 처리하게 됩니다. </p>
+<h3 id="_11">라이브 마이그레이션<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>Cell은 가상머신의 라이브 마이그레이션을 지원합니다. 라이브 마이그레이션을 하는 경우 가상머신의 메모리 데이터와 디스크 데이터를 마이그레이션 하고자 하는 호스트로 복사한 후 가상머신을 이동하게 됩니다. 이 때 데이터 복사에 사용하는 네트워크는 관리 네트워크이며, 관리 네트워크의 49152 포트를 사용하게 됩니다. </p>
+<p>다음의 그림은 Cell의 가상머신 라이브 마이그레이션의 처리 아키텍처를 묘사합니다.</p>
+<p><center>
+<img alt="cell-vm-live-migration" src="../../assets/images/cell-vm-live-migration.png" />
+</center></p>
+<div class="admonition info">
+<p class="admonition-title">마이그레이션 성능</p>
+<p>가상머신 마이그레이션 성능은 관리 네트워크의 대역폭에 매우 의존적입니다. 마이그레이션 성능을 높이려면 관리 네트워크를 10Gb 이상의 대역폭 제공하여 구성하는 것을 권장합니다. 1Gb 네트워크를 사용하는 경우 가상머신 마이그레이션에 많은 시간이 소요됩니다. </p>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            맨위로
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../book-of-cube/" class="md-footer__link md-footer__link--prev" aria-label="이전: Cube 알아보기" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                이전
+              </span>
+              Cube 알아보기
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../book-of-glue/" class="md-footer__link md-footer__link--next" aria-label="다음: Glue 알아보기" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                다음
+              </span>
+              Glue 알아보기
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 ABLECLOUD Co. Ltd.
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/ablecloud-team" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "search.config.lang": "en", "search.config.pipeline": " ", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\uac80\uc0c9", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version.title": "\ubc84\uc804 \uc120\ud0dd"}, "search": "../../assets/javascripts/workers/search.f8263e09.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>

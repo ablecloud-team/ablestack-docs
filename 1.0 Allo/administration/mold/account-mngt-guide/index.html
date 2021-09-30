@@ -1,0 +1,1953 @@
+
+<!doctype html>
+<html lang="kr" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <meta name="author" content="ABLECLOUD Co. Ltd">
+      
+      
+      <link rel="icon" href="../../../assets/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.0">
+    
+    
+      
+        <title>계정 및 사용자 관리 - ABLESTACK</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.8b42a75e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,400i,700%7CCutive+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Noto Sans KR";--md-code-font-family:"Cutive Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+      <script>var palette=__get("__palette");if(null!==palette&&"object"==typeof palette.color)for(var key in palette.color)document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ABLESTACK" class="md-header__button md-logo" aria-label="ABLESTACK" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ABLESTACK
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              계정 및 사용자 관리
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="지우기" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/ablecloud-team/ablestack-docs/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      환영합니다
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../architecture/architecture-overview/" class="md-tabs__link">
+        아키텍처
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../getting-started/getting-started-overview/" class="md-tabs__link">
+        시작하기
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../cube/userinterface-guide/" class="md-tabs__link md-tabs__link--active">
+        관리가이드
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../troubleshooting/troubleshooting/" class="md-tabs__link">
+        문제해결
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ABLESTACK" class="md-nav__button md-logo" aria-label="ABLESTACK" data-md-component="logo">
+      
+  <img src="../../../assets/logo.png" alt="logo">
+
+    </a>
+    ABLESTACK
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/ablecloud-team/ablestack-docs/" title="저장소로 이동" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        환영합니다
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          아키텍처
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="아키텍처" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          아키텍처
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          ABLESTACK의 탄생
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK의 탄생" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK의 탄생
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architecture-overview/" class="md-nav__link">
+        데이터센터의 역사와 문제점
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/birth-of-ablestack/" class="md-nav__link">
+        문제해결방법-ABLESTACK
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          ABLESTACK 물리 아키텍처
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK 물리 아키텍처" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK 물리 아키텍처
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/ablestack-basic-structure/" class="md-nav__link">
+        ABLESTACK의 기본구조
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/host-architecture/" class="md-nav__link">
+        호스트 아키텍처
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/network-architecture/" class="md-nav__link">
+        네트워크 아키텍처
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ABLESTACK Core" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-cube/" class="md-nav__link">
+        Cube 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-cell/" class="md-nav__link">
+        Cell 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-glue/" class="md-nav__link">
+        Glue 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/book-of-mold/" class="md-nav__link">
+        Mold 알아보기
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          시작하기
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="시작하기" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          시작하기
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/getting-started-overview/" class="md-nav__link">
+        시작하며
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/install-guide-cube/" class="md-nav__link">
+        Cube 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/install-guide-glue/" class="md-nav__link">
+        Glue 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting-started/install-guide-mold/" class="md-nav__link">
+        Mold 설치 가이드
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          관리가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="관리가이드" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          관리가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1">
+          Cube 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Cube 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cube 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/overview-guide/" class="md-nav__link">
+        개요
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/log-guide/" class="md-nav__link">
+        기록
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/storage-guide/" class="md-nav__link">
+        저장소
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/networking-guide/" class="md-nav__link">
+        네트워킹
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/vm-guide/" class="md-nav__link">
+        가상머신
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/account-guide/" class="md-nav__link">
+        계정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/service-guide/" class="md-nav__link">
+        서비스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/ablestack-guide/" class="md-nav__link">
+        ABLESTACK
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/update-software-guide/" class="md-nav__link">
+        소프트웨어 최신화
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/application-guide/" class="md-nav__link">
+        애플리케이션
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/diagnostic-guide/" class="md-nav__link">
+        진단 보고서
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/kerneldump-guide/" class="md-nav__link">
+        커널 덤프
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/terminal-guide/" class="md-nav__link">
+        터미널
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cube/selinux-guide/" class="md-nav__link">
+        SELinux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          Mold 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Mold 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mold 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          계정 및 사용자 관리
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        계정 및 사용자 관리
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#roles-account-domain-user" class="md-nav__link">
+    역할(Roles), 계정(Account), 도메인(Domain), 사용자(User)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    동적 역할 사용
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    계정 및 도메인 전용 리소스
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zone-pod-cluster" class="md-nav__link">
+    zone, pod, cluster 또는 호스트를 계정 또는 도메인 전용으로 지정하는 방법
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    사용자 인증을 위해 LDAP 서버 사용
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saml-20-id" class="md-nav__link">
+    사용자 인증을 위해 SAML 2.0 ID 공급자 사용
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-mngt-guide/" class="md-nav__link">
+        프로젝트 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../serviceoffering-mngt-guide/" class="md-nav__link">
+        서비스오퍼링 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network-mngt-guide/" class="md-nav__link">
+        사용자 네트워크 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vm-mngt-guide/" class="md-nav__link">
+        가상머신 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../template%26ISO-mngt-guide/" class="md-nav__link">
+        템플릿 및 ISO 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../host-mngt-guide/" class="md-nav__link">
+        호스트 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../storage-mngt-guide/" class="md-nav__link">
+        스토리지 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../network%26traffic-mngt-guide/" class="md-nav__link">
+        네트워크 및 트래픽 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../systemvm-mngt-guide/" class="md-nav__link">
+        시스템VM 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage-mngt-guide/" class="md-nav__link">
+        Usage 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-mngt-guide/" class="md-nav__link">
+        Cloud 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ha-mngt-guide/" class="md-nav__link">
+        고가용성(HA) 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../event-mngt-guide/" class="md-nav__link">
+        이벤트 관리
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Glue 가이드
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Glue 가이드" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Glue 가이드
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/userinterface-guide/" class="md-nav__link">
+        사용자 인터페이스
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/config-guide/" class="md-nav__link">
+        설정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/account%26role-guide/" class="md-nav__link">
+        사용자 및 역할 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/proxyconfig-guide/" class="md-nav__link">
+        프록시 설정
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/api-request-audit-guide/" class="md-nav__link">
+        API 요청 감사
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/nfs-ganesha-mngt-guide/" class="md-nav__link">
+        NFS-Ganesha 관리
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/plugin-guide/" class="md-nav__link">
+        플러그인
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glue/troubleshooting-guide/" class="md-nav__link">
+        문제해결
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-check/" class="md-nav__link">
+        ABLESTACK 시스템점검
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          문제해결
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="문제해결" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          문제해결
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../troubleshooting/troubleshooting/" class="md-nav__link">
+        문제해결사례
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#roles-account-domain-user" class="md-nav__link">
+    역할(Roles), 계정(Account), 도메인(Domain), 사용자(User)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    동적 역할 사용
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    계정 및 도메인 전용 리소스
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zone-pod-cluster" class="md-nav__link">
+    zone, pod, cluster 또는 호스트를 계정 또는 도메인 전용으로 지정하는 방법
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    사용자 인증을 위해 LDAP 서버 사용
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saml-20-id" class="md-nav__link">
+    사용자 인증을 위해 SAML 2.0 ID 공급자 사용
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/ablecloud-team/ablestack-docs/edit/master/docs/administration/mold/account-mngt-guide.md" title="이 페이지를 편집" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="_1">계정 및 사용자 관리<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>ABLESTACK은 Cloud 서비스 위하여 도메인과 계정을 통하여 자원을 구분하고 권한 및 역할에 따라서 사용자를 구분할 수 있는 관리 기능을 제공합니다. </p>
+<h2 id="roles-account-domain-user">역할(Roles), 계정(Account), 도메인(Domain), 사용자(User)<a class="headerlink" href="#roles-account-domain-user" title="Permanent link">&para;</a></h2>
+<H3>역할(Roles)</H3>
+<p>역할은 허용된 기능 집합을 나타냅니다. 모든 ABLESTACK 계정에는 API 요청을 허용하거나 허용하지 않도록 액세스 규칙을 적용하는 역할이 연결되어 있습니다. 일반적으로 루트 관리자, 리소스 관리자, 도메인 관리자 및 사용자의 네 가지 기본 역할이 있습니다.</p>
+<H3>계정(Account)</H3>
+<p>계정은 일반적으로 서비스 제공 업체의 고객 또는 대규모 조직의 부서를 나타냅니다. 한 계정에 여러 사용자가 존재할 수 있습니다.</p>
+<H3>도메인(Domain)</H3>
+<p>계정은 도메인별로 그룹화되며 일반적으로 도메인에는 서로 논리적 관계가 있는 여러 계정과 도메인 및 하위 도메인에 대한 권한이 있는 위임된 관리자 집합이 포함됩니다. 
+예를 들어 여러 리셀러가 있는 서비스 공급자는 각 리셀러에 대한 도메인을 만들 수 있습니다.</p>
+<p>최고 관리자 유형의 계정 (최상위 도메인에서만 사용 가능) 외에 도메인 관리자와 사용자라는 두 가지 유형의 계정을 각 도메인에 만들 수 있습니다.</p>
+<H3>사용자(User)</H3>
+<p>사용자는 계정의 별칭과 같으며 동일한 계정의 사용자는 서로 격리되지 않지만 다른 계정의 사용자와 격리됩니다. </p>
+<p>사용자 이름은 해당 도메인의 계정 전체에서 중복될 수 없으며 하위 도메인을 포함한 다른 도메인에서는 존재할 수 있습니다.</p>
+<H3>도메인 관리자(Domain Administrators)</H3>
+<p>도메인 관리자는 해당 도메인에 속한 사용자에 대한 관리 작업을 수행할 수 있습니다. 도메인 관리자는 물리적 서버 나 다른 도메인을 볼 수 없습니다.</p>
+<H3>최고 관리자(Root Administrator)</H3>
+<p>최고 관리자는 템플릿, 서비스 제공, 고객 관리 관리자 및 도메인 관리를 포함하여 시스템에 대한 완전한 액세스 권한을 갖습니다.</p>
+<H3></H3>
+<p>자원에 대한 소유권(Ownership)
+자원은 해당 계정의 개별 사용자가 아니라 계정에 속합니다. 예를 들어 청구, 자원 제한 등은 사용자가 아닌 계정에서 유지 관리됩니다. 사용자는 해당 작업에 대한 권한이 있는 경우 계정의 모든 자원에서 작업할 수 있습니다. 권한은 역할에 따라 결정됩니다. 최고 관리자는 가상 머신의 소유권을 한 계정에서 다른 계정으로 변경할 수 있습니다. 도메인 또는 하위 도메인 관리자는 한 계정에서 도메인 또는 하위 도메인의 다른 계정으로 도메인 내의 VM에 대해 동일한 작업을 수행할 수 있습니다.</p>
+<h2 id="_2">동적 역할 사용<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>기본 역할 외에도 동적 역할 기반 API 검사기 기능을 통해 Mold 루트 관리자는 사용자 지정 권한으로 새 역할을 만들 수 있습니다. 허용/거부 규칙은 관리 서버를 다시 시작하지 않고도 런타임 중에 동적으로 구성할 수 있습니다.</p>
+<p>모든 역할은 관리자, 리소스 관리자, 도메인 관리자 및 사용자의 네 가지 역할 유형 중 하나로 확인됩니다. UI의 역할 탭을 사용하고 이름, 역할 유형 또는 기존 역할의 ID, 선택적으로 설명을 지정하여 새 역할을 작성할 수 있습니다. 기존 역할의 ID를 사용하여 새 역할을 생성하면 기존 역할의 모든 규칙이 새 역할에 복사되고 이러한 규칙은 원하는대로 수정할 수 있습니다.</p>
+<p>역할별 규칙은 역할별 세부 정보 페이지의 규칙 탭을 통해 구성하거나 역할 유형으로 새 역할을 생성하는 동안 CSV 파일에서 가져올 수 있습니다. 규칙은 허용 또는 거부 권한 중 하나이며 선택적으로 설명인 API 이름 또는 와일드 카드 문자열입니다. 이러한 규칙은 CSV 파일로 내보낼 수 있으며 이름은 기본적으로 "<RoleName>_<RoleType>.csv"로 지정됩니다.</p>
+<p>CSV 파일 형식 :</p>
+<div class="highlight"><pre><span></span><code>rule,permission,description
+&lt;Rule1&gt;,&lt;Permission1&gt;,&lt;Description1&gt;
+&lt;Rule2&gt;,&lt;Permission2&gt;,&lt;Description2&gt;
+&lt;Rule3&gt;,&lt;Permission3&gt;,&lt;Description3&gt;
+…
+so on
+</code></pre></div>
+<p>사용자가 API를 요청하면 백엔드는 요청된 API를 호출자 사용자 계정의 역할에 대해 구성된 규칙 (규칙이 구성된 순서대로)과 비교하여 확인합니다. 규칙을 반복하고 API가 허용 규칙과 일치하면 API 요청을 허용하고 거부 규칙과 일치하면 요청을 거부합니다. 다음으로 요청 API가 구성된 규칙과 일치하지 않는 경우 요청된 API의 기본 권한 부여가 해당 사용자 역할 유형을 허용하는 경우 허용하고 역할 권한 규칙에 의해 명시적으로 허용/거부되지 않으면 최종적으로 사용자 API 요청을 거부합니다. 또는 기본 API가 주석을 승인합니다.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>루트 관리자가 시스템에서 잠기는 것을 방지하기 위해 모든 루트 관리자 계정에 모든 API가 허용됩니다.</p>
+</div>
+<p>동적 역할 기능은 Mold 설치 시 기본적으로 활성화됩니다. 관리자가 마이그레이션 도구를 실행하여 이 기능을 사용하도록 기존 배포를 마이그레이션할 수 있습니다. 마이그레이션 도구가 있습니다.</p>
+<div class="highlight"><pre><span></span><code>/usr/share/cloudstack-common/scripts/util/migrate-dynamicroles.py.
+</code></pre></div>
+<p><strong>참고 : 언제든지 commands.properties 파일을 변경하지 않은 경우 -D (기본값) 옵션을 사용하는 것이 좋습니다. 그렇지 않으면 새 API 명령이 동적 역할 데이터베이스에 추가되지 않을 수 있습니다.</strong></p>
+<p>마이그레이션 중에 이 도구는 데이터베이스에서 내부 플래그를 활성화하고 제공된 commands.properties 파일 (일반적으로)에서 데이터베이스로 기존 정적 역할 기반 규칙을 복사 <code>/etc/cloudstack/management/commands.properties</code>하고 commands.properties 파일 (일반적으로 /etc/cloudstack/management/)의 이름을 바꿉니다. commands.properties.deprecated). 마이그레이션 프로세스에서는 관리 서버를 다시 시작할 필요가 없습니다.</p>
+<p>사용법 : migrate-dynamicroles.py[옵션] [-h for help]</p>
+<p>옵션 :</p>
+<table>
+<thead>
+<tr>
+<th align="left"><center>옵션</center></th>
+<th align="left"><center>내용</center></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">-b DB</td>
+<td align="left">데이터베이스 이름, 기본값 : 클라우드</td>
+</tr>
+<tr>
+<td align="left">-u USER</td>
+<td align="left">사용자 이름은 클라우드 데이터베이스에 대한 권한이 있는 MySQL 사용자입니다. 기본값 : cloud</td>
+</tr>
+<tr>
+<td align="left">-p PASSWORD</td>
+<td align="left">클라우드 데이터베이스에 대한 권한이 있는 MySQL 사용자의 비밀번호</td>
+</tr>
+<tr>
+<td align="left">-H HOST</td>
+<td align="left">MySQL 서버의 호스트 또는 IP</td>
+</tr>
+<tr>
+<td align="left">-P PORT</td>
+<td align="left">MySQL 서버의 호스트 또는 IP, 기본값 : 3306</td>
+</tr>
+<tr>
+<td align="left">-f FILE</td>
+<td align="left">commands.properties 파일, 기본값 :<br/>/etc/cloudstack/management/commands.properties</td>
+</tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">이 도구가 수행할 테스트 실행 및 디버그 작업</td>
+</tr>
+<tr>
+<td align="left">-D</td>
+<td align="left">동적 역할에 대한 기본 구성 사용 (command.properties를 가져 오지 않음)</td>
+</tr>
+</tbody>
+</table>
+<p>예 :</p>
+<div class="highlight"><pre><span></span><code>sudo python /usr/share/cloudstack-common/scripts/util/migrate-dynamicroles.py -u cloud -p cloud -H localhost -P 3306 -f /etc/cloudstack/management/commands.properties
+
+sudo python /usr/share/cloudstack-common/scripts/util/migrate-dynamicroles.py -u cloud -p cloud -H localhost -P 3306 -D
+</code></pre></div>
+<p>여러 관리 서버가 있는 경우 첫 번째 관리 서버에 대한 마이그레이션 도구를 실행한 후 일반적으로 /etc/cloudstack/management 경로에 있는 모든 관리 서버에서 commands.properties 파일을 제거하거나 이름을 바꿉니다.</p>
+<h2 id="_3">계정 및 도메인 전용 리소스<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>루트 관리자는 추가 보안 또는 성능 보장을 위해 개인 인프라가 필요한 특정 도메인 또는 계정에 리소스를 할당할 수 있습니다. zone, pod, cluster 또는 호스트는 특정 도메인 또는 계정에 대해 루트 관리자가 예약할 수 있습니다. 해당 도메인 또는 하위 도메인의 사용자만 인프라를 사용할 수 있습니다. 예를 들어 지정된 도메인의 사용자만 해당 도메인 전용 zone에 게스트를 만들 수 있습니다.</p>
+<p>사용 가능한 유형의 dedication :</p>
+<ul>
+<li>Explicit dedication. zone, pod, cluster 또는 호스트는 초기 배포 및 구성 중에 루트 관리자가 계정 또는 도메인 전용으로 사용합니다.</li>
+<li>Strict implicit dedication. 호스트는 여러 계정에서 공유되지 않습니다. 예를 들어, 엄격한 암시적 전용은 데스크톱 소프트웨어의 라이선스 약관을 위반하지 않고 다른 계정 간에 호스트를 공유할 수 없는 데스크톱과 같은 특정 유형의 애플리케이션 배포에 유용합니다.</li>
+<li>Preferred implicit dedication. 가능한 경우 VM은 전용 인프라에 배포됩니다. 그렇지 않으면 VM을 공유 인프라에 배포할 수 있습니다.</li>
+</ul>
+<h2 id="zone-pod-cluster">zone, pod, cluster 또는 호스트를 계정 또는 도메인 전용으로 지정하는 방법<a class="headerlink" href="#zone-pod-cluster" title="Permanent link">&para;</a></h2>
+<p>명시적 전용 : 새 zone, pod, cluster 또는 호스트를 배포할 때 루트 관리자는 전용 확인란을 클릭한 다음 리소스를 소유할 도메인 또는 계정을 선택할 수 있습니다.</p>
+<p>기존 zone, pod, cluster 또는 호스트를 명시적으로 전용 : 루트 관리자로 로그인하고 UI에서 리소스를 찾은 다음 전용 버튼을 클릭합니다.</p>
+<p>암시적 헌신의 경우 : 관리자가 컴퓨팅 서비스 오퍼링을 생성하고 Deployment Planner 필드에서 ImplicitDedicationPlanner를 선택합니다. 그런 다음 플래너 모드에서 관리자는 전용 리소스를 사용할 수 없을 때 공유 리소스의 일부 사용을 허용 할 수 있는지 여부에 따라 엄격 또는 선호를 지정합니다. 사용자가 이 서비스 제공을 기반으로 VM을 만들 때마다 전용 호스트 중 하나에 할당됩니다.</p>
+<H3>전용 호스트를 사용하는 방법</H3>
+<p>명시적 전용 호스트를 사용하려면 명시적 전용 그룹을 사용합니다 ( “Affinity Groups" 참조 ). 예를 들어 새 VM을 만들 때 최종 사용자는 이를 전용 인프라에 배치하도록 선택할 수 있습니다. 이 작업은 일부 인프라가 사용자 계정 또는 도메인 전용으로 이미 할당된 경우에만 가능합니다.</p>
+<H3>전용 호스트, cluster, pod 및 zone의 동작</H3>
+<p>관리자는 원하는 경우 대상이 다른 계정/도메인용으로 예약된 호스트 또는 공유되는 호스트 (특정 계정 또는 도메인 전용이 아님)에 관계없이 VM을 전용 호스트에서 라이브 마이그레이션할 수 있습니다. Mold는 경고를 생성하지만 작업은 허용됩니다.</p>
+<p>전용 호스트는 호스트 태그와 함께 사용할 수 있습니다. 호스트 태그와 전용이 모두 요청되는 경우 VM은 두 요구 사항을 모두 충족하는 호스트에만 배치됩니다. 사용자가 요청한 호스트 태그가 있는 해당 사용자가 사용할 수 있는 전용 리소스가 없는 경우 VM이 배포되지 않습니다.</p>
+<p>계정 또는 도메인을 삭제하면 전용이었던 모든 호스트, cluster, pod 및 zone이 해제됩니다. 이제 모든 계정 또는 도메인에서 공유하거나 관리자가 다른 계정 또는 도메인에 다시 할당하도록 선택할 수 있습니다.</p>
+<p>시스템 VM 및 가상 라우터는 호스트 전용 동작에 영향을 줍니다. 시스템 VM 및 가상 라우터는 Mold 시스템 계정이 소유하며 모든 호스트에 배포할 수 있습니다. 그들은 명시적인 헌신을 고수하지 않습니다. 호스트에 시스템 VM 및 가상 라우터가 있으면 엄격한 암시적 전용에 적합하지 않습니다. 호스트에 특정 계정 (기본 시스템 계정)의 VM이 이미 있음으로 엄격한 암시적 전용에 호스트를 사용할 수 없습니다. 그러나 시스템 VM 또는 가상 라우터가 있는 호스트를 선호하는 암시적 전용으로 사용할 수 있습니다.</p>
+<h2 id="ldap">사용자 인증을 위해 LDAP 서버 사용<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h2>
+<p>Microsoft Active Directory 또는 ApacheDS와 같은 외부 LDAP 서버를 사용하여 Mold 최종 사용자를 인증할 수 있습니다. Mold는 지정된 기본 디렉터리에서 시작하여 외부 LDAP 디렉터리 트리를 검색하고 이름, 성, 이메일 및 사용자 이름과 같은 사용자 정보를 가져옵니다.</p>
+<p>도메인에서 계정별 자동 동기화를 구성하여 도메인의 사용자를 LDAP의 그룹 구성원으로 최신 상태로 유지할 수 있습니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>주의할 점은 ApacheDS는 사용자가 다른 계정으로 이동했는지 확인하는 데 필요한 가상 'memberOf'속성을 아직 지원하지 않는다는 것입니다. Microsoft AD 및 OpenLDAP와 OpenDJ는 이를 지원합니다.</p>
+</div>
+<p>이제 LDAP 사용자를 Mold 사용자에 연결하는 세 가지 방법이 있습니다. 이 세 가지 방법은 서로의 확장으로 개발되었습니다.</p>
+<p>인증을 위해 세 가지 경우 모두 사용자가 입력한 사용자 이름과 비밀번호가 사용됩니다.</p>
+<ol>
+<li>
+<p>manual import. 사용자는 도메인/계정에 명시적으로 매핑되고 해당 계정의 사용자로 생성됩니다.</p>
+<ol>
+<li>Mold는 주어진 사용자 이름으로 사용자를 검색합니다.</li>
+<li>존재하는 경우 사용자가 활성화되어 있는지 확인합니다.</li>
+<li>사용자가 활성화된 경우 Mold는 구성된 <code>ldap.username.attribute</code>으로 LDAP에서 검색합니다.</li>
+<li>LDAP 사용자가 발견되면 Mold는 해당 LDAP 사용자에 대해 반환된 보안 주체와 입력한 비밀번호로 바인드 요청을 수행합니다.</li>
+<li>LAP의 인증 결과 확인합니다.</li>
+</ol>
+</li>
+<li>
+<p>autoimport. 도메인은 해당 도메인에 아직 존재하지 않는 사용자를 가져오도록 구성됩니다. 이러한 사용자의 경우 사용자와 동일한 이름의 계정이 자동으로 생성되고 해당 계정에 사용자가 생성됩니다.</p>
+<ol>
+<li>도메인이 LDAP와 함께 사용되도록 구성된 경우</li>
+<li>Mold는 구성된 <code>ldap.username.attribute</code>에 의해 LDAP에서 검색합니다.</li>
+<li>LDAP 사용자가 발견되면 Mold는 해당 LDAP 사용자에 대해 반환된 보안 주체와 입력한 비밀번호로 바인드 요청을 수행합니다.</li>
+<li>
+<p>LDAP 인증이 체크아웃되면 Mold는 인증된 사용자가 로그온하려는 도메인에 존재하는지 확인합니다.</p>
+<ol>
+<li>사용자가 Mold에 존재하는 경우 활성화됩니다.</li>
+<li>존재하지 않는 경우 사용자 이름을 계정 및 사용자 이름으로 사용하여 새 계정에 생성됩니다.</li>
+</ol>
+</li>
+<li>
+<p>인증이 실패할 경우 구성된 <code>incorrect.login.attempts.allowed</code> 시도 횟수 후에 사용자가 Mold에서 비활성화됩니다.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>autosync. 도메인은 LDAP 서버를 사용하도록 구성되며 이 도메인에서는 여러 계정이 LDAP 그룹에 대해 '매핑'됩니다. 이러한 구성된 계정 중 하나에 있는 모든 사용자는 현재 LDAP 상태에 대해 확인되며 존재하는 경우 해당 LDAP 그룹에 따라 올바른 계정에 있는 것으로 간주됩니다. LDAP에 없는 경우 Mold에서 비활성화됩니다.</p>
+<ol>
+<li>도메인이 LDAP에서 사용되도록 구성된 경우</li>
+<li>Mold는 구성된 <code>ldap.username.attribute</code>로 LDAP에서이를 검색합니다.</li>
+<li>
+<p>LDAP 사용자가 발견되면 매핑된 계정, 즉 LDAP 그룹이 구성된 계정의 구성원인지 확인합니다.</p>
+<ol>
+<li>LDAP 사용자에게 0, 2 또는 그 이상의 멤버십이 있는 경우 계정이 비활성화되고 인증이 실패합니다.</li>
+</ol>
+</li>
+<li>
+<p>그런 다음 Mold는 해당 LDAP 사용자에 대해 반환된 보안 주체와 입력한 암호로 바인드 요청을 수행합니다.</p>
+</li>
+<li>Mold 사용자가 없는 경우 적절한 계정에 생성됩니다.</li>
+<li>Mold 사용자가 있지만 적절한 계정에 없는 경우 자격 증명이 이동됩니다.</li>
+</ol>
+</li>
+</ol>
+<p>Mold에서 LDAP 인증을 설정하려면 Mold API 명령을 호출 <code>addLdapConfiguration</code>하고 LDAP 서버의 호스트 이름 또는 IP 주소 및 수신 포트를 제공하십시오. 선택적으로 이 LDAP 연결이 유효한 도메인에 대해 도메인 ID를 제공할 수 있습니다. 동일한 도메인에 대해 여러 서버를 구성할 수도 있습니다. 이들은 복제본일 것으로 예상됩니다. 하나가 실패하면 다음 것이 사용됩니다.</p>
+<div class="highlight"><pre><span></span><code>cloudmonkey add ldapconfiguration hostname=localhost\
+                                  port=389\
+                                  domainid=12345678-90ab-cdef-fedc-ba0987654321
+</code></pre></div>
+<p>이것은 LDAP 사용자의 수동 가져오기를 활성화하는 데 필요한 전부입니다. LisLdapUsers API를 사용하여 가져올 사용자를 쿼리할 수 ​​있습니다.</p>
+<p>자동 가져오기 방법의 경우 Mold 도메인을 LDAP에 연결해야 합니다. 예를 들어</p>
+<div class="highlight"><pre><span></span><code>cloudmonkey link domaintoldap domainid=12345678-90ab-cdef-fedc-ba0987654321\
+                              accounttype=2\
+                              ldapdomain=&quot;ou=people,dc=cloudstack,dc=apache,dc=org&quot;\
+                              type=OU
+</code></pre></div>
+<p>자동 동기화를 사용하려는 경우 도메인이 LDAP에 연결되지 않고 하나 이상의 계정이 연결됩니다. Mold 도메인 내에서 계정을 LDAP 그룹에 연결해야 합니다. 도메인의 연결은 암시적이며 위에서 설명한 API 호출을 통해 적용해야합니다.</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+[ -z &quot;$LDAP1PASSWORD&quot; -o -z &quot;$LDAP2PASSWORD&quot; ] &amp;&amp; exit 1
+ROOTDOMAIN=`cloudmonkey -d json list domains name=ROOT filter=id | jq.domain[0].id`
+
+# mapping domain and account(s) from ldap server 1
+MAPPEDDOMAIN1=`cloudmonkey -d json create domain name=mappedDomain1 parentdomainid=$ROOTDOMAIN | jq.domain.id`
+cloudmonkey -d json add ldapconfiguration hostname=10.1.2.5 port=389 domainid=$MAPPEDDOMAIN1
+cloudmonkey -d json update configuration domainid=$MAPPEDDOMAIN1 name=&quot;ldap.basedn&quot; value=&quot;dc=cloudstack,dc=apache,dc=org&quot;
+cloudmonkey -d json update configuration domainid=$MAPPEDDOMAIN1 name=&#39;ldap.bind.principal&#39; value=&#39;cn=admin,dc=cloudstack,dc=apache,dc=org&#39;
+cloudmonkey -d json update configuration domainid=$MAPPEDDOMAIN1 name=&#39;ldap.bind.password&#39; value=$LDAP1PASSWORD
+cloudmonkey -d json update configuration domainid=$MAPPEDDOMAIN1 name=&#39;ldap.search.group.principle&#39; value=&#39;cn=AcsAccessGroup,dc=cloudstack,dc=apache,dc=org&#39;
+cloudmonkey -d json update configuration domainid=$MAPPEDDOMAIN1 name=&#39;ldap.user.memberof.attribute&#39; value=&#39;memberOf&#39;
+
+cloudmonkey -d json ldap createaccount account=&#39;seniors&#39; accounttype=2 domainid=$MAPPEDDOMAIN1 username=guru
+cloudmonkey -d json link accounttoldap account=&#39;seniors&#39; accounttype=2 domainid=$MAPPEDDOMAIN1 ldapdomain=&#39;cn=AcsSeniorAdmins,ou=AcsGroups,dc=cloudstack,dc=apache,dc=org&#39; type=GROUP
+cloudmonkey -d json ldap createaccount account=&#39;juniors&#39; accounttype=0 domainid=$MAPPEDDOMAIN1 username=bystander
+cloudmonkey -d json link accounttoldap account=&#39;juniors&#39; accounttype=0 domainid=$MAPPEDDOMAIN1 ldapdomain=&#39;cn=AcsJuniorAdmins,ou=AcsGroups,dc=cloudstack,dc=apache,dc=org&#39; type=GROUP
+</code></pre></div>
+<p>위의 예제 스크립트에 표시된 항목 외에도 다음 구성 항목을 구성할 수 있습니다 (기본값은 openldap 용임).</p>
+<ul>
+<li><code>ldap.basedn</code> : LDAP 기반을 설정합니다. 예 : <strong>OU=APAC, DC=company, DC=com</strong></li>
+<li><code>ldap.bind.principal</code>, <code>ldap.bind.password</code> : 위의 기반으로 모든 사용자를 나열할 수 있는 사용자의 DN 및 비밀번호입니다. 예 : <strong>CN=Administrator, OU=APAC, DC=company, DC=com</strong></li>
+<li><code>ldap.user.object</code> : LDAP 내의 사용자 개체 유형입니다. 기본값은 AD의 경우 <strong>user</strong> 이고 openldap의 경우 <strong>interorgperson</strong> 입니다.</li>
+<li><code>ldap.email.attribute</code> : 사용자에 대한 ldap 내의 이메일 속성입니다. AD 및 openldap의 기본값은 <strong>mail</strong> 입니다.</li>
+<li><code>ldap.firstname.attribute</code> : 사용자에 대한 ldap 내의 이름 속성. AD 및 openldap의 기본값은 <strong>givenname</strong> 입니다.</li>
+<li><code>ldap.lastname.attribute</code> : 사용자의 ldap 내의 성 속성입니다. AD 및 openldap의 기본값은 <strong>sn</strong> 입니다.</li>
+<li><code>ldap.username.attribute</code> : LDAP 내의 사용자에 대한 사용자 이름 속성입니다. 기본값은 AD의 경우 <strong>SAMAccountName</strong> 이고 openldap의 경우 <strong>uid</strong> 입니다.</li>
+</ul>
+<H3>LDAP 사용자를 그룹으로 제한</H3>
+<ul>
+<li><code>ldap.search.group.principle</code> : 선택 사항이며 설정하면 이 그룹의 사용자만 나열됩니다.</li>
+</ul>
+<H3>LDAP SSL</H3>
+<p>LDAP 서버에 SSL이 필요한 경우 아래 구성을 활성화해야 합니다. LDAP용 SSL을 활성화하기 전에 LDAP 서버가 사용 중인 인증서를 가져와서 신뢰할 수 있는 키 저장소에 추가해야 합니다. 키 저장소의 경로와 암호를 알아야 합니다.</p>
+<ul>
+<li><code>ldap.truststore</code> : 신뢰 저장소 경로</li>
+<li><code>ldap.truststore.password</code> : 신뢰 저장소 비밀번호</li>
+</ul>
+<H3>LDAP 그룹</H3>
+<ul>
+<li><code>ldap.group.object</code> : LDAP 내 그룹의 개체 유형입니다. 기본값은 AD의 경우 group이고 openldap의 경우 groupOfUniqueNames 입니다.</li>
+<li><code>ldap.group.user.uniquemember</code> : 그룹 내의 고유 구성원에 대한 속성입니다. 기본값은 AD의 경우 SAMAccountName이고 openldap의 경우 uid입니다.</li>
+</ul>
+<p>구성되면 계정 추가 페이지에 대화 상자를 열고 선택한 사용자를 가져올 수 있는 "LDAP 계정 추가" 버튼이 표시됩니다.</p>
+<p>다음 api 명령어를 사용할 수 있습니다. <code>listLdapUsers</code> Mold에서 가져올 수 있거나 가져올 수 있는 LDAP의 사용자를 나열합니다.<code>ldapCreateAccount</code> 특정 계정에서 사용자를 수동으로 생성 <code>importLdapUsers</code> LDAP에서 사용자 일괄 가져오기</p>
+<p>LDAP가 활성화되면 사용자는 Mold에서 직접 비밀번호를 변경할 수 없습니다.</p>
+<h2 id="saml-20-id">사용자 인증을 위해 SAML 2.0 ID 공급자 사용<a class="headerlink" href="#saml-20-id" title="Permanent link">&para;</a></h2>
+<p>사용자 인증을 위해 Mold와 함께 SAML 2.0 ID 공급자를 사용할 수 있습니다. Mold에서 SAML 2.0 서비스 제공 업체 플러그인을 활성화해야 합니다. 첫 번째 작업을 수행하려면, 설정하여 SAML 플러그인 활성화 <code>saml2.enabled</code>에 <code>true</code>로 설정하고 서버를 다시 시작해야 합니다.</p>
+<p>SAML 플러그인은 사용자가 <code>authorizeSamlSso</code>특정 IDP에 대해 싱글 사인온을 사용하기 전에 API를 사용하여 관리자가 사용자를 인증해야 하는 인증 워크플로를 사용합니다. SAML 단일 사인온 활성화 확인란을 선택하고 사용자를 추가하거나 가져올 때 IDP를 선택하면 됩니다. 기존 사용자의 경우 관리자는 사용자 페이지로 이동하여 SAML SSO 구성 옵션을 클릭하여 사용자에 대한 SSO를 enable/disable하고 ID 공급자를 선택할 수 있습니다. 사용자는 하나의 IDP에 대해서만 인증할 수 있습니다.</p>
+<p>Mold 서비스 공급자 메타데이터는 <code>getSPMetadata</code> API 명령을 사용하거나 URL <a href="http://acs-server:8080/client/api?command=getSPMetadata">http://acs-server:8080/client/api?command=getSPMetadata</a> 에서 액세스할 수 있습니다. 여기서 acs-server는 관리 서버의 도메인 이름 또는 IP 주소입니다. IDP 관리자는 Mold에서 SP 메타데이터를 가져와 IDP 서버에 추가할 수 있습니다.</p>
+<p>SAML 2.0 Single Sign-On 인증을 시작하려면 로그인 페이지에서 사용자가 인증할 수 있는 ID 공급자 또는 기관/부서를 선택하고 로그인 버튼을 클릭해야 합니다. 이 작업은 <code>samlsso</code> 사용자를 아이덴티티 공급자의 로그인 페이지로 리디렉션하는 API 명령입니다. 인증이 성공하면 IdP가 사용자를 Mold로 리디렉션 합니다. 사용자가 동일한 인증된 IDP에 대해 동일한 사용자 이름 (도메인 간)을 가진 여러 사용자 계정을 가지고 있는 경우 해당 사용자는 드롭다운 목록에서 IDP 서버를 선택한 후 도메인 경로를 지정해야 합니다. 기본적으로 사용자는 도메인 경로를 지정할 필요가 없습니다. 사용자가 IDP 서버에서 성공적으로 인증되면 SAML 인증 플러그인은 사용자 이름이 SAML 인증 응답에서 반환된 사용자 이름 속성값과 일치하는 사용자 계정을 찾습니다. 특정 IDP에 대해 동일한 사용자 이름을 가진 여러 사용자 계정이 있는 경우에만 실패합니다. 그렇지 않으면 고유한 사용자 계정이 계속 진행되고 사용자가 자신의 계정에 로그인됩니다.</p>
+<p>제한 사항 :</p>
+<ul>
+<li>플러그인은 SAML 응답에서 IDP 서버가 반환한 사용자 속성을 사용하여 Mold에서 인증된 사용자를 찾고 매핑합니다. 기본 속성은 uid 입니다.</li>
+<li>SAML 인증 플러그인은 HTTP- 리디렉션 및 HTTP-Post 바인딩을 지원합니다.</li>
+<li>Shibboleth 2.4, SSOCircle, Microsoft ADFS, OneLogin, Feide OpenIDP, PingIdentity로 테스트되었습니다.</li>
+</ul>
+<p>다음 글로벌 설정을 구성해야 합니다.</p>
+<ul>
+<li><code>saml2.enabled</code> : SAML SSO 플러그인 사용 여부를 나타냅니다. 기본값은 <strong>false</strong> 입니다.</li>
+<li><code>saml2.sp.id</code> : SAML2 서비스 제공 업체 식별자 문자열</li>
+<li><code>saml2.idp.metadata.url</code> : SAML2 아이덴티티 공급자 메타데이터 XML URL 또는 파일 이름. URL이 제공되지 않으면 구성 디렉토리 /etc/cloudstack/management에서 파일을 찾습니다.</li>
+<li><code>saml2.default.idpid</code> : IdP가 여러 개인 경우에만 사용할 기본 IdP 엔티티 ID</li>
+<li><code>saml2.sigalg</code> : SAML 요청에 서명할 때 사용할 알고리즘입니다. 기본값은 SHA1이며 허용되는 알고리즘은 SHA1, SHA256, SHA384, SHA512입니다.</li>
+<li><code>saml2.redirect.url</code> : 성공시 SSO가 리디렉션되어야하는 Mold UI URL입니다. 기본값은 <strong><a href="http://localhost:8080/client">http://localhost:8080/client</a></strong> 입니다.</li>
+<li><code>saml2.sp.org.name</code> : SAML2 서비스 제공 업체 조직 이름</li>
+<li><code>saml2.sp.org.url</code> : SAML2 서비스 제공 업체 조직 URL</li>
+<li><code>saml2.sp.contact.email</code> : SAML2 서비스 제공 업체 연락처 이메일 주소</li>
+<li><code>saml2.sp.contact.person</code> : SAML2 서비스 제공 업체 담당자 이름</li>
+<li><code>saml2.sp.slo.url</code> : SAML2 Mold 서비스 제공 업체 싱글 로그 아웃 URL</li>
+<li><code>saml2.sp.sso.url</code> : SAML2 Mold 서비스 제공 업체 싱글 사인온 URL</li>
+<li><code>saml2.user.attribute</code> : 사용자 이름을 포함할 SAML 응답에서 찾을 속성 이름입니다. 기본값은 <strong>uid</strong> 입니다.</li>
+<li><code>saml2.timeout</code> : SAML2 IDP 메타데이터 새로고침 간격 (초), 최소값은 300으로 설정됩니다. 기본값은 <strong>1800</strong> 입니다.</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            맨위로
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../userinterface-guide/" class="md-footer__link md-footer__link--prev" aria-label="이전: 사용자 인터페이스" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                이전
+              </span>
+              사용자 인터페이스
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../project-mngt-guide/" class="md-footer__link md-footer__link--next" aria-label="다음: 프로젝트 관리" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                다음
+              </span>
+              프로젝트 관리
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 ABLECLOUD Co. Ltd.
+          </div>
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/ablecloud-team" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "search.config.lang": "en", "search.config.pipeline": " ", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\uac80\uc0c9", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version.title": "\ubc84\uc804 \uc120\ud0dd"}, "search": "../../../assets/javascripts/workers/search.f8263e09.min.js", "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.4fc53ad4.min.js"></script>
+      
+    
+  </body>
+</html>
