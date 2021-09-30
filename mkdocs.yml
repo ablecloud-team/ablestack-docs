@@ -121,7 +121,8 @@ nav:
       - Cell 알아보기 : architecture/book-of-cell.md
       - Glue 알아보기 : architecture/book-of-glue.md      
       - Mold 알아보기 : architecture/book-of-mold.md
-#      - Wall 알아보기 : architecture/book-of-wall.md
+    - ABLESTACK Service:
+      - Wall 알아보기 : architecture/book-of-wall.md
 #    - ABLESTACK on Others:
 #      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
 #      - Citrix 기반 ABLESTACK: architecture/book-of-citrix.md
