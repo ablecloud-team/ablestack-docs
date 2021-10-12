@@ -94,20 +94,31 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
     ``` shell
     ceph osd crush rm osd.{osd_id}
     ```
+6. 제거한 OSD를 Auth에서 제거
+   ``` shell
+   ceph auth rm osd.{osd_id}
+   ```
 
     !!! note
         디스크를 추가 시에는 해당 초기 구성방법에 따라 Raid에 인식이 되어야 하며 OS 상에서도 인식이 되어야 합니다
         경우에 따라서는 호스트 혹은 scvm의 재기동이 필요합니다.      
     
-6. 추가된 디스크를 OSD로 배포
-    ``` shell
-    ceph-deploy osd create –data /dev/{device_id} --bluestore {scvm이름}
-    ```
-
+7. 추가된 디스크를 OSD로 배포
+    
     !!! info
-        6번의 절차는 ceph 계정으로 실행하여야 합니다. "su - ceph "
+        7번의 절차는 ceph 계정으로 실행하여야 합니다. "su - ceph "
 
-7. 배포된 OSD를 풀에 추가
+    ``` shell
+    ceph-deploy osd create –-data /dev/{device_id} --bluestore {scvm이름}
+    ```
+    해당 작업 중에 다음과 같은 에러가 발생하는 경우에는
+    !!! error
+        [ceph_deploy.osd][DEBUG ] Deploying osd to scvm3 </br>
+        [ceph_deploy.osd][ERROR ] RuntimeError: config file /etc/ceph/ceph.conf exists with different content; use --overwrite-conf to overwrite </br>
+        [ceph_deploy][ERROR ] GenericError: Failed to create 1 OSDs
+    "/etc/ceph/ceph.conf" 파일을 ceph 계정 홈 디렉토리(현재작업중인 디렉토리)로 복사(이미 있는경우 덮어쓰기)한 후에 다시 실행 합니다.    
+
+8. 배포된 OSD를 풀에 추가
     ``` shell
     ceph osd crush move osd.{osd_id} host={host명}
     ```
@@ -115,11 +126,11 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
     !!! info
         host명은 "ceph osd tree" 의 결과에서 host 항목의 이름입니다
 
-8. OSD에 가중치 할당(구 버전에서만 적용)
+9.  OSD에 가중치 할당(구 버전에서만 적용)
     ``` shell
     ceph osd crush reweight-subtree {pool-name} 1
     ```
-9. 자동으로 밸런싱이 실행되며 완료 됩니다
+10. 자동으로 밸런싱이 실행되며 완료 됩니다
 
 ### 기본스토리지 추가 시 RBD RADOS 시크릿 키 에러 발생 시
 
@@ -157,3 +168,56 @@ ceph auth del client.사용자명
 ```
 5. 생성된 시크릿 키를 복사하여 기본 스토리지 추가 시 사용합니다.
 6. 기본 스토리지 추가 시 **RADOS 사용자** 항목에는 새로 생성한 사용자를 입력합니다.
+
+### OSD META 용량이 (near)Full이 발생하는 경우
+
+[<span style="color:#ff9900;">문제유형</span>]
+
+<span style="color:gray;font-weight:bold">
+실제 데이터 사용은 미비하나 META가 비정상적으로 많이 사용되어 OSD의 (near)Full 이 발생하는 현상
+</span>
+
+![osdmetafull_error](../assets/images/osdmetafull_error.png){ align=center }
+
+
+[<span style="color:#ff9900;">조치방법</span>]
+
+다음의 명령어를 통하여 OSD의 META Data를 정리합니다
+
+``` shell
+ceph tell osd.{osd.id} compact
+```
+
+만일 모든 OSD를 전체 정리가 필요하다면 다음의 명령어를 통하여 한번에 적용합니다.
+
+``` shell
+ceph tell osd.\* compact
+```
+
+### 스토리지 클러스터 상태가 reclaim 관련 Warn 인 경우
+
+[<span style="color:#ff9900;">문제유형</span>]
+
+<span style="color:gray;font-weight:bold">
+스토리지 클러스터의 상태가 Warn 이고, 메시지가 "mons are allowing insecure global_id reclaim"로 나오는 경우
+</span>
+
+![osdmetafull_error](../assets/images/cluster_warn_reclaim.png){ align=center }
+
+Ceph 14.2.20 릴리스와 함께 Ceph 인증 프레임워크에서 보안 취약점이 해결되어 클러스터가 패치되면서 경고가 표시되는 현상
+
+[<span style="color:#ff9900;">조치방법</span>]
+
+다음의 명령어를 통하여 경고메시지를 예외처리 합니다.
+
+``` shell
+ceph config set mon mon_warn_on_insecure_global_id_reclaim false
+ceph config set mon mon_warn_on_insecure_global_id_reclaim_allowed false
+```
+향 후 버전패치가 완료되는 경우에는 다음의 명령어를 통하여 경고를 활성화 합니다
+
+``` shell
+ceph config set mon mon_warn_on_insecure_global_id_reclaim true
+ceph config set mon mon_warn_on_insecure_global_id_reclaim_allowed true
+ceph config set mon auth_allow_insecure_global_id_reclaim false
+```
