@@ -16,32 +16,32 @@ Netdive Analyzer는 Agent로부터 네트워크 이벤트를 수신하여 아래
 ### Tutorials
   - 시작하기
     - 웹 UI
-     - Netdive의 설치가 완료된 후 포트 8082를 통해 Web UI를 사용할 수 있습니다. 웹 브라우저에서 http://{mold의 ipv4 주소}:8082에 접속하면 토폴로지가 나타납니다.
+        - Netdive의 설치가 완료된 후 포트 8082를 통해 Web UI를 사용할 수 있습니다. 웹 브라우저에서 http://{mold의 ipv4 주소}:8082에 접속하면 토폴로지가 나타납니다.
     - 토폴로지 화면 구성
-     - 토폴로지는 계층으로 구분되어 있으며 각 노드(Node)들은 해당되는 계층에 그룹형태로 위치해 있습니다.
-     - 노드(Node)들의 관계는 엣지(Edge)로 표시되며 Parent-Child 관계를 표현하거나 데이터 의 흐름을 나타냅니다.
-     - 구성요소의 메타데이터를 확인하는 방법은 노드 및 엣지를 클릭하여 나타나는 토폴로지의 우측 에서 확인할 수 있습니다.
+        - 토폴로지는 계층으로 구분되어 있으며 각 노드(Node)들은 해당되는 계층에 그룹형태로 위치해 있습니다.
+        - 노드(Node)들의 관계는 엣지(Edge)로 표시되며 Parent-Child 관계를 표현하거나 데이터 의 흐름을 나타냅니다.
+        - 구성요소의 메타데이터를 확인하는 방법은 노드 및 엣지를 클릭하여 나타나는 토폴로지의 우측 에서 확인할 수 있습니다.
     - 네트워크 정보 수신
-     - Netdive Agent는 각 네트워크 정보를 수집하는 여러 Probe로 이루어져 있으며 기본적으로 NetLINK, LibVirt, LLDP, Socket Information Probe가 활성화 되어있습니다.
-     - NetLINK Probe를 통한 네트워크 정보의 업데이트 주기는 30초입니다.
-     - 스위치의 정보는 LLDP Probe를 통해 수집되는데 먼저 스위치에서 LLDP 기능을 활성화 하여야 합니다. 스위치가 LLDP 정보를 송신하면 Netdive의 Probe와 각 Host에 설치된 "lldpd 패키지"를 활용하여 정보를 수신하여 사용자에게 제공합니다.
+        - Netdive Agent는 각 네트워크 정보를 수집하는 여러 Probe로 이루어져 있으며 기본적으로 NetLINK, LibVirt, LLDP, Socket Information Probe가 활성화 되어있습니다.
+        - NetLINK Probe를 통한 네트워크 정보의 업데이트 주기는 30초입니다.
+        - 스위치의 정보는 LLDP Probe를 통해 수집되는데 먼저 스위치에서 LLDP 기능을 활성화 하여야 합니다. 스위치가 LLDP 정보를 송신하면 Netdive의 Probe와 각 Host에 설치된 "lldpd 패키지"를 활용하여 정보를 수신하여 사용자에게 제공합니다.
 
   - 스위치 정보 수집
     - Netdive는 LLDP를 사용하여 스위치 정보를 수집하고 분석할 수 있습니다. 스위치 정보가 나타나지 않을 경우 이를 해결하기 위해 추가 설정이 필요합니다.
     - 제조사 별 스위치의 LLDP(Link Layer Discovery Protocol) 활성화
-      - Mellanox
-        ~~~
-        admin [standalone: master] > enable
-        admin [standalone: master] # configure terminal
-        admin [standalone: master] (config) # lldp				## lldp 활성화
-        admin [standalone: master] (config) # show lldp local	## lldp 활성화 확인
-        ~~~      
-      - Cisco
-        ~~~
-        switch# configure terminal
-        switch(config)# lldp run								## lldp 활성화
-        switch(config)# show lldp								## lldp 활성화 확인
-        ~~~
+        - Mellanox
+          ~~~
+          admin [standalone: master] > enable
+          admin [standalone: master] # configure terminal
+          admin [standalone: master] (config) # lldp				## lldp 활성화
+          admin [standalone: master] (config) # show lldp local	## lldp 활성화 확인
+          ~~~      
+        - Cisco
+          ~~~
+          switch# configure terminal
+          switch(config)# lldp run								## lldp 활성화
+          switch(config)# show lldp								## lldp 활성화 확인
+          ~~~
     - lldpd 서비스 실행
       - Netdive Agent가 설치된 각 호스트에서 lldpd 서비스를 재시작 합니다.
         ~~~
