@@ -30,8 +30,8 @@ Cube 웹 콘솔 기록 메뉴는 journalctl 유틸리티의 UI입니다. Cube �
 * 로그 메시지에서 자유 형식 텍스트 검색 : 로그 메시지에서 원하는 텍스트 문자열을 필터링 할 수 있습니다. 문자열은 정규식 형식 일 수도 있습니다.
 
 !!! example
-    * 2021 년 04 월 20 일 이후 발생한 'systemd'로 식별 된 모든 로그 메시지를 필터링하고 'JOB_TYPE'은 'start'또는 'restart'인 경우를 필터링합니다.
-        * `identifier:systemd since:2021-04-20 JOB_TYPE=start,restart` 검색필드에 입력
+    * 2021 년 11 월 20 일 이후 발생한 'systemd'로 식별 된 모든 로그 메시지를 필터링하고 'JOB_TYPE'은 'start'또는 'restart'인 경우를 필터링합니다.
+        * `identifier:systemd since:2021-11-20 JOB_TYPE=start,restart` 검색필드에 입력
         * 결과 값을 확인합니다.
         ![cube-log-filter4-webui](../../assets/images/cube_log_filter4_webUI.png)
 
