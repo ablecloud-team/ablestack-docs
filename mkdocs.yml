@@ -143,7 +143,7 @@ nav:
       - 기록 : administration/cube/log-guide.md
       - 저장소 : administration/cube/storage-guide.md
       - 네트워킹 : administration/cube/networking-guide.md
-      - 가상머신 : administration/cube/vm-guide.md
+      #- 가상머신 : administration/cube/vm-guide.md
       - 계정 : administration/cube/account-guide.md
       - 서비스 : administration/cube/service-guide.md
       - ABLESTACK : administration/cube/ablestack-guide.md
