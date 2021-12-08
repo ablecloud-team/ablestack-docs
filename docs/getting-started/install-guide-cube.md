@@ -27,7 +27,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     ![ABLESTACK Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ align=center }
    
     !!! Check
-        화면에서 **Install ABLESTACK Allo (v1.0.0)** 메뉴가 보이는지 확인해야합니다. 해당 메뉴가 보이면 ABLESTACK Cube 정상적으로 설치를 하실 수 있습니다.
+        화면에서 **Install ABLESTACK Bronto (v2.0.0)** 메뉴가 보이는지 확인해야합니다. 해당 메뉴가 보이면 ABLESTACK Cube 정상적으로 설치를 하실 수 있습니다.
         만약에 해당 메뉴가 보이지 않는다면 정상적으로 부팅이 안된경우 이므로 다시한번 부팅을 진행하셔야 합니다.
         다시 한번 부팅해도 해당 메뉴가 보이지 않는다면 ISO의 손상을 의심하셔야 합니다.
    
@@ -194,15 +194,14 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     
     2. Public Storage Network 설정
         ![Public Storage Network 설정](../assets/images/install-guide-cube-18.png){ align=center }
-        - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **Public Storage NIC** 를 클릭하여 들어온 화면입니다.
-    
-        <br/>
-   
+        - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **Public Storage** 로 사용할 NIC를 클릭하여 들어온 화면입니다.  
+
+        
         1. Public Storage Network IP 설정
             ![Public Storage Network IP 설정](../assets/images/install-guide-cube-19.png){ align=center }
             - IPv4 항목의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
             - 주소 입력 창의 오른쪽에 있는 **자동(DHCP)** 선택 박스를 눌러 **수동** 으로 변경을 합니다.
-            - **Adress** 입력창에 **100.100.10.1** 을 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
+            - **Adress** 입력창에 **100.100.1.1** 을 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
             !!! note
                 Storage Network에서 사용하는 IP는 내부적으로만 통신하기 위한 IP입니다.
                 
