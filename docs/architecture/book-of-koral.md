@@ -19,11 +19,29 @@ Koral은 ABLESTACK 사용자에게 가상머신 기반의 애플리케이션이 
 
 Koral은 Mold에 내장된 플러그인으로 다음의 그림은 Mold 입장에서의 플러그인 아키텍처를 묘사합니다. 
 
-<그림>
-
-### 시스템 VM 템플릿
+<center>
+![koral-plugin-architecture](../assets/images/koral-plugin-architecture.png)
+</center>
 
 ### 글로벌 설정
+
+Koral 기능을 사용하기 위해서는 Mold의 글로벌 설정에서 Koral을 활성화 하기 위한 설정을 수정하여 적용해야 합니다. 기본적으로 설정해야 할 글로벌 설정값은 다음과 같습니다. 
+
+| 설정 항목       | 설명             | 기본값                |
+| -----------  | -------------      | -----------------       |
+| cloud.kubernetes.service.enabled | Koral 기능을 사용할지의 여부를 설정합니다. | false |
+| cloud.kubernetes.cluster.max.size | Kubernetes 클러스터를 생성할 때 클러스터의 노드 수 최대값입니다. | 10 |
+| cloud.kubernetes.clusternetwork.offering | Kubernetes 클러스터를 생성할 때 기본적으로 사용할 네트워크 제공 정책입니다. | Default Network Offering for Kubernetes Service |
+
+Koral 기능을 사용하기 위해서는 반드시 `cloud.kubernetes.service.enabled` 항목의 값을 'true'로 설정해야 하고, Mold 서비스를 재시작해야 합니다.
+### Mold UI
+
+Mold 서비스를 재시작한 후 Mold UI에 접속하면 두개의 Koral 관련 메뉴가 생성됩니다. 
+
+먼저 Kubernetes 바이너리 ISO를 등록하고 버전 관리를 할 수 있는 "쿠버네테스 ISOs" 메뉴가 이미지 섹션에 생성되고, 실제 Kubernetes 클러스터를 생성하는 기능을 제공하는 "쿠버네테스" 메뉴가 컴퓨트 섹션에 생성됩니다. 
+
+해당 메뉴를 통해 Koral 기능을 사용할 수 있으며 해당 기능을 사용하기 위해서는 쿠버네테스 ISO를 먼저 등록해야 합니다. 
+### 시스템 VM 템플릿
 
 ### Kubernetes 바이너리 ISO
 
