@@ -42,7 +42,7 @@ Cube 웹 콘솔을 사용하여 연결된 시스템을 종료 할 수 있습니�
 시스템 시간 설정 하려면 : 
 
 1. 시스템 시간의 현재 정보를 클릭합니다.
-![cube-ntp1-webui](../../assets/images/cube_ntp1_webUI.png)
+![cube-ntp1-webui](../../assets/images/cube_overview_webUI.png)
 !!! info
     * 시간 동기화가 정상적이지 않을 경우 ![cube-ntp2-webui](../../assets/images/cube_ntp4_webUI.png), 정상일 경우 ![cube-ntp2-webui](../../assets/images/cube_ntp5_webUI.png) 아이콘이 표시됩니다.
     * NTP설정이 변경될 경우 모든 호스트 및 SCVM, CCVM에서도 동일한 설정이 필요합니다.

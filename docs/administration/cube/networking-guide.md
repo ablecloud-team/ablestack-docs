@@ -186,7 +186,7 @@ Cube의 웹 콘솔을 사용하여 둘 이상의 네트워크 인터페이스에
 
 1. 네트워킹 메뉴를 클릭합니다.
 2. 인터페이스를 추가할 팀을 클릭합니다.
-3. 팀 설정 화면에서 '**+**' 아이콘을 클릭합니다.
+3. 팀 설정 화면에서 '**멤버 추가**' 아이콘을 클릭합니다.
 4. 목록에서 팀에 추가 할 인터페이스를 선택합니다.
 
 ![cube-networking-addteam-interface.png](../../assets/images/cube-networking-addteam-interface.png)
