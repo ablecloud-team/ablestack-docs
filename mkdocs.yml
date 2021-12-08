@@ -5,7 +5,7 @@
 # 작성자 : 박동혁
 
 # 프로젝트 정보
-site_name: ABLESTACK
+site_name: ABLESTACK Online Docs
 site_author: ABLECLOUD Co. Ltd
 
 # Repository
@@ -26,9 +26,11 @@ theme:
 
   features:
     - navigation.instant
-    - navigation.sections
     - navigation.tabs
+#    - navigation.tabs.sticky
     - navigation.top
+    - navigation.tracking
+#    - navigation.sections
 
 
   palette:
@@ -123,6 +125,7 @@ nav:
       - Mold 알아보기 : architecture/book-of-mold.md
     - ABLESTACK Service:
       - Wall 알아보기 : architecture/book-of-wall.md
+      - Koral 알아보기 : architecture/book-of-koral.md
 #    - ABLESTACK on Others:
 #      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
 #      - Citrix 기반 ABLESTACK: architecture/book-of-citrix.md
