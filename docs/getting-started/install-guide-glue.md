@@ -46,19 +46,19 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
    
     !!! example 
         - 호스트 프로파일 예제  
-        10.10.10.10 ccvm-mngt   ccvm  
-        10.10.10.1  ablecube4   ablecube  
-        10.10.10.2  ablecube5  
-        10.10.10.3  ablecube6  
-        10.10.10.11 scvm4-mngt  scvm-mngt  
-        10.10.10.12 scvm5-mngt  
-        10.10.10.13 scvm6-mngt  
-        100.100.10.11    scvm4   scvm  
-        100.100.10.12    scvm5  
-        100.100.10.13    scvm6  
-        100.200.10.11    scvm4-cn    scvm-cn  
-        100.200.10.12    scvm5-cn  
-        100.200.10.13    scvm6-cn  
+        10.10.1.10 ccvm-mngt   ccvm  
+        10.10.1.1  ablecube1   ablecube  
+        10.10.1.2  ablecube2  
+        10.10.1.3  ablecube3  
+        10.10.1.11 scvm1-mngt  scvm-mngt  
+        10.10.1.12 scvm2-mngt  
+        10.10.1.13 scvm3-mngt  
+        100.100.1.11    scvm1   scvm  
+        100.100.1.12    scvm2  
+        100.100.1.13    scvm3  
+        100.200.1.11    scvm1-cn    scvm-cn  
+        100.200.1.12    scvm2-cn  
+        100.200.1.13    scvm3-cn  
    
 4. 시간서버 
     
@@ -120,7 +120,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-10.png){ align=center }
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
-    - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **공유스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
+    - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
     
     !!! warning
         가상머신 장치션 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.  
@@ -150,19 +150,19 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     
     !!! example
         - 호스트 프로파일 예제  
-        10.10.10.10 ccvm-mngt   ccvm  
-        10.10.10.1  ablecube4   ablecube  
-        10.10.10.2  ablecube5  
-        10.10.10.3  ablecube6  
-        10.10.10.11 scvm4-mngt  scvm-mngt  
-        10.10.10.12 scvm5-mngt  
-        10.10.10.13 scvm6-mngt  
-        100.100.10.11    scvm4   scvm  
-        100.100.10.12    scvm5  
-        100.100.10.13    scvm6  
-        100.200.10.11    scvm4-cn    scvm-cn  
-        100.200.10.12    scvm5-cn  
-        100.200.10.13    scvm6-cn
+        10.10.1.10 ccvm-mngt   ccvm  
+        10.10.1.1  ablecube1   ablecube  
+        10.10.1.2  ablecube2  
+        10.10.1.3  ablecube3  
+        10.10.1.11 scvm1-mngt  scvm-mngt  
+        10.10.1.12 scvm2-mngt  
+        10.10.1.13 scvm3-mngt  
+        100.100.1.11    scvm1   scvm  
+        100.100.1.12    scvm2  
+        100.100.1.13    scvm3  
+        100.200.1.11    scvm1-cn    scvm-cn  
+        100.200.1.12    scvm2-cn  
+        100.200.1.13    scvm3-cn
 
     - 호스트 프로파일을 업로드 하면 상기와 같은 호스트 프로파일 내용이 표시되며, 해당 파일에서 alias 부분을 현재 호스트에 맞게 변경해 주시면 됩니다
 
@@ -173,7 +173,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
         
     !!! tip
-        사전에 작성되었던 호스트 프로파일에서 매칭되는 IP는 다음과 같습니다 </br>
+        사전에 작성되었던 호스트 프로파일에서 매칭되는 IP는 다음과 같습니다. </br>
         <각 호스트 프로파일 alias 기준> </br>
         관리 NIC IP : scvm-mngt </br>
         스토리지 서버 NIC IP : scvm </br>
@@ -198,11 +198,11 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     
 8. 배포
     ![배포](../assets/images/install-guide-glue-15.png){ align=center }
-    - 스토리지센터 가상머시 배포 진행상황을 확인 할 수 있는 화면입니다.
+    - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
     
 9.  완료
     ![완료](../assets/images/install-guide-glue-16.png){ align=center }
-    - 스토리지센터 가상머시 배포 완료 후 화면 입니다.
+    - 스토리지센터 가상머신 배포 완료 후 화면 입니다.
     
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-glue-17.png){ align=center }
@@ -232,26 +232,26 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 3. Host 파일
    ![Host 파일](../assets/images/install-guide-glue-20.png){ align=center }
     - 호스트 파일 설정하는 화면입니다. **기존 파일 사용** 을 선택한 후에 **Hosts 파일** 에서 **파일 선택** 버튼을 클릭하여 1번호스트에서 다운로드한 
-    **Hosts** 파일은 등록한 후에 hosts 프로파일을 수정한후에 **다음** 버튼을 클릭합니다.  
+    **Hosts** 파일은 등록한 후에 **현재 호스트 번호** 를 선택하면 현재 호스트 번호에 맞게 Hosts 프로파일이 자동 작성 됩니다.
 
     !!! info
         hosts 프로파일 작성 시 IP 및 Host Name, Alias 구분은 **탭(TAB)** 을 사용해야 합니다.
 
     !!! example
         - 호스트 프로파일 예제  
-        10.10.10.10 ccvm-mngt   ccvm  
-        10.10.10.1  ablecube4    
-        10.10.10.2  ablecube5    ablecube  
-        10.10.10.3  ablecube6  
-        10.10.10.11 scvm4-mngt  
-        10.10.10.12 scvm5-mngt   scvm-mngt  
-        10.10.10.13 scvm6-mngt  
-        100.100.10.11    scvm4  
-        100.100.10.12    scvm5   scvm  
-        100.100.10.13    scvm6  
-        100.200.10.11    scvm4-cn  
-        100.200.10.12    scvm5-cn    scvm-cn  
-        100.200.10.13    scvm6-cn
+        10.10.1.10 ccvm-mngt   ccvm  
+        10.10.1.1  ablecube1    
+        10.10.1.2  ablecube2    ablecube  
+        10.10.1.3  ablecube3  
+        10.10.1.11 scvm1-mngt  
+        10.10.1.12 scvm2-mngt   scvm-mngt  
+        10.10.1.13 scvm3-mngt  
+        100.100.1.11    scvm1  
+        100.100.1.12    scvm2   scvm  
+        100.100.1.13    scvm3  
+        100.200.1.11    scvm1-cn  
+        100.200.1.12    scvm2-cn    scvm-cn  
+        100.200.1.13    scvm3-cn
 
     !!! important
         호스트 프로파일 작성 시 구성중인 호스트 및 스토리지 VM의 IP 에는 **ablecube**, **scvm**, **scvm**, **scvm-cn** 을 뒤에 꼭 입력하셔야 합니다.
@@ -296,7 +296,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 3. 가상머신 장치구성 - 디스크
    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-26.png){ align=center }
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
-    - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **공유스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
+    - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
 
     !!! warning
         가상머신 장치 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.  
@@ -320,19 +320,19 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     !!! example
         - 호스트 프로파일 예제  
-        10.10.10.10 ccvm-mngt   ccvm  
-        10.10.10.1  ablecube4    
-        10.10.10.2  ablecube5    ablecube  
-        10.10.10.3  ablecube6  
-        10.10.10.11 scvm4-mngt  
-        10.10.10.12 scvm5-mngt   scvm-mngt  
-        10.10.10.13 scvm6-mngt  
-        100.100.10.11    scvm4  
-        100.100.10.12    scvm5   scvm  
-        100.100.10.13    scvm6  
-        100.200.10.11    scvm4-cn  
-        100.200.10.12    scvm5-cn    scvm-cn  
-        100.200.10.13    scvm6-cn
+        10.10.1.10 ccvm-mngt   ccvm  
+        10.10.1.1  ablecube1    
+        10.10.1.2  ablecube2    ablecube  
+        10.10.1.3  ablecube3  
+        10.10.1.11 scvm1-mngt  
+        10.10.1.12 scvm2-mngt   scvm-mngt  
+        10.10.1.13 scvm3-mngt  
+        100.100.1.11    scvm1  
+        100.100.1.12    scvm2   scvm  
+        100.100.1.13    scvm3  
+        100.200.1.11    scvm1-cn  
+        100.200.1.12    scvm2-cn    scvm-cn  
+        100.200.1.13    scvm3-cn
 
 6. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-glue-29.png){ align=center }
@@ -350,11 +350,11 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 8. 배포
     ![배포](../assets/images/install-guide-glue-31.png){ align=center }
-    - 스토리지센터 가상머시 배포 진행상황을 확인 할 수 있는 화면입니다.
+    - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
 
 9. 완료
     ![완료](../assets/images/install-guide-glue-32.png){ align=center }
-    - 스토리지센터 가상머시 배포 완료 후 화면 입니다.
+    - 스토리지센터 가상머신 배포 완료 후 화면 입니다.
 
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-glue-33.png){ align=center }
@@ -393,19 +393,19 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     !!! example
         - 호스트 프로파일 예제  
-        10.10.10.10 ccvm-mngt   ccvm  
-        10.10.10.1  ablecube4  
-        10.10.10.2  ablecube5  
-        10.10.10.3  ablecube6   ablecube  
-        10.10.10.11 scvm4-mngt  
-        10.10.10.12 scvm5-mngt  
-        10.10.10.13 scvm6-mngt  scvm-mngt  
-        100.100.10.11    scvm4  
-        100.100.10.12    scvm5  
-        100.100.10.13    scvm6  scvm  
-        100.200.10.11    scvm4-cn  
-        100.200.10.12    scvm5-cn  
-        100.200.10.13    scvm6-cn   scvm-cn  
+        10.10.1.10 ccvm-mngt   ccvm  
+        10.10.1.1  ablecube1  
+        10.10.1.2  ablecube2  
+        10.10.1.3  ablecube3   ablecube  
+        10.10.1.11 scvm1-mngt  
+        10.10.1.12 scvm2-mngt  
+        10.10.1.13 scvm3-mngt  scvm-mngt  
+        100.100.1.11    scvm1  
+        100.100.1.12    scvm2  
+        100.100.1.13    scvm3  scvm  
+        100.200.1.11    scvm1-cn  
+        100.200.1.12    scvm2-cn  
+        100.200.1.13    scvm3-cn   scvm-cn  
 
     !!! important
         호스트 프로파일 작성 시 구성중인 호스트 및 스토리지 VM의 IP 에는 **ablecube**, **scvm**, **scvm**, **scvm-cn** 을 뒤에 꼭 입력하셔야 합니다.
@@ -450,7 +450,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 3. 가상머신 장치구성 - 디스크
     ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-42.png){ align=center }
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
-    - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **공유스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
+    - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
 
     !!! warning
         가상머신 장치 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.  
@@ -474,19 +474,19 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     !!! example
         - 호스트 프로파일 예제  
-        10.10.10.10 ccvm-mngt   ccvm  
-        10.10.10.1  ablecube4  
-        10.10.10.2  ablecube5  
-        10.10.10.3  ablecube6   ablecube  
-        10.10.10.11 scvm4-mngt  
-        10.10.10.12 scvm5-mngt  
-        10.10.10.13 scvm6-mngt  scvm-mngt  
-        100.100.10.11    scvm4  
-        100.100.10.12    scvm5  
-        100.100.10.13    scvm6  scvm  
-        100.200.10.11    scvm4-cn  
-        100.200.10.12    scvm5-cn  
-        100.200.10.13    scvm6-cn   scvm-cn
+        10.10.1.10 ccvm-mngt   ccvm  
+        10.10.1.1  ablecube1  
+        10.10.1.2  ablecube2  
+        10.10.1.3  ablecube3   ablecube  
+        10.10.1.11 scvm1-mngt  
+        10.10.1.12 scvm2-mngt  
+        10.10.1.13 scvm3-mngt  scvm-mngt  
+        100.100.1.11    scvm1  
+        100.100.1.12    scvm2  
+        100.100.1.13    scvm3  scvm  
+        100.200.1.11    scvm1-cn  
+        100.200.1.12    scvm2-cn  
+        100.200.1.13    scvm3-cn   scvm-cn
 
 6. SSH Key 정보
    ![SSH Key 정보](../assets/images/install-guide-glue-45.png){ align=center }
@@ -504,11 +504,11 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 8. 배포
     ![배포](../assets/images/install-guide-glue-47.png){ align=center }
-    - 스토리지센터 가상머시 배포 진행상황을 확인 할 수 있는 화면입니다.
+    - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
 
 9. 완료
     ![완료](../assets/images/install-guide-glue-48.png){ align=center }
-    - 스토리지센터 가상머시 배포 완료 후 화면 입니다.
+    - 스토리지센터 가상머신 배포 완료 후 화면 입니다.
 
 10. 스토리지센터 가상머신 상태 확인
     ![스토리지센터 가상머신 상태 확인](../assets/images/install-guide-glue-49.png){ align=center }
@@ -551,10 +551,10 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
 2. Glue 대시보드 접속 및 비밀번호 변경
     ![Glue 대시보드 로그인 화면](../assets/images/install-guide-glue-Glue-dashboard-login.png){ align=center }
     - Glue 대시보드 로그인 화면입니다.
-    - **Username** 과 **Password** 를 입력하고 **Log in** 버튼을 클릭하여 로그인 합니다.
+    - **사용자 이름** 과 **비밀번호** 를 입력하고 **로그인** 버튼을 클릭하여 로그인 합니다.
 
     !!! info
-        ABLESTACK Glue 대시보드 로그인 Username 은 **ablecloud**, 초기 Password 는 **password** 입니다.
+        ABLESTACK Glue 대시보드 로그인 사용자 이름 은 **ablecloud**, 초기 비밀번호 는 **password** 입니다.
         해당 계정 및 비밀번호로 최초 로그인을 하시면 비밀번호를 무조건 변경 하셔야 합니다.
 
     ![Glue 대시보드 비밀번호 변경](../assets/images/install-guide-glue-Glue-dashboard-chgpw.png){ align=center }
@@ -566,7 +566,7 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
 
 3. 클러스터 구성 정보 확인
     ![클러스터 구성 정보 확인1](../assets/images/install-guide-glue-cluster-configinfo-01.png){ align=center }
-    - **Cluster > Hosts** 를 클릭하면 보여지는 클러스터 구성될 Host 정보를 확인하는 화면입니다.
+    - **클러스터 > 호스트** 를 클릭하면 보여지는 클러스터 구성될 Host 정보를 확인하는 화면입니다.
     - Bootstrap 실행시 Hosts 파일의 정보를 자동으로 읽어와 호스트에 자동으로 추가가 됩니다.
     
     !!! check
@@ -574,49 +574,49 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
         Services 항목은 이미지와 동일한 순서대로 입력이 안되여 있을 수도 있습니다.
 
     ![클러스터 구성 정보 확인2](../assets/images/install-guide-glue-cluster-configinfo-02.png){ align=center }
-    - **Cluster > Inventory** 를 클릭하면 보여지는 클러스터로 구성될 디스크를 확인하는 화면입니다.
+    - **클러스터 > 물리 디스크** 를 클릭하면 보여지는 클러스터로 구성될 디스크를 확인하는 화면입니다.
 
     !!! check
         스토리기센터 가상머신 배포 마법사에서 선택한 디스크 수량, Type, Size 항목이 정상인지 확인하셔야 합니다.  
         또한 Available 항목이 모든 디스크에 체크가 되여 있는지 확인 하셔야 합니다.
    
-4. OSDs 추가
+4. 스토리지 디바이스 추가
     ![OSDs 추가 화면](../assets/images/install-guide-glue-OSDs-add.png){ align=center }
-    - **Cluster > OSDs** 클릭하시면 보여지는 OSDs 추가하는 화면입니다.
-    - **Create** 버튼을 클릭합니다.
+    - **클러스터 > 스토리지 디바이스** 클릭하시면 보여지는 OSDs 추가하는 화면입니다.
+    - **생성** 버튼을 클릭합니다.
 
     ![OSDs 추가 화면 상세화면](../assets/images/install-guide-glue-OSDs-add-detail.png){ align=center }
-    - OSDs 추가하는 화면입니다. **Primary devices** 항목의 **Add* 버튼을 클릭합니다.  
+    - 스토리지 디바이스 추가하는 화면입니다. **Primary 장치** 항목의 **추가** 버튼을 클릭합니다.  
 
     ![OSDs 추가 OSDs 선택화면](../assets/images/install-guide-glue-OSDs-add-OSDs-select.png){ align=center }
-    - OSDs 할 디스크를 선택하는 화면입니다. 오른쪽 상단의 Hostname 으로 되여있는 Filter 클릭하여 **Type** 으로 변경하고, Any 로 되여있는 Filter 를 클릭하여
-    **ssd**를 선택합니다.
-    - 추가된 OSD 의 수량 및 Size 를 확인하고 이상 없는경우 **Add** 버튼을 클릭합니다.
+    - 스토리지 디바이스를 선택하는 화면입니다. 오른쪽 상단의 **호스트 이름** 으로 되여있는 Filter 클릭하여 **형태** 으로 변경하고, **Any** 로 되여있는 Filter 를 클릭하여
+    **ssd** 를 선택합니다.  
+    - 추가된 스토리지 디바이스의 수량 및 Size 를 확인하고 이상 없는 경우 **추가** 버튼을 클릭합니다.
 
     ![OSDs 추가 OSDs 프리뷰](../assets/images/install-guide-glue-OSDs-add-OSDs-preview.png){ align=center }
-    - **Preview** 버튼을 클릭하여 OS creation preview 를 확인하고 **Create** 버튼을 클릭합니다.
+    - **미리보기** 버튼을 클릭하여 스토리지 디바이스 생성 미리 보기를 확인하고 **생성** 버튼을 클릭합니다.
 
     ![OSDs 추가 확인](../assets/images/install-guide-glue-OSDs-add-confirm.png){ align=center }
-    - 추가된 OSD 수량 및 **Status** 상태가 **`In up`** 상태를 확인해야 합니다.
+    - 추가된 스토지리 디바이스 수량 및 **상태** 값이 **`In`**, **`up`** 상태인지 확인해야 합니다.
     
-5. Pools 생성
+5. 데이터 풀 생성
     ![Pools 생성 메인화면](../assets/images/install-guide-glue-Pools-create-main.png){ align=center }
-    - **Pools** 메뉴를 클릭하면 보이는 화면 입니다. **Create** 버튼을 클릭하여 Pool 생성 화면으로 들어갑니다.
+    - **데이터 풀** 메뉴를 클릭하면 보이는 화면 입니다. **생성** 버튼을 클릭하여 데이터 풀 생성 화면으로 들어갑니다.
 
     ![Pools 생성](../assets/images/install-guide-glue-Pools-create.png){ align=center }
-    - **name** 항목에 **rbd** 입력, **Pool type** 선택 박스에서 **replicated** 를 선택, **PG Autoscale** 선택 박스에서 **on** 을 선택, 
-    **Replicated size** 항목에 **2** 입력, **Applications** 항목에서 **편집** 버튼을 클릭하여 **rbd** 항목을 선택합니다.
+    - **이름** 항목에 **rbd** 입력, **데이터 풀 형태** 선택 박스에서 **replicated** 를 선택, **PG 오토스케일** 선택 박스에서 **on** 을 선택, 
+    **복제크기** 항목에 **2** 입력, **응용 프로그램** 항목에서 **편집** 버튼을 클릭하여 **rbd** 항목을 선택합니다.
 
     ![Pools Crush ruleset](../assets/images/install-guide-glue-Pools-crush-ruleset.png){ align=center }
-    - Pool 의 Crush Rule 생성하는 화면입니다.
-    - **name** 항목에는 **rbd**, **Root** 선택 박스는 **default** 를 선택하고, **Failure domain type** 선택 박스는 **host (3)** 을 선택하고, 
-    **Device class** 선택 박스는 **ssd** 를 선택 하고 **Create Crush Rule** 버튼을 클릭합니다.
+    - 데이터 풀의 크러쉬 룰 생성하는 화면입니다.  
+    - **이름** 항목에는 **rbd**, **Root** 선택 박스는 **default** 를 선택하고, **도메인 유형 실패** 선택 박스는 **host (3)** 을 선택하고, 
+    **장치 클래스** 선택 박스는 **ssd** 를 선택 하고 **생성 크래쉬 룰** 버튼을 클릭합니다.
 
     ![Pools 생성 완료](../assets/images/install-guide-glue-Pools-create-completed.png){ align=center }
-    - **Create Pool** 버튼을 클릭하여 Pool 생성을 완료합니다.
+    - **생성 데이터 풀** 버튼을 클릭하여 데이터 풀 생성을 완료합니다.
 
     ![Pools 생성 완료 리스트](../assets/images/install-guide-glue-Pools-create-completed-list.png){ align=center }
-    - Pool 생성이 정상적으로 완료가 되었는지 확인합니다.
+    - 데이터 풀 생성이 정상적으로 완료가 되었는지 확인합니다.
     
 6. ABLESTACK 확인
     ![ABLESTACK 확인](../assets/images/install-guide-glue-ABLESTACK-check.png){ align=center }
