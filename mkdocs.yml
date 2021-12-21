@@ -123,7 +123,7 @@ nav:
       - Cell 알아보기 : architecture/book-of-cell.md
       - Glue 알아보기 : architecture/book-of-glue.md      
       - Mold 알아보기 : architecture/book-of-mold.md
-    - ABLESTACK Service:
+    - ABLESTACK Extended:
       - Wall 알아보기 : architecture/book-of-wall.md
       - Koral 알아보기 : architecture/book-of-koral.md
 #    - ABLESTACK on Others:
