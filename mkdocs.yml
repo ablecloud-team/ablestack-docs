@@ -123,6 +123,7 @@ nav:
       - Cell 알아보기 : architecture/book-of-cell.md
       - Glue 알아보기 : architecture/book-of-glue.md      
       - Mold 알아보기 : architecture/book-of-mold.md
+      - Works 알아보기 : architecture/book-of-works.md
     - ABLESTACK Extended:
       - Wall 알아보기 : architecture/book-of-wall.md
       - Koral 알아보기 : architecture/book-of-koral.md
@@ -137,6 +138,7 @@ nav:
     - Glue 설치 가이드: getting-started/install-guide-glue.md
     - Mold 설치 가이드: getting-started/install-guide-mold.md
     - Wall 설치 가이드: getting-started/install-guide-wall.md
+    - Works 설치 가이드: getting-started/install-guide-works.md
 #  - 설정 및 구성:
 #    - 시작하며: setup/setup-overview.md
   - 관리가이드:
