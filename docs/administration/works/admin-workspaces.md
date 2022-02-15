@@ -90,3 +90,13 @@ Works 의 워크스페이스 리스트 정보, 워크스페이스 생성 및 삭
 워크스페이스가 생성된 네트워크 정보를 보여 주는 화면 입니다.
 - **이름** : 네트워크 이름을 보여 줍니다.
 - **상태** : 네트워크 상태를 보여 줍니다.
+
+## 워크스페이스 액션
+
+### 워크스페이스 삭제
+
+![works-admin-workspaces-delete](../../assets/images/works-admin-workspaces-delete.png)
+![works-admin-workspaces-delete-check](../../assets/images/works-admin-workspaces-delete-check.png)
+
+- 삭제 할려는 워크스페이스 정보에서 오른쪽 상단의 삭제 버튼을 클릭 합니다.
+- 워크스페이스 이름을 확인 후에 **확인** 버튼을 클릭하면 워크스페이스가 삭제 됩니다.
