@@ -210,3 +210,5 @@ nav:
 #    - 시작하며: reference/reference-overview.md
   - 문제해결 : 
     - 문제해결사례 : troubleshooting/troubleshooting.md
+  - Release Note : 
+    - 새로운 기능 : releaseNote/release-note.md
