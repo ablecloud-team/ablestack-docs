@@ -39,9 +39,9 @@ Works는 다음과 같은 특징 및 기능을 포함합니다.
 
 Works의 아키텍처 및 주요 기능의 사용 방법은 다음의 문서를 참고하십시오.
 
-- Works 아키텍처 : [아키텍처 문서 바로가기](/architecture/book-of-works){:target="_blank"}
-- Works 설치 : [시작하기 문서 바로가기](/getting-started/install-guide-works){:target="_blank"}
-- Works 관리자/사용자 가이드 : [관리자가이드 바로가기](/administration/works/admin-login){:target="_blank"}, [사용자가이드 바로가기](/administration/works/user-login){:target="_blank"}
+- Works 아키텍처 : [아키텍처 문서 바로가기](../../architecture/book-of-works){:target="_blank"}
+- Works 설치 : [시작하기 문서 바로가기](../../getting-started/install-guide-works){:target="_blank"}
+- Works 관리자/사용자 가이드 : [관리자가이드 바로가기](../../administration/works/admin-login){:target="_blank"}, [사용자가이드 바로가기](/administration/works/user-login){:target="_blank"}
 
 ### ABLESTACK Wall
 
@@ -59,9 +59,9 @@ Wall은 다음과 같은 특징 및 기능을 제공합니다.
 
 Wall의 아키텍처 및 주요 기능의 사용 방법은 다음의 문서를 참고하십시오.
 
-- Wall 아키텍처 : [아키텍처 문서 바로가기](/architecture/book-of-wall){:target="_blank"}
-- Wall 설치 : [시작하기 문서 바로가기](/getting-started/install-guide-wall){:target="_blank"}
-- Wall 관리가이드 : [관리가이드 바로가기](/administration/wall/userinterface-guide){:target="_blank"}
+- Wall 아키텍처 : [아키텍처 문서 바로가기](../../architecture/book-of-wall){:target="_blank"}
+- Wall 설치 : [시작하기 문서 바로가기](../../getting-started/install-guide-wall){:target="_blank"}
+- Wall 관리가이드 : [관리가이드 바로가기](../../administration/wall/userinterface-guide){:target="_blank"}
 
 ### ABLESTACK Koral
 
