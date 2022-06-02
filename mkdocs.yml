@@ -13,7 +13,7 @@ repo_name: ablecloud-team/ablestack-docs
 repo_url: https://github.com/ablecloud-team/ablestack-docs
 
 # Copyright
-copyright: Copyright &copy; 2021 ABLECLOUD Co. Ltd.
+copyright: Copyright &copy; 2021-2022 ABLECLOUD Co. Ltd.
 
 # Configuration
 theme:
@@ -196,8 +196,8 @@ nav:
       - 탐색 : administration/wall/explore.md
       - 경고 : administration/wall/alerting.md
       - 환경 설정 : administration/wall/preferences.md
-      - 서버 관리 : administration/wall/server-management.md
-      - 기본설정 : administration/wall/basic-setting.md
+#      - 서버 관리 : administration/wall/server-management.md
+#      - 기본설정 : administration/wall/basic-setting.md
       - Netdive : administration/wall/netdive-guide.md
     - Works 관리자 가이드:
       -  관리자 로그인: administration/works/admin-login.md
@@ -213,6 +213,7 @@ nav:
   - 사용자 가이드 :
     - CentOS 가상머신 가이드 : 
       - 가상머신 사용 준비 : userGuide/vms/centos-guide-prepare-vm.md
+      - 가상머신 추가 및 사용 : userGuide/vms/centos-guide-add-and-use-vm.md
     - Ubuntu 가상머신 가이드 : userGuide/vms/ubuntu-guide.md
     - Windows 가상머신 가이드 : userGuide/vms/windows-server-guide.md
 #  - 레퍼런스:
