@@ -214,6 +214,7 @@ nav:
     - CentOS 가상머신 가이드 : 
       - 가상머신 사용 준비 : userGuide/vms/centos-guide-prepare-vm.md
       - 가상머신 추가 및 사용 : userGuide/vms/centos-guide-add-and-use-vm.md
+      - 비밀번호 및 SSH Key 관리 : userGuide/vms/centos-guide-ssh-key-use.md
     - Ubuntu 가상머신 가이드 : userGuide/vms/ubuntu-guide.md
     - Windows 가상머신 가이드 : userGuide/vms/windows-server-guide.md
 #  - 레퍼런스:
