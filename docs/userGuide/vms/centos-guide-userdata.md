@@ -140,3 +140,8 @@ bootcmd:
 4. 가상머신을 재부팅 합니다. 
 
 새롭게 적용된 사용자 데이터는 가상머신이 재부팅 될 때 적용됩니다. 입력한 사용자 데이터의 내용이 가상머신에 적용되었는지 확인합니다. 
+
+!!! info "cloud-init을 통한 가상머신 자동화"
+    사용자 데이터를 통해 가상머신 구성을 자동화 하고자 한다면 cloud-init에 대한 사용 방법을 좀 더 자세히 알아야 합니다. 
+
+    cloud-init에 대한 상세한 사용 방법을 알고자 한다면 [cloud-init 온라인 설명서](https://cloudinit.readthedocs.io/en/latest/){ target="_blank" }를 참고하십시오.
