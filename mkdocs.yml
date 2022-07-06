@@ -215,6 +215,9 @@ nav:
       -  Quick Start: administration/genie/quick-start.md
       -  Views: administration/genie/views.md
       -  리소스: administration/genie/resources.md
+      -  액세스: administration/genie/access.md
+      -  관리: administration/genie/management.md
+      -  설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
   - 레퍼런스 가이드 :
     - CentOS 가상머신 가이드 : 

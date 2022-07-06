@@ -6,7 +6,7 @@
 
 ABLESTACK Genie에서는 이러한 구성요소들과 템플릿을 자동으로 생성합니다.
 
-왼쪽 메뉴에서 **템플릿** 을 클릭합니다. 
+왼쪽 메뉴에서 **템플릿** 을 클릭하여 페이지에 액세스합니다. 
 ![genie-templates-info](../../assets/images/genie-templates-info.png)
 
  **"auto_deploy_job_template"** 템플릿을 시작합니다.
@@ -15,7 +15,7 @@ ABLESTACK Genie에서는 이러한 구성요소들과 템플릿을 자동으로 
 템플릿이 시작되면 **작업** 메뉴의 출력화면으로 전환되며 실행 중인 템플릿에 대한 실행 정보 및 로그를 실시간으로 확인할 수 있습니다. 
 ![genie-templates-auto-deployment-log](../../assets/images/genie-templates-auto-deployment-log.png)
 
-정상적으로 작업이 종료된 후 추가된 템플릿 및 인증 정보, 프로젝트, 인벤토리, 호스트를 각 리소스 메뉴에서 확인할 수 있습니다.
+정상적으로 작업이 종료된 후 추가된 템플릿을 볼 수 있습니다. 또한 각 리소스 메뉴에서 인증 정보, 프로젝트, 인벤토리, 호스트를 확인할 수 있습니다.
 ![genie-templates-auto-deployment-result](../../assets/images/genie-templates-auto-deployment-result.png)
 
 ### 생성된 Genie 템플릿 실행
