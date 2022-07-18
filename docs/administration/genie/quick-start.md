@@ -57,7 +57,7 @@ ABLESTACK Genie에서 기본 제공되는 템플릿은 애플리케이션 배포
         3. 서비스 그룹 상태가 "Disconnected"인 Packages 세부 정보를 **삭제** 합니다.
 
 #### 배포된 서비스 파기
-배포된 서비스를 안전하게 파기하기 위해 "파기 템플릿"을 실행합니다.
+배포된 서비스를 안전하게 삭제하기 위해 "파기 템플릿"을 실행합니다.
 ![genie-templates-destory](../../assets/images/genie-templates-destory.png)
 
 실행한 "파기 템플릿"이 정상적으로 종료된 후 Mold에서 결과를 확인합니다.
