@@ -191,7 +191,8 @@ NIC를 삭제하기 위해 먼저 가상머신의 상세 화면에서 NIC 탭을
 NIC를 제거한 후 가상머신 내에서 디바이스를 확인하면 해당 NIC가 삭제된 것을 확인할 수 있습니다. 
 
 ```
-$ DEVICE  TYPE      STATE      CONNECTION
+$ nmcli dev
+DEVICE  TYPE      STATE      CONNECTION
 ens8    ethernet  connected  ens8
 lo      loopback  unmanaged  --
 ```
