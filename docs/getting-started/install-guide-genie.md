@@ -12,12 +12,19 @@ ABLESTACK Mold 의 **오토메이션** 을 이용하여 진행이 되며 **오�
 
 ![Genie 글로벌 설정 변경전](../assets/images/install-guide-genie-01.png){ align=center }  
 
-- 구성 > 글로벌 설정 화면에서 **cloud.automation.service.enabled** 검색하여나오는 항목의 값을 false 에서 true 로 변경
-- ABLECLOUD Mold 재기동 진행  
+- 구성 > 글로벌 설정 화면에서 **cloud.automation.service.enabled** 검색하여나오는 항목의 값을 false 에서 true 로 변경합니다.
 
-![Genie 글로벌 설정 변경후](../assets/images/install-guide-genie-02.png){ align=center }
+![Genie 글로벌 설정 변경전](../assets/images/install-guide-genie-01-01.png){ align=center }  
 
-- 오토메이션 서비스 메뉴 활성화 화면
+- 상기 글로벌 설정을 적용하기 위해 ABLECLOUD Mold의 관리 서비스를 재시작해야 합니다. 이를 위해 ABLESTACK Cube의 Cockpit에 접속합니다. "ABLESTACK 플러그인 > 클라우드센터 가상머신 상태 드롭다운 메뉴 > Mold 서비스 제어"를 순서대로 클릭합니다.
+
+![Genie 글로벌 설정 변경전](../assets/images/install-guide-genie-01-02.png){ align=center }  
+
+- 제어명령을 "재시작"으로 선택한 후 클릭하여 실행합니다.
+
+![Genie 글로벌 설정 변경후 Mold 재시작](../assets/images/install-guide-genie-02.png){ align=center }
+
+- Mold의 관리 서비스가 재시작된 후, 오토메이션 서비스 메뉴가 활성화 된 것을 확인할 수 있습니다.
 
 ### 오토메이션 컨트롤러 템플릿 생성
 
@@ -49,20 +56,20 @@ ABLESTACK Mold 의 **오토메이션** 을 이용하여 진행이 되며 **오�
 - **설명** 입력창에는 배포할 오토메이션 컨트롤러의 설명을 입력합니다.
 - **컨트롤러 템플릿 버전** 선택창에는 컨트롤러 템플릿 메뉴에서 등록한 템플릿을 선택합니다.
 - **컴퓨트 오퍼링** 선택창에는 배포할 컨트롤러의 오퍼링을 선택합니다.
-!!! info
-    오토메이션 컨트롤러가 동작하기 위한 VM의 **최소 오퍼링** 은 CPU(4Core), Memory(4GB)입니다.
+!!! important
+    오토메이션 컨트롤러가 동작하기 위한 VM의 **최소 오퍼링** 은 CPU(4Core), Memory(8GB)입니다.
 - **네트워크** 선택창에는 컨트롤러와 연결할 네트워크를 선택합니다.
-!!! info
+!!! important
     오토메이션 컨트롤러 생성 시 네트워크 조건:
 
-    - 네트워크 상태는 **Allocated** 이어야 합니다.
+    - 하나의 오토메이션 컨트롤러에 한 개의 네트워크에만 할당할 수 있습니다. (여러 개의 오토메이션 컨트롤러 생성 가능)
+    - 네트워크 상태는 **Allocated** 여야 합니다.
     - 오토메이션 컨트롤러는 **isolated** 네트워크로만 배포가 가능하며 해당 네트워크의 **송신 규칙** 은 제거된 상태여야 합니다.
-    - 1개의 네트워크에는 1개의 오토메이션 컨트롤러만 배포할 수 있습니다.
-    - **Source-Nat** 방식의 Public IP로 배포됩니다.
+    - 오토메이션 컨트롤러는 **Source-Nat** 방식의 Public IP에 할당되어 배포됩니다.
 
 - **오토메이션 컨트롤러 IP** 입력창에는 오토메이션 컨트롤러의 IP를 입력합니다. 선택 사항입니다.
-!!! info
-    오토메이션 컨트롤러의 IP는 위에서 선택한 네트워크 선택창에서 선택한 네트워크의 CIDR의 범위안에 IP를 입력해야 합니다.
+!!! important
+    오토메이션 컨트롤러의 IP는 위에서 선택한 네트워크 선택창에서 선택한 네트워크의 **CIDR** 의 범위안에 IP를 입력해야 합니다.
     입력하지 않을 경우, IP 주소가 자동으로 할당됩니다.
 - 입력 및 선택 항목을 확인 후에 **다음** 버튼을 클릭하여 오토메이션 컨트롤러 배포를 진행합니다.
 !!! info
