@@ -226,6 +226,7 @@ nav:
       - 비밀번호 및 SSH Key 관리 : userGuide/vms/centos-guide-ssh-key-use.md
       - 사용자 데이터 적용 : userGuide/vms/centos-guide-userdata.md
       - 가상머신 볼륨 사용 : userGuide/vms/centos-guide-storage.md
+      - 가상머신 NIC 사용 : userGuide/vms/centos-guide-nics.md
     - Ubuntu 가상머신 가이드 : userGuide/vms/ubuntu-guide.md
     - Windows 가상머신 가이드 : userGuide/vms/windows-server-guide.md
 #  - 레퍼런스:
