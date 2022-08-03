@@ -218,8 +218,20 @@ nav:
       - 사용자 데이터 적용 : userGuide/vms/centos-guide-userdata.md
       - 가상머신 볼륨 사용 : userGuide/vms/centos-guide-storage.md
       - 가상머신 NIC 사용 : userGuide/vms/centos-guide-nics.md
-    - Ubuntu 가상머신 가이드 : userGuide/vms/ubuntu-guide.md
-    - Windows 가상머신 가이드 : userGuide/vms/windows-server-guide.md
+    - Ubuntu 가상머신 가이드 : 
+      - 가상머신 사용 준비 : userGuide/vms/ubuntu-guide-prepare-vm.md
+      - 가상머신 추가 및 사용 : userGuide/vms/ubuntu-guide-add-and-use-vm.md
+      - 비밀번호 및 SSH Key 관리 : userGuide/vms/ubuntu-guide-ssh-key-use.md
+      - 사용자 데이터 적용 : userGuide/vms/ubuntu-guide-userdata.md
+      - 가상머신 볼륨 사용 : userGuide/vms/ubuntu-guide-storage.md
+      - 가상머신 NIC 사용 : userGuide/vms/ubuntu-guide-nics.md
+    - Windows 가상머신 가이드 :
+      - 가상머신 사용 준비 : userGuide/vms/windows-guide-prepare-vm.md
+      - 가상머신 추가 및 사용 : userGuide/vms/windows-guide-add-and-use-vm.md
+      - 비밀번호 및 SSH Key 관리 : userGuide/vms/windows-guide-ssh-key-use.md
+      - 사용자 데이터 적용 : userGuide/vms/windows-guide-userdata.md
+      - 가상머신 볼륨 사용 : userGuide/vms/windows-guide-storage.md
+      - 가상머신 NIC 사용 : userGuide/vms/windows-guide-nics.md
 #  - 레퍼런스:
 #    - 시작하며: reference/reference-overview.md
   - 릴리즈노트 : 
