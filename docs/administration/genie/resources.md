@@ -63,7 +63,7 @@
 6. 작업완료되면 저장을 클릭합니다.
 
 !!! info
-    ABLESTACK Genie에서 기본적으로 사용되는 `automation_controller_credential`은 오토메이션 컨트롤러의 SSH Key로 생성되어 배포된 VM에 액세스하기 위한 인증 정보입니다.
+    ABLESTACK Genie에서 기본적으로 사용되는 `Automation Controller Credential`은 오토메이션 컨트롤러의 SSH Key로 생성되어 배포된 VM에 액세스하기 위한 인증 정보입니다.
 
 ## 프로젝트
 프로젝트는 Ansible 플레이북의 논리적 모음입니다.
