@@ -63,6 +63,7 @@ Wall은 각각의 호스트 및 가상머신의 실시간 상태 값을 가져�
     * libvirt-exporter : 가상화 및 가상머신 실시간 정보 수집
     * process-exporter : 호스트 및 가상머신 내의 프로세스 실시간 정보 수집
     * blackbox-exporter : 각종 서비스의 실시간 정보 수집
+    * glue-exporter : Glue 스토리지에 대한 실시간 정보 수집
 * 시계열 데이터베이스
     * Prometheus : 시계열 데이터 관리
 * 시각화
@@ -88,16 +89,18 @@ Wall의 각 구성요소는 관리 네트워크를 통해 필요한 데이터를
 
 | 자원구분       | 구성요소             | 사용 포트                |
 | -----------  | -------------      | -----------------       |
-| Cube 호스트    | node-exporter      |                        |
-|              | libvirt-exporter   |                         |
-|              | process-exporter   |                         |
-| SCVM         | node-exporter      |                         |
-|              | process-exporter   |                         |
-| CCVM         | node-exporter      |                         |
-|              | process-exporter   |                         |
-|              | blackbox-exporter  |                         |
-|              | Prometheus         |                         |
-|              | Grafana            |                         |
+| Cube 호스트    | node-exporter      |  3003                  |
+|              | libvirt-exporter   |   3002                  |
+|              | process-exporter   |   3004                  |
+| SCVM         | node-exporter      |   3003                  |
+|              | process-exporter   |   3004                  |
+|              | glue-exporter      |   9293                  |
+|              | Prometheus         |   9095                  |
+| CCVM         | node-exporter      |   3003                  |
+|              | process-exporter   |   3004                  |
+|              | blackbox-exporter  |   3005                  |
+|              | Prometheus         |   3001                  |
+|              | Grafana            |   3000                  |
 
 !!! warning "임의의 포트 변경 금지"
     시스템 모니터링의 안정성 및 보안성을 위해 Wall은 사전에 정의된 포트를 이용해 상호 데이터를 수집하고 관리하게 됩니다. 임의로 포트를 변경하는 경우 정상적인 모니터링이 불가능할 수 있습니다.
@@ -105,7 +108,24 @@ Wall의 각 구성요소는 관리 네트워크를 통해 필요한 데이터를
 
 ## 동작 방식
 
+Wall은 Cube 웹 콘솔을 통해 구성됩니다. Wall 모니터링은 Mold 가상머신에 같이 배포되며, 배포 시 모니터링 대상 호스트, 스토리지센터 가상머신, Mold 가상머신 등의 정보를 입력하고, SMTP 설정 정보를 입력하여 설정을 완료합니다. 
+
+Wall의 접속 정보는 Mold를 통해 접속이 가능하도록 Mold의 글로벌 설정에 다음의 정보가 설정됩니다. 
+
+  - monitoring.wall.portal.port : 기본값 3000
 ### 관리자 모니터링
+
+관리자는 Mold에서 제공하는 바로가기 링크를 통해 관리자용 모니터링 센터에 접속할 수 있습니다. 
+
+<center>
+![wall-mold-admin-link](../assets/images/wall-mold-admin-link.png)
+</center>
+
+또는 Mold 가상머신의 IP 주소를 웹 브라우저에 입력하여 직접 접속할 수 있습니다. 
+
+  - Wall 모니터링 주소 : http://<Mold 주소>:3000/admin
+
+관리자 모니터링을 위해서는 사용자 정보를 입력하여 로그인해야 합니다. 기본 로그인 정보는 admin:admin입니다. 
 
 ### 임계치 알람
 
@@ -164,3 +184,13 @@ Wall을 설정되어 있는 임계치를 검사하여 일정 시간 이상 임�
 |              | 디스크 사용률 | 5분 동안 전체 용량의 75% 초과 사용 |
 
 ### 사용자 가상머신
+
+Mold의 일반사용자는 사용자가 생성한 가상머신에 대한 실시간 모니터링 정보를 조회할 수 있습니다. 
+
+가상머신 실시간 모니터링 정보는 해당 가상머신의 상세 정보 조회 화면에서 "실시간 모니터링 연결" 아이콘을 클릭하여 조회할 수 있습니다. 
+
+<center>
+![wall-vm-realtime-monitoring](../assets/images/wall-vm-realtime-monitoring.png)
+</center>
+
+사용자는 조회한 가상머신 외의 다른 가상머신의 조회는 불가능하여 안전한 모니터링 자료 조회가 가능합니다. 
