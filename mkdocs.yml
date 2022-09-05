@@ -197,7 +197,7 @@ nav:
           - 경고 : administration/wall/alerting.md
           - 환경 설정 : administration/wall/preferences.md
           - 서버 관리 : administration/wall/server-management.md
-          - 기본설정 : administration/wall/basic-setting.md
+          - 기본설정 : administration/wall/personal-setting.md
           - Netdive : administration/wall/netdive-guide.md
       - Works 관리자 가이드:
           -  관리자 로그인: administration/works/admin-login.md
