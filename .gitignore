@@ -3,3 +3,4 @@ site
 .idea/*
 .python-version
 venv/
+docs/versions.json
