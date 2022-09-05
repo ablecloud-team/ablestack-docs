@@ -66,16 +66,16 @@ so on
 
 옵션 :
 
-|<center>옵션</center>|<center>내용</center>|
-|:---|:---|
-|-b DB|데이터베이스 이름, 기본값 : 클라우드|
-|-u USER|사용자 이름은 클라우드 데이터베이스에 대한 권한이 있는 MySQL 사용자입니다. 기본값 : cloud|
-|-p PASSWORD|클라우드 데이터베이스에 대한 권한이 있는 MySQL 사용자의 비밀번호|
-|-H HOST|MySQL 서버의 호스트 또는 IP|
-|-P PORT|MySQL 서버의 호스트 또는 IP, 기본값 : 3306|
-|-f FILE|commands.properties 파일, 기본값 :<br/>/etc/cloudstack/management/commands.properties|
-|-d|이 도구가 수행할 테스트 실행 및 디버그 작업|
-|-D|동적 역할에 대한 기본 구성 사용 (command.properties를 가져 오지 않음)|
+| <center>옵션</center> | <center>내용</center>                                                              |
+|:--------------------|:---------------------------------------------------------------------------------|
+| -b DB               | 데이터베이스 이름, 기본값 : 클라우드                                                            |
+| -u USER             | 사용자 이름은 클라우드 데이터베이스에 대한 권한이 있는 MySQL 사용자입니다. 기본값 : cloud                         |
+| -p PASSWORD         | 클라우드 데이터베이스에 대한 권한이 있는 MySQL 사용자의 비밀번호                                           |
+| -H HOST             | MySQL 서버의 호스트 또는 IP                                                              |
+| -P PORT             | MySQL 서버의 호스트 또는 IP, 기본값 : 3306                                                  |
+| -f FILE             | commands.properties 파일, 기본값 :<br/>/etc/cloudstack/management/commands.properties |
+| -d                  | 이 도구가 수행할 테스트 실행 및 디버그 작업                                                        |
+| -D                  | 동적 역할에 대한 기본 구성 사용 (command.properties를 가져 오지 않음)                                |
 
 예 :
 
