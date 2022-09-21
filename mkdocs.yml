@@ -128,6 +128,7 @@ nav:
       - Koral 알아보기 : architecture/book-of-koral.md
     - ABLESTACK Service:
       - Works 알아보기 : architecture/book-of-works.md
+      - Genie 알아보기 : architecture/book-of-genie.md
 #    - ABLESTACK on Others:
 #      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
 #      - Citrix 기반 ABLESTACK: architecture/book-of-citrix.md
@@ -143,6 +144,7 @@ nav:
       - Wall 설치 가이드: getting-started/install-guide-wall.md
     - ABLESTACK Service:
       - Works 설치 가이드: getting-started/install-guide-works.md
+      - Genie 설치 가이드: getting-started/install-guide-genie.md
 #  - 설정 및 구성:
 #    - 시작하며: setup/setup-overview.md
   - 관리가이드:
@@ -209,6 +211,14 @@ nav:
     - Works 사용자 가이드:
         - 사용자 로그인: administration/works/user-login.md
         - 데스크탑 접속: administration/works/user-desktop-connection.md
+    - Genie 가이드:
+      -  사용자 인터페이스: administration/genie/userinterface-guide.md
+      -  Quick Start: administration/genie/quick-start.md
+      -  Views: administration/genie/views.md
+      -  리소스: administration/genie/resources.md
+      -  액세스: administration/genie/access.md
+      -  관리: administration/genie/management.md
+      -  설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
   - 레퍼런스 가이드 :
     - CentOS 가상머신 가이드 : 
