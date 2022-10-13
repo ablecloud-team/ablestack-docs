@@ -61,10 +61,10 @@ Wall 모니터링에 필요한 환경 설정 정보를 관리할 수 있습니�
 
 ### 팀원 추가
 ![wall-dashboard-dashboard-preferences-team-user-add](../../assets/images/wall-dashboard-dashboard-preferences-team-user-add.png)
-생성된 팀에 팀월을 추가하는 화면입니다.
+생성된 팀에 팀원을 추가하는 화면입니다.
 
 * 회원 검색 : 팀에 추가할 사용자 검색합니다.  
-* 맴버 추가 : 맴버 추가를 클릭하여 팀원 추가 영역 활성화합니다.  
+* 멤버 추가 : 멤버 추가를 클릭하여 팀원 추가 영역 활성화합니다.  
 * 팀에 추가 : 선택한 맴버를 팀에 추가합니다.  
 
 ### 팀 목록
