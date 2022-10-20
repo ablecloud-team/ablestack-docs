@@ -14,17 +14,8 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 1. 개요
     ![클라우드센터 가상머신 배포 개요](../assets/images/install-guide-mold-cloudcenter-VM-deploy-overview.png){ align=center }
     - 클라우드센터 가상머신 배포 개요 화면입니다. 개요의 내용을 확인 후 **다음** 버튼을 클릭합니다.
-    
-2. 장애조치 클러스터 설정
-    ![장애조치 클러스터 설정](../assets/images/install-guide-mold-ha-clusgter-config.png){ align=center }
-    - 장애조치 클러스터 설정하는 화면 입니다.
-    - **클러스터 멤버수** 입력창에는 **3** 을 입력합니다.
-    - **호스트 #1정보**, **호스트 #2정보**, **호스트 #3정보** 에는 **ablecube1**, **ablecube2**, **ablecube3** 입력하고 **다음** 버튼을 클릭합니다.
-    
-    !!! info
-        클라우드센터 장애조치 클러스터는 최대 3개의 호스트를 지정할 수 있습니다.
-   
-3. 클라우드센터 가상머신 설정 - 컴퓨트
+
+2. 클라우드센터 가상머신 설정 - 컴퓨트
     ![클라우드센터 가상머신 설정 - 컴퓨트](../assets/images/install-guide-mold-cloudcenter-VM-config-compute.png){ align=center }
     - 클라우드센터 가상머신의 컴퓨트 설정하는 화면입니다.
     - **CPU Core** 선택 박스는 **8 vCore**, **Memory** 선택 박스는 **16 GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
@@ -35,7 +26,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
         메모리는 컨트롤할 호스트의 수가 **10개** 미만이면 **16GiB** 를, **10 ~ 20개** 이면 **32GiB** 를, **21개 이상** 이면 **64GiB** 를 선택해야 합니다.  
         ROOT Disk의 크기는 **70GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
    
-4. 클라우드센터 가상머신 설정 - 네트워크
+3. 클라우드센터 가상머신 설정 - 네트워크
     ![클라우드센터 가상머신 설정 - 네트워크](../assets/images/install-guide-mold-cloudcenter-VM-config-network.png){ align=center }
     - 클라우드센터 가상머신의 네트워크 설정하는 화면입니다.
     - **관리네트워크** 선택 박스에서 **bridge0** 을 선택하고 **다음** 버튼을 클릭합니다.
@@ -43,38 +34,34 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     !!! info
         관리 네트워크와 서비스 네트워크가 분리되여 있는 경우 그리고 외부에서 클라우드센터 웹콘솔에 접근해야 하는경우에는 **네트워크 구성** 항목에서 
         **서비스네트워크** 항목을 체크하신 후에 **서비스네트워크** 선택 박스에서 해당되는 **브릿지** 를 선택하셔야 합니다.
-   
-5. 추가 네트워크 정보
+
+4. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-mold-add-network-info.png){ align=center }
     - 클라우드센터 가상머신 추가 네트워크 정보를 설정하는 화면입니다.
-    - **정보 입력 소스** 항목에서 **Hosts 파일 사용** 을 체크하고 **파일 선택** 버튼을 클릭하여 1번 호스트 클러스터 준비에서 다운로드한 **host** 파일을 선택하여 업로드 합니다.
-    - **호스트명** 입력창에는 **ccvm**, **관리 NIC IP** 입력창에는 **10.10.1.10/16**, **관리 NIC Gateway** 입력창에는 **10.10.0.1** 을 입력 하고 **다음** 버튼을
+    - **클러스터 구성 파일** 항목에서 **파일 선택** 버튼을 클릭하여 미리 다운로드한 클러스터 파일을 선택하여 업로드 합니다.
+    - **관리 NIC IP** 입력창에는 **10.10.1.10/16**, **관리 NIC Gateway** 입력창에는 **10.10.0.1**, **관리 NIC DNS입력창** 에는 **8.8.8.8** 을 입력 하고 **다음** 버튼을
     클릭합니다.
     
     !!! info
-        - 클라우드센터 가상머신는 호스트 프로파일에는 **ablecube**, **scvm**, **scvm**, **scvm-cn** 항목이 필요 없으므로 삭제하시면 됩니다.
+        - 클러스터 파일은 ABLESTACK - Cube 메인 화면 상단 버튼을 클릭하여 다운로드할 수 있습니다.
         - 서비스 네트워크 항목은 **클라우드센터 VM 설정 - 네트워크** 화면에서 서비스 네트워크 사용을 체크한 경우 활성화됩니다.
    
-    !!! example
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1  
-        10.10.1.2  ablecube2  
-        10.10.1.3  ablecube3  
-        10.10.1.11 scvm1-mngt  
-        10.10.1.12 scvm2-mngt  
-        10.10.1.13 scvm3-mngt  
-        100.100.1.11    scvm1  
-        100.100.1.12    scvm2  
-        100.100.1.13    scvm3  
-        100.200.1.11    scvm1-cn    
-        100.200.1.12    scvm2-cn  
-        100.200.1.13    scvm3-cn  
-        
-6. SSH Key 정보
+5. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-mold-SSH-Key-info.png){ align=center }
     - 클라우드센터 가상머신의 SSH Key 정보를 설정하는 화면입니다.
-    - 1번 호스트 클러스터 준비에서 다운로드한 Key 파일을 **SSH 개인 Key 파일**, **SSH 공개 Key 파일** 에 각각 업로드 후 **다음** 버튼을 클릭합니다.
+    - 사전에 다운로드한 SSH Key 파일을 **SSH 개인 Key 파일**, **SSH 공개 Key 파일** 에 각각 업로드 후 **다음** 버튼을 클릭합니다.
+    
+    !!! info
+        - SSH Key 파일은 ABLESTACK - Cube 메인 화면 상단 버튼을 클릭하여 다운로드할 수 있습니다.
+
+6. 장애조치 클러스터 설정
+    ![장애조치 클러스터 설정](../assets/images/install-guide-mold-ha-clusgter-config.png){ align=center }
+    - 장애조치 클러스터 설정하는 화면 입니다.
+    - **클러스터 멤버수** 입력창에는 클러스터 파일 내용에 따라 자동으로 입력됩니다.
+    - **호스트 #1정보**, **호스트 #2정보**, **호스트 #3정보** 또한 클러스터 파일 내용에 따라 자동으로 입력되며 확인 후. **다음** 버튼을 클릭합니다.
+    
+    !!! info
+        클라우드센터 장애조치 클러스터는 최대 3개의 호스트를 지정할 수 있습니다.
     
 7. 설정확인
     ![설정확인](../assets/images/install-guide-mold-config-check.png){ align=center }
