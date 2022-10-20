@@ -1,6 +1,6 @@
 Koral은 Mold를 통해 Kubernetes 클러스터를 자동으로 배포하고 구성하는 Orchestration 기능을 제공하는 플러그인 확장으로, 이러한 기능을 적절하게 표현하기 위해 Kubernetes의 K와 합창이라는 의미를 가진 Choral을 합성한 단어로, 실제 발음은 Choral과 동일하게 발음합니다. 
 
-Koral은 ABLESTACK 설치 시 기본적으로 설치되는 플러그인입니다. 이 기능을 사용의 사용은 플러그인 사용을 위한 설정을 적용하고, Kubernetes 클러스터를 배포하기 위한 실행 바이너리 ISO를 등록함으로써 가능합니다. Koral을 이용하면 쉽고 빠르게 컨테이너 환경을 ABLESTACK에 배포할 수 있으며, 안정적으로 운영할 수 있을 뿐 아니라, 필요 시 신속하게 확장이 가능합니다. 
+Koral은 ABLESTACK 설치 시 기본적으로 설치되는 플러그인입니다. 이 기능을 사용의 사용은 플러그인 사용을 위한 설정을 적용하고, Kubernetes 클러스터를 배포하기 위한 실행 바이너리 ISO를 등록함으로써 가능합니다. Koral을 이용하면 쉽고 빠르게 컨테이너 환경을 ABLESTACK에 배포할 수 있으며, 안정적으로 운영할 수 있을 뿐 아니라, 필요시 신속하게 확장이 가능합니다. 
 
 ## Koral의 설계 목표
 
@@ -36,7 +36,7 @@ Koral 기능을 사용하기 위해서는 Mold의 글로벌 설정에서 Koral�
 Koral 기능을 사용하기 위해서는 반드시 `cloud.kubernetes.service.enabled` 항목의 값을 'true'로 설정해야 하고, Mold 서비스를 재시작해야 합니다.
 ### Mold UI
 
-Mold 서비스를 재시작한 후 Mold UI에 접속하면 두개의 Koral 관련 메뉴가 생성됩니다. 
+Mold 서비스를 재시작한 후 Mold UI에 접속하면 두 개의 Koral 관련 메뉴가 생성됩니다. 
 
 먼저 Kubernetes 바이너리 ISO를 등록하고 버전 관리를 할 수 있는 "쿠버네테스 ISOs" 메뉴가 이미지 섹션에 생성되고, 실제 Kubernetes 클러스터를 생성하는 기능을 제공하는 "쿠버네테스" 메뉴가 컴퓨트 섹션에 생성됩니다. 
 
@@ -47,11 +47,11 @@ Koral은 가상머신에 Docker 와 Kubernetes 바이너리를 탑재하여 클�
 
 ABLESTACK은 백업 및 가상머신 콘솔, 가상 라우터 등의 기능을 제공하기 위해 관련 소프트웨어를 미리 탑재한 시스템 VM 템플릿을 기본적으로 제공합니다. 우리는 Koral를 위한 소프트웨어 역시 기존의 시스템 VM 템플릿에 탑재하여 관련 기능을 구현하는 것이 타당하다는 결론에 도달하였습니다. 
 
-따라서 ABLESTACK의 시스템 VM 템플릿은 기존의 백업, 가상머신 콘솔, 가상 라우터 기능에 더해 Kubernetes 클러스터 배포를 위한 소프트웨어를 기본적으로 탑재하여 배포되며, 사용자가 플러그인을 활성화 하고 Mold UI를 통해 클러스터를 배포하면 해당 이미지를 사용하여 가상머신을 생성하게 됩니다. 
+따라서 ABLESTACK의 시스템 VM 템플릿은 기존의 백업, 가상머신 콘솔, 가상 라우터 기능에 더해 Kubernetes 클러스터 배포를 위한 소프트웨어를 기본적으로 탑재하여 배포되며, 사용자가 플러그인을 활성화하고 Mold UI를 통해 클러스터를 배포하면 해당 이미지를 사용하여 가상머신을 생성하게 됩니다. 
 
 ### Kubernetes 바이너리 ISO
 
-Koral은 시스템 VM 템플릿을 이용해 Kubernetes 클러스터용 가상머신, 즉 컨트롤러 및 워커 노드를 배포한 후 가상머신 내부에 Kubernetes 클러스터를 위한 설정을 하게 됩니다. 이 때 해당 설정을 적용하기 위해 Kubernetes 바이너리 ISO를 가상머신에 마운트하여 관련된 바이너리를 가상머신에 탑재하고 프로그램을 실행하게 됩니다. 
+Koral은 시스템 VM 템플릿을 이용해 Kubernetes 클러스터용 가상머신, 즉 컨트롤러 및 워커 노드를 배포한 후 가상머신 내부에 Kubernetes 클러스터를 위한 설정을 하게 됩니다. 이때 해당 설정을 적용하기 위해 Kubernetes 바이너리 ISO를 가상머신에 마운트하여 관련된 바이너리를 가상머신에 탑재하고 프로그램을 실행하게 됩니다. 
 
 따라서 ABLESTACK HCI를 관리하는 시스템 관리자는 반드시 ABLESTACK에서 공식적으로 제공하는 Kubernetes 바이너리 ISO를 다운로드하거나 해당 링크를 이용해 ISO를 Mold에 등록해야 합니다. 
 
@@ -116,7 +116,7 @@ Koral은 내장되어 있는 플러그인을 이용해 사용자별로 다수의
 
 ### 서비스 오퍼링
 
-위의 플러그인 아키텍처에서 설명한 바와 같이, 시스템 VM 템플릿을 이용해 클러스터를 구성하는 가상머신을 생성합니다. 이 때 각 가상머신의 CPU, Memory 및 루트 디스크의 크기를 설정해야 하는데 이를 위해서는 Mold에 필요한 서비스 오퍼링을 미리 생성해야 합니다. 필수적으로 필요한 서비스 오퍼링은 다음과 같습니다. 
+위의 플러그인 아키텍처에서 설명한 바와 같이, 시스템 VM 템플릿을 이용해 클러스터를 구성하는 가상머신을 생성합니다. 이때 각 가상머신의 CPU, Memory 및 루트 디스크의 크기를 설정해야 하는데 이를 위해서는 Mold에 필요한 서비스 오퍼링을 미리 생성해야 합니다. 필수적으로 필요한 서비스 오퍼링은 다음과 같습니다. 
 
 - 컴퓨트 오퍼링 : 클러스터를 구성하는 가상머신의 CPU 및 메모리, 루트디스크의 크기에 대한 정책을 설정합니다. 해당 정책을 생성할 때 '루트 디스크 크기'는 지정하지 않아야 합니다. 
 - 디스크 오퍼링 : 클러스터를 구성하는 가상머신의 디스크 크기에 대한 정책을 설정합니다. 클러스터를 구성 시 루트 디스크의 크기를 가변적으로 설정할 수 있습니다. Koral에서는 Custom 디스크 오퍼링을 사용하여 가상머신의 루트디스크 크기를 설정합니다.  
@@ -145,7 +145,7 @@ Kubernetes 클러스터는 클러스터 설정 및 역할에 따라 다음과 �
     - [Kubernetes 아키텍처](https://kubernetes.io/ko/docs/concepts/overview/components/){:target="_blank"}
     - [WeaveNet 문서](https://www.weave.works/docs/net/latest/kubernetes/kube-addon/){:target="_blank"}
 
-각각의 노드는 상호간 SSH 연결이 필수적입니다. 이 때 안전한 SSH 연결을 위해 SSH Key를 사용하게 됩니다. SSH Key는 Mold에서 계정별로 생성된 SSH Key를 선택하여 사용하게 됩니다. 
+각각의 노드는 상호 간 SSH 연결이 필수적입니다. 이 때 안전한 SSH 연결을 위해 SSH Key를 사용하게 됩니다. SSH Key는 Mold에서 계정별로 생성된 SSH Key를 선택하여 사용하게 됩니다. 
 
 ### 클러스터 크기 및 확장
 
@@ -155,7 +155,7 @@ Kubernetes 클러스터는 클러스터 설정 및 역할에 따라 다음과 �
 
 ### 초기 네트워크 설정
 
-Koral에 의해 생성된 Kubernetes 클러스터는 Mold에 의한 자동 배포 및 설정, 그리고 노드간 통신, 컨트롤 서비스 액세스를 위한 Proxy 서비스 등을 위해 네트워크에 기본적인 방화벽 설정 및 Port Forwarding 설정을 적용하게 됩니다. 기본적으로 적용되는 초기 네트워크 설정은 다음과 같습니다.
+Koral에 의해 생성된 Kubernetes 클러스터는 Mold에 의한 자동 배포 및 설정, 그리고 노드 간 통신, 컨트롤 서비스 액세스를 위한 Proxy 서비스 등을 위해 네트워크에 기본적인 방화벽 설정 및 Port Forwarding 설정을 적용하게 됩니다. 기본적으로 적용되는 초기 네트워크 설정은 다음과 같습니다.
 
 - 포트 포워딩 (Mold에서 k8s Cluster 가상머신에 SSH 연결을 위한 설정)
     - 퍼블릭 2222 -> 컨트롤 VM : 22
@@ -180,7 +180,7 @@ Koral은 이미 배포된 Kubernetes Cluster에 대한 사용자 수준의 관�
 
 ### 바이너리 ISO 생성 스크립트
 
-Koral 플러그인을 설치하면 Kubernetes의 최신 버전을 포함하여 Kubernetes Cluster를 배포할 수 있도록 구성요소를 빌드하여 바이너리 ISO를 생성하는 스트립트를 다음과 같이 지원합니다. 
+Koral 플러그인을 설치하면 Kubernetes의 최신 버전을 포함하여 Kubernetes Cluster를 배포할 수 있도록 구성요소를 빌드하여 바이너리 ISO를 생성하는 스크립트를 다음과 같이 지원합니다. 
 
 ```
 /usr/share/cloudstack-common/scripts/util/create-kubernetes-binaries-iso.sh
@@ -213,7 +213,7 @@ create-kubernetes-binaries-iso.sh ~/. 1.23.1 1.0.1 1.22.0 https://cloud.weave.wo
 !!! warning "바이너리 ISO 빌드 시 주의사항"
     바이너리 ISO를 정상적으로 빌드하기 위해서는 다음과 같은 요건이 충족되어야 합니다. 
 
-    - 바이너리 ISO는 Mold VM(CCVM)에서 실행할 수 없습니다. 별도의 CentOS 8.5 가상머신을 사용하고, Mold Common RPM을 설치한 수 명령을 실행하십시오.
+    - 바이너리 ISO는 Mold VM(CCVM)에서 실행할 수 없습니다. 별도의 CentOS 8.5 가상머신을 사용하고, Mold Common RPM을 설치한 후 명령을 실행하십시오.
     - 바이너리 ISO를 빌드하기 위해서는 반드시 빌드 환경이 인터넷에 연결되어 있어야 합니다. 
     - 가상머신에는 Docker 또는 Podman이 설치되어 있어야 하고 Docker Hub가 기본 리파지터리로 설정되어 있어야 합니다. 
 
@@ -222,7 +222,7 @@ create-kubernetes-binaries-iso.sh ~/. 1.23.1 1.0.1 1.22.0 https://cloud.weave.wo
 Kubernetes 버전 업그레이드는 Mold UI에서 쉽게 실행할 수 있습니다. 다음과 같은 절차로 진행합니다. 
 
 - 신규 버전의 바이너리 ISO를 생성합니다. 
-- 생성된 바이너리 ISO를 Kubernetes ISO로 등록하여 Mold 환경에 업로드 합니다. 
+- 생성된 바이너리 ISO를 Kubernetes ISO로 등록하여 Mold 환경에 업로드합니다. 
 - 업그레이드 하고자 하는 Kubernetes Cluster를 선택합니다. 
 - 클러스터 업그레이드 메뉴에서 신규 버전의 바이너리 ISO를 선택합니다. 
 

@@ -210,7 +210,8 @@ nav:
       -  설정: administration/works/admin-setting.md
     - Works 사용자 가이드:
         - 사용자 로그인: administration/works/user-login.md
-        - 데스크탑 접속: administration/works/user-desktop-connection.md
+        - 데스크탑: administration/works/user-desktop.md
+        # - 데스크탑 접속(Guacamole Client): administration/works/user-desktop-connection.md
     - Genie 가이드:
       -  사용자 인터페이스: administration/genie/userinterface-guide.md
       -  Quick Start: administration/genie/quick-start.md
