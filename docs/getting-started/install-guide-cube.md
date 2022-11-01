@@ -14,6 +14,11 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     - 호스트의 Manage Network 대역에 접근 가능한 Desktop 또는 Notebook
     - Manage Network IP(ABLESTACK은 Manage Network IP를 호스트 1대당 3개의 IP를 필요로 하고 있습니다.)
 
+!!! 물리서버준비내용 note
+    - ABLESTACK의 표준시는 UTC 입니다.
+    - 서버 시작 전, 서버의 초기 시간 설정을 UTC로 변경합니다.
+    ![ABLESTACK IPMT 화면](../assets/images/install-ipmi-timezone.png){ align=center }
+
 !!! tip
     ABLESTACK 설치용 ISO파일을 노트북이나 데스크탑에 가지고 있는 상태에서 호스트의 IPMI Port에 통신이 가능하면 IPMI Console을 이용하여 3대의 호스트에 ABLESTACK Cube를 동시에 설치 가능합니다.
 
