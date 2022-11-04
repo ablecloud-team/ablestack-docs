@@ -31,34 +31,34 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - 모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.
     - **SSH Key 준비 방법** 에서 **신규 생성** 을 선택하고 **다음** 버튼을 클릭하여 신규 SSH Key 를 생성합니다.
 
-3. Host 파일
-    ![Host 파일](../assets/images/install-guide-glue-04.png){ align=center }
-    - 호스트 파일 설정하는 화면입니다. **구성 호스트 수** 를 지정한 후에 **Hosts 파일 준비 방법** 에서 **신규 생성** 을 선택합니다.
-    - **Host 프로파일** 에서 내용을 수정 한 후에 **다음** 버튼을 클릭합니다.  
+3. 클러스터 구성 파일
+    ![클러스터 구성 파일](../assets/images/install-guide-glue-04.png){ align=center }
+    - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
+    - **클러스터 구성 파일 준비** 에서 **신규 생성** 을 선택합니다.
+    - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
+    - **구성 호스트 수** 3대로 입력합니다.
+    ![클러스터 구성 파일1](../assets/images/install-guide-glue-04-1.png){ align=center }
+    - **클러스터 구성 프로파일** 호스트 명 및 IP 정보를 입력 합니다.
+    - **CCVM 관리 IP** 정보를 입력 합니다.
+    - **PCS 호스트명#1** 정보를 입력 합니다.
+    - **PCS 호스트명#2** 정보를 입력 합니다.
+    - **PCS 호스트명#3** 정보를 입력 합니다.
+    - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다. 
     
     !!! info
-        호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수만큼의 예제 항목이 생성됩니다.<br/>
-        해당 파일의 IP와 호스트 명을 수정하시면 됩니다.<br/>
-        호스트 프로파일 작성 시 IP 및 Host Name, Alias 구분은 **탭(TAB)** 을 사용해야 하며,</br> 
-        IP 및 Host Name은 설치 환경에 맞게 변경하시면 됩니다.(다만 Host명은 해당 예제의 Host명 규칙을 권장합니다)</br>
-        현재 구성중인 호스트 및 스토리지 VM에 Alias에는 **ablecube**, **scvm-mngt**, **scvm**, **scvm-cn** 을 뒤에 꼭 입력하셔야 합니다.
+        idx 순서에 맞게 호스트 명과 ip 정보를 입력해야 합니다.<br/>
+        현재 호스트명을 자동으로 불러오며, 클러스터 구성 프로파일에 현재 호스트명과 동일한 호스트 명이 존재해야 합니다.<br/>
+        호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수 만큼의 예제 항목이 생성됩니다.<br/>
 
-   
     !!! example 
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1   ablecube  
-        10.10.1.2  ablecube2  
-        10.10.1.3  ablecube3  
-        10.10.1.11 scvm1-mngt  scvm-mngt  
-        10.10.1.12 scvm2-mngt  
-        10.10.1.13 scvm3-mngt  
-        100.100.1.11    scvm1   scvm  
-        100.100.1.12    scvm2  
-        100.100.1.13    scvm3  
-        100.200.1.11    scvm1-cn    scvm-cn  
-        100.200.1.12    scvm2-cn  
-        100.200.1.13    scvm3-cn  
+        - 호스트 프로파일 예제
+
+        idx | 호스트 명 | 호스트 IP | SCVM MNGT IP | 호스트 PN IP | SCVM PN IP | SCVM CN IP
+        :---: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------:
+        1 | ablecube1 | 10.10.2.1 | 10.10.2.11 | 100.100.2.1 | 100.100.2.11 | 100.200.2.11
+        2 | ablecube2 | 10.10.2.2 | 10.10.2.12 | 100.100.2.2 | 100.100.2.12 | 100.200.2.12
+        3 | ablecube3 | 10.10.2.3 | 10.10.2.13 | 100.100.2.3 | 100.100.2.13 | 100.200.2.13
+        
    
 4. 시간서버 
     
@@ -71,25 +71,31 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
         이 문서는 "로컬 시간서버"로 구성하는 방식에 대하여 설명되어 있습니다.
 
-    ![Host 파일](../assets/images/install-guide-glue-05.png){ align=center }
+    ![시간 서비](../assets/images/install-guide-glue-05.png){ align=center }
     
     - 시간 서버 구성하는 화면 입니다.
-    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Host1** 을 선택합니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** **시간서버 3** 에는 **3번 호스트의 Public Storage IP** 을 
-      입력하고 **다음** 버튼을 클릭합니다.
-      
+    - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
+    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
+    - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. 
+    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
+
 5. 설정확인
     ![설정확인](../assets/images/install-guide-glue-06.png){ align=center }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면 입니다.
-    - 설정된 값을 확인 후 이상이 없는경우 **완료** 버튼을 클릭합니다.
+    - 설정된 값을 확인 후 이상이 없는 경우 **완료** 버튼을 클릭합니다.
     
 6. 완료
+    ![진행](../assets/images/install-guide-glue-07-1.png){ align=center }
+    - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
+    - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
+
     ![완료](../assets/images/install-guide-glue-07.png){ align=center }
+
     - 1번 호스트의 사전구성 완료 화면입니다.
-    - **Private SSH Key**, **Public SSH Key**, **Host 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.  
+    - **Private SSH Key**, **Public SSH Key**, **클러스터 구성 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
     
 !!! info
-    SSH Key 및 Host 프로파일을 다운로드 한 후에 2번 호스트, 3번 호스트 구성시 다운로드한 파일을 재사용 해야 정상적으로 구성이 됩니다.
+    SSH Key 및 클러스터 구성 프로파일을 다운로드 한 후에 2번 호스트, 3번 호스트 구성시 다운로드한 파일을 재사용 해야 정상적으로 구성이 됩니다.
 
 ## 스토리지센터 가상머신 배포(1번 호스트)
 1. 개요
@@ -119,6 +125,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         이 문서는 "LUN Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
 
     ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-10.png){ align=center }
+
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
     
@@ -139,48 +146,30 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         이 문서는 "NIC-Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
 
     ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-11.png){ align=center }
+
     - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
     - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
     - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
     선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
+
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-glue-12.png){ align=center }
-    - **정보 입력 소스** 에서 **Hosts 파일 사용** 선택을 하고 **파일 선택** 버튼을 클릭하여 클러스터 구성 준비에서 다운로드한 **hosts** 파일을 업로드 합니다.
-    
-    !!! example
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1   ablecube  
-        10.10.1.2  ablecube2  
-        10.10.1.3  ablecube3  
-        10.10.1.11 scvm1-mngt  scvm-mngt  
-        10.10.1.12 scvm2-mngt  
-        10.10.1.13 scvm3-mngt  
-        100.100.1.11    scvm1   scvm  
-        100.100.1.12    scvm2  
-        100.100.1.13    scvm3  
-        100.200.1.11    scvm1-cn    scvm-cn  
-        100.200.1.12    scvm2-cn  
-        100.200.1.13    scvm3-cn
+    - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
+    - **호스트명(SCVM)** 을 입력 및 확인합니다.
+    - **관리 NIC IP** 를 입력 및 확인합니다.
 
-    - 호스트 프로파일을 업로드 하면 상기와 같은 호스트 프로파일 내용이 표시되며, 해당 파일에서 alias 부분을 현재 호스트에 맞게 변경해 주시면 됩니다
+    ![추가 네트워크 정보1](../assets/images/install-guide-glue-12-1.png){ align=center }
 
-    - **호스트명** 에는 **scvm의 호스트명**, **관리 NIC IP** 에는 **SCVM 관리 IP**, **관리 NIC Gateway** 에는 **관리 네트워크 GW**, **스토리지 서버 NIC IP** 에는 **SCVM 서버 NIC IP/24**,
-    **스토리지 복제 NIC IP** 에는 **SCVM 복제 NIC IP/24** 입력하고 **다음** 버튼을 클릭합니다.
+    - **관리 NIC Gateway** 를 입력 및 확인합니다.
+    - **관리 NIC DNS** 를 입력 및 확인합니다.
+    - **스토리지 서버 NIC IP** 를 입력 및 확인합니다.
+    - **스토리지 복제 NIC IP** 를 입력 및 확인합니다.
+    - **CCVM 관리 IP** 를 확인합니다.
       
     !!! info
-        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
-        
-    !!! tip
-        사전에 작성되었던 호스트 프로파일에서 매칭되는 IP는 다음과 같습니다. </br>
-        <각 호스트 프로파일 alias 기준> </br>
-        관리 NIC IP : scvm-mngt </br>
-        스토리지 서버 NIC IP : scvm </br>
-        스토리지 복제 NIC IP : scvm-cn </br>
-        
-
-    
+        스토리지센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
+        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
 
 6. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-glue-13.png){ align=center }
@@ -189,7 +178,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
-        다운로드한 Key 의 파일 명을 수정한 경우 등록이 불가능 합니다.
+        키 파일명을 변경할 경우 등록이 불가능 합니다.
 
 7. 설정확인
     ![설정확인](../assets/images/install-guide-glue-14.png){ align=center }
@@ -208,7 +197,9 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     ![완료](../assets/images/install-guide-glue-17.png){ align=center }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
 
+
 ## 클러스터 구성 준비(2번  호스트)
+
 
 !!! info
     2번 호스트 구성 방법 입니다. (기본적인 절차는 1번 호스트와 동일합니다)
@@ -227,41 +218,44 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
-        다운로드한 Key 의 파일 명을 수정한 경우 등록이 불가능 합니다.
+        다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
-3. Host 파일
-   ![Host 파일](../assets/images/install-guide-glue-20.png){ align=center }
-    - 호스트 파일 설정하는 화면입니다. **기존 파일 사용** 을 선택한 후에 **Hosts 파일** 에서 **파일 선택** 버튼을 클릭하여 1번호스트에서 다운로드한 
-    **Hosts** 파일은 등록한 후에 **현재 호스트 번호** 를 선택하면 현재 호스트 번호에 맞게 Hosts 프로파일이 자동 작성 됩니다.
-
+3. 클러스터 구성 파일
+    ![클러스터 구성 파일](../assets/images/install-guide-glue-20.png){ align=center }
+    - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
+    - **클러스터 구성 파일 준비** 에서 **기존 파일 사용** 을 선택합니다.
+    - **클러스터 구성 파일** 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.
+    - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
+    - **구성 호스트 수** 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.
+    ![클러스터 구성 파일1](../assets/images/install-guide-glue-20-1.png){ align=center }
+    - **클러스터 구성 프로파일** 정보를 확인 합니다.
+    - **CCVM 관리 IP** 정보를 확인 합니다.
+    - **PCS 호스트명#1** 정보를 확인 합니다.
+    - **PCS 호스트명#2** 정보를 확인 합니다.
+    - **PCS 호스트명#3** 정보를 확인 합니다.
+    - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다.  
+    
     !!! info
-        hosts 프로파일 작성 시 IP 및 Host Name, Alias 구분은 **탭(TAB)** 을 사용해야 합니다.
+        idx 순서에 맞게 호스트 명과 ip 정보를 입력해야 합니다.<br/>
+        현재 호스트명을 자동으로 불러오며, 클러스터 구성 프로파일에 현재 호스트명과 동일한 호스트 명이 존재해야 합니다.<br/>
+        호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수 만큼의 예제 항목이 생성됩니다.<br/>
 
-    !!! example
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1    
-        10.10.1.2  ablecube2    ablecube  
-        10.10.1.3  ablecube3  
-        10.10.1.11 scvm1-mngt  
-        10.10.1.12 scvm2-mngt   scvm-mngt  
-        10.10.1.13 scvm3-mngt  
-        100.100.1.11    scvm1  
-        100.100.1.12    scvm2   scvm  
-        100.100.1.13    scvm3  
-        100.200.1.11    scvm1-cn  
-        100.200.1.12    scvm2-cn    scvm-cn  
-        100.200.1.13    scvm3-cn
+    !!! example 
+        - 호스트 프로파일 예제
 
-    !!! important
-        호스트 프로파일 작성 시 구성중인 호스트 및 스토리지 VM의 IP 에는 **ablecube**, **scvm**, **scvm**, **scvm-cn** 을 뒤에 꼭 입력하셔야 합니다.
+        idx | 호스트 명 | 호스트 IP | SCVM MNGT IP | 호스트 PN IP | SCVM PN IP | SCVM CN IP
+        :---: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------:
+        1 | ablecube1 | 10.10.2.1 | 10.10.2.11 | 100.100.2.1 | 100.100.2.11 | 100.200.2.11
+        2 | ablecube2 | 10.10.2.2 | 10.10.2.12 | 100.100.2.2 | 100.100.2.12 | 100.200.2.12
+        3 | ablecube3 | 10.10.2.3 | 10.10.2.13 | 100.100.2.3 | 100.100.2.13 | 100.200.2.13
 
 4. 시간서버
    ![Host 파일](../assets/images/install-guide-glue-21.png){ align=center }
     - 시간 서버 구성하는 화면 입니다.
-    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Host2** 을 선택합니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** **시간서버 3** 에는 **3번 호스트의 Public Storage IP** 을 
-      입력하고 **다음** 버튼을 클릭합니다.
+    - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
+    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
+    - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. 
+    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
    ![설정확인](../assets/images/install-guide-glue-22.png){ align=center }
@@ -269,12 +263,17 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - 설정된 값을 확인 후 이상이 없는경우 **완료** 버튼을 클릭합니다.
 
 6. 완료
-   ![완료](../assets/images/install-guide-glue-23.png){ align=center }
+    ![진행](../assets/images/install-guide-glue-23-1.png){ align=center }
+    - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
+    - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
+
+    ![완료](../assets/images/install-guide-glue-23.png){ align=center }
+
     - 2번 호스트의 사전구성 완료 화면입니다.
-    - **Private SSH Key**, **Public SSH Key**, **Host 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
+    - **Private SSH Key**, **Public SSH Key**, **클러스터 구성 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
 
     !!! info
-        SSH Key 및 Host 프로파일을 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.
+        SSH Key 및  클러스터 구성 파일은 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.
 
 ## 스토리지센터 가상머신 배포(2번 호스트)
 1. 개요
@@ -310,29 +309,22 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
-   ![추가 네트워크 정보](../assets/images/install-guide-glue-28.png){ align=center }
-    
-    - **정보 입력 소스** 에서 **Hosts 파일 사용** 선택을 하고 **파일 선택** 버튼을 클릭하여 클러스터 구성 준비에서 다운로드한 **hosts** 파일을 업로드 합니다.
-    - **호스트명** 에는 **scvm의 호스트명**, **관리 NIC IP** 에는 **SCVM 관리 IP**, **관리 NIC Gateway** 에는 **관리 네트워크 GW**, **스토리지 서버 NIC IP** 에는 **SCVM 서버 NIC IP/24**, **스토리지 복제 NIC IP** 에는 **SCVM 복제 NIC IP/24** 입력하고 **다음** 버튼을 클릭합니다.
+    ![추가 네트워크 정보](../assets/images/install-guide-glue-28.png){ align=center }
+    - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
+    - **호스트명(SCVM)** 을 입력 및 확인합니다.
+    - **관리 NIC IP** 를 입력 및 확인합니다.
 
+    ![추가 네트워크 정보1](../assets/images/install-guide-glue-28-1.png){ align=center }
+
+    - **관리 NIC Gateway** 를 입력 및 확인합니다.
+    - **관리 NIC DNS** 를 입력 및 확인합니다.
+    - **스토리지 서버 NIC IP** 를 입력 및 확인합니다.
+    - **스토리지 복제 NIC IP** 를 입력 및 확인합니다.
+    - **CCVM 관리 IP** 를 확인합니다.
+      
     !!! info
-        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
-
-    !!! example
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1    
-        10.10.1.2  ablecube2    ablecube  
-        10.10.1.3  ablecube3  
-        10.10.1.11 scvm1-mngt  
-        10.10.1.12 scvm2-mngt   scvm-mngt  
-        10.10.1.13 scvm3-mngt  
-        100.100.1.11    scvm1  
-        100.100.1.12    scvm2   scvm  
-        100.100.1.13    scvm3  
-        100.200.1.11    scvm1-cn  
-        100.200.1.12    scvm2-cn    scvm-cn  
-        100.200.1.13    scvm3-cn
+        스토리지센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
+        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
 
 6. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-glue-29.png){ align=center }
@@ -341,7 +333,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
-        다운로드한 Key 의  파일 명을 수정한 경우 등록이 불가능 합니다.
+        다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 7. 설정확인
     ![설정확인](../assets/images/install-guide-glue-30.png){ align=center }
@@ -361,8 +353,8 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
 
 
-
 ## 클러스터 구성 준비(3번  호스트)
+
 
 !!! info
     3번 호스트 구성 방법 입니다. 3번 호스트 구성방법은 IP 설정 및 호스트 이름 제외하고는 2번 호스트와 동일합니다.
@@ -374,69 +366,77 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
 2. SSH Key 파일(기존파일사용)
-    ![SSH Key 파일](../assets/images/install-guide-glue-35.png){ align=center }
+   ![SSH Key 파일](../assets/images/install-guide-glue-35.png){ align=center }
     - 모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.
-    - **SSH Key 준비 방법** 에서 **기존 파일 사용** 을 선택하고 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 1번 호스트 클러스터 구성 준비 단계에서
+    - **SSH Key 준비 방법** 에서 **기존 파일 사용** 을 선택하고 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 1번 호스트 클러스터 구성 준비 단계에서 
     다운로드한 SSH Key 를 등록합니다.
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
-        다운로드한 Key 의 파일 명을 수정한 경우 등록이 불가능 합니다.
+        다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
-3. Host 파일
-    ![Host 파일](../assets/images/install-guide-glue-36.png){ align=center }
-    - 호스트 파일 설정하는 화면입니다. **기존 파일 사용** 을 선택한 후에 **Hosts 파일** 에서 **파일 선택** 버튼을 클릭하여 1번호스트에서 다운로드한
-    **Hosts** 파일은 등록한 후에 hosts 프로파일을 수정한후에 **다음** 버튼을 클릭합니다.
-
+3. 클러스터 구성 파일
+    ![클러스터 구성 파일](../assets/images/install-guide-glue-36.png){ align=center }
+    - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
+    - **클러스터 구성 파일 준비** 에서 **기존 파일 사용** 을 선택합니다.
+    - **클러스터 구성 파일** 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.
+    - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
+    - **구성 호스트 수** 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.
+    ![클러스터 구성 파일1](../assets/images/install-guide-glue-36-1.png){ align=center }
+    - **클러스터 구성 프로파일** 정보를 확인 합니다.
+    - **CCVM 관리 IP** 정보를 확인 합니다.
+    - **PCS 호스트명#1** 정보를 확인 합니다.
+    - **PCS 호스트명#2** 정보를 확인 합니다.
+    - **PCS 호스트명#3** 정보를 확인 합니다.
+    - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다.  
+    
     !!! info
-        hosts 프로파일 작성 시 IP 및 Host Name, Alias 구분은 **탭(TAB)** 을 사용해야 합니다.
+        idx 순서에 맞게 호스트 명과 ip 정보를 입력해야 합니다.<br/>
+        현재 호스트명을 자동으로 불러오며, 클러스터 구성 프로파일에 현재 호스트명과 동일한 호스트 명이 존재해야 합니다.<br/>
+        호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수 만큼의 예제 항목이 생성됩니다.<br/>
 
-    !!! example
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1  
-        10.10.1.2  ablecube2  
-        10.10.1.3  ablecube3   ablecube  
-        10.10.1.11 scvm1-mngt  
-        10.10.1.12 scvm2-mngt  
-        10.10.1.13 scvm3-mngt  scvm-mngt  
-        100.100.1.11    scvm1  
-        100.100.1.12    scvm2  
-        100.100.1.13    scvm3  scvm  
-        100.200.1.11    scvm1-cn  
-        100.200.1.12    scvm2-cn  
-        100.200.1.13    scvm3-cn   scvm-cn  
+    !!! example 
+        - 호스트 프로파일 예제
 
-    !!! important
-        호스트 프로파일 작성 시 구성중인 호스트 및 스토리지 VM의 IP 에는 **ablecube**, **scvm**, **scvm**, **scvm-cn** 을 뒤에 꼭 입력하셔야 합니다.
+        idx | 호스트 명 | 호스트 IP | SCVM MNGT IP | 호스트 PN IP | SCVM PN IP | SCVM CN IP
+        :---: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------:
+        1 | ablecube1 | 10.10.2.1 | 10.10.2.11 | 100.100.2.1 | 100.100.2.11 | 100.200.2.11
+        2 | ablecube2 | 10.10.2.2 | 10.10.2.12 | 100.100.2.2 | 100.100.2.12 | 100.200.2.12
+        3 | ablecube3 | 10.10.2.3 | 10.10.2.13 | 100.100.2.3 | 100.100.2.13 | 100.200.2.13
 
 4. 시간서버
-    ![Host 파일](../assets/images/install-guide-glue-37.png){ align=center }
+   ![Host 파일](../assets/images/install-guide-glue-37.png){ align=center }
     - 시간 서버 구성하는 화면 입니다.
-    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Host3** 을 선택합니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** **시간서버 3** 에는 **3번 호스트의 Public Storage IP** 을 
-      입력하고 **다음** 버튼을 클릭합니다.
+    - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
+    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
+    - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. 
+    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
-    ![설정확인](../assets/images/install-guide-glue-38.png){ align=center }
+   ![설정확인](../assets/images/install-guide-glue-38.png){ align=center }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면 입니다.
     - 설정된 값을 확인 후 이상이 없는경우 **완료** 버튼을 클릭합니다.
 
 6. 완료
-   ![완료](../assets/images/install-guide-glue-39.png){ align=center }
-    - 3번 호스트의 사전구성 완료 화면입니다.
-    - **Private SSH Key**, **Public SSH Key**, **Host 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
+    ![진행](../assets/images/install-guide-glue-39-1.png){ align=center }
+    - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
+    - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
+
+    ![완료](../assets/images/install-guide-glue-39.png){ align=center }
+
+    - 2번 호스트의 사전구성 완료 화면입니다.
+    - **Private SSH Key**, **Public SSH Key**, **클러스터 구성 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
 
     !!! info
-        SSH Key 및 Host 프로파일을 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.
+        SSH Key 및  클러스터 구성 파일은 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.
 
 ## 스토리지센터 가상머신 배포(3번 호스트)
 1. 개요
-    ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-glue-40.png){ align=center }
+   ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-glue-40.png){ align=center }
     - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면 입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
-    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-41.png){ align=center }
+   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-41.png){ align=center }
     - 스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.
     - **CPU** 는 **8 vCore** 를 선택 하고, **Memory** 는 **16GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
 
@@ -448,7 +448,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         ROOT 디스크는 **70 Gib** 고정입니다.
 
 3. 가상머신 장치구성 - 디스크
-    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-42.png){ align=center }
+   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-42.png){ align=center }
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
 
@@ -457,45 +457,38 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 ABLESTACK Cube 가 삭제가 될 수 있습니다.
 
 4. 가상머신 장치구성 - 네트워크
-    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-43.png){ align=center }
+   ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-43.png){ align=center }
     - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
     - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
     - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
     선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
-
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-glue-44.png){ align=center }
-    - **정보 입력 소스** 에서 **Hosts 파일 사용** 선택을 하고 **파일 선택** 버튼을 클릭하여 클러스터 구성 준비에서 다운로드한 **hosts** 파일을 업로드 합니다.
-    - **호스트명** 에는 **scvm의 호스트명**, **관리 NIC IP** 에는 **SCVM 관리 IP**, **관리 NIC Gateway** 에는 **관리 네트워크 GW**, **스토리지 서버 NIC IP** 에는 **SCVM 서버 NIC IP/24**, **스토리지 복제 NIC IP** 에는 **SCVM 복제 NIC IP/24** 입력하고 **다음** 버튼을 클릭합니다.
+    - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
+    - **호스트명(SCVM)** 을 입력 및 확인합니다.
+    - **관리 NIC IP** 를 입력 및 확인합니다.
 
+    ![추가 네트워크 정보1](../assets/images/install-guide-glue-44-1.png){ align=center }
+
+    - **관리 NIC Gateway** 를 입력 및 확인합니다.
+    - **관리 NIC DNS** 를 입력 및 확인합니다.
+    - **스토리지 서버 NIC IP** 를 입력 및 확인합니다.
+    - **스토리지 복제 NIC IP** 를 입력 및 확인합니다.
+    - **CCVM 관리 IP** 를 확인합니다.
+      
     !!! info
-        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정하셔야 합니다.
-
-    !!! example
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1  
-        10.10.1.2  ablecube2  
-        10.10.1.3  ablecube3   ablecube  
-        10.10.1.11 scvm1-mngt  
-        10.10.1.12 scvm2-mngt  
-        10.10.1.13 scvm3-mngt  scvm-mngt  
-        100.100.1.11    scvm1  
-        100.100.1.12    scvm2  
-        100.100.1.13    scvm3  scvm  
-        100.200.1.11    scvm1-cn  
-        100.200.1.12    scvm2-cn  
-        100.200.1.13    scvm3-cn   scvm-cn
+        스토리지센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
+        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
 
 6. SSH Key 정보
-   ![SSH Key 정보](../assets/images/install-guide-glue-45.png){ align=center }
+    ![SSH Key 정보](../assets/images/install-guide-glue-45.png){ align=center }
     - SSH Key 정보를 등록하는 화면 입니다.
     - 클러스터 구성 준비에서 다운로드한 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 등록합니다.
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
-        다운로드한 Key 의 파일 명을 수정한 경우 등록이 불가능 합니다.
+        다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 7. 설정확인
     ![설정확인](../assets/images/install-guide-glue-46.png){ align=center }
@@ -511,7 +504,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - 스토리지센터 가상머신 배포 완료 후 화면 입니다.
 
 10. 스토리지센터 가상머신 상태 확인
-    ![스토리지센터 가상머신 상태 확인](../assets/images/install-guide-glue-49.png){ align=center }
+    ![완료](../assets/images/install-guide-glue-49.png){ align=center }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
 
 !!! info
@@ -528,7 +521,8 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야 하며 **Bootstrap** 실행 및 스토리지센터 클러스터 구성 절차에 대하여 설명하고 있습니다.
 
 !!! caution
-    **Bootstrap** 은 한개의 호스트에서 한번의 실행이 되야 합니다.
+    **Bootstrap** 은 한개의 호스트에서 한번의 실행이 되야 합니다. **(1번 ablecube 호스트에서 실행시키는 것을 권장합니다.)**
+
     사용자의 실수를 방지하기 위하여 **Bootstrap** 이 실행되면 실행된 호스트를 포함하여 다른 호스트에서도 **Bootstrap** 을 실행하지 못하도록 버튼이 사라집니다.
 
 1. Bootstrap 실행
@@ -617,7 +611,47 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
 
     ![Pools 생성 완료 리스트](../assets/images/install-guide-glue-Pools-create-completed-list.png){ align=center }
     - 데이터 풀 생성이 정상적으로 완료가 되었는지 확인합니다.
-    
+
+6. Glue pool 오토스케일 적용
+
+    ![오토스케일 적용1](../assets/images/install-guide-glue-pool-autoscale-01.png){ align=center }
+    !!! info
+        - 현재 glue pool autoscale이 설정 되어있는지 확인 ( 출력 목록 없음 )
+
+            \# ceph osd pool autoscale-status
+
+        - glue 크러쉬맵을 original 파일로 생성 (암호화 되어 있음)
+        
+            \# ceph osd getcrushmap -o original
+
+        - 생성한 크러쉬맵 ariginal 파일을 crushtool로 복호화된 정보를 original.txt 파일로 생성
+        
+            \# crushtool -d original >> original.txt
+
+        - original.txt 파일 편집
+        
+            \# vi original.txt
+
+    ![오토스케일 적용2](../assets/images/install-guide-glue-pool-autoscale-02.png){ align=center }
+    !!! info
+        - original.txt 설정정보 변경
+
+        - rules > rule > replicated_rule의 step take default을 step take default class ssd으로 내용 수정하여 저장
+
+    ![오토스케일 적용3](../assets/images/install-guide-glue-pool-autoscale-03.png){ align=center }
+    !!! info
+        - 변경한 크러쉬맵 original.txt 파일 정보를 컴파일하여 adjusted 파일로 생성
+        
+            \# crushtool -c original.txt -o adjusted
+
+        - glue 크러쉬맵을 adjusted 내용으로 설정
+        
+            \# ceph osd setcrushmap -i adjusted
+
+        - .mgr과 rbd pool의 autoscale이 on으로 되어있는지 확인
+        
+            \# ceph osd pool autoscale-status
+
 6. ABLESTACK 확인
     ![ABLESTACK 확인](../assets/images/install-guide-glue-ABLESTACK-check.png){ align=center }
     - ABLESTACK 메인화면에서 스토리지센터 클러스터 상태 카드에서 클러스터가 상태가 **Health OK** 인지 확인합니다.
