@@ -1,5 +1,6 @@
 !!! danger 
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
+    해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
 
 # ABLESTACK Glue 설치진행
 ABLESTACK Glue 설치 진행 가이드 입니다.  
@@ -22,7 +23,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 1. 개요
     ![클러스터 구성 준비 개요](../assets/images/install-guide-glue-02.png){ align=center }
-    - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면 입니다.
+    - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
     
@@ -37,12 +38,15 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - **클러스터 구성 파일 준비** 에서 **신규 생성** 을 선택합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
     - **구성 호스트 수** 3대로 입력합니다.
-    ![클러스터 구성 파일1](../assets/images/install-guide-glue-04-1.png){ align=center }
     - **클러스터 구성 프로파일** 호스트 명 및 IP 정보를 입력 합니다.
+    ![클러스터 구성 파일1](../assets/images/install-guide-glue-04-1.png){ align=center }
     - **CCVM 관리 IP** 정보를 입력 합니다.
-    - **PCS 호스트명#1** 정보를 입력 합니다.
-    - **PCS 호스트명#2** 정보를 입력 합니다.
-    - **PCS 호스트명#3** 정보를 입력 합니다.
+    - **관리 NIC CIDR** 정보를 입력 합니다.
+    - **관리 NIC Gateway** 정보를 입력 합니다.
+    - **관리 NIC DNS** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #1** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #2** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #3** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다. 
     
     !!! info
@@ -73,7 +77,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     ![시간 서비](../assets/images/install-guide-glue-05.png){ align=center }
     
-    - 시간 서버 구성하는 화면 입니다.
+    - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. 
@@ -81,7 +85,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 5. 설정확인
     ![설정확인](../assets/images/install-guide-glue-06.png){ align=center }
-    - 구성 준비에 입력값에 대한 설정을 확인하는 화면 입니다.
+    - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는 경우 **완료** 버튼을 클릭합니다.
     
 6. 완료
@@ -100,7 +104,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 ## 스토리지센터 가상머신 배포(1번 호스트)
 1. 개요
     ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-glue-08.png){ align=center }
-    - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면 입니다.
+    - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
     ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-09.png){ align=center }
@@ -147,7 +151,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-11.png){ align=center }
 
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
+    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
     - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
     - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
     선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
@@ -173,8 +177,8 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 6. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-glue-13.png){ align=center }
-    - SSH Key 정보를 등록하는 화면 입니다.
-    - 클러스터 구성 준비에서 다운로드한 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 등록합니다.
+    - SSH Key 정보를 확인하는 화면입니다.
+    - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
@@ -191,11 +195,11 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     
 9.  완료
     ![완료](../assets/images/install-guide-glue-16.png){ align=center }
-    - 스토리지센터 가상머신 배포 완료 후 화면 입니다.
+    - 스토리지센터 가상머신 배포 완료 후 화면입니다.
     
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-glue-17.png){ align=center }
-    - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
+    - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
 
 ## 클러스터 구성 준비(2번  호스트)
@@ -206,7 +210,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 1. 개요
    ![클러스터 구성 준비 개요](../assets/images/install-guide-glue-18.png){ align=center }
-    - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면 입니다.
+    - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
@@ -227,13 +231,16 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - **클러스터 구성 파일** 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
     - **구성 호스트 수** 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.
+    - **클러스터 구성 프로파일** 정보를 확인합니다.
     ![클러스터 구성 파일1](../assets/images/install-guide-glue-20-1.png){ align=center }
-    - **클러스터 구성 프로파일** 정보를 확인 합니다.
-    - **CCVM 관리 IP** 정보를 확인 합니다.
-    - **PCS 호스트명#1** 정보를 확인 합니다.
-    - **PCS 호스트명#2** 정보를 확인 합니다.
-    - **PCS 호스트명#3** 정보를 확인 합니다.
-    - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다.  
+    - **CCVM 관리 IP** 정보를 입력 합니다.
+    - **관리 NIC CIDR** 정보를 입력 합니다.
+    - **관리 NIC Gateway** 정보를 입력 합니다.
+    - **관리 NIC DNS** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #1** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #2** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #3** 정보를 입력 합니다.
+    - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다.
     
     !!! info
         idx 순서에 맞게 호스트 명과 ip 정보를 입력해야 합니다.<br/>
@@ -251,7 +258,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 4. 시간서버
    ![Host 파일](../assets/images/install-guide-glue-21.png){ align=center }
-    - 시간 서버 구성하는 화면 입니다.
+    - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. 
@@ -259,7 +266,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 5. 설정확인
    ![설정확인](../assets/images/install-guide-glue-22.png){ align=center }
-    - 구성 준비에 입력값에 대한 설정을 확인하는 화면 입니다.
+    - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는경우 **완료** 버튼을 클릭합니다.
 
 6. 완료
@@ -270,7 +277,6 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     ![완료](../assets/images/install-guide-glue-23.png){ align=center }
 
     - 2번 호스트의 사전구성 완료 화면입니다.
-    - **Private SSH Key**, **Public SSH Key**, **클러스터 구성 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
 
     !!! info
         SSH Key 및  클러스터 구성 파일은 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.
@@ -278,7 +284,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 ## 스토리지센터 가상머신 배포(2번 호스트)
 1. 개요
    ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-glue-24.png){ align=center }
-    - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면 입니다.
+    - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-25.png){ align=center }
@@ -303,7 +309,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 4. 가상머신 장치구성 - 네트워크
    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-27.png){ align=center }
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
+    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
     - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
     - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
     선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
@@ -328,8 +334,8 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 6. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-glue-29.png){ align=center }
-    - SSH Key 정보를 등록하는 화면 입니다.
-    - 클러스터 구성 준비에서 다운로드한 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 등록합니다.
+    - SSH Key 정보를 확인하는 화면입니다.
+    - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
@@ -346,11 +352,11 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 9. 완료
     ![완료](../assets/images/install-guide-glue-32.png){ align=center }
-    - 스토리지센터 가상머신 배포 완료 후 화면 입니다.
+    - 스토리지센터 가상머신 배포 완료 후 화면입니다.
 
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-glue-33.png){ align=center }
-    - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
+    - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
 
 ## 클러스터 구성 준비(3번  호스트)
@@ -361,7 +367,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 1. 개요
    ![클러스터 구성 준비 개요](../assets/images/install-guide-glue-34.png){ align=center }
-    - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면 입니다.
+    - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
@@ -382,12 +388,15 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - **클러스터 구성 파일** 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
     - **구성 호스트 수** 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.
+    - **클러스터 구성 프로파일** 정보를 확인합니다.
     ![클러스터 구성 파일1](../assets/images/install-guide-glue-36-1.png){ align=center }
-    - **클러스터 구성 프로파일** 정보를 확인 합니다.
-    - **CCVM 관리 IP** 정보를 확인 합니다.
-    - **PCS 호스트명#1** 정보를 확인 합니다.
-    - **PCS 호스트명#2** 정보를 확인 합니다.
-    - **PCS 호스트명#3** 정보를 확인 합니다.
+    - **CCVM 관리 IP** 정보를 확인합니다.
+    - **관리 NIC CIDR** 정보를 입력 합니다.
+    - **관리 NIC Gateway** 정보를 입력 합니다.
+    - **관리 NIC DNS** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #1** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #2** 정보를 입력 합니다.
+    - **PCS 호스트명 PN IP #3** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다.  
     
     !!! info
@@ -406,7 +415,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 4. 시간서버
    ![Host 파일](../assets/images/install-guide-glue-37.png){ align=center }
-    - 시간 서버 구성하는 화면 입니다.
+    - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. 
@@ -414,7 +423,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 5. 설정확인
    ![설정확인](../assets/images/install-guide-glue-38.png){ align=center }
-    - 구성 준비에 입력값에 대한 설정을 확인하는 화면 입니다.
+    - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는경우 **완료** 버튼을 클릭합니다.
 
 6. 완료
@@ -424,8 +433,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
     ![완료](../assets/images/install-guide-glue-39.png){ align=center }
 
-    - 2번 호스트의 사전구성 완료 화면입니다.
-    - **Private SSH Key**, **Public SSH Key**, **클러스터 구성 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
+    - 3번 호스트의 사전구성 완료 화면입니다.
 
     !!! info
         SSH Key 및  클러스터 구성 파일은 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.
@@ -433,7 +441,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 ## 스토리지센터 가상머신 배포(3번 호스트)
 1. 개요
    ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-glue-40.png){ align=center }
-    - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면 입니다.
+    - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-glue-41.png){ align=center }
@@ -458,7 +466,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 4. 가상머신 장치구성 - 네트워크
    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-glue-43.png){ align=center }
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면 입니다.
+    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
     - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
     - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
     선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
@@ -483,8 +491,8 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 6. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-glue-45.png){ align=center }
-    - SSH Key 정보를 등록하는 화면 입니다.
-    - 클러스터 구성 준비에서 다운로드한 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 등록합니다.
+    - SSH Key 정보를 확인하는 화면입니다.
+    - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
     !!! info
         SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
@@ -501,11 +509,11 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 9. 완료
     ![완료](../assets/images/install-guide-glue-48.png){ align=center }
-    - 스토리지센터 가상머신 배포 완료 후 화면 입니다.
+    - 스토리지센터 가상머신 배포 완료 후 화면입니다.
 
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-glue-49.png){ align=center }
-    - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인 합니다.
+    - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
 !!! info
     1번, 2번, 3번 호스트의 스토리지 센터 가상머신 생성이 마무리 되였습니다. ABLESTACK Glue 대쉬보드 사용을 위한 절차를 진행 후 Glue 대시보를 이용하여 스토리지 센터 클러스터를 구성하시면 됩니다.
@@ -583,7 +591,7 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
     - 스토리지 디바이스 추가하는 화면입니다. **Primary 장치** 항목의 **추가** 버튼을 클릭합니다.  
 
     ![OSDs 추가 OSDs 선택화면](../assets/images/install-guide-glue-OSDs-add-OSDs-select.png){ align=center }
-    - 스토리지 디바이스를 선택하는 화면입니다. 오른쪽 상단의 **호스트 이름** 으로 되여있는 Filter 클릭하여 **형태** 으로 변경하고, **Any** 로 되여있는 Filter 를 클릭하여
+    - 스토리지 디바이스를 선택하는 화면입니다. 오른쪽 상단의 **호스트 이름** 으로 되여있는 Filter 클릭하여 **Type** 으로 변경하고, **Any** 로 되여있는 Filter 를 클릭하여
     **ssd** 를 선택합니다.  
     - 추가된 스토리지 디바이스의 수량 및 Size 를 확인하고 이상 없는 경우 **추가** 버튼을 클릭합니다.
 
@@ -595,7 +603,7 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
     
 5. 데이터 풀 생성
     ![Pools 생성 메인화면](../assets/images/install-guide-glue-Pools-create-main.png){ align=center }
-    - **데이터 풀** 메뉴를 클릭하면 보이는 화면 입니다. **생성** 버튼을 클릭하여 데이터 풀 생성 화면으로 들어갑니다.
+    - **데이터 풀** 메뉴를 클릭하면 보이는 화면입니다. **생성** 버튼을 클릭하여 데이터 풀 생성 화면으로 들어갑니다.
 
     ![Pools 생성](../assets/images/install-guide-glue-Pools-create.png){ align=center }
     - **이름** 항목에 **rbd** 입력, **데이터 풀 형태** 선택 박스에서 **replicated** 를 선택, **PG 오토스케일** 선택 박스에서 **on** 을 선택, 
