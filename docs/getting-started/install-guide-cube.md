@@ -154,10 +154,10 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     Cube의 다른 메뉴의 정보는 "관리가이드 > Cube 가이드" 를 참조하시기 바랍니다.
 
 1. ABLESTACK Cube 로그인
-    ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.png){ align=center }
+    ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.5.png){ align=center }
     - ABLESTACK Cube 로그인 화면입니다. 
     - 접속 URL은 **호스트IP:9090** 입니다
-    - 사용자 이름은 **root** 를 암호는 ABLESTACK Cube 설치시 입력한 암호를 입력하고 **로그인** 버튼을 클릭하면 로그인 하실수 있습니다.
+    - 사용자 이름은 **root** 를 암호는 ABLESTACK Cube 설치시 입력한 암호를 입력하고 **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
     
 2. ABLESTACK Cube 메인 화면
     ![ABLESTACK Cube 메인 화면](../assets/images/install-guide-cube-15.png){ align=center }
@@ -228,6 +228,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
             ![ABLESTACK 방화벽 설정](../assets/images/install-guide-cube-23.png){ align=center }
             - 방화벽 설정 화면에서 **서비스 추가** 버튼을 클릭하여 들어온 화면 입니다.
             - 서비스 목록에서 **Ablestack** 체크를 선택하고 **서비스 추가** 버튼을 클릭하여 방화벽을 추가합니다.
+            - 인터넷이 안되는 환경에서 scvm, ccvm의 gateway는 필수가 아닌 선택으로 입력될 수 있도록 변경하였습니다.
 
 !!! info
     ABLESTACK 클러스터는 최소 3식이상의 호스트로 구성되어야 합니다.
