@@ -22,6 +22,10 @@ ABLESTACK을 설치하고 구성하기 위해서는 다음과 같은 구성 요�
     ABLESTACK 구성시 스위치의 MTU 설정은 9000으로 맞춰서 설정하기보다 스위치에서 허용하는 최대의 MTU 설정하여 구성하도록 권장하고 있습니다.
 
 ## 설치 전 준비 사항(사전정의)
+!!! note "IPMI"
+    - ABLESTACK의 표준시는 UTC입니다.
+    - 서버 시작 전, 서버의 초기 시간 설정을 UTC로 변경합니다.
+    ![ABLESTACK IPMI 화면](../assets/images/install-ipmi-timezone.png){ align=center }
 - ABLESTACK을 설치 시 호스트 및 시스템 가상머신들에게 할당할 IP가 필요합니다.
 - 할당될 IP는 관리(Management)용 네트워크에 할당되며, 상호간의 통신이 가능하여야 합니다
 !!! Tip
