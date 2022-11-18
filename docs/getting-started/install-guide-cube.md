@@ -80,7 +80,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
        
     ![설치 대상](../assets/images/install-guide-cube-06-01.png){ align=center }
 
-    * **Click here to create them automatically ** 을 클릭하면 해당화면으로 이동됩니다    
+    * **Click here to create them automatically** 을 클릭하면 해당화면으로 이동됩니다    
 
     1. 파티션 구성 화면 1-2
         ![파티션 구성 1-2](../assets/images/install-guide-cube-07.png){ align=center }
@@ -88,10 +88,10 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         * **/home** 파티션 선택 후 아래 **-** 버튼을 클릭하여 home 파티션을 삭제합니다.
     2. 파티션 구성 화면 2-2
         ![파티션 구성 2-2](../assets/images/install-guide-cube-08.png){ align=center }
-        * **swap 파티션 선택 후 희망 용량** : 의 입력 값에 **64GiB(최소 용량)** 을 입력 후 **설정 업데이트 ** 버튼을 클릭하여 파티션 용량 재설정 합니다.
+        * **swap 파티션 선택 후 희망 용량** : 의 입력 값에 **64GiB(최소 용량)** 을 입력 후 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
         !!! info
             **swap 파티션** 설정 시, 서버 디스크 용량이 여유로울 때 서버 메모리 용량과 같은 용량으로 설정합니다.</br>
-            그렇지 않을 시, 최소 용량 **64GiB** 이상으로 권장합니다.
+            그렇지 않을 시, 최소 용량 **64GiB 이상** 으로 권장합니다.
 
     3. 파티션 구성 화면 3-2
         ![파티션 구성 3-2](../assets/images/install-guide-cube-09.png){ align=center }
@@ -153,7 +153,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 4. Management Network 설정
     ![Management Network 설정](../assets/images/install-ipmi-network-3.png){ align=center } 
     - **Address** 선택 박스에서 **Manual** 로 변경합니다.
-    - **IPv4** 를 클릭하여, IPv4 Method는 **Manual** 로 설정한 후, **Address** , **Netmask** , **Gateway** , **DNS** 를 입력하고 Add를 클릭합니다.
+    - **IPv4** 를 클릭하여, IPv4 Method는 **Manual** 로 설정한 후, **Address** , **Netmask** , **Gateway** , **DNS** 를 입력하고 **Add** 를 클릭합니다.
 
     !!! info 
         해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다.
