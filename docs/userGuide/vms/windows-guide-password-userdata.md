@@ -311,6 +311,13 @@ SSH Key 쌍을 생성한 후 해당 키를 적용하여 가상머신을 생성�
 
     따라서 초기 설정 후 SSH Key는 가상머신을 재부팅 한 후에 적용됩니다. 또한 SSH Key는 최초에 가상머신을 생성하는 시점에만 설정이 가능합니다.
 
+authorized_keys에 저장된 키 파일이 Administrator 사용자를 위한 키 파일로 사용하는 경우 다음의 파워쉘 명령을 추가적으로 실행하여 관리자 권한으로 SSH 접속이 가능하도록 설정해야 합니다. 상세한 사항은 마이크로소프트의 [키 기반 인증](https://learn.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_keymanagement){ target=_blank } 문서를 참고합니다. 
+
+```
+Copy-Item C:\Users\Administrator\.ssh\authorized_keys -Destination C:\ProgramData\ssh\administrators_authorized_keys -Force
+icacls.exe "C:\ProgramData\ssh\administrators_authorized_keys" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
+```
+
 ### Key 파일로 가상머신 접속
 
 이제 생성된 가상머신에 SSH 클라이언트로 접속할 수 있습니다. SSH 클라이언트를 이용해 가상머신에 접속하기 위해서는 다음과 같은 사항을 확인해야 합니다. 
@@ -318,30 +325,7 @@ SSH Key 쌍을 생성한 후 해당 키를 적용하여 가상머신을 생성�
 1. SSH 서비스가 가상머신에서 작동 중인지 확인
 2. SSH를 위한 방화벽이 열려 있는지 확인
 
-가상머신 콘솔에 접속하여 다음의 명령을 실행합니다. 
-
-~~~
-$ systemctl status sshd
-~~~
-
-만약 ssh 데몬이 실행 중이지 않다면 해당 서비스가 항상 실행되도록 다음과 같이 명령을 실행합니다. 
-
-~~~
-$ systemctl enable --now sshd
-~~~
-
-방화벽 설정을 확인하기 위해서 다음의 명령을 실행합니다. 
-
-~~~
-$ firewall-cmd --list-all
-~~~
-
-표시된 결과 중 services 항목에 ssh가 있는지 확인합니다. 만약 없다면 다음과 같이 명령을 실행합니다. 
-
-~~~
-$ firewall-cmd --permanent --add-service=ssh
-$ firewall-cmd --reload
-~~~
+Windows 상에 SSH 서비스를 설치하고 실행하는 것은 마이크로소프트의 [SSH 설치 가이드](https://learn.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_install_firstuse){target="_blank"}를 참고합니다. 
 
 가상머신 내부의 SSH 연결 준비가 완료되었다면 이제 가상머신이 연결되어 있는 네트워크가 외부 사용자의 연결을 받아들일 준비를 해야 합니다. 
 
@@ -370,18 +354,55 @@ $ chmod 400 <vm-keypair.key>
 $ ssh -i <vm-keypair.key> root@<vm public ip>
 ~~~
 
-### SSH Key 재설정
+## UserData 적용
 
-SSH Key를 분실하는 등의 문제로 가상머신의 SSH Key를 새로운 SSH Key로 재설정할 수 있습니다. 
+가상머신에 자동화 설정이 되어 있는 경우, 가상머신이 생성되는 시점에 사용자가 설정하기 원하는 데이터, 즉 사용자 데이터를 전송하여 가상머신에서 사용자 데이터를 받아 원하는 작업을 처리할 수 있도록 할 수 있습니다. 
 
-1. 재설정하기 위해 새로운 SSH Key를 생성하고, SSH Key 파일을 다운로드 합니다. 
+사용자 데이터는 가상머신 생성 시 설정할 수 있으며, 기존에 이미 만들어진 사용자 데이터를 사용하거나, 가상머신 생성 마법사에서 직접 입력하여 적용할 수 있습니다. 
 
-2. ssh key를 재설정 하고자 하는 가상머신의 상세 화면으로 이동하고, 가상머신을 정지합니다. 
+본 문서에서는 간단한 파워쉘 스크립트를 전송하여 가상머신 생성 시 해당 스크립트를 실행하도록 하는 예제를 실행합니다. 스크립트는 다음과 같습니다. 
 
-3. 액션 아이콘 메뉴에서 "SSH 키 쌍 재설정"을 클릭합니다. 다음의 대화상자가 표시됩니다. 
+```
+#ps1_sysnative
+$TargetFile = "$env:SystemRoot\System32\notepad.exe"
+$ShortcutFile = "$env:Public\Desktop\Notepad.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+```
 
-    ![centos-59-vm-sshkey-resetsshkey](../../assets/images/centos-59-vm-sshkey-resetsshkey.png){ style="margin-top: 20px;" width="600" }
+위의 스크립트는 바탕화면에 메모장 프로그램에 대한 바로가기를 만듭니다. 즉, 가상머신이 생성되면 바탕화면에 해당 프로그램의 아이콘이 바로가기로 만들어져 있게 됩니다. 
 
-4. 가상머신에 재설정하고자 하는 SSH Key를 선택한 후 "확인" 버튼을 클릭합니다. 
+Windows 운영체제에서 사용자 데이터는 가상머신 생성 시에 한번 실행되기 때문에 다음과 같이 가상머신 생성 시 사용자 데이터를 전송합니다. 
 
-선택한 SSH Key가 가상머신에 설정됩니다. 
+1. `컴퓨트 > 가상머신` 화면에서 "가상머신 추가" 버튼을 클릭합니다.
+   
+2. 템플릿/ISO 단계에서 가상머신 자동화 설정이 적용된 템플릿을 선택합니다. 
+   ![windows-59-vm-userdata-template](../../assets/images/windows-59-vm-userdata-template.png){ style="margin-top: 20px;" width="600" }
+
+3. 적절한 컴퓨트 오퍼링을 선택합니다. 
+
+4. 네트워크에서 사용자데이터 전송을 지원하는 네트워크(격리 네트워크 또는 ConfigDrive 지원 네트워크)를 선택합니다.
+   ![windows-60-vm-userdata-network](../../assets/images/windows-60-vm-userdata-network.png){ style="margin-top: 20px;" width="600" }
+
+5. "확장 모드" 단계에서 "고급 설정 표시"를 활성화 한 후 "사용자 데이터\사용자 데이터 텍스트" 항목에 위의 스크립트를 입력합니다.
+   ![windows-61-vm-userdata-script](../../assets/images/windows-61-vm-userdata-script.png){ style="margin-top: 20px;" width="600" }
+
+6. 그 외의 필요한 정보를 입력한 후 "VM 시작" 버튼을 클릭하여 가상머신을 시작합니다. 
+
+가상머신이 생성되면 가상머신 콘솔에 접속하여 바탕화면에 메모장 바로가기가 다음과 같이 생성되었는지 확인합니다. 
+
+<center>![windows-62-vm-userdata-result](../../assets/images/windows-62-vm-userdata-result.png){ style="margin-top: 20px;" width="600" }</center>
+
+!!! info "사용자 데이터 전송 지원 네트워크"
+    ABLESTACK은 사용자 데이터를 전송하기 위해 가상머신의 네트워크를 사용합니다. 따라서 사용자 데이터 전송을 위해서는 이에 적합한 네트워크를 사용해야 합니다.
+
+    가상머신에 연결된 네트워크가 사용자 데이터 전송을 지원하는지 확인하려면 다음의 절차로 해당 기능의 지원여부를 확인합니다. 
+
+    1. 가상머신 상세 화면에서 "NIC" 탭을 클릭합니다.
+    2. 연결된 네트워크 목록에서 링크를 클릭하여 네트워크 상세 화면으로 이동합니다. 
+    3. 네트워크 상세 화면의 좌측 가운데에 "네트워크 오퍼링" 항목의 링크를 클릭하여 네트워크 오퍼링 상세화면으로 이동합니다. 
+    4. 네트워크 오퍼링 상세화면의 우측 하단에 "지원되는 서비스"의 서비스 중 UserData 항목이 있는지 확인합니다.
+
+    기본적으로 제공되는 네트워크 오퍼링은 "기본 L2 VLAN 네트워크오퍼링"을 제외하고 모두 사용자 데이터 전송을 지원합니다. 
