@@ -239,7 +239,7 @@ nav:
     - Windows 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/windows-guide-prepare-vm.md
       - 템플릿을 이용한 VM 생성 : userGuide/vms/windows-guide-add-and-use-vm.md
-      - 비밀번호/UserData 적용기능추가 : userGuide/vms/windows-guide-password-userdata.md
+      - 가상머신 설정 자동화 적용 : userGuide/vms/windows-guide-password-userdata.md
       - 가상머신 볼륨 사용 : userGuide/vms/windows-guide-storage.md
       - 가상머신 NIC 사용 : userGuide/vms/windows-guide-nics.md
       - Windows 11 설치 : userGuide/vms/windows-guide-window11-vm.md
