@@ -221,6 +221,7 @@ nav:
       -  관리: administration/genie/management.md
       -  설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
+    - ABLESTACK 시스템 재기동 : administration/system-restart.md
   - 레퍼런스 가이드 :
     - CentOS 가상머신 가이드 : 
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
