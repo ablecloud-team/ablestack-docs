@@ -2,7 +2,7 @@
  ABLESTACK HCI의 전체시스템을 안정적으로 재기동하기 위해서는 규정된 절차에 따라 시행되어야 합니다.
  재기동 절차 및 방법은 다음과 같습니다. 
 
-## 재기동 절차 대상
+### 재기동 절차 대상
 ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
 
 * Mold
@@ -10,7 +10,7 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
 
 재기동 방법은 다음과 같습니다.
 
-### 종료 절차
+## 종료 절차
 
 #### Mold
   1. HA를 비활성화합니다.
@@ -40,6 +40,8 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
     !!! info
         유지보수 모드 설정한 호스트가 변경 완료 되었을 때 다음 호스트 유지보수 모드 설정을 진행해야 합니다.
 
+#### Cube
+
   7. "전체 시스템 자동종료" 기능으로 전체 시스템을 종료합니다. 
   전체 시스템을 종료합니다. 이 기능에는 아래의 절차가 자동으로 실행됩니다.
      1. 클라우드센터 가상머신 정지
@@ -61,8 +63,11 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
   ![restart-auto-shutdown-1](../assets/images/restart-auto-shutdown-1.png)
   ![restart-auto-shutdown-2](../assets/images/restart-auto-shutdown-2.png)
 
-### 부팅 절차
+## 재시작 절차
   1. 종료된 호스트의 전원을 다시 킵니다.
+
+#### Cube
+
   2. 스토리지센터 가상머신을 확인합니다.
      1. 모든 스토리지센터의 가상머신 시작 상태를 확인합니다.
     !!! info
@@ -73,6 +78,8 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
   4. 클라우드센터 가상머신을 시작합니다.
      1. 클라우드센터 가상머신을 시작한 후 클라우드센터에 연결하여 Mold 서비스가 정상적으로 시작되었는지 확인합니다.
      ![restart-start-cloud-center-vm](../assets/images/restart-start-cloud-center-vm.png)
+
+#### Mold
 
   5. 호스트 유지보수 모드를 해제합니다.
   ![restart-unset-host-maintenance-mode](../assets/images/restart-unset-host-maintenance-mode.png)
