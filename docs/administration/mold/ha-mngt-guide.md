@@ -165,7 +165,7 @@ HA 기능을 구현하려면 :
     !!! Note
         추가된 각 호스트에 같은 작업으로 진행하세요.
 
-5. Host HA 상태 확인(Available)
+5. Host HA 상태 확인
     - 호스트 목록 > 상세화면 이동
     - 우측 하단 상세 항목중 **HA 상태** : **Available** 와 **HA 공급자** : **kvmhaprovider** 임을 확인
     ![mold-ha-scenario9](../../assets/images/mold-ha-scenario9.png)
@@ -185,18 +185,23 @@ HA 기능을 구현하려면 :
     ![mold-ha-scenario12](../../assets/images/mold-ha-scenario12.png)
     - 가상머신 추가 모달에서 가상머신 생성 옵션 선택 및 입력
     ![mold-ha-scenario14](../../assets/images/mold-ha-scenario14.png)
-        - **호스트** 는 셧다운 할 호스트 선택
+        - **호스트** 는 셧다운 할 호스트 선택("ablecube31")
         - **템플릿** 선택
         - **컴퓨트 오퍼링** 값은 위에서 생성한 HA용 컴퓨트 오퍼링(2C-4GB-HA) 선택
     ![mold-ha-scenario15](../../assets/images/mold-ha-scenario15.png)
         - **네트워크** 선택
-        - **이름(옵션)** 입력
+        - **이름(옵션)** 입력("HA-TEST-VM1", "HA-TEST-VM2", "HA-TEST-VM3" 3가지)
     !!! Note
         가상머신 갯수 3개로 생성 후 테스트 진행
 
-    - 생성된 테스트용 가상머신 3개 확인
+    - 생성된 테스트용 가상머신 3가지와 생성된 호스트("ablecube31") 위치 확인
     ![mold-ha-scenario16](../../assets/images/mold-ha-scenario16.png)
 
-8. 호스트 셧다운
-
-9. 가상머신 마이그레이션
+8. 호스트 셧다운 후 HA 기능 확인(가상머신 마이그레이션)
+    - 인프라스트럭처 > 호스트 메뉴 이동
+    - 목록에 "ablecube31" 의 더보기 툴팁 액션에 **원격 관리 전원 조치 실행** 버튼 클릭
+    ![mold-ha-scenario17](../../assets/images/mold-ha-scenario17.png)
+    - 원격 관리 전원 조치 실행 모달에서 **동작** 값을 **OFF** 선택 후 확인 버튼 클릭
+    ![mold-ha-scenario18](../../assets/images/mold-ha-scenario18.png)
+    - 가상머신 "HA-TEST-VM1", "HA-TEST-VM2", "HA-TEST-VM3" 3가지가 생성된 호스트 "ablecube31"를 셧다운 후 다른 호스트로 가상머신 마이그레이션 되는 상태를 확인(호스트 'ablecube31'에서 'ablecube33'으로 이동)
+    ![mold-ha-scenario19](../../assets/images/mold-ha-scenario19.png)
