@@ -70,24 +70,10 @@ Netdive Analyzer는 Agent로부터 네트워크 이벤트를 수신하여 아래
         Flow table이 로딩되는 데 정보량에 따라 10초 이상의 시간이 걸리는 경우도 있습니다.
 
 ## 이슈 해결
-  - 스위치 정보 오류
-    - 스위치 정보가 정상적으로 나타나지 않을 때는 lldpd를 재시작하여야 합니다.
-      - Agnet
-        ~~~
-        # systemctl status lldpd.service								      ## 서비스 상태 확인
-        # systemctl restart lldpd-agent.service								  ## 서비스 재시작
-        ~~~
-
-  - 새로운 설정 적용 및 토폴로지 오류
-    - netdive.yml의 내용을 변경하였거나 데이터가 정상적으로 토폴로지에 나타나지 않을 때는 Netdive를 재시작하여야 합니다.
-      - Agnet
-        ~~~
-        # systemctl status netdive-agent.service								## 서비스 상태 확인
-        # systemctl restart netdive-agent.service								## 서비스 재시작
-        ~~~
-      - Analyzer
-        ~~~
-        # systemctl status netdive-analyzer.service								## 서비스 상태 확인
-        # systemctl restart netdive-analyzer.service							## 서비스 재시작
-        ~~~
+  - 스위치 정보 및 토폴로지 오류
+    - 스위치 정보가 정상적으로 나타나지 않을 때, 또는 Netdive의 설정을 변경하거나 정상적으로 토폴로지가 표현되지 않을 경우 서비스를 재시작해야 합니다.
+      - Cube ABLESTACK에 접속합니다.
+        - 클라우드센터 클러스터 상태 카드의 메뉴에서 "모니터링센터 수집 정보 업데이트"를 실행합니다.
+        ![netdive-restart-1](../../assets/images/netdive-restart-1.png)
+        ![netdive-restart-2](../../assets/images/netdive-restart-2.png)
 
