@@ -242,4 +242,27 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
     - **호스트 태그** 항목에는 **ablecube3** 를 입력합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
+
+15. 호스트 고정 메모리 할당
+
+!!! info
+    ABLESTACK구성 시 필요한 최소 3식의 x86 호스트 서버가 준비되어 있어야 하며, 스토리지센터 가상머신은 각 호스트당 1대씩, 클라우드센터 가상머신은 총 1대입니다.
+
+    스토리지센터 가상머신과 클라우드센터 가상머신이 성능 안정화가 될려면 **스토리지센터 가상머신(최소 32GB) + 클라우드센터 가상머신(최소 16GB) + 여유 용량 (A)** 가 필요합니다.
+
+1. 호스트 agent 구성파일 
+    ![호스트 설정파일](../assets/images/install-guide-host-memory-add.png){ align=center }
+    - 호스트 Cube 터미널 화면입니다.
+    - 터미널 명령어 **vi /etc/cloudstack/agent/agent.properties** 입력하고 Enter를 누릅니다.
+    - **host.reserved.mem.mb=51200** 입력한 후 **:wq** 명령어로 저장합니다.
+
+    !!! check
+        설치되어있는 호스트 각각마다 명령어를 실행해 줘야 합니다. 
+
+2. 호스트 cloudstack-agent 서비스 시작
+    ![호스트 클라우드 서비스](../assets/images/install-guide-host-memory-add-1.png){ align=center }
+    - 터미널 명령어 **systemctl restart cloudstack-agent.service** 입력하고 Enter를 누릅니다.
+
+
+
     

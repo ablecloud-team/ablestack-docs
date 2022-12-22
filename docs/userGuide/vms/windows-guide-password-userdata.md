@@ -2,6 +2,7 @@ ABLESTACK을 이용해 기본 설치로 만들어진 Windows 가상머신에 가
 
 - Windows 가상머신 호스트명
 - Windows 가상머신 Administrator 비밀번호
+- Administrator 계정에 대한 SSH Key 설정
 - UserData 전송을 통한 설정 자동화
 
 본 문서에서는 기본 템플릿에 비밀번호 관리 기능 및 가상머신에 UserData 전송을 통해 다양한 정보를 설정하는 기능을 가진 프로그램을 설치하여 사용하는 방법을 설명합니다. 
@@ -127,108 +128,49 @@ https://images.ablecloud.io/CloudbaseInitSetup_1_1_2_x64.msi
 
     ![windows-47-vm-cloudinit-install-06](../../assets/images/windows-47-vm-cloudinit-install-06.png){ style="margin-top: 20px;" width="450" }
 
-### cloudbase-init 자동화
+### UserData 프로그램 패치
 
-#### cloudbase-init 자동화 절차 
-
-먼저 cloudbase-init이 Windows 기반의 운영체제의 가상머신 상에서 어떻게 가상머신을 자동화하는지를 이해하기 위해 그 과정을 도식화 하면 다음과 같습니다. 
-
-<center>![windows-48-vm-cloudinit-config-02](../../assets/images/windows-48-vm-cloudinit-config-02.png){ width="600" }</center>
-
-사용자가 가상머신을 생성할 때 Mold를 통해 사용할 가상머신 이미지와 가상머신의 이름, 그리고 사용자 데이터를 입력합니다. Administrator 비밀번호는 Mold가 자동생성합니다. 
-
-이렇게 입력/생성된 메타데이터(가상머신 이름, 비밀번호)와 사용자 데이터는 가상머신 생성을 시작하면서 가상머신이 연결된 네트워크의 종류에 따라 메타데이터 서버(가상라우터) 또는 ConfigDrive(설정 데이터를 담은 ISO)에 데이터를 전송합니다. 
-
-가상머신이 시작되면 시스템 준비 과정이 시작되며 사용자 간섭 없이 가상머신 초기화 과정을 실행합니다. 초기화 과정은 템플릿 생성 시 적용한 Unattend.xml 응답파일의 설정에 따릅니다. Unattend.xml 파일에는 설정 정보와 함께 cloudbase-init의 실행 정보가 포함되어 있습니다. 따라서 초기화 과정 맨 마지막에 cloudbase-init을 실행하게 됩니다. 
-
-cloudbase-init은 메타데이터 서버 또는 ConfigDrive로 부터 사용자가 가상머신 시작 시 전송한 메타데이터와 사용자 데이터를 가져와 가상머신에 적용한 후 모든 초기화 과정을 종료합니다. 
-
-가상머신의 메타데이터(비밀번호) 및 사용자 데이터는 언제든지 변경하여 적용할 수 있습니다. 먼저 가상머신을 정지한 후, Mold를 통해 비밀번호 또는 사용자데이터를 변경한 후 가상머신을 재시작하면 가상머신이 시작되면서 cloudbase-init 프로그램이 실행되고, 메타데이터 서버 또는 ConfigDrive를 통해 데이터를 가져와 가상머신에 새로운 비밀번호 또는 사용자 데이터를 적용합니다. 
-
-#### Windows 가상머신 자동화 구성
-
-cloudbase-init 프로그램을 가상머신에 설치한 후 자동화를 수행하기 위해 cloudbase-init 설정 파일을 수정하여 반영해야 합니다.
-
-가상머신 콘솔에서 다음의 경로로 이동합니다. 
+UserData 관리 프로그램이 Mold 환경에서 실행될 수 있도록 해당 프로그램을 패치해야 합니다. 패치 파일을 다음 경로에서 다운로드 합니다. 
 
 ```
-C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf
+http://10.10.0.202:81/cloudinit/Cloudbase-Init.zip
 ```
 
-해당 폴더를 열면 다음의 그림과 같이 2개의 구성정보 파일과 XML 파일이 있는 것을 확인할 수 있습니다. 
+다운로드 된 파일을 다음의 순서로 압축을 풉니다. 
 
-<center>![windows-48-vm-cloudinit-config-01](../../assets/images/windows-48-vm-cloudinit-config-01.png){ width="600" }</center>
+1. 다운로드 된 파일을 마우스 우측 버튼을 클릭하여 'Extract All' 메뉴를 클릭합니다.
+2. 압축을 풀 폴더를 다음의 디렉토리로 지정합니다.
+   ```
+   C:\Program Files\Cloudbase Solutions
+   ```
+3. 파일의 압축을 풉니다. 이 때 모든 파일을 덮어쓰도록 설정하여 패치가 이루어지도록 합니다. 
 
-위 파일의 주요 기능 및 내용은 다음과 같습니다. 
+### Windows 가상머신 일반화
 
-- Unattend.xml : 가상머신이 신규로 생성될 때, 무인 시스템 준비 시 사용할 Windows 이미지 응답파일로 sysprep.exe 실행 시 지정하는 파일입니다. Windows Sysprep 구성 및 구성 후 cloudbase-init의 실행 정보를 포함합니다.
-- cloudbase-init-unattend.conf : 가상머신이 신규로 생성될 때, 무인 시스템 준비(Unattended System Preparation) 과정 중에 가상머신 자동화를 어떻게 처리할 것인지를 설정합니다.
-- cloudbase-init.conf : 가상머신이 시작될 때(신규 생성 제외) 가상머신 자동화를 어떻게 처리할 것인지를 설정합니다. 
+가상머신 자동화를 위한 프로그램 설치 및 패치 파일 적용을 완료한 후 템플릿을 생성하기 위해 Windows 가상머신을 일반화 합니다. 
 
-구성 파일 중 Unattend.xml은 다음과 같습니다. 제공된 파일은 별도의 수정 없이 기본 설정으로 사용합니다. 
+현재 가상머신을 일반화 하기 위해서 가상머신 콘솔에서 PowerShell을 다음의 그림과 같이 실행합니다. 
 
-``` xml
-<?xml version="1.0" encoding="utf-8"?>
-<unattend xmlns="urn:schemas-microsoft-com:unattend">
-  <settings pass="generalize">
-    <component name="Microsoft-Windows-PnpSysprep" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <PersistAllDeviceInstalls>true</PersistAllDeviceInstalls>
-    </component>
-  </settings>
-  <settings pass="oobeSystem">
-    <component name="Microsoft-Windows-Shell-Setup" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State">
-      <OOBE>
-        <HideEULAPage>true</HideEULAPage>
-        <NetworkLocation>Work</NetworkLocation>
-        <ProtectYourPC>1</ProtectYourPC>
-        <SkipMachineOOBE>true</SkipMachineOOBE>
-        <SkipUserOOBE>true</SkipUserOOBE>
-      </OOBE>
-    </component>
-  </settings>
-  <settings pass="specialize">
-    <component name="Microsoft-Windows-Deployment" processorArchitecture="amd64" publicKeyToken="31bf3856ad364e35" language="neutral" versionScope="nonSxS" xmlns:wcm="http://schemas.microsoft.com/WMIConfig/2002/State" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-      <RunSynchronous>
-        <RunSynchronousCommand wcm:action="add">
-          <Order>1</Order>
-          <Path>cmd.exe /c ""C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Scripts\cloudbase-init.exe" --config-file "C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\cloudbase-init-unattend.conf" &amp;&amp; exit 1 || exit 2"</Path>
-          <Description>Run Cloudbase-Init to set the hostname</Description>
-          <WillReboot>OnRequest</WillReboot>
-        </RunSynchronousCommand>
-      </RunSynchronous>
-    </component>
-  </settings>
-</unattend>
-```
+<center>
+![windows-14-vm-install-step22](../../assets/images/windows-14-vm-install-step22.png){ width="600" }
+</center>
 
-위의 파일의 specialize 단계의 명령 실행 단계의 내용을 보면 cloudbase-init.exe를 cloudbase-init-unattend.conf 설정 파일을 이용해 실행하라는 설정이 되어 있는 것을 확인할 수 있습니다. 
-
-즉, 가상머신 생성 및 초기화 단계에서의 메타데이터 및 사용자 데이터를 처리하기 위해 cloudbase-init-unattend.conf 파일을 수정해야 합니다. 
-
-!!! info "가상머신 네트워크에 따른 cloudbase-init 설정 파일 작성"
-    가상머신에 연결된 네트워크의 종류에 따라 cloudbase-init이 설정할 수 있는 정보가 다릅니다. 따라서 가상머신 템플릿 이미지를 만들기 전, cloudbase-init 설정을 가상머신에 연결되는 네트워크에 맞게 변경해야 합니다. 
-
-    네트워크에 따라 지원되는 초기화 정보는 다음과 같습니다. 
-
-    - vRouter가 제공되는 네트워크(Isolated, Shared) : 호스트명, 비밀번호, 사용자 데이터
-    - L2 Network : 호스트명, 사용자 데이터 (단, ConfigDrive 기능이 활성화 되어야 함)
-
-cloudbase-init-unattend.conf 파일은 가상머신 생성 시 사용할 네트워크의 종류에 따라 다음과 같이 수정하여 적용합니다. 
-
-``` title="메타데이터서버(vRouter)가 제공되는 네트워크를 위한 conf 파일"
+PowerShell을 실행 한 후 명령창에 다음의 명령을 입력하여 가상머신의 이미지를 일반화 합니다. 
 
 ```
-
-``` title="ConfigDrive(L2 Network)를 사용하는 경우를 위한 conf 파일"
-
+C:> cd \Windows\System32\Sysprep
+C:\Windows\System32\Sysprep> .\sysprep.exe /generalize /oobe /shutdown /unattend:"C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf\Unattend.xml"
 ```
 
+위의 명령을 실행하면 일반화 과정이 실행 되고, 가상머신이 자동으로 종료됩니다. 
+
+만약 HA가 설정되어 있는 가상머신인 경우 가상머신이 종료되면 Mold 화면으로 이동하여 다시 한번 가상머신을 종료하여 HA 작업에 의해 가상머신이 다시 실행되지 않도록 합니다.
 
 ### 가상머신 템플릿 이미지 생성
 
-모든 준비가 완료되면 가상머신을 이용해 가상머신 템플릿 이미지를 생성합니다. 다음의 절차로 템플릿을 생성합니다. 
+이제 가상머신을 이용해 가상머신 템플릿 이미지를 생성합니다. 다음의 절차로 템플릿을 생성합니다. 
 
-1. 가상머신을 정지합니다. 
+1. 가상머신이 정지되어 있는지 확인합니다. 
 
 2. 해당 가상머신의 상세 화면에서 "볼륨" 탭을 클릭합니다. 
 
@@ -236,17 +178,22 @@ cloudbase-init-unattend.conf 파일은 가상머신 생성 시 사용할 네트�
 
 4. "볼륨으로 템플릿 생성"을 클릭합니다. 표시된 대화상자에 필요한 정보를 입력합니다. 
 
-    ![centos-48-vm-sshkey-templatedlg](../../assets/images/centos-48-vm-sshkey-templatedlg.png){ style="margin-top: 20px;" width="450" }
+    ![windows-48-vm-sshkey-templatedlg](../../assets/images/windows-48-vm-sshkey-templatedlg.png){ style="margin-top: 20px;" width="450" }
 
 5. "확인" 버튼을 클릭하여 템플릿을 생성합니다. 
 
-만들어진 템플릿을 이용해 가상머신을 만들게 되면 해당 가상머신은 비밀번호가 생성되어 적용되며, 사용자가 지정한 SSH Key로 SSH 접속이 가능하도록 설정됩니다. 
+만들어진 템플릿을 이용해 가상머신을 만들게 되면 해당 가상머신은 생성 시 다음의 기능이 자동화 됩니다. 
+
+* 사용자가 설정한 가상머신 이름으로 호스트명이 설정됨(윈도우즈 특성 상 10글자 이내)
+* 비밀번호가 생성되어 해당 비밀번호로 초기 설정되며 최초 로그인 시 비밀번호를 변경하도록 설정됨
+* 사용자가 지정한 SSH Key가 Administrator 계정에 대해 설정됨
+* UserData를 전송하여 해당 데이터를 이용해 가상머신을 필요에 따라 초기 설정할 수 있음
 
 ## 비밀번호 관리
 
-위의 가상머신 템플릿 이미지를 이용해 가상머신을 생성하면 가상머신의 `root` 사용자에 대한 비밀번호가 자동으로 생성되어 사용자에게 제공됩니다. 
+위의 가상머신 템플릿 이미지를 이용해 가상머신을 생성하면 가상머신의 `Administrator` 사용자에 대한 비밀번호가 자동으로 생성되어 사용자에게 제공됩니다. 
 
-ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 및 비밀번호 분실 시 재설정 하는 기능을 제공하여 편리하게 가상머신의 root 사용자 비밀번호를 관리할 수 있도록 합니다. 
+ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 및 비밀번호 분실 시 재설정 하는 기능을 제공하여 편리하게 가상머신의 Administrator 사용자 비밀번호를 관리할 수 있도록 합니다. 
 
 ### 비밀번호 관리 기능 설정
 
@@ -264,18 +211,20 @@ ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 �
 
 5. 표시된 "편집" 대화 상자에서 "비밀번호 관리 사용" 항목을 원하는 값으로 설정합니다. 
 
-    ![centos-50-vm-sshkey-editpassword](../../assets/images/centos-50-vm-sshkey-editpassword.png){ style="margin-top: 20px;" width="450" }
+    ![windows-49-vm-sshkey-edittemplate](../../assets/images/windows-49-vm-sshkey-edittemplate.png){ style="margin-top: 20px;" width="450" }
 
 6. 확인 버튼을 클릭하여 기능을 적용합니다.
 
 위와 같이 비밀번호 관리 기능이 설정된 가상머신 템플릿 이미지를 이용해 가상머신을 만듭니다. 가상머신을 생성하면 다음과 같이 생성된 비밀번호가 Mold 화면에 표시됩니다. 
 
-<center>![centos-51-vm-sshkey-vmpassword](../../assets/images/centos-51-vm-sshkey-vmpassword.png){ width="300" }</center>
+<center>![windows-50-vm-sshkey-editpassword](../../assets/images/windows-50-vm-sshkey-editpassword.png){ width="300" }</center>
 
-가상머신 콘솔에 접속하여 root 계정에 대해 화면에 표시된 비밀번호를 이용해 로그인할 수 있습니다. 
+가상머신 콘솔에 접속하여 Administrator 계정에 대해 화면에 표시된 비밀번호를 이용해 로그인할 수 있습니다. 
 
 !!! warning "가상머신 비밀번호의 관리 주의사항"
-    생성된 가상머신은 보안을 위해 화면에 임시로 표시됩니다. ABLESTACK은 사용자 가상머신의 비밀번호를 별도로 저장하지 않으므로 사용자는 가상머신의 root 사용자 비밀번호를 반드시 기억해 놓아야 합니다.
+    생성된 가상머신은 보안을 위해 화면에 임시로 표시됩니다. ABLESTACK은 사용자 가상머신의 비밀번호를 별도로 저장하지 않습니다.
+
+    Windows 가상머신에 접속하면 로그인 화면이 표시되고, 생성된 비밀번호를 이용해 로그인하면 비밀번호를 변경하는 화면이 표시됩니다. 사용자는 반드시 해당 비밀번호를 기억할 수 있는 비밀번호로 변경해야 합니다. 
     
     생성되는 비밀번호는 기본값이 영문 대소문자와 숫자를 혼용하여 6글자로 생성됩니다. 비밀번호의 글자수(길이)는 관리자가 글로벌 설정에 설정한 `vm.password.length` 값에 의해 제어됩니다. 
 
@@ -293,15 +242,18 @@ ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 �
    
 4. Mold 화면에 재설정된 비밀번호가 표시됩니다. 비밀번호를 기억합니다. 
 
-5. 가상머신을 다시 시작합니다. 가상머신이 시작되면 재설정된 비밀번호로 root 사용자 비밀번호가 변경됩니다. 
+5. 가상머신을 다시 시작합니다. 가상머신이 시작되면 재설정된 비밀번호로 Administrator 사용자 비밀번호가 변경됩니다. 
 
 6. 변경된 비밀번호로 로그인 합니다. 
 
 ## SSH Key 쌍 관리
 
-CentOS 기반의 가상머신은 Linux 가상머신으로 SSH 클라이언트를 통해 외부에서 가상머신으로 접속할 수 있습니다. 
+Windows 기반의 가상머신은 별도의 절차를 통해 SSH Server를 설치하면 SSH 클라이언트를 통해 외부에서 가상머신으로 접속할 수 있습니다. 
 
-다양한 가상머신 내부 작업, 소프트웨어 패키지 설치, 각종 설정 등의 작업을 하기 위해서는 가상머신 콘솔을 통한 작업모다는 SSH 클라이언트를 통해 가상머신에 접속하는 경우가 더 많아지게 됩니다. 
+!!! info "Windows에 SSH Server 설치"
+    본 문서에서는 Windows에 SSH Server를 설치하는 과정은 설명하지 않습니다. 
+
+    SSH Server 설치에 관한 사항은 Microsoft의 공식문서인 [OpenSSH 설치](https://learn.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_install_firstuse){target="_blank"} 문서를 참고합니다.
 
 ABLESTACK은 보다 안전한 가상머신 연결 환경을 제공하기 위해 사전에 만들어진 SSH Key 쌍을 이용해 가상머신에 접속할 수 있는 기능을 제공합니다. SSH Key 등록이 활성화된 가상머신은 SSH 클라이언트 접속 시 사전에 발급 받은 키 파일을 이용해서 가상머신에 연결할 수 있게 됩니다. 따라서 가상머신 연결을 위해서는 물리적으로 키 파일이 있어야 하기 때문에 더 안전하게 가상머신 접속을 관리할 수 있게 됩니다. 
 
@@ -352,7 +304,19 @@ SSH Key 쌍을 생성한 후 해당 키를 적용하여 가상머신을 생성�
 
 10. 상세단계에서 이름을 입력한 후 가상머신을 시작합니다. 
 
-가상머신이 시작되면서 사용자가 선택한 SSH 키 쌍이 자동으로 적용됩니다. 
+가상머신이 시작된 후, 사용자 비밀번호를 설정한 후 가상머신을 재부팅 하면 SSH Key가 `C:\Users\Administrator\.ssh` 폴더에 `authorized_keys` 파일에 설정됩니다. 
+
+!!! info "SSH Key 설정 시점"
+    SSH Key는 사용자 정보가 완전히 설정된 후에 해당 사용자의 디렉토리에 키 파일을 저장합니다. 
+
+    따라서 초기 설정 후 SSH Key는 가상머신을 재부팅 한 후에 적용됩니다. 또한 SSH Key는 최초에 가상머신을 생성하는 시점에만 설정이 가능합니다.
+
+authorized_keys에 저장된 키 파일이 Administrator 사용자를 위한 키 파일로 사용하는 경우 다음의 파워쉘 명령을 추가적으로 실행하여 관리자 권한으로 SSH 접속이 가능하도록 설정해야 합니다. 상세한 사항은 마이크로소프트의 [키 기반 인증](https://learn.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_keymanagement){ target=_blank } 문서를 참고합니다. 
+
+```
+Copy-Item C:\Users\Administrator\.ssh\authorized_keys -Destination C:\ProgramData\ssh\administrators_authorized_keys -Force
+icacls.exe "C:\ProgramData\ssh\administrators_authorized_keys" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
+```
 
 ### Key 파일로 가상머신 접속
 
@@ -361,30 +325,7 @@ SSH Key 쌍을 생성한 후 해당 키를 적용하여 가상머신을 생성�
 1. SSH 서비스가 가상머신에서 작동 중인지 확인
 2. SSH를 위한 방화벽이 열려 있는지 확인
 
-가상머신 콘솔에 접속하여 다음의 명령을 실행합니다. 
-
-~~~
-$ systemctl status sshd
-~~~
-
-만약 ssh 데몬이 실행 중이지 않다면 해당 서비스가 항상 실행되도록 다음과 같이 명령을 실행합니다. 
-
-~~~
-$ systemctl enable --now sshd
-~~~
-
-방화벽 설정을 확인하기 위해서 다음의 명령을 실행합니다. 
-
-~~~
-$ firewall-cmd --list-all
-~~~
-
-표시된 결과 중 services 항목에 ssh가 있는지 확인합니다. 만약 없다면 다음과 같이 명령을 실행합니다. 
-
-~~~
-$ firewall-cmd --permanent --add-service=ssh
-$ firewall-cmd --reload
-~~~
+Windows 상에 SSH 서비스를 설치하고 실행하는 것은 마이크로소프트의 [SSH 설치 가이드](https://learn.microsoft.com/ko-kr/windows-server/administration/openssh/openssh_install_firstuse){target="_blank"}를 참고합니다. 
 
 가상머신 내부의 SSH 연결 준비가 완료되었다면 이제 가상머신이 연결되어 있는 네트워크가 외부 사용자의 연결을 받아들일 준비를 해야 합니다. 
 
@@ -413,18 +354,55 @@ $ chmod 400 <vm-keypair.key>
 $ ssh -i <vm-keypair.key> root@<vm public ip>
 ~~~
 
-### SSH Key 재설정
+## UserData 적용
 
-SSH Key를 분실하는 등의 문제로 가상머신의 SSH Key를 새로운 SSH Key로 재설정할 수 있습니다. 
+가상머신에 자동화 설정이 되어 있는 경우, 가상머신이 생성되는 시점에 사용자가 설정하기 원하는 데이터, 즉 사용자 데이터를 전송하여 가상머신에서 사용자 데이터를 받아 원하는 작업을 처리할 수 있도록 할 수 있습니다. 
 
-1. 재설정하기 위해 새로운 SSH Key를 생성하고, SSH Key 파일을 다운로드 합니다. 
+사용자 데이터는 가상머신 생성 시 설정할 수 있으며, 기존에 이미 만들어진 사용자 데이터를 사용하거나, 가상머신 생성 마법사에서 직접 입력하여 적용할 수 있습니다. 
 
-2. ssh key를 재설정 하고자 하는 가상머신의 상세 화면으로 이동하고, 가상머신을 정지합니다. 
+본 문서에서는 간단한 파워쉘 스크립트를 전송하여 가상머신 생성 시 해당 스크립트를 실행하도록 하는 예제를 실행합니다. 스크립트는 다음과 같습니다. 
 
-3. 액션 아이콘 메뉴에서 "SSH 키 쌍 재설정"을 클릭합니다. 다음의 대화상자가 표시됩니다. 
+```
+#ps1_sysnative
+$TargetFile = "$env:SystemRoot\System32\notepad.exe"
+$ShortcutFile = "$env:Public\Desktop\Notepad.lnk"
+$WScriptShell = New-Object -ComObject WScript.Shell
+$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
+$Shortcut.TargetPath = $TargetFile
+$Shortcut.Save()
+```
 
-    ![centos-59-vm-sshkey-resetsshkey](../../assets/images/centos-59-vm-sshkey-resetsshkey.png){ style="margin-top: 20px;" width="600" }
+위의 스크립트는 바탕화면에 메모장 프로그램에 대한 바로가기를 만듭니다. 즉, 가상머신이 생성되면 바탕화면에 해당 프로그램의 아이콘이 바로가기로 만들어져 있게 됩니다. 
 
-4. 가상머신에 재설정하고자 하는 SSH Key를 선택한 후 "확인" 버튼을 클릭합니다. 
+Windows 운영체제에서 사용자 데이터는 가상머신 생성 시에 한번 실행되기 때문에 다음과 같이 가상머신 생성 시 사용자 데이터를 전송합니다. 
 
-선택한 SSH Key가 가상머신에 설정됩니다. 
+1. `컴퓨트 > 가상머신` 화면에서 "가상머신 추가" 버튼을 클릭합니다.
+   
+2. 템플릿/ISO 단계에서 가상머신 자동화 설정이 적용된 템플릿을 선택합니다. 
+   ![windows-59-vm-userdata-template](../../assets/images/windows-59-vm-userdata-template.png){ style="margin-top: 20px;" width="600" }
+
+3. 적절한 컴퓨트 오퍼링을 선택합니다. 
+
+4. 네트워크에서 사용자데이터 전송을 지원하는 네트워크(격리 네트워크 또는 ConfigDrive 지원 네트워크)를 선택합니다.
+   ![windows-60-vm-userdata-network](../../assets/images/windows-60-vm-userdata-network.png){ style="margin-top: 20px;" width="600" }
+
+5. "확장 모드" 단계에서 "고급 설정 표시"를 활성화 한 후 "사용자 데이터\사용자 데이터 텍스트" 항목에 위의 스크립트를 입력합니다.
+   ![windows-61-vm-userdata-script](../../assets/images/windows-61-vm-userdata-script.png){ style="margin-top: 20px;" width="600" }
+
+6. 그 외의 필요한 정보를 입력한 후 "VM 시작" 버튼을 클릭하여 가상머신을 시작합니다. 
+
+가상머신이 생성되면 가상머신 콘솔에 접속하여 바탕화면에 메모장 바로가기가 다음과 같이 생성되었는지 확인합니다. 
+
+<center>![windows-62-vm-userdata-result](../../assets/images/windows-62-vm-userdata-result.png){ style="margin-top: 20px;" width="600" }</center>
+
+!!! info "사용자 데이터 전송 지원 네트워크"
+    ABLESTACK은 사용자 데이터를 전송하기 위해 가상머신의 네트워크를 사용합니다. 따라서 사용자 데이터 전송을 위해서는 이에 적합한 네트워크를 사용해야 합니다.
+
+    가상머신에 연결된 네트워크가 사용자 데이터 전송을 지원하는지 확인하려면 다음의 절차로 해당 기능의 지원여부를 확인합니다. 
+
+    1. 가상머신 상세 화면에서 "NIC" 탭을 클릭합니다.
+    2. 연결된 네트워크 목록에서 링크를 클릭하여 네트워크 상세 화면으로 이동합니다. 
+    3. 네트워크 상세 화면의 좌측 가운데에 "네트워크 오퍼링" 항목의 링크를 클릭하여 네트워크 오퍼링 상세화면으로 이동합니다. 
+    4. 네트워크 오퍼링 상세화면의 우측 하단에 "지원되는 서비스"의 서비스 중 UserData 항목이 있는지 확인합니다.
+
+    기본적으로 제공되는 네트워크 오퍼링은 "기본 L2 VLAN 네트워크오퍼링"을 제외하고 모두 사용자 데이터 전송을 지원합니다. 

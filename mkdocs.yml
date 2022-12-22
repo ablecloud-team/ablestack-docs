@@ -223,6 +223,7 @@ nav:
       -  관리: administration/genie/management.md
       -  설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
+    - ABLESTACK 시스템 재기동: administration/system-restart.md
   - 레퍼런스 가이드 :
     - CentOS 가상머신 가이드 : 
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
@@ -241,9 +242,10 @@ nav:
     - Windows 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/windows-guide-prepare-vm.md
       - 템플릿을 이용한 VM 생성 : userGuide/vms/windows-guide-add-and-use-vm.md
-      - 비밀번호/UserData 적용기능추가 : userGuide/vms/windows-guide-password-userdata.md
+      - 가상머신 설정 자동화 적용 : userGuide/vms/windows-guide-password-userdata.md
       - 가상머신 볼륨 사용 : userGuide/vms/windows-guide-storage.md
       - 가상머신 NIC 사용 : userGuide/vms/windows-guide-nics.md
+      - Windows 11 설치 : userGuide/vms/windows-guide-window11-vm.md
 #  - 레퍼런스:
 #    - 시작하며: reference/reference-overview.md
   - 릴리즈노트 : 
