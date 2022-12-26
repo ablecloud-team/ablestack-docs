@@ -244,6 +244,15 @@ nav:
       - 가상머신 볼륨 사용 : userGuide/vms/windows-guide-storage.md
       - 가상머신 NIC 사용 : userGuide/vms/windows-guide-nics.md
       - Windows 11 설치 : userGuide/vms/windows-guide-window11-vm.md
+    - Linux 기반 3Tier Architecture 구성 가이드 : 
+      - 구성 개요: userGuide/3tiers/linux/3tiers-linux-guide-prepare.md
+      - VPC 구성: userGuide/3tiers/linux/3tiers-linux-guide-vpc.md
+      - 템플릿을 이용한 VM 생성: userGuide/3tiers/linux/3tiers-linux-guide-add-and-use-vm.md
+      - 부하분산 (LB) 구성: userGuide/3tiers/linux/3tiers-linux-guide-lb.md
+      - 가상머신 디스크 설정: userGuide/3tiers/linux/3tiers-linux-guide-disk.md
+      - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
+      - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
+      - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
 #  - 레퍼런스:
 #    - 시작하며: reference/reference-overview.md
   - 릴리즈노트 : 
