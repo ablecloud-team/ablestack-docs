@@ -1,10 +1,87 @@
-가상머신 사용 준비 과정을 통해 가상머신 템플릿 이미지를 만든 후에는 언제든지 템플릿을 이용해 동일한 형상의 가상머신을 추가할 수 있습니다. 
+본 문서는 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조"를 구성단계 중 4.1 단계인 DB 구성에 대한 문서입니다.
 
-본 문서에서는 ABLESTACK Mold를 이용해 가상머신을 추가하고, 가상머신의 전원을 관리하며, 가상머신의 형상을 관리하고, 최종적으로 가상머신을 삭제하는 기능을 사용하는 방법을 설명합니다. 
+1. VPC 및 서브넷 생성
+2. 가상머신 생성
+3. 가상머신 디스크 설정
+4. ==가상머신 WEB, WAS, DB 구성==
+      1. ==DB 구성==
+      2. WAS 구성
+      3. WEB 구성
+5. LB 구성
 
-## 템플릿으로 가상머신 추가
+## 가상머신 터미널 접근
 
-ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 본 문서를 이용해 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../centos-guide-prepare-vm)" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행해야 합니다. 
+이전 단계에서 생성한 데이터베이스를 구성할 3개의 VM에 원격 접속합니다.
+리눅스 커널에 접근하기 위한 방법으로 터미널 애플리케이션 또는 Mold의 콘솔을 통해 접근합니다.
+
+- 터미널 애플리케이션을 통한 접근
+    - 퍼블릭 IP를 생성합니다.(Mold -> 네트워크 -> vpc 선택 -> 퍼블릭 아이피 탭 -> 퍼블릭 아이피 가져오기 -> 스테틱 NAT 활성화 클릭 -> 서브넷 선택 -> vm1 선택)
+    - 터미널 애플리케이션 실행하여 root 계정으로 접속합니다.
+
+- Mold의 콘솔을 통한 접근
+    - 콘솔 실행하여 root 계정으로 접속합니다. (Mold -> 가상머신 -> 접속하고자하는 VM 선택 -> 콘솔 버튼 클릭)
+
+
+## 가상머신 데이터 디스크 설정
+
+가상머신 생성 시 추가하였던 데이타 디스크를 사용하기 위해 파티션, 포멧, 마운트 등록을 합니다.
+
+### 파티션 설정
+
+### 포멧
+
+### 마운트
+#### 부팅 시 자동 마운트 설정 
+
+## 보안 설정
+### 네트워크 방화벽 해제
+### selinux 설정
+
+## DB 설치 및 구성
+### MariaDB 구성 (3node 동일)
+#### MariaDB 패키지 설치를 위한 yum Repo 등록하기
+/etc/yum.repos.d/mariadb.repo 를 vi 로 열어서 Repo 정보를 입력합니다.
+``` linuxconfig
+$ vi /etc/yum.repos.d/mariadb.repo
+```
+Rocky Linux 9.0의 경우 아래의 내용을 추가합니다.
+``` yaml title="mariadb.repo"
+# MariaDB 10.9 RedHat repository list - created 2022-11-30 05:38 UTC
+# https://mariadb.org/download/
+[mariadb]
+name = MariaDB
+baseurl = https://tw1.mirror.blendbyte.net/mariadb/yum/10.9/rhel9-amd64
+gpgkey=https://tw1.mirror.blendbyte.net/mariadb/yum/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+```
+
+#### MariaDB 패키지 설치
+``` linuxconfig
+$ dnf install MariaDB-server MariaDB-client
+```
+#### MariaDB 시작
+``` linuxconfig
+$ systemctl enable mariadb.service   [서비스 시작]
+$ systemctl start mariadb.service    [부팅 시 자동 시작 활성화]
+$ mariadb-secure-installation
+```
+ss
+``` yaml
+theme:
+  features:
+    - content.code.annotate # (1)
+```
+1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
+    text__, images, ... basically anything that can be written in Markdown.
+
+ss
+#### 
+#### 
+#### 
+#### 
+#### 
+### 
+### 
 
 !!! info "ISO를 이용한 가상머신 추가"
     템플릿을 이용한 가상머신 추가 외에 운영체제 ISO 이미지를 이용해 가상머신 추가가 가능합니다. 템플릿을 사용하지 않고, 완전히 새롭게 가상머신을 생성하고자 하는 경우 [ISO를 이용한 가상머신 생성](../centos-guide-prepare-vm#iso) 문서를 참고하십시오.

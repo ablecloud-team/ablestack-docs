@@ -55,3 +55,6 @@ VPC 추가 대화상자는 VPC를 생성하기 위한 항목을 필요로 합니
 - 게이트웨이 : `192.168.3.1`
 - 넷 마스크 : `255.255.255.0`
 
+다음은 VPC 구성 예시입니다.
+
+![VPC 구성 예시](../../../../assets/images/3tier-linux-architecture-vpc-example.png)

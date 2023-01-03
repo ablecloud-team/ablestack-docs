@@ -9,7 +9,15 @@ VM을 생성하는 단계에서는 크게 아래 절차에 의해 실행됩니�
 
 ### Affinity 그룹 생성
 VM 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 Tier에 속한 모든 VM들이 특정 호스트에 몰려 실행되지 않도록 합니다.
-Affinity 그룹을 추가하기 위해 `컴퓨트 > Affinity 그룹` 화면으로 이동하여 `새 Affinity 그룹 추가` 버튼을 클릭합니다. 
+Affinity 그룹을 추가하기 위해 `컴퓨트 > Affinity 그룹` 화면으로 이동하여 `새 Affinity 그룹 추가` 버튼을 클릭합니다.
+클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다. 
+
+![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
+
+1. 이름 : 기본값으로 선택합니다.
+2. 설명 : CentOS 기본 가상머신 템플릿 이미지를 다음의 그림과 같이 선택합니다. 
+3. 유형 : 적정한 컴퓨트 오퍼링을 선택합니다. (2 vCore, 4GB 이상 권장)
+
 새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
 
 - 이름 : `ablecloud-3tier-linux-web`
@@ -55,17 +63,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 - 컴퓨트 오퍼링 : `1C-2GB-RBD-HA`
 - 데이터 디스크 : `100GB-WB-RBD`
 - 네트워크 : `web`
-- SSH 키 쌍 : `3tier_linux_keypair` *가상머신의 SSH 로그인 시 사용할 SSH 키 쌍 선택
-- 확장 모드 : `ablecloud-3tier-linux-web` *Affinity 그룹 설정
+- SSH 키 쌍 : `3tier_linux_keypair` 
+- 확장 모드 
+    - Affinity 그룹 설정: `ablecloud-3tier-linux-web`
 - 상세 : `가상머신 이름 및 그룹 등의 설정`
-
-
-!!! tip "템플릿을 이용한 VM 생성"
-    VM을 연속으로 생성할 시 아래 표시된 "VM 시작 및 이 페이지 유지" 로 생성하여 페이지 이동없이 VM을 생성할 수 있습니다.
-    <center>
-    ![3tier-linux-01](../../../../assets/images/3tier-linux-architecture-add-and-use-vm-maintain-page.png)
-    </center>
-
-
-
 
