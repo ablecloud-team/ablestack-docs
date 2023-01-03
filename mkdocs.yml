@@ -145,6 +145,8 @@ nav:
     - ABLESTACK Service:
       - Works 설치 가이드: getting-started/install-guide-works.md
       - Genie 설치 가이드: getting-started/install-guide-genie.md
+    - ABLESTACK Add Host:
+      - 호스트 추가 가이드: getting-started/install-guide-add-host.md
 #  - 설정 및 구성:
 #    - 시작하며: setup/setup-overview.md
   - 관리가이드:
