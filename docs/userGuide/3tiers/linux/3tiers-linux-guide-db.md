@@ -1,4 +1,4 @@
-본 문서는 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조"를 구성단계 중 4.1 단계인 DB 구성에 대한 문서입니다.
+본 문서는 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조"를 구성하기 위한 단계 중, 4.1 단계인 DB 구성에 대한 문서입니다.
 
 1. VPC 및 서브넷 생성
 2. 가상머신 생성
@@ -21,31 +21,75 @@
 - Mold의 콘솔을 통한 접근
     - 콘솔 실행하여 root 계정으로 접속합니다. (Mold -> 가상머신 -> 접속하고자하는 VM 선택 -> 콘솔 버튼 클릭)
 
+- Cube의 터미널 메뉴를 통한 접근
+
+    !!! info "Cube 터미널"
+        ABLESTACK Cube에 접속한 후 "터미널 메뉴"를 사용하여 터미널에 접근할 수 있습니다. 
+        [Cube 터미널](../../../../administration/cube/terminal-guide) 문서를 참고하여 접속하십시오.
 
 ## 가상머신 데이터 디스크 설정
+### ABLESTACK Cube에 접속
+가상머신 생성 시 추가하였던 데이타 디스크를 설정하고 사용하기 위해 ABLESTACK Cube에 접속합니다.
 
-가상머신 생성 시 추가하였던 데이타 디스크를 사용하기 위해 파티션, 포멧, 마운트 등록을 합니다.
+!!! info "ABLESTACK Cube에 접속"
+    ABLESTACK Cube에 접속을 위해 해당 VM의 "cockpit.socket" 서비스를 `$ systemctl start cockpit.socket` 명령어를 통해 실행한 후 
+    [Cube 로그인](../../../../administration/cube/userinterface-guide#_1) 문서를 참고하여 접속하십시오.
 
 ### 파티션 설정
+ABLESTACK Cube의 "저장소" 메뉴를 클릭한 후 아래의 절차를 통해 추가한 데이터 디스크의 파티션을 생성합니다.
 
-### 포멧
+1. 사용할 데이터 디스크를 `드라이브` 섹션에서 선택합니다.
+2. `파티션 테이블 만들기` 을 클릭하여 초기화를 합니다.
+3. `파티션 만들기` 를 클릭하여 해당 디스크에 파티션을 생성합니다. 파티션 만들기 예제는 다음과 같습니다.
+   1. 이름: `datadisk`
+   2. 유형: `XFS`
+   3. 크기: `100GiB` (최대 값)
+   4. 적재지점(마운트 위치): `/mnt/data`
+   5. 마운트 옵션: `지금 마운트`
+   6. 암호화: `암호화 없음`
 
-### 마운트
-#### 부팅 시 자동 마운트 설정 
+해당 과정을 통해 포멧, 마운트, 부팅 시 자동 마운트 설정이 적용됩니다.
+
+!!! info "ABLESTACK Cube에서의 파티션 생성"
+    ABLESTACK Cube에서의 파티션 생성을 위해 [Cube 파티션 생성](../../../../administration/cube/userinterface-guide#_1) 문서를 참고하십시오.
 
 ## 보안 설정
 ### 네트워크 방화벽 해제
+ABLESTACK Cube의 "네트워킹" 메뉴를 클릭한 후 아래의 절차를 통해 네트워크 방화벽을 해제합니다.
+
+1. 방화벽 섹션에서 "규칙 및 영역 편집" 버튼을 클릭합니다.
+2. 설정할 네트워크 연결장치의 "서비스 추가" 버튼을 클릭합니다.
+3. "galera" 를 검색한 후 해당 서비스를 추가합니다.
+    ![3tier-linux-architecture-db-nw-firewall-02](../../../../assets/images/3tier-linux-architecture-db-nw-firewall-02.png)
+
+!!! info "ABLESTACK Cube에서의 방화벽 설정"
+    ABLESTACK Cube에서의 파티션 생성을 위해 [Cube 방화벽 서비스 활성화](../../../../administration/cube/networking-guide#_27) 문서를 참고하십시오.
+
 ### selinux 설정
+가상머신 터미널 접근 후 아래의 절차를 통해 SELinux 정책을 강제에서 허용으로 영구적으로 변경합니다.
+/etc/sysconfig/selinux 를 vi 편집기로 열어 정보를 변경합니다.
+``` linuxconfig
+$ vi /etc/sysconfig/selinux
+```
+SELINUX 값을 disabled로 변경합니다.
+``` title="selinux"  linenums="1"
+SELINUX=disabled
+```
 
 ## DB 설치 및 구성
+아래의 구조로 DB를 구성합니다.
+
+![3tier-linux-architecture-db-nw-firewall-02](../../../../assets/images/3tier-linux-architecture-db-01.png)
+
+
 ### MariaDB 구성 (3node 동일)
 #### MariaDB 패키지 설치를 위한 yum Repo 등록하기
-/etc/yum.repos.d/mariadb.repo 를 vi 로 열어서 Repo 정보를 입력합니다.
+/etc/yum.repos.d/mariadb.repo 를 vi 편집기로 열어 Repo 정보를 입력합니다.
 ``` linuxconfig
 $ vi /etc/yum.repos.d/mariadb.repo
 ```
 Rocky Linux 9.0의 경우 아래의 내용을 추가합니다.
-``` yaml title="mariadb.repo"
+``` title="mariadb.repo"  linenums="1"
 # MariaDB 10.9 RedHat repository list - created 2022-11-30 05:38 UTC
 # https://mariadb.org/download/
 [mariadb]
@@ -60,335 +104,189 @@ gpgcheck=1
 $ dnf install MariaDB-server MariaDB-client
 ```
 #### MariaDB 시작
-``` linuxconfig
-$ systemctl enable mariadb.service   [서비스 시작]
-$ systemctl start mariadb.service    [부팅 시 자동 시작 활성화]
+``` yaml
+$ systemctl enable mariadb.service # (1)!
+$ systemctl start mariadb.service # (2)!
+```
+
+1.  VM 부팅 시 서비스를 자동 시작하도록 활성화합니다.
+2.  MariaDB 서비스를 시작합니다.
+
+#### MariaDB 보안 설정
+``` yaml
 $ mariadb-secure-installation
 ```
-ss
+
+??? note "클릭하여 MariaDB의 보안설정 방법을 확인합니다."
+
+    ```  linenums="1"
+    Enter current password for root (enter for none):  [패스워드가 없기 때문에 엔터]
+    OK, successfully used password, moving on...
+
+    ※ 이 부분은 버전에 따라 안 나올 수 있습니다.
+    Setting the root password or using the unix_socket ensures that nobody
+    can log into the MariaDB root user without the proper authorisation.
+
+    You already have your root account protected, so you can safely answer 'n'.
+    Switch to unix_socket authentication [Y/n] Y  [MariaDB 실행 시 통신 소켓 생성 여부? Y 엔터]
+
+    
+
+    Enabled successfully!
+    Reloading privilege tables..
+    ... Success!
+
+
+    You already have your root account protected, so you can safely answer 'n'.
+
+    Change the root password? [Y/n] Y  [DB ROOT 패스워드 설정할 것인가? Y 엔터]
+
+    New password:  패스워드 입력
+    Re-enter new password:  재확인 패스워드 입력
+    Password updated successfully!
+    Reloading privilege tables..
+    ... Success!
+
+    By default, a MariaDB installation has an anonymous user, allowing anyone
+    to log into MariaDB without having to have a user account created for
+    them.  This is intended only for testing, and to make the installation
+    go a bit smoother.  You should remove them before moving into a
+    production environment.
+
+    Remove anonymous users? [Y/n] Y  [익명의 접근을 막을 것인지? 보안을 위해 Y 엔터]
+    ... Success!
+
+
+    Normally, root should only be allowed to connect from 'localhost'.  This
+    ensures that someone cannot guess at the root password from the network.
+
+    Disallow root login remotely? [Y/n] Y  [DB ROOT 원격을 막을 것인지? 보안을 위해 Y 엔터]
+
+    ... Success!
+
+    By default, MariaDB comes with a database named 'test' that anyone can
+    access.  This is also intended only for testing, and should be removed
+    before moving into a production environment.
+
+    Remove test database and access to it? [Y/n] Y
+
+    [Test 용으로 생성된 데이터베이스를 삭제할 것인가? Y 엔터]
+
+    - Dropping test database...
+    ... Success!
+    - Removing privileges on test database...
+    ... Success!
+
+    Reloading the privilege tables will ensure that all changes made so far
+    will take effect immediately.
+
+    Reload privilege tables now? [Y/n] Y  [현재 설정한 값을 적용할 것인지? 당연히 Y 엔터]
+
+    ... Success!
+
+    Cleaning up...
+
+    All done!  If you've completed all of the above steps, your MariaDB
+    installation should now be secure.
+
+    Thanks for using MariaDB!  [설정 완료]
+    ```
+
+#### DB 외부접속 허용
+MariaDB에 접속합니다.
+
 ``` yaml
-theme:
-  features:
-    - content.code.annotate # (1)
+$ mariadb -u root -p
+
+Enter password: 패스워드 입력
 ```
-1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
-    text__, images, ... basically anything that can be written in Markdown.
 
-ss
-#### 
-#### 
-#### 
-#### 
-#### 
-### 
-### 
-
-!!! info "ISO를 이용한 가상머신 추가"
-    템플릿을 이용한 가상머신 추가 외에 운영체제 ISO 이미지를 이용해 가상머신 추가가 가능합니다. 템플릿을 사용하지 않고, 완전히 새롭게 가상머신을 생성하고자 하는 경우 [ISO를 이용한 가상머신 생성](../centos-guide-prepare-vm#iso) 문서를 참고하십시오.
-
-가상머신을 추가하기 위해 `컴퓨트 > 가상머신` 화면으로 이동하여 `가상머신 추가` 버튼을 클릭합니다. "새 가상머신" 마법사 페이지가 표시됩니다. 해당 페이지에서는 다음과 같은 절차로 가상머신을 생성합니다. 
-
-1. 배포 인프라 선택 : 가상머신을 배포할 물리적인 ABLESTACK 인프라를 선택
-2. 템플릿/ISO : 가상머신 추가에 사용할 템플릿 또는 ISO 이미지 선택
-3. 컴퓨트 오퍼링 : CPU, Memory를 할당하기 위한 정책
-4. 데이터 디스크 : 가상머신의 ROOT 디스크 외 추가적인 데이터 디스크를 필요로 할 때 용량 선택
-5. 네트워크 : 가상머신의 NIC에 연결할 네트워크 선택
-6. SSH 키 쌍 : 가상머신의 SSH 로그인 시 사용할 SSH 키 쌍 선택
-7. 확장 모드 : 부팅모드, 다이나믹 스케일링, 사용자 데이터, Affinity 그룹 정보 등의 설정
-8. 상세 : 가상머신 이름 및 그룹 등의 설정
-
-위의 절차 및 항목을 이용해 가상머신의 구성을 선택하면 화면 우측의 "귀하의 가상머신" 영역에 선택한 정보가 표시되어 요약정보를 바로 확인할 수 있습니다. 
-
-### 배포 인프라 선택
-
-가상머신은 특정 ABLESTACK의 인프라에 배포됩니다. ABLESTACK Mold는 클라우드 플랫폼으로 인프라 지원을 Zone, Pod, 클러스터, 호스트로 구분합니다. 
-
-Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, Pod은 동일 관리 네트워크 상의 자원을 의미합니다. 따라서 단일 클러스터로 구성된 인프라의 경우, Zone, Pod, 클러스터가 단일 환경으로 되어 있으며, 호스트 만 다수로 구성됩니다. 사용자는 다음의 화면과 같이 명시적으로 배포 인프라를 선택할 수 있습니다. 
-
-<center>
-![centos-19-vm-wizard-01](../../assets/images/centos-19-vm-wizard-01.png){ width="600" }
-</center>
-
-다만, 특별한 이유가 없다면 위의 그림과 같은 단계에서 사용자가 특정 자원을 명시적으로 선택하지 않아도 됩니다. Mold가 자동으로 적합한 호스트를 식별하여 가상머신을 배포하게 됩니다. 
-
-### 템플릿/ISO
-
-가상머신 추가 시 사용자는 가상머신 OS 및 애플리케이션 등이 이미 설치되어 있는 템플릿 이미지를 사용하거나, 신규로 운영체제를 설치하기 위해 ISO 이미지를 사용할 수 있습니다. 
-
-본 가이드에서는 이미 만들어져 있는 템플릿 이미지를 이용해 가상머신을 추가하는 방법을 설명합니다. "새 가상머신" 마법사의 템플릿/ISO 선택 단계의 화면은 다음의 그림과 같습니다. 
-
-<center>
-![centos-20-vm-wizard-02](../../assets/images/centos-20-vm-wizard-02.png){ width="600" }
-</center>
-
-사용자는 먼저 "템플릿" 탭을 선택하고, 가상머신 이미지를 검색하기 위해 추천, 커뮤니티, 나의 템플릿, 공유 탭 중 하나를 선택하여 원하는 템플릿을 선택하거나, 검색 기능을 이용해 템플릿의 범위를 좁힌 후 템플릿을 선택할 수 있습니다. 
-
-템플릿 이미지는 기본적으로 루트 디스크의 크기가 설정되어 있는데, 만약 해당 디스크의 크기를 확장하고 싶은 경우 "루트 디스크 크기 무시" 항목을 활성화 한 후 원하는 디스크의 크기를 입력하여 설정할 수 있습니다. 
-
-!!! info "루트 디스크 크기 설정"
-    템플릿 생성 시에는 최소한의 루트 디스크 크기를 설정하고, 언제든 루트 디스크의 크기를 확장할 수 있습니다. 단, 해당 디스크의 파티션이 자동으로 확장되는 것이 아니기 때문에 사용자가 직접 디스크의 파티션을 확장하는 작업을 수행해야 합니다. 
-
-### 컴퓨트 오퍼링
-
-가상머신을 생성하기 위해서는 가상머신의 연산과 데이터 처리를 담당할 CPU와 메모리의 할당이 필요합니다. 컴퓨트 오퍼링은 사전에 관리자에 의해서 정의된 컴퓨트 자원 제공 정책을 의미합니다. 컴퓨트 오퍼링을 선택하는 단계의 화면은 다음과 같습니다. 
-
-<center>
-![centos-21-vm-wizard-03](../../assets/images/centos-21-vm-wizard-03.png){ width="600" }
-</center>
-
-목록에 표시되는 오퍼링 정책은 관리자 또는 사용자에 의해 미리 만들어진 정책입니다. 컴퓨트 오퍼링 이름과 가상머신에 할당될 CPU, 그리고 메모리의 크기를 확인할 수 있습니다. 
-
-검색 기능을 통해 원하는 컴퓨트 오퍼링을 검색하거나, 페이지 이동을 통해 탐색할 수 있습니다. 
-
-"루트 디스크 오퍼링 무시" 항목을 선택하면 가상머신의 루트디스크에 할당할 디스크 오퍼링을 별도로 선택할 수 있으며, 가상머신의 루트디스크의 전체적인 크기가 변경됩니다. 
-
-### 데이터 디스크
-
-템플릿을 사용하여 가상머신을 생성하는 경우, 루트 디스크가 이미 만들어져 있기 때문에 가상머신을 생성할 때 별도의 데이터 디스크를 추가적으로 설정할 수 있습니다. 디스크를 추가할 때는 관리자 또는 사용자가 미리 생성한 디스크 오퍼링, 즉 디스크 할당 정책의 목록 중 필요한 정책을 선택해야 합니다. 데이터 디스크 정책을 선택하는 단계의 화면은 다음과 같습니다. 
-
-<center>
-![centos-22-vm-wizard-04](../../assets/images/centos-22-vm-wizard-04.png){ width="600" }
-</center>
-
-디스크 오퍼링은 위의 화면과 같이 목록으로 표시되며, 디스크 오퍼링의 이름, 디스크의 크기, 그리고 설정이 되어 있는 경우 최소 IOPS/최대 IOPS 값이 표시됩니다. 검색을 통해 오퍼링을 탐색하거나, 페이지 이동을 통해 원하는 디스크 오퍼링을 탐색할 수 있습니다. 
-
-디스크 오퍼링을 선택함으로써 가상머신에 추가하도록 설정한 데이터 디스크는 루트 디스크 외의 별도의 디스크로 할당됩니다. 사용자는 가상머신이 시작된 후 해당 볼륨을 확인하여, 파티션 작업 등의 별도의 디스크 작업을 실행해야 디스크를 사용할 수 있습니다. 
-
-데이터 디스크는 언제든 필요할 때 추가할 수 있습니다. 따라서 가상머신 생성 시점에 디스크가 별도로 필요한 경우가 아니라면 "설정 안함"을 선택합니다. 
-
-### 네트워크
-
-가상머신은 실행 시 반드시 1개 이상의 NIC가 가상머신에 연결되고, 해당 NIC는 사용자가 생성한 네트워크에 연결되어야 합니다. 
-
-가상머신 추가 시 네트워크 선택 단계의 화면은 다음과 같습니다. 
-
-<center>
-![centos-23-vm-wizard-05-1](../../assets/images/centos-23-vm-wizard-05-1.png){ width="600" }
-</center>
-
-네트워크 선택 목록에서 원하는 네트워크를 찾기 위해 검색 기능 또는 페이지 탐색을 이용할 수 있습니다. 
-
-만약 연결하고자 하는 네트워크가 없다면 "새로운 네트워크 생성" 버튼을 클릭하여 "네트워크 추가" 대화상자를 통해 새로운 네트워크를 추가할 수 있습니다. 
-
-<center>
-![centos-24-vm-wizard-05-2](../../assets/images/centos-24-vm-wizard-05-2.png){ width="450" }
-</center>
-
-새로운 네트워크를 추가 하기 위해 네트워크 추가 대화상자에서 네트워크 유형을 선택합니다. 예제에서는 "isolated" 유형을 선택합니다. 
-
-해당 유형의 네트워크 생성을 위해 네트워크 이름, 설명, 네트워크를 생성할 Zone, 네트워크 오퍼링을 선택합니다.
-
-"확인" 버튼을 클릭하여 네트워크를 새로 생성합니다. 
-
-<center>
-![centos-25-vm-wizard-05-3](../../assets/images/centos-25-vm-wizard-05-3.png){ width="600" }
-</center>
-
-위의 그림과 같이 새롭게 생성된 네트워크가 목록에 표시되고, 해당 네트워크가 가상머신에 연결되도록 선택되어 있는 상태로 표시됩니다. 
-
-선택된 네트워크는 가상머신의 기본 네트워크로 설정됩니다. 네트워크가 Isolated 유형의 네트워크인 경우 가상머신에 할당할 IP와 MAC 주소를 수동으로 입력할 수 있습니다. 
-
-만약 정보를 입력하지 않는 경우 자동으로 MAC 주소가 설정되고, DHCP 서버에 의해 자동으로 IP가 생성되어 할당됩니다. 
-
-### SSH 키 쌍
-
-리눅스 계열의 가상머신의 경우, 가상머신의 SSH 접속을 위해 SSH 키 쌍을 가상머신에 등록할 수 있습니다. 단, 가상머신 템플릿 이미지에 이러한 SSH 키 쌍을 처리할 수 있는 애플리케이션이 설치되어 있어야 합니다. SSH 키 쌍을 선택하는 단계의 화면은 다음과 같습니다. 
-
-<center>
-![centos-26-vm-wizard-06](../../assets/images/centos-26-vm-wizard-06.png){ width="600" }
-</center>
-
-해당 기능은 기본 템플릿으로는 사용할 수 없으므로 SSH 키 쌍은 선택하지 않고 다음 단계로 이동합니다. 
-
-### 확장 모드
-
-확장 모드 단계에서는 가상머신의 부팅 유형 및 부팅 모드, 그리고 다이나믹 스케일링, 가상머신에 전송할 사용자 데이터, 가상머신이 속할 Affinity 그룹 등을 선택할 수 있습니다. 확장 모드를 선택하는 단계의 화면은 다음과 같습니다. 
-
-<center>
-![centos-27-vm-wizard-07](../../assets/images/centos-27-vm-wizard-07.png){ width="600" }
-</center>
-
-가상머신의 부팅 유형 및 부팅 모드는 기존의 템플릿에 설정되어 있는 부팅 유형 및 부팅 모드와 동일해야 합니다. 본 예제에서는 단순한 가상머신의 추가, 사용을 위해 가상머신을 추가하는 것이므로 별도의 확장 모드를 선택하지 않고, 다음 단계로 이동합니다. 
-
-### 상세
-
-마지막 단계는 가상머신의 이름, 그리고 가상머신의 그룹 등의 정보를 입력하는 단계인 상세 단계 입니다. 상세 단계의 화면은 다음과 같습니다. 
-
-<center>
-![centos-28-vm-wizard-08.png](../../assets/images/centos-28-vm-wizard-08.png){ width="600" }
-</center>
-
-가상머신의 이름을 입력한 후, "가상머신 시작" 선택 버튼을 활성화 한 후 "VM 시작" 버튼을 클릭합니다. 
-
-<center>
-![centos-29-vm-add-status](../../assets/images/centos-29-vm-add-status.png){ width="600" }
-</center>
-
-가상머신이 시작되면서 위와 같이 가상머신이 시작중인 상태로 전환되는 것을 확인할 수 있습니다. 위의 화면에서 "업데이트" 버튼을 클릭하여 가상머신의 상태가 정상적으로 "실행중" 상태로 변경되는지 확인합니다. 
-
-## 가상머신 정지/시작/재시작
-
-가상머신은 Mold를 통해 언제든지 가상머신을 시작하거나, 정지, 재시작할 수 있습니다. 
-
-생성된 가상머신의 상세 페이지의 우측 상단에는 다음과 같은 아이콘 버튼이 있습니다. 
-
-<center>
-![centos-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
-</center>
-
-위의 버튼 이미지는 가상머신이 실행 중인 상태에서 표시되는 메뉴 이미지입니다. 
-
-### 가상머신 정지
-
-위 예제에서 실행 중인 가상머신을 정지하기 위해서는 위 메뉴의 네번째 버튼인 전원 모양의 버튼, 즉 "가상머신 정지" 버튼을 클릭합니다. 
-
-다음과 같은 "가상머신 정지" 대화상자가 표시됩니다. 
-
-<center>
-![centos-31-vm-stop-dlg](../../assets/images/centos-31-vm-stop-dlg.png){ width="450" }
-</center>
-
-"확인"을 누르면 가상머신이 정지됩니다. 이 때 가상머신은 가상머신 내에서 `shutdown -h now` 명령을 실행한 것과 같은 작업이 이루어집니다. 이러한 가상머신 셧다운 작업을 "Graceful Shutdown" 이라고 부릅니다. 
-
-대화상자에서 "강제"를 선택하고 "확인"을 누르면 가상머신은 바로 강제 종료됩니다. 이 동작은 컴퓨터의 전원버튼을 길게 눌러 강제로 전원을 차단하는 것과 같은 작업입니다. 이러한 가상머신 셧다운 작업을 "Immediate Shutdown" 이라고 부릅니다. 
-
-!!! warning "CLI 명령을 통한 가상머신 정지"
-    사용자는 가상머신 콘솔 또는 SSH 접속을 통해 가상머신을 정지할 수도 있습니다. 하지만 이렇게 가상머신을 정지한 경우 다음의 이슈가 있을 수 있습니다. 
-
-       - 가상머신에 HA(고가용성) 설정이 활성화 되어 있는 경우 가상머신이 재시작됩니다.
-       - 가상머신 Activity 체크 시간 설정에 따라 Mold에서 실제 가상머신 정지를 인식하는 데 시간이 소요될 수 있습니다. 
-  
-    따라서 사용자가 CLI를 통해 방법이 아닌 Mold를 통해 가상머신을 정상적으로 정지하는 것을 권장입니다. 
-
-### 가상머신 시작
-
-가상머신이 정지된 상태라면 언제는 사용자는 Mold를 통해 가상머신을 시작할 수 있습니다. 정지 상태인 가상머신의 상세 화면으로 이동하여 우측 상단의 아이콘 메뉴를 확인하면 다음과 같습니다. 
-
-<center>
-![centos-32-vm-detail-icon-menu](../../assets/images/centos-32-vm-detail-icon-menu.png){ width="450" }
-</center>
-
-가상머신을 시작하려면, 아이콘 메뉴 중 네번째 메뉴인 "가상머신 시작"을 클릭합니다. 다음과 같은 "가상머신 시작" 대화상자가 표시됩니다. 
-
-<center>
-![centos-33-vm-start-dlg](../../assets/images/centos-33-vm-start-dlg.png){ width="450" }
-</center>
-
-해당 대화상자는 가상머신이 시작할 인프라를 선택하는 것입니다. 가상머신은 기본적으로 가상머신이 정지되기 전에 실행되었던 호스트에서 실행하도록 설정되어 있습니다. 만약 해당 설정을 취소하고, 특정 인프라 즉, 특정 호스트에서 시작하기를 원하는 경우 해당 호스트를 명시적으로 지정해야 합니다. 
-
-가상머신 시작 위치를 선택 또는 기본값으로 설정한 후 "확인" 버튼을 클릭하면 가상머신이 시작합니다. 
-
-### 가상머신 재시작
-
-가상머신이 시작이 된 상태라면 가상머신 상세 조회 화면의 우측 상단 아이콘 메뉴는 다음과 같은 상태로 표시됩니다. 
-
-<center>
-![centos-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
-</center>
-
-해당 메뉴에서 다섯번째 메뉴인 "가상머신 재시작" 버튼을 클릭하면 다음과 같은 대화 상자가 표시됩니다. 
-
-<center>
-![centos-34-vm-reboot-dlg](../../assets/images/centos-34-vm-reboot-dlg.png){ width="450" }
-</center>
-
-가상머신 재시작 대화상자에서 "확인" 버튼을 누르면 가상머신이 재시작됩니다. 가상머신의 재시작은 가상머신 콘솔 또는 SSH 접속 상태에서 `reboot` 명령을 실행하여 "Graceful Reboot"을 한 것과 동일하게 작업이 이루어집니다. 
-
-만약 대화상자에서 "강제" 항목을 선택하고, "확인" 버튼을 누르면 가상머신이 강제 재시작됩니다. 이러한 가상머신 재시작은 가상머신 콘솔 또는 SSH 접속 상태에서 `reboot --force` 명령을 실행하여 "Immediate Reboot"을 한 것과 동일하게 작업이 이루어집니다. 
-
-## 가상머신 스냅샷 관리
-
-가상머신 스냅샷(VM 스냅샷)은 가상머신 전체, 즉 가상머신에 연결되어 있는 루트디스크 및 데이터디스크 전체에 대한 현재 형상을 스냅샷을 보관하여, 언제든지 해당 형상으로 가상머신을 복구할 수 있도록 지원하는 기능입니다. 
-
-가상머신 스냅샷을 이용하면 가상머신이 애플리케이션에 의해서, 또는 사용자의 조작 실수로 인해서 장애가 발생하는 경우, 최종 실패 지점에서 최종 또는 과거 성공 지점으로 가상머신을 되돌릴 수 있습니다. 
-
-가상머신 스냅샷은 가상머신이 실행 중인 상태에서 생성할 수 있으며, 스냅샷 복원은 가상머신을 중지하고 실행할 수 있습니다. 
-
-### 가상머신 스냅샷 생성
-
-가상머신 실행 중에 가상머신 스냅샷을 생성하기 위해서는 먼저 CentOS 기반의 가상머신에 가상화 에이전트(1.6 버전 이상)가 적합한 버전이 설치되어 있는지 확인해야 합니다. 
-
-가상머신이 실행 중인 상태에서의 가상머신 상세 화면의 우측 상단의 액션 아이콘 메뉴는 다음과 같습니다. 
-
-<center>
-![centos-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
-</center>
-
-첫번째 아이콘, 즉 "콘솔 보기" 아이콘을 클릭하여 가상머신 콘솔에 접속한 후 다음의 명령을 실행하여 가상화 에이전트의 버전을 확인합니다. 
-
-~~~
-qemu-ga --version
-~~~
-
-에이전트가 1.6버전 이상이라면 가상머신 스냅샷을 생성할 수 있습니다. 액션 아이콘 메뉴의 7번째 아이콘인 "VM 스냅샷 생성" 버튼을 클릭합니다. 다음과 깉이 "VM 스냅샷 생성" 대화상자가 표시됩니다. 
-
-<center>
-![centos-35-vm-snapshot-dlg](../../assets/images/centos-35-vm-snapshot-dlg.png){ width="450" }
-</center>
-
-대화상자에 이름 및 설명을 입력한 후 "확인" 버튼을 클릭하여 가상머신 스냅샷을 생성합니다. 생성된 가상머신 스냅샷은 해당 가상머신의 상세 화면의 "VM 스냅샷" 탭을 클릭하여 확인할 수 있습니다. 
-
-### 가상머신 스냅샷 복원
-
-가상머신 스냅샷을 복원하려면 먼저 가상머신을 정지해야 합니다. 
-
-스냅샷을 복원할 가상머신의 상세 화면에서 가상머신 정지 아이콘을 클릭하여 가상머신을 정지한 후, 상세 화면의 "VM 스냅샷" 탭을 클릭하여 스냅샷 목록을 조회합니다. 조회한 화면은 다음의 이미지와 같습니다. 
-
-<center>
-![centos-36-vm-snapshot-list](../../assets/images/centos-36-vm-snapshot-list.png){ width="600" }
-</center>
-
-복원하고자 하는 가상머신 스냅샷을 선택하여 VM 스냅샷 상세 화면으로 이동하면 우측 상단에 액션 아이콘 메뉴를 확인할 수 있습니다. 다음의 그림과 같습니다. 
-
-<center>
-![centos-37-vm-snapshot-detail-menu](../../assets/images/centos-37-vm-snapshot-detail-menu.png){ width="130" }
-</center>
-
-액션 아이콘 메뉴 중 두번째 아이콘, 즉 "VM 스냅샷 복원"을 클릭합니다. 표시되는 "VM 스냅샷 복원" 확인 대화상자에서 "확인" 버튼을 클릭하여 스냅샷 복원 작업을 실행합니다. 
-
-가상머신 스냅샷 복원이 완료되면 가상머신을 시작하여 이전 형상으로 복원되었는지 확인합니다. 가상머신 스냅샷을 각 시점별로 여러 개 생성해 놓고 관리하면 언제든지 해당 시점으로 가상머신을 북원할 수 있습니다. 
-
-### 가상머신 스냅샷 삭제
-
-생성된 가상머신 스냅샷은 언제든지 삭제할 수 있습니다. 가상머신 스냅샷은 일반적으로 다음의 경우에 삭제하게 됩니다. 
-
-- 스냅샷이 오래되어 더 이상 스냅샷을 보관할 필요가 없을 때
-- 가상머신의 볼륨을 추가하거나, 확장해야 하는 물리적 볼륨 변경을 해야 하는 경우
-
-!!! info "가상머신 스냅샷이 있는 경우의 제약사항"
-    가상머신 스냅샷은 가상머신의 디스크 전체의 형상을 스냅샷으로 생성합니다. 
-
-    따라서 가상머신의 디스크가 추가적으로 필요하거나 디스크를 제거해야 하는 등의 물리적인 볼륨 형상 변경이 필요한 경우 가상머신 스냅샷을 삭제한 후 작업해야 합니다. 
-
-생성된 가상머신 스냅샷 목록을 확인하는 방법은 특정 가상머신의 상세 화면을 통하거나, `스토리지 > VM 스냅샷` 메뉴를 통해 가상머신 스냅샷 목록을 조회하는 방법을 사용하는 것입니다. 
-
-스냅샷 목록 조회 후 삭제하고자 하는 스냅샷의 팝업 메뉴에 마우스를 오버하면 다음과 같이 메뉴가 표시됩니다. 
-
-<center>
-![centos-38-vm-snapshot-list-menu](../../assets/images/centos-38-vm-snapshot-list-menu.png){ width="600" }
-</center>
-
-액션 아이콘 메뉴에서 휴지통 모양 아이콘 즉, "VM 스냅샷 삭제" 버튼을 클릭하면 해당 스냅샷이 삭제됩니다. 
-
-## 가상머신 삭제
-
-사용자는 언제든지 가상머신을 삭제할 수 있습니다. 가상머신의 삭제는 가상머신 목록 또는 상세 화면의 액션 아이콘 메뉴에서 우측 마지만 아이콘인 휴지통 아이콘, 즉 "가상머신 파기" 이이콘을 클릭하여 실행할 수 있습니다. 
-
-가상머신 파기를 실행하면 다음과 같은 "가상머신 파기" 대화상자가 표시됩니다. 
-
-<center>
-![centos-39-vm-destroy-dlg](../../assets/images/centos-39-vm-destroy-dlg.png){ width="450" }
-</center>
-
-대화상자에는 "제거" 여부를 선택하는 토글 버튼과 삭제될 데이터볼륨을 선택하는 선택 상자가 있습니다. 가상머신을 삭제하면 실제로 가상머신을 제거하지 않고, 가상머신이 삭제되었다고 표시하는 것입니다. 그리고 일정 시간(기본값은 1일)이 지나면 해당 가상머신과 디스크가 제거됩니다. 
-
-!!! info "파기된 가상머신의 복원"
-    가상머신이 완전히 제거 되기 전에는 가상머신을 복원할 수 있습니다. 파기된 가상머신의 복원 권한은 관리자에게 있습니다. 
-
-    만약 사용자가 생성한 가상머신의 삭제 후 복원을 원하는 경우 관리자에게 문의하여 복원 절차를 수행해야 합니다. 
-
-만약 가상머신을 완전히 제거하고자 하는 경우 "제거" 여부를 선택한 후 "확인" 버튼을 클릭합니다. 
-
-가상머신이 루트 디스크 외 1개 이상의 데이터 디스크에 연결되어 있는 경우 해당 데이터 디스크의 삭제 여부를 선택할 수 있습니다. 사용자의 선택에 의해 데이터 디스크를 남겨 놓고 나중에 사용할 수도 있습니다. 
-
-모든 옵션을 선택한 후 "확인" 버튼을 클릭하면, 가상머신이 실행 중이 경우 가상머신이 중지되고, 가상머신을 파기 후, 최종적으로 제거하게 됩니다. 
+``` yaml
+MariaDB [(none)]> use mysql;
+MariaDB [(none)]> grant all privileges on *.* to 'root'@'%'identified by '[패스워드 입력]'; # (1)!
+MariaDB [(none)]> flush privileges;  # (2)!
+```
+
+1. 모든 db 및 테이블에 접근권한을 설정합니다.
+2. 현재 사용중인 MariaDB의 캐시를 지우고 새로운 설정을 적용하기 위해 사용합니다. 
+
+
+#### DB data 폴더 경로 변경하기
+추가한 데이터 디스크로 DB 폴더를 변경합니다.
+
+MariaDB 서비스를 중지합니다.
+``` yaml
+$ systemctl stop mariadb.service
+```
+
+#### Galera Cluster 설정 Node1,2,3(동일하게 설정)
+Galera Cluster를 구성합니다.
+
+??? note "마스터 노드 1, 2, 3 모두 동일하게 설정 및 실행합니다."
+
+MariaDB 서비스를 중지합니다.
+``` yaml
+$ systemctl stop mariadb.service
+```
+
+MariaDB 설정 파일을 변경합니다.
+``` yaml
+$ vi /etc/my.cnf.d/server.cnf 
+```
+
+??? note "클릭하여 MariaDB의 설정 정보를 확인합니다."
+    아래 예제를 참고하여 설정 정보를 변경합니다.
+    ``` kconfig linenums="1" hl_lines="7 9 23"
+    [galera]
+    ## 기존 설정 값을 수정합니다.
+    #
+    # galear cluster 사용여부
+    wsrep_on = ON
+    # libgalera_smm.so 모듈 위치
+    wsrep_provider = /usr/lib64/galera-4/libgalera_smm.so
+    # 동기화 진행할 IP 리스트 (Master Node 1, 2, 3의 Public IP값을 입력합니다.)
+    wsrep_cluster_address = gcomm://10.10.1.81, 10.10.1.82, 10.10.1.83
+    # 기본 스토리지 엔진
+    default_storage_engine=InnoDB
+    # auto increment의 값 잠금방식 (0/1/2 중 택)
+    innodb_autoinc_lock_mode=2
+    # IP 접근설정
+    bind-address=0.0.0.0
+    # 바이너리 로그파일 형식
+    binlog_format = ROW
+    # log 사용여부
+    general_log=ON
+    # log 위치 설정
+    log-error=/var/lib/mysql/error.log
+    # 동기화할 노드들의 그룹명 (노드마다 동일하게 설정)
+    wsrep_cluster_name = Cluster
+    ```
+
+#### Galera Cluster 및 DB 서비스 시작
+
+??? Warning "노드 별 DB 시작 순서에 유의하여 아래 명령어를 실행합니다."
+
+먼저 마스터 노드 1의 galera cluster를 먼저 시작합니다.
+``` yaml
+$ galera_new_cluster
+```
+
+마스터 노드 2, 3의 MariaDB 서비스를 시작합니다.
+``` yaml
+$ systemctl restart mariadb.service
+```
+
+#### Galera Cluster 설정 확인
+MariaDB에 접속합니다.
+
+``` yaml
+$ mariadb -u root -p
+
+Enter password: 패스워드 입력
+```
+
+``` yaml
+MariaDB [(none)]> show variables like 'wsrep_cluster_address';
+```
+
+### DB 장애 복구

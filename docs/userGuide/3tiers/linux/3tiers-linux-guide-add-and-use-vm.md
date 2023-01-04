@@ -6,6 +6,7 @@ VM을 생성하는 단계에서는 크게 아래 절차에 의해 실행됩니�
 2. 모든 VM을 제어하기 위한 SSH-Key를 생성합니다.
 3. VM을 생성하기 위한 템플릿을 생성하거나 업로드합니다.
 4. VM을 생성합니다. (Web, Was, DB구성을 위한 VM 각 3대, 총 9대의 VM을 생성)
+5. 각 VM에 Public IP를 할당합니다.
 
 ### Affinity 그룹 생성
 VM 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 Tier에 속한 모든 VM들이 특정 호스트에 몰려 실행되지 않도록 합니다.
@@ -68,3 +69,13 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - Affinity 그룹 설정: `ablecloud-3tier-linux-web`
 - 상세 : `가상머신 이름 및 그룹 등의 설정`
 
+
+### VPC에 Public IP 할당
+생성한 각 VM에 Public IP를 할당하여 외부에서 접속할 수 있도록 합니다.
+이를 위해 아래 절차로 Public IP를 할당합니다.
+1. Public IP를 VM에 할당합니다.
+2. Public IP에 Static NAT을 활성화합니다.
+
+
+!!! info "VPC에 대한 새 Public IP 주소 획득"
+    [VPC에 대한 새 Public IP 주소 획득](../../../../administration/cube/terminal-guide) 문서를 참고하여 접속하십시오.

@@ -31,6 +31,8 @@ theme:
     - navigation.top
     - navigation.tracking
 #    - navigation.sections
+    - content.code.annotate
+    - content.code.copy
 
 
   palette:
