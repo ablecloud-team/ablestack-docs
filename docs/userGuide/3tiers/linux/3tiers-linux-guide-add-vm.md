@@ -1,3 +1,14 @@
+본 문서는 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조"를 구성하기 위한 단계 중, 2 단계인 가상머신 생성에 대한 문서입니다.
+
+1. VPC 및 서브넷 생성: VPC(Virtual Private Cloud)를 생성하고 서브넷(Subnet)을 생성합니다.
+2. ==가상머신 생성: 생성된 서브넷에서 WEB, WAS, DB 각각 3대(총 9대)의 가상머신을 SSHKeyPair 및 Affinity을 설정하여 추가합니다.==
+3. 티어 구성 준비: 생성된 가상머신의 터미널에 접속하고 데이터 디스크 볼륨 구성을 합니다.
+4. 티어 별 WEB, WAS, DB 구성:
+      1. DB: 갈레라 클러스터(Galera Cluster)를 활용하여 동기 방식의 복제구조를 사용하는 멀티마스터 DB를 구성합니다.
+      2. WAS: 도커 컨테이너를 이용하여 NodeJS를 활용한 WAS를 구성합니다.
+      3. WEB: 도커 컨테이너를 이용하여 Nginx를 활용한 WAS를 구성합니다.
+5. LB 구성: 동일 서브넷 상의 VM들을 하나의 Public IP를 생성하여 LB로 구성합니다.
+
 ## VM 생성
 
 VM을 생성하는 단계에서는 크게 아래 절차에 의해 실행됩니다.
@@ -73,9 +84,10 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 ### VPC에 Public IP 할당
 생성한 각 VM에 Public IP를 할당하여 외부에서 접속할 수 있도록 합니다.
 이를 위해 아래 절차로 Public IP를 할당합니다.
+
 1. Public IP를 VM에 할당합니다.
-2. Public IP에 Static NAT을 활성화합니다.
+2. Public IP에 Static NAT을 활성화합니다. Static NAT을 활성화하여 Public IP와 Private IP를 1:1로 맵핑하여 포트포워딩 작업없이 Public IP를 사용할 수 있습니다.
 
-
-!!! info "VPC에 대한 새 Public IP 주소 획득"
-    [VPC에 대한 새 Public IP 주소 획득](../../../../administration/cube/terminal-guide) 문서를 참고하여 접속하십시오.
+!!! info "VPC에 대한 새 Public IP와 Static NAT설정"
+    - VPC에 Public IP 할당하기 위해 [VPC에 대한 새 Public IP 주소 획득](../../../../administration/mold/network&traffic-mngt-guide#vpc-public-ip) 문서를 참고하십시오.
+    - VPC에 Static NAT을 활성화하기 위해 [VPC에 대한 Static NAT을 활성화](../../../../administration/mold/network&traffic-mngt-guide#vpc-public-ip) 문서를 참고하십시오.

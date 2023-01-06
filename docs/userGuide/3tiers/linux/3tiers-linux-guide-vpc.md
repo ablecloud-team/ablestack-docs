@@ -1,13 +1,13 @@
 본 문서는 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조"를 구성하기 위한 단계 중, 1 단계인 VPC 및 서브넷 구성에 대한 문서입니다.
 
-1. ==VPC 및 서브넷 생성==
-2. 가상머신 생성
-3. 가상머신 디스크 설정
-4. 가상머신 WEB, WAS, DB 구성
-      1. DB 구성
-      2. WAS 구성
-      3. WEB 구성
-5. LB 구성
+1. ==VPC 및 서브넷 생성: VPC(Virtual Private Cloud)를 생성하고 서브넷(Subnet)을 생성합니다.==
+2. 가상머신 생성: 생성된 서브넷에서 WEB, WAS, DB 각각 3대(총 9대)의 가상머신을 SSHKeyPair 및 Affinity을 설정하여 추가합니다.
+3. 티어 구성 준비: 생성된 가상머신의 터미널에 접속하고 데이터 디스크 볼륨 구성을 합니다.
+4. 티어 별 WEB, WAS, DB 구성:
+      1. DB: 갈레라 클러스터(Galera Cluster)를 활용하여 동기 방식의 복제구조를 사용하는 멀티마스터 DB를 구성합니다.
+      2. WAS: 도커 컨테이너를 이용하여 NodeJS를 활용한 WAS를 구성합니다.
+      3. WEB: 도커 컨테이너를 이용하여 Nginx를 활용한 WAS를 구성합니다.
+5. LB 구성: 동일 서브넷 상의 VM들을 하나의 Public IP를 생성하여 LB로 구성합니다.
 
 ## VPC (Virtual Private Cloud) 및 서브넷 생성
 
@@ -15,7 +15,6 @@ VPC (Virtual Private Cloud)는 Mold 사용자의 전용 가상 네트워크이�
 
 - VPC 생성
 - 서브넷 생성
-
 
 ### VPC 생성
 
