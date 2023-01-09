@@ -87,52 +87,21 @@ exportfs -arv
 
 ### WEB Node 1, 2 구성
 
-#### SAMBA 패키지 설치
+#### NFS 스토리지 패키지 설치
 ``` yaml
-$ dnf install samba samba-client cifs-utils
+$ dnf install nfs-utils nfs4-acl-tools
+```
+
+#### NFS Server의 마운트 정보를 확인합니다.
+```
+showmount -e 10.10.1.63
 ```
 
 #### 공유할 폴더 생성
-WAS Node 3 (Samba Storage Node)와 파일을 공유할 폴더를 생성합니다.
+NFS 디렉터리를 마운트할 로컬 마운트 경로를 생성합니다.
 ``` yaml
-$ mkdir /mnt/data/shared_folder
-$ chmod -R 777 /mnt/data/shared_folder
-```
-
-#### Samba 사용자 생성 및 패스워드 설정
-리눅스 계정을 생성합니다.
-```
-$ useradd user1
-$ passwd user1
-```
-
-리눅스 계정과 동일한 계정 이름으로 samba 계정을 생성합니다.
-```
-$ smbpasswd -a user1
-```
-
-#### Samba 스토리지 마운트 계정정보 파일 생성
-Samba 스토리지 마운트 시, 명령줄에 계정 및 패스워드를 노출하는 대신 계정 정보가 담긴 파일을 생성하여 마운트합니다. 
-이를 위해 `.smb.cred` 파일을 생성합니다.
-
-```
-$ vi /root/.smb.cred
-```
-
-WAS Node 3 (Samba Storage Node)에서 설정한 내용으로 계정정보 파일을 생성합니다.
-```
-username=user1
-password=Ablecloud1!
-```
-
-#### samba 스토리지 마운트
-``` 
-$ mount -t cifs -o credentials=/root/.smb.cred,vers=3.0 //10.10.1.73/user1 /mnt/data/shared_folder
-
-# cifs: 프로토콜
-# credentials: samba 계정정보
-# user1: samba 스토리지 정보 (경로 정보 포함된 /etc/samba/smb.conf 내용)
-# /mnt/data/shared_folder: 마운트할 위치
+$ mkdir /mnt/data/mount-nfs
+$ chmod -R 777 /mnt/data/mount-nfs
 ```
 
 추가적으로 재부팅 시 자동으로 마운트가 적용되도록 합니다.
@@ -142,48 +111,75 @@ $ vi  /etc/fstab
 ```
 
 ``` 
-//10.10.1.73/user1 /mnt/data/shared_folder cifs credentials=/root/.smb.cred,vers=3.0,iocharset=utf8 0 0
+10.10.1.63:/mnt/data/nfs /mnt/data/mount-nfs nfs defaults 0 0
 
-# cifs: 프로토콜
-# credentials: samba 계정정보
-# user1: samba 스토리지 정보 (경로 정보 포함된 /etc/samba/smb.conf 내용)
-# /mnt/data/shared_folder: 마운트할 위치
+# nfs: 프로토콜
+# /mnt/data/mount-nfs: 마운트할 위치
 ```
 
-
-#### NodeJs 컨테이너 이미지 다운로드
-WAS Node 1,2 에서 실행할 NodeJs 컨테이너 이미지를 다운로드 받습니다.
-해당 이미지는 샘플 웹소스를 구동하기 위해 제작된 커스터마이즈된 이미지로써 `server.js`를 실행합니다.
+#### Nginx 컨테이너 이미지 다운로드
+WEB Node 1,2 에서 실행할 Nginx 컨테이너 이미지를 다운로드 받습니다.
 
 ```
-$ podman pull docker.io/stardom3645/nodejs-server:latest
+$ podman pull docker.io/nginx:stable
 ```
 
-#### NodeJs 컨테이너 (WAS) 실행 
-WAS Node 1,2 에서 다운로드한 NodeJs 컨테이너 이미지를 실행합니다.
-해당 이미지는 윗 단계에서 다운로드한 샘플 웹소스를 구동하기 위해 제작된 커스터마이즈된 이미지입니다.
+#### Nginx 컨테이너 (WEB) 실행 
+WEB Node 1,2 에서 다운로드한 Nginx 컨테이너 이미지를 실행합니다.
 
 ```
-$ podman run -d -p 5000:3000 -p 8081:8081 --name nodejs-server --restart always -v /mnt/data/shared_folder:/usr/src/app stardom3645/nodejs-server:latest
+$ $ podman run -d -p 9090:5000 --name nginx-server --restart always -v /mnt/data/mount-nfs:/usr/share/nginx/html/ docker.io/nginx:stable
 
 # run: 컨테이너를 실행합니다.
 # -p: 포트포워딩 (외부:내부)
 # --name: 컨테이너 이름
-# --restart: 컨테이너 오류 시, 재시작 방법
+# --restart: 컨테이너 오류 시, 항상 재시작
 # -v: 컨테이너의 특정 폴더와 로컬의 폴더를 서로 공유
-# "stardom3645/nodejs-server:latest": 다운로드한 이미지 이름
+# docker.io/nginx:stablet: 다운로드한 이미지 이름
 ```
 
-#### NodeJs 컨테이너 (WAS) VM 부팅 시 자동실행
+#### Nginx 컨테이너 (WEB) VM 부팅 시 자동실행
 서비스를 생성하는 방법으로 VM 부팅 시 해당 컨테이너가 자동으로 실행하도록 할 수 있습니다.
 ```
-$ podman generate systemd nodejs-server  > /etc/systemd/system/nodejs-server.service
-$ systemctl enable nodejs-server.service
+$ podman generate systemd nginx-server  > /etc/systemd/system/nginx-server.service
+$ systemctl enable nginx-server.service
 $ systemctl daemon-reload
 ```
 
+#### Nginx 설정파일 수정 (proxy_pass 변경)
+Nginx를 WAS의 Reverse Proxy로 설정해야합니다.
+이를 위해 `/mnt/data/mount-nfs/nginx.conf` 를 vi 편집기로 생성하고 아래 내용을 추가합니다.
+```
+$ vi  /mnt/data/mount-nfs/nginx.conf
+```
+
+``` json
+http {
+
+  server {
+    charset utf-8;
+    server_name localhost;
+    listen 5000;
+    location / {
+         proxy_set_header X-Real-IP $remote_addr;
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header Host $http_host;
+         proxy_set_header X-NginX-Proxy true;
+         proxy_pass http://10.10.1.70:5000;
+         proxy_redirect off;
+    	}
+	}
+}
+```
+
+#### 컨테이너 Nginx 설정파일과 교체
+실행 중인 Nginx 컨테이너 설정파일을 전 단계에서 생성한 파일로 덮어쓰기합니다.
+```
+$ podman cp /mnt/data/mount-nfs/nginx.conf nginx-server:/etc/nginx/nginx.conf
+```
+
 ### 클라이언트 접근
-`http://{{publicIp}}:5000`에 접속하여 정상 작동 되는 지 확인합니다.
+`http://{{publicIp}}:9090`에 접속하여 정상 작동 되는 지 확인합니다.
 
 
 

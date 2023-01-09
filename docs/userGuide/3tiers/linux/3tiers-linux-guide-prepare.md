@@ -4,7 +4,7 @@
 1. VPC 및 서브넷 생성: VPC(Virtual Private Cloud)를 생성하고 서브넷(Subnet)을 생성합니다.
 2. 가상머신 생성: 생성된 서브넷에서 WEB, WAS, DB 각각 3대(총 9대)의 가상머신을 SSHKeyPair 및 Affinity을 설정하여 추가합니다.
 3. 가상머신 디스크 설정: 생성된 가상머신의 데이터 디스크 볼륨 구성합니다.
-4. 가상머신 WEB, WAS, DB 구성: 도커 컨테이너를 이용하여 WEB, WAS를 구성하고, 갈레라 클러스터(Galera Cluster)를 통해 DB를 구성합니다.
+4. 가상머신 WEB, WAS, DB 구성: 도커 컨테이너를 이용하여 WEB(Nginx), WAS(Nodejs)를 구성하고, DB(Galera Cluster)를 구성합니다. 
 5. LB 구성: 동일 서브넷 상의 VM들을 하나의 Public IP를 생성하여 LB로 구성합니다.
 
 이와같은 절차에 따라 구성을 수행합니다. 

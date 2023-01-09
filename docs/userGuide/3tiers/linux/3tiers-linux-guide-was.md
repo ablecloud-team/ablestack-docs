@@ -45,7 +45,7 @@ ABLESTACK Cube의 "네트워킹" 메뉴를 클릭한 후 아래의 절차를 통
 
 ### Samba Storage Node 구성 (가상머신 3에서만 수행합니다)
 Samba storage가 설치되어 WAS Node 1, 2와 데이터를 공유할 Samba Storage Node에서 아래 절차를 수행합니다.
-#### SAMBA 패키지 설치
+#### Samba 패키지 설치
 ``` yaml
 $ dnf install samba
 ```
@@ -80,7 +80,7 @@ $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/sha
     위 예시에서 제시된 Git 소스가 아닌 다른 웹소스를 사용하려면 Docker 컨테이니너 이미지에서 해당 웹소스를 구동할 수 있는 이미지이어야 합니다.
     즉 기본 Docker NodeJs 이미지를 해당 웹소스를 구동하도록 Dockerfile을 생성하여 새로 이미지로 빌드하여야합니다.
 
-#### samba 설정
+#### Samba 설정
 /etc/samba/smb.conf 를 vi 편집기로 열어 samba 정보를 입력합니다.
 ``` yaml
 $ vi /etc/samba/smb.conf
@@ -116,7 +116,7 @@ $ systemctl start smb
 ### WAS Node 1, 2 구성
 #### nodejs docker 이미지 만들기 -> 만들어진 image로 대체
 
-#### SAMBA 패키지 설치
+#### Samba 패키지 설치
 ``` yaml
 $ dnf install samba samba-client cifs-utils
 ```
@@ -193,14 +193,15 @@ WAS Node 1,2 에서 다운로드한 NodeJs 컨테이너 이미지를 실행합�
 해당 이미지는 윗 단계에서 다운로드한 샘플 웹소스를 구동하기 위해 제작된 커스터마이즈된 이미지입니다.
 
 ```
-$ podman run -d -p 5000:3000 -p 8081:8081 --name nodejs-server --restart always -v /mnt/data/shared_folder:/usr/src/app stardom3645/nodejs-server:latest
+$ podman run -d -p 5000:3000 --name nodejs-server --restart always -v /mnt/data/shared_folder:/usr/src/app stardom3645/nodejs-server:latest
 
 # run: 컨테이너를 실행합니다.
+# -d: detached 모드 (컨테이너 백그라운드 실행)
 # -p: 포트포워딩 (외부:내부)
 # --name: 컨테이너 이름
-# --restart: 컨테이너 오류 시, 재시작 방법
+# --restart: 컨테이너 오류 시, 항상 재시작
 # -v: 컨테이너의 특정 폴더와 로컬의 폴더를 서로 공유
-# "stardom3645/nodejs-server:latest": 다운로드한 이미지 이름
+# stardom3645/nodejs-server:latest: 다운로드한 이미지 이름
 ```
 
 #### NodeJs 컨테이너 (WAS) VM 부팅 시 자동실행
