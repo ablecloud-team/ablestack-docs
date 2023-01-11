@@ -108,7 +108,7 @@ $ mariadb-secure-installation
     go a bit smoother.  You should remove them before moving into a
     production environment.
 
-    Remove anonymous users? [Y/n] Y  [익명의 접근을 막을 것인지? 보안을 위해 Y 엔터]
+    Remove anonymous users? [Y/n] Y  [익명의 접근을 막을 것인지? 보안을 위해 Y 또는 편의를 위해 N을 선택]
     ... Success!
 
 
@@ -174,10 +174,8 @@ MariaDB 서비스를 중지합니다.
 $ systemctl stop mariadb.service
 ```
 
-#### Galera Cluster 설정 Node1,2,3(동일하게 설정)
+#### Galera Cluster 설정
 Galera Cluster를 구성합니다.
-
-??? note "마스터 노드 1, 2, 3 모두 동일하게 설정 및 실행합니다."
 
 MariaDB 서비스를 중지합니다.
 ``` yaml
