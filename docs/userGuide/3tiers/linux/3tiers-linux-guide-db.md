@@ -167,12 +167,61 @@ MariaDB [(none)]> flush privileges;  # (2)!
 
 
 #### DB data 폴더 경로 변경하기
-추가한 데이터 디스크로 DB 폴더를 변경합니다.
+추가한 데이터 디스크로 DB 폴더를 변경하기 위해 먼저 기존 DB data 경로를 확인합니다.
 
-MariaDB 서비스를 중지합니다.
-``` yaml
-$ systemctl stop mariadb.service
-```
+1. MariaDB에 접속하여 DB data 경로를 확인합니다.
+    ``` yaml
+    $ mariadb -u root -p
+
+    Enter password: 패스워드 입력
+    ```
+    ``` yaml
+    MariaDB [(none)]> select @@datadir;
+    ```
+    
+2. MariaDB에서 로그아웃한 후 MariaDB 서비스를 정지합니다.
+    ``` yaml
+    $ systemctl stop mariadb
+    ```
+
+3. 새로운 Data 디렉토리에 데이터를 복사합니다. 현 예시에서는 경로가 /var/lib/mysqld에서 /mnt/data/mysql 로 설정합니다.)
+    ``` yaml
+    $ rsync -av /var/lib/mysql /mnt/data/
+    $ chown -R mysql:mysql /mnt/data/mysql
+    ```
+
+4. my.cnf 파일을 수정하여 MariaDB의 data 디렉토리 경로를 변경합니다.
+    ``` yaml
+    $ vi /etc/my.cnf
+    ```
+
+    아래의 내용으로 변경합니다.
+    ``` yaml
+    [client-server]
+    datadir=/home/data/mysql
+    socket=/home/data/mysql/mysql.sock
+    ```
+
+5. SELinux 보안 설정 및 context 추가
+    ``` yaml
+    $ semanage fcontext -a -t mysqld_db_t "/data/mysql(/.*)?"
+    $ restorecon -R /data/mysql
+    ```
+
+6. MariaDB 서비스를 시작합니다.
+    ``` yaml
+    $ systemctl restart mariadb
+    ```
+
+7. MariaDB에 접속한 후 변경된 DB data 경로를 확인합니다.
+    ``` yaml
+    MariaDB [(none)]> select @@datadir;
+    ```
+
+8. 기존 data 디렉토리 삭제합니다.
+    ``` yaml
+    $ rm -R /var/lib/mysql
+    ```
 
 #### Galera Cluster 설정
 Galera Cluster를 구성합니다.
@@ -241,5 +290,3 @@ Enter password: 패스워드 입력
 ``` yaml
 MariaDB [(none)]> show variables like 'wsrep_cluster_address';
 ```
-
-### DB 장애 복구
