@@ -63,6 +63,8 @@ SSH Key 쌍을 추가하기 위해 `컴퓨트` > `SSH 키 쌍 생성` 버튼을 
 ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md)" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다. 생성할 수 있는 방법은 다음과 같이 두 가지가 있으며 한 방법을 선택하여 수행합니다.
 
 1. 서브넷을 선택한 후 가상머신을 생성합니다. `네트워크 > VPC > 서브넷 선택 > 네트워크 탭` 에서 가상머신 추가 버튼을 클릭하면 "새 가상머신" 마법사 페이지가 표시됩니다.
+    ![3tier-linux-architecture-add-vm-01](../../../../assets/images/3tier-linux-architecture-add-vm-01.png)
+   
 2. `컴퓨트 > 가상머신` 화면으로 이동하여 `가상머신 추가` 버튼을 클릭하면 "새 가상머신" 마법사 페이지가 표시됩니다.
 
 해당 페이지에서는 다음과 같은 절차로 가상머신을 생성합니다.
@@ -73,7 +75,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 입력 항목 예제는 다음과 같습니다.
 
 - 배포 인프라 선택 : `Zone`
-- 템플릿/ISO : `Rocky Linux 9.0 기본 이미지 템플릿`
+- 템플릿/ISO : `Rocky Linux 9.0 기본 이미지 템플릿` * Rocky Linux release 9.0 (Blue Onyx)
 - 컴퓨트 오퍼링 : `1C-2GB-RBD-HA`
 - 데이터 디스크 : `100GB-WB-RBD`
 - 네트워크 : `web`
@@ -82,7 +84,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - Affinity 그룹 설정: `ablecloud-3tier-linux-web`
 - 상세 : `가상머신 이름 및 그룹 등의 설정`
 
-### VPC에 Public IP 할당
+### 가상머신에 Public IP 할당
 생성한 각 VM에 Public IP를 할당하여 외부에서 접속할 수 있도록 합니다.
 이를 위해 아래 절차로 Public IP를 할당합니다.
 

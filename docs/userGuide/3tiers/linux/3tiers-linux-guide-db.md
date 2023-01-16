@@ -43,7 +43,7 @@ SELINUX=disabled
 ``` linuxconfig
 $ vi /etc/yum.repos.d/mariadb.repo
 ```
-Rocky Linux 9.0의 경우 아래의 내용을 추가합니다.
+Rocky Linux 9.0의 경우 아래의 내용을 추가합니다. 다른 운영체제인 경우 [MariaDB Repository Link](https://mariadb.org/download/?t=repo-config){:target="_blank"} 를 클릭하여 확인 후 적용합니다.
 ``` title="mariadb.repo"  linenums="1"
 # MariaDB 10.9 RedHat repository list - created 2022-11-30 05:38 UTC
 # https://mariadb.org/download/
@@ -53,6 +53,8 @@ baseurl = https://tw1.mirror.blendbyte.net/mariadb/yum/10.9/rhel9-amd64
 gpgkey=https://tw1.mirror.blendbyte.net/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
+
+
 
 #### MariaDB 패키지 설치
 ``` linuxconfig
@@ -178,7 +180,7 @@ MariaDB [(none)]> flush privileges;  # (2)!
     ``` yaml
     MariaDB [(none)]> select @@datadir;
     ```
-    
+
 2. MariaDB에서 로그아웃한 후 MariaDB 서비스를 정지합니다.
     ``` yaml
     $ systemctl stop mariadb
@@ -286,7 +288,16 @@ $ mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
-
+갈레라 클러스터를 구성하는 전체 노드의 IP 주소 목록을 확인합니다.
 ``` yaml
 MariaDB [(none)]> show variables like 'wsrep_cluster_address';
+```
+출력된 결과 값을 확인합니다.
+
+```
++-----------------------+-----------------------------------------------+
+| Variable_name         | Value                                         |
++-----------------------+-----------------------------------------------+
+| wsrep_cluster_address | gcomm://10.10.1.81, 10.10.1.82, 10.10.1.83 |
++-----------------------+-----------------------------------------------+
 ```

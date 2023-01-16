@@ -54,7 +54,7 @@ $ dnf install samba
 WAS 컨테이너와 파일을 공유할 SAMBA 스토리지의 공유폴더를 생성하고 적절한 권한을 부여합니다.
 스토리지 공유폴더 경로 예시는 `/mnt/data/shared_folder` 입니다.
 ``` yaml
-$ mkdir /mnt/data/shared_folder
+$ mkdir -p /mnt/data/shared_folder
 $ chmod -R 777 /mnt/data/shared_folder
 ```
 
@@ -71,8 +71,9 @@ $ smbpasswd -a user1
 ```
 
 #### 웹 소스 공유폴더에 다운로드
-생성한 폴더에 Git 소스를 다운로드합니다.
+먼저 git 패키지를 설치한 후 생성한 폴더에 Git 소스를 다운로드합니다.
 ``` yaml
+$ dnf install git
 $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/shared_folder/
 ```
 
@@ -86,24 +87,28 @@ $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/sha
 $ vi /etc/samba/smb.conf
 ```
 
-``` yaml
+``` linenums="1"
 [user1]
         path = /mnt/data/shared_folder
-        browseable = yes 	# 사용 가능한 공유 목록에 디렉토리를 보여줄지 여부를 설정합니다.
+        # 사용 가능한 공유 목록에 디렉토리를 보여줄지 여부를 설정합니다.
+        browseable = yes
         read only = no
         writable = yes
-        write list = user1    #user1에 쓰기 권한 부여합니다.
-        force create mode = 0777	# 이 공유에서 새로 만든 파일에 대한 권한을 설정합니다.
-        force directory mode = 2770	# 이 공유에서 새로 만든 디렉토리에 대한 권한을 설정합니다.
+        #user1에 쓰기 권한 부여합니다.
+        write list = user1
+        # 이 공유에서 새로 만든 파일에 대한 권한을 설정합니다.
+        force create mode = 0777
+        # 이 공유에서 새로 만든 디렉토리에 대한 권한을 설정합니다.
+        force directory mode = 2770
         public = yes
 ```
 
 #### selinux 디렉토리 보안 설정
 
 ``` yaml
-$ setsebool -P samba_enable_home_dirs on (삼바 홈 디렉토리 읽기/쓰기 권한 부여)
-$ setsebool -P samba_export_all_rw on (읽기, 쓰기), setsebool -P samba_export_all_ro on (읽기만)
-$ chcon -R -t samba_share_t /mnt/data/shared_folder (특정디렉토리 삼바권한부여(하위디렉토리 포함))
+$ setsebool -P samba_enable_home_dirs on                # 삼바 홈 디렉토리 읽기/쓰기 권한 부여
+$ setsebool -P samba_export_all_rw on                   # (읽기, 쓰기) 또는 setsebool -P samba_export_all_ro on (읽기만)
+$ chcon -R -t samba_share_t /mnt/data/shared_folder     # 하위디렉토리 포함 특정디렉토리 삼바권한부여
 ```
 
 #### Samba 서비스 시작
@@ -114,7 +119,6 @@ $ systemctl start smb
 ```
 
 ### WAS Node 1, 2 구성
-#### nodejs docker 이미지 만들기 -> 만들어진 image로 대체
 
 #### Samba 패키지 설치
 ``` yaml
@@ -124,7 +128,7 @@ $ dnf install samba samba-client cifs-utils
 #### 공유할 폴더 생성
 WAS Node 3 (Samba Storage Node)와 파일을 공유할 폴더를 생성합니다.
 ``` yaml
-$ mkdir /mnt/data/shared_folder
+$ mkdir -p /mnt/data/shared_folder
 $ chmod -R 777 /mnt/data/shared_folder
 ```
 
@@ -151,7 +155,7 @@ $ vi /root/.smb.cred
 WAS Node 3 (Samba Storage Node)에서 설정한 내용으로 계정정보 파일을 생성합니다.
 ```
 username=user1
-password=Ablecloud1!
+password=PASSWORD # 패스워드를 입력하세요.
 ```
 
 #### samba 스토리지 마운트
@@ -167,7 +171,7 @@ $ mount -t cifs -o credentials=/root/.smb.cred,vers=3.0 //10.10.1.73/user1 /mnt/
 추가적으로 재부팅 시 자동으로 마운트가 적용되도록 합니다.
 이를 위해 `/etc/fstab` 를 vi 편집기로 열어 아래 내용을 추가합니다.
 ```
-$ vi  /etc/fstab
+$ vi /etc/fstab
 ```
 
 ``` 
@@ -185,7 +189,7 @@ WAS Node 1,2 에서 실행할 NodeJs 컨테이너 이미지를 다운로드 받�
 해당 이미지는 샘플 웹소스를 구동하기 위해 제작된 커스터마이즈된 이미지로써 `server.js`를 실행합니다.
 
 ```
-$ podman pull docker.io/stardom3645/nodejs-server:latest
+$ podman pull docker.io/ablecloudteam/nodejs-server:linux-0.1
 ```
 
 #### NodeJs 컨테이너 (WAS) 실행 
@@ -193,7 +197,7 @@ WAS Node 1,2 에서 다운로드한 NodeJs 컨테이너 이미지를 실행합�
 해당 이미지는 윗 단계에서 다운로드한 샘플 웹소스를 구동하기 위해 제작된 커스터마이즈된 이미지입니다.
 
 ```
-$ podman run -d -p 5000:3000 --name nodejs-server --restart always -v /mnt/data/shared_folder:/usr/src/app stardom3645/nodejs-server:latest
+$ podman run -d -p 5000:3000 --name nodejs-server --restart always -v /mnt/data/shared_folder:/usr/src/app ablecloudteam/nodejs-server:linux-0.1
 
 # run: 컨테이너를 실행합니다.
 # -d: detached 모드 (컨테이너 백그라운드 실행)
@@ -201,7 +205,7 @@ $ podman run -d -p 5000:3000 --name nodejs-server --restart always -v /mnt/data/
 # --name: 컨테이너 이름
 # --restart: 컨테이너 오류 시, 항상 재시작
 # -v: 컨테이너의 특정 폴더와 로컬의 폴더를 서로 공유
-# stardom3645/nodejs-server:latest: 다운로드한 이미지 이름
+# ablecloudteam/nodejs-server:linux-0.1: 다운로드한 이미지 이름
 ```
 
 #### NodeJs 컨테이너 (WAS) VM 부팅 시 자동실행

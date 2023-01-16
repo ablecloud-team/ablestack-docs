@@ -24,10 +24,10 @@
     ![3tier-linux-architecture-use-vm-console](../../../../assets/images/3tier-linux-architecture-use-vm-console.png)
 
 - Cube의 터미널 메뉴를 통한 접근
-    s
+
     !!! info "Cube 터미널"
         ABLESTACK Cube에 접속한 후 "터미널 메뉴"를 사용하여 터미널에 접근할 수 있습니다. 
-        [Cube 터미널](../../../../administration/cube/terminal-guide) 문서를 참고하십시오.
+        [Cube 터미널 접속 방법](../../../../administration/cube/terminal-guide) 문서를 참고하십시오.
 
 ## 가상머신 데이터 디스크 설정
 ### ABLESTACK Cube에 접속
