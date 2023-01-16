@@ -81,6 +81,15 @@ $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/sha
     위 예시에서 제시된 Git 소스가 아닌 다른 웹소스를 사용하려면 Docker 컨테이니너 이미지에서 해당 웹소스를 구동할 수 있는 이미지이어야 합니다.
     즉 기본 Docker NodeJs 이미지를 해당 웹소스를 구동하도록 Dockerfile을 생성하여 새로 이미지로 빌드하여야합니다.
 
+
+#### NodeJs 모듈 패키지 설치
+NodeJs 서버 구동을 위해 패키지를 설치합니다.
+```
+$ cd /mnt/data/shared_folder/
+$ dnf module install nodejs
+$ npm install
+```
+
 #### Samba 설정
 /etc/samba/smb.conf 를 vi 편집기로 열어 samba 정보를 입력합니다.
 ``` yaml

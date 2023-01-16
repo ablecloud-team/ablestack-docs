@@ -37,7 +37,7 @@ ABLESTACK Cube의 "네트워킹" 메뉴를 클릭한 후 아래의 절차를 통
 
 1. 방화벽 섹션에서 "규칙 및 영역 편집" 버튼을 클릭합니다.
 2. 설정할 네트워크 연결장치의 "서비스 추가" 버튼을 클릭합니다.
-3. "nfs" 를 검색한 후 해당 서비스를 추가합니다.
+3. "nfs", "mountd", "rpc-bind" 를 검색한 후 해당 서비스를 추가합니다.
     ![3tier-linux-architecture-web-nw-firewall-01](../../../../assets/images/3tier-linux-architecture-web-nw-firewall-01.png)
 
 !!! info "ABLESTACK Cube에서의 방화벽 설정"
@@ -54,7 +54,7 @@ $ dnf install nfs-utils
 WEB 컨테이너와 파일을 공유할 NFS 스토리지의 공유폴더를 생성하고 적절한 권한을 부여합니다.
 스토리지 공유폴더 경로 예시는 `/mnt/data/nfs` 입니다.
 ``` yaml
-$ mkdir /mnt/data/nfs
+$ mkdir -p /mnt/data/nfs
 $ chmod -R 777 /mnt/data/nfs
 ```
 
@@ -100,12 +100,12 @@ showmount -e 10.10.1.63
 #### 공유할 폴더 생성
 NFS 디렉터리를 마운트할 로컬 마운트 경로를 생성합니다.
 ``` yaml
-$ mkdir /mnt/data/mount-nfs
+$ mkdir -p /mnt/data/mount-nfs
 $ chmod -R 777 /mnt/data/mount-nfs
 ```
 
 추가적으로 재부팅 시 자동으로 마운트가 적용되도록 합니다.
-이를 위해 `/etc/fstab` 를 vi 편집기로 열어 아래 내용을 추가합니다.
+이를 위해 `/etc/fstab` 를 vi 편집기로 열어 아래 예시를 참고하여 설정 정보를 추가합니다.
 ```
 $ vi  /etc/fstab
 ```
@@ -128,7 +128,7 @@ $ podman pull docker.io/nginx:stable
 WEB Node 1,2 에서 다운로드한 Nginx 컨테이너 이미지를 실행합니다.
 
 ```
-$ $ podman run -d -p 9090:5000 --name nginx-server --restart always -v /mnt/data/mount-nfs:/usr/share/nginx/html/ docker.io/nginx:stable
+$ podman run -d -p 9090:5000 --name nginx-server --restart always -v /mnt/data/mount-nfs:/usr/share/nginx/html/ docker.io/nginx:stable
 
 # run: 컨테이너를 실행합니다.
 # -p: 포트포워딩 (외부:내부)
