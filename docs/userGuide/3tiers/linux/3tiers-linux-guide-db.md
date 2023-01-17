@@ -29,7 +29,7 @@ ABLESTACK Cube의 "네트워킹" 메뉴를 클릭한 후 아래의 절차를 통
 ### selinux 설정
 가상머신 [터미널](../../../../administration/cube/3tiers-linux-guide-use-vm#_1) 접근 후 아래의 절차를 통해 SELinux 정책을 강제에서 허용으로 영구적으로 변경합니다.
 /etc/sysconfig/selinux 를 vi 편집기로 열어 정보를 변경합니다.
-``` linuxconfig
+``` 
 $ vi /etc/sysconfig/selinux
 ```
 SELINUX 값을 disabled로 변경합니다.
@@ -40,7 +40,7 @@ SELINUX=disabled
 ### MariaDB 구성 (3node 동일)
 #### MariaDB 패키지 설치를 위한 yum Repo 등록하기
 /etc/yum.repos.d/mariadb.repo 를 vi 편집기로 열어 Repo 정보를 입력합니다.
-``` linuxconfig
+``` 
 $ vi /etc/yum.repos.d/mariadb.repo
 ```
 Rocky Linux 9.0의 경우 아래의 내용을 추가합니다. 다른 운영체제인 경우 [MariaDB Repository Link](https://mariadb.org/download/?t=repo-config){:target="_blank"} 를 클릭하여 확인 후 적용합니다.
@@ -61,7 +61,7 @@ gpgcheck=1
 $ dnf install MariaDB-server MariaDB-client
 ```
 #### MariaDB 시작
-``` yaml
+``` 
 $ systemctl enable mariadb.service # (1)!
 $ systemctl start mariadb.service # (2)!
 ```
@@ -70,7 +70,7 @@ $ systemctl start mariadb.service # (2)!
 2.  MariaDB 서비스를 시작합니다.
 
 #### MariaDB 보안 설정
-``` yaml
+``` 
 $ mariadb-secure-installation
 ```
 
@@ -152,13 +152,13 @@ $ mariadb-secure-installation
 #### DB 외부접속 허용
 MariaDB에 접속합니다.
 
-``` yaml
+``` 
 $ mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
 
-``` yaml
+``` 
 MariaDB [(none)]> use mysql;
 MariaDB [(none)]> grant all privileges on *.* to 'root'@'%'identified by '[패스워드 입력]'; # (1)!
 MariaDB [(none)]> flush privileges;  # (2)!
@@ -172,56 +172,56 @@ MariaDB [(none)]> flush privileges;  # (2)!
 추가한 데이터 디스크로 DB 폴더를 변경하기 위해 먼저 기존 DB data 경로를 확인합니다.
 
 1. MariaDB에 접속하여 DB data 경로를 확인합니다.
-    ``` yaml
+    ``` 
     $ mariadb -u root -p
 
     Enter password: 패스워드 입력
     ```
-    ``` yaml
+    ``` 
     MariaDB [(none)]> select @@datadir;
     ```
 
 2. MariaDB에서 로그아웃한 후 MariaDB 서비스를 정지합니다.
-    ``` yaml
+    ``` 
     $ systemctl stop mariadb
     ```
 
 3. 새로운 Data 디렉토리에 데이터를 복사합니다. 현 예시에서는 경로가 /var/lib/mysqld에서 /mnt/data/mysql 로 설정합니다.)
-    ``` yaml
+    ``` 
     $ rsync -av /var/lib/mysql /mnt/data/
     $ chown -R mysql:mysql /mnt/data/mysql
     ```
 
 4. my.cnf 파일을 수정하여 MariaDB의 data 디렉토리 경로를 변경합니다.
-    ``` yaml
+    ``` 
     $ vi /etc/my.cnf
     ```
 
     아래의 내용으로 변경합니다.
-    ``` yaml
+    ``` title="my.cnf"  linenums="1"
     [client-server]
     datadir=/home/data/mysql
     socket=/home/data/mysql/mysql.sock
     ```
 
 5. SELinux 보안 설정 및 context 추가
-    ``` yaml
+    ``` 
     $ semanage fcontext -a -t mysqld_db_t "/data/mysql(/.*)?"
     $ restorecon -R /data/mysql
     ```
 
 6. MariaDB 서비스를 시작합니다.
-    ``` yaml
+    ``` 
     $ systemctl restart mariadb
     ```
 
 7. MariaDB에 접속한 후 변경된 DB data 경로를 확인합니다.
-    ``` yaml
+    ``` 
     MariaDB [(none)]> select @@datadir;
     ```
 
 8. 기존 data 디렉토리 삭제합니다.
-    ``` yaml
+    ``` 
     $ rm -R /var/lib/mysql
     ```
 
@@ -229,12 +229,12 @@ MariaDB [(none)]> flush privileges;  # (2)!
 Galera Cluster를 구성합니다.
 
 MariaDB 서비스를 중지합니다.
-``` yaml
+``` 
 $ systemctl stop mariadb.service
 ```
 
 MariaDB 설정 파일을 변경합니다.
-``` yaml
+``` 
 $ vi /etc/my.cnf.d/server.cnf 
 ```
 
@@ -271,25 +271,25 @@ $ vi /etc/my.cnf.d/server.cnf
 ??? Warning "노드 별 DB 시작 순서에 유의하여 아래 명령어를 실행합니다."
 
 먼저 마스터 노드 1의 galera cluster를 먼저 시작합니다.
-``` yaml
+```
 $ galera_new_cluster
 ```
 
 마스터 노드 2, 3의 MariaDB 서비스를 시작합니다.
-``` yaml
+```
 $ systemctl restart mariadb.service
 ```
 
 #### Galera Cluster 설정 확인
 MariaDB에 접속합니다.
 
-``` yaml
+```
 $ mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
 갈레라 클러스터를 구성하는 전체 노드의 IP 주소 목록을 확인합니다.
-``` yaml
+```
 MariaDB [(none)]> show variables like 'wsrep_cluster_address';
 ```
 출력된 결과 값을 확인합니다.

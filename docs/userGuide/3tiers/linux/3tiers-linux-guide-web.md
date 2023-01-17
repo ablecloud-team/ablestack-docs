@@ -46,14 +46,14 @@ ABLESTACK Cube의 "네트워킹" 메뉴를 클릭한 후 아래의 절차를 통
 ### NFS 스토리지 Node 구성 (가상머신 3에서만 수행합니다)
 NFS 스토리지가 설치되어 WEB Node 1, 2와 데이터를 공유할 NFS 스토리지 Node에서 아래 절차를 수행합니다.
 #### NFS Server 패키지 설치
-``` yaml
+``` 
 $ dnf install nfs-utils
 ```
 
 #### 공유 폴더 생성
 WEB 컨테이너와 파일을 공유할 NFS 스토리지의 공유폴더를 생성하고 적절한 권한을 부여합니다.
 스토리지 공유폴더 경로 예시는 `/mnt/data/nfs` 입니다.
-``` yaml
+``` 
 $ mkdir -p /mnt/data/nfs
 $ chmod -R 777 /mnt/data/nfs
 ```
@@ -64,7 +64,7 @@ $ chmod -R 777 /mnt/data/nfs
 $ vi /etc/exports
 ```
 모든 사용자 또는 특정 범위 IP 사용자 접근 여부를 설정합니다.
-``` yaml
+``` title="exports"  linenums="1"
 # 모든 사용자 접근 허용 시
 /mnt/data/nfs *(rw,sync,no_root_squash) 
 
@@ -74,7 +74,7 @@ $ vi /etc/exports
 
 #### NFS Server 서비스 시작
 NFS Server Node의 NFS Server 서비스를 등록하고 시작합니다.
-``` yaml
+``` 
 $ systemctl enable nfs-server.service
 $ systemctl start nfs-server.service
 ```
@@ -88,7 +88,7 @@ exportfs -arv
 ### WEB Node 1, 2 구성
 
 #### NFS 스토리지 패키지 설치
-``` yaml
+``` 
 $ dnf install nfs-utils nfs4-acl-tools
 ```
 
@@ -99,7 +99,7 @@ showmount -e 10.10.1.63
 
 #### 공유할 폴더 생성
 NFS 디렉터리를 마운트할 로컬 마운트 경로를 생성합니다.
-``` yaml
+``` 
 $ mkdir -p /mnt/data/mount-nfs
 $ chmod -R 777 /mnt/data/mount-nfs
 ```
@@ -110,7 +110,7 @@ $ chmod -R 777 /mnt/data/mount-nfs
 $ vi  /etc/fstab
 ```
 
-``` 
+``` title="fstab"  linenums="1"
 10.10.1.63:/mnt/data/nfs /mnt/data/mount-nfs nfs defaults 0 0
 
 # nfs: 프로토콜
@@ -156,7 +156,7 @@ $ vi  /mnt/data/mount-nfs/nginx.conf
 
 ??? note "클릭하여 Nginx의 설정정보를 확인합니다."
 
-    ```  linenums="1"  hl_lines="35 41"
+    ```  title="nginx.conf"  linenums="1" hl_lines="35 41"
     user  nginx;
     worker_processes  auto;
 

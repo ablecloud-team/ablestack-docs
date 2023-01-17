@@ -46,14 +46,14 @@ ABLESTACK Cube의 "네트워킹" 메뉴를 클릭한 후 아래의 절차를 통
 ### Samba Storage Node 구성 (가상머신 3에서만 수행합니다)
 Samba storage가 설치되어 WAS Node 1, 2와 데이터를 공유할 Samba Storage Node에서 아래 절차를 수행합니다.
 #### Samba 패키지 설치
-``` yaml
+``` 
 $ dnf install samba
 ```
 
 #### 공유 폴더 생성
 WAS 컨테이너와 파일을 공유할 SAMBA 스토리지의 공유폴더를 생성하고 적절한 권한을 부여합니다.
 스토리지 공유폴더 경로 예시는 `/mnt/data/shared_folder` 입니다.
-``` yaml
+``` 
 $ mkdir -p /mnt/data/shared_folder
 $ chmod -R 777 /mnt/data/shared_folder
 ```
@@ -72,7 +72,7 @@ $ smbpasswd -a user1
 
 #### 웹 소스 공유폴더에 다운로드
 먼저 git 패키지를 설치한 후 생성한 폴더에 Git 소스를 다운로드합니다.
-``` yaml
+``` 
 $ dnf install git
 $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/shared_folder/
 ```
@@ -87,7 +87,7 @@ $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/sha
 vi /mnt/data/shared_folder/router/signUp/index.js
 ```
 Host, User, Password, Port, Database 정보를 사전에 구성된 DB 정보로 변경합니다.
-``` nodejs
+```  title="index.js"  linenums="1"
 // DATABASE setting
 var connection = mysql.createPool({
 	host: '10.10.1.80',
@@ -108,11 +108,11 @@ $ npm install
 
 #### Samba 설정
 /etc/samba/smb.conf 를 vi 편집기로 열어 samba 정보를 입력합니다.
-``` yaml
+``` 
 $ vi /etc/samba/smb.conf
 ```
 
-``` linenums="1"
+```   title="smb.conf"  linenums="1"
 [user1]
         path = /mnt/data/shared_folder
         # 사용 가능한 공유 목록에 디렉토리를 보여줄지 여부를 설정합니다.
@@ -130,7 +130,7 @@ $ vi /etc/samba/smb.conf
 
 #### selinux 디렉토리 보안 설정
 
-``` yaml
+``` 
 $ setsebool -P samba_enable_home_dirs on                # 삼바 홈 디렉토리 읽기/쓰기 권한 부여
 $ setsebool -P samba_export_all_rw on                   # (읽기, 쓰기) 또는 setsebool -P samba_export_all_ro on (읽기만)
 $ chcon -R -t samba_share_t /mnt/data/shared_folder     # 하위디렉토리 포함 특정디렉토리 삼바권한부여
@@ -138,7 +138,7 @@ $ chcon -R -t samba_share_t /mnt/data/shared_folder     # 하위디렉토리 포
 
 #### Samba 서비스 시작
 Samba Storage Node의 smb 서비스를 시작합니다.
-``` yaml
+``` 
 $ systemctl enable smb
 $ systemctl start smb
 ```
@@ -146,13 +146,13 @@ $ systemctl start smb
 ### WAS Node 1, 2 구성
 
 #### Samba 패키지 설치
-``` yaml
+``` 
 $ dnf install samba samba-client cifs-utils
 ```
 
 #### 공유할 폴더 생성
 WAS Node 3 (Samba Storage Node)와 파일을 공유할 폴더를 생성합니다.
-``` yaml
+``` 
 $ mkdir -p /mnt/data/shared_folder
 $ chmod -R 777 /mnt/data/shared_folder
 ```
@@ -178,7 +178,7 @@ $ vi /root/.smb.cred
 ```
 
 WAS Node 3 (Samba Storage Node)에서 설정한 내용으로 계정정보 파일을 생성합니다.
-```
+``` title="smb.conf"  linenums="1"
 username=user1
 password=PASSWORD # 패스워드를 입력하세요.
 ```
@@ -199,7 +199,7 @@ $ mount -t cifs -o credentials=/root/.smb.cred,vers=3.0 //10.10.1.73/user1 /mnt/
 $ vi /etc/fstab
 ```
 
-``` 
+``` title="fstab"  linenums="1"
 //10.10.1.73/user1 /mnt/data/shared_folder cifs credentials=/root/.smb.cred,vers=3.0,iocharset=utf8 0 0
 
 # cifs: 프로토콜
