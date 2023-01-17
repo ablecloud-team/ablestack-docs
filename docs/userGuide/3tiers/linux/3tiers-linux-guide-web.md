@@ -128,7 +128,7 @@ $ podman pull docker.io/nginx:stable
 WEB Node 1,2 에서 다운로드한 Nginx 컨테이너 이미지를 실행합니다.
 
 ```
-$ podman run -d -p 9090:5000 --name nginx-server --restart always -v /mnt/data/mount-nfs:/usr/share/nginx/html/ docker.io/nginx:stable
+$ podman run -d -p 6060:6000 --name nginx-server --restart always -v /mnt/data/mount-nfs:/usr/share/nginx/html/ docker.io/nginx:stable
 
 # run: 컨테이너를 실행합니다.
 # -p: 포트포워딩 (외부:내부)
@@ -148,29 +148,69 @@ $ systemctl daemon-reload
 
 #### Nginx 설정파일 수정 (proxy_pass 변경)
 Nginx를 WAS의 Reverse Proxy로 설정해야합니다.
-이를 위해 `/mnt/data/mount-nfs/nginx.conf` 를 vi 편집기로 생성하고 아래 내용을 추가합니다.
+이를 위해 `/mnt/data/mount-nfs/nginx.conf` 를 vi 편집기로 생성하고 아래 내용을 추가하고 변경합니다.
 ```
 $ vi  /mnt/data/mount-nfs/nginx.conf
 ```
+하이라이트된 listen 포트와 proxy_pass 주소는 각 설정 맞게 유의하여 변경합니다.
 
-``` json
-http {
+??? note "클릭하여 Nginx의 설정정보를 확인합니다."
 
-  server {
-    charset utf-8;
-    server_name localhost;
-    listen 5000;
-    location / {
-         proxy_set_header X-Real-IP $remote_addr;
-         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-         proxy_set_header Host $http_host;
-         proxy_set_header X-NginX-Proxy true;
-         proxy_pass http://10.10.1.70:5000;
-         proxy_redirect off;
-    	}
-	}
-}
-```
+    ```  linenums="1"  hl_lines="35 41"
+    user  nginx;
+    worker_processes  auto;
+
+    error_log  /var/log/nginx/error.log notice;
+    pid        /var/run/nginx.pid;
+
+
+    events {
+        worker_connections  1024;
+    }
+
+
+    http {
+        include       /etc/nginx/mime.types;
+        default_type  application/octet-stream;
+
+        log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                            '$status $body_bytes_sent "$http_referer" '
+                            '"$http_user_agent" "$http_x_forwarded_for"';
+
+        access_log  /var/log/nginx/access.log  main;
+
+        sendfile        on;
+        #tcp_nopush     on;
+
+        keepalive_timeout  65;
+
+        include /etc/nginx/conf.d/*.conf;
+
+        charset           utf-8;
+
+        server {
+            charset utf-8;
+            server_name localhost;
+            listen 6000;
+            location / {
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header Host $http_host;
+                proxy_set_header X-NginX-Proxy true;
+                proxy_pass http://10.10.1.170:5000;
+                proxy_redirect off;
+            }
+
+            gzip on;
+            gzip_comp_level 2;
+            gzip_proxied any;
+            gzip_min_length  1000;
+            gzip_disable     "MSIE [1-6]\."
+            gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+        }
+    }
+    ```   
+
 
 #### 컨테이너 Nginx 설정파일과 교체
 실행 중인 Nginx 컨테이너 설정파일을 전 단계에서 생성한 파일로 덮어쓰기합니다.
@@ -179,7 +219,7 @@ $ podman cp /mnt/data/mount-nfs/nginx.conf nginx-server:/etc/nginx/nginx.conf
 ```
 
 ### 클라이언트 접근
-`http://{{publicIp}}:9090`에 접속하여 정상 작동 되는 지 확인합니다.
+`http://{{publicIp}}:6060`에 접속하여 정상 작동 되는 지 확인합니다.
 
 
 

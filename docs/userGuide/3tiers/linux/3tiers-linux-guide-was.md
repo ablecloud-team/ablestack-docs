@@ -81,6 +81,22 @@ $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/sha
     위 예시에서 제시된 Git 소스가 아닌 다른 웹소스를 사용하려면 Docker 컨테이니너 이미지에서 해당 웹소스를 구동할 수 있는 이미지이어야 합니다.
     즉 기본 Docker NodeJs 이미지를 해당 웹소스를 구동하도록 Dockerfile을 생성하여 새로 이미지로 빌드하여야합니다.
 
+#### 웹 소스 변경
+다운로드 받은 웹 소스의 DB 설정정보를 미리 구성된 DB로 변경합니다.
+```
+vi /mnt/data/shared_folder/router/signUp/index.js
+```
+Host, User, Password, Port, Database 정보를 사전에 구성된 DB 정보로 변경합니다.
+``` nodejs
+// DATABASE setting
+var connection = mysql.createPool({
+	host: '10.10.1.80',
+	user: 'root',
+	password: 'PASSWORD!',
+	port: '3306',
+	database: 'galeradb'
+});
+```
 
 #### NodeJs 모듈 패키지 설치
 NodeJs 서버 구동을 위해 패키지를 설치합니다.
