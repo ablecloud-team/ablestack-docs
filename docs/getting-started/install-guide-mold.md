@@ -198,7 +198,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     - **이름** 항목에는 **ps** 를 입력합니다.
     - **범위** 선택 박스에는 **zone** 을 선택합니다.
     - **프로토콜** 선택 박스에는 **Glue Block** 를 선택합니다.
-    - **Glue Block 모니터** 항목에는 **scvm1,scvm2,scvm3**을 입력합니다.(띄어쓰기 없음)
+    - **Glue Block 모니터** 항목에는 scvm1,scvm2,scvm3을 입력합니다.(띄어쓰기 없음)
     - **Glue Block 풀** 항목에는 **rbd** 를 입력합니다.
     - **Glue Block 사용자** 항목에는 **admin** 을 입력합니다.
     - **Glue Block 시크릿** 항목에는 **client.admin의 key값** 을 입력합니다.
@@ -222,9 +222,9 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 14. ablecube2 호스트 추가  
     ![호스트 추가](../assets/images/install-guide-mold-add-host2.png){ align=center }
     - 클라우드센터 ablecube2 호스트를 추가하는 화면 입니다.
-    - **Zone 이름** 항목에는 **Zone** 를 입력합니다.
-    - **Pod 이름** 항목에는 **Pod** 를 입력합니다.
-    - **클러스터** 항목에는 **Cluster** 를 입력합니다.
+    - **Zone 이름** 항목에는 **Zone** 을 선택합니다.
+    - **Pod 이름** 항목에는 **Pod** 을 선택합니다.
+    - **클러스터** 항목에는 **Cluster** 를 선택합니다.
     - **호스트 이름** 항목에는 **ablecloud2** 를 입력합니다.
     - **사용자 이름** 항목에는 **root** 를 입력합니다.
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
@@ -234,9 +234,9 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 14. ablecube3 호스트 추가  
     ![호스트 추가](../assets/images/install-guide-mold-add-host3.png){ align=center }
     - 클라우드센터 ablecube3 호스트를 추가하는 화면 입니다.
-    - **Zone 이름** 항목에는 **Zone** 를 입력합니다.
-    - **Pod 이름** 항목에는 **Pod** 를 입력합니다.
-    - **클러스터** 항목에는 **Cluster** 를 입력합니다.
+    - **Zone 이름** 항목에는 **Zone** 을 선택합니다.
+    - **Pod 이름** 항목에는 **Pod** 을 선택합니다.
+    - **클러스터** 항목에는 **Cluster** 를 선택합니다.
     - **호스트 이름** 항목에는 **ablecloud3** 를 입력합니다.
     - **사용자 이름** 항목에는 **root** 를 입력합니다.
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
@@ -248,20 +248,20 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 !!! info
     ABLESTACK구성 시 필요한 최소 3식의 x86 호스트 서버가 준비되어 있어야 하며, 스토리지센터 가상머신은 각 호스트당 1대씩, 클라우드센터 가상머신은 총 1대입니다.
 
-    스토리지센터 가상머신과 클라우드센터 가상머신이 성능 안정화가 될려면 **스토리지센터 가상머신(최소 32GB) + 클라우드센터 가상머신(최소 16GB) + 여유 용량 (A)** 가 필요합니다.
+    스토리지센터 가상머신과 클라우드센터 가상머신의 성능 안정화를 위해 **스토리지센터 가상머신(최소 32GB) + 클라우드센터 가상머신(최소 16GB) + 여유 용량 (A)** 가 필요합니다.
 
 1. 호스트 agent 구성파일 
     ![호스트 설정파일](../assets/images/install-guide-host-memory-add.png){ align=center }
     - 호스트 Cube 터미널 화면입니다.
     - 터미널 명령어 **vi /etc/cloudstack/agent/agent.properties** 입력하고 Enter를 누릅니다.
-    - **host.reserved.mem.mb=51200** 입력한 후 **:wq** 명령어로 저장합니다.
+    - **host.reserved.mem.mb=51200** 라인을 추가하고 **:wq** 명령어로 저장합니다.
 
     !!! check
-        설치되어있는 호스트 각각마다 명령어를 실행해 줘야 합니다. 
+        각 호스트에서 명령어를 실행해야 합니다. 
 
 2. 호스트 cloudstack-agent 서비스 시작
     ![호스트 클라우드 서비스](../assets/images/install-guide-host-memory-add-1.png){ align=center }
-    - 터미널 명령어 **systemctl restart cloudstack-agent.service** 입력하고 Enter를 누릅니다.
+    - 터미널 명령어 **systemctl restart cloudstack-agent.service** 를 실행합니다.
 
 
 
