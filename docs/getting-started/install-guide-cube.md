@@ -67,7 +67,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         IP 설정을 설치 단계에서 미리 하는 경우, 이후 네트워크 설정에 문제가 발생할 수 있습니다.
           
 5. 설치 대상 구성 화면
-    - ABLESTACK Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.  
+    - ABLESTACK Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.
 
     ![설치 대상](../assets/images/install-guide-cube-06.png){ align=center }
     
