@@ -12,7 +12,40 @@
 ## DB 설치 및 구성
 아래의 구조로 DB를 구성합니다.
 
-![3tier-linux-architecture-db-01](../../../../assets/images/3tier-linux-architecture-db-01.png)
+![3tier-linux-architecture-db-01](../../../../assets/images/3tier-linux-architecture-db-01.png){ align=center }
+
+
+### Affinity 그룹 생성
+VM 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 VM들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다.
+이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 `컴퓨트 > Affinity 그룹` 화면으로 이동하여 `새 Affinity 그룹 추가` 버튼을 클릭합니다.
+클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다. 
+
+<figure markdown>
+![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
+<figcaption>새 Affinity 그룹 추가 대화 상자</figcaption>
+</figure markdown>
+
+1. 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
+2. 설명 : Affinity 그룹에 대한 설명을 입력합니다.
+3. 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다. 
+
+새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
+
+- 이름 : `ablecloud-3tier-linux-web`
+- 설명 : `3tiers-linux의 web 구성 시 사용되는 Affinity 그룹입니다.`
+- 유형 : `host anti-affinity (Strict)`
+
+!!! info "Affinity 그룹 유형"
+    host anti-affinity:	가능한 한 서로 다른 호스트에 인스턴스를 배포합니다.
+
+    host affinity: 가능한 한 동일한 호스트에 인스턴스를 배포합니다.
+
+    * Non-Strict 옵션은 마지막 실행 호스트를 고려하여 실행됩니다.
+
+
+
+
+
 
 ## 보안 설정
 ### 네트워크 방화벽 해제 (DB Node 1, 2, 3 모든 VM에 설정합니다.)
