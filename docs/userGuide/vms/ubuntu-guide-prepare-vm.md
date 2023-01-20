@@ -1,11 +1,10 @@
-ABLESTACK Mold는 다양한 운영체제의 가상머신을 지원합니다. 그 중 가장 많이 사용하는 운영체제 중 하나는 CentOS 입니다. 해당 운영체제는 Fedora 계열의 운영체제로 RedHat Enterprise Linux의 Upstream 운영체제입니다. 본 문서에서는 사용자가 해당 운영체제를 탑재한 가상머신을 만들고, 사용하는 방법을 설명합니다. 
+ABLESTACK Mold는 다양한 운영체제의 가상머신을 지원합니다. 그 중 가장 많이 사용하는 운영체제 중 하나는 Ubuntu 입니다. 해당 운영체제는 Debian 계열의 운영체제입니다. 본 문서에서는 사용자가 해당 운영체제를 탑재한 가상머신을 만들고, 사용하는 방법을 설명합니다. 
 
 !!! info "가이드를 활용할 수 있는 운영체제"
-    CentOS는 RHEL의 Upstream 운영체제입니다. 일반적으로 Upstream 운영체제는 안정화된 Downstream 운영체제에 비해 최신화된 드라이버 및 애플리케이션이 포함될 수 있지만, 본 문서에서 설명하는 내용은 일반적인 가상머신 활용 방법을 설명하기 때문에 다음의 Downstream 운영체제에서도 동일하게 활용할 수 있습니다. 
+    본 문서는 Debian 계열의 운영체제를 사용하여 Mold에서 가상머신을 준비하고 활용하는 가이드로 다음의 버전의 운영체제의 가상머신에 적용할 수 있습니다.
 
-    - Redhat Enterprise Linux
-    - Rockey Linux
-    - AlmaLinux
+    - Ubuntu 20.04 LTS(장기 지원 버전)
+    - Ubuntu 22.04 LTS(장기 지원 버전)
 
 ## 가상머신 사용 준비 개요
 
@@ -20,10 +19,10 @@ ABLESTACK은 가상머신을 빠르게 배포하고 사용자에게 편리한 �
 
 ## 운영체제 이미지 준비
 
-가상머신을 만들기 위해서는 운영체제가 필요합니다. 가상머신 운영체제는 ISO 형식의 이미지를 사용합니다. CentOS의 ISO 이미지는 다음의 공식 사이트에서 다운로드 하는 것을 권장합니다. 
+가상머신을 만들기 위해서는 운영체제가 필요합니다. 가상머신 운영체제는 ISO 형식의 이미지를 사용합니다. Ubuntu의 ISO 이미지는 다음의 공식 사이트에서 다운로드 하는 것을 권장합니다. 
 
 ```
-https://centos.org/download/
+https://ubuntu.com/download/
 ```
 
 ISO 이미지는 다운로드할 이미지의 주소를 이용하여 Mold에 직접 등록할 수 있습니다. Mold UI에서 `이미지 > ISO` 화면으로 이동한 후 `ISO 등록` 버튼을 클릭하면 다음과 같은 대화상자가 표시됩니다. 
@@ -47,7 +46,7 @@ ISO 등록 대화상자는 ISO 이미지를 URL로 등록하기 위한 항목을
 대화상자에서 필수항목 등에 필요한 값을 입력하여 운영체제 이미지를 등록합니다. 등록된 이미지는 `이미지 > ISO` 화면에서 목록을 통해 확인하거나, 해당 목록에서 상세 화면으로 이동하여 확인할 수 있습니다. 확인한 결과는 다음의 그림과 유사합니다. 
 
 <center>
-![centos-02-vm-register-iso](../../assets/images/centos-02-vm-register-iso.png){ width="600" }
+![ubuntu-02-vm-register-iso](../../assets/images/ubuntu-02-vm-register-iso.png){ width="600" }
 </center>
 
 ## 네트워크 준비
@@ -60,7 +59,7 @@ ISO 이미지를 이용해 가상머신을 생성하기 전에, 먼저 가상머
 가상머신에 연결할 네트워크를 준비하기 위해 `네트워크 > 가상머신용 네트워크` 화면으로 이동한 후 `네트워크 추가` 버튼을 클릭하여 "네트워크 추가" 대화상자를 표시합니다. 
 
 <center>
-![centos-03-vm-prepare-network](../../assets/images/centos-03-vm-prepare-network.png){ width="400" }
+![ubuntu-03-vm-prepare-network](../../assets/images/centos-03-vm-prepare-network.png){ width="400" }
 </center>
 
 "네트워크 추가" 대화 상자에서 "Isolated" 탭을 선택하면 다음과 같은 입력항목을 확인할 수 있습니다. 
@@ -78,7 +77,7 @@ ISO 이미지를 이용해 가상머신을 생성하기 전에, 먼저 가상머
 가상머신 준비를 위한 네트워크는 위의 항목 중, 이름과 설명만 입력하면 기본값이 설정되어 자동으로 생성됩니다. 다음의 그림은 네트워크 생성 결과는 `네트워크 > 가상머신용 네트워크`에서 조회한 결과의 예 입니다. 
 
 <center>
-![centos-04-vm-prepare-network](../../assets/images/centos-04-vm-prepare-network.png){ width="600" }
+![ubuntu-04-vm-prepare-network](../../assets/images/centos-04-vm-prepare-network.png){ width="600" }
 </center>
 
 ## ISO를 이용한 가상머신 생성
@@ -97,7 +96,7 @@ ISO와 가상머신 생성용 네트워크가 준비되었다면 이제 ISO를 �
 먼저 가상머신을 배포할 인프라를 선택합니다. "새 가상머신" 마법사의 배포 인프라 선택 단계의 화면은 다음과 같습니다. 
 
 <center>
-![centos-05-vm-deploy-infra](../../assets/images/centos-05-vm-deploy-infra.png){ width="600" }
+![ubuntu-05-vm-deploy-infra](../../assets/images/centos-05-vm-deploy-infra.png){ width="600" }
 </center>
 
 가상머신은 사용자가 선택한 위치에 배포됩니다. 기본적으로 ABLESTACK의 기본 Zone이 선택되어 있고, 나머지 자원은 ABLESTACK이 자동으로 선택합니다. 별도의 배포 인프라를 선택해야 하는 경우, Pod, 클러스터, 호스트를 차례로 선택합니다. 
@@ -105,7 +104,7 @@ ISO와 가상머신 생성용 네트워크가 준비되었다면 이제 ISO를 �
 인프라를 선택한 후 가상머신 생성에 사용할 이미지를 선택합니다. 마법사의 템플릿/ISO 선택 화면은 다음과 같습니다. 
 
 <center>
-![centos-06-vm-deploy-image](../../assets/images/centos-06-vm-deploy-image.png){ width="600" }
+![ubuntu-06-vm-deploy-image](../../assets/images/centos-06-vm-deploy-image.png){ width="600" }
 </center>
 
 템플릿/ISO 선택화면에서 "ISO" 탭을 선택하고 목록에서 가상머신 생성에 사용할 ISO 이미지를 선택합니다. 
@@ -115,23 +114,23 @@ ISO와 가상머신 생성용 네트워크가 준비되었다면 이제 ISO를 �
 가상머신을 실행하기 위해서는 해당 가상머신을 실행하기 위한 적절한 컴퓨트 자원, 즉 CPU 및 메모리 자원이 필요합니다. "컴퓨트 오퍼링" 선택 단계에서 해당 자원을 선택합니다. 해당 화면은 다음과 같습니다. 
 
 <center>
-![centos-07-vm-compute-offering](../../assets/images/centos-07-vm-compute-offering.png){ width="600" }
+![ubuntu-07-vm-compute-offering](../../assets/images/centos-07-vm-compute-offering.png){ width="600" }
 </center>
 
-CentOS 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCore의 CPU, 4GB 메모리면 충분합니다. 필요한 컴퓨트 자원을 선택합니다. 
+Ubuntu 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCore의 CPU, 4GB 메모리면 충분합니다. 필요한 컴퓨트 자원을 선택합니다. 
 
 가상머신에 ISO 이미지를 이용해 운영체제를 설치하려면 가상머신에 루트 디스크가 연결되어야 합니다. 루트 디스크를 선택하는 화면은 다음과 같습니다. 
 
 <center>
-![centos-08-vm-root-disk](../../assets/images/centos-08-vm-root-disk.png){ width="600" }
+![ubuntu-08-vm-root-disk](../../assets/images/centos-08-vm-root-disk.png){ width="600" }
 </center>
 
-가상머신의 디스크는 CentOS의 경우 20GB ~ 50GB 이내의 크기로 설정하여 생성하는 것을 권장합니다. "디스크 크기" 화면의 목록에서 적정한 디스크 오퍼링을 선택합니다. 
+가상머신의 디스크는 Ubuntu의 경우 20GB ~ 50GB 이내의 크기로 설정하여 생성하는 것을 권장합니다. "디스크 크기" 화면의 목록에서 적정한 디스크 오퍼링을 선택합니다. 
 
 가상머신 실행을 이해서는 NIC의 연결이 필요합니다. NIC의 연결은 특정 네트워크에 연결되어야 합니다. 따라서 "네트워크" 화면에서 가상머신 NIC에 연결할 네트워크를 선택해야 합니다. 해당 화면은 다음과 같습니다. 
 
 <center>
-![centos-09-vm-select-network](../../assets/images/centos-09-vm-select-network.png){ width="600" }
+![ubuntu-09-vm-select-network](../../assets/images/centos-09-vm-select-network.png){ width="600" }
 </center>
 
 "네트워크" 화면에 표시되는 목록 중, 가상머신 준비를 위해 생성한 네트워크를 선택합니다. 네트워크를 선택하면 선택된 네트워크에 대한 기본 정보 및 CIDR 정보, 그리고 IP 정보, MAC 주소 정보를 입력할 수 있습니다. 가상머신 준비를 위해서는 이러한 정보를 입력하지 않고 기본값을 사용합니다.  
@@ -144,7 +143,7 @@ CentOS 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCo
 가상머신의 확장 설정을 하기 위해서 확장 모드 단계의 "고급 설정 표시" 단추를 클릭하여 해당 화면을 엽니다. 해당 화면은 다음과 같습니다. 
 
 <center>
-![centos-10-vm-extended-config](../../assets/images/centos-10-vm-extended-config.png){ width="600" }
+![ubuntu-10-vm-extended-config](../../assets/images/centos-10-vm-extended-config.png){ width="600" }
 </center>
 
 확장 모드에서는 가상머신의 부팅 유형을 설정합니다. 가상머신은 레거시 방식 또는 EFI 방식 중에서 하나를 부팅 방식으로 선택할 수 있습니다. EFI 방식을 선택하는 경우 부팅 모드를 LEGACY 또는 SECURE 중에서 선택할 수 있습니다. 원하는 가상머신의 부팅 방식을 선택합니다. 
@@ -155,7 +154,7 @@ CentOS 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCo
 마지막으로 가상머신의 상세 정보를 설정합니다. "상세" 화면은 다음과 같습니다. 
 
 <center>
-![centos-11-vm-detail-config](../../assets/images/centos-11-vm-detail-config.png){ width="600" }
+![ubuntu-11-vm-detail-config](../../assets/images/centos-11-vm-detail-config.png){ width="600" }
 </center>
 
 상세화면에서 가상머신의 이름을 입력하면 가상머신을 시작할 모든 준비가 완료됩니다. 가상머신을 실행합니다. 
@@ -165,13 +164,13 @@ CentOS 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCo
 가상머신이 실행되면 `컴퓨트 > 가상머신` 화면에 표시되는 목록에서 해당 가상머신의 실행 여부를 확인할 수 있습니다. 다음의 그림과 같습니다. 
 
 <center>
-![centos-12-vm-start-with-iso](../../assets/images/centos-12-vm-start-with-iso.png){ width="600" }
+![ubuntu-12-vm-start-with-iso](../../assets/images/centos-12-vm-start-with-iso.png){ width="600" }
 </center>
 
 위의 그림에서 :fontawesome-solid-ellipsis-v: 버튼에 마우스를 올려 놓으면 메뉴가 표시되는데 첫번째 메뉴 아이콘이 가상머신의 콘솔을 표시하는 메뉴입니다. 해당 메뉴를 클릭하면 브라우저의 신규 탭에 해당 가상머신의 콘솔이 다음과 같이 표시됩니다. 
 
 <center>
-![centos-13-vm-console-connect](../../assets/images/centos-13-vm-console-connect.png){ width="600" }
+![ubuntu-13-vm-console-connect](../../assets/images/centos-13-vm-console-connect.png){ width="600" }
 </center>
 
 콘솔에 접속했다면 "Install CentOS ... "을 선택하여 운영체제 설치 절차를 진행합니다. 전체적인 설치 과정은 일반적인 설치 과정을 따르되 다음의 사항을 확인합니다. 
