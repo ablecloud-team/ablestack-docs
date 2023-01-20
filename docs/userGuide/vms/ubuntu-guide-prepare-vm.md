@@ -170,10 +170,41 @@ Ubuntu 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCo
 위의 그림에서 :fontawesome-solid-ellipsis-v: 버튼에 마우스를 올려 놓으면 메뉴가 표시되는데 첫번째 메뉴 아이콘이 가상머신의 콘솔을 표시하는 메뉴입니다. 해당 메뉴를 클릭하면 브라우저의 신규 탭에 해당 가상머신의 콘솔이 다음과 같이 표시됩니다. 
 
 <center>
-![ubuntu-13-vm-console-connect](../../assets/images/centos-13-vm-console-connect.png){ width="600" }
+![ubuntu-13-vm-console-connect](../../assets/images/ubuntu-13-vm-console-connect.png){ width="600" }
 </center>
 
-콘솔에 접속했다면 "Install CentOS ... "을 선택하여 운영체제 설치 절차를 진행합니다. 전체적인 설치 과정은 일반적인 설치 과정을 따르되 다음의 사항을 확인합니다. 
+콘솔에 접속했다면 언어 선택 입니다. 설치중에는 한글을 사용할 수 없음으로 English 를 선택 합니다. 
+
+
+<center>
+![ubuntu-14-vm-console-connect](../../assets/images/ubuntu-14-vm-console-connect.png){ width="600" }
+</center>
+
+업데이트 여부 선택 입니다. 기본 값은 업데이트 비활성 입니다.
+
+
+<center>
+![ubuntu-15-vm-console-connect](../../assets/images/ubuntu-15-vm-console-connect.png){ width="600" }
+</center>
+
+키보드 레이아웃 선택 입니다. Enlgish (US) 기본 값을 선택 합니다.
+
+
+<center>
+![ubuntu-16-vm-console-connect](../../assets/images/ubuntu-16-vm-console-connect.png){ width="600" }
+</center>
+
+인스톨 옵션을 선택 입니다. 기본 값을 선택 합니다.
+
+
+
+
+
+
+
+
+
+전체적인 설치 과정은 일반적인 설치 과정을 따르되 다음의 사항을 확인합니다. 
 
 - Installation Destination : 디스크의 파티션이 원하는 데로 설정되어 있는지 확인합니다.(Automatic partitioning selected를 사용하지 않고 직접 설정하는 것을 권장)
 - Time & Date : Asia/Seoul
