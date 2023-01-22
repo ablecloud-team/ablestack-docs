@@ -28,7 +28,7 @@ https://ubuntu.com/download/
 ISO 이미지는 다운로드할 이미지의 주소를 이용하여 Mold에 직접 등록할 수 있습니다. Mold UI에서 `이미지 > ISO` 화면으로 이동한 후 `ISO 등록` 버튼을 클릭하면 다음과 같은 대화상자가 표시됩니다. 
 
 <center>
-![centos-01-vm-register-iso](../../assets/images/centos-01-vm-register-iso.png){ width="400" }
+![ubuntu-01-vm-register-iso](../../assets/images/centos-01-vm-register-iso.png){ width="400" }
 </center>
 
 ISO 등록 대화상자는 ISO 이미지를 URL로 등록하기 위한 항목을 필요로 합니다. 입력 항목은 다음과 같습니다. 
@@ -173,49 +173,14 @@ Ubuntu 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCo
 ![ubuntu-13-vm-console-connect](../../assets/images/ubuntu-13-vm-console-connect.png){ width="600" }
 </center>
 
-콘솔에 접속했다면 언어 선택 입니다. 설치중에는 한글을 사용할 수 없음으로 English 를 선택 합니다. 
+콘솔에 접속했다면 "Try or Install Ubuntu ... "을 선택하여 운영체제 설치 절차를 진행합니다. 전체적인 설치 과정은 일반적인 설치 과정을 따르되 다음의 사항을 확인합니다.
 
+- Installer update available: 업데이트 여부 선택 입니다. 기본 값인 업데이트 비활성으로 선택합니다.
+- Guided storage configuration: 디스크의 파티션이 원하는 데로 설정되어 있는지 확인합니다. (custome storage layout을 선택하여 직접 설정하는 것을 권장)
+- SSH Setup: Install OpenSSH server 체크하여 설치합니다.
+- Profile setup: 가상머신 템플릿을 만들 것이므로, 기억하기 쉬운 기본 비밀번호를 사용합니다.
 
-<center>
-![ubuntu-14-vm-console-connect](../../assets/images/ubuntu-14-vm-console-connect.png){ width="600" }
-</center>
-
-업데이트 여부 선택 입니다. 기본 값은 업데이트 비활성 입니다.
-
-
-<center>
-![ubuntu-15-vm-console-connect](../../assets/images/ubuntu-15-vm-console-connect.png){ width="600" }
-</center>
-
-키보드 레이아웃 선택 입니다. Enlgish (US) 기본 값을 선택 합니다.
-
-
-<center>
-![ubuntu-16-vm-console-connect](../../assets/images/ubuntu-16-vm-console-connect.png){ width="600" }
-</center>
-
-인스톨 옵션을 선택 입니다. 기본 값을 선택 합니다.
-
-
-
-
-
-
-
-
-
-전체적인 설치 과정은 일반적인 설치 과정을 따르되 다음의 사항을 확인합니다. 
-
-- Installation Destination : 디스크의 파티션이 원하는 데로 설정되어 있는지 확인합니다.(Automatic partitioning selected를 사용하지 않고 직접 설정하는 것을 권장)
-- Time & Date : Asia/Seoul
-- Network & HostName : 네트워크를 켭니다.
-- Root Password : 가상머신 템플릿을 만들 것이므로, 기억하기 쉬운 기본 비밀번호를 사용합니다.
-
-<center>
-![centos-14-vm-install-sum](../../assets/images/centos-14-vm-install-sum.png){ width="600" }
-</center>
-
-설정한 내용을 확인하고 설치를 시작합니다. 모든 설치과정이 완료되면 "Reboot System" 버튼이 활성화 됩니다. 
+설정한 내용을 확인하고 설치를 시작합니다. 모든 설치과정이 완료되면 "Reboot Now" 를 선택하여 재부팅합니다. 
 
 재부팅 전에 가상머신에 연결되어 있는 ISO 이미지의 연결을 해제하는 것이 좋습니다. 가상머신 목록 또는 상세 페이지의 가상머신 메뉴에서 "ISO 분리" 아이콘을 클릭하여 ISO 이미지를 분리합니다. ISO 이미지를 분리한 후 가상머신을 재부팅합니다. 
 
@@ -231,26 +196,26 @@ Ubuntu 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCo
 가상머신 템플릿을 생성하기 위해 실행 중인 가상머신을 정지합니다. 가상머신 목록 또는 상세화면의 가상머신 메뉴에서 "가상머신 정지" 버튼을 클릭합니다. 가상머신이 정지된 후 가상머신의 상세 페이지를 확인하면 다음과 같습니다. 
 
 <center>
-![centos-15-vm-stopped-status](../../assets/images/centos-15-vm-stopped-status.png){ width="600" }
+![ubuntu-14-vm-stopped-status](../../assets/images/ubuntu-14-vm-stopped-status.png){ width="600" }
 </center>
 
 위의 화면에서 우측의 상세 화면에서 "볼륨" 탭을 클릭하면 해당 가상머신에 연결된 볼륨의 목록이 표시됩니다. 처음 만든 가상머신이기 때문에 ROOT 디스크만 표시됩니다. 해당 디스크를 클릭하여 볼륨의 상세 화면으로 이동합니다. 다음의 그림과 같습니다. 
 
 <center>
-![centos-16-vm-root-volume-detail](../../assets/images/centos-16-vm-root-volume-detail.png){ width="600" }
+![ubuntu-15-vm-root-volume-detail](../../assets/images/ubuntu-15-vm-root-volume-detail.png){ width="600" }
 </center>
 
 위 화면에서 우측 상단의 볼륨 액션 메뉴 중 맨 우측의 "볼륨으로 템플릿 생성" 버튼을 클릭하여 가상머신 템플릿 생성을 시작합니다. 다음과 같은 "볼륨으로 템플릿 생성" 대화상자가 표시됩니다. 
 
 <center>
-![centos-17-vm-volume-tmpl-dlg](../../assets/images/centos-17-vm-volume-tmpl-dlg.png){ width="400" }
+![ubuntu-16-vm-volume-tmpl-dlg](../../assets/images/centos-17-vm-volume-tmpl-dlg.png){ width="400" }
 </center>
 
 "볼륨으로 템플릿 생성" 대화상자는 정지되어 있는 가상머신의 루트 디스크를 이용해 해당 가상머신에 대한 이미지를 생성하는 기능을 제공합니다. 다음의 정보를 입력합니다. 
 
-- 이름 : 템플릿 이미지의 이름 (예제에서는 "CentOS 9 기본 템플릿 이미지" )
+- 이름 : 템플릿 이미지의 이름 (예제에서는 "Ubuntu 22.04 기본 이미지 템플릿" )
 - 설명 : 템플릿 이미지에 대한 설명 (예제에서는 이름과 동일하게 설정)
-- OS유형 : 이미지의 원본 가상머신의 OS 유형 (예제에서는 CentOS 9)
+- OS유형 : 이미지의 원본 가상머신의 OS 유형 (예제에서는 Ubuntu 20.04 LTS)
 - 공개 : 이미지를 모든 사용자에게 공개할 것인지의 여부 (예제에서는 공개)
 - 추천 : 이미지를 추전 이미지로 설정할 것인지의 여부 (예제에서는 추천하지 않음)
 - 동적으로 확장 가능 : 템플릿에 의해 생성된 가상머신에 대해 동적 스케일링을 지원할 것인지의 여부 (예제에서는 선택하지 않음)
@@ -260,7 +225,7 @@ Ubuntu 기반의 기본 가상머신 이미지를 생성하기 위해서는 2vCo
 모든 정보를 입력한 후 "확인" 버튼을 눌러 템플릿 생성을 시작합니다. 생성이 완료되면 해당 템플릿은 `이미지 > 템플릿` 화면의 목록을 통해 확인할 수 있으며, 해당 목록을 클릭하여 상세화면으로 확인하면 다음과 같이 템플릿 이미지가 생성됨을 확인할 수 있습니다. 
 
 <center>
-![centos-18-vm-template-detail](../../assets/images/centos-18-vm-template-detail.png){ width="600" }
+![ubuntu-17-vm-template-detail](../../assets/images/ubuntu-17-vm-template-detail.png){ width="600" }
 </center>
 
 이제 생성된 기본 템플릿을 이용해 언제든지 가상머신을 생성할 수 있습니다. 
