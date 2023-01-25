@@ -252,11 +252,13 @@ nav:
       - 구성 개요: userGuide/3tiers/linux/3tiers-linux-guide-prepare.md
       - 네트워크 구성: userGuide/3tiers/linux/3tiers-linux-guide-network.md
       - 관리 가상머신 구성: userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm.md
-      - 티어 구성 준비: userGuide/3tiers/linux/3tiers-linux-guide-use-vm.md
       - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
       - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
       - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
       - 부하분산 (LB) 구성: userGuide/3tiers/linux/3tiers-linux-guide-lb.md
+    - 템플릿 :
+      - 샘플 템플릿: userGuide/templateSample/template-01-outline.md
+      - readme: userGuide/templateSample/readme.md
 #  - 레퍼런스:
 #    - 시작하며: reference/reference-overview.md
   - 릴리즈노트 : 

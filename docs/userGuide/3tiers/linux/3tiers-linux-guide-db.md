@@ -1,49 +1,110 @@
-본 문서는 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조"를 구성하기 위한 단계 중, 4.1 단계인 DB 구성에 대한 문서입니다.
+본 문서는 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조" [구성 단계](../3tiers-linux-guide-prepare#_5) 중, 세 번째 단계인 DB 구성에 대한 문서입니다.
 
-1. VPC 및 서브넷 생성: VPC(Virtual Private Cloud)를 생성하고 서브넷(Subnet)을 생성합니다.
-2. 가상머신 생성: 생성된 서브넷에서 WEB, WAS, DB 각각 3대(총 9대)의 가상머신을 SSHKeyPair 및 Affinity을 설정하여 추가합니다.
-3. 티어 구성 준비: 생성된 가상머신의 터미널에 접속하고 데이터 디스크 볼륨 구성을 합니다.
-4. ==티어 별 WEB, WAS, DB 구성:==
-      1. ==DB: 갈레라 클러스터(Galera Cluster)를 활용하여 동기 방식의 복제구조를 사용하는 멀티마스터 DB를 구성합니다.==
-      2. WAS: 도커 컨테이너를 이용하여 NodeJS와 Samba 스토리지를 활용한 WAS를 구성합니다.
-      3. WEB: 도커 컨테이너를 이용하여 Nginx와 NFS 스토리지를 활용한 WEB를 구성합니다.
-5. LB 구성: 하나의 Public IP를 생성하여 동일 서브넷 상의 VM들의 이중화를 위해 LB를 구성합니다.
+MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 클러스터(Galera Cluster)를 활용하여 3개의 DB 가상머신을 한 클러스터로 이중화 구성하는 방법은 다음과 같은 절차로 실행됩니다.
 
-## DB 설치 및 구성
-아래의 구조로 DB를 구성합니다.
+- 가상머신 생성
+- 데이터 디스크 설정
+- MariaDB 구성
+- Galera Cluster 설정
+- 부하분산(LB) 설정
 
-![3tier-linux-architecture-db-01](../../../../assets/images/3tier-linux-architecture-db-01.png){ align=center }
+## 가상머신 생성
+ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md)" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다.
+
+가상머신을 추가하기 위해 `컴퓨트 > 가상머신` 화면으로 이동하여 `가상머신 추가` 버튼을 클릭합니다. "새 가상머신" 마법사 페이지가 표시됩니다. 
+해당 페이지에서는 "템플릿을 이용한 VM 생성" 문서를 참고하여 가상머신을 생성합니다.
+
+!!! info "템플릿을 이용한 VM 생성"
+    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/centos-guide-add-and-use-vm#vm) 문서를 참고하십시오.
+
+입력 항목 예시는 다음과 같습니다.
+
+- DB 가상머신 1
+
+    - 배포 인프라 선택 : `Zone`
+    - 템플릿/ISO : `Rocky Linux 9.0 기본 이미지 템플릿` * Rocky Linux release 9.0 (Blue Onyx)
+    - 컴퓨트 오퍼링 : `1C-2GB-RBD-HA`
+    - 데이터 디스크 : `100GB-WB-RBD` * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
+    - 네트워크 : `db` * VPC명이 일치되는지 확인합니다.
+        - IP: 192.168.3.11
+    - SSH 키 쌍 : `3tier_linux_keypair` 
+    - 확장 모드 : ` ` * 디폴트 값으로 생성합니다.
+    - 이름 : `ablecloud-3tier-linux-db-01`
+
+- DB 가상머신 2
+
+    - 배포 인프라 선택 : `Zone`
+    - 템플릿/ISO : `Rocky Linux 9.0 기본 이미지 템플릿` * Rocky Linux release 9.0 (Blue Onyx)
+    - 컴퓨트 오퍼링 : `1C-2GB-RBD-HA`
+    - 데이터 디스크 : `100GB-WB-RBD` * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
+    - 네트워크 : `db` * VPC명이 일치되는지 확인합니다.
+        - IP: 192.168.3.12
+    - SSH 키 쌍 : `3tier_linux_keypair` 
+    - 확장 모드 : ` ` * 디폴트 값으로 생성합니다.
+    - 이름 : `ablecloud-3tier-linux-db-02`
+
+- DB 가상머신 3
+
+    - 배포 인프라 선택 : `Zone`
+    - 템플릿/ISO : `Rocky Linux 9.0 기본 이미지 템플릿` * Rocky Linux release 9.0 (Blue Onyx)
+    - 컴퓨트 오퍼링 : `1C-2GB-RBD-HA`
+    - 데이터 디스크 : `100GB-WB-RBD` * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
+    - 네트워크 : `db` * VPC명이 일치되는지 확인합니다.
+        - IP: 192.168.3.13
+    - SSH 키 쌍 : `3tier_linux_keypair` 
+    - 확장 모드 : ` ` * 디폴트 값으로 생성합니다.
+    - 이름 : `ablecloud-3tier-linux-db-03`
 
 
-### Affinity 그룹 생성
-VM 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 VM들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다.
-이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 `컴퓨트 > Affinity 그룹` 화면으로 이동하여 `새 Affinity 그룹 추가` 버튼을 클릭합니다.
-클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다. 
+## 데이터 디스크 설정
+안정적인 운영을 위해 기본 RootDisk가 아닌 고용량의 스펙을 가진 디스크로의 데이터 저장이 필요합니다. 이를 위한 사전작업으로 가상머신 생성 시 추가했던 데이터 디스크를 설정합니다.
 
-<figure markdown>
-![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
-<figcaption>새 Affinity 그룹 추가 대화 상자</figcaption>
-</figure markdown>
+다음과 같은 절차로 데이터 디스크를 설정합니다.
 
-1. 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
-2. 설명 : Affinity 그룹에 대한 설명을 입력합니다.
-3. 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다. 
+1. fdisk -l 명령어를 이용하여 현재 디스크 현황과 파티션 현황을 확인합니다.
 
-새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
+``` linenums="1"
+$ fdisk -l
+```
 
-- 이름 : `ablecloud-3tier-linux-web`
-- 설명 : `3tiers-linux의 web 구성 시 사용되는 Affinity 그룹입니다.`
-- 유형 : `host anti-affinity (Strict)`
+2. fdisk -l 명령어 실행 결과 디스크 "/dev/sdb"에 아무런 파티션이 없는 상태인 것을 확인합니다.
 
-!!! info "Affinity 그룹 유형"
-    host anti-affinity:	가능한 한 서로 다른 호스트에 인스턴스를 배포합니다.
+``` title="명령어 실행 결과" linenums="1" hl_lines="13-17"
+Disk /dev/sda: 100 GiB, 107374182400 bytes, 209715200 sectors
+Disk model: QEMU HARDDISK
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xfc3d5b0c
 
-    host affinity: 가능한 한 동일한 호스트에 인스턴스를 배포합니다.
+Device     Boot   Start       End   Sectors Size Id Type
+/dev/sda1  *       2048   2099199   2097152   1G 83 Linux
+/dev/sda2       2099200 209715199 207616000  99G 8e Linux LVM
 
-    * Non-Strict 옵션은 마지막 실행 호스트를 고려하여 실행됩니다.
+Disk /dev/sdb: 100 GiB, 53687091200 bytes, 104857600 sectors
+Disk model: QEMU HARDDISK
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+```
 
 
 
+1. 사용할 데이터 디스크를 `드라이브` 섹션에서 선택합니다.
+2. `파티션 테이블 만들기` 을 기본 값으로 실행하여 초기화합니다.
+3. `파티션 만들기` 를 클릭하여 해당 디스크에 파티션을 생성합니다. 파티션 만들기 예제는 다음과 같습니다.
+      1. 이름: `datadisk1`
+      2. 유형: `XFS`
+      3. 크기: `100GiB` (최대 값)
+      4. 적재지점(마운트 위치): `/mnt/data`
+      5. 마운트 옵션: `지금 마운트`
+      6. 암호화: `암호화 없음`
+
+해당 과정을 통해 포멧, 마운트, 부팅 시 자동 마운트 설정이 적용됩니다.
+
+!!! info "ABLESTACK Cube에서의 파티션 생성"
+    ABLESTACK Cube에서의 파티션 생성을 위해 [Cube 파티션 생성](../../../../administration/cube/userinterface-guide#_1) 문서를 참고하십시오.
 
 
 
