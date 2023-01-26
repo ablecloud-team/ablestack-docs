@@ -14,8 +14,9 @@
 <figcaption>새 OOO 추가 대화 상자</figcaption>
 </figure markdown>
 
-이미지 크기
-
+### 웹사이트 링크
+새탭에서 링크가 열리도록 합니다.
+[MariaDB Repository Link](https://mariadb.org/download/?t=repo-config){:target="_blank"}
 
 ### Admonitions
 추가 정보를 제공하거나 특이사항을 전달하기 위해 사용합니다.
@@ -54,7 +55,6 @@
     ...
     ```
 
-- 강조표시
 
 
 ## 작성 시 유의 사항

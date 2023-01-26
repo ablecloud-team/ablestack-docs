@@ -62,12 +62,15 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 
 다음과 같은 절차로 데이터 디스크를 설정합니다.
 
-- `fdisk -l` 명령어를 이용하여 현재 디스크 현황과 파티션 현황을 확인합니다.
+???+ note
+    DB 가상머신 1, 2, 3에 대해 실행 및 설정을 적용합니다.
+
+`fdisk -l` 명령어를 이용하여 현재 디스크 현황과 파티션 현황을 확인합니다.
 ``` linenums="1"
 $ fdisk -l
 ```
 
-- `fdisk -l` 명령어 실행 결과 디스크 `/dev/sdb`에 아무런 파티션이 없는 상태인 것을 확인합니다.
+`fdisk -l` 명령어 실행 결과 디스크 `/dev/sdb`에 아무런 파티션이 없는 상태인 것을 확인합니다.
 ``` linenums="1" hl_lines="13-17"
 Disk /dev/sda: 100 GiB, 107374182400 bytes, 209715200 sectors
 Disk model: QEMU HARDDISK
@@ -88,12 +91,12 @@ Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 ```
 
-- `fdisk` 명령어를 이용하여 `/dev/sdb` 디스크에 파티션 설정을 합니다.
+`fdisk` 명령어를 이용하여 `/dev/sdb` 디스크에 파티션 설정을 합니다.
 ``` linenums="1"
 $ fdisk /dev/sdb
 ```
 
-- **n** 을 입력하여 새로운 파티션을 생성하고 **p** 를 입력하여 주 파티션으로 선택합니다.
+**n** 을 입력하여 새로운 파티션을 생성하고 **p** 를 입력하여 주 파티션으로 선택합니다.
 ``` linenums="1" 
 Command (m for help): n
 Partition type:
@@ -102,24 +105,24 @@ Partition type:
 Select (default p): 
 ```
 
-- 파티션 번호를 설정하는 단계입니다. 기본 값인 **1** 을 입력하거나 엔터로 넘어갈 수 있습니다.
+파티션 번호를 설정하는 단계입니다. 기본 값인 **1** 을 입력하거나 엔터로 넘어갈 수 있습니다.
 ``` linenums="1"
 Partition number (1-4, default 1): 
 ```
 
-- 시작할 섹터를 지정할 수 있습니다. 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
+시작할 섹터를 지정할 수 있습니다. 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
 ``` linenums="1"
 First sector (2048-143305919, default 2048): 
 Using default value 2048
 ```
 
-- 파티션의 용량을 설정합니다. 디스크 전체를 하나의 파티션으로 생성할 경우 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
+파티션의 용량을 설정합니다. 디스크 전체를 하나의 파티션으로 생성할 경우 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
 ``` linenums="1"
 First sector (2048-143305919, default 2048): 
 Using default value 2048
 ```
 
-- **w** 를 입력하여 파티션 정보를 디스크에 적용합니다.
+**w** 를 입력하여 파티션 정보를 디스크에 적용합니다.
 ``` linenums="1"
 Command (m for help): w
 The partition table has been altered!
@@ -128,12 +131,12 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-- `fdisk -l` 명령어 실행하여 변경된 파티션 정보를 확인합니다. 
+`fdisk -l` 명령어 실행하여 변경된 파티션 정보를 확인합니다. 
 ``` linenums="1"
 $ fdisk -l
 ```
 
-- 생성된 파티션 `/dev/sdb1` 를 확인할 수 있습니다.
+생성된 파티션 `/dev/sdb1` 를 확인할 수 있습니다.
 ``` linenums="1" hl_lines="9-10"
 Disk /dev/sdb: 100 GiB, 107374182400 bytes, 209715200 sectors
 Disk model: QEMU HARDDISK
@@ -147,35 +150,35 @@ Device     Boot Start       End   Sectors Size Id Type
 /dev/sdb1        2048 209715199 207616000 100G 83 Linux
 ```
 
-- `mkfs` 명령어를 이용하여 `/dev/sdb1` 파티션에 xfs 파일 시스템을 생성합니다.
+`mkfs` 명령어를 이용하여 `/dev/sdb1` 파티션에 xfs 파일 시스템을 생성합니다.
 ``` linenums="1" 
 $ mkfs.xfs /dev/sdb1
 ```
 
-- 정상 적으로 파일 시스템이 생성되었는지 `fsck -N`  명령어를 통해 확인합니다.
+정상적으로 파일 시스템이 생성되었는지 `fsck -N`  명령어를 통해 확인합니다.
 ``` linenums="1" 
 $ fsck -N /dev/sdb1
 ```
 
-- xfs 파일 시스템이 있는 것을 확인할 수 있습니다.
+xfs 파일 시스템이 있는 것을 확인할 수 있습니다.
 ``` linenums="1" 
 fsck from util-linux 2.37.4
 [/usr/sbin/fsck.xfs (1) -- /dev/sdb1] fsck.xfs /dev/sdb1
 ```
 
-- `/dev/sdb1` 파티션을 `/mnt/data` 경로에 마운트를 적용합니다. 마운트할 경로에 폴더가 없다면 먼저 생성한 후 적절한 권한을 부여한 후 마운트를 적용합니다.
+`/dev/sdb1` 파티션을 `/mnt/data` 경로에 마운트를 적용합니다. 마운트할 경로에 폴더가 없다면 먼저 생성한 후 적절한 권한을 부여한 후 마운트를 적용합니다.
 ``` linenums="1" 
 $ mkdir /mnt/data
 $ chmod -R 1777 /mnt/data
 $ mount /dev/sdb1 /mnt/data
 ```
 
-- 정상 적으로 마운트가 적용되었는지 확인합니다.
+정상 적으로 마운트가 적용되었는지 확인합니다.
 ``` linenums="1" 
 $ mount | grep "sdb1"
 ```
 
-- `/mnt/data`에 적상적으로 마운트 적용된 것을 확인할 수 있습니다.
+`/mnt/data`에 적상적으로 마운트 적용된 것을 확인할 수 있습니다.
 ``` linenums="1" 
 /dev/sdb1 on /mnt/data type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
 ```
@@ -184,32 +187,32 @@ $ mount | grep "sdb1"
 생성한 가상머신에 대해 보안 설정을 하여 허용되지 않은 접근을 차단하고 필요한 서비스만 운영할 수 있도록 설정합니다.
 
 ???+ note
-    모든 DB 가상머신 1, 2, 3에 보안 설정을 적용합니다.
+    DB 가상머신 1, 2, 3에 대해 실행 및 설정을 적용합니다.
 
 ### 네트워크 방화벽 해제 
 방화벽은 들어오고 나가는 네트워크 트래픽을 모니터링하고 필터링하는 방법입니다. 특정 트래픽을 허용할지 차단할지 결정하는 일련의 보안 규칙을 정의하여 작동합니다.
 CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 제공됩니다.
 
-- `firewall-cmd` 명령어를 이용하여 galera 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
+`firewall-cmd` 명령어를 이용하여 galera 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
 ``` linenums="1" 
 $ firewall-cmd --zone=public --permanent --add-service=galera
 $ firewall-cmd --reload
 ```
 
-    ???+ note
-        galera 서비스는 TCP 포트 3306, 4567, 4568, 4444에 대해 방화벽을 해제합니다.
+???+ info
+    galera 서비스는 TCP 포트 3306, 4567, 4568, 4444을 사용합니다.
 
 
 ### selinux 설정
-보안강화 리눅스(SELinux; Security Enhanced Linux)는 CentOS에서 제공하는 커널 기반의 보안 모듈입니다. 다시 말해 시스템 관리자가 설정 한 특정 정책 및 규칙으로 사용자를 제한하는 데 사용되는 기능 또는 서비스입니다.
+보안강화 리눅스(SELinux; Security Enhanced Linux)는 CentOS에서 제공하는 커널 기반의 보안 모듈입니다. 즉, 시스템 관리자가 설정한 특정 정책 및 규칙으로 사용자를 제한하는 데 사용되는 기능 또는 서비스입니다.
 Galera Cluster의 설정을 원활하고 효율적으로 하기 위해 SELinux 정책을 변경합니다.
 
-- `/etc/sysconfig/selinux` 를 vi 편집기로 열어 SELinux 정책을 강제에서 허용으로 영구적으로 변경합니다.
+`/etc/sysconfig/selinux` 를 vi 편집기로 열어 SELinux 정책을 강제에서 허용으로 영구적으로 변경합니다.
 ``` linenums="1" 
 $ vi /etc/sysconfig/selinux
 ``` 
 
-- SELINUX 값을 disabled로 변경합니다.
+SELINUX 값을 disabled로 변경합니다.
 ``` title="selinux"  linenums="1"
 SELINUX=disabled
 ```
@@ -217,15 +220,21 @@ SELINUX=disabled
 ???+ warning
     SELinux를 비활성화하게 되면 권한 상승 공격에 의한 취약점 감소, 잘못된 설정과 버그로부터 시스템 보호와 같은 이점들을 제공받지 못할 수 있습니다.
 
-## MariaDB 구성 (3node 동일)
-MariaDB는 MySQL 기술을 기반으로 하는 오픈 소스입니다. Galera Cluster에서 제공하는 이중화 복제 방식은 여러 MariaDB 서버로 구성된 동기 다중 소스 MariaDB Galera 클러스터 생성을 기반으로합니다
+## MariaDB 구성
+MariaDB는 MySQL 기술을 기반으로 하는 오픈소스입니다. Galera Cluster에서 제공하는 이중화 복제 방식은 여러 MariaDB 서버를 구성하여 이루어집니다.
 
-### MariaDB 패키지 설치를 위한 yum Repo 등록하기
+???+ note
+    DB 가상머신 1, 2, 3에 대해 실행 및 설정을 적용합니다.
+
+### MariaDB 패키지 설치를 위한 yum Repo 등록
+특정 버전의 MariaDB 패키지를 설치하기 위해 Yum Repository를 추가해야합니다.
+
 /etc/yum.repos.d/mariadb.repo 를 vi 편집기로 열어 Repo 정보를 입력합니다.
 ``` 
 $ vi /etc/yum.repos.d/mariadb.repo
 ```
-Rocky Linux 9.0의 경우 아래의 내용을 추가합니다. 다른 운영체제인 경우 [MariaDB Repository Link](https://mariadb.org/download/?t=repo-config){:target="_blank"} 를 클릭하여 확인 후 적용합니다.
+
+가상머신의 운영체제가 Rocky Linux 9.0의 경우 아래의 내용을 추가합니다.
 ``` title="mariadb.repo"  linenums="1"
 # MariaDB 10.9 RedHat repository list - created 2022-11-30 05:38 UTC
 # https://mariadb.org/download/
@@ -236,28 +245,35 @@ gpgkey=https://tw1.mirror.blendbyte.net/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 
+???+ tip
+    다른 운영체제인 경우 [MariaDB Repository Link](https://mariadb.org/download/?t=repo-config){:target="_blank"} 를 클릭하여 확인한 후 적용합니다.
+
 ### MariaDB 패키지 설치
-``` linuxconfig
+패키지 관리 명령어인 **dnf** 를 사용하여 MariaDB 패키지를 설치합니다.
+``` linenums="1"
 $ dnf install MariaDB-server MariaDB-client
 ```
-### MariaDB 시작
-``` 
-$ systemctl enable mariadb.service # (1)!
-$ systemctl start mariadb.service # (2)!
-```
+### MariaDB 서비스 등록
+가상머신 부팅 시 설치된 MariaDB 서비스를 자동 시작하도록 등록하고 시작합니다.
 
-1.  VM 부팅 시 서비스를 자동 시작하도록 활성화합니다.
-2.  MariaDB 서비스를 시작합니다.
+``` linenums="1"
+$ systemctl enable mariadb.service
+$ systemctl start mariadb.service
+```
 
 ### MariaDB 보안 설정
-``` 
+MariaDB 서비스를 시작한 후 `mariadb-secure-installation` 명령어를 통해 초기 권한 설정을 합니다.
+
+``` linenums="1" 
 $ mariadb-secure-installation
 ```
+
+아래의 내용에 따라 초기 권한 설정을 수행합니다.
 
 ??? note "클릭하여 MariaDB의 보안설정 방법을 확인합니다."
 
     ```  linenums="1"
-    Enter current password for root (enter for none):  [패스워드가 없기 때문에 엔터]
+    Enter current password for root (enter for none):  [엔터를 입력합니다.]
     OK, successfully used password, moving on...
 
     ※ 이 부분은 버전에 따라 안 나올 수 있습니다.
@@ -265,7 +281,7 @@ $ mariadb-secure-installation
     can log into the MariaDB root user without the proper authorisation.
 
     You already have your root account protected, so you can safely answer 'n'.
-    Switch to unix_socket authentication [Y/n] Y  [MariaDB 실행 시 통신 소켓 생성 여부? Y 엔터]
+    Switch to unix_socket authentication [Y/n] Y  [MariaDB 실행 시 통신 소켓 생성 여부를 선택합니다. Y를 선택합니다.]
 
     
 
@@ -276,7 +292,7 @@ $ mariadb-secure-installation
 
     You already have your root account protected, so you can safely answer 'n'.
 
-    Change the root password? [Y/n] Y  [DB ROOT 패스워드 설정할 것인가? Y 엔터]
+    Change the root password? [Y/n] Y  [DB ROOT 패스워드 설정할 것인지 선택합니다. Y를 선택합니다.]
 
     New password:  패스워드 입력
     Re-enter new password:  재확인 패스워드 입력
@@ -290,14 +306,14 @@ $ mariadb-secure-installation
     go a bit smoother.  You should remove them before moving into a
     production environment.
 
-    Remove anonymous users? [Y/n] Y  [익명의 접근을 막을 것인지? 보안을 위해 Y 또는 편의를 위해 N을 선택]
+    Remove anonymous users? [Y/n] Y  [익명의 접근을 막을 것인지 선택합니다. 보안을 위해 Y 또는 편의를 위해 N을 선택합니다.]
     ... Success!
 
 
     Normally, root should only be allowed to connect from 'localhost'.  This
     ensures that someone cannot guess at the root password from the network.
 
-    Disallow root login remotely? [Y/n] Y  [DB ROOT 원격을 막을 것인지? 보안을 위해 Y 엔터]
+    Disallow root login remotely? [Y/n] Y  [DB ROOT 원격을 막을 것인지 선택합니다. 보안을 위해 Y 또는 편의를 위해 N을 선택합니다.]
 
     ... Success!
 
@@ -307,7 +323,7 @@ $ mariadb-secure-installation
 
     Remove test database and access to it? [Y/n] Y
 
-    [Test 용으로 생성된 데이터베이스를 삭제할 것인가? Y 엔터]
+    [Test 용으로 생성된 데이터베이스를 삭제할 것인지 선택합니다. Y를 선택합니다]
 
     - Dropping test database...
     ... Success!
@@ -317,7 +333,7 @@ $ mariadb-secure-installation
     Reloading the privilege tables will ensure that all changes made so far
     will take effect immediately.
 
-    Reload privilege tables now? [Y/n] Y  [현재 설정한 값을 적용할 것인지? 당연히 Y 엔터]
+    Reload privilege tables now? [Y/n] Y  [현재 설정한 값을 적용할 것인지 선택합니다. Y를 선택합니다
 
     ... Success!
 
@@ -330,83 +346,91 @@ $ mariadb-secure-installation
     ```
 
 ### DB 외부접속 허용
-MariaDB에 접속합니다.
+외부에서의 접속 허용이 필요한 경우 아래의 쿼리를 통해 설정할 수 있습니다.
 
+`mariadb -u root -p` 명령어를 실행한 후 패스워드를 입력하여 MariaDB에 접속합니다. 
 ``` 
 $ mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
 
+모든 DB 및 테이블에 대한 접근권한을 설정합니다. 보안을 위해 특정 IP 대역 접근만을 허용합니다.
 ``` 
 MariaDB [(none)]> use mysql;
-MariaDB [(none)]> grant all privileges on *.* to 'root'@'%'identified by '[패스워드 입력]'; # (1)!
-MariaDB [(none)]> flush privileges;  # (2)!
+MariaDB [(none)]> grant all privileges on *.* to 'root'@'192.168.%.%'identified by '패스워드 입력';
+MariaDB [(none)]> flush privileges;
 ```
 
-1. 모든 db 및 테이블에 접근권한을 설정합니다.
-2. 현재 사용중인 MariaDB의 캐시를 지우고 새로운 설정을 적용하기 위해 사용합니다. 
-
-
 ### DB data 폴더 경로 변경하기
-추가한 데이터 디스크로 DB 폴더를 변경하기 위해 먼저 기존 DB data 경로를 확인합니다.
+추가한 데이터 디스크로 DB 폴더를 변경하기 위해 먼저 기존 DB data 폴더 경로를 확인합니다.
 
-1. MariaDB에 접속하여 DB data 경로를 확인합니다.
-    ``` 
-    $ mariadb -u root -p
+MariaDB에 접속합니다.
+``` 
+$ mariadb -u root -p
 
-    Enter password: 패스워드 입력
-    ```
-    ``` 
-    MariaDB [(none)]> select @@datadir;
-    ```
+Enter password: 패스워드 입력
+```
 
-2. MariaDB에서 로그아웃한 후 MariaDB 서비스를 정지합니다.
-    ``` 
-    $ systemctl stop mariadb
-    ```
+DB data 경로를 확인합니다.
 
-3. 새로운 Data 디렉토리에 데이터를 복사합니다. 현 예시에서는 경로가 /var/lib/mysqld에서 /mnt/data/mysql 로 설정합니다.)
-    ``` 
-    $ rsync -av /var/lib/mysql /mnt/data/
-    $ chown -R mysql:mysql /mnt/data/mysql
-    ```
+``` 
+MariaDB [(none)]> select @@datadir;
+```
 
-4. my.cnf 파일을 수정하여 MariaDB의 data 디렉토리 경로를 변경합니다.
-    ``` 
-    $ vi /etc/my.cnf
-    ```
+MariaDB에서 로그아웃한 후 MariaDB 서비스를 정지합니다.
+``` 
+$ systemctl stop mariadb
+```
 
-    아래의 내용으로 변경합니다.
-    ``` title="my.cnf"  linenums="1"
-    [client-server]
-    datadir=/home/data/mysql
-    socket=/home/data/mysql/mysql.sock
-    ```
+새로운 Data 디렉토리에 데이터를 복사합니다. 현 예시에서는 경로가 `/var/lib/mysqld`에서 `/mnt/data/mysql` 로 변경합니다.
+``` 
+$ rsync -av /var/lib/mysql /mnt/data/
+$ chown -R mysql:mysql /mnt/data/mysql
+```
 
-5. SELinux 보안 설정 및 context 추가
-    ``` 
-    $ semanage fcontext -a -t mysqld_db_t "/data/mysql(/.*)?"
-    $ restorecon -R /data/mysql
-    ```
+my.cnf 파일을 수정하여 MariaDB의 data 디렉토리 경로를 변경합니다.
+``` 
+$ vi /etc/my.cnf.d/server.cnf
+```
 
-6. MariaDB 서비스를 시작합니다.
-    ``` 
-    $ systemctl restart mariadb
-    ```
+아래의 내용으로 변경합니다.
+``` title="server.cnf"  linenums="1"
+[mysqld]
+datadir=/mnt/data/mysql
+socket=/mnt/data/mysql/mysql.sock
 
-7. MariaDB에 접속한 후 변경된 DB data 경로를 확인합니다.
-    ``` 
-    MariaDB [(none)]> select @@datadir;
-    ```
+[client]
+port=3306
+socket=/mnt/data/mysql/mysql.sock
+```
 
-8. 기존 data 디렉토리 삭제합니다.
-    ``` 
-    $ rm -R /var/lib/mysql
-    ```
+SELinux 보안 설정 및 context 추가
+``` 
+$ semanage fcontext -a -t mysqld_db_t "/mnt/data/mysql(/.*)?"
+$ restorecon -R /mnt/data/mysql
+```
+
+MariaDB 서비스를 시작합니다.
+``` 
+$ systemctl restart mariadb
+```
+
+MariaDB에 접속한 후 변경된 DB data 경로를 확인합니다.
+``` 
+MariaDB [(none)]> select @@datadir;
+```
+
+경로가 정상적으로 변경되었다면 기존 data 폴더를 삭제합니다.
+``` 
+$ rm -R /var/lib/mysql
+```
 
 ## Galera Cluster 설정
-Galera Cluster를 구성합니다.
+MariaDB는 기존의 Replication 방식이 아닌 Galera를 이용한 클러스터 구성으로 Master-Master 형식의 다중화 기능을 제공합니다.
+이러한 동작방식으로 모든 DB 가상머신의 데이터가 일관성있게 저장되고 장애 발생 시 대응하기에 용이한 장점이 있습니다.
+
+MariaDB에서 제공하는 Galera Cluster를 사용하기 위해 아래의 절차를 통해 설정합니다.
 
 MariaDB 서비스를 중지합니다.
 ``` 
@@ -417,19 +441,16 @@ MariaDB 설정 파일을 변경합니다.
 ``` 
 $ vi /etc/my.cnf.d/server.cnf 
 ```
-
+아래 예제를 참고하여 설정 정보를 변경합니다.
 ??? note "클릭하여 MariaDB의 설정 정보를 확인합니다."
-    아래 예제를 참고하여 설정 정보를 변경합니다.
-    ``` kconfig linenums="1" hl_lines="7 9 23"
+    ``` linenums="1" hl_lines="5 7 21"
     [galera]
-    ## 기존 설정 값을 수정합니다.
-    #
     # galear cluster 사용여부
     wsrep_on = ON
     # libgalera_smm.so 모듈 위치
     wsrep_provider = /usr/lib64/galera-4/libgalera_smm.so
     # 동기화 진행할 IP 리스트 (Master Node 1, 2, 3의 Public IP값을 입력합니다.)
-    wsrep_cluster_address = gcomm://10.10.1.81, 10.10.1.82, 10.10.1.83
+    wsrep_cluster_address = gcomm://192.168.3.11, 192.168.3.12, 192.168.3.13
     # 기본 스토리지 엔진
     default_storage_engine=InnoDB
     # auto increment의 값 잠금방식 (0/1/2 중 택)
@@ -448,21 +469,23 @@ $ vi /etc/my.cnf.d/server.cnf
 
 ### Galera Cluster 및 DB 서비스 시작
 
-??? Warning "노드 별 DB 시작 순서에 유의하여 아래 명령어를 실행합니다."
+???+ Warning 
+    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. 메인이 되는 가상머신이 가장 먼저 시작되어야 합니다. 
 
-먼저 마스터 노드 1의 galera cluster를 먼저 시작합니다.
+먼저 DB 가상머신 1의 galera cluster를 `galera_new_cluster` 명령어로 시작합니다. 실행이 완료될 때까지 기다린 후, 다음 단계로 넘어갑니다.
 ```
 $ galera_new_cluster
 ```
 
-마스터 노드 2, 3의 MariaDB 서비스를 시작합니다.
+DB 가상머신 2와 3의 MariaDB 서비스를 시작합니다.
 ```
 $ systemctl restart mariadb.service
 ```
 
 ### Galera Cluster 설정 확인
-MariaDB에 접속합니다.
+Galera Cluster 구성이 정상적으로 되었는 지 확인합니다.
 
+MariaDB에 접속합니다.
 ```
 $ mariadb -u root -p
 
@@ -472,12 +495,35 @@ Enter password: 패스워드 입력
 ```
 MariaDB [(none)]> show variables like 'wsrep_cluster_address';
 ```
-출력된 결과 값을 확인합니다.
+출력된 결과 값을 확인합니다. 
 
 ```
-+-----------------------+-----------------------------------------------+
-| Variable_name         | Value                                         |
-+-----------------------+-----------------------------------------------+
-| wsrep_cluster_address | gcomm://10.10.1.81, 10.10.1.82, 10.10.1.83 |
-+-----------------------+-----------------------------------------------+
++-----------------------+--------------------------------------------------+
+| Variable_name         | Value                                            |
++-----------------------+--------------------------------------------------+
+| wsrep_cluster_address | gcomm://192.168.3.11, 192.168.3.12, 192.168.3.13 |
++-----------------------+--------------------------------------------------+
 ```
+
+## 로드 밸런서(부하 분산) 설정
+Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당 서브넷 내의 여러 가상머신간에 부하 분산되도록 규칙을 만들 수 있습니다. 예를 들어 DataBase 계층에 도달한 트래픽은 해당 DB 서브넷의 다른 가상머신으로 리디렉션됩니다.
+내부 로드 밸런서 규칙 생성을 위해 아래 문서를 참고합니다.
+
+!!! info "내부 로드 밸런서 규칙 생성"
+    템플릿을 이용한 가상머신 추가를 위해 [내부 로드 밸런서 규칙 생성](../../../../administration/mold/network&traffic-mngt-guide#vpc_2) 문서에서 **내부 LB 규칙 생성** 항목을 참고하십시오.
+
+입력 항목 예시는 다음과 같습니다.
+
+- 이름 : **db-lb**
+- 설명 : **DataBase의 내부 로드 밸런서입니다.**
+- 소스 IP 주소 : **192.168.3.26**
+- 소스 포트 : **3306** 
+- 가상머신 포트 : **3306** 
+- 알고리즘 : **최소 접속** 
+
+생성된 내부 로드 밸런서 규칙을 선택한 후, **가상머신 할당** 버튼을 클릭하여 DB 가상머신을 할당합니다.
+
+<figure markdown>
+![가상머신 할당](../../../../assets/images/3tier-linux-architecture-db-lb-01.png)
+<figcaption>가상머신 할당</figcaption>
+</figure markdown>
