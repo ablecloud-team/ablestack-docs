@@ -255,7 +255,6 @@ nav:
       - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
       - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
       - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
-      - 부하분산 (LB) 구성: userGuide/3tiers/linux/3tiers-linux-guide-lb.md
     - 템플릿 :
       - 샘플 템플릿: userGuide/templateSample/template-01-outline.md
       - readme: userGuide/templateSample/readme.md

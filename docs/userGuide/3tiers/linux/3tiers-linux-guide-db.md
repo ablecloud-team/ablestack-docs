@@ -61,15 +61,13 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 
 다음과 같은 절차로 데이터 디스크를 설정합니다.
 
-1. fdisk -l 명령어를 이용하여 현재 디스크 현황과 파티션 현황을 확인합니다.
-
+- fdisk -l 명령어를 이용하여 현재 디스크 현황과 파티션 현황을 확인합니다.
 ``` linenums="1"
 $ fdisk -l
 ```
 
-2. fdisk -l 명령어 실행 결과 디스크 "/dev/sdb"에 아무런 파티션이 없는 상태인 것을 확인합니다.
-
-``` title="명령어 실행 결과" linenums="1" hl_lines="13-17"
+- fdisk -l 명령어 실행 결과 디스크 "/dev/sdb"에 아무런 파티션이 없는 상태인 것을 확인합니다.
+``` linenums="1" hl_lines="13-17"
 Disk /dev/sda: 100 GiB, 107374182400 bytes, 209715200 sectors
 Disk model: QEMU HARDDISK
 Units: sectors of 1 * 512 = 512 bytes
@@ -82,29 +80,108 @@ Device     Boot   Start       End   Sectors Size Id Type
 /dev/sda1  *       2048   2099199   2097152   1G 83 Linux
 /dev/sda2       2099200 209715199 207616000  99G 8e Linux LVM
 
-Disk /dev/sdb: 100 GiB, 53687091200 bytes, 104857600 sectors
+Disk /dev/sdb: 100 GiB, 107374182400 bytes, 209715200 sectors
 Disk model: QEMU HARDDISK
 Units: sectors of 1 * 512 = 512 bytes
 Sector size (logical/physical): 512 bytes / 512 bytes
 I/O size (minimum/optimal): 512 bytes / 512 bytes
 ```
 
+- fdisk 명령어를 이용하여 "/dev/sdb" 디스크에 파티션 설정을 합니다.
+``` linenums="1"
+$ fdisk /dev/sdb
+```
+
+- n 을 입력하여 새로운 파티션을 생성하고 p를 입력하여 주 파티션으로 선택합니다.
+``` linenums="1" 
+Command (m for help): n
+Partition type:
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended
+Select (default p): 
+```
+
+- 파티션 번호를 설정하는 단계입니다. 기본 값인 "1"을 입력하거나 엔터로 넘어갈 수 있습니다.
+``` linenums="1"
+Partition number (1-4, default 1): 
+```
+
+- 시작할 섹터를 지정할 수 있습니다. 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
+``` linenums="1"
+First sector (2048-143305919, default 2048): 
+Using default value 2048
+```
+
+- 파티션의 용량을 설정합니다. 디스크 전체를 하나의 파티션으로 생성할 경우 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
+``` linenums="1"
+First sector (2048-143305919, default 2048): 
+Using default value 2048
+```
+
+- "w"를 입력하여 파티션 정보를 디스크에 적용합니다.
+``` linenums="1"
+Command (m for help): w
+The partition table has been altered!
+
+Calling ioctl() to re-read partition table.
+Syncing disks.
+```
+
+- fdisk -l 명령어 실행하여 변경된 파티션 정보를 확인합니다. 
+``` linenums="1"
+$ fdisk -l
+```
+
+- 생성된 파티션 "/dev/sdb1" 를 확인할 수 있습니다.
+``` linenums="1" hl_lines="9-10"
+Disk /dev/sdb: 100 GiB, 107374182400 bytes, 209715200 sectors
+Disk model: QEMU HARDDISK
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x1fd9e01f
+
+Device     Boot Start       End   Sectors Size Id Type
+/dev/sdb1        2048 209715199 207616000 100G 83 Linux
+```
+
+- mkfs 명령어를 이용하여 "/dev/sdb1" 파티션에 xfs 파일 시스템을 생성합니다.
+``` linenums="1" 
+$ mkfs.xfs /dev/sdb1
+```
+
+- 정상 적으로 파일 시스템이 생성되었는지 "fsck -N"  명령어를 통해 확인합니다.
+``` linenums="1" 
+$ fsck -N /dev/sdb1
+```
+
+- xfs 파일 시스템이 있는 것을 확인할 수 있습니다.
+``` linenums="1" 
+fsck from util-linux 2.37.4
+[/usr/sbin/fsck.xfs (1) -- /dev/sdb1] fsck.xfs /dev/sdb1
+```
+
+- /dev/sdb1 파티션을 /mnt/data 경로에 마운트를 적용합니다. 마운트할 경로에 폴더가 없다면 먼저 생성한 후 적절한 권한을 부여한 후 마운트를 적용합니다.
+``` linenums="1" 
+$ mkdir /mnt/data
+$ chmod -R 1777 /mnt/data
+$ mount /dev/sdb1 /mnt/data
+```
+
+- 정상 적으로 마운트가 적용되었는지 확인합니다.
+``` linenums="1" 
+$ mount | grep "sdb1"
+```
+
+- "/mnt/data"에 적상적으로 마운트 적용된 것을 확인할 수 있습니다.
+``` linenums="1" 
+/dev/sdb1 on /mnt/data type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+```
 
 
-1. 사용할 데이터 디스크를 `드라이브` 섹션에서 선택합니다.
-2. `파티션 테이블 만들기` 을 기본 값으로 실행하여 초기화합니다.
-3. `파티션 만들기` 를 클릭하여 해당 디스크에 파티션을 생성합니다. 파티션 만들기 예제는 다음과 같습니다.
-      1. 이름: `datadisk1`
-      2. 유형: `XFS`
-      3. 크기: `100GiB` (최대 값)
-      4. 적재지점(마운트 위치): `/mnt/data`
-      5. 마운트 옵션: `지금 마운트`
-      6. 암호화: `암호화 없음`
 
-해당 과정을 통해 포멧, 마운트, 부팅 시 자동 마운트 설정이 적용됩니다.
 
-!!! info "ABLESTACK Cube에서의 파티션 생성"
-    ABLESTACK Cube에서의 파티션 생성을 위해 [Cube 파티션 생성](../../../../administration/cube/userinterface-guide#_1) 문서를 참고하십시오.
 
 
 
