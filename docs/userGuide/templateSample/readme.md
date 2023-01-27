@@ -11,7 +11,6 @@
 
 <figure markdown>
 ![이미지 제목](이미지 경로.png)
-<figcaption>새 OOO 추가 대화 상자</figcaption>
 </figure markdown>
 
 ### 웹사이트 링크

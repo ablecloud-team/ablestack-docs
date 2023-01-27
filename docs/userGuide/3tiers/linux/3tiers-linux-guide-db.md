@@ -2,6 +2,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 클러스터(Galera Cluster)를 활용하여 3개의 DB 가상머신을 한 클러스터로 이중화 구성하는 방법은 다음과 같은 절차로 실행됩니다.
 
+- Affinity 그룹 생성
 - 가상머신 생성
 - 데이터 디스크 설정
 - 보안 설정
@@ -9,11 +10,39 @@ MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 �
 - Galera Cluster 설정
 - 로드 밸런서(부하 분산) 설정
 
+## Affinity 그룹 생성
+가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 VM들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
+
+<figure markdown>
+![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
+</figure markdown>
+
+- 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
+- 설명 : Affinity 그룹에 대한 설명을 입력합니다.
+- 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다. 
+
+새 Affinity 그룹 추가 대화상자에서의 입력 항목 예시는 다음과 같습니다.
+
+- 이름 : **ablecloud-3tier-linux-db**
+- 설명 : **3tiers-linux의 db 구성 시 사용되는 Affinity 그룹입니다.**
+- 유형 : **anti-affinity (Non-strict)**
+
+!!! info "Affinity 그룹 유형"
+    host anti-affinity:	가능한 한 서로 다른 호스트에 인스턴스를 배포합니다.
+
+    host affinity: 가능한 한 동일한 호스트에 인스턴스를 배포합니다.
+
+    * Non-Strict 옵션은 마지막 실행 호스트를 고려하여 실행됩니다.
+
+
 ## 가상머신 생성
 ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md)" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다.
 
+!!! note "갈레라 클러스터 구성에 필요한 가상머신 개수"
+    갈레라 클러스터가 안정적으로 동작하기 위해서는 **적어도 3개의 노드(가상머신)** 가 필요합니다. 3개 이상의 노드로 구성하여 **스플릿 브레인 (Split Brain)** 현상을 방지합니다. 이 현상은 2개의 노드로 클러스터를 구성했을 때 네트워크가 일시적으로 동시에 단절되거나 기타 시스템상의 이유로, 클러스터 상의 모든 노드들이 각자 자신이 Primary라고 인식하게 되는 상황을 뜻합니다. 스플릿 브레인 현상이 발생하면, 각 노드가 동시에 Primary가 되면서 이중 가동 현상이 발생하게 되는데 이 때 각 노드들은 동시에 스토리지에 접근하여 동기화 및 복제에 비정상 적인 트랜잭션이 발생할 수 있으며, 예상하지 못한 다양한 문제로 전체 서비스가 불능 상태에 빠질 수 있습니다. 이를 방지하기 위해 3개 이상의 노드로 클러스터를 구성하는 것을 권장합니다.
+
 가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
-해당 페이지에서는 "템플릿을 이용한 VM 생성" 문서를 참고하여 가상머신을 생성합니다.
+해당 페이지에서는 **템플릿을 이용한 VM 생성** 문서를 참고하여 가상머신을 생성합니다.
 
 !!! info "템플릿을 이용한 VM 생성"
     템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/centos-guide-add-and-use-vm#vm) 문서를 참고하십시오.
@@ -29,7 +58,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 네트워크 : **db** * VPC명이 일치되는지 확인합니다.
         - IP: **192.168.3.11**
     - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : * 디폴트 값으로 생성합니다.
+    - 확장 모드 : 
+        - Affinity 그룹 :  **ablecloud-3tier-linux-db**
     - 이름 : **ablecloud-3tier-linux-db-01**
 
 - DB 가상머신 2
@@ -41,7 +71,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 네트워크 : **db** * VPC명이 일치되는지 확인합니다.
         - IP: **192.168.3.12**
     - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : * 디폴트 값으로 생성합니다.
+    - 확장 모드 : 
+        - Affinity 그룹 :  **ablecloud-3tier-linux-db**
     - 이름 : **ablecloud-3tier-linux-db-02**
 
 - DB 가상머신 3
@@ -53,7 +84,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 네트워크 : **db** * VPC명이 일치되는지 확인합니다.
         - IP: **192.168.3.13**
     - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : * 디폴트 값으로 생성합니다.
+    - 확장 모드 : 
+        - Affinity 그룹 :  **ablecloud-3tier-linux-db**
     - 이름 : **ablecloud-3tier-linux-db-03**
 
 
@@ -525,5 +557,4 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 
 <figure markdown>
 ![가상머신 할당](../../../../assets/images/3tier-linux-architecture-db-lb-01.png)
-<figcaption>가상머신 할당</figcaption>
 </figure markdown>
