@@ -1,9 +1,9 @@
 ABLESTACK은 가상머신 생성 시, 그리고 가상머신 편집 기능을 이용해 가상머신에 사용자가 원하는 데이터, 즉 사용자 데이터를 전송하여 가상머신에서 해당 데이터를 받아 원하는 작업을 처리할 수 있도록 하는 사용자 데이터 전송 및 처리 기능을 지원합니다. 
 
-ABLESTACK은 이러한 사용자 데이터를 처리하기 위해 가장 보편적인 사용자 데이터 처리 도구인 cloud-init을 사용합니다. 본 문서에서는 CentOS 기반의 가상머신에 cloud-init을 이용해 사용자 데이터를 전송하고 처리하는 방법을 설명합니다. 
+ABLESTACK은 이러한 사용자 데이터를 처리하기 위해 가장 보편적인 사용자 데이터 처리 도구인 cloud-init을 사용합니다. 본 문서에서는 Ubuntu 기반의 가상머신에 cloud-init을 이용해 사용자 데이터를 전송하고 처리하는 방법을 설명합니다. 
 
 !!! info "예제에서 사용되는 가상머신 이미지"
-    본 문서의 예제에서 사용되는 가상머신 이미지는 CentOS 가상머신 가이드의 [비밀번호 및 SSH Key 관리](/userGuide/vms/centos-guide-ssh-key-use#_1) 가이드에서 생성한 비밀번호 및 SSH Key 관리가 가능한 가상머신 템플릿 이미지를 사용합니다. 
+    본 문서의 예제에서 사용되는 가상머신 이미지는 Ubuntu 가상머신 가이드의 [비밀번호 및 SSH Key 관리](/userGuide/vms/ubuntu-guide-ssh-key-use#_1) 가이드에서 생성한 비밀번호 및 SSH Key 관리가 가능한 가상머신 템플릿 이미지를 사용합니다. 
 
     따라서 본 가이드의 예제를 사용하기 전에 해당하는 가상머신 템플릿 이미지를 먼저 생성하여 사용하십시오.(사용자 데이터 처리를 위해 비밀번호 또는 SSH Key 관리가 꼭 필요한 것은 아닙니다. 예제의 실행을 기본 가상머신 템플릿을 사용해도 사용자 데이터를 처리할 수 있습니다)
 
@@ -18,7 +18,7 @@ cloud-init을 이용해 가상머신 생성 또는 재부팅 시 사용자 데�
 실행된 가상머신에 다음의 명령을 실행하여 cloud-init을 설치합니다. 
 
 ~~~
-$ dnf install -y cloud-init
+$ apt-get install cloud-init
 ~~~
 
 cloud-init 설치가 완료되면 해당 가상머신이 Mold의 가상라우터 등의 사용자 데이터 제공자와의 통신을 위해 구성 정보 설정을 해야 합니다. 다음의 명령을 실행하여 설정 파일을 생성합니다. 
@@ -55,7 +55,7 @@ datasource_list: [ CloudStack, None ]
    
 5. 대화상자에 템플릿 정보를 입력합니다. 
 
-    ![centos-60-vm-cloudinit-template](../../assets/images/centos-60-vm-cloudinit-template.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-60-vm-cloudinit-template](../../assets/images/ubuntu-60-vm-cloudinit-template.png){ style="margin-top: 20px;" width="450" }
 
 6. "확인" 버튼을 클릭하여 템플릿을 생성합니다. 
 
@@ -67,7 +67,7 @@ datasource_list: [ CloudStack, None ]
 
 대표적인 것인 cloud-init의 cloud-config 스크립트를 전송하여 다양한 가상머신 설정 작업을 자동화 하는 것입니다. 사용자 데이터 전송은 가상머신 생성 시, 그리고 가상머신 운영 중에 필요한 경우 전송하고 이를 처리할 수 있도록 할 수 있습니다. 
 
-본 가이드에서는 간단한 clouㅇ-config 스크립트를 전송할 것입니다. 스크립트는 다음과 같습니다. 
+본 가이드에서는 간단한 cloud-config 스크립트를 전송할 것입니다. 스크립트는 다음과 같습니다. 
 
 ~~~
 #cloud-config
@@ -93,7 +93,7 @@ bootcmd:
    
 2. 템플릿/ISO에서 사용자 데이터 전송/처리 기능이 설정된 템플릿을 선택합니다. 
 
-    ![centos-61-vm-cloudinit-select-tmpl](../../assets/images/centos-61-vm-cloudinit-select-tmpl.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-61-vm-cloudinit-select-tmpl](../../assets/images/ubuntu-61-vm-cloudinit-select-tmpl.png){ style="margin-top: 20px;" width="600" }
 
 3. 네트워크에서 사용자데이터 전송을 지원하는 네트워크를 선택합니다. 
 
@@ -133,7 +133,7 @@ bootcmd:
 
 2. 표시된 "가상머신 편집" 대화상자의 하단에 있는 "사용자 데이터" 항목에 원하는 데이터를 입력합니다. 
 
-    ![centos-64-vm-cloudinit-editvm](../../assets/images/centos-64-vm-cloudinit-editvm.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-64-vm-cloudinit-editvm](../../assets/images/ubuntu-64-vm-cloudinit-editvm.png){ style="margin-top: 20px;" width="450" }
 
 3. "확인" 버튼을 클릭하여 가상머신을 편집한 내용을 적용합니다. 
 

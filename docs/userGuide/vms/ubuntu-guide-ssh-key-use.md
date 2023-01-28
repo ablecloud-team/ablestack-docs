@@ -81,7 +81,7 @@ ABLESTACK은 가상머신의 비밀번호 관리 기능 및 SSH Key 쌍 관리 �
 가상머신 콘솔에서 다음의 명령을 실행하여 파일을 다운로드 합니다. 
 
 ~~~
-$ wget https://images.ablecloud.io/cloud-set-guest-sshkey-password-userdata-configdrive.in
+$ wget https://images.ablecloud.io/cloudinit/cloud-set-guest-sshkey-password-userdata-configdrive.in
 ~~~
 
 파일을 다운로드 한 후 다음의 명령을 실행하여 데몬 스크립트로 설정합니다. 
@@ -94,26 +94,19 @@ $ chmod +x ./cloud-set-guest-sshkey-password-userdata-configdrive.in
 파일 편집을 완료한 후 다음의 명령을 실행하여 스크립트를 데몬 스크립트 디렉토리로 이동합니다. 
 
 ~~~
-$ mv ./cloud-set-guest-sshkey-password-userdata-configdrive.in /etc/rc.d/init.d/
+$ mv cloud-set-guest-sshkey-password-userdata-configdrive.in /etc/init.d/
 ~~~
 
-해당 파일을 서비스로 등록하기 위해서는 `chkconfig` 프로그램이 필요합니다. 해당 프로그램을 위해서 다음의 명령을 실행하여 패키지를 설치합니다. 
+다음의 명령을 실행하여 데몬 스크립트를 서비스로 등록합니다. 
 
 ~~~
-$ dnf install -y chkconfig
-~~~
-
-패키지를 설치 한 후 다음의 명령을 실행하여 데몬 스크립트를 서비스로 등록합니다. 
-
-~~~
-$ chcon --reference /etc/rc.d/init.d/README /etc/rc.d/init.d/cloud-set-guest-sshkey-password-userdata-configdrive.in
-$ chkconfig --add /etc/rc.d/init.d/cloud-set-guest-sshkey-password-userdata-configdrive.in
+$ update-rc.d cloud-set-guest-sshkey-password-userdata-configdrive.in defaults
 ~~~
 
 스크립트가 서비스로 등롣 되었는지를 다음의 명령을 통해 확인합니다. 
 
 ~~~
-$ chkconfig --list
+$ ls /etc/rc*/*cloud-set*
 ~~~
 
 ### 가상머신 템플릿 이미지 생성
@@ -128,7 +121,7 @@ $ chkconfig --list
 
 4. "볼륨으로 템플릿 생성"을 클릭합니다. 표시된 대화상자에 필요한 정보를 입력합니다. 
 
-    ![centos-48-vm-sshkey-templatedlg](../../assets/images/centos-48-vm-sshkey-templatedlg.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-48-vm-sshkey-templatedlg](../../assets/images/ubuntu-48-vm-sshkey-templatedlg.png){ style="margin-top: 20px;" width="450" }
 
 5. "확인" 버튼을 클릭하여 템플릿을 생성합니다. 
 
@@ -156,13 +149,13 @@ ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 �
 
 5. 표시된 "편집" 대화 상자에서 "비밀번호 관리 사용" 항목을 원하는 값으로 설정합니다. 
 
-    ![centos-50-vm-sshkey-editpassword](../../assets/images/centos-50-vm-sshkey-editpassword.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-50-vm-sshkey-editpassword](../../assets/images/ubuntu-50-vm-sshkey-editpassword.png){ style="margin-top: 20px;" width="450" }
 
 6. 확인 버튼을 클릭하여 기능을 적용합니다.
 
 위와 같이 비밀번호 관리 기능이 설정된 가상머신 템플릿 이미지를 이용해 가상머신을 만듭니다. 가상머신을 생성하면 다음과 같이 생성된 비밀번호가 Mold 화면에 표시됩니다. 
 
-<center>![centos-51-vm-sshkey-vmpassword](../../assets/images/centos-51-vm-sshkey-vmpassword.png){ width="300" }</center>
+<center>![ubuntu-51-vm-sshkey-vmpassword](../../assets/images/ubuntu-51-vm-sshkey-vmpassword.png){ width="300" }</center>
 
 가상머신 콘솔에 접속하여 root 계정에 대해 화면에 표시된 비밀번호를 이용해 로그인할 수 있습니다. 
 
@@ -191,7 +184,7 @@ ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 �
 
 ## SSH Key 쌍 관리
 
-CentOS 기반의 가상머신은 Linux 가상머신으로 SSH 클라이언트를 통해 외부에서 가상머신으로 접속할 수 있습니다. 
+Ubuntu 기반의 가상머신은 Linux 가상머신으로 SSH 클라이언트를 통해 외부에서 가상머신으로 접속할 수 있습니다. 
 
 다양한 가상머신 내부 작업, 소프트웨어 패키지 설치, 각종 설정 등의 작업을 하기 위해서는 가상머신 콘솔을 통한 작업모다는 SSH 클라이언트를 통해 가상머신에 접속하는 경우가 더 많아지게 됩니다. 
 
@@ -268,14 +261,15 @@ $ systemctl enable --now sshd
 방화벽 설정을 확인하기 위해서 다음의 명령을 실행합니다. 
 
 ~~~
-$ firewall-cmd --list-all
+$ ufw status
+$ ufw app list
 ~~~
 
 표시된 결과 중 services 항목에 ssh가 있는지 확인합니다. 만약 없다면 다음과 같이 명령을 실행합니다. 
 
 ~~~
-$ firewall-cmd --permanent --add-service=ssh
-$ firewall-cmd --reload
+$ ufw allow ssh
+$ ufw reload
 ~~~
 
 가상머신 내부의 SSH 연결 준비가 완료되었다면 이제 가상머신이 연결되어 있는 네트워크가 외부 사용자의 연결을 받아들일 준비를 해야 합니다. 
