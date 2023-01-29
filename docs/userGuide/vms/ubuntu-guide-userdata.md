@@ -97,11 +97,11 @@ bootcmd:
 
 3. 네트워크에서 사용자데이터 전송을 지원하는 네트워크를 선택합니다. 
 
-    ![centos-62-vm-cloudinit-network](../../assets/images/centos-62-vm-cloudinit-network.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-62-vm-cloudinit-network](../../assets/images/centos-62-vm-cloudinit-network.png){ style="margin-top: 20px;" width="600" }
 
 4. "확장 모드" 단계에서 "고급 설정 표시"를 활성화 한 후 "사용자 데이터" 항목에 위의 스트립트를 입력합니다. 
 
-    ![centos-63-vm-cloudinit-userdata](../../assets/images/centos-63-vm-cloudinit-userdata.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-63-vm-cloudinit-userdata](../../assets/images/centos-63-vm-cloudinit-userdata.png){ style="margin-top: 20px;" width="600" }
 
 5. 그 외의 필요한 정보를 입력한 후 "VM 시작" 버튼을 클릭하여 가상머신을 시작합니다. 
 

@@ -60,17 +60,17 @@ $ ping 8.8.8.8
 
 만약 정상적으로 인터넷 연결이 되지 않는다면 가상머신이 연결되어 있는 네트워크 정보를 확인하여 인터넷이 연결되도록 설정되어 있는지 확인해야 합니다. 가상머신 상세 화면에서 "NIC" 탭을 클릭하면 가상머신에 연결되어 있는 네트워크 정보를 다음과 같이 확인할 수 있습니다. 
 
-<center>![centos-45-vm-sshkey-vmnics](../../assets/images/centos-45-vm-sshkey-vmnics.png){ width="600" }</center>
+<center>![ubuntu-45-vm-sshkey-vmnics](../../assets/images/centos-45-vm-sshkey-vmnics.png){ width="600" }</center>
 
 위의 그림과 같은 상태에서 "네트워크 이름" 항목을 클릭하면 가상머신에 연결되어 있는 네트워크의 상세 정보를 확인할 수 있습니다. 네트워크 상세 정보 화면에서 "송신 규칙" 탭을 클릭합니다. 다음의 그림과 같습니다. 
 
-<center>![centos-46-vm-sshkey-egressrule](../../assets/images/centos-46-vm-sshkey-egressrule.png){ width="600" }</center>
+<center>![ubuntu-46-vm-sshkey-egressrule](../../assets/images/centos-46-vm-sshkey-egressrule.png){ width="600" }</center>
 
 기본적으로 Isolated Network의 송신규칙은 "거부"입니다. 즉, 가상머신은 인터넷에 연결이 차단되어 있습니다. 따라서 해당 가상머신이 외부로 연결될 수 있도록 설정해야 합니다. 예제에서는 모든 가상머신의 외부 송신이 가능하도록 설정할 것입니다. 
 
 위의 화면에서 "프로토콜" 항목에서 "모두"를 선택한 후 "추가" 버튼을 클릭합니다. 이렇게 하면 해당 네트워크에 연결된 모든 가상머신에 대해 모든 외부로의 송신이 가능하도록 방화벽을 설정하는 것입니다. 다음과 같이 설정됩니다. 
 
-<center>![centos-47-vm-sshkey-egressall](../../assets/images/centos-47-vm-sshkey-egressall.png){ width="600" }</center>
+<center>![ubuntu-47-vm-sshkey-egressall](../../assets/images/centos-47-vm-sshkey-egressall.png){ width="600" }</center>
 
 설정이 완료되었다면 다시 한번 가상머신 콘솔에서 `ping` 명령을 실행하여 인터넷 연결이 활성화 되었는지 확인합니다. 
 
@@ -145,7 +145,7 @@ ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 �
 
 4. 화면 우측 상단의 액션 아이콘 버튼 중 "편집" 아이콘을 클릭합니다.
 
-    ![centos-49-vm-sshkey-edittemplate](../../assets/images/centos-49-vm-sshkey-edittemplate.png){ style="margin-top: 20px;" width="150" }
+    ![ubuntu-49-vm-sshkey-edittemplate](../../assets/images/centos-49-vm-sshkey-edittemplate.png){ style="margin-top: 20px;" width="150" }
 
 5. 표시된 "편집" 대화 상자에서 "비밀번호 관리 사용" 항목을 원하는 값으로 설정합니다. 
 
@@ -172,7 +172,7 @@ ABLESTACK은 가상머신의 비밀번호를 자동으로 생성하는 기능 �
 
 2. 가상머신 상세 화면의 우측 액션 아이콘 메뉴에서 "비밀번호 재설정" 아이콘을 클릭합니다. 
 
-    ![centos-52-vm-sshkey-resetpassword](../../assets/images/centos-52-vm-sshkey-resetpassword.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-52-vm-sshkey-resetpassword](../../assets/images/centos-52-vm-sshkey-resetpassword.png){ style="margin-top: 20px;" width="450" }
 
 3. "비밀번호 재설정" 대화상자에서 "확인" 버튼을 클릭합니다. 
    
@@ -198,11 +198,11 @@ SSH Key 쌍은 `컴퓨트 > SSH 키 쌍` 화면에서 확인할 수 있습니다
 
 1. "SSH 키 쌍 생성" 버튼을 클릭합니다. 다음과 같은 화면이 표시됩니다. 
 
-    ![centos-53-vm-sshkey-keypairdlg](../../assets/images/centos-53-vm-sshkey-keypairdlg.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-53-vm-sshkey-keypairdlg](../../assets/images/centos-53-vm-sshkey-keypairdlg.png){ style="margin-top: 20px;" width="450" }
 
 2. 대화상자에서 "이름"을 입력하고 "확인" 버튼을 클릭합니다. 다음과 같은 화면이 표시됩니다. 
 
-    ![centos-54-vm-sshkey-keydownload](../../assets/images/centos-54-vm-sshkey-keydownload.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-54-vm-sshkey-keydownload](../../assets/images/centos-54-vm-sshkey-keydownload.png){ style="margin-top: 20px;" width="450" }
 
 3. 다운로드를 클릭하여 키 파일을 다운로드 합니다. 파일이 다운로드 되면 '닫기' 버튼을 클릭하여 화면을 닫습니다. 
 
@@ -231,7 +231,7 @@ SSH Key 쌍을 생성한 후 해당 키를 적용하여 가상머신을 생성�
 
 8. SSH 키 쌍을 다음과 같이 선택합니다. 
 
-    ![centos-55-vm-sshkey-vmkeypair](../../assets/images/centos-55-vm-sshkey-vmkeypair.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-55-vm-sshkey-vmkeypair](../../assets/images/centos-55-vm-sshkey-vmkeypair.png){ style="margin-top: 20px;" width="600" }
 
 9. 확장모드를 선택합니다. 
 
@@ -280,15 +280,15 @@ $ ufw reload
    
 2. 해당 네트워크의 상세 화면에서 "Public IP 주소" 탭을 클릭합니다. 
 
-    ![centos-56-vm-sshkey-publicip](../../assets/images/centos-56-vm-sshkey-publicip.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-56-vm-sshkey-publicip](../../assets/images/centos-56-vm-sshkey-publicip.png){ style="margin-top: 20px;" width="600" }
 
 3. 표시된 IP 주소를 클릭하여 Public IP 주소 상세 화면으로 이동하여 포트 포워딩 탭을 클릭한 후 해당 가상머신의 ssh port로 포트포워딩 합니다. 
 
-    ![centos-57-vm-sshkey-portforward](../../assets/images/centos-57-vm-sshkey-portforward.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-57-vm-sshkey-portforward](../../assets/images/centos-57-vm-sshkey-portforward.png){ style="margin-top: 20px;" width="600" }
 
 4. 해당 화면에서 "방화벽" 탭을 클릭한 후 해당 네트워크의 ssh port(22번)를 엽니다. 
 
-    ![centos-58-vm-sshkey-firewall](../../assets/images/centos-58-vm-sshkey-firewall.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-58-vm-sshkey-firewall](../../assets/images/centos-58-vm-sshkey-firewall.png){ style="margin-top: 20px;" width="600" }
 
 네트워크 연결 준비가 완료되면 SSH 클라이언트로 가상머신에 연결합니다. 격리네트워크의 경우 앞서 조회한 public ip를 이용해 가상머신에 접속합니다. 
 
@@ -309,7 +309,7 @@ SSH Key를 분실하는 등의 문제로 가상머신의 SSH Key를 새로운 SS
 
 3. 액션 아이콘 메뉴에서 "SSH 키 쌍 재설정"을 클릭합니다. 다음의 대화상자가 표시됩니다. 
 
-    ![centos-59-vm-sshkey-resetsshkey](../../assets/images/centos-59-vm-sshkey-resetsshkey.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-59-vm-sshkey-resetsshkey](../../assets/images/centos-59-vm-sshkey-resetsshkey.png){ style="margin-top: 20px;" width="600" }
 
 4. 가상머신에 재설정하고자 하는 SSH Key를 선택한 후 "확인" 버튼을 클릭합니다. 
 

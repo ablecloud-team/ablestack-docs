@@ -86,7 +86,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 가상머신 추가 시 네트워크 선택 단계의 화면은 다음과 같습니다. 
 
 <center>
-![centos-23-vm-wizard-05-1](../../assets/images/centos-23-vm-wizard-05-1.png){ width="600" }
+![ubuntu-23-vm-wizard-05-1](../../assets/images/centos-23-vm-wizard-05-1.png){ width="600" }
 </center>
 
 네트워크 선택 목록에서 원하는 네트워크를 찾기 위해 검색 기능 또는 페이지 탐색을 이용할 수 있습니다. 
@@ -94,7 +94,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 만약 연결하고자 하는 네트워크가 없다면 "새로운 네트워크 생성" 버튼을 클릭하여 "네트워크 추가" 대화상자를 통해 새로운 네트워크를 추가할 수 있습니다. 
 
 <center>
-![centos-24-vm-wizard-05-2](../../assets/images/centos-24-vm-wizard-05-2.png){ width="450" }
+![ubuntu-24-vm-wizard-05-2](../../assets/images/centos-24-vm-wizard-05-2.png){ width="450" }
 </center>
 
 새로운 네트워크를 추가 하기 위해 네트워크 추가 대화상자에서 네트워크 유형을 선택합니다. 예제에서는 "isolated" 유형을 선택합니다. 
@@ -104,7 +104,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 "확인" 버튼을 클릭하여 네트워크를 새로 생성합니다. 
 
 <center>
-![centos-25-vm-wizard-05-3](../../assets/images/centos-25-vm-wizard-05-3.png){ width="600" }
+![ubuntu-25-vm-wizard-05-3](../../assets/images/centos-25-vm-wizard-05-3.png){ width="600" }
 </center>
 
 위의 그림과 같이 새롭게 생성된 네트워크가 목록에 표시되고, 해당 네트워크가 가상머신에 연결되도록 선택되어 있는 상태로 표시됩니다. 
@@ -118,7 +118,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 리눅스 계열의 가상머신의 경우, 가상머신의 SSH 접속을 위해 SSH 키 쌍을 가상머신에 등록할 수 있습니다. 단, 가상머신 템플릿 이미지에 이러한 SSH 키 쌍을 처리할 수 있는 애플리케이션이 설치되어 있어야 합니다. SSH 키 쌍을 선택하는 단계의 화면은 다음과 같습니다. 
 
 <center>
-![centos-26-vm-wizard-06](../../assets/images/centos-26-vm-wizard-06.png){ width="600" }
+![ubuntu-26-vm-wizard-06](../../assets/images/centos-26-vm-wizard-06.png){ width="600" }
 </center>
 
 해당 기능은 기본 템플릿으로는 사용할 수 없으므로 SSH 키 쌍은 선택하지 않고 다음 단계로 이동합니다. 
@@ -128,7 +128,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 확장 모드 단계에서는 가상머신의 부팅 유형 및 부팅 모드, 그리고 다이나믹 스케일링, 가상머신에 전송할 사용자 데이터, 가상머신이 속할 Affinity 그룹 등을 선택할 수 있습니다. 확장 모드를 선택하는 단계의 화면은 다음과 같습니다. 
 
 <center>
-![centos-27-vm-wizard-07](../../assets/images/centos-27-vm-wizard-07.png){ width="600" }
+![ubuntu-27-vm-wizard-07](../../assets/images/centos-27-vm-wizard-07.png){ width="600" }
 </center>
 
 가상머신의 부팅 유형 및 부팅 모드는 기존의 템플릿에 설정되어 있는 부팅 유형 및 부팅 모드와 동일해야 합니다. 본 예제에서는 단순한 가상머신의 추가, 사용을 위해 가상머신을 추가하는 것이므로 별도의 확장 모드를 선택하지 않고, 다음 단계로 이동합니다. 
@@ -156,7 +156,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 생성된 가상머신의 상세 페이지의 우측 상단에는 다음과 같은 아이콘 버튼이 있습니다. 
 
 <center>
-![centos-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
+![ubuntu-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
 </center>
 
 위의 버튼 이미지는 가상머신이 실행 중인 상태에서 표시되는 메뉴 이미지입니다. 
@@ -168,7 +168,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 다음과 같은 "가상머신 정지" 대화상자가 표시됩니다. 
 
 <center>
-![centos-31-vm-stop-dlg](../../assets/images/centos-31-vm-stop-dlg.png){ width="450" }
+![ubuntu-31-vm-stop-dlg](../../assets/images/centos-31-vm-stop-dlg.png){ width="450" }
 </center>
 
 "확인"을 누르면 가상머신이 정지됩니다. 이 때 가상머신은 가상머신 내에서 `shutdown -h now` 명령을 실행한 것과 같은 작업이 이루어집니다. 이러한 가상머신 셧다운 작업을 "Graceful Shutdown" 이라고 부릅니다. 
@@ -188,13 +188,13 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 가상머신이 정지된 상태라면 언제는 사용자는 Mold를 통해 가상머신을 시작할 수 있습니다. 정지 상태인 가상머신의 상세 화면으로 이동하여 우측 상단의 아이콘 메뉴를 확인하면 다음과 같습니다. 
 
 <center>
-![centos-32-vm-detail-icon-menu](../../assets/images/centos-32-vm-detail-icon-menu.png){ width="450" }
+![ubuntu-32-vm-detail-icon-menu](../../assets/images/centos-32-vm-detail-icon-menu.png){ width="450" }
 </center>
 
 가상머신을 시작하려면, 아이콘 메뉴 중 네번째 메뉴인 "가상머신 시작"을 클릭합니다. 다음과 같은 "가상머신 시작" 대화상자가 표시됩니다. 
 
 <center>
-![centos-33-vm-start-dlg](../../assets/images/centos-33-vm-start-dlg.png){ width="450" }
+![ubuntu-33-vm-start-dlg](../../assets/images/centos-33-vm-start-dlg.png){ width="450" }
 </center>
 
 해당 대화상자는 가상머신이 시작할 인프라를 선택하는 것입니다. 가상머신은 기본적으로 가상머신이 정지되기 전에 실행되었던 호스트에서 실행하도록 설정되어 있습니다. 만약 해당 설정을 취소하고, 특정 인프라 즉, 특정 호스트에서 시작하기를 원하는 경우 해당 호스트를 명시적으로 지정해야 합니다. 
@@ -206,13 +206,13 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 가상머신이 시작이 된 상태라면 가상머신 상세 조회 화면의 우측 상단 아이콘 메뉴는 다음과 같은 상태로 표시됩니다. 
 
 <center>
-![centos-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
+![ubuntu-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
 </center>
 
 해당 메뉴에서 다섯번째 메뉴인 "가상머신 재시작" 버튼을 클릭하면 다음과 같은 대화 상자가 표시됩니다. 
 
 <center>
-![centos-34-vm-reboot-dlg](../../assets/images/centos-34-vm-reboot-dlg.png){ width="450" }
+![ubuntu-34-vm-reboot-dlg](../../assets/images/centos-34-vm-reboot-dlg.png){ width="450" }
 </center>
 
 가상머신 재시작 대화상자에서 "확인" 버튼을 누르면 가상머신이 재시작됩니다. 가상머신의 재시작은 가상머신 콘솔 또는 SSH 접속 상태에서 `reboot` 명령을 실행하여 "Graceful Reboot"을 한 것과 동일하게 작업이 이루어집니다. 
@@ -234,7 +234,7 @@ Zone은 일반적으로 ABLESTACK이 위치한 데이터센터를 의미하며, 
 가상머신이 실행 중인 상태에서의 가상머신 상세 화면의 우측 상단의 액션 아이콘 메뉴는 다음과 같습니다. 
 
 <center>
-![centos-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
+![ubuntu-30-vm-detail-icon-menu](../../assets/images/centos-30-vm-detail-icon-menu.png){ width="450" }
 </center>
 
 첫번째 아이콘, 즉 "콘솔 보기" 아이콘을 클릭하여 가상머신 콘솔에 접속한 후 다음의 명령을 실행하여 가상화 에이전트의 버전을 확인합니다. 
@@ -246,7 +246,7 @@ qemu-ga --version
 에이전트가 1.6버전 이상이라면 가상머신 스냅샷을 생성할 수 있습니다. 액션 아이콘 메뉴의 7번째 아이콘인 "VM 스냅샷 생성" 버튼을 클릭합니다. 다음과 깉이 "VM 스냅샷 생성" 대화상자가 표시됩니다. 
 
 <center>
-![centos-35-vm-snapshot-dlg](../../assets/images/centos-35-vm-snapshot-dlg.png){ width="450" }
+![ubuntu-35-vm-snapshot-dlg](../../assets/images/centos-35-vm-snapshot-dlg.png){ width="450" }
 </center>
 
 대화상자에 이름 및 설명을 입력한 후 "확인" 버튼을 클릭하여 가상머신 스냅샷을 생성합니다. 생성된 가상머신 스냅샷은 해당 가상머신의 상세 화면의 "VM 스냅샷" 탭을 클릭하여 확인할 수 있습니다. 
@@ -258,13 +258,13 @@ qemu-ga --version
 스냅샷을 복원할 가상머신의 상세 화면에서 가상머신 정지 아이콘을 클릭하여 가상머신을 정지한 후, 상세 화면의 "VM 스냅샷" 탭을 클릭하여 스냅샷 목록을 조회합니다. 조회한 화면은 다음의 이미지와 같습니다. 
 
 <center>
-![centos-36-vm-snapshot-list](../../assets/images/centos-36-vm-snapshot-list.png){ width="600" }
+![ubuntu-36-vm-snapshot-list](../../assets/images/centos-36-vm-snapshot-list.png){ width="600" }
 </center>
 
 복원하고자 하는 가상머신 스냅샷을 선택하여 VM 스냅샷 상세 화면으로 이동하면 우측 상단에 액션 아이콘 메뉴를 확인할 수 있습니다. 다음의 그림과 같습니다. 
 
 <center>
-![centos-37-vm-snapshot-detail-menu](../../assets/images/centos-37-vm-snapshot-detail-menu.png){ width="130" }
+![ubuntu-37-vm-snapshot-detail-menu](../../assets/images/centos-37-vm-snapshot-detail-menu.png){ width="130" }
 </center>
 
 액션 아이콘 메뉴 중 두번째 아이콘, 즉 "VM 스냅샷 복원"을 클릭합니다. 표시되는 "VM 스냅샷 복원" 확인 대화상자에서 "확인" 버튼을 클릭하여 스냅샷 복원 작업을 실행합니다. 
@@ -288,7 +288,7 @@ qemu-ga --version
 스냅샷 목록 조회 후 삭제하고자 하는 스냅샷의 팝업 메뉴에 마우스를 오버하면 다음과 같이 메뉴가 표시됩니다. 
 
 <center>
-![centos-38-vm-snapshot-list-menu](../../assets/images/centos-38-vm-snapshot-list-menu.png){ width="600" }
+![ubuntu-38-vm-snapshot-list-menu](../../assets/images/centos-38-vm-snapshot-list-menu.png){ width="600" }
 </center>
 
 액션 아이콘 메뉴에서 휴지통 모양 아이콘 즉, "VM 스냅샷 삭제" 버튼을 클릭하면 해당 스냅샷이 삭제됩니다. 
@@ -300,7 +300,7 @@ qemu-ga --version
 가상머신 파기를 실행하면 다음과 같은 "가상머신 파기" 대화상자가 표시됩니다. 
 
 <center>
-![centos-39-vm-destroy-dlg](../../assets/images/centos-39-vm-destroy-dlg.png){ width="450" }
+![ubuntu-39-vm-destroy-dlg](../../assets/images/centos-39-vm-destroy-dlg.png){ width="450" }
 </center>
 
 대화상자에는 "제거" 여부를 선택하는 토글 버튼과 삭제될 데이터볼륨을 선택하는 선택 상자가 있습니다. 가상머신을 삭제하면 실제로 가상머신을 제거하지 않고, 가상머신이 삭제되었다고 표시하는 것입니다. 그리고 일정 시간(기본값은 1일)이 지나면 해당 가상머신과 디스크가 제거됩니다. 

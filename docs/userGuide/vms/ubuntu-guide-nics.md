@@ -17,7 +17,7 @@ ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NI
 5. 데이터 디스크를 선택합니다. 
    
 6. 가상머신에 연결하고자 하는 NIC를 1개 이상 다음과 같이 선택합니다. 
-    ![centos-73-vm-add-nics-vmcreate](../../assets/images/centos-73-vm-add-nics-vmcreate.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-73-vm-add-nics-vmcreate](../../assets/images/centos-73-vm-add-nics-vmcreate.png){ style="margin-top: 20px;" width="600" }
    
 7. SSH 키 쌍을 선택합니다. 
    
@@ -35,7 +35,7 @@ ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NI
 
 가상머신 상세 화면에서 다음과 같이 NIC가 연결된 것을 확인할 수 있습니다. 
 
-<center>![centos-74-vm-add-nics-detail](../../assets/images/centos-74-vm-add-nics-detail.png){ width="600" }</center>
+<center>![ubuntu-74-vm-add-nics-detail](../../assets/images/centos-74-vm-add-nics-detail.png){ width="600" }</center>
 
 가상머신의 콘솔에 접속하여 실제 해당 NIC가 같은 정보로 설정되어 있는지 확인합니다. 가상머신에 접속하여 다음의 명령을 실행하여 네트워크 정보를 확인합니다. (아래의 예제 명령에서 ens3 부분은 가상머신에 할당된 NIC의 디바이스명으로 가상머신에 따라 다를 수 있습니다.)
 
@@ -79,12 +79,12 @@ default         r-652-vm.cs2clo 0.0.0.0         UG    100    0        0 ens3
 
 1. `컴퓨트 > 가상머신` 화면으로 이동한 후 NIC를 추가하고자 하는 가상머신의 상세 화면으로 이동합니다. 
 2. 가상머신 상세화면에서 "NIC" 탭을 클릭하여 탭을 표시합니다. 
-    ![centos-75-vm-add-nics-nic-tab](../../assets/images/centos-75-vm-add-nics-nic-tab.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-75-vm-add-nics-nic-tab](../../assets/images/centos-75-vm-add-nics-nic-tab.png){ style="margin-top: 20px;" width="600" }
 3. 해당 탭의 상단에 있는 "VM에 네트워크 추가" 버튼을 클릭하여 대화상자를 표시합니다. 
 4. 추가하고자 하는 NIC에 연결할 네트워크를 선택하고, "확인" 버튼을 클릭합니다. 
-    ![centos-76-vm-add-nics-add-new](../../assets/images/centos-76-vm-add-nics-add-new.png){ style="margin-top: 20px;" width="450" }
+    ![ubuntu-76-vm-add-nics-add-new](../../assets/images/centos-76-vm-add-nics-add-new.png){ style="margin-top: 20px;" width="450" }
 5. 가상머신에 NIC가 추가되었는지 해당 탭에서 확인합니다.
-    ![centos-77-vm-add-nics-add-result](../../assets/images/centos-77-vm-add-nics-add-result.png){ style="margin-top: 20px;" width="600" }
+    ![ubuntu-77-vm-add-nics-add-result](../../assets/images/centos-77-vm-add-nics-add-result.png){ style="margin-top: 20px;" width="600" }
 
 추가된 NIC를 가상머신 내부에서 확인하기 위해 nmcli 명령어를 사용합니다. 
 
@@ -155,15 +155,15 @@ default         r-652-vm.cs2clo 0.0.0.0         UG    100    0        0 ens3
 
 기본 네트워크 NIC를 변경하고자 하는 경우, 예제의 경우 `ens8`로 기본 네트워크를 변경하고자 하는 경우, 먼저 Mold의 `컴퓨트 > 가상머신` 화면에서 NIC 설정을 하고자 하는 가상머신을 선택한 후 해당 가상머신의 상세 화면에서 NIC 탭을 선택합니다. 
 
-<center>![centos-78-vm-nics-list](../../assets/images/centos-78-vm-nics-list.png){ width="600" }</center>
+<center>![ubuntu-78-vm-nics-list](../../assets/images/centos-78-vm-nics-list.png){ width="600" }</center>
 
 기본 네트워크로 설정하고자 하는 NIC를 선택하여 `+` 버튼을 클릭하면 다음과 같이 상세 내용이 표시됩니다. 
 
-<center>![centos-79-vm-nic-details](../../assets/images/centos-79-vm-nic-details.png){ width="600" }</center>
+<center>![ubuntu-79-vm-nic-details](../../assets/images/centos-79-vm-nic-details.png){ width="600" }</center>
 
 표시된 상세 화면에서 `기본 NIC 설정` 아이콘 버튼을 클릭하여 해당 NIC를 기본 NIC로 설정합니다. 가상머신의 NIC 상세 화면을 확인하면 선택한 NIC가 0번 장치, 즉 기본 NIC로 변경된 것을 확인할 수 있습니다. 
 
-<center>![centos-80-vm-nic-default](../../assets/images/centos-80-vm-nic-default.png){ width="600" }</center>
+<center>![ubuntu-80-vm-nic-default](../../assets/images/centos-80-vm-nic-default.png){ width="600" }</center>
 
 이제 가상머신에서 해당 NIC(예제에서는 `ens8`)를 기본 NIC로 설정해야 합니다. `ens3`의 기본 라우팅 설정을 취소하고, `ens8`의 기본 라우팅 설정을 활성화 한 후 NIC를 재시작합니다. 다음과 같습니다. 
 
@@ -198,7 +198,7 @@ default         _gateway        0.0.0.0         UG    101    0        0 ens8
 
 NIC를 삭제하기 위해 먼저 가상머신의 상세 화면에서 NIC 탭을 클릭하고 삭제하고자 하는 NIC의 `+` 버튼을 클릭합니다. 
 
-<center>![centos-81-vm-nic-non-default](../../assets/images/centos-81-vm-nic-non-default.png){ width="600" }</center>
+<center>![ubuntu-81-vm-nic-non-default](../../assets/images/centos-81-vm-nic-non-default.png){ width="600" }</center>
 
 상세 화면에서 휴지통 모양의 `NIC 제거` 아이콘 버튼을 클릭하여 가상머신에서 해당 NIC를 제거합니다. 
 
