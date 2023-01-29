@@ -1,4 +1,4 @@
-ABLESTACK은 가상머신에서 사용할 수 있도록 디스크를 생성하고, 연결, 관리할 수 있는 다양한 기능을 제공합니다. 본 가이드에서는 생성된 가상머신의 볼륨을 CentOS 운영체제 상에서 사용할 수 있는 방법을 설명합니다. 
+ABLESTACK은 가상머신에서 사용할 수 있도록 디스크를 생성하고, 연결, 관리할 수 있는 다양한 기능을 제공합니다. 본 가이드에서는 생성된 가상머신의 볼륨을 Ubuntu 운영체제 상에서 사용할 수 있는 방법을 설명합니다. 
 
 ## 루트 디스크 확장
 
@@ -13,7 +13,7 @@ ABLESTACK은 가상머신을 생성할 때, 그리고 가상머신이 운영 중
 1. 배포 인프라를 선택합니다.
    
 2. 템플릿/ISO를 선택한 후 "루트 디스크 크기 무시"를 선택합니다. 그리고 원하는 디스크 크기를 입력합니다. 이 때 루트 디스크의 크기를 반드시 처음에 설정된 크기보다 커야 합니다.
-  ![centos-65-vm-volume-template](../../assets/images/centos-65-vm-volume-template.png){ style="margin-top: 20px;" width="600" }
+  ![ubuntu-65-vm-volume-template](../../assets/images/ubuntu-65-vm-volume-template.png){ style="margin-top: 20px;" width="600" }
 
 3. 컴퓨트 오퍼링을 선택합니다.
     
@@ -58,7 +58,7 @@ Filesystem                         Size  Used Avail Use% Mounted on
 devtmpfs                           3.8G     0  3.8G   0% /dev
 tmpfs                              3.8G     0  3.8G   0% /dev/shm
 tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/cs_centos9--base-root   46G  4.4G   41G  10% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   46G  4.4G   41G  10% /
 tmpfs                              3.8G     0  3.8G   0% /tmp
 /dev/vda1                         1014M  263M  752M  26% /boot
 tmpfs                              769M   36K  769M   1% /run/user/0
@@ -69,8 +69,7 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0  100G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
+  ├─ubuntu--vg-ubuntu--l  253:0    0 45.1G  0 lvm  /
 ```
 
 위의 명령 실행 결과를 보면 실제 물리 디스크인 vda의 전체 용량은 100GB이지만 루트 영역이 49GB가 할당되어 있는 것을 볼 수 있습니다.
@@ -146,28 +145,27 @@ $ pvcreate /dev/vda3
 
 ```
 $ vgs
-  VG              #PV #LV #SN Attr   VSize   VFree
-  cs_centos9-base   1   2   0 wz--n- <49.00g    0
+  VG         #PV #LV  #SN Attr   VSize    VFree
+  ubuntu-vg   1   2   0   wz--n- <49.00g  0
 
-$ vgextend cs_centos9-base /dev/vda3
-  Volume group "cs_centos9-base" successfully extended
+$ vgextend ubuntu-vg /dev/vda3
+  Volume group "ubuntu-vg" successfully extended
 
 $ vgs
-  VG              #PV #LV #SN Attr   VSize  VFree
-  cs_centos9-base   2   2   0 wz--n- 98.99g <50.00g
+  VG         #PV #LV #SN Attr   VSize  VFree
+  ubuntu-vg   2   2   0  wz--n- 98.99g <50.00g
 ```
 
 볼륨 그룹에 여유 공간이 할당되었다면 `lvs`를 이용해 논리 볼륨을 확인한 후 root로 설정된 논리 볼륨을 `lvextend` 명령을 이용해 확장합니다. 
 
 ```
 $ lvs
-  LV   VG              Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
-  root cs_centos9-base -wi-ao---- 45.05g
-  swap cs_centos9-base -wi-ao---- <3.95g
+  LV        VG        Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  ubuntu-lv ubuntu-vg -wi-ao---- 45.05g
 
-$ lvextend /dev/cs_centos9-base/root -l +100%FREE
-  Size of logical volume cs_centos9-base/root changed from 45.05 GiB (11533 extents) to <95.05 GiB (24332 extents).
-  Logical volume cs_centos9-base/root successfully resized.
+$ lvextend ubuntu-vg/ubuntu-lv -l +100%FREE
+  Size of logical volume ubuntu-vg/ubuntu-lv changed from 45.05 GiB (11533 extents) to <95.05 GiB (24332 extents).
+  Logical volume ubuntu-vg/ubuntu-lv successfully resized.
 ```
 
 루트 디스크의 파일 시스템을 `mount` 명령으로 확인 한 뒤 적절한 파일 시스템 용량 증설 명령을 통해 파일 시스템을 확장합니다. 
@@ -175,11 +173,11 @@ $ lvextend /dev/cs_centos9-base/root -l +100%FREE
 예제에서는 루트디스크의 파일 시스템이 `xfs` 파일 시스템으로 `xfs_growfs` 명령을 이용해 디스크를 확장합니다.
 
 ```
-$ mount | grep root
-/dev/mapper/cs_centos9--base-root on / type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+$ mount | grep ubuntu
+/dev/mapper/ubuntu--vg-ubuntu--lv on / type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
 
-$ xfs_growfs /dev/mapper/cs_centos9--base-root
-meta-data=/dev/mapper/cs_centos9--base-root isize=512    agcount=4, agsize=2952448 blks
+$ xfs_growfs /dev/mapper/ubuntu--vg-ubuntu--lv
+meta-data=/dev/mapper/ubuntu--vg-ubuntu--lv   isize=512    agcount=4, agsize=2952448 blks
          =                       sectsz=512   attr=2, projid32bit=1
          =                       crc=1        finobt=1, sparse=1, rmapbt=0
          =                       reflink=1    bigtime=1 inobtcount=1
@@ -200,7 +198,7 @@ Filesystem                         Size  Used Avail Use% Mounted on
 devtmpfs                           3.8G     0  3.8G   0% /dev
 tmpfs                              3.8G     0  3.8G   0% /dev/shm
 tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/cs_centos9--base-root   96G  4.7G   91G   5% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   96G  4.7G   91G   5% /
 tmpfs                              3.8G     0  3.8G   0% /tmp
 /dev/vda1                         1014M  263M  752M  26% /boot
 tmpfs                              769M   36K  769M   1% /run/user/0
@@ -209,17 +207,6 @@ tmpfs                              769M   36K  769M   1% /run/user/0
 ### 루트 디스크 LVM 확장(growpart)
 
 위에서 설명한 fdisk를 이용해 루트 디스크의 LVM을 확장하는 방법 외에 growpart라는 패키지를 통해 쉽게 파티션을 확장하는 방법을 사용할 수 있습니다. 
-
-!!! info "growpart 패키지 사용"
-    fdisk의 경우 기본적으로 운영체제에 설치되어 있는 패키지지만, growpart는 별도의 설치가 필요합니다. 
-
-    가상머신에 인터넷이 지원되는 환경에서 해당 패키지를 설치한 후 LVM 확장을 진행해야 합니다.
-
-먼저 growpart 패키지를 운영체제에 설치합니다. 
-
-```
-$ dnf install -y cloud-utils-growpart
-```
 
 확장하고자 하는 ROOT 디스크의 파티션 정보를 확인하여 확장할 여유공간이 있는지 확인합니다. 
 
@@ -230,10 +217,9 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0  200G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 ├─vda2                    252:2    0   49G  0 part
-│ ├─cs_centos9--base-root 253:0    0   95G  0 lvm  /
-│ └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
+│ ├─ubuntu--vg-ubuntu--lv 253:0    0   95G  0 lvm  /
 └─vda3                    252:3    0   50G  0 part
-  └─cs_centos9--base-root 253:0    0   95G  0 lvm  /
+  └─ubuntu--vg-ubuntu--lv 253:0    0   95G  0 lvm  /
 ```
 
 `growpart`를 이용해 vda의 두번째 파티션인 vda3 파티션을 확장합니다. 다음과 같습니다. 
@@ -258,7 +244,7 @@ $ pvresize /dev/vda3
 ```
 $ vgs
   VG              #PV #LV #SN Attr   VSize   VFree
-  cs_centos9-base   2   2   0 wz--n- 198.99g 100.00g
+  ubuntu-vg         2   2   0 wz--n- 198.99g 100.00g
 ```
 
 이제 논리 볼륨을 다음과 같이 확장합니다. `lvextend` 명령의 `-r` 옵션은 논리 볼륨을 확장한 후 논리 볼륨의 파일 시스템도 같이 사이즈를 변경하도록 합니다. 
@@ -266,10 +252,10 @@ $ vgs
 예제의 ROOT 디스크는 xfs 파일 시스템이므로 `xfs_growfs` 명령을 실행한 것과 동일한 결과가 실행됩니다. 
 
 ```
-$ lvextend -r -l +100%FREE /dev/cs_centos9-base/root
-  Size of logical volume cs_centos9-base/root changed from <95.05 GiB (24332 extents) to <195.05 GiB (49932 extents).
-  Logical volume cs_centos9-base/root successfully resized.
-meta-data=/dev/mapper/cs_centos9--base-root isize=512    agcount=9, agsize=2952448 blks
+$ lvextend -r -l +100%FREE ubuntu-vg/ubuntu-lv
+  Size of logical volume ubuntu-vg/ubuntu-lv changed from <95.05 GiB (24332 extents) to <195.05 GiB (49932 extents).
+  Logical volume ubuntu-vg/ubuntu-lv successfully resized.
+meta-data=/dev/mapper/ubuntu--vg-ubuntu--lv isize=512    agcount=9, agsize=2952448 blks
          =                       sectsz=512   attr=2, projid32bit=1
          =                       crc=1        finobt=1, sparse=1, rmapbt=0
          =                       reflink=1    bigtime=1 inobtcount=1
@@ -308,7 +294,7 @@ ABLESTACK은 가상머신에 데이터 디스크를 생성하여 연결하는 �
    
 2. 배포 인프라를 선택합니다. 
    
-3. 템플릿/ISO에서 CentOS 기반의 템플릿을 선택합니다. 
+3. 템플릿/ISO에서 Ubuntu 기반의 템플릿을 선택합니다. 
    
 4. 컴퓨트 오퍼링을 선택합니다. 
    
@@ -340,8 +326,7 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
+  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
 vdb                       252:16   0  100G  0 disk
 ```
 
@@ -421,7 +406,7 @@ Filesystem                         Size  Used Avail Use% Mounted on
 devtmpfs                           3.8G     0  3.8G   0% /dev
 tmpfs                              3.8G     0  3.8G   0% /dev/shm
 tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/cs_centos9--base-root   46G  4.4G   41G  10% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   46G  4.4G   41G  10% /
 tmpfs                              3.8G     0  3.8G   0% /tmp
 /dev/vda1                         1014M  263M  752M  26% /boot
 tmpfs                              769M   36K  769M   1% /run/user/0
@@ -460,8 +445,7 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
+  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
 vdb                       252:16   0  200G  0 disk
 └─vdb1                    252:17   0  100G  0 part
   └─data1_vg-data1_lv0    253:2    0  100G  0 lvm  /data1
@@ -492,8 +476,7 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
+  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
 vdb                       252:16   0  200G  0 disk
 └─vdb1                    252:17   0  200G  0 part
   └─data1_vg-data1_lv0    253:2    0  200G  0 lvm  /data1
@@ -579,7 +562,7 @@ Filesystem                         Size  Used Avail Use% Mounted on
 devtmpfs                           3.8G     0  3.8G   0% /dev
 tmpfs                              3.8G     0  3.8G   0% /dev/shm
 tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/cs_centos9--base-root   46G  4.4G   41G  10% /
+/dev/mapper/ubuntu--vg-ubuntu--lv   46G  4.4G   41G  10% /
 tmpfs                              3.8G     0  3.8G   0% /tmp
 /dev/mapper/data1_vg-data1_lv0     300G  2.2G  298G   1% /data1
 /dev/vda1                         1014M  263M  752M  26% /boot
@@ -614,8 +597,7 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
+  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
 ```
 
 !!! info "분리된 디스크의 재사용"

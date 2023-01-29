@@ -1,6 +1,6 @@
 ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NIC를 추가할 수 있습니다. 
 
-본 문서에서는 CentOS 가상머신에 NIC를 추가하고, 설정하며, 사용하는 방법을 설명합니다. 
+본 문서에서는 Ubuntu 가상머신에 NIC를 추가하고, 설정하며, 사용하는 방법을 설명합니다. 
 
 ## 가상머신 생성 시 기본 NIC 연결
 
@@ -10,7 +10,7 @@ ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NI
    
 2. 배포 인프라를 선택합니다.
    
-3. 템플릿/ISO 단계에서 CentOS 템플릿 이미지를 선택합니다. 
+3. 템플릿/ISO 단계에서 Ubuntu 템플릿 이미지를 선택합니다. 
    
 4. 컴퓨트 오퍼링을 선택합니다.
    
@@ -38,6 +38,14 @@ ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NI
 <center>![centos-74-vm-add-nics-detail](../../assets/images/centos-74-vm-add-nics-detail.png){ width="600" }</center>
 
 가상머신의 콘솔에 접속하여 실제 해당 NIC가 같은 정보로 설정되어 있는지 확인합니다. 가상머신에 접속하여 다음의 명령을 실행하여 네트워크 정보를 확인합니다. (아래의 예제 명령에서 ens3 부분은 가상머신에 할당된 NIC의 디바이스명으로 가상머신에 따라 다를 수 있습니다.)
+
+먼저 Ubuntu에서 ifconfig 명령어를 사용하기 위해 net-tools 패키지를 운영체제에 설치합니다. 
+
+```
+$ apt-get install net-tools
+```
+
+ifconfig 명령으로 네트워크 인터페이스 정보를 확인합니다.
 
 ```
 $ ifconfig ens3
@@ -78,8 +86,14 @@ default         r-652-vm.cs2clo 0.0.0.0         UG    100    0        0 ens3
 5. 가상머신에 NIC가 추가되었는지 해당 탭에서 확인합니다.
     ![centos-77-vm-add-nics-add-result](../../assets/images/centos-77-vm-add-nics-add-result.png){ style="margin-top: 20px;" width="600" }
 
-추가된 NIC는 가상머신 내부에서 다음의 명령을 통해 확인할 수 있습니다. 
+추가된 NIC를 가상머신 내부에서 확인하기 위해 nmcli 명령어를 사용합니다. 
 
+먼저 Ubuntu에서 nmcli 명령어를 사용하기 위해 network-manager 패키지를 운영체제에 설치합니다. 
+```
+$ apt-get install network-manager
+```
+
+ nmcli 명령어를 사용하여 NIC정보를 확인합니다.
 ```
 $ nmcli dev
 DEVICE  TYPE      STATE         CONNECTION
