@@ -1,47 +1,120 @@
-ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의를 구성하기 위한 단계 중, 4.2 단계인 WAS 구성에 대한 문서입니다.
+ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_5) 중, 마지막 단계인 WEB 구성에 대한 문서입니다.
 
-1. VPC 및 서브넷 생성: VPC(Virtual Private Cloud)를 생성하고 서브넷(Subnet)을 생성합니다.
-2. 가상머신 생성: 생성된 서브넷에서 WEB, WAS, DB 각각 3대(총 9대)의 가상머신을 SSHKeyPair 및 Affinity을 설정하여 추가합니다.
-3. 티어 구성 준비: 생성된 가상머신의 터미널에 접속하고 데이터 디스크 볼륨 구성을 합니다.
-4. ==티어 별 WEB, WAS, DB 구성:==
-      1. DB: 갈레라 클러스터(Galera Cluster)를 활용하여 동기 방식의 복제구조를 사용하는 멀티마스터 DB를 구성합니다.
-      2. WAS: 도커 컨테이너를 이용하여 NodeJS와 Samba 스토리지를 활용한 WAS를 구성합니다.
-      3. ==WEB: 도커 컨테이너를 이용하여 Nginx와 NFS 스토리지를 활용한 WEB를 구성합니다.==
-5. LB 구성: 하나의 Public IP를 생성하여 동일 서브넷 상의 VM들의 이중화를 위해 LB를 구성합니다.
+가상머신에 도커 컨테이너를 이용하여 Nginx를 활용한 WEB서버 2개를 구성하고 1 개의 가상머신에 NFS 스토리지를 생성하여 WEB에서 구동시킬 웹소스를 저장, 공유합니다. 이를 하나의 클러스터로 구성하는 방법은 다음과 같은 절차로 진행됩니다.
 
-## WAS 구성
-아래의 구조로 WEB를 구성합니다.
-
-가상머신 1: 
-
-   - 개요: WEB Node 1 역할을 할 가상머신 1개 생성합니다.
-   - Public 아이피 주소: 10.10.1.61
-
-가상머신 2: 
-
-   - 개요: WEB Node 2 역할을 할 가상머신 1개 생성합니다.
-   - Public 아이피 주소: 10.10.1.62
+- Affinity 그룹 생성
+- 가상머신 생성
+- 데이터 디스크 설정
+- 보안 설정
+- NFS 스토리지 가상머신 구성
+- WEB 가상머신 구성
+- 로드 밸런서(부하 분산) 설정
 
 
-가상머신 3: 
+## Affinity 그룹 생성
+가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 VM들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
 
-   - 개요: NFS 스토리지 Node로써 WEB Node 1, 2에서 사용되는 파일을 저장, 공유하는 공용스토리지 역할을 할 가상머신 1개 생성합니다.
-   - Public 아이피 주소: 10.10.1.63
+<figure markdown>
+![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
+</figure markdown>
 
-WEB 아키텍처 
-![3tier-linux-architecture-web-01](../../../../assets/images/3tier-linux-architecture-web-01.png)
+- 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
+- 설명 : Affinity 그룹에 대한 설명을 입력합니다.
+- 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다. 
+
+새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
+
+- 이름 : `ablecloud-3tier-linux-web`
+- 설명 : `3tiers-linux의 web 구성 시 사용되는 Affinity 그룹입니다.`
+- 유형 : `host anti-affinity (Strict)`
+
+!!! info "Affinity 그룹 유형"
+    host anti-affinity:	가능한 한 서로 다른 호스트에 인스턴스를 배포합니다.
+
+    host affinity: 가능한 한 동일한 호스트에 인스턴스를 배포합니다.
+
+    * Non-Strict 옵션은 마지막 실행 호스트를 고려하여 실행됩니다.
+
+
+## 가상머신 생성
+ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md)" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다.
+
+가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
+해당 페이지에서는 **템플릿을 이용한 VM 생성** 문서를 참고하여 가상머신을 생성합니다.
+
+!!! info "템플릿을 이용한 VM 생성"
+    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/centos-guide-add-and-use-vm#vm) 문서를 참고하십시오.
+
+입력 항목 예시는 다음과 같습니다.
+
+- WEB 가상머신 1
+
+    - 배포 인프라 선택 : **Zone**
+    - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
+    - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
+    - 데이터 디스크 : * 디폴트로 생성합니다.
+    - 네트워크 : **web** * VPC명이 일치되는지 확인합니다.
+        - IP: **192.168.1.11**
+    - SSH 키 쌍 : **3tier_linux_keypair** 
+    - 확장 모드 : 
+        - Affinity 그룹 :  **ablecloud-3tier-linux-web**
+    - 이름 : **ablecloud-3tier-linux-web-01**
+
+- WEB 가상머신 2
+
+    - 배포 인프라 선택 : **Zone**
+    - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
+    - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
+    - 데이터 디스크 : * 디폴트로 생성합니다.
+    - 네트워크 : **web** * VPC명이 일치되는지 확인합니다.
+        - IP: **192.168.1.12**
+    - SSH 키 쌍 : **3tier_linux_keypair** 
+    - 확장 모드 : 
+        - Affinity 그룹 :  **ablecloud-3tier-linux-web**
+    - 이름 : **ablecloud-3tier-linux-web-02**
+
+- NFS 스토리지 가상머신
+
+    - 배포 인프라 선택 : **Zone**
+    - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
+    - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
+    - 데이터 디스크 : **100GB-WB-RBD** 
+    - 네트워크 : **web** * VPC명이 일치되는지 확인합니다.
+        - IP: **192.168.1.13**
+    - SSH 키 쌍 : **3tier_linux_keypair** 
+    - 확장 모드 : * 디폴트로 생성합니다.
+    - 이름 : **ablecloud-3tier-linux-web-storage**
+
+    !!! warning "스토리지 가상머신의 Affinity 그룹 적용"
+        **스토리지 가상머신의 Anti-Affinity 그룹 적용은 권장되지 않습니다.** 어떠한 이유로 스토리지 가상머신을 실행 중이던 호스트가 중단될 경우, 스토리지 가상머신은 다른 호스트로 이관을 하게 되는데 이 때 Anti-Affinity가 적용되어 스토리지 가상머신이 재기동되지 않을 수 있습니다.
+
+
+## 데이터 디스크 설정
+안정적인 운영을 위해 기본 RootDisk가 아닌 고용량의 스펙을 가진 디스크로의 데이터 저장이 필요합니다. 이를위한 사전작업으로 가상머신 생성 시 추가했던 데이터 디스크에 대한 사용을 위해 ["데이터 디스크 설정"](../3tiers-linux-guide-db#_2) 문서를 참고하여 수행합니다.
+
+???+ note
+    NFS 스토리지 가상머신에만 데이터 디스크 설정을 수행합니다.
+
 
 ## 보안 설정
-### 네트워크 방화벽 해제 (모든 WEB VM에 설정)
-ABLESTACK Cube의 "네트워킹" 메뉴를 클릭한 후 아래의 절차를 통해 네트워크 방화벽을 해제합니다.
+생성한 가상머신에 대해 보안 설정을 하여 허용되지 않은 접근을 차단하고 필요한 서비스만 운영할 수 있도록 설정합니다.
 
-1. 방화벽 섹션에서 "규칙 및 영역 편집" 버튼을 클릭합니다.
-2. 설정할 네트워크 연결장치의 "서비스 추가" 버튼을 클릭합니다.
-3. "nfs", "mountd", "rpc-bind" 를 검색한 후 해당 서비스를 추가합니다.
-    ![3tier-linux-architecture-web-nw-firewall-01](../../../../assets/images/3tier-linux-architecture-web-nw-firewall-01.png)
+???+ note
+    WEB 가상머신 1, 2 및 스토리지 가상머신에 대해 실행 및 설정을 적용합니다.
 
-!!! info "ABLESTACK Cube에서의 방화벽 설정"
-    ABLESTACK Cube에서의 방화벽 설정을 위해 [Cube 방화벽 서비스 활성화](../../../../administration/cube/networking-guide#_27) 문서를 참고하십시오.
+### 네트워크 방화벽 해제 
+방화벽은 들어오고 나가는 네트워크 트래픽을 모니터링하고 필터링하는 방법입니다. 특정 트래픽을 허용할지 차단할지 결정하는 일련의 보안 규칙을 정의하여 작동합니다.
+CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 제공됩니다.
+
+`firewall-cmd` 명령어를 이용하여 samba 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
+``` linenums="1" 
+$ firewall-cmd --zone=public --add-service={nfs,mountd,rpc-bind}
+$ firewall-cmd --reload
+```
+
+???+ info
+    nfs, mountd, rpc-bind 서비스는 각각 TCP 포트 2049, 20048 그리고 111을 사용합니다.
+
 
 ### NFS 스토리지 Node 구성 (가상머신 3에서만 수행합니다)
 NFS 스토리지가 설치되어 WEB Node 1, 2와 데이터를 공유할 NFS 스토리지 Node에서 아래 절차를 수행합니다.

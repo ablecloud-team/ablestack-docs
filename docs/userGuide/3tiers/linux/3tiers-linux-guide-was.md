@@ -1,4 +1,4 @@
-ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의를 구성하기 위한 단계 중, 4.2 단계인 WAS 구성에 대한 문서입니다.
+ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_5) 중, 네 번째 단계인 WAS 구성에 대한 문서입니다.
 
 가상머신에 도커 컨테이너를 이용하여 NodeJS WAS 2개를 구성하고 1 개의 가상머신에 Samba 스토리지를 생성하여 WAS에서 구동시킬 웹소스를 저장, 공유합니다. 이를 하나의 클러스터로 구성하는 방법은 다음과 같은 절차로 진행됩니다.
 
@@ -24,8 +24,8 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
 
-- 이름 : `ablecloud-3tier-linux-web`
-- 설명 : `3tiers-linux의 web 구성 시 사용되는 Affinity 그룹입니다.`
+- 이름 : `ablecloud-3tier-linux-was`
+- 설명 : `3tiers-linux의 was 구성 시 사용되는 Affinity 그룹입니다.`
 - 유형 : `host anti-affinity (Strict)`
 
 !!! info "Affinity 그룹 유형"
@@ -67,11 +67,11 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : * 디폴트로 생성합니다.
     - 네트워크 : **was** * VPC명이 일치되는지 확인합니다.
-        - IP: **192.168.2.11**
+        - IP: **192.168.2.12**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
         - Affinity 그룹 :  **ablecloud-3tier-linux-was**
-    - 이름 : **ablecloud-3tier-linux-was-01**
+    - 이름 : **ablecloud-3tier-linux-was-02**
 
 - SAMBA 스토리지 가상머신
 
