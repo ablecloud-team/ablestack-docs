@@ -535,8 +535,28 @@ MariaDB [(none)]> show variables like 'wsrep_cluster_address';
 +-----------------------+--------------------------------------------------+
 ```
 
+하나의 DB 가상머신에서 데이터 베이스를 생성합니다.
+```
+MariaDB [(none)]> create database galeradb;
+```
+
+"galeradb"데이터 베이스에 "member" 테이블을 생성합니다.
+```
+MariaDB [(none)]> create table galeradb.member
+(
+    idx      int auto_increment
+        primary key,
+    userid   varchar(255) not null,
+    password varchar(255) not null,
+    email    text         null,
+    salt     varchar(255) null
+);
+
+```
+
 ## 로드 밸런서(부하 분산) 설정
 Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당 서브넷 내의 여러 가상머신간에 부하 분산되도록 규칙을 만들 수 있습니다. 예를 들어 DataBase 계층에 도달한 트래픽은 해당 DB 서브넷의 다른 가상머신으로 리디렉션됩니다.
+로드 밸런서를 설정하면 Health Check를 통해 장애 여부를 판단하고 노드에 이상이 발생하면 다른 정상 동작중인 노드로 트래픽을 보내주는 Fail-over가 가능합니다. 
 내부 로드 밸런서 규칙 생성을 위해 아래 문서를 참고합니다.
 
 !!! info "내부 로드 밸런서 규칙 생성"
