@@ -152,10 +152,11 @@ $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/sha
     위 예시에서 제시된 Git 소스가 아닌 다른 샘플소스를 사용하려면 Docker 컨테이니너 이미지에서 해당 소스를 구동할 수 있도록 빌드된 이미지이어야 합니다.
     즉 공식 Docker NodeJs 이미지에 Dockerfile을 구성하여 새로운 NodeJs 이미지로 빌드하여야합니다.
 
-다운로드 받은 샘플 소스에는 DB와 통신하는 모듈이 포함되어 있습니다. 이 파일을 편집하여 미리 구성된 DB 가상머신의 구성정보로 변경합니다.
-`index.js` 파일을 편집합니다.
+다운로드 받은 샘플 소스에는 DB와 통신하는 모듈이 포함되어 있습니다. 이 파일들을 편집하여 미리 구성된 DB 가상머신의 구성정보로 변경합니다.
+두 경로의 `index.js` 파일을 편집합니다.
 ```
 vi /mnt/data/shared_folder/router/signUp/index.js
+vi /mnt/data/shared_folder/router/login/index.js
 ```
 
 Host, User, Password, Port, Database 정보를 사전에 구성된 DB 정보로 변경합니다. **host** 의 값은 DB 가상머신의 내부 로드 밸런서 주소로 입력합니다.
@@ -170,7 +171,7 @@ var connection = mysql.createPool({
 });
 ```
 
-(보류) WAS 서버 구동을 위한 NodeJs 모듈 패키지를 설치합니다. (보류)
+WAS 서버 구동을 위한 NodeJs 모듈 패키지를 설치합니다.
 먼저 18.0.0 버전 이상의 NodeJs를 설치하기 위해 make, git, gcc와 같은 개발 도구를 설치한 후 nodejs를 설치합니다.
 ```
 $ dnf groupinstall "Development Tools" 
@@ -287,7 +288,6 @@ $ vi /etc/fstab
 # /mnt/data/shared_folder: 마운트할 위치
 ```
 
-
 WAS 가상머신 1,2 에서 실행할 NodeJs 컨테이너 이미지를 다운로드 받습니다.
 해당 이미지는 샘플 웹소스를 구동하기 위해 사용자가 별도로 빌드한 이미지로써 컨테이너 구동 시 `server.js`를 실행하도록 제작되었습니다.
 ```
@@ -337,6 +337,5 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 <figure markdown>
 ![가상머신 할당](../../../../assets/images/3tier-linux-architecture-was-lb-01.png)
 </figure markdown>
-
 
 

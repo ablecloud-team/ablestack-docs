@@ -551,8 +551,31 @@ MariaDB [(none)]> create table galeradb.member
     email    text         null,
     salt     varchar(255) null
 );
-
 ```
+
+??? info "Galera Cluster 복구 절차"
+    Galera Cluster 운영 시, 데이터 베이스에 문제가 발생하여 복구하거나 어떠한 이유로 재시작해야할 경우 아래의 절차를 따라 재기동합니다.
+
+    1. grastate.dat 확인
+        - "seqno" 값이 가장 높고 "safe_to_bootstrap" 값이 "1"인 노드가 가장 마지막에 종료된 노드이므로 이 노드를 기준으로 복구를 진행합니다. 모든 노드의 safe_to_bootstrap값이 -1로 동일하면 하나의 노드를 특정하여 1로 수정합니다.
+        ```
+        $ cat /mnt/data/mysql/grastate.dat
+
+        # GALERA saved state
+        version: 2.1
+        uuid:    UUID값
+        seqno:   -1                       
+        safe_to_bootstrap: 0
+        ```
+    2. Galera Cluster 재시작
+        - 복구 기준이 되는 노드에서 `galera_new_cluster` 명령으로 Galera Cluster를 재시작합니다.
+        - 나머지 각 노드에서 `systemctl start mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
+    
+    "grastate.dat" 파일에서의 uuid 값이 0000000 일 경우에는 `--wsrep-cluster-address` 옵션을 실행하여 노드가 현재 클러스터에 대한 연결을 닫고 새 주소에 다시 연결하도록 합니다. 사용 예시는 아래와 같습니다.
+    ```
+    mysqld -u root --wsrep-cluster-address='gcomm://192.168.3.11,192.168.3.12,192.168.3.13'
+    ```
+
 
 ## 로드 밸런서(부하 분산) 설정
 Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당 서브넷 내의 여러 가상머신간에 부하 분산되도록 규칙을 만들 수 있습니다. 예를 들어 DataBase 계층에 도달한 트래픽은 해당 DB 서브넷의 다른 가상머신으로 리디렉션됩니다.
