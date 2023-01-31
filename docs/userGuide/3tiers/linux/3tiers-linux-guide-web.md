@@ -1,6 +1,6 @@
-ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_5) 중, 마지막 단계인 WEB 구성에 대한 문서입니다.
+ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_4){:target="_blank"} 중, 마지막 단계인 WEB 구성에 대한 문서입니다.
 
-가상머신에 도커 컨테이너를 이용하여 Nginx를 활용한 WEB서버 2개를 구성하고 1 개의 가상머신에 NFS 스토리지를 생성하여 WEB에서 구동시킬 웹소스를 저장, 공유합니다. 이를 하나의 클러스터로 구성하는 방법은 다음과 같은 절차로 진행됩니다.
+가상머신에 도커 컨테이너를 이용하여 Nginx를 활용한 WEB서버 2개를 구성하고 1 개의 가상머신에 NFS 스토리지를 생성하여 WEB에서 구동시킬 웹소스를 저장, 공유합니다. 이를 하나의 클러스터로 구성하는 방법은 다음과 같은 절차로 수행됩니다.
 
 - Affinity 그룹 생성
 - 가상머신 생성
@@ -12,7 +12,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 
 ## Affinity 그룹 생성
-가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 VM들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
+가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 가상머신들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
 
 <figure markdown>
 ![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
@@ -24,9 +24,9 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
 
-- 이름 : `ablecloud-3tier-linux-web`
-- 설명 : `3tiers-linux의 web 구성 시 사용되는 Affinity 그룹입니다.`
-- 유형 : `host anti-affinity (Strict)`
+- 이름 : **ablecloud-3tier-linux-web**
+- 설명 : **3tiers-linux의 web 구성 시 사용되는 Affinity 그룹입니다.**
+- 유형 : **host anti-affinity (Strict)**
 
 !!! info "Affinity 그룹 유형"
     host anti-affinity:	가능한 한 서로 다른 호스트에 인스턴스를 배포합니다.
@@ -37,13 +37,13 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 
 ## 가상머신 생성
-ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md)" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다.
+ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
 
 가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
-해당 페이지에서는 **템플릿을 이용한 VM 생성** 문서를 참고하여 가상머신을 생성합니다.
+해당 페이지에서는 **템플릿을 이용한 가상머신 생성** 문서를 참고하여 가상머신을 생성합니다.
 
-!!! info "템플릿을 이용한 VM 생성"
-    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/centos-guide-add-and-use-vm#vm) 문서를 참고하십시오.
+!!! info "템플릿을 이용한 가상머신 생성"
+    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 가상머신 생성](../../../vms/centos-guide-add-and-use-vm#vm){:target="_blank"} 문서를 참고하십시오.
 
 입력 항목 예시는 다음과 같습니다.
 
@@ -53,7 +53,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : * 디폴트로 생성합니다.
-    - 네트워크 : **web** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **web** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.1.11**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
@@ -66,7 +66,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : * 디폴트로 생성합니다.
-    - 네트워크 : **web** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **web** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.1.12**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
@@ -79,7 +79,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : **100GB-WB-RBD** 
-    - 네트워크 : **web** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **web** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.1.13**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : * 디폴트로 생성합니다.
@@ -117,7 +117,7 @@ $ firewall-cmd --reload
 
 
 ## NFS 스토리지 가상머신 구성
-NFS-Sever로써 WEB 가상머신 1, 2와 데이터를 공유할 NFS 스토리지 가상머신 생성을 위해 아래 절차를 수행합니다.
+NFS-Server로써 WEB 가상머신 1, 2와 데이터를 공유할 NFS 스토리지 가상머신 생성을 위해 아래 절차를 수행합니다.
 
 ???+ note
     NFS 스토리지 가상머신에 대해 실행 및 설정을 적용합니다.
@@ -156,12 +156,12 @@ $ systemctl enable nfs-server.service
 $ systemctl start nfs-server.service
 ```
 
-NFS Sever 설정 적용을 위해 윗 단계에서 설정한 `/etc/exports` 파일을 적용합니다.
+NFS Server 설정 적용을 위해 윗 단계에서 설정한 `/etc/exports` 파일을 적용합니다.
 ```
 exportfs -arv
 ```
 
-## WEB Sever 가상머신 구성
+## WEB Server 가상머신 구성
 NodeJs로 구성한 WAS 앞단에 NginX를 구성하여 Reverse Proxy로 사용합니다. 이러한 구성 방식은 성능 향상 및 보안에 이점을 가지고 있습니다.
 WEB 서버 구성을 위해 도커 컨테이너를 이용하여 Nginx를 구동시키고 NFS 스토리지 가상머신을 데이터 영역으로 사용할 수 있도록 구성합니다. 
 
@@ -226,8 +226,7 @@ $ systemctl enable nginx-server.service
 $ systemctl daemon-reload
 ```
 
-Nginx를 WAS의 Reverse Proxy로 설정해야합니다.
-이를 위해 `/mnt/data/mount-nfs/nginx.conf` 를 vi 편집기로 생성하고 아래 내용을 추가하고 변경합니다.
+Nginx를 WAS의 Reverse Proxy로 설정하기 위해 Nginx 설정파일을 vi 편집기로 생성하고 아래 내용을 추가합니다.
 ```
 $ vi  /mnt/data/mount-nfs/nginx.conf
 ```
@@ -308,7 +307,7 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 **네트워크 > VPC** 화면으로 이동한 후, 아래 문서를 참고하여 Public IP를 할당합니다.
 
 !!! info "VPC에 대한 새 Public IP 주소 획득"
-    - VPC에 Public IP 할당하기 위해 [VPC에 대한 새 Public IP 주소 획득](../../../../administration/mold/network&traffic-mngt-guide#vpc-public-ip) 문서를 참고하십시오.
+    - VPC에 Public IP 할당하기 위해 [VPC에 대한 새 Public IP 주소 획득](../../../../administration/mold/network&traffic-mngt-guide#vpc-public-ip){:target="_blank"} 문서를 참고하십시오.
 
 
 할당받은 Public IP를 선택한 후 `부하 분산` 탭을 클릭한 후, 아래 문서를 참고하여 부하 분산을 설정합니다.
@@ -318,11 +317,11 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 - 이름: **web-lb**
 - Public 포트: **6060**
 - 사설 포트: **6060**
-- 전송원 CIDR: # 디폴트 값을 입력합니다.
+- 전송원 CIDR: * 디폴트 값을 입력합니다.
 - 알고리즘: **최소 접속**
 - 프로토콜: **TCP**
 - AutoScale: **아니오**
-- 가상머신 추가: # 서브넷을 선택한 후, VM을 선택합니다.
+- 가상머신 추가: * 서브넷을 선택한 후, 가상머신을 선택합니다.
 
 
 **가상머신 추가** 버튼을 클릭하고 서브넷을 선택한 후 WEB 가상머신 1,2 를 할당합니다.
@@ -332,9 +331,5 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 
 
 ## 클라이언트 접근
-외부 로드 밸런서 사용을 위해 할당받은 Public IP를 `http://{{publicIp}}:6060` 형식으로 웹브라우저에 입력하여 정상 작동 되는 지 확인합니다.
-
-
-
-
+외부 로드 밸런서 사용을 위해 할당받은 Public IP를 `http://{{publicIp}}:6060` 형식으로 웹브라우저에 입력하여 정상 작동 되는지 확인합니다.
 

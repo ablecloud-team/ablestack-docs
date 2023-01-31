@@ -1,6 +1,6 @@
-ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_5) 중, 네 번째 단계인 WAS 구성에 대한 문서입니다.
+ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_4){:target="_blank"} 중, 네 번째 단계인 WAS 구성에 대한 문서입니다.
 
-가상머신에 도커 컨테이너를 이용하여 NodeJS WAS 2개를 구성하고 1 개의 가상머신에 Samba 스토리지를 생성하여 WAS에서 구동시킬 웹소스를 저장, 공유합니다. 이를 하나의 클러스터로 구성하는 방법은 다음과 같은 절차로 진행됩니다.
+가상머신에 도커 컨테이너를 이용하여 NodeJS WAS 2개를 구성하고 1 개의 가상머신에 Samba 스토리지를 생성하여 WAS에서 구동시킬 웹소스를 저장, 공유합니다. 이를 하나의 클러스터로 구성하는 방법은 다음과 같은 절차로 수행됩니다.
 
 - Affinity 그룹 생성
 - 가상머신 생성
@@ -12,7 +12,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 
 ## Affinity 그룹 생성
-가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 VM들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
+가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 가상머신들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
 
 <figure markdown>
 ![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
@@ -24,9 +24,9 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
 
-- 이름 : `ablecloud-3tier-linux-was`
-- 설명 : `3tiers-linux의 was 구성 시 사용되는 Affinity 그룹입니다.`
-- 유형 : `host anti-affinity (Strict)`
+- 이름 : **ablecloud-3tier-linux-was**
+- 설명 : **3tiers-linux의 was 구성 시 사용되는 Affinity 그룹입니다.**
+- 유형 : **host anti-affinity (Strict)**
 
 !!! info "Affinity 그룹 유형"
     host anti-affinity:	가능한 한 서로 다른 호스트에 인스턴스를 배포합니다.
@@ -37,13 +37,13 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 
 ## 가상머신 생성
-ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다.
+ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
 
 가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
-해당 페이지에서는 **템플릿을 이용한 VM 생성** 문서를 참고하여 가상머신을 생성합니다.
+해당 페이지에서는 **템플릿을 이용한 가상머신 생성** 문서를 참고하여 가상머신을 생성합니다.
 
-!!! info "템플릿을 이용한 VM 생성"
-    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/centos-guide-add-and-use-vm#vm) 문서를 참고하십시오.
+!!! info "템플릿을 이용한 가상머신 생성"
+    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 가상머신 생성](../../../vms/centos-guide-add-and-use-vm#vm){:target="_blank"} 문서를 참고하십시오.
 
 입력 항목 예시는 다음과 같습니다.
 
@@ -53,7 +53,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : * 디폴트로 생성합니다.
-    - 네트워크 : **was** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **was** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.2.11**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
@@ -66,7 +66,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : * 디폴트로 생성합니다.
-    - 네트워크 : **was** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **was** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.2.12**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
@@ -79,18 +79,18 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : **100GB-WB-RBD** 
-    - 네트워크 : **was** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **was** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.2.13**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : * 디폴트로 생성합니다.
     - 이름 : **ablecloud-3tier-linux-was-storage**
 
     !!! warning "스토리지 가상머신의 Affinity 그룹 적용"
-        **스토리지 가상머신의 Anti-Affinity 그룹 적용은 권장되지 않습니다.** 어떠한 이유로 스토리지 가상머신을 실행 중이던 호스트가 중단될 경우, 스토리지 가상머신은 다른 호스트로 이관을 하게 되는데 이 때 Anti-Affinity가 적용되어 스토리지 가상머신이 재기동되지 않을 수 있습니다.
+        **스토리지 가상머신의 Anti-Affinity 그룹 적용은 권장되지 않습니다.** 어떠한 이유로 스토리지 가상머신을 구동하던 호스트가 중단될 경우, 스토리지 가상머신은 다른 호스트로 이관을 시도하게 되는데 이 때 Anti-Affinity의 영향으로 스토리지 가상머신이 재기동되지 않을 수 있습니다.
 
 
 ## 데이터 디스크 설정
-안정적인 운영을 위해 기본 RootDisk가 아닌 고용량의 스펙을 가진 디스크로의 데이터 저장이 필요합니다. 이를위한 사전작업으로 가상머신 생성 시 추가했던 데이터 디스크에 대한 사용을 위해 ["데이터 디스크 설정"](../3tiers-linux-guide-db#_2) 문서를 참고하여 수행합니다.
+안정적인 운영을 위해 기본 RootDisk가 아닌 고용량의 스펙을 가진 디스크로의 데이터 저장이 필요합니다. 이를위한 사전작업으로 가상머신 생성 시 추가했던 데이터 디스크에 대한 사용을 위해 ["데이터 디스크 설정"](../3tiers-linux-guide-db#_2){:target="_blank"} 문서를 참고하여 수행합니다.
 
 ???+ note
     SAMBA 스토리지 가상머신에만 데이터 디스크 설정을 수행합니다.
@@ -148,12 +148,12 @@ $ dnf install git
 $ git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/shared_folder/
 ```
 
-!!! info "다른 웹소스를 NodeJs 서버에 구동하기"
+!!! info "다른 웹소스를 NodeJS 서버에 구동하기"
     위 예시에서 제시된 Git 소스가 아닌 다른 샘플소스를 사용하려면 Docker 컨테이니너 이미지에서 해당 소스를 구동할 수 있도록 빌드된 이미지이어야 합니다.
-    즉 공식 Docker NodeJs 이미지에 Dockerfile을 구성하여 새로운 NodeJs 이미지로 빌드하여야합니다.
+    즉 공식 Docker NodeJS 이미지에 Dockerfile을 구성하여 새로운 NodeJS 이미지로 빌드하여야합니다.
 
-다운로드 받은 샘플 소스에는 DB와 통신하는 모듈이 포함되어 있습니다. 이 파일들을 편집하여 미리 구성된 DB 가상머신의 구성정보로 변경합니다.
-두 경로의 `index.js` 파일을 편집합니다.
+다운로드 받은 샘플 소스에는 DB와 통신하는 NodeJS 모듈이 포함되어 있습니다. 이 파일들을 편집하여 사전에 구성한 DB 가상머신의 구성정보로 변경합니다.
+두 경로에 위치한 `index.js` 파일을 편집합니다.
 ```
 vi /mnt/data/shared_folder/router/signUp/index.js
 vi /mnt/data/shared_folder/router/login/index.js
@@ -171,7 +171,7 @@ var connection = mysql.createPool({
 });
 ```
 
-WAS 서버 구동을 위한 NodeJs 모듈 패키지를 설치합니다.
+WAS 서버 구동을 위한 NodeJS 모듈 패키지를 설치합니다.
 먼저 18.0.0 버전 이상의 NodeJs를 설치하기 위해 make, git, gcc와 같은 개발 도구를 설치한 후 nodejs를 설치합니다.
 ```
 $ dnf groupinstall "Development Tools" 
@@ -288,13 +288,13 @@ $ vi /etc/fstab
 # /mnt/data/shared_folder: 마운트할 위치
 ```
 
-WAS 가상머신 1,2 에서 실행할 NodeJs 컨테이너 이미지를 다운로드 받습니다.
+WAS 가상머신 1,2 에서 실행할 NodeJS 컨테이너 이미지를 다운로드 받습니다.
 해당 이미지는 샘플 웹소스를 구동하기 위해 사용자가 별도로 빌드한 이미지로써 컨테이너 구동 시 `server.js`를 실행하도록 제작되었습니다.
 ```
 $ podman pull docker.io/ablecloudteam/nodejs-server:linux-0.1
 ```
 
-다운로드한 NodeJs 컨테이너 이미지를 실행합니다.
+다운로드한 NodeJS 컨테이너 이미지를 실행합니다.
 ```
 $ podman run --privileged=true -d -p 5000:3000 --name nodejs-server --restart always -v /mnt/data/shared_folder:/usr/src/app ablecloudteam/nodejs-server:linux-0.1
 
@@ -321,7 +321,7 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 내부 로드 밸런서 규칙 생성을 위해 아래 문서를 참고합니다.
 
 !!! info "내부 로드 밸런서 규칙 생성"
-    템플릿을 이용한 가상머신 추가를 위해 [내부 로드 밸런서 규칙 생성](../../../../administration/mold/network&traffic-mngt-guide#vpc_2) 문서에서 **내부 LB 규칙 생성** 항목을 참고하십시오.
+    템플릿을 이용한 가상머신 추가를 위해 [내부 로드 밸런서 규칙 생성](../../../../administration/mold/network&traffic-mngt-guide#vpc_2){:target="_blank"} 문서에서 **내부 LB 규칙 생성** 항목을 참고하십시오.
 
 입력 항목 예시는 다음과 같습니다.
 

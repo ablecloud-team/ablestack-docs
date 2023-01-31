@@ -1,17 +1,17 @@
-ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_5) 중, 세 번째 단계인 DB 구성에 대한 문서입니다.
+ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_4){:target="_blank"} 중, 세 번째 단계인 DB 구성에 대한 문서입니다.
 
-MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 클러스터(Galera Cluster)를 활용하여 3개의 DB 가상머신을 한 클러스터로 이중화 구성하는 방법은 다음과 같은 절차로 실행됩니다.
+MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 클러스터(Galera Cluster)를 활용하여 3개의 DB 가상머신을 한 클러스터로 이중화 구성하는 방법은 다음과 같은 절차로 수행됩니다.
 
 - Affinity 그룹 생성
 - 가상머신 생성
 - 데이터 디스크 설정
 - 보안 설정
 - MariaDB 구성
-- Galera Cluster 설정
+- Galera Cluster 구성
 - 로드 밸런서(부하 분산) 설정
 
 ## Affinity 그룹 생성
-가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 VM들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
+가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 가상머신들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
 
 <figure markdown>
 ![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
@@ -36,16 +36,18 @@ MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 �
 
 
 ## 가상머신 생성
-ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md)" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다.
+ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
 
-!!! note "갈레라 클러스터 구성에 필요한 가상머신 개수"
-    갈레라 클러스터가 안정적으로 동작하기 위해서는 **적어도 3개의 노드(가상머신)** 가 필요합니다. 3개 이상의 노드로 구성하여 **스플릿 브레인 (Split Brain)** 현상을 방지합니다. 이 현상은 2개의 노드로 클러스터를 구성했을 때 네트워크가 일시적으로 동시에 단절되거나 기타 시스템상의 이유로, 클러스터 상의 모든 노드들이 각자 자신이 Primary라고 인식하게 되는 상황을 뜻합니다. 스플릿 브레인 현상이 발생하면, 각 노드가 동시에 Primary가 되면서 이중 가동 현상이 발생하게 되는데 이 때 각 노드들은 동시에 스토리지에 접근하여 동기화 및 복제에 비정상 적인 트랜잭션이 발생할 수 있으며, 예상하지 못한 다양한 문제로 전체 서비스가 불능 상태에 빠질 수 있습니다. 이를 방지하기 위해 3개 이상의 노드로 클러스터를 구성하는 것을 권장합니다.
+!!! note "갈레라 클러스터 구성에 필요한 노드 개수"
+    갈레라 클러스터가 안정적으로 동작하기 위해서는 **적어도 3개의 노드(가상머신)** 가 필요합니다. 3개 이상의 노드로 구성하여 **스플릿 브레인 (Split Brain)** 현상을 방지합니다. 이 현상은 2개의 노드로 클러스터를 구성했을 때 네트워크가 일시적으로 동시에 단절되거나 기타 시스템상의 이유로, 클러스터 상의 모든 노드들이 각자 자신이 Primary라고 인식하게 되는 상황을 뜻합니다. 
+    
+    스플릿 브레인 현상이 발생하면, 각 노드가 동시에 Primary가 되면서 이중 가동 현상이 발생하게 되는데 이 때 각 노드들은 동시에 스토리지에 접근하여 동기화 및 복제에 비정상 적인 트랜잭션이 발생할 수 있으며, 예상하지 못한 다양한 문제로 전체 서비스가 불능 상태에 빠질 수 있습니다. 이를 방지하기 위해 3개 이상의 노드로 클러스터를 구성하는 것을 권장합니다.
 
 가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
-해당 페이지에서는 **템플릿을 이용한 VM 생성** 문서를 참고하여 가상머신을 생성합니다.
+해당 페이지에서는 **템플릿을 이용한 가상머신 생성** 문서를 참고하여 가상머신을 생성합니다.
 
-!!! info "템플릿을 이용한 VM 생성"
-    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/centos-guide-add-and-use-vm#vm) 문서를 참고하십시오.
+!!! info "템플릿을 이용한 가상머신 생성"
+    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 가상머신 생성](../../../vms/centos-guide-add-and-use-vm#vm){:target="_blank"} 문서를 참고하십시오.
 
 입력 항목 예시는 다음과 같습니다.
 
@@ -55,7 +57,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : **100GB-WB-RBD** * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
-    - 네트워크 : **db** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **db** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.3.11**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
@@ -68,7 +70,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : **100GB-WB-RBD** * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
-    - 네트워크 : **db** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **db** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.3.12**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
@@ -81,7 +83,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
     - 데이터 디스크 : **100GB-WB-RBD** * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
-    - 네트워크 : **db** * VPC명이 일치되는지 확인합니다.
+    - 네트워크 : **db** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.3.13**
     - SSH 키 쌍 : **3tier_linux_keypair** 
     - 확장 모드 : 
@@ -233,7 +235,7 @@ $ firewall-cmd --reload
     galera 서비스는 TCP 포트 3306, 4567, 4568, 4444와 UDP포트 4567을 사용합니다.
 
 
-### selinux 설정
+### SELinux 설정
 보안강화 리눅스(SELinux; Security Enhanced Linux)는 CentOS에서 제공하는 커널 기반의 보안 모듈입니다. 즉, 시스템 관리자가 설정한 특정 정책 및 규칙으로 사용자를 제한하는 데 사용되는 기능 또는 서비스입니다.
 Galera Cluster의 설정을 원활하고 효율적으로 하기 위해 SELinux 정책을 변경합니다.
 
@@ -256,7 +258,7 @@ MariaDB는 MySQL 기술을 기반으로 하는 오픈소스입니다. Galera Clu
 ???+ note
     DB 가상머신 1, 2, 3에 대해 실행 및 설정을 적용합니다.
 
-### MariaDB 패키지 설치를 위한 yum Repo 등록
+### MariaDB 패키지 설치
 특정 버전의 MariaDB 패키지를 설치하기 위해 Yum Repository를 추가해야합니다.
 
 /etc/yum.repos.d/mariadb.repo 를 vi 편집기로 열어 Repo 정보를 입력합니다.
@@ -278,12 +280,11 @@ gpgcheck=1
 ???+ tip
     다른 운영체제인 경우 [MariaDB Repository Link](https://mariadb.org/download/?t=repo-config){:target="_blank"} 를 클릭하여 확인한 후 적용합니다.
 
-### MariaDB 패키지 설치
 패키지 관리 명령어인 **dnf** 를 사용하여 MariaDB 패키지를 설치합니다.
 ``` linenums="1"
 $ dnf install MariaDB-server MariaDB-client
 ```
-### MariaDB 서비스 등록
+
 가상머신 부팅 시 설치된 MariaDB 서비스를 자동 시작하도록 등록하고 시작합니다.
 
 ``` linenums="1"
@@ -292,7 +293,7 @@ $ systemctl start mariadb.service
 ```
 
 ### MariaDB 보안 설정
-MariaDB 서비스를 시작한 후 `mariadb-secure-installation` 명령어를 통해 초기 권한 설정을 합니다.
+MariaDB 서비스를 시작한 후 아래의 명령어를 통해 MariaDB의 초기 권한 설정을 시작합니다.
 
 ``` linenums="1" 
 $ mariadb-secure-installation
@@ -306,7 +307,7 @@ $ mariadb-secure-installation
     Enter current password for root (enter for none):  [엔터를 입력합니다.]
     OK, successfully used password, moving on...
 
-    ※ 이 부분은 버전에 따라 안 나올 수 있습니다.
+    ※ 이 부분은 버전에 따라 표기되지 않을 수 있습니다.
     Setting the root password or using the unix_socket ensures that nobody
     can log into the MariaDB root user without the proper authorisation.
 
@@ -375,8 +376,7 @@ $ mariadb-secure-installation
     Thanks for using MariaDB!  [설정 완료]
     ```
 
-### DB 외부접속 허용
-외부에서의 접속 허용이 필요한 경우 아래의 쿼리를 통해 설정할 수 있습니다.
+외부에서 DB에 접속 가능하도록 아래의 쿼리를 통해 설정합니다.
 
 `mariadb -u root -p` 명령어를 실행한 후 패스워드를 입력하여 MariaDB에 접속합니다. 
 ``` 
@@ -392,7 +392,7 @@ MariaDB [(none)]> grant all privileges on *.* to 'root'@'192.168.%.%'identified 
 MariaDB [(none)]> flush privileges;
 ```
 
-### DB data 폴더 경로 변경하기
+### DB Data 폴더 경로 변경
 추가한 데이터 디스크로 DB 폴더를 변경하기 위해 먼저 기존 DB data 폴더 경로를 확인합니다.
 
 MariaDB에 접속합니다.
@@ -456,7 +456,7 @@ MariaDB [(none)]> select @@datadir;
 $ rm -R /var/lib/mysql
 ```
 
-## Galera Cluster 설정
+## Galera Cluster 구성
 MariaDB는 기존의 Replication 방식이 아닌 Galera를 이용한 클러스터 구성으로 Master-Master 형식의 다중화 기능을 제공합니다.
 이러한 동작방식으로 모든 DB 가상머신의 데이터가 일관성있게 저장되고 장애 발생 시 대응하기에 용이한 장점이 있습니다.
 
@@ -497,23 +497,21 @@ $ vi /etc/my.cnf.d/server.cnf
     wsrep_cluster_name = Cluster
     ```
 
-### Galera Cluster 및 DB 서비스 시작
-
-???+ Warning 
-    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. 메인이 되는 가상머신이 가장 먼저 시작되어야 합니다. 
 
 먼저 DB 가상머신 1의 galera cluster를 `galera_new_cluster` 명령어로 시작합니다. 실행이 완료될 때까지 기다린 후, 다음 단계로 넘어갑니다.
 ```
 $ galera_new_cluster
 ```
 
+???+ Warning 
+    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. 메인이 되는 가상머신이 가장 먼저 시작되어야 합니다. 
+
 DB 가상머신 2와 3의 MariaDB 서비스를 시작합니다.
 ```
 $ systemctl restart mariadb.service
 ```
 
-### Galera Cluster 설정 확인
-Galera Cluster 구성이 정상적으로 되었는 지 확인합니다.
+Galera Cluster 구성이 정상적으로 되었는지 확인합니다.
 
 MariaDB에 접속합니다.
 ```
@@ -583,7 +581,7 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 내부 로드 밸런서 규칙 생성을 위해 아래 문서를 참고합니다.
 
 !!! info "내부 로드 밸런서 규칙 생성"
-    템플릿을 이용한 가상머신 추가를 위해 [내부 로드 밸런서 규칙 생성](../../../../administration/mold/network&traffic-mngt-guide#vpc_2) 문서에서 **내부 LB 규칙 생성** 항목을 참고하십시오.
+    템플릿을 이용한 가상머신 추가를 위해 [내부 로드 밸런서 규칙 생성](../../../../administration/mold/network&traffic-mngt-guide#vpc_2){:target="_blank"} 문서에서 **내부 LB 규칙 생성** 항목을 참고하십시오.
 
 입력 항목 예시는 다음과 같습니다.
 
