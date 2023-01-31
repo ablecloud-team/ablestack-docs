@@ -465,7 +465,7 @@ vdb                       252:16   0  200G  0 disk
 
 디스크가 생성되면 해당 디스크의 상세 화면으로 이동한 후 우측 상단의 아이콘 액션 버튼 중 "디스크 연결" 버튼을 클릭합니다. 표시된 대화상자에서 연결할 가상머신을 선택한 후 "확인" 버튼을 클릭합니다. 
 
-<center>![ubuntu-71-vm-data-attach-disk](../../assets/images/centos-71-vm-data-attach-disk.png){ width="450" }</center>
+<center>![ubuntu-71-vm-data-attach-disk](../../assets/images/ubuntu-71-vm-data-attach-disk.png){ width="450" }</center>
 
 가상머신에 디스크가 연결되면, 가상머신에 접속하여 볼륨을 확장합니다. `lsblk`를 이용해 디스크 연결 상태를 확인합니다. 
 
