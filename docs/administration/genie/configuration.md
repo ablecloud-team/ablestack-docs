@@ -13,7 +13,7 @@
 *	GitHub 설정
 *	Google OAuth2 설정
 *	LDAP 설정
-*	반경 설정
+*	RADIUS 설정
 *	SAML 설정
 *	TACACS+ 설정
 

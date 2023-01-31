@@ -7,7 +7,7 @@
 
 ![works-user-desktop-connection](../../assets/images/works-user-desktop-connection.png)
 
-Works 사용자는 해당 페이지에서 사용자에게 할당 된 모든 연결 리스트에서 연결 할려고 한는 Desktop 을 클릭하여 접속을 할 수 있습니다.
+Works 사용자는 해당 페이지에서 사용자에게 할당 된 모든 연결 리스트에서 연결 할려고 하는 Desktop 을 클릭하여 접속을 할 수 있습니다.
 
 ![works-user-desktop-connection-result](../../assets/images/works-user-desktop-connection-result.png)
 
