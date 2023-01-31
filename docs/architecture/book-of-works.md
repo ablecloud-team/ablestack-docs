@@ -46,8 +46,7 @@ Works 관리자는 워크스페이스, 데스크탑 가상머신, 데스크탑 �
 Works 사용자는 관리자가 생성하고 할당한 데스크탑 가상머신에 접속하기 위해 해당 포털을 이용하여 접근 합니다.
 해당 포털에 접속 하면 사용자에게 할당된 데스크탑 가상머신 리스트를 확인 할 수 있으며, 해당 포털을 이용하여 웹 브라우저에서 데스크탑 가상머신을 사용 할 수 있습니다.
 
-![works-platform-architecture-04](../assets/images/works-platform-architecture-03.png){ align=center }
+![works-platform-architecture-03](../assets/images/works-platform-architecture-03.png){ align=center }
 
-![works-user-desktop-connection](../assets/images/works-user-desktop-connection.png)
-
-![works-user-desktop-connection-result](../assets/images/works-user-desktop-connection-result.png)
+![works-user-desktop-list](../assets/images/works-user-desktop-list.png)
+![works-user-desktop-webcon3](../assets/images/works-user-desktop-webcon3.png)
