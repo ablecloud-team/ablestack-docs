@@ -1,5 +1,6 @@
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
+    해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
 
 # ABLESTACK Mold 설치진행
 ABLESTACK Mold 설치 진행 가이드 입니다.  
@@ -14,17 +15,9 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 1. 개요
     ![클라우드센터 가상머신 배포 개요](../assets/images/install-guide-mold-cloudcenter-VM-deploy-overview.png){ align=center }
     - 클라우드센터 가상머신 배포 개요 화면입니다. 개요의 내용을 확인 후 **다음** 버튼을 클릭합니다.
-    
-2. 장애조치 클러스터 설정
-    ![장애조치 클러스터 설정](../assets/images/install-guide-mold-ha-clusgter-config.png){ align=center }
-    - 장애조치 클러스터 설정하는 화면 입니다.
-    - **클러스터 멤버수** 입력창에는 **3** 을 입력합니다.
-    - **호스트 #1정보**, **호스트 #2정보**, **호스트 #3정보** 에는 **ablecube1**, **ablecube2**, **ablecube3** 입력하고 **다음** 버튼을 클릭합니다.
-    
-    !!! info
-        클라우드센터 장애조치 클러스터는 최대 3개의 호스트를 지정할 수 있습니다.
+
    
-3. 클라우드센터 가상머신 설정 - 컴퓨트
+2. 클라우드센터 가상머신 설정 - 컴퓨트
     ![클라우드센터 가상머신 설정 - 컴퓨트](../assets/images/install-guide-mold-cloudcenter-VM-config-compute.png){ align=center }
     - 클라우드센터 가상머신의 컴퓨트 설정하는 화면입니다.
     - **CPU Core** 선택 박스는 **8 vCore**, **Memory** 선택 박스는 **16 GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
@@ -35,7 +28,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
         메모리는 컨트롤할 호스트의 수가 **10개** 미만이면 **16GiB** 를, **10 ~ 20개** 이면 **32GiB** 를, **21개 이상** 이면 **64GiB** 를 선택해야 합니다.  
         ROOT Disk의 크기는 **70GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
    
-4. 클라우드센터 가상머신 설정 - 네트워크
+3. 클라우드센터 가상머신 설정 - 네트워크
     ![클라우드센터 가상머신 설정 - 네트워크](../assets/images/install-guide-mold-cloudcenter-VM-config-network.png){ align=center }
     - 클라우드센터 가상머신의 네트워크 설정하는 화면입니다.
     - **관리네트워크** 선택 박스에서 **bridge0** 을 선택하고 **다음** 버튼을 클릭합니다.
@@ -44,37 +37,34 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
         관리 네트워크와 서비스 네트워크가 분리되여 있는 경우 그리고 외부에서 클라우드센터 웹콘솔에 접근해야 하는경우에는 **네트워크 구성** 항목에서 
         **서비스네트워크** 항목을 체크하신 후에 **서비스네트워크** 선택 박스에서 해당되는 **브릿지** 를 선택하셔야 합니다.
    
-5. 추가 네트워크 정보
-    ![추가 네트워크 정보](../assets/images/install-guide-mold-add-network-info.png){ align=center }
+4. 추가 네트워크 정보
+    ![추가 네트워크 정보](../assets/images/install-guide-mold-add-network-info-01.png){ align=center }
     - 클라우드센터 가상머신 추가 네트워크 정보를 설정하는 화면입니다.
-    - **정보 입력 소스** 항목에서 **Hosts 파일 사용** 을 체크하고 **파일 선택** 버튼을 클릭하여 1번 호스트 클러스터 준비에서 다운로드한 **host** 파일을 선택하여 업로드 합니다.
-    - **호스트명** 입력창에는 **ccvm**, **관리 NIC IP** 입력창에는 **10.10.1.10/16**, **관리 NIC Gateway** 입력창에는 **10.10.0.1** 을 입력 하고 **다음** 버튼을
-    클릭합니다.
+    - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
+    - **호스트명(CCVM)** 을 입력 및 확인합니다.
+    - **관리 NIC IP** 를 입력 및 확인합니다.
+    
+    ![추가 네트워크 정보](../assets/images/install-guide-mold-add-network-info-02.png){ align=center }
+    
+    - **관리 NIC Gateway** 를 입력 및 확인합니다.
+    - **관리 NIC DNS** 를 입력 및 확인합니다.
     
     !!! info
-        - 클라우드센터 가상머신는 호스트 프로파일에는 **ablecube**, **scvm**, **scvm**, **scvm-cn** 항목이 필요 없으므로 삭제하시면 됩니다.
-        - 서비스 네트워크 항목은 **클라우드센터 VM 설정 - 네트워크** 화면에서 서비스 네트워크 사용을 체크한 경우 활성화됩니다.
-   
-    !!! example
-        - 호스트 프로파일 예제  
-        10.10.1.10 ccvm-mngt   ccvm  
-        10.10.1.1  ablecube1  
-        10.10.1.2  ablecube2  
-        10.10.1.3  ablecube3  
-        10.10.1.11 scvm1-mngt  
-        10.10.1.12 scvm2-mngt  
-        10.10.1.13 scvm3-mngt  
-        100.100.1.11    scvm1  
-        100.100.1.12    scvm2  
-        100.100.1.13    scvm3  
-        100.200.1.11    scvm1-cn    
-        100.200.1.12    scvm2-cn  
-        100.200.1.13    scvm3-cn  
+        클라우드센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
+        해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
         
-6. SSH Key 정보
+5. SSH Key 정보
     ![SSH Key 정보](../assets/images/install-guide-mold-SSH-Key-info.png){ align=center }
-    - 클라우드센터 가상머신의 SSH Key 정보를 설정하는 화면입니다.
-    - 1번 호스트 클러스터 준비에서 다운로드한 Key 파일을 **SSH 개인 Key 파일**, **SSH 공개 Key 파일** 에 각각 업로드 후 **다음** 버튼을 클릭합니다.
+    - SSH Key 정보를 확인하는 화면입니다.
+    - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
+
+6. 장애조치 클러스터 설정
+    ![장애조치 클러스터 설정](../assets/images/install-guide-mold-ha-clusgter-config.png){ align=center }
+    - 장애조치 클러스터 설정하는 화면 입니다.
+    - **호스트 #1정보**, **호스트 #2정보**, **호스트 #3정보** 에는 **호스트 PN IP #1**, **호스트 PN IP #2**, **호스트 PN IP #3** 입력하고 **다음** 버튼을 클릭합니다.
+    
+    !!! info
+        클라우드센터 장애조치 클러스터는 최대 3개의 호스트를 지정할 수 있습니다.
     
 7. 설정확인
     ![설정확인](../assets/images/install-guide-mold-config-check.png){ align=center }
@@ -89,7 +79,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     ![완료](../assets/images/install-guide-mold-completed.png){ align=center }
     - 클라우드센터 가상머신 배포가 완료 후 ABLESTACK Cube 웹콘솔에서 클라우드센터 클러스터 상태 카드 항목에서 **클러스터 상태** 가 **Health Ok**, 
       클라우드센터 가상머신 상태 카드에서 **가상머신상태** 가 **Running** 인지 확인하셔야 합니다.
-      
+
 ## 클라우드센터 가상머신 웹콘솔 구성
 클라우드센터 웹콘솔 구성을 하기 위해서는 **Bootstrap** 우선 실행해야 하며 **Bootstrap** 실행 후 클라우드센터 웹콘솔 화면을 이용하여 클라우드센터 구성을 하실수 있습니다.
 
@@ -152,14 +142,14 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
    ![클라우드센터 Zone 물리 네트워크](../assets/images/install-guide-mold-cloudcenter-physical-network.png){ align=center }
     - Zone 의 네트워크 정보를 입력하는 화면입니다.
         ![클라우드센터 Zone 물리 네트워크 정보 입력](../assets/images/install-guide-mold-cloudcenter-physical-network-info.png){ align=center }
-        - **트래픽 유형** 의 **MANAGEMENT**, **GUEST**, **PUBLIC** 각각의 **편집** 버튼을 클릭하여 **트래필 라벨** 항목에 **bridge0** 을 입력합니다.
+        - **트래픽 유형** 의 **MANAGEMENT**, **GUEST**, **PUBLIC** 각각의 **편집** 버튼을 클릭하여 **트래픽 라벨** 항목에 **bridge0** 을 입력합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 6. 클라우드센터 Zone 서비스용 네트워크 정보
     ![클라우드센터 Zone 서비스용 네트워크 정보](../assets/images/install-guide-mold-cloudcenter-service-network.png){ align=center }
     - Zone 의 서비스용 네트워크 정보를 입력 하는 화면입니다.
-    - **케이트웨이** 항목에는 **10.10.0.1**, **넷마스크** 항목에는 **255.255.0.0**, **시작 IP 주소** 항목에는 **10.10.1.101**, 
-    **종료 IP 주소** 항목에는 **10.10.1.150**을 입력하고 **추가** 버튼을 클릭합니다.
+    - **케이트웨이** 항목에는 **10.10.0.1**, **넷마스크** 항목에는 **255.255.0.0**, **시작 IP 주소** 항목에는 **10.10.2.21**, 
+    **종료 IP 주소** 항목에는 **10.10.2.254**을 입력하고 **추가** 버튼을 클릭합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 7. 클라우드센터 Pod 네트워크 정보
@@ -168,14 +158,14 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     - **Pod 이름** 항목에는 **pod** 를 입력합니다.
     - **예약된 시스템 게이트웨이** 항목에는 **10.10.0.1** 을 입력합니다.
     - **예약된 시스템 넷마스크** 항목에는 **255.255.0.0** 을 입력합니다.
-    - **예약된 시스템 시작 IP 주소** 항목에는 **10.10.1.21** 을 입력합니다.
-    - **예약된 시스템 종료 IP 주소** 항목에는 **10.10.1.31** 을 입력합니다.
+    - **예약된 시스템 시작 IP 주소** 항목에는 **10.10.2.8** 을 입력합니다.
+    - **예약된 시스템 종료 IP 주소** 항목에는 **10.10.2.9** 을 입력합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 8. 클라우드센터 가상머신용 네트워크 정보
     ![클라우드센터 가상머신용 네트워크 정보](../assets/images/install-guide-mold-cloudcenter-VM-network.png){ align=center }
     - 가상머신용 네트워크 정보를 입력하는 화면입니다. 
-    - **VLAN 범위** 에 **200**, **300** 을 입력합니다.
+    - **VLAN 범위** 에 **151**, **200** 을 입력합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 9. 클라우드센터 클러스터 정보
@@ -187,7 +177,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 10. 클라우드센터 호스트 추가
     ![클라우드센터 호스트 추가](../assets/images/install-guide-mold-cloudcenter-add-host.png){ align=center }
     - 클라우드센터에 호스트를 추가하는 화면 입니다.
-    - **호스트 이름** 항목에는 **10.10.1.1** 을 입력합니다.
+    - **호스트 이름** 항목에는 **10.10.2.1** 을 입력합니다.
     - **사용자 이름** 항목에는 **root** 를 입력합니다.
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
     - **태그** 항목에는 **ablecube1** 을 입력합니다.
@@ -207,9 +197,13 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     - 기본 스토리지 추가하는 화면입니다.
     - **이름** 항목에는 **ps** 를 입력합니다.
     - **범위** 선택 박스에는 **zone** 을 선택합니다.
-    - **프로토콜** 선택 박스에는 **RBD** 를 선택합니다.
-    - **RADOS 풀** 항목에는 **scvm** 을 입력합니다.
-    - **RADO 시크릿** 항목에는 **client.admin의 key값** 을 입력합니다.
+    - **프로토콜** 선택 박스에는 **Glue Block** 를 선택합니다.
+    - **Glue Block 모니터** 항목에는 scvm1,scvm2,scvm3을 입력합니다.(띄어쓰기 없음)
+    - **Glue Block 풀** 항목에는 **rbd** 를 입력합니다.
+    - **Glue Block 사용자** 항목에는 **admin** 을 입력합니다.
+    - **Glue Block 시크릿** 항목에는 **client.admin의 key값** 을 입력합니다.
+    - **Glue Block 경로** 항목에는 **/dev/rbd** 를 입력합니다.
+    - **제공자** 선택 박스에는 **ABLESTACK** 을 선택합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
     
 12. 클라우드센터 2차 스토리지 추가
@@ -217,7 +211,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     - 2차 스토리지를 추가하는 화면입니다.
     - **제공자** 선택 박스에서 **NFS** 를 선택 합니다.
     - **이름** 항목에는 **ss** 를 입력합니다.
-    - **서버** 항목에는 **10.10.1.10** (ccvm mngt ip) 를 입력합니다.
+    - **서버** 항목에는 **10.10.2.10** (ccvm mngt ip) 를 입력합니다.
     - **경로** 항목에는 **secondary** 를 입력합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
@@ -228,9 +222,9 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 14. ablecube2 호스트 추가  
     ![호스트 추가](../assets/images/install-guide-mold-add-host2.png){ align=center }
     - 클라우드센터 ablecube2 호스트를 추가하는 화면 입니다.
-    - **Zone 이름** 항목에는 **Zone** 를 입력합니다.
-    - **Pod 이름** 항목에는 **Pod** 를 입력합니다.
-    - **클러스터** 항목에는 **Cluster** 를 입력합니다.
+    - **Zone 이름** 항목에는 **Zone** 을 선택합니다.
+    - **Pod 이름** 항목에는 **Pod** 을 선택합니다.
+    - **클러스터** 항목에는 **Cluster** 를 선택합니다.
     - **호스트 이름** 항목에는 **ablecloud2** 를 입력합니다.
     - **사용자 이름** 항목에는 **root** 를 입력합니다.
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
@@ -240,12 +234,35 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 14. ablecube3 호스트 추가  
     ![호스트 추가](../assets/images/install-guide-mold-add-host3.png){ align=center }
     - 클라우드센터 ablecube3 호스트를 추가하는 화면 입니다.
-    - **Zone 이름** 항목에는 **Zone** 를 입력합니다.
-    - **Pod 이름** 항목에는 **Pod** 를 입력합니다.
-    - **클러스터** 항목에는 **Cluster** 를 입력합니다.
+    - **Zone 이름** 항목에는 **Zone** 을 선택합니다.
+    - **Pod 이름** 항목에는 **Pod** 을 선택합니다.
+    - **클러스터** 항목에는 **Cluster** 를 선택합니다.
     - **호스트 이름** 항목에는 **ablecloud3** 를 입력합니다.
     - **사용자 이름** 항목에는 **root** 를 입력합니다.
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
     - **호스트 태그** 항목에는 **ablecube3** 를 입력합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
+
+15. 호스트 고정 메모리 할당
+
+!!! info
+    ABLESTACK구성 시 필요한 최소 3식의 x86 호스트 서버가 준비되어 있어야 하며, 스토리지센터 가상머신은 각 호스트당 1대씩, 클라우드센터 가상머신은 총 1대입니다.
+
+    스토리지센터 가상머신과 클라우드센터 가상머신의 성능 안정화를 위해 **스토리지센터 가상머신(최소 32GB) + 클라우드센터 가상머신(최소 16GB) + 여유 용량 (A)** 가 필요합니다.
+
+1. 호스트 agent 구성파일 
+    ![호스트 설정파일](../assets/images/install-guide-host-memory-add.png){ align=center }
+    - 호스트 Cube 터미널 화면입니다.
+    - 터미널 명령어 **vi /etc/cloudstack/agent/agent.properties** 입력하고 Enter를 누릅니다.
+    - **host.reserved.mem.mb=51200** 라인을 추가하고 **:wq** 명령어로 저장합니다.
+
+    !!! check
+        각 호스트에서 명령어를 실행해야 합니다. 
+
+2. 호스트 cloudstack-agent 서비스 시작
+    ![호스트 클라우드 서비스](../assets/images/install-guide-host-memory-add-1.png){ align=center }
+    - 터미널 명령어 **systemctl restart cloudstack-agent.service** 를 실행합니다.
+
+
+
     
