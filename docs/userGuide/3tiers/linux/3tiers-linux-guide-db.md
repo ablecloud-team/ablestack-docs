@@ -215,6 +215,16 @@ $ mount | grep "sdb1"
 /dev/sdb1 on /mnt/data type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
 ```
 
+추가적으로 재부팅 시 자동으로 마운트가 적용되도록 합니다.
+이를 위해 `/etc/fstab` 를 vi 편집기로 열어 아래 내용을 추가합니다.
+```
+$ vi /etc/fstab
+```
+``` title="fstab"  linenums="1"
+/dev/sdb1 on /mnt/data type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+```
+
+
 !!! info "CentOS 가상머신의 볼륨 사용 방법"
     - CentOS 가상머신에서의 루트 디스크 확장과 데이터 디스크에 대한 추가 사용 방법에 대한 정보는 [CentOS 가상머신 가이드 - 가상머신 볼륨 사용](../../../../userGuide/vms/centos-guide-storage){:target="_blank"} 문서를 참고하십시오.
 
