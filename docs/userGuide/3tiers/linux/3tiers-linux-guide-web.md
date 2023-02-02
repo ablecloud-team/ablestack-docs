@@ -16,7 +16,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 <figure markdown>
 ![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
-</figure markdown>
+</figure>
 
 - 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
 - 설명 : Affinity 그룹에 대한 설명을 입력합니다.
@@ -337,7 +337,7 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 **가상머신 추가** 버튼을 클릭하고 서브넷을 선택한 후 WEB 가상머신 1,2 를 할당합니다.
 <figure markdown>
 ![3tier-linux-architecture-lb-01](../../../../assets/images/3tier-linux-architecture-lb-01.png)
-</figure markdown>
+</figure>
 
 
 ## 클라이언트 접근

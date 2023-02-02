@@ -7,7 +7,7 @@ ABLESTACK Mold를 이용해 **이중화를 통한 고가용성 기능을 제공�
 
 <figure markdown>
 ![3tier-linux-01](../../../../assets/images/3tier-linux-architecture.png)
-</figure markdown>
+</figure>
 
 ## 네트워크 구성 정보
 아키텍처에서 보여지는 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의를 구성하는 데 필요한 네트워크 정보 예시는 다음과 같으며 구성 방법은 [Linux 기반 3 Tier Architecture 네트워크 구성](../3tiers-linux-guide-network){:target="_blank"} 문서에서 확인할 수 있습니다.

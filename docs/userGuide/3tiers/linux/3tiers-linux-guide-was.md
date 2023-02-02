@@ -16,7 +16,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 <figure markdown>
 ![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
-</figure markdown>
+</figure>
 
 - 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
 - 설명 : Affinity 그룹에 대한 설명을 입력합니다.
@@ -184,13 +184,8 @@ $ cd /mnt/data/shared_folder/
 $ npm install
 ```
 
-Samba 설정을 위해 `/etc/samba/smb.conf` 파일을 편집합니다.
-``` 
-$ vi /etc/samba/smb.conf
-```
-
-아래 Samba 사용자 계정 "user1" 의 정보를 입력합니다.
-```   title="smb.conf"  linenums="1"
+Samba 설정 파일을 열어 Samba 사용자 계정 "user1" 의 정보를 입력합니다.
+```   title="vi /etc/samba/smb.conf"  linenums="1"
 [user1]
         path = /mnt/data/shared_folder
         # 사용 가능한 공유 목록에 디렉토리를 보여줄지 여부를 설정합니다.
@@ -346,6 +341,6 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 
 <figure markdown>
 ![가상머신 할당](../../../../assets/images/3tier-linux-architecture-was-lb-01.png)
-</figure markdown>
+</figure>
 
 

@@ -15,7 +15,7 @@ MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 �
 
 <figure markdown>
 ![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
-</figure markdown>
+</figure>
 
 - 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
 - 설명 : Affinity 그룹에 대한 설명을 입력합니다.
@@ -221,7 +221,7 @@ $ mount | grep "sdb1"
 $ vi /etc/fstab
 ```
 ``` title="fstab"  linenums="1"
-/dev/sdb1 on /mnt/data type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
+/dev/sdb1 /mnt/data xfs defaults 0 0
 ```
 
 
@@ -511,13 +511,14 @@ $ vi /etc/my.cnf.d/server.cnf
     ```
 
 
-먼저 DB 가상머신 1의 galera cluster를 `galera_new_cluster` 명령어로 시작합니다. 실행이 완료될 때까지 기다린 후, 다음 단계로 넘어갑니다.
+Galera Cluster의 모든 DB Node들이 Master DB(Primery)의 역활을 하지만 그중에서도 최초로 초기 Data을 제공하는 Node가 Donor, 그 외 Node들을 Joiner로 지정됩니다.
+먼저 Donor Node로 사용할 DB 가상머신 1의 galera cluster를 `galera_new_cluster` 명령어로 시작합니다. 실행이 완료될 때까지 기다린 후, 다음 단계로 넘어갑니다.
 ```
 $ galera_new_cluster
 ```
 
 ???+ Warning 
-    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. 메인이 되는 가상머신이 가장 먼저 시작되어야 합니다. 
+    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. Donor Node인 가상머신이 가장 먼저 시작되어야 합니다. 
 
 DB 가상머신 2와 3의 MariaDB 서비스를 시작합니다.
 ```
@@ -567,20 +568,27 @@ MariaDB [(none)]> create table testdb.member
 ???+ info "Galera Cluster 복구 절차"
     Galera Cluster 운영 시, 데이터 베이스에 문제가 발생하여 복구하거나 어떠한 이유로 재시작해야할 경우 아래의 절차를 따라 재기동합니다.
 
-    1. grastate.dat 확인
-        - "seqno" 값이 가장 높고 "safe_to_bootstrap" 값이 "1"인 노드가 가장 마지막에 종료된 노드이므로 이 노드를 기준으로 복구를 진행합니다. 모든 노드의 safe_to_bootstrap값이 -1로 동일하면 하나의 노드를 특정하여 1로 수정합니다.
-        ```
-        $ cat /mnt/data/mysql/grastate.dat
+    - Joiner 노드 (DB 가상머신 2, 3)에서 장애 발생한 경우
+        1. 장애가 발생한 노드에서 `galera_recovery` 명령을 실행합니다.
+        2. 동일 노드에서 `systemctl start mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
 
-        # GALERA saved state
-        version: 2.1
-        uuid:    UUID값
-        seqno:   -1 => 0 으로 수정                     
-        safe_to_bootstrap: 0 => 1로 수정
-        ```
-    2. Galera Cluster 재시작
-        - 복구 기준이 되는 노드에서 `galera_new_cluster` 명령으로 Galera Cluster를 재시작합니다.
-        - 나머지 각 노드에서 `systemctl start mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
+    - 클러스터 전체 장애 발생한 경우
+    
+        1. grastate.dat 확인
+            - "seqno" 값이 가장 높고 "safe_to_bootstrap" 값이 "1"인 노드가 가장 마지막에 종료된 노드이므로 이 노드를 Donor로 설정하고 복구를 진행합니다. 모든 노드의 safe_to_bootstrap값이 -1로 동일하면 하나의 노드를 특정하여 1로 수정합니다. 
+            ```
+            $ cat /mnt/data/mysql/grastate.dat
+
+            # GALERA saved state
+            version: 2.1
+            uuid:    UUID값
+            seqno:   -1 => 0 으로 수정                     
+            safe_to_bootstrap: 0 => 1 (Doner 노드일 경우), 0 (Joner 노드일 경우)
+            ```
+        2. Galera Cluster 재시작
+            - 클러스터 전체 장애 발생한 경우
+                - 복구 기준이 되는 노드에서 `galera_new_cluster` 명령으로 Galera Cluster를 재시작합니다.
+                - 나머지 각 노드에서 `systemctl start mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
     
     "grastate.dat" 파일에서의 uuid 값이 0000000 일 경우에는 `--wsrep-cluster-address` 옵션을 실행하여 노드가 현재 클러스터에 대한 연결을 닫고 새 주소에 다시 연결하도록 합니다. 사용 예시는 아래와 같습니다.
     ```
@@ -609,4 +617,4 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 
 <figure markdown>
 ![가상머신 할당](../../../../assets/images/3tier-linux-architecture-db-lb-01.png)
-</figure markdown>
+</figure>

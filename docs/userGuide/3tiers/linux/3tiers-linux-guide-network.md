@@ -61,5 +61,5 @@ VPC 추가 대화상자에서의 입력 예시는 다음과 같습니다.
 위 예시대로 생성된 **네트워크** 탭의 정보는 다음 그림과 같습니다.
 <figure markdown>
 ![네트워크 설정](../../../../assets/images/3tier-linux-architecture-nw-01.png)
-</figure markdown>
+</figure>
 

@@ -11,7 +11,7 @@
 
 <figure markdown>
 ![이미지 제목](이미지 경로.png)
-</figure markdown>
+</figure>
 
 ### 웹사이트 링크
 새탭에서 링크가 열리도록 합니다.
