@@ -1,6 +1,7 @@
 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조" 구성 단계 중, 두 번째 단계인 DB 구성에 대한 문서입니다.
 
-DB 서버의 이중화 구성은 MSCS(Microsoft Cluster Service)를 활용한 Failover Cluster 방식으로 구성합니다. MSCS 방식은 두 개 이상의 노드를 클러스터로 묶어 하나가 실패하면 MSCS가 Failover Cluster를 수행하여 클러스터에 있는 다른 노드로 상태 데이터를 전송하고 서비스를 시작하는 방식입니다. Failover Cluster를 사용하기 위해서는 모든 노드가 하나의 디스크를 공유하는 방식으로 구성해야 하므로 N개의 노드와 공유 볼륨 서버가 필요합니다. 구성하는 단계는 다음과 같은 절차로 실행됩니다.
+DB 서버의 이중화 구성은 MSCS(Microsoft Cluster Service)를 활용한 Failover Cluster 방식으로 구성합니다.
+MSSQL을 구성하고 MSCS 방식을 활용하여 이중화 구성하는 방법은 다음과 같은 절차로 수행됩니다.
 
 - 가상머신 생성
 - 데이터 디스크 설정
@@ -10,29 +11,33 @@ DB 서버의 이중화 구성은 MSCS(Microsoft Cluster Service)를 활용한 Fa
 - iSCSI 가상디스크 연결 - 초기자 구성(NODE1, NODE2)
 - Failover Cluster 구성(NODE1, NODE2)
 - MSSQL 설치(NODE1, NODE2)
-- SSMS 설치(NODE1, NODE2)
+- SSMS 설치(AD-SVR)
 - 샘플코드 스키마 실행
 
 ## 가상머신 생성
 
 ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 먼저 Windows 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 VM을 생성해야 합니다.
 
+!!! note "MSCS 구성에 필요한 노드 개수"
+    MSCS 방식을 동작하기 위해서는 최소 3개의 노드(가상머신)가 필요합니다.
+    MSCS 방식은 두 개 이상의 노드를 클러스터로 묶어 하나가 실패하면 MSCS가 Failover Cluster를 수행하여 클러스터에 있는 다른 노드로 상태 데이터를 전송하고 서비스를 시작하는 방식입니다. Failover Cluster를 사용하기 위해서는 모든 노드가 하나의 디스크를 공유하는 방식으로 구성해야 하므로 N개의 노드와 공유 볼륨 서버 1개가 필요합니다.
+
 가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. "새 가상머신" 마법사 페이지가 표시됩니다. 해당 페이지에서는 "템플릿을 이용한 VM 생성" 문서를 참고하여 가상머신을 생성합니다.
 
 !!! info "템플릿을 이용한 VM 생성"
-    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/windows-guide-add-and-use-vm#vm) 문서를 참고하십시오.
+    템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/    windows-guide-add-and-use-vm#vm) 문서를 참고하십시오.
 
-- DB 가상머신 1(AD-SVR)
+- AD 가상머신(AD-SVR)
 
     - 배포 인프라 선택 : **Zone**
     - 템플릿/ISO : **Windows Server 2022 기본 이미지 템플릿**
     - 컴퓨트 오퍼링 : **2C-4GB-RBD-HA**
-    - 데이터 디스크 : **50GB-WB-RBD**
+    - 데이터 디스크 : **50GB-WB-RBD** * iSCSI 디스크 공유에 사용됩니다.
     - 네트워크 : **사용자가이드용-격리네트워크**
         - IP: 10.1.1.40
     - 이름 : **Windows-3tier-db-ad**
 
-- DB 가상머신 2(NODE1)
+- DB 가상머신 1(NODE1)
 
     - 배포 인프라 선택 : **Zone**
     - 템플릿/ISO : **Windows Server 2022 기본 이미지 템플릿**
@@ -45,7 +50,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
         - IP: 10.1.1.170
     - 이름 : **Windows-3tier-db-node01**
 
-- DB 가상머신 3(NODE2)
+- DB 가상머신 2(NODE2)
 
     - 배포 인프라 선택 : **Zone**
     - 템플릿/ISO : **Windows Server 2022 기본 이미지 템플릿**
@@ -1050,7 +1055,7 @@ SQL Server 서비스가 설치되었는지 확인합니다.
 ![3tier-windows-db-156](../../../assets/images/3tier-windows/3tier-windows-db-156.png){ width="600" }
 </center>
 
-## SSMS 설치(NODE1, NODE2)
+## SSMS 설치(AD-SVR)
 
 Microsoft SQL Server를 관리하기 위해 SSMS(SQL Server Management Studio) 응용 프로그램을 설치합니다.
 
@@ -1102,7 +1107,7 @@ Node.js 샘플코드 작동을 위해 관련 스키마를 실행합니다.
 
 ``` 
 -- create database
-CREATE DATABASE able_db;
+CREATE DATABASE testdb;
 
 -- create table
 create table member

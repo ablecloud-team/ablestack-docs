@@ -1,10 +1,10 @@
 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조" 구성 단계 중, 네 번째 단계인 WEB 구성에 대한 문서입니다.
 
-WEB 서버의 이중화 구성은 NodeJS와 SAMBA 스토리지를 활용하며 구성하는 단계는 다음과 같은 절차로 실행됩니다.
+WEB 서버의 이중화 구성은 NodeJS와 SMB 스토리지를 활용하며 구성하는 단계는 다음과 같은 절차로 실행됩니다.
 
 - 가상머신 생성
 - 데이터 디스크 설정
-- SAMBA 구성 및 공유폴더 설정(SMB-SVR)
+- SMB 구성 및 공유폴더 설정(SMB-SVR)
 - NginX 설치 및 설정(NODE1, NODE2)
 - 로드 밸런서(부하 분산) 설정
 
@@ -17,7 +17,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 !!! info "템플릿을 이용한 VM 생성"
     템플릿을 이용한 가상머신 추가를 위해 [템플릿을 이용한 VM 생성](../../../vms/windows-guide-add-and-use-vm#vm) 문서를 참고하십시오.
 
-- WEB 가상머신 1(SMB-SVR)
+- SMB 가상머신(SMB-SVR)
 
     - 배포 인프라 선택 : **Zone**
     - 템플릿/ISO : **Windows Server 2022 기본 이미지 템플릿**
@@ -27,7 +27,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
         - IP: 10.1.1.61
     - 이름 : **Windows-3tier-web-smb-svr**
 
-- WEB 가상머신 2(NODE1)
+- WEB 가상머신 1(NODE1)
 
     - 배포 인프라 선택 : **Zone**
     - 템플릿/ISO : **Windows Server 2022 기본 이미지 템플릿**
@@ -36,7 +36,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
         - IP: 10.1.1.62
     - 이름 : **Windows-3tier-web-node01**
 
-- WEB 가상머신 3(NODE2)
+- WEB 가상머신 2(NODE2)
 
     - 배포 인프라 선택 : **Zone**
     - 템플릿/ISO : **Windows Server 2022 기본 이미지 템플릿**
@@ -87,11 +87,11 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 ![3tier-windows-disk-9](../../../assets/images/3tier-windows/3tier-windows-disk-9.png){ width="600" }
 </center>
 
-## SAMBA 구성 및 공유폴더 설정(SMB-SVR)
+## SMB 구성 및 공유폴더 설정(SMB-SVR)
 
-다른 시스템에서 디스크나 프린터 등의 자원을 공유하기 위해 SAMBA를 구성하고 해당 서버에 접근할 수 있도록 공유폴더로 설정합니다.
+다른 시스템에서 디스크나 프린터 등의 자원을 공유하기 위해 SMB를 구성하고 해당 서버에 접근할 수 있도록 공유폴더로 설정합니다.
 
-SAMBA 구성을 위해 서버 관리자 > 관리 > '역할 및 기능 추가' 버튼을 클릭합니다.
+SMB 구성을 위해 서버 관리자 > 관리 > '역할 및 기능 추가' 버튼을 클릭합니다.
 
 <center>
 ![3tier-windows-was-1](../../../assets/images/3tier-windows/3tier-windows-was-1.png){ width="600" }

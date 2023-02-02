@@ -23,23 +23,23 @@ ABLESTACK Mold를 이용해 "이중화를 통한 고가용성 기능을 제공�
 
 가상머신 정보 예시는 다음과 같습니다.
 
-|<center></center>|<center>가상머신</center>|<center>IP</center>|<center>Offering</center>|
-|:---|:---|:---|:---|
-|DB|iSCSI Node|10.1.1.40|2Core 4GB|
-||Node1|10.1.1.184, 10.1.2.85|4Core 8GB|
-||Node2|10.1.1.99, 10.1.2.136|4Core 8GB|
-|WAS|SAMBA Node|10.1.1.45|2Core 4GB|
-||Node1|10.1.1.73|2Core 4GB|
-||Node2|10.1.1.180|2Core 4GB|
-|WEB|SAMBA Node|10.1.1.61|2Core 4GB|
-||Node1|10.1.1.62|2Core 4GB|
-||Node2|10.1.1.63|2Core 4GB|
+|<center></center>|<center>가상머신</center>|<center>IP</center>|<center>Offering</center>|<center>Data Disk</center>|
+|:---|:---|:---|:---|:---|
+|DB|AD Node|10.1.1.40|2Core 4GB|50GB DataDisk|
+||Node1|10.1.1.184, 10.1.2.85|4Core 8GB|-|
+||Node2|10.1.1.99, 10.1.2.136|4Core 8GB|-|
+|WAS|SMB Node|10.1.1.45|2Core 4GB|50GB DataDisk|
+||Node1|10.1.1.73|2Core 4GB|-|
+||Node2|10.1.1.180|2Core 4GB|-|
+|WEB|SMB Node|10.1.1.61|2Core 4GB|50GB DataDisk|
+||Node1|10.1.1.62|2Core 4GB|-|
+||Node2|10.1.1.63|2Core 4GB|-|
 
 ## 구성 단계
 
 "이중화를 통한 고가용성 기능을 제공하는 윈도우 기반의 3계층 구조"를 구성하는 단계는 다음과 같습니다.
 
 - 네트워크 구성: Isolated 네트워크를 생성합니다.
-- DB 구성: DB 서버의 이중화 구성은 MSCS(Microsoft Cluster Service)를 활용한 Failover Cluster 방식으로 구성합니다.
-- WAS 구성: NodeJS와 SAMBA 스토리지를 활용한 WAS 서버를 구성합니다.
-- WEB 구성: Nginx와 SAMBA 스토리지를 활용한 WEB 서버를 구성합니다.
+- DB 구성: AD 서버 구성과 iSCSI 스토리지를 활용한 DB 서버를 구성합니다. DB 서버의 이중화 구성은 MSCS(Microsoft Cluster Service)를 활용한 Failover Cluster 방식으로 구성합니다.
+- WAS 구성: NodeJS와 SMB 스토리지를 활용한 WAS 서버를 구성합니다.
+- WEB 구성: Nginx와 SMB 스토리지를 활용한 WEB 서버를 구성합니다.
