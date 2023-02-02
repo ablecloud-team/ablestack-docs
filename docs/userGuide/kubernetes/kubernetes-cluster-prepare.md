@@ -3,7 +3,7 @@ Kubernetes는 컨테이너화된 애플리케이션의 배포, 확장 및 관리
 본 문서에서는 Mold의 시스템을 이용한 Kubernetes 배포 및 서비스 배포까지 기술하고 있습니다.
 
 !!! warning
-    본 문서의 Kubernetes 버전은 입 기준으로 작성되어 있습니다.
+    본 문서의 Kubernetes 버전은 1.24.0 기준으로 작성되어 있습니다.
 
 !!! info
     본 문서에서 서비스는 Budibase 를 기준으로 작성 되여 있습니다.
@@ -33,8 +33,8 @@ systemctl restart cloudstack-management
 ### kubectl 설치
 Kubernetes 구성 후 kubernetes engin을 설정하기 위해서는 kubectl 서비스가 사용자 PC에 설치되어 있어야 합니다.
 사용자 PC의 OS 별 kubectl 설치 가이드는 해당
-[링크](https://kubernetes.io/docs/tasks/tools/){:target='_blank'}의 **Install Tolls** 의 **kubectl** 부분을 참고하시기 바랍니다.
+**[링크](https://kubernetes.io/docs/tasks/tools/){:target='_blank'}** 의 **Install Tolls** 의 **kubectl** 부분을 참고하시기 바랍니다.
 
 ### helm 설치
 helm 은 Kubernetes 용 패키기 관리자 입니다. Budibase 설치는 helm을 이용하여 설치가 되며, helm 설치는 해당
-[링크](https://helm.sh/docs/intro/install/){:target='_blank'}를 참고하시기 바랍니다.
+**[링크](https://helm.sh/docs/intro/install/){:target='_blank'}** 를 참고하시기 바랍니다.

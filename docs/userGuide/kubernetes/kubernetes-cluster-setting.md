@@ -89,9 +89,9 @@ Dashboard 를 외에 접속 할 수 있도록 수정하는
      ipFamilyPolicy: SingleStack
      ports:
        - nodePort: 32444
-     port: 443
-     protocol: TCP
-     targetPort: 8443
+       port: 443
+       protocol: TCP
+       targetPort: 8443
      selector:
      k8s-app: kubernetes-dashboard
      sessionAffinity: None

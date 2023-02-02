@@ -254,6 +254,13 @@ nav:
       - DB 구성 : userGuide/3tiers/windows/windows-guide-db.md
       - WAS 구성 : userGuide/3tiers/windows/windows-guide-was.md
       - WEB 구성 : userGuide/3tiers/windows/windows-guide-web.md
+    - Linux 기반 3 Tier  Architecture 구성 가이드:
+      - 구성 개요: userGuide/3tiers/linux/3tiers-linux-guide-prepare.md
+      - 네트워크 구성: userGuide/3tiers/linux/3tiers-linux-guide-network.md
+      - 관리 가상머신 구성: userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm.md
+      - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
+      - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
+      - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
     - Kubernete Cluster 가이드:
       - 구성 개요: userGuide/kubernetes/kubernetes-cluster-prepare.md
       - 네트워크 생성: userGuide/kubernetes/kubernetes-cluster-network-create.md
@@ -262,13 +269,6 @@ nav:
       - 공유 볼륨 설정: userGuide/kubernetes/kubernetes-cluster-shared-volume-create.md
       - Cluster 설정: userGuide/kubernetes/kubernetes-cluster-setting.md
       - 서비스 배포: userGuide/kubernetes/kubernetes-cluster-service-add.md
-    - Linux 기반 3 Tier  Architecture 구성 가이드 :
-      - 구성 개요: userGuide/3tiers/linux/3tiers-linux-guide-prepare.md
-      - 네트워크 구성: userGuide/3tiers/linux/3tiers-linux-guide-network.md
-      - 관리 가상머신 구성: userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm.md
-      - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
-      - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
-      - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
     # - 템플릿 :
     #   - 샘플 템플릿: userGuide/templateSample/template.md
     #   - readme: userGuide/templateSample/readme.md
