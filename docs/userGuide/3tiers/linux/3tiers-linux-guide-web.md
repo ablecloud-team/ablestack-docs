@@ -207,13 +207,23 @@ $ podman pull docker.io/nginx:stable
 ```
 
 다운로드한 Nginx 컨테이너 이미지를 실행합니다.
+WEB Server가 정상적으로 로드 벨런싱되는 지 확인하기 위해 WEB 가상머신의 이름에 따라 `--hostname` 옵션 값을 지정합니다. 
 ```
-$ podman run --privileged=true -d -p 6060:6000 --name nginx-server --restart always -v /mnt/data/mount-nfs:/usr/share/nginx/html/ docker.io/nginx:stable
+$ podman run \
+--privileged=true \
+-d \
+-p 6060:6000 \
+--name nginx-server \
+--hostname web-container-1 \
+--restart always \
+-v /mnt/data/mount-nfs:/usr/share/nginx/html/ \
+docker.io/nginx:stable
 
 # run: 컨테이너를 실행합니다.
 # --privileged=true: 컨테이너 시스템 주요 자원에 접근할 수 있는 권한 취득
 # -p: 포트포워딩 (외부:내부)
 # --name: 컨테이너 이름
+# --hostname: 컨테이너 호스트네임을 지정합니다.
 # --restart: 컨테이너 오류 시, 항상 재시작
 # -v: 컨테이너의 특정 폴더와 로컬의 폴더를 서로 공유
 # docker.io/nginx:stablet: 다운로드한 이미지 이름

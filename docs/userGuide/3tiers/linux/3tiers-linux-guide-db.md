@@ -536,14 +536,14 @@ MariaDB [(none)]> show variables like 'wsrep_cluster_address';
 +-----------------------+--------------------------------------------------+
 ```
 
-하나의 DB 가상머신에서 데이터 베이스를 생성합니다.
+하나의 DB 가상머신에서 "testdb" 라는 이름의 테스트용 데이터 베이스를 생성합니다.
 ```
-MariaDB [(none)]> create database galeradb;
+MariaDB [(none)]> create database testdb;
 ```
 
-"galeradb"데이터 베이스에 "member" 테이블을 생성합니다.
+"testdb" 데이터 베이스에 "member" 테이블을 생성합니다.
 ```
-MariaDB [(none)]> create table galeradb.member
+MariaDB [(none)]> create table testdb.member
 (
     idx      int auto_increment
         primary key,

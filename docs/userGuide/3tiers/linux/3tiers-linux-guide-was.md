@@ -294,15 +294,25 @@ WAS 가상머신 1,2 에서 실행할 NodeJS 컨테이너 이미지를 다운로
 $ podman pull docker.io/ablecloudteam/nodejs-server:linux-0.1
 ```
 
-다운로드한 NodeJS 컨테이너 이미지를 실행합니다.
+다운로드한 NodeJS 컨테이너 이미지를 실행합니다. 
+WAS가 정상적으로 로드 벨런싱되는 지 확인하기 위해 WAS 가상머신의 이름에 따라 `--hostname` 옵션 값을 지정합니다. 
 ```
-$ podman run --privileged=true -d -p 5000:3000 --name nodejs-server --restart always -v /mnt/data/shared_folder:/usr/src/app ablecloudteam/nodejs-server:linux-0.1
+$ podman run \
+--privileged=true \
+-d \
+-p 5000:3000 \
+--name nodejs-server \
+--hostname was-container-1 \
+--restart always \
+-v /mnt/data/shared_folder:/usr/src/app \
+ablecloudteam/nodejs-server:linux-0.1
 
 # run: 컨테이너를 실행합니다.
 # --privileged=true: 컨테이너 시스템 주요 자원에 접근할 수 있는 권한 취득
 # -d: detached 모드 (컨테이너 백그라운드 실행)
 # -p: 포트포워딩 (외부:내부)
 # --name: 컨테이너 이름
+# --hostname: 컨테이너 호스트네임을 지정합니다.
 # --restart: 컨테이너 오류 시, 항상 재시작
 # -v: 컨테이너의 특정 폴더와 로컬의 폴더를 서로 공유
 # ablecloudteam/nodejs-server:linux-0.1: 다운로드한 이미지 이름
