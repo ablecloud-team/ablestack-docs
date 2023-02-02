@@ -33,11 +33,11 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
     host affinity: 가능한 한 동일한 호스트에 인스턴스를 배포합니다.
 
-    * Non-Strict 옵션은 마지막 실행 호스트를 고려하여 실행됩니다.
+    * Non-Strict 옵션은 마지막으로 해당 가상머신을 실행했던 호스트를 고려하지 않고 가상머신을 시작합니다.
 
 
 ## 가상머신 생성
-ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
+ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
 
 가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
 해당 페이지에서는 **템플릿을 이용한 가상머신 생성** 문서를 참고하여 가상머신을 생성합니다.
@@ -104,7 +104,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 
 ### 네트워크 방화벽 해제 
 방화벽은 들어오고 나가는 네트워크 트래픽을 모니터링하고 필터링하는 방법입니다. 특정 트래픽을 허용할지 차단할지 결정하는 일련의 보안 규칙을 정의하여 작동합니다.
-CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 제공됩니다.
+CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 해당 기능이 제공됩니다.
 
 `firewall-cmd` 명령어를 이용하여 nfs, mountd, rpc-bind 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
 ``` linenums="1" 
@@ -207,13 +207,23 @@ $ podman pull docker.io/nginx:stable
 ```
 
 다운로드한 Nginx 컨테이너 이미지를 실행합니다.
+WEB Server가 정상적으로 로드 벨런싱되는 지 확인하기 위해 WEB 가상머신의 이름에 따라 `--hostname` 옵션 값을 지정합니다. 
 ```
-$ podman run --privileged=true -d -p 6060:6000 --name nginx-server --restart always -v /mnt/data/mount-nfs:/usr/share/nginx/html/ docker.io/nginx:stable
+$ podman run \
+--privileged=true \
+-d \
+-p 6060:6000 \
+--name nginx-server \
+--hostname web-container-1 \
+--restart always \
+-v /mnt/data/mount-nfs:/usr/share/nginx/html/ \
+docker.io/nginx:stable
 
 # run: 컨테이너를 실행합니다.
 # --privileged=true: 컨테이너 시스템 주요 자원에 접근할 수 있는 권한 취득
 # -p: 포트포워딩 (외부:내부)
 # --name: 컨테이너 이름
+# --hostname: 컨테이너 호스트네임을 지정합니다.
 # --restart: 컨테이너 오류 시, 항상 재시작
 # -v: 컨테이너의 특정 폴더와 로컬의 폴더를 서로 공유
 # docker.io/nginx:stablet: 다운로드한 이미지 이름
