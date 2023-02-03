@@ -69,6 +69,9 @@ extra:
   version:
     provider: mike
 
+extra_css:
+  - assets/css/basic.css
+
 # Extensions
 markdown_extensions:
   - admonition
