@@ -620,50 +620,10 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
     ![Pools 생성 완료 리스트](../assets/images/install-guide-glue-Pools-create-completed-list.png){ align=center }
     - 데이터 풀 생성이 정상적으로 완료가 되었는지 확인합니다.
 
-6. Glue pool 오토스케일 적용
-
-    ![오토스케일 적용1](../assets/images/install-guide-glue-pool-autoscale-01.png){ align=center }
-    !!! info
-        - 현재 glue pool autoscale이 설정 되어있는지 확인 ( 출력 목록 없음 )
-
-            \# ceph osd pool autoscale-status
-
-        - glue 크러쉬맵을 original 파일로 생성 (암호화 되어 있음)
-        
-            \# ceph osd getcrushmap -o original
-
-        - 생성한 크러쉬맵 ariginal 파일을 crushtool로 복호화된 정보를 original.txt 파일로 생성
-        
-            \# crushtool -d original >> original.txt
-
-        - original.txt 파일 편집
-        
-            \# vi original.txt
-
-    ![오토스케일 적용2](../assets/images/install-guide-glue-pool-autoscale-02.png){ align=center }
-    !!! info
-        - original.txt 설정정보 변경
-
-        - rules > rule > replicated_rule의 step take default을 step take default class ssd으로 내용 수정하여 저장
-
-    ![오토스케일 적용3](../assets/images/install-guide-glue-pool-autoscale-03.png){ align=center }
-    !!! info
-        - 변경한 크러쉬맵 original.txt 파일 정보를 컴파일하여 adjusted 파일로 생성
-        
-            \# crushtool -c original.txt -o adjusted
-
-        - glue 크러쉬맵을 adjusted 내용으로 설정
-        
-            \# ceph osd setcrushmap -i adjusted
-
-        - .mgr과 rbd pool의 autoscale이 on으로 되어있는지 확인
-        
-            \# ceph osd pool autoscale-status
-
 6. ABLESTACK 확인
     ![ABLESTACK 확인](../assets/images/install-guide-glue-ABLESTACK-check.png){ align=center }
     - ABLESTACK 메인화면에서 스토리지센터 클러스터 상태 카드에서 클러스터가 상태가 **Health OK** 인지 확인합니다.
     
 !!! info
-    ABLESTACK Glue 구성까지 마무리 되었습니다.
-    ABLESTACK Mold 구성도 마찬가지로 ABLESTACK Cube 웹 콘솔을 이용하여 구성이 가능합니다.
+    ABLESTACK Glue 구성이 완료되었습니다.
+    ABLESTACK Mold 구성도 ABLESTACK Cube 웹 콘솔을 이용하여 할 수 있습니다.

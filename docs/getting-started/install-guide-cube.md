@@ -9,17 +9,18 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     - 해당 문서는 사용자의 네트워크 환경 및 설정 정보를 고려하지 않고 작성된 문서 입니다. 이 문서를 기준으로 활용을 하셔야 하며 수정 및 변경 할 부분은 **강조** 표시를 해두었습니다.
     - ABLESTACK Cube 설치시 ABLESTACK Cell이 동시에 설치가 진행되며, ABLESTACK Cell의 설치가이드는 따로 제공 되고 있지 않습니다. 
 
-!!! 사전준비내용 info
+!!! 사전준비 info
     - ABLESTACK 설치용 ISO 또는 ABLESTACK 설치용 USB  
     - 호스트의 Manage Network 대역에 접근 가능한 Desktop 또는 Notebook
     - Manage Network IP(ABLESTACK은 Manage Network IP를 호스트 1대당 3개의 IP를 필요로 하고 있습니다.)
 
-!!! tip
-    ABLESTACK 설치용 ISO파일을 노트북이나 데스크탑에 가지고 있는 상태에서 호스트의 IPMI Port에 통신이 가능하면 IPMI Console을 이용하여 3대의 호스트에 ABLESTACK Cube를 동시에 설치 가능합니다.
+!!! 사전설정 warning
+    - ABLESTACK Cerato는 UTC를 기준으로 시간서버를 설정합니다.
+    - 따라서 ABLESTACK 설치 전 서버 BIOS 설정에서 해당 서버의 시간을 UTC로 설정해야 합니다.
 
 ## ABLESTACK Cube 설치 진행 가이드
 
-1. ABLESTACK ISO 또는 USB를 이용한 부팅 화면 입니다.
+1. ABLESTACK ISO를 이용한 USB 부팅 화면 입니다.
     ![ABLESTACK Cube 부팅화면](../assets/images/install-guide-cube-01.png){ align=center }
    
 2. 부팅 완료 후 ABLESTACK 설치 메뉴 화면 입니다.  
@@ -27,21 +28,20 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     ![ABLESTACK Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ align=center }
    
     !!! Check
-        화면에서 **Install ABLESTACK Cerato (v3.0.0)** 메뉴가 보이는지 확인해야합니다. 해당 메뉴가 보이면 ABLESTACK Cube 정상적으로 설치를 하실 수 있습니다.
-        만약에 해당 메뉴가 보이지 않는다면 정상적으로 부팅이 안된경우 이므로 다시한번 부팅을 진행하셔야 합니다.
-        다시 한번 부팅해도 해당 메뉴가 보이지 않는다면 ISO의 손상을 의심하셔야 합니다.
+        화면에서 **Install ABLESTACK Cerato (v3.0.0)** 메뉴가 보이는지 확인해야 합니다. 해당 메뉴가 보이면 ABLESTACK Cube 정상적으로 설치를 하실 수 있습니다.</br>
+        만약 해당 메뉴가 보이지 않는다면 정상적인 부팅이 되지 않은 경우이므로 부팅매체를 확인하고 재부팅을 해야 합니다.</br>
+        다시 한번 부팅해도 해당 메뉴가 보이지 않는다면 ISO 또는 USB가 손상되었을 수 있습니다.
    
 3. ABLESTACK Cube 구성 화면 입니다.
     ![ABLESTACK Cube 구성 화면](../assets/images/install-guide-cube-03.png){ align=center }  
 
     !!! info
         ABLESTACK Cube는 기본적인 정보는 자동으로 설정이 되어 있습니다.  
-        **Installation Destination, Network & Host name** 항목에 대해서만 설정하시면 됩니다.</br> 
-        - Keyboard, Language Support, Time & Date, Installation Source, Software Selection, KDUMP, Security Policy, Root Password 항목은 수정하실 필요가 없습니다.
+        **Installation Destination, Network & Host name** 항목에 대해서만 설정하면 됩니다.</br> 
+        - Keyboard, Language Support, Installation Source, Software Selection, KDUMP, Security Policy, Root Password 항목은 수정하실 필요가 없습니다.
    
     !!! Tip
-        설정정보 입력시 'Network & Host name' > 'Installation Destination' 순서대로 설정하시는것을 추천드립니다.  
-        이유는 설치 대상의 파티션 구성시 호스트의 이름이 설정 정보에 입력이 되기 때문입니다.
+        설정정보 입력시 'Network & Host name' > 'Installation Destination' 순서대로 설정하는 것을 권장합니다.
    
 4. 네트워크 및 호스트 이름 구성변경 화면
     - ABLESTACK Cube 구성화면에서 **Network & Host Name** 을 클릭하면 해당 화면으로 이동됩니다. 
@@ -57,14 +57,17 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         ![호스트 이름 설정](../assets/images/install-guide-cube-05.png){ align=center }
         * Host name에 hostname을 입력합니다.
         !!! Tip
-            일반적으로 호스트명은 "ablecube23"과 같이 ablecube + 호스트넘버링 형태로 지정하면 향 후 관리가 용이합니다. 
+            일반적으로 호스트명은 "ablecube23"과 같이 ablecube + 넘버링 형태로 지정하면 향후 관리가 용이합니다. 
         * 적용 버튼을 클릭하여 Host name을 적용합니다.
         * 적용된 Host name이 정상적으로 현재 호스트 이름에 표시 되는지 확인합니다.
     !!! check
-	    IP 설정은 ABLESTACK OS 설치가 끝난 후, IPMI Console에서 직접 설정 해야 합니다.
+        ABLESTACK은 설치 완료 후 재부팅 과정에서 네트워크 인터페이스 초기화 및 정렬을 수행합니다.
+        따라서, IP 설정은 설치 완료 후 IPMI Console을 이용하여 해야 합니다.
+    !!! warning
+        IP 설정을 설치 단계에서 미리 하는 경우, 이후 네트워크 설정에 문제가 발생할 수 있습니다.
           
 5. 설치 대상 구성 화면
-    - ABLESTACK Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.  
+    - ABLESTACK Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.
 
     ![설치 대상](../assets/images/install-guide-cube-06.png){ align=center }
     
@@ -88,14 +91,14 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         * **/home** 파티션 선택 후 아래 **-** 버튼을 클릭하여 home 파티션을 삭제합니다.
     2. 파티션 구성 화면 2-2
         ![파티션 구성 2-2](../assets/images/install-guide-cube-08.png){ align=center }
-        * **swap 파티션 선택 후 희망 용량** : 의 입력 값에 **64GiB(최소 용량)** 을 입력 후 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
+        * **swap 파티션 선택 후 희망 용량** 의 입력 값에 **64GiB(최소 권장)** 을 입력 후 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
         !!! info
-            **swap 파티션** 설정 시, 서버 디스크 용량이 여유로울 때 서버 메모리 용량과 같은 용량으로 설정합니다.</br>
-            그렇지 않을 시, 최소 용량 **64GiB 이상** 으로 권장합니다.
+            **swap**파티션은 서버 메모리 크기와 같은 크기로 설정하는 것을 권장합니다.</br>
+            디스크의 크기가 여유롭지 못하면 **64GiB 이상** 을 권장합니다.
 
     3. 파티션 구성 화면 3-2
         ![파티션 구성 3-2](../assets/images/install-guide-cube-09.png){ align=center }
-        * **/(root파티션)** 파티션 선택 후 **희망 용량 :** 의 입력 값에 1000 GiB(총용량 보다 많은 사이즈)를 입력 후 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
+        * **/(root파티션)** 파티션 선택 후 **희망 용량** 나머지 전체의 용량을 할당하고 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
         * 파티션 구성 완료 후 **Done** 버튼을 클릭하여 파티션 설정을 마무리 합니다.
     
         !!! Tip
@@ -113,11 +116,10 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     
     ![ABLESTACK Cube 구성 마무리](../assets/images/install-guide-cube-12-1.png){ align=center }
     
-    - 설치시간은 설치 환경에 따라 다소 상이할 수 있습니다.
-    - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되여 있는 ABLESTACK ISO 또는 USB를 제거 한 후에 ABLESTACK Cube설치를 마무리 합니다.
+    - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되어 있는 ABLESTACK ISO 또는 USB를 제거하여 ABLESTACK Cube 설치를 마무리 합니다.
 
     ![ABLESTACK Cube 설치완료](../assets/images/install-guide-cube-13.png){ align=center }
-    - 설치가 정상적으로 완료되고 재부팅이 되면 ABLESTACK 콘솔 로그인 화면이 보이게 됩니다.
+    - 설치가 정상적으로 완료되면 ABLESTACK 콘솔 로그인 화면이 보이게 됩니다.
   
 ## ABLESTACK Cube Network 셋팅
 
@@ -129,10 +131,11 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
 1. IPMI Console 로그인
     ![IPMI Console 로그인](../assets/images/install-ipmi-login.png){ align=center }
-    - 사용자 이름은 **root** 를 암호는 초기 암호 **password** 를 입력하고, 보안 높은 패스워드로 교체 후, **Sign in** 버튼을 클릭하시면 로그인하실 수 있습니다.
+    - 사용자 이름은 **root**, 암호는 **password** 를 입력한 후 비밀번호를 변경하고 **Sign in** 버튼을 클릭하시면 로그인하실 수 있습니다.
 
     !!! info
-        - 보안 정책 상 ABLESTACK Root password는 다시 재설정 해야합니다.
+        - ABLESTACK Cube의 초기 비밀번호는 **password** 입니다. </br>
+        - 최초 로그인 시 비밀번호를 변경해야 합니다.
 
 2. IPMI Console 네트워크 설정 화면
     ![IPMI Console 네트워크 설정 화면](../assets/images/install-ipmi-network-1.png){ align=center }
@@ -170,7 +173,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.png){ align=center }
     - ABLESTACK Cube 로그인 화면입니다. 
     - 접속 URL은 **호스트IP:9090** 입니다
-    - 사용자 이름은 **root** 를 암호는 IPMI Console에서 교체한 암호를 입력하고 **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
+    - 사용자 이름은 **root** 를 암호는 변경한 암호를 입력하고 **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
     
 2. ABLESTACK Cube 메인 화면
     ![ABLESTACK Cube 메인 화면](../assets/images/install-guide-cube-15.png){ align=center }
@@ -199,7 +202,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         ![Management Network 브릿지 설정](../assets/images/install-guide-cube-17.png){ align=center }
         - 화면 중간 버튼그룹 중 **브릿지 추가** 버튼을 클릭하면 보이는 화면이며, 브릿지를 설정하는 팝업 화면입니다.
         ![Management Network 브릿지 구성](../assets/images/install-guide-cube-18.png)
-        - 브릿지 이름을 **bridge0** 을 입력해주고, 포트는 **Management NIC(Cube OS 설치 시 Management IP를 설정했던 포트(인터페이스))** 를 선택하고 **적용** 버튼을 클릭합니다.
+        - 브릿지 이름을 **bridge0** 을 입력해주고, 포트는 **Management NIC** 를 선택하고 **저장** 버튼을 클릭합니다.
         
         !!! info
             해당 과정은 물리적인 Management Network를 SystemVM 및 다른 가상머신에서 사용할 수 있게 브릿지를 하는 과정입니다.
@@ -216,10 +219,10 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
             - IPv4 항목의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
             - 주소 입력 창의 오른쪽에 있는 **자동(DHCP)** 선택 박스를 눌러 **수동** 으로 변경을 합니다.
             - **Address** 입력창에 **100.100.1.1** 을 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
-            !!! note
-                Storage Network에서 사용하는 IP는 내부적으로만 통신하기 위한 IP입니다.
-                
-                일반적으로 ABLESTACK에서는 100.100.OOO(Management와 동일한 C클래스를 사용).OOO(호스트와 동일한 Host ID 사용)로 구성됩니다.
+            !!! info
+                Storage Network에서 사용하는 IP는 내부적으로만 통신하기 위한 IP입니다.</br>
+                일반적으로 Public Storage Network IP는 100.100.**A**.**B**/24 대역을 사용합니다.</br>
+                관리상 편의를 위해 A는 Management와 동일한 C클래스를 사용하고 B는 호스트와 동일한 Host IP로 구성합니다.</br>
                 만약 스위치를 혼용해서 사용하고 해당 IP 대역이 기존 내부 네트워크와 겹쳐서 충돌이 발생될 수 있을 경우에는 사용하지 않는 대역으로 변경해야 합니다.
 
 
@@ -236,7 +239,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         ![방화벽 설정](../assets/images/install-guide-cube-22.png){ align=center }
         - 방화벽을 확인하기 위한 절차 입니다. 네트워킹 화면에서 방화벽 세션에서 **규칙 및 영역 편집** 을 클릭하여 들어온 화면입니다.
         !!! info
-            저희 ABLESTACK Cerato 버전부터는 자동으로 ABLESTACK 방화벽이 추가 됩니다.
+            ABLESTACK Cerato 버전부터는 자동으로 ABLESTACK 방화벽이 추가 됩니다.
         
         <br/>
 
