@@ -5,9 +5,7 @@ ABLESTACK Mold를 이용해 **이중화를 통한 고가용성 기능을 제공�
 다음 그림은 앞으로 구성할 리눅스 기반의 3계층 구조 전체를 보여줍니다. 관리자는 WEB Subnet에 구성된 관리용 가상머신의 Public IP를 통해 다른 가상머신에 접속할 수 있으며 사용자는 WEB Subnet에 생성된 외부 로드 밸런서(LB)를 통해 WEB Server에 접근할 수 있습니다.
 아래 예시를 적용한 아키텍처 구성도를 참고하여 구성합니다.
 
-<figure markdown>
-![3tier-linux-01](../../../../assets/images/3tier-linux-architecture.png)
-</figure>
+![3tier-linux-01](../../../../assets/images/3tier-linux-architecture.png){: .center }
 
 ## 네트워크 구성 정보
 아키텍처에서 보여지는 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의를 구성하는 데 필요한 네트워크 정보 예시는 다음과 같으며 구성 방법은 [Linux 기반 3 Tier Architecture 네트워크 구성](../3tiers-linux-guide-network){:target="_blank"} 문서에서 확인할 수 있습니다.
@@ -46,7 +44,7 @@ ABLESTACK Mold를 이용해 **이중화를 통한 고가용성 기능을 제공�
 | :----------:| ----------------------| ------------------| ----------| :-------------:| :------------:|
 | **DB**      | DB 가상머신 1 ~ 3       | 192.168.3.11 ~ 13 | 1Core 2GB | 100GB DataDisk | - |
 | **WAS**     | WAS 가상머신 1          | 192.168.2.11      | 1Core 2GB |       -        | - |
-|             | WAS 가상머신 2          | 192.168.2.12      | 1Core 2GB |                | - |
+|             | WAS 가상머신 2          | 192.168.2.12      | 1Core 2GB |       -        | - |
 |             | SAMBA 스토리지 가상머신 3 | 192.168.2.13      | 1Core 2GB | 100GB DataDisk | - |
 | **WEB**     | WEB 가상머신 1          | 192.168.1.11      | 1Core 2GB |       -        | - |
 |             | WEB 가상머신 2          | 192.168.1.12      | 1Core 2GB |       -        | - |
