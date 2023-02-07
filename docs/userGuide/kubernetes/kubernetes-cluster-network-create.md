@@ -8,7 +8,7 @@ ABLESTACK Mold 화면에서 **네트워크 > 가상머신용 네트워크** 화�
 !!! info
     해당 입력 값은 예시 입니다.
 
-![Kubernetes-architecture](../../assets/images/kubernetes-cluster-network-create.png){: .center }
+![Kubernetes-architecture](../../assets/images/kubernetes-cluster-network-create.png){:class="imgCenter"}
 
 - 이름 : 네트워크 이름을 입력 합니다.
 - 설명 : 네트워크 설명을 입력 합니다.

@@ -8,8 +8,8 @@ Node에 직접 접속 하기 위해서는 SSH 키를 이용하여 접속해야 �
 1. **컴퓨트 > SSH 키 쌍** 으로 이동 후 **SSH 키 쌍 생성** 버튼을 클릭하여 SSH 키 생성 화면으로 이동합니다.
 
 2. 입력 항목을 입력 후 **확인** 버튼을 클릭 합니다.
-
-    ![kubernetes-guide-kubernetes-cluster-create-02](../../assets/images/kubernetes-guide-kubernetes-cluster-create-02.png){: .center }
+    
+    ![kubernetes-guide-kubernetes-cluster-create-02](../../assets/images/kubernetes-guide-kubernetes-cluster-create-02.png){:class="imgCenter imgBorder"}
 
     - 이름 : SSH 생성 이름을 입력 합니다.
     - 공개 키 : 보유 중인 공개 키를 등록 합니다. 보유 중인 키가 없는 경우 입력을 안해도 상관없습니다.
@@ -22,7 +22,7 @@ Node에 직접 접속 하기 위해서는 SSH 키를 이용하여 접속해야 �
         닫기 버튼을 클릭 후에는 다시 클립보드에 복사 또는 다운로드 기능을 제공하지 않습니다.
         또한 클립보드에 복사 또는 다운로드한 키를 분실한경우 가상머신 또는 Node에 접속이 제한될수 있습니다.
 
-   ![kubernetes-guide-kubernetes-cluster-create-03](../../assets/images/kubernetes-guide-kubernetes-cluster-create-03.png){: .center }
+    ![kubernetes-guide-kubernetes-cluster-create-03](../../assets/images/kubernetes-guide-kubernetes-cluster-create-03.png){:class="imgCenter imgBorder"}
 
 ## 쿠버네테스 클러스터 생성
 
@@ -30,7 +30,7 @@ Node에 직접 접속 하기 위해서는 SSH 키를 이용하여 접속해야 �
 
 2. 클러스터 생성 화면에서 입력 항목을 입력 후 **확인** 버튼을 클릭 합니다.
 
-    ![kubernetes-guide-kubernetes-cluster-create-04](../../assets/images/kubernetes-guide-kubernetes-cluster-create-04.png){: .center }
+    ![kubernetes-guide-kubernetes-cluster-create-04](../../assets/images/kubernetes-guide-kubernetes-cluster-create-04.png){:class="imgCenter imgBorder"}
 
     - 이름 : Kubernetes 이름을 입력 합니다.
     - 설명 : Kubernetes 설명을 입력 합니다.

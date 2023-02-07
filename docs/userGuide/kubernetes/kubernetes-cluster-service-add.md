@@ -26,4 +26,4 @@ Kubernetes 에서 운영이 가능한 Budibase 배포에 대하여 설명하고 
       kubectl get ingress -n budibase
       ```
       해당 명령어를 이용하여 외부 아이피를 확인 후 Budibase에 접속 하실수 있습니다.
-      ![kubernetes-guide-kubernetes-cluster-service-add-01](../../assets/images/kubernetes-guide-kubernetes-cluster-service-add-01.png){: .center }
+      ![kubernetes-guide-kubernetes-cluster-service-add-01](../../assets/images/kubernetes-guide-kubernetes-cluster-service-add-01.png){:class="imgCenter"}

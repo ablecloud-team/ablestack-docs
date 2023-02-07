@@ -107,7 +107,8 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
@@ -269,8 +270,8 @@ nav:
       - 네트워크 생성: userGuide/kubernetes/kubernetes-cluster-network-create.md
       - Kubernetes ISO 등록: userGuide/kubernetes/kubernetes-cluster-iso-add.md
       - Cluster 생성: userGuide/kubernetes/kubernetes-cluster-create.md
-      - 공유 볼륨 설정: userGuide/kubernetes/kubernetes-cluster-shared-volume-create.md
       - Cluster 설정: userGuide/kubernetes/kubernetes-cluster-setting.md
+      - 공유 볼륨 설정: userGuide/kubernetes/kubernetes-cluster-shared-volume-create.md
       - 서비스 배포: userGuide/kubernetes/kubernetes-cluster-service-add.md
     # - 템플릿 :
     #   - 샘플 템플릿: userGuide/templateSample/template.md

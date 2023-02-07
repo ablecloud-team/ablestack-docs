@@ -15,19 +15,24 @@ Kubernetes Control Node 및 Worker Node 는 이중화를 위해서 2개씩 Mold�
 !!! info
     공유 볼륨용 가상머신은 Ubuntu Desktop 을 활용하여 진행 합니다.
 
-![Kubernetes-architecture](../../assets/images/Kubernetes-architecture.png){: .center }
+![Kubernetes-architecture](../../assets/images/Kubernetes-architecture.png){:class="imgCenter"}
 
 ## 사전 필요 사항
 
 ### ABLESTACK Mold 글로벌 설정 변경
+
 Mold 화면에서 **구성 > 글로벌 설정** 화면으로 이동 후 검색 창에 아래 항목을 검색합니다.
+
 ```
 cloud.kubernetes.service.enabled
 ```
+
 해당 설정 값을 **false** 에서 **true** 로 변경 후 Mold에 접속 하여 아래 명령어를 이용하여 Mold 서비스를 재기동 합니다.
+
 ```
 systemctl restart cloudstack-management
 ```
+
 서비스 재기동 후 Mold 메뉴에서 **컴퓨트 > 쿠버네테스** 메뉴를 확인 합니다.
 
 ### kubectl 설치
