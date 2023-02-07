@@ -14,9 +14,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 ## Affinity 그룹 생성
 가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 가상머신들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
 
-<figure markdown>
-![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
-</figure markdown>
+![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png){: .center }
 
 - 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
 - 설명 : Affinity 그룹에 대한 설명을 입력합니다.
@@ -107,9 +105,9 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 해당 기능이 제공됩니다.
 
 `firewall-cmd` 명령어를 이용하여 nfs, mountd, rpc-bind 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
-``` linenums="1" 
-$ firewall-cmd --zone=public --permanent --add-service={nfs,mountd,rpc-bind}
-$ firewall-cmd --reload
+```
+firewall-cmd --zone=public --permanent --add-service={nfs,mountd,rpc-bind}
+firewall-cmd --reload
 ```
 
 ???+ info
@@ -125,23 +123,19 @@ NFS-Server로써 WEB 가상머신 1, 2와 데이터를 공유할 NFS 스토리�
 ### NFS Server 패키지 설치
 패키지 관리 명령어인 **dnf** 를 사용하여 nfs-utils 패키지를 설치합니다.
 ``` 
-$ dnf install nfs-utils
+dnf install nfs-utils
 ```
 
 ### NFS 스토리지 설정
 WEB 컨테이너와 파일을 공유할 NFS 스토리지의 공유폴더를 생성하고 적절한 권한을 부여합니다.
 스토리지 공유폴더 경로 예시는 `/mnt/data/nfs` 입니다.
 ``` 
-$ mkdir -p /mnt/data/nfs
-$ chmod -R 777 /mnt/data/nfs
+mkdir -p /mnt/data/nfs
+chmod -R 777 /mnt/data/nfs
 ```
 
-공유하려는 디렉토리와 서버 설정을 위해 `/etc/exports` 를 vi 편집기로 열어 정보를 입력합니다.
-``` 
-$ vi /etc/exports
-```
-모든 사용자 또는 특정 범위 IP 사용자 접근 여부를 설정합니다.
-``` title="exports"  linenums="1"
+공유하려는 디렉토리와 서버 설정을 위해 모든 사용자 또는 특정 범위 IP 사용자 접근 여부를 설정합니다.
+``` title="/etc/exports"  linenums="1"
 # 모든 사용자 접근 허용 시
 /mnt/data/nfs *(rw,sync,no_root_squash) 
 
@@ -152,8 +146,8 @@ $ vi /etc/exports
 ### NFS Server 시작
 NFS Server Node의 NFS Server 서비스를 등록하고 시작합니다.
 ``` 
-$ systemctl enable nfs-server.service
-$ systemctl start nfs-server.service
+systemctl enable nfs-server.service
+systemctl start nfs-server.service
 ```
 
 NFS Server 설정 적용을 위해 윗 단계에서 설정한 `/etc/exports` 파일을 적용합니다.
@@ -171,7 +165,7 @@ WEB 서버 구성을 위해 도커 컨테이너를 이용하여 Nginx를 구동�
 ### NFS 스토리지 패키지 설치
 먼저 패키지 관리 명령어인 **dnf** 를 사용하여 nfs-utils와 nfs4-acl-tools 패키지를 설치합니다.
 ``` 
-$ dnf install nfs-utils nfs4-acl-tools
+dnf install nfs-utils nfs4-acl-tools
 ```
 
 ### NFS 스토리지 설정
@@ -182,16 +176,11 @@ showmount -e 192.168.1.13
 
 NFS 디렉터리를 마운트할 로컬 마운트 경로를 생성합니다.
 ``` 
-$ mkdir -p /mnt/data/mount-nfs
-$ chmod -R 777 /mnt/data/mount-nfs
+mkdir -p /mnt/data/mount-nfs
+chmod -R 777 /mnt/data/mount-nfs
 ```
 
 추가적으로 재부팅 시 자동으로 마운트가 적용되도록 합니다.
-이를 위해 `/etc/fstab` 를 vi 편집기로 열어 아래 예시를 참고하여 설정 정보를 추가합니다.
-```
-$ vi  /etc/fstab
-```
-
 ``` title="fstab"  linenums="1"
 192.168.1.13:/mnt/data/nfs /mnt/data/mount-nfs nfs defaults 0 0
 
@@ -203,13 +192,13 @@ $ vi  /etc/fstab
 
 Nginx 컨테이너 이미지를 다운로드 받습니다.
 ```
-$ podman pull docker.io/nginx:stable
+podman pull docker.io/nginx:stable
 ```
 
 다운로드한 Nginx 컨테이너 이미지를 실행합니다.
 WEB Server가 정상적으로 로드 벨런싱되는 지 확인하기 위해 WEB 가상머신의 이름에 따라 `--hostname` 옵션 값을 지정합니다. 
 ```
-$ podman run \
+podman run \
 --privileged=true \
 -d \
 -p 6060:6000 \
@@ -231,20 +220,17 @@ docker.io/nginx:stable
 
 사용자 정의 데몬인 서비스를 생성하여 가상머신이 부팅될 때 NginX컨테이너가 자동으로 실행하도록 할 수 있습니다.
 ```
-$ podman generate systemd nginx-server  > /etc/systemd/system/nginx-server.service
-$ systemctl enable nginx-server.service
-$ systemctl daemon-reload
+podman generate systemd nginx-server  > /etc/systemd/system/nginx-server.service
+systemctl enable nginx-server.service
+systemctl daemon-reload
 ```
 
-Nginx를 WAS의 Reverse Proxy로 설정하기 위해 Nginx 설정파일을 vi 편집기로 생성하고 아래 내용을 추가합니다.
-```
-$ vi  /mnt/data/mount-nfs/nginx.conf
-```
+Nginx를 WAS의 Reverse Proxy로 설정하기 위해 Nginx 설정파일을 생성하고 아래 내용을 추가합니다.
 하이라이트된 listen 포트와 proxy_pass 주소는 각 설정 맞게 유의하여 변경합니다.
 
 ??? note "클릭하여 Nginx의 설정정보를 확인합니다."
 
-    ```  title="nginx.conf"  linenums="1" hl_lines="35 41"
+    ```  title="/mnt/data/mount-nfs/nginx.conf"  linenums="1" hl_lines="35 41"
     user  nginx;
     worker_processes  auto;
 
@@ -301,12 +287,12 @@ $ vi  /mnt/data/mount-nfs/nginx.conf
 
 실행 중인 Nginx 컨테이너 설정파일을 전 단계에서 생성한 파일로 덮어쓰기합니다.
 ```
-$ podman cp /mnt/data/mount-nfs/nginx.conf nginx-server:/etc/nginx/nginx.conf
+podman cp /mnt/data/mount-nfs/nginx.conf nginx-server:/etc/nginx/nginx.conf
 ```
 
 변경된 NginX의 설정파일 적용을 위해 컨테이너를 재시작합니다.
 ```
-$ podman restart nginx-server
+podman restart nginx-server
 ```
 
 ## 로드 밸런서(부하 분산) 설정
@@ -335,9 +321,7 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 
 
 **가상머신 추가** 버튼을 클릭하고 서브넷을 선택한 후 WEB 가상머신 1,2 를 할당합니다.
-<figure markdown>
-![3tier-linux-architecture-lb-01](../../../../assets/images/3tier-linux-architecture-lb-01.png)
-</figure markdown>
+![3tier-linux-architecture-lb-01](../../../../assets/images/3tier-linux-architecture-lb-01.png){: .center }
 
 
 ## 클라이언트 접근

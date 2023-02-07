@@ -8,7 +8,7 @@
 <figure markdown>
 !![3tier-linux-01](/assets/images/3tier-linux-architecture.png)
 <figcaption>3tier-linux-01</figcaption>
-</figure markdown>
+</figure>
 
 
 ## 구성 정보
