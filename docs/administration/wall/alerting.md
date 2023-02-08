@@ -9,7 +9,7 @@
 
 ![wall-dashboard-dashboard-alerting-alert-rule](../../assets/images/wall-dashboard-dashboard-alerting-alert-rule.png)
 
-경고 규칙은 Wall에 기존 설정된 Alert 폴더애 있는 "사용자 VM 알람 대시보드", "스토리지 센터 알람 대시보드", "클라우드 센터 알람 대시보드", "호스트 알람 대시보드"에 설정되어 있는 알람 패널에 대한 알람 정보를 확인할 수 있습니다.
+경고 규칙은 Wall에 기존 설정된 Alert 폴더에 있는 "사용자 VM 알람 대시보드", "스토리지 센터 알람 대시보드", "클라우드 센터 알람 대시보드", "호스트 알람 대시보드"에 설정되어 있는 알람 패널에 대한 알람 정보를 확인할 수 있습니다.
 
 * 경고 검색 : 경고 이름으로 목록을 조회
 * States : 경고 상태에 따라 조회

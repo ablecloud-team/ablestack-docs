@@ -1,0 +1,9 @@
+.imgCenter{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgBorder{
+    border: 1px solid;
+}
