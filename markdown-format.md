@@ -77,3 +77,13 @@
         10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         ```
+
+## 플러그인
+
+### Image Lightbox
+
+    ``` shell title="sudo vi mkdocs.yml"
+    plugins:
+    - glightbox:
+        width: 80%
+    ```

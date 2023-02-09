@@ -60,6 +60,8 @@ theme:
 plugins:
   - search
   - mike
+  - glightbox:
+     width: 80%
 
 # Customization
 extra:
