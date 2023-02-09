@@ -13,9 +13,7 @@ MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 �
 ## Affinity 그룹 생성
 가상머신을 생성하기 전, Anti Affinity 그룹을 생성하여 어느하나의 서브넷에 속한 가상머신들이 특정 호스트 한 곳에 몰려 실행하도록 하거나 반대로 몰려 실행되지 않도록 합니다. 이중화를 위해 Affinity 그룹을 anti-affinity 유형으로 WEB, WAS, DB 각각 추가해야합니다. 이를 위해 **컴퓨트 > Affinity 그룹** 화면으로 이동하여 **새 Affinity 그룹 추가** 버튼을 클릭합니다. 클릭하게되면 다음과 같은 입력항목을 확인할 수 있습니다.
 
-<figure markdown>
-![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png)
-</figure markdown>
+![3tier-linux-architecture-add-affinity-group](../../../../assets/images/3tier-linux-architecture-add-affinity-group.png){: .center }
 
 - 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
 - 설명 : Affinity 그룹에 대한 설명을 입력합니다.
@@ -32,11 +30,11 @@ MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 �
 
     host affinity: 가능한 한 동일한 호스트에 인스턴스를 배포합니다.
 
-    * Non-Strict 옵션은 마지막 실행 호스트를 고려하여 실행됩니다.
+    * Non-Strict 옵션은 마지막으로 해당 가상머신을 실행했던 호스트를 고려하지 않고 가상머신을 시작합니다. 
 
 
 ## 가상머신 생성
-ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 관리용 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
+ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
 
 !!! note "갈레라 클러스터 구성에 필요한 노드 개수"
     갈레라 클러스터가 안정적으로 동작하기 위해서는 **적어도 3개의 노드(가상머신)** 가 필요합니다. 3개 이상의 노드로 구성하여 **스플릿 브레인 (Split Brain)** 현상을 방지합니다. 이 현상은 2개의 노드로 클러스터를 구성했을 때 네트워크가 일시적으로 동시에 단절되거나 기타 시스템상의 이유로, 클러스터 상의 모든 노드들이 각자 자신이 Primary라고 인식하게 되는 상황을 뜻합니다. 
@@ -99,7 +97,7 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 
 `fdisk -l` 명령어를 이용하여 현재 디스크 현황과 파티션 현황을 확인합니다.
 ``` linenums="1"
-$ fdisk -l
+fdisk -l
 ```
 
 `fdisk -l` 명령어 실행 결과 디스크 `/dev/sdb`에 아무런 파티션이 없는 상태인 것을 확인합니다.
@@ -125,7 +123,7 @@ I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 `fdisk` 명령어를 이용하여 `/dev/sdb` 디스크에 파티션 설정을 합니다.
 ``` linenums="1"
-$ fdisk /dev/sdb
+fdisk /dev/sdb
 ```
 
 **n** 을 입력하여 새로운 파티션을 생성하고 **p** 를 입력하여 주 파티션으로 선택합니다.
@@ -165,7 +163,7 @@ Syncing disks.
 
 `fdisk -l` 명령어 실행하여 변경된 파티션 정보를 확인합니다. 
 ``` linenums="1"
-$ fdisk -l
+fdisk -l
 ```
 
 생성된 파티션 `/dev/sdb1` 를 확인할 수 있습니다.
@@ -184,12 +182,12 @@ Device     Boot Start       End   Sectors Size Id Type
 
 `mkfs` 명령어를 이용하여 `/dev/sdb1` 파티션에 xfs 파일 시스템을 생성합니다.
 ``` linenums="1" 
-$ mkfs.xfs /dev/sdb1
+mkfs.xfs /dev/sdb1
 ```
 
 정상적으로 파일 시스템이 생성되었는지 `fsck -N`  명령어를 통해 확인합니다.
 ``` linenums="1" 
-$ fsck -N /dev/sdb1
+fsck -N /dev/sdb1
 ```
 
 xfs 파일 시스템이 있는 것을 확인할 수 있습니다.
@@ -200,20 +198,28 @@ fsck from util-linux 2.37.4
 
 `/dev/sdb1` 파티션을 `/mnt/data` 경로에 마운트를 적용합니다. 마운트할 경로에 폴더가 없다면 먼저 생성한 후 적절한 권한을 부여한 후 마운트를 적용합니다.
 ``` linenums="1" 
-$ mkdir /mnt/data
-$ chmod -R 1777 /mnt/data
-$ mount /dev/sdb1 /mnt/data
+mkdir /mnt/data
+chmod -R 1777 /mnt/data
+mount /dev/sdb1 /mnt/data
 ```
 
 정상 적으로 마운트가 적용되었는지 확인합니다.
 ``` linenums="1" 
-$ mount | grep "sdb1"
+mount | grep "sdb1"
 ```
 
 `/mnt/data`에 적상적으로 마운트 적용된 것을 확인할 수 있습니다.
 ``` linenums="1" 
 /dev/sdb1 on /mnt/data type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
 ```
+
+추가적으로 재부팅 시 자동으로 마운트가 적용되도록 아래 내용을 추가합니다.
+``` title="/etc/fstab"  linenums="1"
+/dev/sdb1 /mnt/data xfs defaults 0 0
+```
+
+!!! info "CentOS 가상머신의 볼륨 사용 방법"
+    - CentOS 가상머신에서의 루트 디스크 확장과 데이터 디스크에 대한 추가 사용 방법에 대한 정보는 [CentOS 가상머신 가이드 - 가상머신 볼륨 사용](../../../../userGuide/vms/centos-guide-storage){:target="_blank"} 문서를 참고하십시오.
 
 ## 보안 설정
 생성한 가상머신에 대해 보안 설정을 하여 허용되지 않은 접근을 차단하고 필요한 서비스만 운영할 수 있도록 설정합니다.
@@ -223,12 +229,12 @@ $ mount | grep "sdb1"
 
 ### 네트워크 방화벽 해제 
 방화벽은 들어오고 나가는 네트워크 트래픽을 모니터링하고 필터링하는 방법입니다. 특정 트래픽을 허용할지 차단할지 결정하는 일련의 보안 규칙을 정의하여 작동합니다.
-CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 제공됩니다.
+CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 해당 기능이 제공됩니다.
 
 `firewall-cmd` 명령어를 이용하여 galera 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
-``` linenums="1" 
-$ firewall-cmd --zone=public --permanent --add-service=galera
-$ firewall-cmd --reload
+```
+firewall-cmd --zone=public --permanent --add-service=galera
+firewall-cmd --reload
 ```
 
 ???+ info
@@ -239,18 +245,17 @@ $ firewall-cmd --reload
 보안강화 리눅스(SELinux; Security Enhanced Linux)는 CentOS에서 제공하는 커널 기반의 보안 모듈입니다. 즉, 시스템 관리자가 설정한 특정 정책 및 규칙으로 사용자를 제한하는 데 사용되는 기능 또는 서비스입니다.
 Galera Cluster의 설정을 원활하고 효율적으로 하기 위해 SELinux 정책을 변경합니다.
 
-`/etc/sysconfig/selinux` 를 vi 편집기로 열어 SELinux 정책을 강제에서 허용으로 영구적으로 변경합니다.
-``` linenums="1" 
-$ vi /etc/sysconfig/selinux
-``` 
+SELinux 정책을 생성하여 관련 포트와 서비스를 허용하도록 변경합니다.
+```
+semanage port -a -t mysqld_port_t -p tcp 4567
+semanage port -a -t mysqld_port_t -p tcp 4568
+semanage port -a -t mysqld_port_t -p tcp 4444
 
-SELINUX 값을 disabled로 변경합니다.
-``` title="selinux"  linenums="1"
-SELINUX=disabled
+semanage permissive -a mysqld_t
 ```
 
 ???+ warning
-    SELinux를 비활성화하게 되면 권한 상승 공격에 의한 취약점 감소, 잘못된 설정과 버그로부터 시스템 보호와 같은 이점들을 제공받지 못할 수 있습니다.
+    SELinux를 부적절하 허용또는 비활성화하게 되면 권한 상승 공격에 의한 "취약점 감소"와 잘못된 설정과 버그로부터의 "시스템 보호"와 같은 이점들을 제공받지 못할 수 있습니다.
 
 ## MariaDB 구성
 MariaDB는 MySQL 기술을 기반으로 하는 오픈소스입니다. Galera Cluster에서 제공하는 이중화 복제 방식은 여러 MariaDB 서버를 구성하여 이루어집니다.
@@ -261,13 +266,8 @@ MariaDB는 MySQL 기술을 기반으로 하는 오픈소스입니다. Galera Clu
 ### MariaDB 패키지 설치
 특정 버전의 MariaDB 패키지를 설치하기 위해 Yum Repository를 추가해야합니다.
 
-/etc/yum.repos.d/mariadb.repo 를 vi 편집기로 열어 Repo 정보를 입력합니다.
-``` 
-$ vi /etc/yum.repos.d/mariadb.repo
-```
-
 가상머신의 운영체제가 Rocky Linux 9.0의 경우 아래의 내용을 추가합니다.
-``` title="mariadb.repo"  linenums="1"
+``` title="/etc/yum.repos.d/mariadb.repo"  linenums="1"
 # MariaDB 10.9 RedHat repository list - created 2022-11-30 05:38 UTC
 # https://mariadb.org/download/
 [mariadb]
@@ -282,21 +282,21 @@ gpgcheck=1
 
 패키지 관리 명령어인 **dnf** 를 사용하여 MariaDB 패키지를 설치합니다.
 ``` linenums="1"
-$ dnf install MariaDB-server MariaDB-client
+dnf install MariaDB-server MariaDB-client
 ```
 
 가상머신 부팅 시 설치된 MariaDB 서비스를 자동 시작하도록 등록하고 시작합니다.
 
 ``` linenums="1"
-$ systemctl enable mariadb.service
-$ systemctl start mariadb.service
+systemctl enable mariadb.service
+systemctl start mariadb.service
 ```
 
 ### MariaDB 보안 설정
 MariaDB 서비스를 시작한 후 아래의 명령어를 통해 MariaDB의 초기 권한 설정을 시작합니다.
 
 ``` linenums="1" 
-$ mariadb-secure-installation
+mariadb-secure-installation
 ```
 
 아래의 내용에 따라 초기 권한 설정을 수행합니다.
@@ -380,7 +380,7 @@ $ mariadb-secure-installation
 
 `mariadb -u root -p` 명령어를 실행한 후 패스워드를 입력하여 MariaDB에 접속합니다. 
 ``` 
-$ mariadb -u root -p
+mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
@@ -397,7 +397,7 @@ MariaDB [(none)]> flush privileges;
 
 MariaDB에 접속합니다.
 ``` 
-$ mariadb -u root -p
+mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
@@ -410,22 +410,17 @@ MariaDB [(none)]> select @@datadir;
 
 MariaDB에서 로그아웃한 후 MariaDB 서비스를 정지합니다.
 ``` 
-$ systemctl stop mariadb
+systemctl stop mariadb
 ```
 
 새로운 Data 디렉토리에 데이터를 복사합니다. 현 예시에서는 경로가 `/var/lib/mysqld`에서 `/mnt/data/mysql` 로 변경합니다.
 ``` 
-$ rsync -av /var/lib/mysql /mnt/data/
-$ chown -R mysql:mysql /mnt/data/mysql
+rsync -av /var/lib/mysql /mnt/data/
+chown -R mysql:mysql /mnt/data/mysql
 ```
 
 my.cnf 파일을 수정하여 MariaDB의 data 디렉토리 경로를 변경합니다.
-``` 
-$ vi /etc/my.cnf.d/server.cnf
-```
-
-아래의 내용으로 변경합니다.
-``` title="server.cnf"  linenums="1"
+``` title="/etc/my.cnf.d/server.cnf"  linenums="1"
 [mysqld]
 datadir=/mnt/data/mysql
 socket=/mnt/data/mysql/mysql.sock
@@ -437,13 +432,13 @@ socket=/mnt/data/mysql/mysql.sock
 
 SELinux 보안 설정 및 context 추가
 ``` 
-$ semanage fcontext -a -t mysqld_db_t "/mnt/data/mysql(/.*)?"
-$ restorecon -R /mnt/data/mysql
+semanage fcontext -a -t mysqld_db_t "/mnt/data/mysql(/.*)?"
+restorecon -R /mnt/data/mysql
 ```
 
 MariaDB 서비스를 시작합니다.
 ``` 
-$ systemctl restart mariadb
+systemctl restart mariadb
 ```
 
 MariaDB에 접속한 후 변경된 DB data 경로를 확인합니다.
@@ -453,7 +448,7 @@ MariaDB [(none)]> select @@datadir;
 
 경로가 정상적으로 변경되었다면 기존 data 폴더를 삭제합니다.
 ``` 
-$ rm -R /var/lib/mysql
+rm -R /var/lib/mysql
 ```
 
 ## Galera Cluster 구성
@@ -464,16 +459,12 @@ MariaDB에서 제공하는 Galera Cluster를 사용하기 위해 아래의 절�
 
 MariaDB 서비스를 중지합니다.
 ``` 
-$ systemctl stop mariadb.service
+systemctl stop mariadb.service
 ```
 
-MariaDB 설정 파일을 변경합니다.
-``` 
-$ vi /etc/my.cnf.d/server.cnf 
-```
-아래 예제를 참고하여 설정 정보를 변경합니다.
+아래 예시를 참고하여 MariaDB 설정 정보를 변경합니다.
 ??? note "클릭하여 MariaDB의 설정 정보를 확인합니다."
-    ``` linenums="1" hl_lines="5 7 21"
+    ``` title="/etc/my.cnf.d/server.cnf" linenums="1" hl_lines="5 7 21"
     [galera]
     # galear cluster 사용여부
     wsrep_on = ON
@@ -498,24 +489,25 @@ $ vi /etc/my.cnf.d/server.cnf
     ```
 
 
-먼저 DB 가상머신 1의 galera cluster를 `galera_new_cluster` 명령어로 시작합니다. 실행이 완료될 때까지 기다린 후, 다음 단계로 넘어갑니다.
+Galera Cluster의 모든 DB Node들이 Master DB(Primery)의 역활을 하지만 그중에서도 최초로 초기 Data을 제공하는 Node가 Donor, 그 외 Node들을 Joiner로 지정됩니다.
+먼저 Donor Node로 사용할 DB 가상머신 1의 galera cluster를 `galera_new_cluster` 명령어로 시작합니다. 실행이 완료될 때까지 기다린 후, 다음 단계로 넘어갑니다.
 ```
-$ galera_new_cluster
+galera_new_cluster
 ```
 
 ???+ Warning 
-    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. 메인이 되는 가상머신이 가장 먼저 시작되어야 합니다. 
+    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. Donor Node인 가상머신이 가장 먼저 시작되어야 합니다. 
 
 DB 가상머신 2와 3의 MariaDB 서비스를 시작합니다.
 ```
-$ systemctl restart mariadb.service
+systemctl restart mariadb.service
 ```
 
 Galera Cluster 구성이 정상적으로 되었는지 확인합니다.
 
 MariaDB에 접속합니다.
 ```
-$ mariadb -u root -p
+mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
@@ -533,14 +525,14 @@ MariaDB [(none)]> show variables like 'wsrep_cluster_address';
 +-----------------------+--------------------------------------------------+
 ```
 
-하나의 DB 가상머신에서 데이터 베이스를 생성합니다.
+하나의 DB 가상머신에서 "testdb" 라는 이름의 테스트용 데이터 베이스를 생성합니다.
 ```
-MariaDB [(none)]> create database galeradb;
+MariaDB [(none)]> create database testdb;
 ```
 
-"galeradb"데이터 베이스에 "member" 테이블을 생성합니다.
+"testdb" 데이터 베이스에 "member" 테이블을 생성합니다.
 ```
-MariaDB [(none)]> create table galeradb.member
+MariaDB [(none)]> create table testdb.member
 (
     idx      int auto_increment
         primary key,
@@ -551,23 +543,36 @@ MariaDB [(none)]> create table galeradb.member
 );
 ```
 
-??? info "Galera Cluster 복구 절차"
+???+ info "Galera Cluster 복구 절차"
     Galera Cluster 운영 시, 데이터 베이스에 문제가 발생하여 복구하거나 어떠한 이유로 재시작해야할 경우 아래의 절차를 따라 재기동합니다.
 
-    1. grastate.dat 확인
-        - "seqno" 값이 가장 높고 "safe_to_bootstrap" 값이 "1"인 노드가 가장 마지막에 종료된 노드이므로 이 노드를 기준으로 복구를 진행합니다. 모든 노드의 safe_to_bootstrap값이 -1로 동일하면 하나의 노드를 특정하여 1로 수정합니다.
-        ```
-        $ cat /mnt/data/mysql/grastate.dat
+    - Joiner 노드 (DB 가상머신 2, 3)에서 장애 발생한 경우
+        1. 장애가 발생한 노드에서 `galera_recovery` 명령을 실행합니다.
+        2. 동일 노드에서 `systemctl start mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
 
-        # GALERA saved state
-        version: 2.1
-        uuid:    UUID값
-        seqno:   -1                       
-        safe_to_bootstrap: 0
-        ```
-    2. Galera Cluster 재시작
-        - 복구 기준이 되는 노드에서 `galera_new_cluster` 명령으로 Galera Cluster를 재시작합니다.
-        - 나머지 각 노드에서 `systemctl start mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
+    - Donor 노드 또는 클러스터 전체에 장애 발생한 경우
+    
+        1. grastate.dat 확인
+            - "seqno" 값이 가장 높고 "safe_to_bootstrap" 값이 "1"인 노드가 가장 마지막에 종료된 노드이므로 이 노드를 Donor로 설정하고 복구를 진행합니다. 모든 노드의 safe_to_bootstrap값이 -1로 동일하면 하나의 노드를 특정하여 1로 수정합니다. 
+            ```
+            $ cat /mnt/data/mysql/grastate.dat
+
+            # GALERA saved state
+            version: 2.1
+            uuid:    UUID값
+            seqno:   -1 => 0 으로 수정                     
+            safe_to_bootstrap: 0 => 1 (Doner 노드일 경우), 0 (Joner 노드일 경우)
+            ```
+        2. Galera Cluster 재시작
+             - 복구 기준이 되는 노드(새로운 Donor Node)에서 `galera_new_cluster` 명령으로 Galera Cluster를 재시작합니다.
+             - 복구 기준이 되는 Donor노드가 가장 앞에 오도록 모든 Node의 `server.cnf`의  `wsrep_cluster_address` IP 주소 값의 순서를 변경합니다. 
+                ```
+                $ cat /etc/my.cnf.d/server.cnf
+                ...
+                wsrep_cluster_address = gcomm://192.168.3.13(새로운 Donor Node), 192.168.3.12, 192.168.3.11
+                ...
+                ``` 
+             - 나머지 각 노드에서 `systemctl restart mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
     
     "grastate.dat" 파일에서의 uuid 값이 0000000 일 경우에는 `--wsrep-cluster-address` 옵션을 실행하여 노드가 현재 클러스터에 대한 연결을 닫고 새 주소에 다시 연결하도록 합니다. 사용 예시는 아래와 같습니다.
     ```
@@ -594,6 +599,4 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 
 생성된 내부 로드 밸런서 규칙을 선택한 후, **가상머신 할당** 버튼을 클릭하여 DB 가상머신을 할당합니다.
 
-<figure markdown>
-![가상머신 할당](../../../../assets/images/3tier-linux-architecture-db-lb-01.png)
-</figure markdown>
+![가상머신 할당](../../../../assets/images/3tier-linux-architecture-db-lb-01.png){: .center }

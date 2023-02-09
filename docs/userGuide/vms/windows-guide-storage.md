@@ -1,4 +1,4 @@
-ABLESTACK은 가상머신에서 사용할 수 있도록 디스크를 생성하고, 연결, 관리할 수 있는 다양한 기능을 제공합니다. 본 가이드에서는 생성된 가상머신의 볼륨을 Ubuntu 운영체제 상에서 사용할 수 있는 방법을 설명합니다. 
+ABLESTACK은 가상머신에서 사용할 수 있도록 디스크를 생성하고, 연결, 관리할 수 있는 다양한 기능을 제공합니다. 본 가이드에서는 생성된 가상머신의 볼륨을 Windows 운영체제 상에서 사용할 수 있는 방법을 설명합니다. 
 
 ## 루트 디스크 확장
 
@@ -13,7 +13,7 @@ ABLESTACK은 가상머신을 생성할 때, 그리고 가상머신이 운영 중
 1. 배포 인프라를 선택합니다.
    
 2. 템플릿/ISO를 선택한 후 "루트 디스크 크기 무시"를 선택합니다. 그리고 원하는 디스크 크기를 입력합니다. 이 때 루트 디스크의 크기를 반드시 처음에 설정된 크기보다 커야 합니다.
-  ![ubuntu-65-vm-volume-template](../../assets/images/ubuntu-65-vm-volume-template.png){ style="margin-top: 20px;" width="600" }
+  ![windows-71-vm-volume-01](../../assets/images/windows-71-vm-volume-01.png){ style="margin-top: 20px;" width="600" }
 
 3. 컴퓨트 오퍼링을 선택합니다.
     
@@ -42,233 +42,72 @@ ABLESTACK은 가상머신을 생성할 때, 그리고 가상머신이 운영 중
 4. 우측 상단의 액션 아이콘 메뉴에서 "볼륨 크기 변경" 아이콘을 클릭합니다. 
    
 5. 현재 크기보다 큰 단위의 크기를 입력하고 "변경 완료"를 비활성화 한 후 "확인" 버튼을 클릭합니다. 
-  ![ubuntu-66-vm-volume-root-extend](../../assets/images/centos-66-vm-volume-root-extend.png){ style="margin-top: 20px;" width="450" }
+  ![centos-66-vm-volume-root-extend](../../assets/images/centos-66-vm-volume-root-extend.png){ style="margin-top: 20px;" width="450" }
 
 6. 가상머신 내에서 디스크의 크기가 변경되었는지 확인합니다.
 
 가상머신이 실행 중인 경우에도 디스크가 동적으로 변경됩니다. 가상머신 콘솔 등으로 가상머신에 접속하여 실행 결과를 바로 확인할 수 있습니다. 
 
-### 루트 디스크 LVM 확장(fdisk)
+### 루트 디스크 확장
 
-가상머신의 디스크를 확장하는 것은 물리적인 디스크의 용량을 확장하는 것입니다. 실제 가상머신의 ROOT 볼륨의 크기가 변경된 것이 아닙니다. 실제 ROOT 디스크의 물리적인 용량을 확장한 상태에서 볼륨에 할당된 용량과 디스크의 물리적 용량을 비교해 보면 다음과 같습니다. 
+가상머신의 디스크를 확장하는 것은 물리적인 디스크의 용량을 확장하는 것입니다. 실제 가상머신의 ROOT 볼륨(C 드라이브)의 크기가 변경된 것이 아닙니다. 실제 ROOT 디스크(디스크 0)의 물리적인 용량을 확장한 상태에서 볼륨에 할당된 용량과 디스크의 물리적 용량을 비교하면 아직 할당되지 않는 물리적 용량을 확인할 수 있습니다. 
 
-``` hl_lines="6 14 16"
-$ df -h
-Filesystem                         Size  Used Avail Use% Mounted on
-devtmpfs                           3.8G     0  3.8G   0% /dev
-tmpfs                              3.8G     0  3.8G   0% /dev/shm
-tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/ubuntu--vg-ubuntu--lv   46G  4.4G   41G  10% /
-tmpfs                              3.8G     0  3.8G   0% /tmp
-/dev/vda1                         1014M  263M  752M  26% /boot
-tmpfs                              769M   36K  769M   1% /run/user/0
+다음의 순서로 디스크 용량을 확인합니다. 
 
-$ lsblk
-NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sr0                        11:0    1 1024M  0 rom
-vda                       252:0    0  100G  0 disk
-├─vda1                    252:1    0    1G  0 part /boot
-└─vda2                    252:2    0   49G  0 part
-  ├─ubuntu--vg-ubuntu--l  253:0    0 45.1G  0 lvm  /
-```
+1. 윈도우즈에서 "컴퓨터 관리"를 실행합니다.
+2. 왼쪽 트리에서 "스토리지 > 디스크 관리"를 클릭합니다. 
+3. 디스크 0에 대한 파티션 정보를 확인합니다. 
 
-위의 명령 실행 결과를 보면 실제 물리 디스크인 vda의 전체 용량은 100GB이지만 루트 영역이 49GB가 할당되어 있는 것을 볼 수 있습니다.
+위와 같은 순서로 디스크 정보를 확인하면 다음의 그림과 유사합니다. 
 
-그리고 루트 디스크 볼륨은 lvm으로 만들어져 있는 것을 확인할 수 있습니다. 본 가이드에서는 100GB로 확장된 전체 디스크 중 나머지 영역을 fdisk를 이용해 확장하는 방법을 설명합니다. 
+<center>![windows-71-vm-volume-02](../../assets/images/windows-71-vm-volume-02.png){ style="margin-top: 20px;" width="600" }</center>
 
-루트 디스크의 파티션 형식이 lvm이므로 fdisk를 이용해 루트 디스크가 있는 디스크의 나머지 공간을 새로운 파티션으로 생성하고 Device Type을 Linux LVM으로 변경합니다. 다음과 같습니다. 
+위의 그림과 같이 현재 물리적인 디스크의 총 용량과 C 드라이브에 할당되어 있는 용량이 서로 다르고, 물리적인 디스크에 할당되지 않은 공간이 있음을 확인할 수 있습니다. 
 
-``` hl_lines="1 11 15 16 17 18 22 23 24 28"
-$ fdisk /dev/vda
+하지만 위의 그림과 같은 경우 C 드라이브를 확장할 수 없습니다. 확장하고자 하는 공간은 반드시 확장하고자 하는 볼륨의 바로 옆에 존재해야 합니다. 하지만 위의 그림을 보면 확장할 볼륨과 할당되지 않은 영역 사이에 "복구 파티션"이 있는 것을 확인할 수 있습니다. 파티션을 확장하기 위해서는 이 복구 파티션을 삭제해야 합니다. 
 
-Welcome to fdisk (util-linux 2.37.2).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+!!! warning "복구 파티션 삭제 시 주의사항"
+    복구 파티션은 Windows에 시스템 오류가 있을 때 이를 복구하기 위해 시동 복구 후 명령 프롬프트 등을 표시하기 위한 파티션 입니다. 
 
-This disk is currently in use - repartitioning is probably a bad idea.
-It's recommended to umount all file systems, and swapoff all swap
-partitions on this disk.
+    만약 복구 파티션을 삭제하는 경우 설치 매체, 즉 ISO 이미지가 없이 시동 복구 모드로 돌아갈 수 없습니다. 사용자는 복구 파티션 삭제에 매우 신중해야 하며, ABLESTACK Mold의 백업 기능 및 VM 스냅샷 기능 등을 이용해 장애 시 언제든 복구가 가능하도록 준비해야 합니다. 
 
-Command (m for help): n
-Partition type
-   p   primary (2 primary, 0 extended, 2 free)
-   e   extended (container for logical partitions)
-Select (default p): p
-Partition number (3,4, default 3): 3
-First sector (104857600-209715199, default 104857600):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (104857600-209715199, default 209715199):
+복구 파티션 삭제를 포함한 볼륨 확장 순서는 다음과 같습니다. 
 
-Created a new partition 3 of type 'Linux' and of size 50 GiB.
+1. 관리자 모드로 cmd 창을 실행
+2. diskpart 프로그램을 실행하고 복구 파티션을 삭제
+3. 할당되지 않는 영역을 C 드라이브로 확장
 
-Command (m for help): t
-Partition number (1-3, default 3): 3
-Hex code or alias (type L to list all): 8e
+먼저 Windows에서 관리자 모드로 cmd 창을 실행합니다. 
 
-Changed type of partition 'Linux' to 'Linux LVM'.
+<center>![windows-71-vm-volume-03](../../assets/images/windows-71-vm-volume-03.png){ style="margin-top: 20px;" width="600" }</center>
 
-Command (m for help): w
-The partition table has been altered.
-Syncing disks.
-```
-
-다시 한번 fdisk를 이용해 여유 공간 전체가 새로운 디스크 파티션으로 생성 되었는지 확인하고, 파티션 타입이 'Linux LVM'인지 확인합니다. 
-
-아래의 결과를 보면 /dev/vda3이 만들어지고, 나머지 공간인 50GB가 할당된 것을 확인할 수 있습니다. 
-
-``` hl_lines="12"
-$ fdisk -l /dev/vda
-Disk /dev/vda: 100 GiB, 107374182400 bytes, 209715200 sectors
-Units: sectors of 1 * 512 = 512 bytes
-Sector size (logical/physical): 512 bytes / 512 bytes
-I/O size (minimum/optimal): 512 bytes / 512 bytes
-Disklabel type: dos
-Disk identifier: 0x001a9913
-
-Device     Boot     Start       End   Sectors Size Id Type
-/dev/vda1  *         2048   2099199   2097152   1G 83 Linux
-/dev/vda2         2099200 104857599 102758400  49G 8e Linux LVM
-/dev/vda3       104857600 209715199 104857600  50G 8e Linux LVM
-```
-
-생성된 파티션을 물리 볼륨으로 생성하기 위해 pvcreate 명령을 이용합니다.
-
-다음과 같이 새로 추가된 파티션(vda3)을 물리 볼륨으로 생성합니다.
+다음의 순서로 명령을 실행하여 복구 파티션을 찾습니다.
 
 ```
-$ pvcreate /dev/vda3
-  Physical volume "/dev/vda3" successfully created.
+C:\> diskpart
+DISKPART> list disk
+DISKPART> sel disk 0
+DISKPART> list par
 ```
 
-물리 볼륨이 정상적으로 생성되면 루트디스크로 할당된 Volume Group을 `vgs`를 통해 확인하고, 루트 디스크에 해당 하는 볼륨 그룹을 `vgextend`를 이용해 확장합니다.
-
-다시 vgs를 이용해 VFree 항목에 여유공간이 생성되었는지 확인합니다.
+표시된 파티션 목록에서 Recovery 타입으로 설정되어 있는 파티션 번호로 이동하여 파티션을 삭제합니다.
 
 ```
-$ vgs
-  VG         #PV #LV  #SN Attr   VSize    VFree
-  ubuntu-vg   1   2   0   wz--n- <49.00g  0
-
-$ vgextend ubuntu-vg /dev/vda3
-  Volume group "ubuntu-vg" successfully extended
-
-$ vgs
-  VG         #PV #LV #SN Attr   VSize  VFree
-  ubuntu-vg   2   2   0  wz--n- 98.99g <50.00g
+DISKPART> sel par 3
+DISKPART> delete partition override
 ```
 
-볼륨 그룹에 여유 공간이 할당되었다면 `lvs`를 이용해 논리 볼륨을 확인한 후 root로 설정된 논리 볼륨을 `lvextend` 명령을 이용해 확장합니다. 
+디스크 관리 화면에서 파티션이 삭제되고 할당되지 않은 디스크 용량에 추가되었음을 다음과 같이 확인할 수 있습니다. 
 
-```
-$ lvs
-  LV        VG        Attr       LSize  Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
-  ubuntu-lv ubuntu-vg -wi-ao---- 45.05g
+<center>![windows-71-vm-volume-04](../../assets/images/windows-71-vm-volume-04.png){ style="margin-top: 20px;" width="600" }</center>
 
-$ lvextend ubuntu-vg/ubuntu-lv -l +100%FREE
-  Size of logical volume ubuntu-vg/ubuntu-lv changed from 45.05 GiB (11533 extents) to <95.05 GiB (24332 extents).
-  Logical volume ubuntu-vg/ubuntu-lv successfully resized.
-```
+디스크 관리 화면에서 C 드라이브를 선택하고 마우스 오른쪽 버튼을 클릭하여 "볼륨 확장" 메뉴를 클릭합니다.
 
-루트 디스크의 파일 시스템을 `mount` 명령으로 확인 한 뒤 적절한 파일 시스템 용량 증설 명령을 통해 파일 시스템을 확장합니다. 
+<center>![windows-71-vm-volume-05](../../assets/images/windows-71-vm-volume-05.png){ style="margin-top: 20px;" width="600" }</center>
 
-예제에서는 루트디스크의 파일 시스템이 `xfs` 파일 시스템으로 `xfs_growfs` 명령을 이용해 디스크를 확장합니다.
+실행된 볼륨 확장 마법사에서 디스크의 미할당 용량 중 확장하고자 하는 용량을 입력한 후 루트 디스크 확장을 완료합니다. 다음과 같이 확장됩니다. 
 
-```
-$ mount | grep ubuntu
-/dev/mapper/ubuntu--vg-ubuntu--lv on / type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
-
-$ xfs_growfs /dev/mapper/ubuntu--vg-ubuntu--lv
-meta-data=/dev/mapper/ubuntu--vg-ubuntu--lv   isize=512    agcount=4, agsize=2952448 blks
-         =                       sectsz=512   attr=2, projid32bit=1
-         =                       crc=1        finobt=1, sparse=1, rmapbt=0
-         =                       reflink=1    bigtime=1 inobtcount=1
-data     =                       bsize=4096   blocks=11809792, imaxpct=25
-         =                       sunit=0      swidth=0 blks
-naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
-log      =internal log           bsize=4096   blocks=5766, version=2
-         =                       sectsz=512   sunit=0 blks, lazy-count=1
-realtime =none                   extsz=4096   blocks=0, rtextents=0
-data blocks changed from 11809792 to 24915968
-```
-
-최종적으로 `df` 명령을 이용해 확장된 용량을 확인 합니다.
-
-```
-$ df -h
-Filesystem                         Size  Used Avail Use% Mounted on
-devtmpfs                           3.8G     0  3.8G   0% /dev
-tmpfs                              3.8G     0  3.8G   0% /dev/shm
-tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/ubuntu--vg-ubuntu--lv   96G  4.7G   91G   5% /
-tmpfs                              3.8G     0  3.8G   0% /tmp
-/dev/vda1                         1014M  263M  752M  26% /boot
-tmpfs                              769M   36K  769M   1% /run/user/0
-```
-
-### 루트 디스크 LVM 확장(growpart)
-
-위에서 설명한 fdisk를 이용해 루트 디스크의 LVM을 확장하는 방법 외에 growpart라는 패키지를 통해 쉽게 파티션을 확장하는 방법을 사용할 수 있습니다. 
-
-확장하고자 하는 ROOT 디스크의 파티션 정보를 확인하여 확장할 여유공간이 있는지 확인합니다. 
-
-```
-$ lsblk
-NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sr0                        11:0    1 1024M  0 rom
-vda                       252:0    0  200G  0 disk
-├─vda1                    252:1    0    1G  0 part /boot
-├─vda2                    252:2    0   49G  0 part
-│ ├─ubuntu--vg-ubuntu--lv 253:0    0   95G  0 lvm  /
-└─vda3                    252:3    0   50G  0 part
-  └─ubuntu--vg-ubuntu--lv 253:0    0   95G  0 lvm  /
-```
-
-`growpart`를 이용해 vda의 두번째 파티션인 vda3 파티션을 확장합니다. 다음과 같습니다. 
-
-```
-$ growpart /dev/vda 3
-CHANGED: partition=3 start=104857600 old: size=104857600 end=209715200 new: size=314572767 end=419430367
-```
-
-다시 `lsblk` 명령을 실행하면 디스크 파티션의 크기가 확장된 것을 확인할 수 있습니다. 
-
-이제 ROOT 디스크의 논리 볼륨을 해당 크기만큼 늘려줘야 합니다. 먼저 `pvresize`를 이용해 물리 볼륨을 확장합니다. 
-
-```
-$ pvresize /dev/vda3
-  Physical volume "/dev/vda3" changed
-  1 physical volume(s) resized or updated / 0 physical volume(s) not resized
-```
-
-볼륨 그룹을 확인하여 해당 볼륨 그룹의 여유공간이 생성되었는지 확인합니다. 
-
-```
-$ vgs
-  VG              #PV #LV #SN Attr   VSize   VFree
-  ubuntu-vg         2   2   0 wz--n- 198.99g 100.00g
-```
-
-이제 논리 볼륨을 다음과 같이 확장합니다. `lvextend` 명령의 `-r` 옵션은 논리 볼륨을 확장한 후 논리 볼륨의 파일 시스템도 같이 사이즈를 변경하도록 합니다. 
-
-예제의 ROOT 디스크는 xfs 파일 시스템이므로 `xfs_growfs` 명령을 실행한 것과 동일한 결과가 실행됩니다. 
-
-```
-$ lvextend -r -l +100%FREE ubuntu-vg/ubuntu-lv
-  Size of logical volume ubuntu-vg/ubuntu-lv changed from <95.05 GiB (24332 extents) to <195.05 GiB (49932 extents).
-  Logical volume ubuntu-vg/ubuntu-lv successfully resized.
-meta-data=/dev/mapper/ubuntu--vg-ubuntu--lv isize=512    agcount=9, agsize=2952448 blks
-         =                       sectsz=512   attr=2, projid32bit=1
-         =                       crc=1        finobt=1, sparse=1, rmapbt=0
-         =                       reflink=1    bigtime=1 inobtcount=1
-data     =                       bsize=4096   blocks=24915968, imaxpct=25
-         =                       sunit=0      swidth=0 blks
-naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
-log      =internal log           bsize=4096   blocks=5766, version=2
-         =                       sectsz=512   sunit=0 blks, lazy-count=1
-realtime =none                   extsz=4096   blocks=0, rtextents=0
-data blocks changed from 24915968 to 51130368
-```
-
-최종적으로 `df -h` 명령을 실행하여 ROOT 디스크가 확장되었는지 확인합니다. 
+<center>![windows-71-vm-volume-06](../../assets/images/windows-71-vm-volume-06.png){ style="margin-top: 20px;" width="600" }</center>
 
 ## 데이터 디스크
 
@@ -294,12 +133,12 @@ ABLESTACK은 가상머신에 데이터 디스크를 생성하여 연결하는 �
    
 2. 배포 인프라를 선택합니다. 
    
-3. 템플릿/ISO에서 Ubuntu 기반의 템플릿을 선택합니다. 
+3. 템플릿/ISO에서 CentOS 기반의 템플릿을 선택합니다. 
    
 4. 컴퓨트 오퍼링을 선택합니다. 
    
 5. 데이터 디스크를 원하는 크기(오퍼링)로 다음과 같이 선택합니다. 
-  ![ubuntu-67-vm-volume-data-add](../../assets/images/centos-67-vm-volume-data-add.png){ style="margin-top: 20px;" width="600" }
+  ![centos-67-vm-volume-data-add](../../assets/images/centos-67-vm-volume-data-add.png){ style="margin-top: 20px;" width="600" }
 
 6. 네트워크를 선택합니다. 
    
@@ -313,7 +152,7 @@ ABLESTACK은 가상머신에 데이터 디스크를 생성하여 연결하는 �
 
 데이터 디스크를 추가하여 가상머신을 생성한 후 가상머신 상세 화면에서 볼륨 탭을 클릭하면 다음과 같이 데이터 디스크가 추가되어 있는 것을 확인할 수 있습니다. 
 
-<center>![ubuntu-68-vm-volume-data-result](../../assets/images/centos-68-vm-volume-data-result.png){ width="600" }</center>
+<center>![centos-68-vm-volume-data-result](../../assets/images/centos-68-vm-volume-data-result.png){ width="600" }</center>
 
 가상머신에 접속하여 디스크를 사용할 수 있도록 설정합니다. 추가된 데이터 디스크는 LVM 상의 XFS 파일 시스템으로 포맷하여 마운트할 것입니다. 다음과 같은 순서로 데이터 디스크의 사용을 준비합니다. 
 
@@ -326,7 +165,8 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
+  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
+  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
 vdb                       252:16   0  100G  0 disk
 ```
 
@@ -406,7 +246,7 @@ Filesystem                         Size  Used Avail Use% Mounted on
 devtmpfs                           3.8G     0  3.8G   0% /dev
 tmpfs                              3.8G     0  3.8G   0% /dev/shm
 tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/ubuntu--vg-ubuntu--lv   46G  4.4G   41G  10% /
+/dev/mapper/cs_centos9--base-root   46G  4.4G   41G  10% /
 tmpfs                              3.8G     0  3.8G   0% /tmp
 /dev/vda1                         1014M  263M  752M  26% /boot
 tmpfs                              769M   36K  769M   1% /run/user/0
@@ -434,7 +274,7 @@ $ vi /etc/fstab
 
 해당 화면의 우측 상단의 아이콘 액션 메뉴 중 "볼륨 크기 변경" 버튼을 클릭합니다. 다음과 같이 대화상자가 표시되면 원하는 디스크의 크기를 입력한 후 "확인" 버튼을 클릭합니다. 
 
-<center>![ubuntu-69-vm-data-disk-resize](../../assets/images/centos-69-vm-data-disk-resize.png){ width="450" }</center>
+<center>![centos-69-vm-data-disk-resize](../../assets/images/centos-69-vm-data-disk-resize.png){ width="450" }</center>
 
 가상머신에 접속하여 `lsblk` 명령을 실행하여 디스크 크기가 변경 되었는지 확인합니다. 디스크 크기 변경은 가상머신 실행 중에 가능합니다. 
 
@@ -445,7 +285,8 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
+  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
+  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
 vdb                       252:16   0  200G  0 disk
 └─vdb1                    252:17   0  100G  0 part
   └─data1_vg-data1_lv0    253:2    0  100G  0 lvm  /data1
@@ -461,11 +302,11 @@ vdb                       252:16   0  200G  0 disk
 
 `스토리지 > 볼륨` 화면에서 '볼륨 생성' 버튼을 클릭합닌다. 대화상자에 디스크의 이름과 오퍼링을 선택한 후 "확인" 버튼을 클릭합니다. 
 
-<center>![ubuntu-70-vm-data-add_newdisk](../../assets/images/centos-70-vm-data-add_newdisk.png){ width="450" }</center>
+<center>![centos-70-vm-data-add_newdisk](../../assets/images/centos-70-vm-data-add_newdisk.png){ width="450" }</center>
 
 디스크가 생성되면 해당 디스크의 상세 화면으로 이동한 후 우측 상단의 아이콘 액션 버튼 중 "디스크 연결" 버튼을 클릭합니다. 표시된 대화상자에서 연결할 가상머신을 선택한 후 "확인" 버튼을 클릭합니다. 
 
-<center>![ubuntu-71-vm-data-attach-disk](../../assets/images/ubuntu-71-vm-data-attach-disk.png){ width="450" }</center>
+<center>![centos-71-vm-data-attach-disk](../../assets/images/centos-71-vm-data-attach-disk.png){ width="450" }</center>
 
 가상머신에 디스크가 연결되면, 가상머신에 접속하여 볼륨을 확장합니다. `lsblk`를 이용해 디스크 연결 상태를 확인합니다. 
 
@@ -476,7 +317,8 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
+  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
+  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
 vdb                       252:16   0  200G  0 disk
 └─vdb1                    252:17   0  200G  0 part
   └─data1_vg-data1_lv0    253:2    0  200G  0 lvm  /data1
@@ -562,7 +404,7 @@ Filesystem                         Size  Used Avail Use% Mounted on
 devtmpfs                           3.8G     0  3.8G   0% /dev
 tmpfs                              3.8G     0  3.8G   0% /dev/shm
 tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/ubuntu--vg-ubuntu--lv   46G  4.4G   41G  10% /
+/dev/mapper/cs_centos9--base-root   46G  4.4G   41G  10% /
 tmpfs                              3.8G     0  3.8G   0% /tmp
 /dev/mapper/data1_vg-data1_lv0     300G  2.2G  298G   1% /data1
 /dev/vda1                         1014M  263M  752M  26% /boot
@@ -586,7 +428,7 @@ $ vi /etc/fstab
 
 가상머신에 연결된 디스크를 선택하여 "디스크 분리" 아이콘 액션 메뉴를 클릭합니다. 표시되는 대화상자에서 "확인" 버튼을 클릭하여 디스크를 가상머신에서 분리합니다. 
 
-<center>![ubuntu-72-vm-data-detach-disk](../../assets/images/centos-72-vm-data-detach-disk.png){ width="450" }</center>
+<center>![centos-72-vm-data-detach-disk](../../assets/images/centos-72-vm-data-detach-disk.png){ width="450" }</center>
 
 동일한 방법으로 연결되어 있는 데이터 디스크를 모두 연결 해제한 후 `lsblk` 명령을 실행하여 디스크가 분리 되었는지 확인합니다. 
 
@@ -597,7 +439,8 @@ sr0                        11:0    1 1024M  0 rom
 vda                       252:0    0   50G  0 disk
 ├─vda1                    252:1    0    1G  0 part /boot
 └─vda2                    252:2    0   49G  0 part
-  ├─ubuntu--vg-ubuntu--lv 253:0    0 45.1G  0 lvm  /
+  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
+  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
 ```
 
 !!! info "분리된 디스크의 재사용"

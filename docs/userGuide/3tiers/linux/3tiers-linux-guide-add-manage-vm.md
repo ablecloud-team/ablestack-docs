@@ -50,16 +50,18 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 이를 위해 아래 절차로 Public IP를 할당합니다.
 
 - **네트워크 > VPC > Public IP 주소** 탭에서 **새 IP 주소 가져오기** 를 클릭하여 Public IP를 할당합니다.
+
+    !!! info "VPC에 대한 새 Public IP 할당 방법"
+        - VPC에 Public IP 할당하기 위해 [VPC에 대한 새 Public IP 주소 획득](../../../../administration/mold/network&traffic-mngt-guide#vpc-public-ip){:target="_blank"} 문서를 참고하십시오.
+
+
 - **네트워크 > VPC > Public IP 주소** 탭에서 새로 할당받은 Public IP 클릭하여 포트포워딩를 설정합니다.
 
-!!! info "VPC에 대한 새 Public IP 할당 방법"
-    - VPC에 Public IP 할당하기 위해 [VPC에 대한 새 Public IP 주소 획득](../../../../administration/mold/network&traffic-mngt-guide#vpc-public-ip){:target="_blank"} 문서를 참고하십시오.
+    !!! info "Public IP의 포트포워딩를 설정 방법"
+        - VPC에서 할당된 Public IP에 포트포워딩를 설정하기 위해 [VPC에 포트 포워딩 규칙 추가](../../../../administration/mold/network&traffic-mngt-guide#vpc_3){:target="_blank"} 문서를 참고하십시오.
 
-!!! info "Public IP의 포트포워딩를 설정 방법"
-    - VPC에서 할당된 Public IP에 포트포워딩를 설정하기 위해 [VPC에 포트 포워딩 규칙 추가](../../../../administration/mold/network&traffic-mngt-guide#vpc_3){:target="_blank"} 문서를 참고하십시오.
+    관리용 가상머신을 활용하기 위한 포트포워딩 추가 예시는 다음과 같습니다.
 
-관리용 가상머신을 활용하기 위한 포트포워딩 추가 예시는 다음과 같습니다.
-
-|      | 사설 포트 | Public 포트 | 프로토콜 | 가상머신    |
-| -----| --------| -----------| -------| ----------|
-| SSH  | 22      | 22         | TCP    | ablecloud-3tier-linux-manage |
+    |      | 사설 포트 | Public 포트 | 프로토콜 | 가상머신    |
+    | -----| --------| -----------| -------| ----------|
+    | SSH  | 22      | 22         | TCP    | ablecloud-3tier-linux-manage |
