@@ -5,6 +5,7 @@ ABLESTACK Mold는 다양한 운영체제의 가상머신을 지원합니다. 그
 
     - Windows Server 2016 이상의 서버 운영체제
     - Windows 10
+    - Windows 11
 
 ## 가상머신 사용 준비 개요
 
@@ -27,9 +28,9 @@ https://go.microsoft.com/fwlink/p/?LinkID=2195280&clcid=0x409&culture=en-us&coun
 
 ISO 이미지는 다운로드할 이미지의 주소를 이용하여 Mold에 직접 등록할 수 있습니다. Mold UI에서 `이미지 > ISO` 화면으로 이동한 후 `ISO 등록` 버튼을 클릭하면 다음과 같은 대화상자가 표시됩니다. 
 
-<center>
+
 ![windows-01-vm-register-iso](../../assets/images/windows-01-vm-register-iso.png){ width="400" }
-</center>
+
 
 ISO 등록 대화상자는 ISO 이미지를 URL로 등록하기 위한 항목을 필요로 합니다. 입력 항목은 다음과 같습니다. 
 
@@ -56,9 +57,9 @@ ISO 등록 대화상자는 ISO 이미지를 URL로 등록하기 위한 항목을
 
     위의 형식 중 일반적으로 높은 성능을 제공하는 디바이스 장치는 VirtIO BLK 이며, 운영체제에서는 SCSI 디스크로 인식됩니다. 따라서 일반적인 수준 이상의 성능을 필요로 하는 경우 OS 유형은 "Windows PV" 선택을 권장합니다. 
 
-<center>
-![windows-02-vm-register-iso](../../assets/images/windows-02-vm-register-iso.png){ width="600" }
-</center>
+
+![windows-02-vm-register-iso](../../assets/images/windows-02-vm-register-iso.png){ align=center }
+
 
 ## 드라이버 이미지 준비
 
@@ -76,9 +77,9 @@ http://images.ablecloud.io/virtio-win/
 
 먼저 `이미지 > ISO` 화면으로 이동하여 `ISO 등록` 버튼을 클릭하여 다음과 같이 드라이버 이미지 등록을 위한 정보를 입력합니다. 
 
-<center>
+
 ![windows-02-vm-driver-iso](../../assets/images/windows-02-vm-driver-iso.png){ width="450" }
-</center>
+
 
 위의 대화상자에서 "확인" 버튼을 클릭하면 드라이버 이미지가 Mold에 등록됩니다. 
 
@@ -91,9 +92,9 @@ ISO 이미지를 이용해 가상머신을 생성하기 전에, 먼저 가상머
 
 가상머신에 연결할 네트워크를 준비하기 위해 `네트워크 > 가상머신용 네트워크` 화면으로 이동한 후 `네트워크 추가` 버튼을 클릭하여 "네트워크 추가" 대화상자를 표시합니다. 
 
-<center>
+
 ![windows-03-vm-prepare-network](../../assets/images/windows-03-vm-prepare-network.png){ width="400" }
-</center>
+
 
 "네트워크 추가" 대화 상자에서 "Isolated" 탭을 선택하면 다음과 같은 입력항목을 확인할 수 있습니다. 
 
@@ -109,9 +110,7 @@ ISO 이미지를 이용해 가상머신을 생성하기 전에, 먼저 가상머
 
 가상머신 준비를 위한 네트워크는 위의 항목 중, 이름과 설명만 입력하면 기본값이 설정되어 자동으로 생성됩니다. 다음의 그림은 네트워크 생성 결과는 `네트워크 > 가상머신용 네트워크`에서 조회한 상세화면 결과의 예 입니다. 
 
-<center>
-![windows-04-vm-prepare-network](../../assets/images/windows-04-vm-prepare-network.png){ width="600" }
-</center>
+![windows-04-vm-prepare-network](../../assets/images/windows-04-vm-prepare-network.png){ align=center }
 
 ## ISO를 이용한 가상머신 생성
 
@@ -126,119 +125,140 @@ ISO와 가상머신 생성용 네트워크가 준비되었다면 이제 ISO를 �
 7. 확장모드 : EFI, UserData 등의 확장 정보 선택
 8. 상세 : 가상머신 기타 정보 입력
 
-먼저 가상머신을 배포할 인프라를 선택합니다. "새 가상머신" 마법사의 배포 인프라 선택 단계의 화면은 다음과 같습니다. 
+아래 설치할 Windows 버전에 맞는 탭을 선택하여 진행합니다. 
 
-<center>
-![windows-05-vm-deploy-infra](../../assets/images/windows-05-vm-deploy-infra.png){ width="600" }
-</center>
+=== "Windows 2022"
 
-가상머신은 사용자가 선택한 위치에 배포됩니다. 기본적으로 ABLESTACK의 기본 Zone이 선택되어 있고, 나머지 자원은 ABLESTACK이 자동으로 선택합니다. 별도의 배포 인프라를 선택해야 하는 경우, Pod, 클러스터, 호스트를 차례로 선택합니다. 
+    1. **배포 인프라 선택** : Mold 에서 구성된 **Zone** 을 선택 합니다.
 
-인프라를 선택한 후 가상머신 생성에 사용할 이미지를 선택합니다. 마법사의 템플릿/ISO 선택 화면은 다음과 같습니다. 
+        ![windows-05-vm-deploy-infra](../../assets/images/windows-05-vm-deploy-infra.png){ align=center }
 
-<center>
-![windows-06-vm-deploy-image](../../assets/images/windows-06-vm-deploy-image.png){ width="600" }
-</center>
+        !!! info
+            - Pod, 클러스터, 호스트는 옵션 입력창 입니다. 별도의 값을 입력 하지 않아도 가상머신 생성하는데 문제가 되지 않습니다.
+            - 특정 Pod, 클러스터, 호스트를 선택 하지 않을 경우 임의의 Pod, 클러스터, 호스트에 가상머신이 생성됩니다.
 
-템플릿/ISO 선택화면에서 "ISO" 탭을 선택하고 목록에서 가상머신 생성에 사용할 ISO 이미지를 선택합니다. 
+    2. **템플릿/ISO** : ISO 탭 선택 후 마스터 템플릿으로 설치할 ISO 를 선택 하고, Zone 에서 구성된 **하이퍼바이저** 를 선택 합니다. 해당 이미지를 사용하기 위해서는 ABLESTACK이 사용하고 있는 기반 하이퍼바이저를 지정해야 합니다. "하이퍼바이저" 항목에서 적합한 하이퍼바이저를 선택합니다. 만약 Cell 하이퍼바이저를 사용하고 있는 경우, KVM을 선택합니다. 
 
-해당 이미지를 사용하기 위해서는 ABLESTACK이 사용하고 있는 기반 하이퍼바이저를 지정해야 합니다. "하이퍼바이저" 항목에서 적합한 하이퍼바이저를 선택합니다. 만약 Cell 하이퍼바이저를 사용하고 있는 경우, KVM을 선택합니다. 
+        ![windows-06-vm-deploy-image](../../assets/images/windows-06-vm-deploy-image.png){ align=center }
 
-가상머신을 실행하기 위해서는 해당 가상머신을 실행하기 위한 적절한 컴퓨트 자원, 즉 CPU 및 메모리 자원이 필요합니다. "컴퓨트 오퍼링" 선택 단계에서 해당 자원을 선택합니다. 해당 화면은 다음과 같습니다. 
+    3. **컴퓨트 오퍼링** :가상머신을 실행하기 위해서는 해당 가상머신을 실행하기 위한 적절한 컴퓨트 자원, 즉 CPU 및 메모리 자원이 필요합니다. "컴퓨트 오퍼링" 선택 단계에서 해당 자원을 선택합니다. 해당 화면은 다음과 같습니다. 
 
-<center>
-![windows-07-vm-compute-offering](../../assets/images/windows-07-vm-compute-offering.png){ width="600" }
-</center>
+        
+        ![windows-07-vm-compute-offering](../../assets/images/windows-07-vm-compute-offering.png){ align=center }
 
-Windows Server 기반의 기본 가상머신 이미지를 생성하기 위해서는 4vCore의 CPU, 8GB 메모리면 충분합니다. 목록에서 필요한 컴퓨트 자원을 선택합니다. 
+        Windows Server 기반의 기본 가상머신 이미지를 생성하기 위해서는 4vCore의 CPU, 8GB 메모리면 충분합니다. 목록에서 필요한 컴퓨트 자원을 선택합니다. 
 
-가상머신에 ISO 이미지를 이용해 운영체제를 설치하려면 가상머신에 루트 디스크가 연결되어야 합니다. 루트 디스크를 선택하는 화면은 다음과 같습니다. 
+    4. **디스크 크기** : 가상머신의 디스크는 Windows의 경우 40GB 이상의 크기로 설정하여 생성하는 것을 권장합니다. "디스크 크기" 화면의 목록에서 적정한 디스크 오퍼링을 선택합니다.
 
-<center>
-![windows-08-vm-root-disk](../../assets/images/windows-08-vm-root-disk.png){ width="600" }
-</center>
+        ![windows-08-vm-root-disk](../../assets/images/windows-08-vm-root-disk.png){ align=center }
 
-가상머신의 디스크는 Windows의 경우 40GB 이상의 크기로 설정하여 생성하는 것을 권장합니다. "디스크 크기" 화면의 목록에서 적정한 디스크 오퍼링을 선택합니다. 
+    5. **네트워크** : 가상머신 실행을 이해서는 NIC의 연결이 필요합니다. NIC의 연결은 특정 네트워크에 연결되어야 합니다. 따라서 "네트워크" 화면에서 가상머신 NIC에 연결할 네트워크를 선택해야 합니다. 해당 화면은 다음과 같습니다. 
 
-가상머신 실행을 이해서는 NIC의 연결이 필요합니다. NIC의 연결은 특정 네트워크에 연결되어야 합니다. 따라서 "네트워크" 화면에서 가상머신 NIC에 연결할 네트워크를 선택해야 합니다. 해당 화면은 다음과 같습니다. 
+        ![windows-09-vm-select-network](../../assets/images/windows-09-vm-select-network.png){ align=center }
+        
+        "네트워크" 화면에 표시되는 목록 중, 가상머신 준비를 위해 생성한 네트워크를 선택합니다. 네트워크를 선택하면 선택된 네트워크에 대한 기본 정보 및 CIDR 정보, 그리고 IP 정보, MAC 주소 정보를 입력할 수 있습니다. 가상머신 준비를 위해서는 이러한 정보를 입력하지 않고 기본값을 사용합니다.  
 
-<center>
-![windows-09-vm-select-network](../../assets/images/windows-09-vm-select-network.png){ width="600" }
-</center>
+        !!! warning "가상머신 네트워크 선택 시 주의사항"
+            가상머신에는 1개 이상의 NIC를 설치할 수 있습니다. 따라서 네트워크는 다중으로 선택할 수 있도록 체크박스로 되어 있습니다. 따라서 가상머신 준비용 네트워크를 선택할 때 해당 네트워크 외에 다른 네트워크가 선택되어 있지는 않은지 확인해야 합니다. 
 
-"네트워크" 화면에 표시되는 목록 중, 가상머신 준비를 위해 생성한 네트워크를 선택합니다. 네트워크를 선택하면 선택된 네트워크에 대한 기본 정보 및 CIDR 정보, 그리고 IP 정보, MAC 주소 정보를 입력할 수 있습니다. 가상머신 준비를 위해서는 이러한 정보를 입력하지 않고 기본값을 사용합니다.  
+    6. SSH 키 쌍 : 다음 단계는 SSH 키 쌍을 설정하는 단계인데, Windows 가상머신 준비 단계에서는 해당 설정을 적용할 수 없기 때문에 해당 단계는 선택하지 않습니다. 
 
-!!! warning "가상머신 네트워크 선택 시 주의사항"
-    가상머신에는 1개 이상의 NIC를 설치할 수 있습니다. 따라서 네트워크는 다중으로 선택할 수 있도록 체크박스로 되어 있습니다. 따라서 가상머신 준비용 네트워크를 선택할 때 해당 네트워크 외에 다른 네트워크가 선택되어 있지는 않은지 확인해야 합니다. 
+    7.  **확장 모드** : 가상머신의 확장 설정을 하기 위해서 확장 모드 단계의 "고급 설정 표시" 단추를 클릭하여 해당 화면을 엽니다. 해당 화면은 다음과 같습니다. 
+    
+        ![windows-10-vm-extended-config](../../assets/images/windows-10-vm-extended-config.png){ align=center }
+        
+        확장 모드에서는 가상머신의 부팅 유형을 설정합니다. 가상머신은 레거시 방식 또는 EFI 방식 중에서 하나를 부팅 방식으로 선택할 수 있습니다. EFI 방식을 선택하는 경우 부팅 모드를 LEGACY 또는 SECURE 중에서 선택할 수 있습니다. 원하는 가상머신의 부팅 방식을 선택합니다. 
 
-다음 단계는 SSH 키 쌍을 설정하는 단계인데, Windows 가상머신 준비 단계에서는 해당 설정을 적용할 수 없기 때문에 해당 단계는 선택하지 않습니다. 
+        !!! warning "부팅 유형 선택 시 주의사항"
+            가상머신은 초기 부팅 유형 선택에 의해 가상머신이 부팅되고, 운영체제가 설치되면 그 다음부터 가상머신은 반드시 해당 부팅 유형으로 시작되어야 합니다. 따라서 가상머신 부팅 유형을 선택할 때 주의해야 합니다. 기본값은 BIOS, LEGACY 모드입니다. 
 
-가상머신의 확장 설정을 하기 위해서 확장 모드 단계의 "고급 설정 표시" 단추를 클릭하여 해당 화면을 엽니다. 해당 화면은 다음과 같습니다. 
+    8. 마지막으로 가상머신의 상세 정보를 설정합니다. "상세" 화면은 다음과 같습니다. 
 
-<center>
-![windows-10-vm-extended-config](../../assets/images/windows-10-vm-extended-config.png){ width="600" }
-</center>
+        ![windows-11-vm-detail-config](../../assets/images/windows-11-vm-detail-config.png){ align=center }
 
-확장 모드에서는 가상머신의 부팅 유형을 설정합니다. 가상머신은 레거시 방식 또는 EFI 방식 중에서 하나를 부팅 방식으로 선택할 수 있습니다. EFI 방식을 선택하는 경우 부팅 모드를 LEGACY 또는 SECURE 중에서 선택할 수 있습니다. 원하는 가상머신의 부팅 방식을 선택합니다. 
+        상세화면에서 가상머신의 이름을 입력하면 가상머신을 시작할 모든 준비가 완료됩니다. 가상머신을 실행합니다. 
 
-!!! warning "부팅 유형 선택 시 주의사항"
-    가상머신은 초기 부팅 유형 선택에 의해 가상머신이 부팅되고, 운영체제가 설치되면 그 다음부터 가상머신은 반드시 해당 부팅 유형으로 시작되어야 합니다. 따라서 가상머신 부팅 유형을 선택할 때 주의해야 합니다. 기본값은 BIOS, LEGACY 모드입니다. 
 
-마지막으로 가상머신의 상세 정보를 설정합니다. "상세" 화면은 다음과 같습니다. 
+=== "Windows 11"
 
-<center>
-![windows-11-vm-detail-config](../../assets/images/windows-11-vm-detail-config.png){ width="600" }
-</center>
+    1. **배포 인프라 선택** : Mold 에서 구성된 **Zone** 을 선택 합니다.  
 
-상세화면에서 가상머신의 이름을 입력하면 가상머신을 시작할 모든 준비가 완료됩니다. 가상머신을 실행합니다. 
+    2. **템플릿/ISO** : ISO 탭 선택 후 마스터 템플릿으로 설치할 ISO 를 선택 하고, Zone 에서 구성된 **하이퍼바이저** 를 선택 합니다.
 
-## 운영체제 설치
+        ![Windows 11 가상머신 생성](../../assets/images/windows11-guide-vm1.png){ align=center }  
+
+        !!! info
+            - Pod, 클러스터, 호스트는 옵션 입력창입니다. 별도의 값을 입력 하지 않아도 가상머신 생성하는데 문제가 되지 않습니다.
+            - 특정 Pod, 클러스터, 호스트를 선택 하지 않을 경우 임의의 Pod, 클러스터, 호스트에 가상머신이 생성됩니다.
+
+    3. **컴퓨트 오퍼링** : 가상머신의 오퍼링을 선택 합니다.  
+
+    4. **디스크 크기** : 가상머신에 할당할 디스크 크기를 선택 합니다. windows11에 사용할 수 있는 디스크 오퍼링 크기는 **100GB** 이상만 생성이 가능합니다. 
+
+        ![windows11-guide-vm2](../../assets/images/windows11-guide-vm2.png){ align=center }
+
+        !!! info
+            - 현재 선택한 가상머신의 오퍼링은 Works 에서 생성되는 데스크탑 가상머신의 오퍼링과 연관이 없습니다.
+            - Windows 관련하여 최소한의 CPU 와 Memory 만 할당 후에 생성해도 상관없습니다.
+
+    5. **네트워크** : 가상머신을 생성할 네트워크를 선택 합니다.  
+
+    6. **SSH 키 쌍** : Windows 와는 상관없는 옵션으로 **설정 안함** 을 선택 합니다.
+
+        ![windows11-guide-vm3](../../assets/images/windows11-guide-vm3.png){ align=center }
+
+    7. **확장 모드** :  확장 모드 설정에서 부팅 유형을 **UEFI 유형** 으로 설정해주시고, 부팅 모드는 **SECURE 모드** , **TPM 설정을 2.0** 으로 맞추고 생성합니다.
+
+        ![windows11-guide-vm4](../../assets/images/windows11-guide-vm4.png){ align=center }
+
+    8. **상세** : 이름, 그룹, 키보드 언어의 입력값을 입력하고, 가상머신 시작 라디오 버튼을 확인합니다.  
+
+        ![windows11-guide-vm5](../../assets/images/windows11-guide-vm5.png){ align=center }
+
+        !!! info
+            - **이름** : 이름은 옵션입니다. 입력 값이 없는경우 Mold 에서 임이의 이름 으로 생성이 됩니다.
+            - **그룹** : 그룹은 옵셥입니다. 가상머신 그룹에서 생성된 그룹명을 입력합니다. 
+            - **키보드 언어** : 키보드 언어는 옵션입니다. 키보드 언어를 변경할 경우 값을 입력합니다.
+            - **가상머신 시작** : 가상머신 시작을 선택하고 가상머신을 생성하면 생성과 동시가 가상머신이 시작됩니다.
+
+    9. **VM 시작** : 가상머신 생성과 관련된 선택 값 및 입력 값을 확인 후에 **VM 시작** 버튼을 클릭 합니다.
+
+
+## 운영체제 설치 (1/2)
 
 가상머신이 실행되면 `컴퓨트 > 가상머신` 화면에 표시되는 목록에서 해당 가상머신의 실행 여부를 확인할 수 있습니다. 다음의 그림과 같습니다. 
 
-<center>
-![windows-12-vm-start-with-iso](../../assets/images/windows-12-vm-start-with-iso.png){ width="600" }
-</center>
+![windows-12-vm-start-with-iso](../../assets/images/windows-12-vm-start-with-iso.png){ align=center }
 
 위의 그림에서 :fontawesome-solid-ellipsis-v: 버튼에 마우스를 올려 놓으면 메뉴가 표시되는데 첫번째 메뉴 아이콘이 가상머신의 콘솔을 표시하는 메뉴입니다. 해당 메뉴를 클릭하면 브라우저의 신규 탭에 해당 가상머신의 콘솔이 다음과 같이 표시됩니다. 
 
-<center>
-![windows-13-vm-console-connect](../../assets/images/windows-13-vm-console-connect.png){ width="600" }
-</center>
+![windows-13-vm-console-connect](../../assets/images/windows-13-vm-console-connect.png){ align=center }
 
 콘솔에 접속했다면 화면에 표시된 선택항목 (Language to install, Time and currency format, Keyboard or input method)은 기본값으로 선택한 후 "Next" 버튼을 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step2](../../assets/images/windows-14-vm-install-step2.png){ width="600" }
-</center>
+![windows-14-vm-install-step2](../../assets/images/windows-14-vm-install-step2.png){ align=center }
 
 위와 같은 설치 시작 화면에서 "Install now"를 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step3](../../assets/images/windows-14-vm-install-step3.png){ width="600" }
-</center>
+![windows-14-vm-install-step3](../../assets/images/windows-14-vm-install-step3.png){ align=center }
 
 설치하고자 하는 운영체제 선택 화면에서 원하는 운영체제 종류를 선택합니다. 본 예제에서는 'Windows Server 2022 Standard Evaluation (Desktop Experience)'를 선택하였습니다. 설치할 운영체제를 선택한 후 "Next" 버튼을 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step4](../../assets/images/windows-14-vm-install-step4.png){ width="600" }
-</center>
+![windows-14-vm-install-step4](../../assets/images/windows-14-vm-install-step4.png){ align=center }
 
 라이선스 문서 동의 화면에서 라이선스 동의를 선택한 후 "Next" 버튼을 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step5](../../assets/images/windows-14-vm-install-step5.png){ width="600" }
-</center>
+![windows-14-vm-install-step5](../../assets/images/windows-14-vm-install-step5.png){ align=center }
 
 설치 형식을 선택하는 화면에서 "Custom: Install Microsoft Server Operating System only (advanced)"을 선택합니다. 
 
-<center>
-![windows-14-vm-install-step6](../../assets/images/windows-14-vm-install-step6.png){ width="600" }
-</center>
+![windows-14-vm-install-step6](../../assets/images/windows-14-vm-install-step6.png){ align=center }
 
 운영체제를 설치할 위치를 선택하는 화면이 위와 같이 표시되는데 디스크가 표시되지 않는 것을 확인할 수 있습니다. 이는 기본적인 Windows 설치 디스크에 Cell 하이퍼바이저 장치를 위한 드라이버가 설치되어 있지 않기 때문에 실제 가상머신에는 디스크가 연결되어 있지만 설치 화면에는 표시되지 않는 상태입니다. 
 
-이 문제를 해결하기 위한 절차는 다음과 같습니다. 
+## VirtIOStor 설치 진행
+
+디스크가 설치 화면에 표시되지 않는 문제를 해결하기 위한 절차는 다음과 같습니다. 
 
 1. 가상머신에 연결된 Windows 설치 ISO 연결을 해제합니다.
 2. 가상머신에 VirtIO Windows Driver ISO 이미지를 연결합니다. 
@@ -248,77 +268,59 @@ Windows Server 기반의 기본 가상머신 이미지를 생성하기 위해서
 
 첫번째 단계로 가상머신에 연결된 Windows 설치 ISO 연결을 해제 합니다.
 
-<center>
-![windows-14-vm-install-step7](../../assets/images/windows-14-vm-install-step7.png){ width="600" }
-</center>
+![windows-14-vm-install-step7](../../assets/images/windows-14-vm-install-step7.png){ align=center }
 
 위의 그림과 같이 가상머신 목록에서 해당 가상머신의 액션 아이콘 버튼을 표시한 후 "ISO 분리" 버튼을 다음과 같이 클릭합니다. 
 
-<center>
 ![windows-14-vm-install-step8](../../assets/images/windows-14-vm-install-step8.png){ width="350" }
-</center>
 
 "ISO 분리" 확인 대화 상자에서 "확인" 버튼을 클릭하여 Windows 설치 ISO 이미지 연결을 해제합니다. 
 
 두번째 단계에서 가상머신에 VirtIO Windows Driver ISO 이미지를 연결합니다. 
 
-<center>
-![windows-14-vm-install-step9](../../assets/images/windows-14-vm-install-step9.png){ width="600" }
-</center>
+![windows-14-vm-install-step9](../../assets/images/windows-14-vm-install-step9.png){ align=center }
 
 위의 그림과 같이 가상머신 목록에서 해당 가상머신의 액션 아이콘 버튼을 표시한 후 "ISO 연결" 버튼을 다음과 같이 클릭합니다. 
 
-<center>
 ![windows-14-vm-install-step10](../../assets/images/windows-14-vm-install-step10.png){ width="450" }
-</center>
 
 "ISO 연결" 대화상자에서 VirtIO Windows Driver 이미지를 선택한 후 "확인" 버튼을 클릭합니다. 가상머신에 드라이버 ISO 이미지가 연결됩니다. 
 
 세번째 단계에서 가상머신에 드라이버를 설치합니다. 드라이버를 설치하기 위해 가상머신 콘솔로 다시 이동한 후 "Load driver" 아이콘을 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step11](../../assets/images/windows-14-vm-install-step11.png){ width="600" }
-</center>
+![windows-14-vm-install-step11](../../assets/images/windows-14-vm-install-step11.png){ align=center }
 
 위의 그림과 같이 Load driver 대화상자가 표시되면 "Browse" 버튼을 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step12](../../assets/images/windows-14-vm-install-step12.png){ width="600" }
-</center>
+![windows-14-vm-install-step12](../../assets/images/windows-14-vm-install-step12.png){ align=center }
 
 위의 그림과 같이 "Browse for Folder" 대화상자가 표시됩니다. `CD Drive\amd64\2k22` 경로(운영체제에 따라 적절한 운영체제 경로를 선택)를 선택한 후 "OK" 버튼을 클릭합니다.
 
-<center>
-![windows-14-vm-install-step13](../../assets/images/windows-14-vm-install-step13.png){ width="600" }
-</center>
+![windows-14-vm-install-step13](../../assets/images/windows-14-vm-install-step13.png){ align=center }
 
 가상머신에 디스크가 정상적으로 연결되어 있다면 위와 같이 설치할 드라이버, VirtIO SCSI controller가 표시됩니다. "Next" 버튼을 클릭합니다. 드라이버가 설치된 후 다시 운영체제 설치 위치를 선택하는 화면으로 다음과 같이 이동됩니다. 
 
-<center>
-![windows-14-vm-install-step14](../../assets/images/windows-14-vm-install-step14.png){ width="600" }
-</center>
+![windows-14-vm-install-step14](../../assets/images/windows-14-vm-install-step14.png){ align=center }
 
 네번째 단계에서 가상머신에 연결된 VirtIO Windows Driver ISO 이미지의 연결을 해제하고, Windows 설치 이미지를 연결합니다. 
 
 ISO 이미지의 연결을 해제하고, 새로운 이미지를 선택하여 연결하는 과정은 위의 첫번째, 두번째 단계에서 설명한 내용과 동일합니다. 본 과정을 통해 Windows 설치 이미지를 가상머신에 다시 연결한 후 콘솔 화면에서 새로 연결된 설치 이미지를 인식하도록 하기 위해 "Refresh" 버튼을 클릭합니다. 새로 고침이 정상적으로 이루어지면 "Next" 버튼을 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step15](../../assets/images/windows-14-vm-install-step15.png){ width="600" }
-</center>
+## 운영체제 설치 (2/2)
+
+![windows-14-vm-install-step15](../../assets/images/windows-14-vm-install-step15.png){ align=center }
 
 위와 같이 Windows 설치가 진행됩니다. 모든 파일 및 기능이 설치가 되면 가상머신이 자동으로 재시작 됩니다. 그리고 운영체제가 설치된 디스크를 이용해 가상머신을 부팅하게 됩니다. 
 
 가상머신 준비 과정을 거친 후 가상머신 사용자화를 위한 단계를 시작합니다. 
 
-<center>
-![windows-14-vm-install-step16](../../assets/images/windows-14-vm-install-step16.png){ width="600" }
-</center>
+![windows-14-vm-install-step16](../../assets/images/windows-14-vm-install-step16.png){ align=center }
 
 위의 화면에서 관리자(Administrator) 계정에 대한 비밀번호를 입력하고 "Finish" 버튼을 클릭합니다. 
 
 가상머신 설치 작업이 완료되고, 가상머신의 Windows 초기 화면이 표시됩니다. 마지막으로 가상머신에 연결된 Windows 설치 이미지의 연결을 해제합니다. 
 
-## Windows 드라이버 설치
+## 디바이스 설정을 위한 Agent 설치
 
 가상머신에 Windows 운영체제를 설치할 때 디스크 드라이버를 설치했지만 가상머신에 연결되어 있는 다른 디바이스에 대한 드라이버, 그리고 가상머신 에이전트 등은 추가적인 설치 작업이 필요합니다. 
 
@@ -331,15 +333,11 @@ ISO 이미지의 연결을 해제하고, 새로운 이미지를 선택하여 연
 
 첫번째로 Windows 드라이버를 설치하고자 하는 가상머신에 VirtIO Windows Driver ISO 이미지를 연결합니다. 
 
-<center>
-![windows-14-vm-install-step17](../../assets/images/windows-14-vm-install-step17.png){ width="600" }
-</center>
+![windows-14-vm-install-step17](../../assets/images/windows-14-vm-install-step17.png){ align=center }
 
 위의 그림과 같이 가상머신의 액션 버튼 메뉴의 "ISO 연결" 버튼을 클릭합니다. 
 
-<center>
-![windows-14-vm-install-step18](../../assets/images/windows-14-vm-install-step18.png){ width="600" }
-</center>
+![windows-14-vm-install-step18](../../assets/images/windows-14-vm-install-step18.png){ align=center }
 
 "ISO 연결" 대화상자에서 VirtIO Windows Driver 이미지를 선택하고 "확인" 버튼을 클릭합니다. 가상머신에 ISO가 연결됩니다. 
 
@@ -347,27 +345,22 @@ ISO 이미지의 연결을 해제하고, 새로운 이미지를 선택하여 연
 
 콘솔에 접속하여 "Ctrl+Alt+Del" 키를 누릅니다. Administrator 계정에 대한 로그인 화면이 표시됩니다. 
 
-<center>
-![windows-14-vm-install-step19](../../assets/images/windows-14-vm-install-step19.png){ width="600" }
-</center>
+![windows-14-vm-install-step19](../../assets/images/windows-14-vm-install-step19.png){ align=center }
 
 Windows에 로그인 한 후, 윈도우즈 탐색기를 실행하여 연결되어 있는 CD 드라이브로 이동합니다. 
 
-<center>
-![windows-14-vm-install-step20](../../assets/images/windows-14-vm-install-step20.png){ width="600" }
-</center>
+![windows-14-vm-install-step20](../../assets/images/windows-14-vm-install-step20.png){ align=center }
 
 탐색기에 표시된 파일 중 `virtio-win-gt-x64` 프로그램을 더블클릭하여 실행합니다. 설치 마법사가 다음과 같이 실행됩니다. 
 
-<center>
-![windows-14-vm-install-step21](../../assets/images/windows-14-vm-install-step21.png){ width="600" }
-</center>
+![windows-14-vm-install-step21](../../assets/images/windows-14-vm-install-step21.png){ align=center }
 
 마법사 단계별로 실행하여 설치를 완료합니다. 
 
 설치가 완료되면 탐색기에 표시된 파일 중 `virtio-win-guest-tools` 프로그램을 더블클릭하여 실행합니다. 설치 마법사가 실행되면 마법사 단계별로 실행하여 설치를 완료합니다. 
 
 Windows 가상머신을 위한 모든 드라이버 설치가 완료되었다면 마지막으로 드라이버 ISO 이미지의 연결을 해제합니다. 
+
 
 ## Windows 시스템 일반화
 
@@ -382,9 +375,7 @@ Windows 가상머신을 위한 모든 드라이버 설치가 완료되었다면 
 
 현재 가상머신을 일반화 하기 위해서 가상머신 콘솔에서 PowerShell을 다음의 그림과 같이 실행합니다. 
 
-<center>
-![windows-14-vm-install-step22](../../assets/images/windows-14-vm-install-step22.png){ width="600" }
-</center>
+![windows-14-vm-install-step22](../../assets/images/windows-14-vm-install-step22.png){ align=center }
 
 PowerShell을 실행 한 후 명령창에 다음의 명령을 입력하여 가상머신의 이미지를 일반화 합니다. 
 
@@ -411,21 +402,15 @@ C:\Windows\System32\Sysprep> .\sysprep.exe /generalize /oobe /shutdown
 
 가상머신이 정지된 후 가상머신의 상세 페이지를 확인하면 다음과 같습니다. 
 
-<center>
-![windows-15-vm-stopped-status](../../assets/images/windows-15-vm-stopped-status.png){ width="600" }
-</center>
+![windows-15-vm-stopped-status](../../assets/images/windows-15-vm-stopped-status.png){ align=center }
 
 위의 화면에서 우측의 상세 화면에서 "볼륨" 탭을 클릭하면 해당 가상머신에 연결된 볼륨의 목록이 표시됩니다. 처음 만든 가상머신이기 때문에 ROOT 디스크만 표시됩니다. 해당 디스크를 클릭하여 볼륨의 상세 화면으로 이동합니다. 다음의 그림과 같습니다. 
 
-<center>
-![windows-16-vm-root-volume-detail](../../assets/images/windows-16-vm-root-volume-detail.png){ width="600" }
-</center>
+![windows-16-vm-root-volume-detail](../../assets/images/windows-16-vm-root-volume-detail.png){ align=center }
 
 위 화면에서 우측 상단의 볼륨 액션 메뉴 중 맨 우측의 "볼륨으로 템플릿 생성" 버튼을 클릭하여 가상머신 템플릿 생성을 시작합니다. 다음과 같은 "볼륨으로 템플릿 생성" 대화상자가 표시됩니다. 
 
-<center>
 ![windows-17-vm-volume-tmpl-dlg](../../assets/images/windows-17-vm-volume-tmpl-dlg.png){ width="450" }
-</center>
 
 "볼륨으로 템플릿 생성" 대화상자는 정지되어 있는 가상머신의 루트 디스크를 이용해 해당 가상머신에 대한 이미지를 생성하는 기능을 제공합니다. 다음의 정보를 입력합니다. 
 
@@ -440,9 +425,7 @@ C:\Windows\System32\Sysprep> .\sysprep.exe /generalize /oobe /shutdown
 
 모든 정보를 입력한 후 "확인" 버튼을 눌러 템플릿 생성을 시작합니다. 생성이 완료되면 해당 템플릿은 `이미지 > 템플릿` 화면의 목록을 통해 확인할 수 있으며, 해당 목록을 클릭하여 상세화면으로 확인하면 다음과 같이 템플릿 이미지가 생성됨을 확인할 수 있습니다. 
 
-<center>
-![windows-18-vm-template-detail](../../assets/images/windows-18-vm-template-detail.png){ width="600" }
-</center>
+![windows-18-vm-template-detail](../../assets/images/windows-18-vm-template-detail.png){ align=center }
 
 이제 생성된 기본 템플릿을 이용해 언제든지 가상머신을 생성할 수 있습니다. 
 

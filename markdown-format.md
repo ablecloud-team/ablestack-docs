@@ -81,8 +81,12 @@
 ## 플러그인
 
 ### Image Lightbox
-
-    ``` shell title="sudo vi mkdocs.yml"
+1. PyPI 플러그인을 설치합니다.
+    ```
+    pip3 install mkdocs-glightbox
+    ```
+2. mkdocs.yml 플러그인 섹션에 glightbox 플러그인을 추가합니다.
+    ```
     plugins:
     - glightbox:
         width: 80%
