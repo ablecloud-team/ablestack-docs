@@ -1,6 +1,6 @@
 ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NIC를 추가할 수 있습니다. 
 
-본 문서에서는 Ubuntu 가상머신에 NIC를 추가하고, 설정하며, 사용하는 방법을 설명합니다. 
+본 문서에서는 Windows 가상머신에 NIC를 추가하고, 설정하며, 사용하는 방법을 설명합니다. 
 
 ## 가상머신 생성 시 기본 NIC 연결
 
@@ -10,7 +10,7 @@ ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NI
    
 2. 배포 인프라를 선택합니다.
    
-3. 템플릿/ISO 단계에서 Ubuntu 템플릿 이미지를 선택합니다. 
+3. 템플릿/ISO 단계에서 Windows 템플릿 이미지를 선택합니다. 
    
 4. 컴퓨트 오퍼링을 선택합니다.
    
@@ -37,39 +37,21 @@ ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NI
 
 <center>![ubuntu-74-vm-add-nics-detail](../../assets/images/centos-74-vm-add-nics-detail.png){ width="600" }</center>
 
-가상머신의 콘솔에 접속하여 실제 해당 NIC가 같은 정보로 설정되어 있는지 확인합니다. 가상머신에 접속하여 다음의 명령을 실행하여 네트워크 정보를 확인합니다. (아래의 예제 명령에서 ens3 부분은 가상머신에 할당된 NIC의 디바이스명으로 가상머신에 따라 다를 수 있습니다.)
+가상머신의 콘솔에 접속하여 실제 해당 NIC가 같은 정보로 설정되어 있는지 확인합니다. 가상머신에 접속하여 다음의 명령을 실행하여 네트워크 정보를 확인합니다.
 
-먼저 Ubuntu에서 ifconfig 명령어를 사용하기 위해 net-tools 패키지를 운영체제에 설치합니다. 
+먼저 제어판 > 네트워크 및 인터넷 > 네트워크 및 공유 센터 화면을 실행합니다.
 
-```
-$ apt-get install net-tools
-```
+<center>![windows-78-vm-add-nics-ip](../../assets/images/windows-78-vm-add-nics-ip.png){ width="600" }</center>
 
-ifconfig 명령으로 네트워크 인터페이스 정보를 확인합니다.
+네트워크 인터페이스(아래의 예제에서 Ethernet Instance 0 2)를 선택하고 자세히를 클릭하여 정보를 확인합니다. (아래의 예제에서 Ethernet Instance 0 2 부분은 가상머신에 할당된 NIC의 디바이스명으로 가상머신에 따라 다를 수 있습니다.)
 
-```
-$ ifconfig ens3
-ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
-        inet 10.1.1.19  netmask 255.255.255.0  broadcast 10.1.1.255
-        inet6 fe80::26ff:fed5:11  prefixlen 64  scopeid 0x20<link>
-        ether 02:00:26:d5:00:11  txqueuelen 1000  (Ethernet)
-        RX packets 382  bytes 38797 (37.8 KiB)
-        RX errors 0  dropped 0  overruns 0  frame 0
-        TX packets 395  bytes 38291 (37.3 KiB)
-        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
-```
+<center>![windows-78-vm-add-nics-ip1](../../assets/images/windows-78-vm-add-nics-ip1.png){ style="margin-top: 20px;" width="400" }</center>
 
-연결된 NIC는 가상머신의 기본 NIC로 사용됩니다. 기본 NIC 라는 것은 가상머신 내부의 라우팅 테이블에서 주요 트래픽을 처리하는 NIC라는 의미입니다. 해당 가상머신에서 다음의 명령을 실행하면 기본 NIC 설정을 확인할 수 있습니다. 
+연결된 NIC는 가상머신의 기본 NIC로 사용됩니다. 기본 NIC 라는 것은 가상머신 내부의 라우팅 테이블에서 주요 트래픽을 처리하는 NIC라는 의미입니다. 해당 가상머신에서 cmd 창을 열어 다음의 명령을 실행하면 기본 NIC 설정을 확인할 수 있습니다. 
 
-```
-$ route
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-default         r-652-vm.cs2clo 0.0.0.0         UG    100    0        0 ens3
-10.1.1.0        0.0.0.0         255.255.255.0   U     100    0        0 ens3
-```
+<center>![windows-78-vm-add-nics-route1](../../assets/images/windows-78-vm-add-nics-route1.png){ style="width="600" }</center>
 
-위의 실행 결과에서 default로 설정된 NIC는 `ens3`인 것을 확인할 수 있습니다. 해당 NIC의 IP 서브넷 대역을 제외한 나머지 IP 트래픽도 모두 ens3를 통해 처리되도록 설정되어 있습니다. 
+위의 실행 결과에서 default(0.0.0.0)로 설정된 NIC는 `Ethernet Instance 0 2`인 것을 확인할 수 있습니다. 해당 NIC의 IP 서브넷 대역을 제외한 나머지 IP 트래픽도 모두 Ethernet Instance 0 2를 통해 처리되도록 설정되어 있습니다. 
 
 ## 가상머신 NIC 추가 연결
 
@@ -86,23 +68,11 @@ default         r-652-vm.cs2clo 0.0.0.0         UG    100    0        0 ens3
 5. 가상머신에 NIC가 추가되었는지 해당 탭에서 확인합니다.
     ![ubuntu-77-vm-add-nics-add-result](../../assets/images/centos-77-vm-add-nics-add-result.png){ style="margin-top: 20px;" width="600" }
 
-추가된 NIC를 가상머신 내부에서 확인하기 위해 nmcli 명령어를 사용합니다. 
+추가된 NIC를 가상머신 내부에서 확인하기 위해 제어판 > 네트워크 및 인터넷 > 네트워크 및 공유 센터 화면을 실행하여 NIC 정보를 확인합니다.
 
-먼저 Ubuntu에서 nmcli 명령어를 사용하기 위해 network-manager 패키지를 운영체제에 설치합니다. 
-```
-$ apt-get install network-manager
-```
+<center>![windows-78-vm-add-nics-ip2](../../assets/images/windows-78-vm-add-nics-ip2.png){ width="600" }</center>
 
- nmcli 명령어를 사용하여 NIC정보를 확인합니다.
-```
-$ nmcli dev
-DEVICE  TYPE      STATE         CONNECTION
-ens3    ethernet  connected     ens3
-ens8    ethernet  disconnected  --
-lo      loopback  unmanaged     --
-```
-
-위의 예에서 첫번째 연결한 NIC(ens3)는 DHCP 서버를 통해 IP가 자동으로 할당되어 상태가 `connected`로 표시됩니다. 하지만 새롭게 추가한 NIC(ens8)는 네트워크에 DHCP가 없기 때문에 IP가 할당되어 있지 않습니다. 따라서 상태가 `disconnected`로 표시됩니다. 
+위의 예에서 첫번째 연결한 NIC(Ethernet Instance 0 2)와 추가 연결한 NIC(Ethernet Instance 0)는 DHCP 서버를 통해 IP가 자동으로 할당되어 표시됩니다. 
 
 ## NIC에 수동으로 IP 설정
 
@@ -113,20 +83,9 @@ lo      loopback  unmanaged     --
 
     따라서 Isolated Network에 연결된 NIC를 사용하는 경우 수동으로 IP 설정을 하지 않아야 합니다. 본 가이드는 L2 Network 타입과 같이 DHCP 옵션을 사용하지 않는 네트워크의 NIC인 경우에만 적용해야 합니다. 
 
-먼저 IP를 설정할 NIC 디바이스명(예: ens8)을 이용해 다음과 같이 네트워크 정보를 추가(add) 설정합니다. 
+먼저 IP를 설정할 NIC 디바이스명(예: Ethernet Instance 0)을 이용해 다음과 같이 네트워크 정보를 추가(add) 설정합니다. 
 
-```
-$ nmcli con add \
-    ifname ens8 \
-    con-name ens8 \
-    type ethernet \
-    ipv4.address 10.10.1.254/24 \
-    ipv4.gateway 10.10.0.1 \
-    ipv4.dns 8.8.8.8 \
-    ipv4.method manual \
-    ipv4.never-default true \
-    connection.autoconnect yes
-```
+<center>![windows-78-vm-add-nics-ip3](../../assets/images/windows-78-vm-add-nics-ip3.png){ style="margin-top: 20px;" width="400" }</center>
 
 설정한 NIC는 자동으로 활성화 됩니다.
 
@@ -136,24 +95,17 @@ $ nmcli con add \
 
 예를 들어, 위의 예제에서와 같이 두 개의 NIC가 있는 경우 요청 트래픽을 어떤 NIC가 처리해야 하는지를 지정해야 합니다. 
 
-우선, 각 NIC에 설정되어 있는 IP의 서브넷 대역은 해당 NIC가 처리합니다. 즉, 예제의 `ens3`의 경우 10.1.1.x/24 대역으로 요청을 보내거나 들어오는 요청을 처리하는 NIC로 사용됩니다. 또한 `ens8`의 경우 10.10.1.x/24 대역으로 요청을 보내거나 들어오는 요청을 처리하는 NIC로 사용됩니다. 
+우선, 각 NIC에 설정되어 있는 IP의 서브넷 대역은 해당 NIC가 처리합니다. 즉, 예제의 `Ethernet Instance 0 2`의 경우 10.1.1.x/24 대역으로 요청을 보내거나 들어오는 요청을 처리하는 NIC로 사용됩니다. 또한 `Ethernet Instance 0`의 경우 10.10.1.x/24 대역으로 요청을 보내거나 들어오는 요청을 처리하는 NIC로 사용됩니다. 
 
 만약 각 NIC가 명시적으로 처리하는 IP 대역 외에 다른 IP 대역, 즉 예를 들어 1.1.1.1로 요청을 보내는 경우에는 default 라우트로 설정된 NIC를 사용하게 됩니다. 
 
-가상머신의 NIC 중 기본 네트워크로 설정되는 NIC는 가상머신 생성 시 처음 연결되는 NIC를 기본 네트워크용 NIC로 사용합니다. 기본 네트워크 설정의 확인은 다음과 같이 `route` 명령을 이용합니다. 
+가상머신의 NIC 중 기본 네트워크로 설정되는 NIC는 가상머신 생성 시 처음 연결되는 NIC를 기본 네트워크용 NIC로 사용합니다. 기본 네트워크 설정의 확인은 다음과 같이 cmd 창에서 `route print` 명령을 이용합니다. 
 
-```
-$ route
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-default         r-652-vm.cs2clo 0.0.0.0         UG    100    0        0 ens3
-10.1.1.0        0.0.0.0         255.255.255.0   U     100    0        0 ens3
-10.10.0.0       0.0.0.0         255.255.0.0     U     101    0        0 ens8
-```
+<center>![windows-78-vm-add-nics-route2](../../assets/images/windows-78-vm-add-nics-route2.png){ style="width="600" }</center>
 
-실행 결과를 보면 `Destination`이 `default`로 설정된 NIC가 `ens3`인 것을 확인할 수 있습니다. 
+실행 결과를 보면 `Destination`이 `0.0.0.0`으로 설정된 NIC가 두개이지만 Metric(우선순위)이 높은 것이 `Ethernet Instance 0 2` 인 것을 확인할 수 있습니다. 
 
-기본 네트워크 NIC를 변경하고자 하는 경우, 예제의 경우 `ens8`로 기본 네트워크를 변경하고자 하는 경우, 먼저 Mold의 `컴퓨트 > 가상머신` 화면에서 NIC 설정을 하고자 하는 가상머신을 선택한 후 해당 가상머신의 상세 화면에서 NIC 탭을 선택합니다. 
+기본 네트워크 NIC를 변경하고자 하는 경우, 예제의 경우 `Ethernet Instance 0`로 기본 네트워크를 변경하고자 하는 경우, 먼저 Mold의 `컴퓨트 > 가상머신` 화면에서 NIC 설정을 하고자 하는 가상머신을 선택한 후 해당 가상머신의 상세 화면에서 NIC 탭을 선택합니다. 
 
 <center>![ubuntu-78-vm-nics-list](../../assets/images/centos-78-vm-nics-list.png){ width="600" }</center>
 
@@ -165,26 +117,9 @@ default         r-652-vm.cs2clo 0.0.0.0         UG    100    0        0 ens3
 
 <center>![ubuntu-80-vm-nic-default](../../assets/images/centos-80-vm-nic-default.png){ width="600" }</center>
 
-이제 가상머신에서 해당 NIC(예제에서는 `ens8`)를 기본 NIC로 설정해야 합니다. `ens3`의 기본 라우팅 설정을 취소하고, `ens8`의 기본 라우팅 설정을 활성화 한 후 NIC를 재시작합니다. 다음과 같습니다. 
+이제 가상머신에서 해당 NIC(예제에서는 `Ethernet Instance 0`)를 기본 NIC로 설정하기 위해 네트워크 또는 가상머신을 재시작 한 후 라우팅 테이블을 조회하면 다음과 같습니다. 
 
-```
-$ nmcli con mod ens8 ipv4.never-default no
-$ nmcli con mod ens8 ipv4.gateway 10.10.1.1
-$ nmcli con mod ens3 ipv4.never-default yes
-$ nmcli con down ens8; nmcli con up ens8
-$ nmcli con down ens3; nmcli con up ens3
-```
-
-위 명령을 한 후 라우팅 테이블을 조회하면 다음과 같습니다. 
-
-```
-$ route
-Kernel IP routing table
-Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-default         _gateway        0.0.0.0         UG    101    0        0 ens8
-10.1.1.0        0.0.0.0         255.255.255.0   U     100    0        0 ens3
-10.10.0.0       0.0.0.0         255.255.0.0     U     101    0        0 ens8
-```
+<center>![windows-78-vm-add-nics-route3](../../assets/images/windows-78-vm-add-nics-route3.png){ style="width="600" }</center>
 
 ## 가상머신 NIC 삭제
 
@@ -204,12 +139,7 @@ NIC를 삭제하기 위해 먼저 가상머신의 상세 화면에서 NIC 탭을
 
 NIC를 제거한 후 가상머신 내에서 디바이스를 확인하면 해당 NIC가 삭제된 것을 확인할 수 있습니다. 
 
-```
-$ nmcli dev
-DEVICE  TYPE      STATE      CONNECTION
-ens8    ethernet  connected  ens8
-lo      loopback  unmanaged  --
-```
+<center>![windows-78-vm-add-nics-ip](../../assets/images/windows-78-vm-add-nics-ip.png){ width="600" }</center>
 
 !!! warning "NIC 삭제 후 재부팅 시 디바이스 명칭 및 ID 변경 이슈"
     NIC를 Hot Plug로 등록 후, 삭제하는 경우 가상머신을 정지하고 다시 시작하게 되면 NIC 디바이스의 명칭이 변경됩니다. 

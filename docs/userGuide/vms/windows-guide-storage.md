@@ -133,7 +133,7 @@ ABLESTACK은 가상머신에 데이터 디스크를 생성하여 연결하는 �
    
 2. 배포 인프라를 선택합니다. 
    
-3. 템플릿/ISO에서 CentOS 기반의 템플릿을 선택합니다. 
+3. 템플릿/ISO에서 Windows 기반의 템플릿을 선택합니다. 
    
 4. 컴퓨트 오퍼링을 선택합니다. 
    
@@ -146,125 +146,42 @@ ABLESTACK은 가상머신에 데이터 디스크를 생성하여 연결하는 �
    
 8. 확장 모드의 정보를 선택/입력합니다. 
    
-9.  상세 정보에 가상머신 이름 등을 입력합니다. 
+9. 상세 정보에 가상머신 이름 등을 입력합니다. 
     
 10. 가상머신을 시작합니다. 
 
 데이터 디스크를 추가하여 가상머신을 생성한 후 가상머신 상세 화면에서 볼륨 탭을 클릭하면 다음과 같이 데이터 디스크가 추가되어 있는 것을 확인할 수 있습니다. 
 
-<center>![centos-68-vm-volume-data-result](../../assets/images/centos-68-vm-volume-data-result.png){ width="600" }</center>
+<center>![centos-68-vm-volume-data-result](../../assets/images/windows-72-vm-volume-01.png){ width="600" }</center>
 
-가상머신에 접속하여 디스크를 사용할 수 있도록 설정합니다. 추가된 데이터 디스크는 LVM 상의 XFS 파일 시스템으로 포맷하여 마운트할 것입니다. 다음과 같은 순서로 데이터 디스크의 사용을 준비합니다. 
+가상머신에 접속하여 디스크를 사용할 수 있도록 설정합니다. 추가된 데이터 디스크는 초기화 후 볼륨만들기를 할 것입니다. 다음과 같은 순서로 데이터 디스크의 사용을 준비합니다.
 
-먼저 가상머신에 SSH 또는 콘솔을 통해 접속한 뒤 다음의 명령을 이용해 디스크의 인식 여부를 확인합니다.
+먼저 가상머신에 콘솔을 통해 접속한 뒤 다음의 순서로 디스크 용량을 확인합니다. 
 
-```
-$ lsblk
-NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sr0                        11:0    1 1024M  0 rom
-vda                       252:0    0   50G  0 disk
-├─vda1                    252:1    0    1G  0 part /boot
-└─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
-vdb                       252:16   0  100G  0 disk
-```
+1. 윈도우즈에서 "컴퓨터 관리"를 실행합니다.
+2. 왼쪽 트리에서 "스토리지 > 디스크 관리"를 클릭합니다. 
+3. 디스크 1에 대한 파티션 정보를 확인합니다. 
 
-100GB의 데이터 디스크가 연결되어 있는 것을 확인한 후 LVM을 생성하기 위해 디스크에 다음과 같이 파티션을 생성합니다. 
+위와 같은 순서로 디스크 정보를 확인하면 다음의 그림과 유사합니다. 
 
-```
-$ fdisk /dev/vdb
+<center>![windows-72-vm-volume-02](../../assets/images/windows-72-vm-volume-02.png){ style="margin-top: 20px;" width="600" }</center>
 
-Welcome to fdisk (util-linux 2.37.2).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
+100GB의 데이터 디스크가 연결되어 있는 것을 확인한 후 디스크를 읽기 및 쓰기 권한이 탑재된 온라인 상태로 설정합니다.
 
-Device does not contain a recognized partition table.
-Created a new DOS disklabel with disk identifier 0x14a56515.
+<center>![windows-72-vm-volume-03](../../assets/images/windows-72-vm-volume-03.png){ style="margin-top: 20px;" width="600" }</center>
 
-Command (m for help): n
-Partition type
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-209715199, default 2048):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-209715199, default 209715199):
+디스크를 초기화합니다.
 
-Created a new partition 1 of type 'Linux' and of size 100 GiB.
+<center>![windows-72-vm-volume-04](../../assets/images/windows-72-vm-volume-04.png){ style="margin-top: 20px;" width="600" }</center>
 
-Command (m for help): t
-Selected partition 1
-Hex code or alias (type L to list all): 8e
-Changed type of partition 'Linux' to 'Linux LVM'.
+볼륨만들기 마법사를 통해 파티션 지정 및 드라이브를 선택합니다.
 
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
+<center>![windows-72-vm-volume-06](../../assets/images/windows-72-vm-volume-06.png){ style="margin-top: 20px;" width="600" }</center>
 
-```
+디스크가 정상적으로 인식 되었는지 확인합니다.
 
-파티션을 생성한 후 LVM을 다음과 같이 생성합니다. 
+<center>![windows-72-vm-volume-07](../../assets/images/windows-72-vm-volume-07.png){ style="margin-top: 20px;" width="600" }</center>
 
-```
-$ pvcreate /dev/vdb1
-  Physical volume "/dev/vdb1" successfully created.
-
-$ vgcreate data1_vg /dev/vdb1
-  Volume group "data1_vg" successfully created
-
-$ lvcreate -l 100%FREE -n data1_lv0 data1_vg
-  Logical volume "data1_lv0" created.
-```
-
-LVM을 생성한 후 다음과 같이 파일 시스템을 생성하고 마운트 합니다. 
-
-```
-$ mkfs.xfs /dev/data1_vg/data1_lv0
-meta-data=/dev/data1_vg/data1_lv0 isize=512    agcount=4, agsize=6553344 blks
-         =                       sectsz=512   attr=2, projid32bit=1
-         =                       crc=1        finobt=1, sparse=1, rmapbt=0
-         =                       reflink=1    bigtime=1 inobtcount=1
-data     =                       bsize=4096   blocks=26213376, imaxpct=25
-         =                       sunit=0      swidth=0 blks
-naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
-log      =internal log           bsize=4096   blocks=12799, version=2
-         =                       sectsz=512   sunit=0 blks, lazy-count=1
-realtime =none                   extsz=4096   blocks=0, rtextents=0
-
-$ mkdir /data1
-
-$ mount /dev/data1_vg/data1_lv0 /data1
-```
-
-디스크를 마운트 한 후 정상적으로 마운트 되었는지 확인합니다. 
-
-```
-$ df -h
-Filesystem                         Size  Used Avail Use% Mounted on
-devtmpfs                           3.8G     0  3.8G   0% /dev
-tmpfs                              3.8G     0  3.8G   0% /dev/shm
-tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/cs_centos9--base-root   46G  4.4G   41G  10% /
-tmpfs                              3.8G     0  3.8G   0% /tmp
-/dev/vda1                         1014M  263M  752M  26% /boot
-tmpfs                              769M   36K  769M   1% /run/user/0
-/dev/mapper/data1_vg-data1_lv0     100G  746M  100G   1% /data1
-```
-
-마운트 된 디스크는 가상머신이 재시작하는 경우 마운트가 해제됩니다. 가상머신의 재시작 여부와 관계없이 항구적으로 해당 디스크를 마운트 하도록 설정해야 합니다. 
-
-`vi` 에디터를 이용해 fstab를 편집하여 다음의 내용을 추가합니다. 
-
-```
-$ vi /etc/fstab
-
-# Add the following config to the fstab
-/dev/data1_vg/data1_lv0     /data1      xfs     defaults      0   0
-```
-
-가상머신을 재시작한 후 해당 디스크가 자동으로 마운트 되는지 확인합니다.
 
 ### 디스크 사이즈 변경
 
@@ -276,23 +193,11 @@ $ vi /etc/fstab
 
 <center>![centos-69-vm-data-disk-resize](../../assets/images/centos-69-vm-data-disk-resize.png){ width="450" }</center>
 
-가상머신에 접속하여 `lsblk` 명령을 실행하여 디스크 크기가 변경 되었는지 확인합니다. 디스크 크기 변경은 가상머신 실행 중에 가능합니다. 
+가상머신에 접속하여 디스크관리 화면에서 디스크 크기가 변경 되었는지 확인합니다. 디스크 크기 변경은 가상머신 실행 중에 가능합니다. 
 
-```
-$ lsblk
-NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sr0                        11:0    1 1024M  0 rom
-vda                       252:0    0   50G  0 disk
-├─vda1                    252:1    0    1G  0 part /boot
-└─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
-vdb                       252:16   0  200G  0 disk
-└─vdb1                    252:17   0  100G  0 part
-  └─data1_vg-data1_lv0    253:2    0  100G  0 lvm  /data1
-```
+<center>![windows-72-vm-volume-08](../../assets/images/windows-72-vm-volume-08.png){ style="margin-top: 20px;" width="600" }</center>
 
-변경된 디스크를 이용해 파일 시스템을 확장하는 방법은 위에서 설명한 [루트 디스크 LVM 확장(fdisk)](#lvm-fdisk)와 [루트 디스크 LVM 확장(growpart)](#lvm-growpart)의 방법과 동일합니다. 
+변경된 디스크를 이용해 볼륨 확장하는 방법은 위에서 설명한 [루트 디스크 확장](#_4)의 방법과 동일합니다. 
 
 디스크 확장의 구체적인 절차는 위 섹션의 문서를 참고하십시오.
 
@@ -306,144 +211,39 @@ vdb                       252:16   0  200G  0 disk
 
 디스크가 생성되면 해당 디스크의 상세 화면으로 이동한 후 우측 상단의 아이콘 액션 버튼 중 "디스크 연결" 버튼을 클릭합니다. 표시된 대화상자에서 연결할 가상머신을 선택한 후 "확인" 버튼을 클릭합니다. 
 
-<center>![centos-71-vm-data-attach-disk](../../assets/images/centos-71-vm-data-attach-disk.png){ width="450" }</center>
+<center>![windows-73-vm-data-attach-disk](../../assets/images/windows-73-vm-data-attach-disk.png){ width="450" }</center>
 
-가상머신에 디스크가 연결되면, 가상머신에 접속하여 볼륨을 확장합니다. `lsblk`를 이용해 디스크 연결 상태를 확인합니다. 
+가상머신에 디스크가 연결되면, 가상머신에 접속하여 볼륨을 확장합니다. 디스크관리를 이용해 디스크 연결 상태를 확인합니다.
 
-```
-$ lsblk
-NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sr0                        11:0    1 1024M  0 rom
-vda                       252:0    0   50G  0 disk
-├─vda1                    252:1    0    1G  0 part /boot
-└─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
-vdb                       252:16   0  200G  0 disk
-└─vdb1                    252:17   0  200G  0 part
-  └─data1_vg-data1_lv0    253:2    0  200G  0 lvm  /data1
-vdc                       252:32   0  100G  0 disk
-```
+<center>![windows-74-vm-data-attach-disk](../../assets/images/windows-74-vm-data-attach-disk.png){ width="450" }</center>
 
-`fdisk`를 이용해 디스크에 파티션을 생성합니다. 
+추가된 디스크를 이용해 볼륨 확장하는 방법은 위에서 설명한 [루트 디스크 확장](#_4)의 방법과 동일합니다. 
 
-```
-$ fdisk /dev/vdc
-
-Welcome to fdisk (util-linux 2.37.2).
-Changes will remain in memory only, until you decide to write them.
-Be careful before using the write command.
-
-Device does not contain a recognized partition table.
-Created a new DOS disklabel with disk identifier 0xc04c992f.
-
-Command (m for help): n
-Partition type
-   p   primary (0 primary, 0 extended, 4 free)
-   e   extended (container for logical partitions)
-Select (default p): p
-Partition number (1-4, default 1): 1
-First sector (2048-209715199, default 2048):
-Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-209715199, default 209715199):
-
-Created a new partition 1 of type 'Linux' and of size 100 GiB.
-
-Command (m for help): t
-Selected partition 1
-Hex code or alias (type L to list all): 8e
-Changed type of partition 'Linux' to 'Linux LVM'.
-
-Command (m for help): w
-The partition table has been altered.
-Calling ioctl() to re-read partition table.
-Syncing disks.
-```
-
-`pvcreate` 명령을 이용해 파티션을 물리 볼륨으로 생성합니다. 
-
-```
-$ pvcreate /dev/vdc1
-  Physical volume "/dev/vdc1" successfully created.
-```
-
-`vgextend`를 실행하여 물리 볼륨을 볼륨 그룹에 추가하여 확장합니다. 
-
-```
-$ vgextend data1_vg /dev/vdc1
-  Volume group "data1_vg" successfully extended
-```
-
-`lvextend`를 실행하여 논리 볼륨을 확장하고 파일 시스템을 확장합니다. 
-
-```
-$ lvextend -r -l +100%FREE /dev/data1_vg/data1_lv0
-  Size of logical volume data1_vg/data1_lv0 changed from <200.00 GiB (51199 extents) to 299.99 GiB (76798 extents).
-  Logical volume data1_vg/data1_lv0 successfully resized.
-meta-data=/dev/mapper/data1_vg-data1_lv0 isize=512    agcount=9, agsize=6553344 blks
-         =                       sectsz=512   attr=2, projid32bit=1
-         =                       crc=1        finobt=1, sparse=1, rmapbt=0
-         =                       reflink=1    bigtime=1 inobtcount=1
-data     =                       bsize=4096   blocks=52427776, imaxpct=25
-         =                       sunit=0      swidth=0 blks
-naming   =version 2              bsize=4096   ascii-ci=0, ftype=1
-log      =internal log           bsize=4096   blocks=12799, version=2
-         =                       sectsz=512   sunit=0 blks, lazy-count=1
-realtime =none                   extsz=4096   blocks=0, rtextents=0
-data blocks changed from 52427776 to 78641152
-```
+디스크 확장의 구체적인 절차는 위 섹션의 문서를 참고하십시오.
 
 ### 디스크 연결 해제
 
 이번 섹션에서는 가상머신에 연결된 디스크를 안전하게 해제하는 방법을 설명합니다. 
 
-먼저 디스크의 볼륨이 마운트 되어 있는 디렉토리를 확인하기 위해 다음의 명령을 실행합니다. 
+먼저 디스크의 볼륨을 확인하기 위해 가상머신 콘솔에서 디스크관리를 실행합니다. 
 
-```
-$ df -h
-Filesystem                         Size  Used Avail Use% Mounted on
-devtmpfs                           3.8G     0  3.8G   0% /dev
-tmpfs                              3.8G     0  3.8G   0% /dev/shm
-tmpfs                              1.6G  8.9M  1.5G   1% /run
-/dev/mapper/cs_centos9--base-root   46G  4.4G   41G  10% /
-tmpfs                              3.8G     0  3.8G   0% /tmp
-/dev/mapper/data1_vg-data1_lv0     300G  2.2G  298G   1% /data1
-/dev/vda1                         1014M  263M  752M  26% /boot
-tmpfs                              769M   36K  769M   1% /run/user/0
-```
+<center>![windows-72-vm-volume-07](../../assets/images/windows-72-vm-volume-07.png){ style="margin-top: 20px;" width="600" }</center>
 
-마운트 지점을 확인한 후 해당 디렉토리의 볼륨의 마운트 해제합니다. 
+해제할 볼륨을 선택하고 볼륨삭제를 실행합니다.
 
-```
-$ umount /data1
-```
+<center>![windows-75-vm-data-detach-disk](../../assets/images/windows-75-vm-data-detach-disk.png){ style="margin-top: 20px;" width="600" }</center>
 
-마운트 해제한 볼륨이 가상머신 재부팅 이후에 다시 마운트 되지 않도록 fstab에서 설정을 삭제합니다. 
-
-```
-$ vi /etc/fstab
-
-# Delete following line of fstab
-/dev/data1_vg/data1_lv0           /data1                  xfs     defaults        0 0
-```
+<center>![windows-76-vm-data-detach-disk](../../assets/images/windows-76-vm-data-detach-disk.png){ style="margin-top: 20px;" width="600" }</center>
 
 가상머신에 연결된 디스크를 선택하여 "디스크 분리" 아이콘 액션 메뉴를 클릭합니다. 표시되는 대화상자에서 "확인" 버튼을 클릭하여 디스크를 가상머신에서 분리합니다. 
 
-<center>![centos-72-vm-data-detach-disk](../../assets/images/centos-72-vm-data-detach-disk.png){ width="450" }</center>
+<center>![ubuntu-72-vm-data-detach-disk](../../assets/images/centos-72-vm-data-detach-disk.png){ width="450" }</center>
 
-동일한 방법으로 연결되어 있는 데이터 디스크를 모두 연결 해제한 후 `lsblk` 명령을 실행하여 디스크가 분리 되었는지 확인합니다. 
+연결되어 있는 데이터 디스크를 연결 해제한 후 디스크관리를 실행하여 디스크가 분리 되었는지 확인합니다. 
 
-```
-$ lsblk
-NAME                      MAJ:MIN RM  SIZE RO TYPE MOUNTPOINTS
-sr0                        11:0    1 1024M  0 rom
-vda                       252:0    0   50G  0 disk
-├─vda1                    252:1    0    1G  0 part /boot
-└─vda2                    252:2    0   49G  0 part
-  ├─cs_centos9--base-root 253:0    0 45.1G  0 lvm  /
-  └─cs_centos9--base-swap 253:1    0  3.9G  0 lvm  [SWAP]
-```
+<center>![windows-77-vm-data-detach-disk](../../assets/images/windows-77-vm-data-detach-disk.png){ width="450" }</center>
 
 !!! info "분리된 디스크의 재사용"
     디스크를 삭제하지 않는 한 가상머신으로부터 분리된 디스크는 언제든 다시 연결하여 사용할 수 있습니다. 
 
-    해당 디스크에는 볼륨 정보가 남아 있고, 이 논리 볼륨 정보를 이용해 다른 가상머신에서도 돌일하게 마운트하여 사용할 수 있습니다. 
+    해당 디스크에는 볼륨 정보가 남아 있고, 이 볼륨 정보를 이용해 다른 가상머신에서도 동일하게 볼륨을 연결하여 사용할 수 있습니다. 
