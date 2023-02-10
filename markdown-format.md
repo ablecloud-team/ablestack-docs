@@ -34,7 +34,8 @@
     === "코드블록 라인번호"
         
         ``` markdown
-            ``` shell linenums="1"
+            ``` shell linenums="1 3"
+            10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
             10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
             10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
             ```
@@ -66,7 +67,8 @@
 
     === "코드블록 라인번호"
         
-        ``` shell linenums="1"
+        ``` shell linenums="1 3"
+        10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         ```
@@ -80,7 +82,8 @@
 
 ## 플러그인
 
-### Image Lightbox
+### glightbox (Image Lightbox)
+이미지 클릭 시, Light Box(모달창) 생성되어 확대하여 볼 수 있는 플러그인 입니다.
 1. PyPI 플러그인을 설치합니다.
     ```
     pip3 install mkdocs-glightbox
