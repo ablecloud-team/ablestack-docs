@@ -43,7 +43,7 @@ ABLSTACK은 가상머신에 서로 다른 네트워크에 연결되는 여러 NI
 
 <center>![windows-78-vm-add-nics-ip](../../assets/images/windows-78-vm-add-nics-ip.png){ width="600" }</center>
 
-네트워크 인터페이스(아래의 예제에서 Ethernet Instance 0 2)를 선택하고 자세히를 클릭하여 정보를 확인합니다. (아래의 예제에서 Ethernet Instance 0 2 부분은 가상머신에 할당된 NIC의 디바이스명으로 가상머신에 따라 다를 수 있습니다.)
+네트워크 인터페이스(예제에서 Ethernet Instance 0 2)를 선택하고 자세히를 클릭하여 정보를 확인합니다. (예제에서 Ethernet Instance 0 2 부분은 가상머신에 할당된 NIC의 디바이스명으로 가상머신에 따라 다를 수 있습니다.)
 
 <center>![windows-78-vm-add-nics-ip1](../../assets/images/windows-78-vm-add-nics-ip1.png){ style="margin-top: 20px;" width="400" }</center>
 
