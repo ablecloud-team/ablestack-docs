@@ -5,10 +5,7 @@
 다음 그림은 앞으로 구성할 OOOOOOO 구조 전체를 보여줍니다.
 아래 예시를 적용한 아키텍처 구성도를 참고하여 구성합니다.
 
-<figure markdown>
-!![3tier-linux-01](/assets/images/3tier-linux-architecture.png)
-<figcaption>3tier-linux-01</figcaption>
-</figure>
+![3tier-linux-01](/assets/images/3tier-linux-architecture.png){:class="imgCenter"}
 
 
 ## 구성 정보

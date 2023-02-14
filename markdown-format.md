@@ -34,7 +34,8 @@
     === "코드블록 라인번호"
         
         ``` markdown
-            ``` shell linenums="1"
+            ``` shell linenums="1 3"
+            10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
             10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
             10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
             ```
@@ -69,6 +70,7 @@
         ``` shell linenums="1"
         10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
+        10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         ```
 
     === "코드블록 강조"
@@ -78,16 +80,3 @@
         10.1.1.11:/kubernetes	/home/cloud/nfs	nfs	defaults	0	0
         ```
 
-## 플러그인
-
-### Image Lightbox
-1. PyPI 플러그인을 설치합니다.
-    ```
-    pip3 install mkdocs-glightbox
-    ```
-2. mkdocs.yml 플러그인 섹션에 glightbox 플러그인을 추가합니다.
-    ```
-    plugins:
-    - glightbox:
-        width: 80%
-    ```

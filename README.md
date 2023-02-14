@@ -49,6 +49,25 @@ Ablestack Docs 사이트는 MkDocs의 Third Party 테마인 Material Theme을 �
 ```
 $ pip install mkdocs-material
 ```
+
+## 플러그인 설치
+
+### glightbox (Image Lightbox)
+이미지 확대/축소 기능을 사용할 수 있는 플러그인 입니다.
+
+다음의 명령을 개발환경에서 실행합니다.
+```
+$ pip3 install mkdocs-glightbox
+```
+
+mkdocs.yml 플러그인 섹션에 glightbox 플러그인을 추가합니다.
+
+```
+plugins:
+- glightbox:
+    width: 80%
+```
+
 ## 개발 참여
 
 개발환경을 설정했다면 Mold 사용자 가이드 소스를 GitHub 사용자 계정애 Fork하여 개발에 참여할 수 있습니다. GitHub 소스를 Fork 하고, 사용자 개발 환경에 Clone하여 개발에 참여하는 것은 GitHub의 사용자 가이드를 참고합니다. 

@@ -9,12 +9,15 @@
 ### 이미지 표시
 이미지 위치를 가운데로 적용합니다.
 
-<figure markdown>
-![이미지 제목](이미지 경로.png)
-</figure>
+- 사용 예:
+
+![이미지 이름](이미지 상대경로){:class="imgCenter"}
 
 ### 웹사이트 링크
 새탭에서 링크가 열리도록 합니다.
+
+- 사용 예:
+
 [MariaDB Repository Link](https://mariadb.org/download/?t=repo-config){:target="_blank"}
 
 ### Admonitions
