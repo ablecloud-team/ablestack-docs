@@ -102,6 +102,5 @@
 
     === "접을 수 있는 Admonitions" 
 
-        ??? info ""
+        ??? info "info 제목"
         Info 내용 입력 (긴 코드에는 접을 수 있는 블록(Collapsible blocks)을 사용합니다.)
-        
