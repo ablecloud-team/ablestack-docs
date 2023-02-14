@@ -79,13 +79,13 @@ Ablestack Docs 소스를 Clone 한 디렉토리로 이동하면 mkdocs.yml 파�
 $ mkdocs serve
 ```
 
-jinja2.exceptions.TemplateNotFound 에러 처리
-
-``` 
-# Material의 language 템플릿 파일 ko.html를 kr.html로 이름을 변경합니다.
-$ cd /opt/homebrew/lib/python3.10/site-packages/material/partials/languages/
-$ mv ko.html kr.html
-```
+> jinja2.exceptions.TemplateNotFound 에러 처리
+> Material의 language 템플릿 파일 ko.html를 kr.html로 이름을 변경합니다.
+> 
+> ``` 
+> $ cd /opt/homebrew/lib/python3.10/site-packages/material/partials/languages/
+> $ mv ko.html kr.html
+> ```
     
 
 변경된 소스가 바로 반영되어 웹 브라우저에서 결과를 확인할 수 있으며 다음의 주소를 주소창에 입력하여 작성된 문서의 내용을 확인할 수 있습니다. 
