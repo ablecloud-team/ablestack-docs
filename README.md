@@ -81,6 +81,7 @@ $ mkdocs serve
 
 !!! info "jinja2.exceptions.TemplateNotFound 에러 처리"
     Material의 language 템플릿에 ko.html를 kr.html로 이름을 변경합니다.
+    
         ``` title="MacOS 계열"
         cd /opt/homebrew/lib/python3.10/site-packages/material/partials/languages/
         mv ko.html kr.html
