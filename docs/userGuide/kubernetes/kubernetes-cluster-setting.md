@@ -2,6 +2,20 @@
 
 Kubernetes Cluster의 Dashboard 설정 및 kubectl 명령어를 이용한 서비스 확인
 
+## Kubernetes Config 파일 다운로드
+
+Mold에서 생성된 Kubernetes 설정 및 클러스터 확인을 위해서는 Kubernetes config 파일을 **Mold > 컴퓨트 > 쿠버네테스** 화면으로 이둥 후
+**엑세스** 탭에서 **쿠버네테스 클러스터 구성 다운로드** 버튼을 클릭하여 config 파일을 다운로드 해야 합니다.
+
+![kubernetes-guide-kubernetes-cluster-setting-01](../../assets/images/kubernetes-guide-kubernetes-cluster-setting-01.png){:class="imgCenter imgBorder"}
+
+
+!!! Tip
+    아래 명령어를 이용하면 엑세스 탭에서 보이는 ```--kubeconfig kube.conf``` 해당 부분은 생략 할 수 있습니다.
+    ```bash
+    export KUBECONFIG=$(realpath ./kube.conf)
+    ```
+
 ## Kubernetes Dashboard 배포
 
 Kubernetes 정보를 웹에서 확인 가능한 Dashboard를 배포하는 절차를 설명합니다.
@@ -106,7 +120,7 @@ spec:
 
 **네트워크 > 가상머신용 네트워크** 리스트 화면에서 네트워크 선택 후 **Public IP 주소** 탭에서 **새 IP 주소 가져오기** 버튼을 클릭 후 IP 선택 후 **확인** 버튼을 클릭 하여 새 IP 할당
 
-![kubernetes-guide-kubernetes-cluster-setting-01](../../assets/images/kubernetes-guide-kubernetes-cluster-setting-01.png){:class="imgCenter"}
+![kubernetes-guide-kubernetes-cluster-setting-02](../../assets/images/kubernetes-guide-kubernetes-cluster-setting-02.png){:class="imgCenter"}
 
 **네트워크 > 가상머신용 네트워크** 리스트 화면에서 네트워크 선택 후 **Public IP 주소** 탭에서 새 IP 주소를 클릭 후 **부하 분산** 탭을 선택 합니다.
     **이름**, **Public 포트**, **사설포트** 및 가상머신을 추가 후 **확인** 버튼을 클릭 합니다.
