@@ -161,7 +161,7 @@ $ nmcli con down ens8; nmcli con up ens8
 $ nmcli con down ens3; nmcli con up ens3
 ```
 
-위 명령을 실행항 후 라우팅 테이블을 조회하면 다음과 같습니다. 
+위 명령을 실행한 후 라우팅 테이블을 조회하면 다음과 같습니다. 
 
 ```
 $ route
