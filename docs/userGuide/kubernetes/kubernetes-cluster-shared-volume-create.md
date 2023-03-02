@@ -18,13 +18,13 @@ ssh 방화벽 설정을 위해 아래 명령어를 입력 합니다.
    ```
 Mold에서 **네트워크 > 가상머신용 네트워크** 화면에서 Kubernetes용 네트워크를 선택 후 **Public IP 주소** 탭 화면으로 이동하여 **IP 주소** 를 클릭하여 설정 화면으로 이동합니다.
 
-![kubernetes-cluster-shared-volume-create-01](../../assets/images/kubernetes-cluster-shared-volume-create-01.png){:class="imgCenter"}
+![kubernetes-cluster-shared-volume-create-01](../../assets/images/kubernetes-cluster-shared-volume-create-01.png){:class="imgCenter imgBorder"}
 
 **포트 포워딩** 탭에서 **사설 포트**, **Public 포트** 각각 입력란에 **22**, **2221** 입력 후 **추가** 버튼을 클릭 하여 Ubuntu Desktop 을 선택 후 **확인** 버튼을 클릭 합니다.
    
-![kubernetes-cluster-shared-volume-create-02](../../assets/images/kubernetes-cluster-shared-volume-create-02.png){:class="imgCenter"}
+![kubernetes-cluster-shared-volume-create-02](../../assets/images/kubernetes-cluster-shared-volume-create-02.png){:class="imgCenter imgBorder"}
 
-![kubernetes-cluster-shared-volume-create-03](../../assets/images/kubernetes-cluster-shared-volume-create-03.png){:class="imgCenter"}
+![kubernetes-cluster-shared-volume-create-03](../../assets/images/kubernetes-cluster-shared-volume-create-03.png){:class="imgCenter imgBorder"}
 
 아래 명령어를 이용하여 SSH 접속을 합니다.
 
@@ -79,7 +79,7 @@ ssh -i [SSH Key 파일명] cloud@[public IP] -p [SSH 포트]
 - public IP : 네트워크에서 생성된 public IP
 - SSH 포트 : 각 Node별로 포트포워딩된 포트. 위 이미지 기준으로 **SSH 포트**
 
-![kubernetes-cluster-shared-volume-create-04](../../assets/images/kubernetes-cluster-shared-volume-create-04.png){:class="imgCenter"}
+![kubernetes-cluster-shared-volume-create-04](../../assets/images/kubernetes-cluster-shared-volume-create-04.png){:class="imgCenter imgBorder"}
 
 ```shell
 ssh -i ablecloud.key cloud@10.10.1.61 -p 2222
@@ -101,69 +101,51 @@ sudo mount -a
 
 ### Kubernetes 퍼시스턴트 볼륨 설정
 
-각 Node의 퍼시스턴트 볼륨을 사용하도록 yaml 파일 생성 후 배포
+각 Node의 퍼시스턴트 볼륨을 사용하도록 yaml 파일 생성 후 배포합니다.
+
+!!! Info
+    Budibase 서비스 배포는 2개의 퍼시스턴트 볼륨 클래임이 생성됩니다. 각 클래임은 별도의 퍼시스턴트 볼륨으로 구성되어야 합니다.
 
 ```yaml title="pv-volume.yaml 생성" linenums="1"
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: task-pv-volume
-  labels:
-    type: local
+    name: redis-pv
 spec:
-  storageClassName: manual
-  capacity:
-    storage: 100Gi
-  accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/kubernetes"
+    capacity: #용량
+        storage: 300Gi # PersistentVolume(PV) 사이즈를 지정한다.
+    accessModes:
+        - ReadWriteMany #여러 클라이언트를 위한 읽기 쓰기 마운트
+    nfs:
+        server: 10.1.1.11 # nfs서버의 ip주소
+        path: /kubernetes #nfs서버에서 공유한 디렉토리명
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+    name: minos-pv
+spec:
+    capacity: #용량
+        storage: 300Gi # PersistentVolume(PV) 사이즈를 지정한다.
+    accessModes:
+        - ReadWriteMany #여러 클라이언트를 위한 읽기 쓰기 마운트
+    nfs:
+        server: 10.1.1.11 # nfs서버의 ip주소
+        path: /kubernetes #nfs서버에서 공유한 디렉토리명
 ```
 
 ```shell title="퍼시스턴트 볼륨 배포"
 kubectl apply -f pv-volume.yaml
 ```
 
-``` shell title="퍼시스턴트 볼륨 확인"
+``` shell
 kubectl get pv task-pv-volume
 ```
 
 확인 결과 **STATUS** 가 **Available** 상태이며 이는 아직 퍼시스턴트 볼륨 클레임이 바인딩 되지 않았다는 것을 의미합니다.
 
-```shell
+```shell title="퍼시스턴트 볼륨 확인"
 NAME             CAPACITY   ACCESSMODES   RECLAIMPOLICY   STATUS      CLAIM     STORAGECLASS   REASON    AGE
-task-pv-volume   100Gi      RWO           Retain          Available             manual                   4s
-```
-
-### Kubernetes 퍼시스턴트 볼륨 클레임 생성
-
-Pod는 퍼시스턴트 볼륨 클레임을 사용하여 물리적인 스토리지를 요청합니다.
-
-```yaml title="pv-claim.yaml" linenums="1"
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: task-pv-claim
-spec:
-  storageClassName: manual
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
-```
-
-```shell title="퍼시스던트 볼륨 클레임 생성"
-kubectl apply -f pv-claim.yaml
-```
-
-``` shell title="퍼시스턴트 볼륨 확인"
-kubectl get pv task-pv-volume
-```
-
-아래 정보처럼 **STATUS** 가 **Bound** 이면 정상적으로 생성된 것입니다.
-
-```shell
-NAME             CAPACITY   ACCESSMODES   RECLAIMPOLICY   STATUS    CLAIM                   STORAGECLASS   REASON    AGE
-task-pv-volume   10Gi       RWO           Retain          Bound     default/task-pv-claim   manual                   2m
+redis-pv         300Gi      RWO           Retain          Available             manual                   4s
+minos-pv         300Gi      RWO           Retain          Available             manual                   4s
 ```
