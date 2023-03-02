@@ -1,0 +1,1986 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="kr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ABLECLOUD Co. Ltd" name="author"/>
+<link href="../book-of-glue/" rel="prev"/>
+<link href="../book-of-wall/" rel="next"/>
+<link href="../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.15" name="generator"/>
+<title>Mold 알아보기 - ABLESTACK Online Docs</title>
+<link href="../../assets/stylesheets/main.113286f1.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CCutive+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"Cutive Mono"}</style>
+<link href="../../assets/css/basic.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#mold">
+          콘텐츠로 이동
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ABLESTACK Online Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ABLESTACK Online Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Mold 알아보기
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="검색" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="검색" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="검색" class="md-search__options">
+<button aria-label="지우기" class="md-search__icon md-icon" tabindex="-1" title="지우기" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            검색 초기화
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="저장소로 이동">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      환영합니다
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../architecture-overview/">
+        아키텍처
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../getting-started/getting-started-overview/">
+        시작하기
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../administration/cube/userinterface-guide/">
+        관리가이드
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../userGuide/vms/centos-guide-prepare-vm/">
+        레퍼런스 가이드
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../releaseNote/release-cerato/">
+        릴리즈노트
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../troubleshooting/troubleshooting/">
+        지식베이스
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ABLESTACK Online Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    ABLESTACK Online Docs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="저장소로 이동">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        환영합니다
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          아키텍처
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          아키텍처
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          ABLESTACK의 탄생
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK의 탄생
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../architecture-overview/">
+        데이터센터의 역사와 문제점
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../birth-of-ablestack/">
+        문제해결방법-ABLESTACK
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          ABLESTACK 물리 아키텍처
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK 물리 아키텍처
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ablestack-basic-structure/">
+        ABLESTACK의 기본구조
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../host-architecture/">
+        호스트 아키텍처
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../network-architecture/">
+        네트워크 아키텍처
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-cube/">
+        Cube 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-cell/">
+        Cell 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-glue/">
+        Glue 알아보기
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Mold 알아보기
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Mold 알아보기
+      </a>
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mold">
+    Mold의 설계 목표
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    아키텍처
+  </a>
+<nav aria-label="아키텍처" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mold-cloud-vm">
+    Mold Cloud VM
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mold-platform">
+    Mold Platform
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#infra">
+    Infra 구성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#system-vm">
+    System VM
+  </a>
+<nav aria-label="System VM" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#console-proxy-vm">
+    Console Proxy VM
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#secondary-storage-vm">
+    Secondary Storage VM
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    사용자 관리 및 인증
+  </a>
+<nav aria-label="사용자 관리 및 인증" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    조직 및 사용자 관리
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    통합 인증 아키텍처
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    가상머신 관리
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    스토리지 관리
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    네트워크 관리
+  </a>
+<nav aria-label="네트워크 관리" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-network">
+    Basic Network
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-network">
+    Advanced Network
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    마이크로 세그멘테이션
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    백업 관리
+  </a>
+<nav aria-label="백업 관리" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    스냅샷 백업
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#veeam">
+    Veeam 백업
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    고가용성 제공
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    호스트 롤링 업데이트
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api">
+    API 및 인터페이스
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          ABLESTACK Extended
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Extended
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-wall/">
+        Wall 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-koral/">
+        Koral 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          ABLESTACK Service
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Service
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-works/">
+        Works 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-genie/">
+        Genie 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          시작하기
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          시작하기
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/getting-started-overview/">
+        시작하며
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-cube/">
+        Cube 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-glue/">
+        Glue 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-mold/">
+        Mold 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          ABLESTACK Extended
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Extended
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-wall/">
+        Wall 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          ABLESTACK Service
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Service
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-works/">
+        Works 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-genie/">
+        Genie 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          ABLESTACK Add Host
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Add Host
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-add-host/">
+        호스트 추가 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          관리가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          관리가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Cube 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Cube 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/overview-guide/">
+        개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/log-guide/">
+        기록
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/storage-guide/">
+        저장소
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/networking-guide/">
+        네트워킹
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/account-guide/">
+        계정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/service-guide/">
+        서비스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/ablestack-guide/">
+        ABLESTACK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/update-software-guide/">
+        소프트웨어 최신화
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/application-guide/">
+        애플리케이션
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/diagnostic-guide/">
+        진단 보고서
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/kerneldump-guide/">
+        커널 덤프
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/terminal-guide/">
+        터미널
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/selinux-guide/">
+        SELinux
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Mold 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Mold 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/account-mngt-guide/">
+        계정 및 사용자 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/project-mngt-guide/">
+        프로젝트 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/serviceoffering-mngt-guide/">
+        서비스오퍼링 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/network-mngt-guide/">
+        사용자 네트워크 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/vm-mngt-guide/">
+        가상머신 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/template%26ISO-mngt-guide/">
+        템플릿 및 ISO 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/host-mngt-guide/">
+        호스트 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/storage-mngt-guide/">
+        스토리지 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/network%26traffic-mngt-guide/">
+        네트워크 및 트래픽 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/systemvm-mngt-guide/">
+        시스템VM 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/usage-mngt-guide/">
+        Usage 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/cloud-mngt-guide/">
+        Cloud 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/ha-mngt-guide/">
+        고가용성(HA) 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/event-mngt-guide/">
+        이벤트 관리
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Glue 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Glue 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/config-guide/">
+        설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/account%26role-guide/">
+        사용자 및 역할 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/proxyconfig-guide/">
+        프록시 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/api-request-audit-guide/">
+        API 요청 감사
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/nfs-ganesha-mngt-guide/">
+        NFS-Ganesha 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/plugin-guide/">
+        플러그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/troubleshooting-guide/">
+        문제해결
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Wall 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          Wall 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/dashboard-search/">
+        대시보드 검색
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/create/">
+        생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/dashboard/">
+        대시보드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/explore/">
+        탐색
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/alerting/">
+        경고
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/preferences/">
+        환경 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/netdive-guide/">
+        Netdive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          Works 관리자 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          Works 관리자 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-login/">
+        관리자 로그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-dashboard/">
+        대시보드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-workspaces/">
+        워크스페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-virtual-machines/">
+        가상머신
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-user/">
+        사용자
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-setting/">
+        설정
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+          Works 사용자 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+          Works 사용자 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/user-login/">
+        사용자 로그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/user-desktop/">
+        데스크탑
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          Genie 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+          Genie 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/quick-start/">
+        Quick Start
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/views/">
+        Views
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/resources/">
+        리소스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/access/">
+        액세스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/management/">
+        관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/configuration/">
+        설정
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system-check/">
+        ABLESTACK 시스템점검
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system-restart/">
+        ABLESTACK 시스템 재기동
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          레퍼런스 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          레퍼런스 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          CentOS 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_1">
+<span class="md-nav__icon md-icon"></span>
+          CentOS 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-ssh-key-use/">
+        비밀번호/SSH Key 관리기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-userdata/">
+        UserData 적용 기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Ubuntu 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Ubuntu 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-ssh-key-use/">
+        비밀번호/SSH Key 관리기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-userdata/">
+        UserData 적용 기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          Windows 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+          Windows 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-password-userdata/">
+        가상머신 설정 자동화 적용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          Windows 기반 3Tier 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Windows 기반 3Tier 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-architecture/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-network/">
+        네트워크 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-db/">
+        DB 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-was/">
+        WAS 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-web/">
+        WEB 구성
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Linux 기반 3Tier 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Linux 기반 3Tier 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-prepare/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-network/">
+        네트워크 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm/">
+        관리 가상머신 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-db/">
+        DB 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-was/">
+        WAS 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-web/">
+        WEB 서버 구성
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          Kubernete 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_6">
+<span class="md-nav__icon md-icon"></span>
+          Kubernete 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-prepare/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-network-create/">
+        네트워크 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-iso-add/">
+        Kubernetes ISO 등록
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-create/">
+        Cluster 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-setting/">
+        Cluster 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-shared-volume-create/">
+        공유 볼륨 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-service-add/">
+        서비스 배포
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          릴리즈노트
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          릴리즈노트
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../releaseNote/release-cerato/">
+        Cerato
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../releaseNote/release-note/">
+        Bronto
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          지식베이스
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          지식베이스
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../troubleshooting/troubleshooting/">
+        문제해결사례
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mold">
+    Mold의 설계 목표
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    아키텍처
+  </a>
+<nav aria-label="아키텍처" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mold-cloud-vm">
+    Mold Cloud VM
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mold-platform">
+    Mold Platform
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#infra">
+    Infra 구성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#system-vm">
+    System VM
+  </a>
+<nav aria-label="System VM" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#console-proxy-vm">
+    Console Proxy VM
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#secondary-storage-vm">
+    Secondary Storage VM
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    사용자 관리 및 인증
+  </a>
+<nav aria-label="사용자 관리 및 인증" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    조직 및 사용자 관리
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    통합 인증 아키텍처
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    가상머신 관리
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    스토리지 관리
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    네트워크 관리
+  </a>
+<nav aria-label="네트워크 관리" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basic-network">
+    Basic Network
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-network">
+    Advanced Network
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    마이크로 세그멘테이션
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    백업 관리
+  </a>
+<nav aria-label="백업 관리" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    스냅샷 백업
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#veeam">
+    Veeam 백업
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    고가용성 제공
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    호스트 롤링 업데이트
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#api">
+    API 및 인터페이스
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>Mold 알아보기</h1>
+<p>Mold는 '주형, 뼈대' 등의 의미를 가진 명사로, 틀에 부어 만드는 것을 가리키는 단어입니다. Mold는 이러한 단어의 의미를 이용해 Cloud 관리 플랫폼에 Mold 라는 이름을 붙였습니다. 말 그대로 사용자에게 자동화 또는 오케스트레이션 등을 통해 일정한 틀을 만들어 제공하고, 사용자는 그 틀 안에서 가상자원을 생성하고 사용하도록 하는 플랫폼입니다. </p>
+<p>Mold는 이러한 클라우드의 기본적인 사상과 Mold HCI의 특성을 조합하여, 사용자에게 최상의 클라우드 환경을 제공하기 위해 개발되었습니다. </p>
+<h2 id="mold">Mold의 설계 목표<a class="headerlink" href="#mold" title="Permanent link">¶</a></h2>
+<p>Mold는 실제 사용자의 입장에서 Mold HCI를 사용해 가상머신과 네트워크를 만들고, 서비스를 배포하기 위한 핵심 플랫폼입니다. 즉, 사용자가 가장 많이 사용하는 플랫폼입니다. 따라서 사용자가 편리하게 사용할 수 있는 사용자 환경을 제공해야 하는데, 이를 실현하기 위해 다음과 같은 목표로 지속적인 플랫폼 개발 및 업그레이드를 계획하고 실행합니다. </p>
+<ul>
+<li>간결하고 직관적인 웹 기반, 멀티 플랫폼, 완벽한 모바일 환경 대응 제품</li>
+<li>완벽한 Private Cloud 환경 제공을 위해 다양한 가상화 플랫폼을 통합하여 관리</li>
+<li>다양한 환경에 대한 자동화, 오케스트레이션 제공</li>
+<li>가상머신 및 컨테이너 환경에 능동적으로 대응할 뿐 아니라, 지속적으로 다양한 가상화 환경 대응</li>
+<li>높은 확장성과 유연성, 안정성 제공</li>
+</ul>
+<p>본 문서에서는 이러한 설계 목표를 달성하기 위한 Mold의 아키텍처 및 각종 기능, 사용법 등에 대한 간단한 소개를 제공합니다. </p>
+<h2 id="_1">아키텍처<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>Mold는 클라우드 플랫폼으로, Mold으로 구성된 HCI 클러스터 및 로컬 또는 외부에서 호스팅 되는 또 다른 Mold HCI 클러스터, VMWare/Citrix Hypervisor/Hyper-V 클러스터의 개체 및 서비스를 관리하고 모니터링 할 수 있습니다. 이러한 기능은 Mold HCI 클러스터 상에서 실행되는 Mold Cloud VM에 의해 서비스됩니다. </p>
+<h3 id="mold-cloud-vm">Mold Cloud VM<a class="headerlink" href="#mold-cloud-vm" title="Permanent link">¶</a></h3>
+<p>Mold는 Mold HCI 내에서 실행되는 Mold Cloud VM에 의해서 서비스됩니다. 해당 가상머신은 Mold 서비스가 모두 내장되어 있는 가상 어플라이언스입니다. Mold Cloud VM은 Mold HCI 클러스터를 구성하는 호스트 상에 고가용성 클러스터를 구성하고, 해당 클러스터 내에 1개의 가상머신을 이용해 구성됩니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-software-architecture.png"><img alt="mold-software-architecture" src="../../assets/images/mold-software-architecture.png"/></a>
+</center></p>
+<p>최소 3대로 구성된 Mold HCI 호스트는 각각에 Failover Cluster를 구성할 수 있는 Agent가 설치되어 있습니다. 이를 통해 Mold VM에 대한 장애 조치 클러스터 서비스를 운영합니다.</p>
+<p>장애 조치 클러스터는 Management Network를 통해 각각의 Failover Cluster Agent에게 Cluster Heartbeat 신호를 보내서 해당 호스트가 정상적으로 동작하고 있는지 계속 확인합니다. </p>
+<p>Failover Cluster Agent는 Mold Cell의 libvirt를 이용해 Mold VM을 시작합니다. 이때 Failover Cluster Service 관리자에게 Mold VM 자원을 시작한다고 알리고, 어떤 호스트에 해당 가상머신을 실행할 수 있는지 확인하여 Failover Cluster Service 관리자의 통제에 따라 가상머신 시작이 가능한 호스트에서 Mold VM을 시작합니다. </p>
+<p>Mold VM은 Glue Storage에 루트 디스크 볼륨을 저장하여 관리합니다. 따라서 Mold VM은 어떤 호스트에서 가상머신이 실행 중이어도 동일한 데이터를 바라볼 수 있게 됩니다. </p>
+<p>호스트에 장애가 발생하게 되면 Failover Cluster Service는 해당 장애를 인식하게 되고, 해당 호스트에서 Mold VM이 실행 중이었다면 바로 다른 호스트에서 Mold VM을 시작하여 Mold 애플리케이션 서비스의 연속성을 보장합니다. </p>
+<h3 id="mold-platform">Mold Platform<a class="headerlink" href="#mold-platform" title="Permanent link">¶</a></h3>
+<p>Mold Cloud VM은 Mold 소프트웨어 플랫폼을 모두 포함하고 있기 때문에 사용자는 별도의 설치 절차 등의 복잡한 과정 없이 바로 Mold를 사용할 수 있습니다. </p>
+<p>Mold Platform은 크게 5가지의 구성요소로 이루어지며 각각의 구성요소의 상관관계를 그려보면 다음과 같습니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-platform-architecture.png"><img alt="mold-platform-architecture" src="../../assets/images/mold-platform-architecture.png"/></a>
+</center></p>
+<p>각각의 구성요소를 설명하면 다음과 같습니다. </p>
+<ul>
+<li>Mold Agent : 각각의 Mold HCI Host에 설치됩니다. 이 에이전트는 Cell 하이퍼바이저의 libvirt 라이브러리를 이용해 가상머신과 관련된 모든 명령을 실제적으로 Cell에 전달하는 역할과 호스트의 상태를 모니터링 하는 역할을 수행합니다. </li>
+<li>Mold Core Component : 인프라(호스트, 스토리지 등) 관리, 가상머신 관리, 볼륨 관리, 네트워크 관리 등의 핵심 기능을 처리하는 모듈과 플러그인을 제공합니다. </li>
+<li>Mold API : REST형식의 API를 제공하여 가상머신 등을 관리하는 인터페이스를 제공합니다. </li>
+<li>Mold CLI : Mold API를 호출하여 명령행 환경에서 사용자가 직접 명령을 전달하고, 가상자원을 관리할 수 있도록 지원합니다. </li>
+<li>Mold GUI : Mold API를 호출하여 웹 기반 환경에서 화면을 통해 사용자에게 기능을 사용할 수 있도록 관리 기능을 제공합니다. </li>
+</ul>
+<h2 id="infra">Infra 구성<a class="headerlink" href="#infra" title="Permanent link">¶</a></h2>
+<p>Mold는 완벽한 클라우드 환경을 구성하기 위해 다양한 개념의 인프라스트럭트 관리 체계를 제공합니다. 이러한 Full Scope Cloud 기능을 제공하기 위한 인프라 구성을 개념적으로 그려보면 다음과 같습니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-infra-structure.png"><img alt="mold-infra-structure" src="../../assets/images/mold-infra-structure.png"/></a>
+</center></p>
+<p>각각의 인프라 구성요소의 의미 및 역할은 다음과 같습니다. </p>
+<ul>
+<li>Zone : 물리적인 데이터센터를 의미합니다. 수많은 Rack과 Mold HCI 서버, 네트워크 장비 등으로 구성되어 있는 공간을 생각할 수 있습니다. 네트워크 토폴로지 상에 여러 North-West Traffic과 East-West Traffic을 포함합니다. </li>
+<li>Pod : 물리적으로 여러 개의 Rack으로 구성된 인프라 전체를 나타냅니다. 네트워크 토폴로지 상에 동일 East-West Traffic을 사용하는 서버와 네트워크 장비가 하나의 Pod입니다. </li>
+<li>Cluster : 물리적으로 여러 개의 Host로 구성된 인프라를 나타냅니다. 일반적으로 동일 ToR 스위치 상에 연결되어 있는 호스트의 집합으로 구성됩니다. </li>
+<li>Host : Mold Cube가 설치된 단일 서버를 나타내거나, VMWare ESXi, Citrix Hypervisor 등이 설치된 호스트일 수 있습니다. 클러스터 내의 Host는 반드시 동일한 클러스터 스위치(ToR 스위치)에 연결돼 있어야 합니다.</li>
+<li>Primary Storage : Mold가 가상머신을 만들 때 가상머신의 디스크로 사용하기 위해 연결하는 주스토리지입니다. Mold HCI는 기본적으로 Glue 스토리지를 사용하며, 이때 Glue의 Block Storage GW를 사용합니다. </li>
+<li>Secondary Storage : 가상머신을 생성하기 위한 ISO 및 템플릿 이미지 파일을 관리하거나, 스냅샷 백업을 저장하는 백업스토리지입니다. Mold HCI는 이미지만을 관리하는 목적으로 Glue 스토리지를 사용하며, 이때 Glue의 Filesystem GW를 사용합니다. 만약 스냅샷 백업을 저장하는 백업 용도인 경우 반드시 NFS를 지원하는 별도의 외장 백업 스토리지를 사용해야 합니다. </li>
+<li>Console Proxy VM : 가상머신의 콘솔을 표시하기 위한 시스템 가상머신입니다.</li>
+<li>Secondary Storage VM : 백업스토리지를 호스트에 연결하거나 백업을 처리하기 위한 에이전트를 포함하는 이미지/백업 서비스 가상머신입니다. </li>
+</ul>
+<h2 id="system-vm">System VM<a class="headerlink" href="#system-vm" title="Permanent link">¶</a></h2>
+<p>Mold는 Multi Hypervisor를 지원하는 클라우드 플랫폼으로 Mold HCI 클러스터를 다양한 하이퍼바이저로 구성하거나 별도로 구성된 하이퍼바이저 클러스터를 통합관리할 수 있습니다. </p>
+<p>이러한 멀티 하이퍼바이저 환경 속에서 Mold는 다양한 하이퍼바이저에서 실행되는 가상머신의 콘솔을 확인하거나 가상머신의 스냅샷을 백업하고, ISO 이미지를 제공하는 등의 기능 지원할 수 있어야 합니다. 이런 기능을 통합해서 지원하도록 설계된 가상머신을 System VM이라고 부릅니다. System VM은 위에서 소개한 Mold Infra를 구성하면 자동으로 배포되며 역할에 따라 Console Proxy VM과 Secondary Storage VM으로 나눌 수 있습니다. </p>
+<h3 id="console-proxy-vm">Console Proxy VM<a class="headerlink" href="#console-proxy-vm" title="Permanent link">¶</a></h3>
+<p>Console Proxy VM은 이름 그대로, 가상머신의 콘솔을 사용자에게 표시하는 역할을 하는 시스템 가상머신입니다. </p>
+<p>윈도우즈 또는 리눅스 가상머신은 처음 시작한 후 가상머신에 앱을 설치하거나, 여러 가지 설정을 적용하기 위해 가상머신에 접속해야 합니다. 각각의 하이퍼바이저는 VNC 등의 콘솔 포트를 이용해 자체적으로 가상머신의 콘솔을 볼 수 있는 기능을 지원합니다. </p>
+<p>멀티 하이퍼바이저를 지원하는 Mold는 이러한 다양한 하이퍼바이저의 콘솔 기능을 통합하여 제공하기 위해 통합해서 모든 하이퍼바이저의 콘솔을 보여줄 수 있는 콘솔 프록시가 필요합니다. 이러한 기능을 지원하기 위해 Console Proxy Server를 VM 형태로 제공합니다. </p>
+<p>Console Proxy VM의 구조를 그림으로 표현하면 다음과 같습니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/console-proxy-vm-structure.png"><img alt="console-proxy-vm-structure" src="../../assets/images/console-proxy-vm-structure.png"/></a>
+</center></p>
+<p>Console Proxy VM은 내부에 크게 2개의 구성요소를 포함하고 있습니다. 살펴보면 다음과 같습니다. </p>
+<ul>
+<li>웹 서버 : 별도의 웹 서버를 포함하고 있으며, Mold GUI에서 콘솔을 표시할 때 해당 웹서버의 화면을 호출합니다.<ul>
+<li>NoVNC Console : 가상머신의 콘솔을 표시하기 위해 NoVNC를 이용해 표시하기 위한 구성요소입니다. HTML5 기술을 이용해 콘솔을 표시합니다.</li>
+<li>Java VNC Console : 가상머신의 콘솔을 표시하기 위해 Java Applet으로 만들어진 구성요소입니다.</li>
+</ul>
+</li>
+<li>VNC Agent : Cell 또는 다른 하이퍼바이저의 VNC 서버에 접속하여 원하는 가상머신의 VNC 데이터를 가져오기 위한 에이전트입니다. </li>
+</ul>
+<p>Console Proxy VM의 에이전트는 Cell 또는 하이퍼바이저의 VNC 서버에 연결하여 정상인지 확인한 후, Mold Core 엔진에 Agent 상태를 보고하여 Mold가 가상머신의 콘솔을 표시할 수 있는 상태인지를 항상 확인할 수 있도록 합니다. </p>
+<p>사용자는 이러한 매커니즘을 통해 하이퍼바이저의 종류와 상관없이, 투명하게 가상머신의 콘솔은 Mold를 통해 일관성 있게 확인할 수 있게 됩니다. </p>
+<h3 id="secondary-storage-vm">Secondary Storage VM<a class="headerlink" href="#secondary-storage-vm" title="Permanent link">¶</a></h3>
+<p>Secondary Storage VM은 이미지를 저장하거나 스냅샷을 백업하기 위한 에이전트를 포함하는 시스템 가상머신입니다. </p>
+<p>멀티 하이퍼바이저를 지원하는 Mold는 하이퍼바이저별로 서로 다른 스냅샷 생성 방식 및 백업 방식을 조정하여 통합하고 투명하게 백업 등을 처리할 수 있도록 하기 위해서는 이러한 중간 프록시가 필요합니다. 이러한 기능을 지원하기 위해 Image/Snapshot Backup Agent를 가상머신 형태로 제공합니다. </p>
+<p>Secondary Storage VM의 구조를 그림으로 표현하면 다음과 같습니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/secondary-storage-vm-structure.png"><img alt="secondary-storage-vm-structure" src="../../assets/images/secondary-storage-vm-structure.png"/></a>
+</center></p>
+<p>Secondary Storage VM은 2개의 구성요소를 포함하고 있습니다. 살펴보면 다음과 같습니다. </p>
+<ul>
+<li>NFS 데몬 : Secondary Storage를 NFS 방식으로 마운트하고, 스토리지의 상태 및 용량 등을 확인하여 이미지 스토리지가 정상적인지 확인하게 됩니다.</li>
+<li>Secondary Storage Agent : 스토리지의 마운트 상태를 확인하여 Mold Core에 상태를 보고하고, Image 요청에 따라 동적으로 ABLESTACK HCI 서버에 Secondary Storage를 연결하는 작업을 수행합니다.</li>
+</ul>
+<p>사용자가 ISO 연결을 요청하면 Secondary Storage를 호스트에 연결하고, 연결이 이루어지면 요청한 이미지를 가상머신에 연결해 주는 일련의 작업을 수행하여 사용자가 GUI 상에서 간단한 버튼 액션만으로도 모든 작업이 이루어질 수 있도록 기능을 제공합니다.</p>
+<div class="admonition info">
+<p class="admonition-title">Secondary Storage 구성</p>
+<p>Secondary Storage VM은 스토리지 연결을 위해 NFS 프로토콜을 사용합니다. 따라서 Secondary Storage는 반드시 NFS 프로토콜을 지원해야 합니다. </p>
+</div>
+<h2 id="_2">사용자 관리 및 인증<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>Mold는 사용자 인증의 안정성 및 조직 내에서의 효율적인 인증체계 지원을 위해 다양한 방식의 인증체계를 지원합니다. </p>
+<p>Mold가 지원하는 인증 방법은 다음과 같습니다. </p>
+<ul>
+<li>Mold가 자체적으로 지원하는 Cookie 기반 인증 (SSL 사용 시 Secured Cookie 지원)</li>
+<li>Signature/HMAC 기반의 인증 (API Key/Secret Key)</li>
+<li>사전에 정의되어 정의된 단일 Pre-shared Key 기반 인증</li>
+<li>기업의 기능 통합 등을 지원하기 위한 비인증 통합 포트 사용 (기본 : Disable)</li>
+</ul>
+<p>본 문서에서는 이러한 인증 방법을 사용하기 위한 아키텍처를 설명합니다. </p>
+<h3 id="_3">조직 및 사용자 관리<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>Mold는 사용자의 조직 내에서 다양한 사용자가 접속하여 자신만의 가상 인프라 환경을 구성할 수 있는 Multi Tenant 환경을 제공합니다. </p>
+<p>다음의 그림은 Mold가 어떤 체계로 사용자의 정보를 관리하는지를 표현합니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-organization-users.png"><img alt="mold-organization-users" src="../../assets/images/mold-organization-users.png"/></a>
+</center></p>
+<p>Mold는 자체적으로 User Directory를 관리합니다. Mold의 User Directory는 다음과 같이 구성됩니다. </p>
+<ul>
+<li>Domain : 사용자 정보의 최상위 디렉토리입니다. 도메인의 이름과 해당 도메인이 가지는 네트워크 도메인 정보를 포함합니다. </li>
+<li>Account : 도메인은 여러 사용자 계정을 포함합니다. 사용자 계정은 사용자의 역할과 사용자명, 비밀번호, 이메일 주소, 사용자 성명, 사용자가 속한 도메인, 타임존, 계정이 사용할 네트워크 도메인, 그리고 SAML SSO를 사용하는 사용자인지의 여부 등의 정보를 포함합니다. </li>
+<li>Users : 사용자는 Account의 Alias(별칭)입니다. 계정은 여러 개의 사용자 Alias를 만들 수 있고, 목적에 따라 다양하게 사용할 수 있습니다. 사용자명, 비밀번호, Email, 사용자 성명, 타임존, SSO 사용 여부 등의 정보를 포함합니다. </li>
+<li>Role : 각각의 계정은 역할을 지정해야 합니다. 이 역할은 Mold의 수많은 API에 대한 권한 여부의 집합입니다. 즉, 가상머신에 대한 권한, 사용자 정보에 대한 권한 등의 집합체입니다. </li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">외부 디렉토리 서비스 연결</p>
+<p>Mold는 자체적으로 User Directory를 관리하지만, 조직에 따라 해당 조직이 기존에 사용하는 디렉토리 서비스를 사용하고 연동해야 할 수 있습니다. Mold는 LDAP 표준을 지원하는 외부 Directory Service와 연동하여 해당 서비스에서 사용자 정보를 가져와 동기화 할 수 있습니다. </p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">사전 정의된 Role</p>
+<p>Mold는 초기 사용자의 사용 편의성을 제공하기 위해 사전에 정의된 Role을 제공합니다. 사전 정의 Role은 다음과 같습니다. </p>
+<ul>
+<li>Root Admin : 초기 인프라 구성부터 모든 관리 작업을 수행할 수 있습니다.</li>
+<li>Resource Admin : 인프라 구성이 되어 있는 상태에서 모든 리소스를 관리할 수 있습니다.</li>
+<li>Domain Admin : 특정 도메인 내에 포함된 리소스를 관리할 수 있습니다. </li>
+<li>User : 특정 계정 내에 포함된 리소스를 관리할 수 있습니다. </li>
+<li>Read-Only Admin : 물리적인 인프라 및 자원을 모두 조회할 수 있습니다.</li>
+<li>Read-Only User : 특정 계정 내의 리소스에 대해 조회할 수 있습니다.</li>
+<li>Support Admin : 자원을 생성할 수 없고, 서비스를 제공하기 위한 정책 등을 관리할 수 있습니다. </li>
+<li>Support User : 이미 생성된 자원에 대한 관리(시작, 정지) 만 가능하며, 자원을 생성하거나 삭제할 수는 없습니다. </li>
+</ul>
+</div>
+<h3 id="_4">통합 인증 아키텍처<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>Mold는 자체적인 사용자 디렉토리 서비스를 이용해 Mold GUI에서 사용자의 아이디 및 패스워드를 이용해 로그인하는 방법 외에 다양한 통합 인증 아키텍처를 지원합니다. </p>
+<p>지원하는 통합 인증 아키텍처는 다음과 같습니다. </p>
+<ul>
+<li>SAML2 SSO Authentication : SAML2 표준을 지원하는 SP/IdP를 이용해 통합 인증을 제공합니다.</li>
+<li>Pre-shared Key Based Proxy Authentication : 사용자 인증을 위한 Proxy Server를 만들고, 사전에 정의된 키를 이용해 특정 사용자에 대한 인증을 제공합니다.</li>
+<li>Localhost Admin Port Based Non-Auth Integration : 기업의 기존 시스템과의 통합을 위해 Localhost 내에서만 비인증으로 모든 API를 호출할 수 있습니다. </li>
+</ul>
+<p>다음의 그림은 Mold가 제공하는 통합 인증 체계를 개념적으로 표현합니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-sso-authentication.png"><img alt="mold-sso-authentication" src="../../assets/images/mold-sso-authentication.png"/></a>
+</center></p>
+<p>SSO 지원은 SAML2 표준을 기반으로 지원합니다. 해당 기능은 Mold UI에서 SSO 로그인 탭을 이용해 서비스 제공자를 선택하여 해당 서비스 제공자의 인증 페이지를 통해 인증을 수행합니다. SAML2를 지원하는 Google, Microsoft 등의 환경을 이용할 수 있으며, 최종적으로 Mold의 사용자 정보와 일치하면 로그인이 이루어집니다. </p>
+<p>SAML2 표준을 이용하는 방법 외에, Mold는 별도의 Proxy Server를 구성하여 인증하는 방법을 지원합니다. Proxy Server는 사용자가 직접 구축해야 하며, 로그인 시 별도의 로그인 절차를 사용하지 않고, 사전에 공유된 키를 Mold 인증 엔진에 전송하여 인증을 처리하게 됩니다. </p>
+<p>사용자의 조직 내에 이미 여러 애플리케이션이 존재하고, 이러한 애플리케이션에 Mold의 기능을 포함하고자 하는 경우, 해당 기능을 호출하는 에이전트를 Mold Server에 배포하고, 이 에이전트가 Mold의 로컬 비인증 포트를 이용해 직접 API를 호출하는 방식을 사용할 수 있습니다. </p>
+<div class="admonition warning">
+<p class="admonition-title">비인증 포트의 사용</p>
+<p>조직 내 애플리케이션과의 통합 등의 목적을 위해 비인증 로컬 포트를 사용하는 경우 보안에 유의해야 합니다. 기본적으로 Mold는 해당 기능을 비활성화하고 있으며, 이 기능을 활성화하고자 하는 경우 '글로벌 설정'의 integration.api.port 속성(기본값 0)에서 연결할 port를 설정해야 합니다. </p>
+</div>
+<h2 id="_5">가상머신 관리<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>Mold는 관리자가 하이퍼바이저 및 HCI 구성 여부와 관계없이, Mold가 관리하는 모든 클라우드 인프라 상에서 실행되는 모든 가상머신의 생명주기를 완벽하게 제어할 수 있는 기능을 제공합니다. Mold의 가상머신 관리 기능의 특징은 다음과 같습니다. </p>
+<ul>
+<li>가상머신의 생명주기를 웹 기반 UI 및 API를 통해 완벽하게 관리</li>
+<li>Multi Hypervisor 지원 : Cell, KVM (CentOS, Ubuntu, RHEL), VMWare ESXi, Citrix Hypervisor, XCP-ng 등</li>
+</ul>
+<p>Mold의 가장 강력한 기능을 바로 ABLESTACK HCI로 구성된 클러스터 외에도, 일반 가상화 구성까지 폭넓게 가상화를 지원한다는 것입니다. 이러한 기능을 통해 ABLESTACK HCI를 도입하게 되면 현재 운영 중인 모든 가상화 환경을 클라우드로 전환하고, 통합할 수 있게 됩니다. </p>
+<p>다음의 그림은 Mold가 어떻게 다양한 하이퍼바이저 환경에서 동일한 가상머신 생명주기 관리를 제공할 수 있는지를 나타냅니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-vm-management.png"><img alt="mold-vm-management" src="../../assets/images/mold-vm-management.png"/></a>
+</center></p>
+<p>Mold는 GUI 및 CLI와 같은 사용자 인터페이스에서 모두 Mold API를 호출합니다. 그리고 이 API는 Mold의 하이퍼바이저 플러그인을 사용해 가상머신과 관련된 관리를 실행합니다. </p>
+<p>Mold의 하이퍼바이저 플러그인은 Cell/KVM, Linux KVM, VMWare, Citrix 등의 다양한 하이퍼바이저를 지원할 수 있도록 각각의 하이퍼바이저에 대한 플러그인이 포함되어 있습니다. </p>
+<p>Cell 및 KVM 하이퍼바이저의 경우에는 플러그인과 상호작용을 위해 각각의 호스트에 Mold Agent가 설치되고 해당 Agent가 libvirt 명령을 호출하여 사용자가 원하는 작업을 실행하도록 설계되어 있습니다. </p>
+<p>VMWare ESXi 하이퍼바이저의 경우는 ESXi 호스트 클러스터를 관리하는 vCenter의 Web Service API를 이용해 가상머신 작업을 실행합니다. </p>
+<p>Citrix Hypervisor의 경우는 XenServer 클러스터의 마스터 호스트의 xapi를 이용해 가상머신 작업을 실행합니다. 사용자는 이러한 플러그인과 각 하이퍼바이저의 API 호출의 내부 동작에 의해 복잡한 과정을 신경 쓰지 않고 투명하게 가상머신 관리 기능을 사용할 수 있게 됩니다. </p>
+<div class="admonition info">
+<p class="admonition-title">하이퍼바이저 측 방화벽</p>
+<p>Mold가 각각의 하이퍼바이저 호스트와 연결되어 가상머신 작업을 수행하기 위해서는 반드시 관련된 서비스 포트가 방화벽에 의해 열려 있어야 합니다. 
+호스트가 Mold에 연결되지 않는 경우 해당 호스트의 방화벽 상태를 확인해야 합니다.</p>
+</div>
+<h2 id="_6">스토리지 관리<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<p>Mold는 ABLESTACK Glue 스토리지 외에도 다양한 외장 스토리지의 연결을 지원하고, Mold가 컨트롤하는 하이퍼바이저 클러스터에 따라 하이퍼바이저가 지원하는 모든 스토리지 형식을 지원합니다. Mold의 스토리지 관리 기능의 특징은 다음과 같습니다. </p>
+<ul>
+<li>ABLESTACK Glue 외의 다양한 외장 스토리지를 지원하여 높은 유연성을 제공합니다.</li>
+<li>iSCSI, Clustered LVM, Posix Compliant Storage, NFS 등 거의 대부분의 외장 스토리지 연결이 가능합니다. </li>
+<li>Thin Provisioning 및 Overprovisioning을 지원하여 스토리지 용량을 효율적으로 사용할 수 있습니다. </li>
+</ul>
+<p>Mold를 통해 ABLESTACK HCI 또는 다른 하이퍼바이저 클러스터의 스토리지를 연결하고 관리하면 높은 유연성과 용량 효율성을 보장 받을 수 있습니다. </p>
+<p>다음의 그림은 Mold가 어떻게 다양한 스토리지를 연결하고 볼륨 서비스를 제공하는지를 나타냅니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-storage-management.png"><img alt="mold-storage-management" src="../../assets/images/mold-storage-management.png"/></a>
+</center></p>
+<p>Mold GUI 또는 CLI를 이용해 ABLESTACK Cell, VMWare, Citrix Hypervisor 등의 호스트에 스토리지를 연결하고, 가상머신을 위한 볼륨을 만들거나, 가상머신의 데이터를 백업하는 등의 스토리지 요청을 플러그인에 요청하게 됩니다. </p>
+<p>스토리지 플러그인은 크게 다음과 같이 구성됩니다. </p>
+<ul>
+<li>이미지 스토리지 플러그인 : ISO, Template 등의 이미지와 가상머신 디스크의 스냅샷 백업 등을 저장하고 관리하기 위한 플러그인</li>
+<li>볼륨 스토리지 플러그인 : 가상머신용 디스크를 제공하기 위한 스토리지 플러그인</li>
+</ul>
+<p>이미지 스토리지 플러그인은 이미지 및 백업 파일을 저장하기 위해 기본적으로 NFS 스토리지를 스테이징 스토리지로 사용합니다. 그리고 부수적으로 NFS 스토리지의 장애에 대비하고, 원격지에 이미지를 최종적으로 저장하기 위해 AWS S3에 데이터를 복제하거나 OpenStack Swift에 데이터를 복제하여 관리할 수 있습니다. </p>
+<div class="admonition warning">
+<p class="admonition-title">NFS Staging Storage</p>
+<p>Mold는 이미지 및 백업 파일을 저장하고 관리하기 위해 반드시 1개 이상의 NFS 스토리지를 필요로 합니다. 불의의 사고에도 신속하게 시스템을 복구하기 위해 백업 파일은 HCI 클러스터와는 별도로 구성하는 것이 좋습니다. </p>
+<p>여러 개의 NFS Storage를 백업 스토리지로 사용하는 경우에도 실제 스테이징 스토리지는 1개로 구성되며, 나머지는 복제본을 저장하기 위한 역할을 하게 됩니다. </p>
+<p>AWS S3, OpenStack Swift 등은 Staging Storage의 역할을 수행할 수 없으며, NFS 스토리지가 모두 불능 상태인 경우 원격지에 백업 이미지를 복제하고, 복구하기 위한 수단으로 사용합니다. </p>
+</div>
+<p>볼륨 스토리지 플러그인은 가상머신에 블록 디스크를 제공하기 위한 플러그인입니다. 기본적으로 Mold는 Glue 스토리지 외에 NFS, iSCSI, LVM, GlusterFS 등의 다양한 표준 스토리지를 지원합니다. 또한 써드파티 플러그인으로 Dell의 PowerFlex, NetApp의 SolidFire 등의 다양한 소프트웨어 정의 스토리지를 지원할 뿐 아니라, Mold 내에서 GUI를 통해 해당 스토리지를 관리할 수 있는 기능도 제공합니다. </p>
+<p>이미지 스토리지 및 볼륨 스토리지는 모두 호스트에 마운트 될 수 있어야 합니다. 예를 들어 NFS를 이미지 또는 볼륨 스토리지로 사용하는 경우 해당 스토리지가 각각의 호스트에 마운트 되어 경로로 표시될 수 있어야 하며, NFS에 대한 각종 명령이 실행될 수 있어야 합니다. </p>
+<div class="admonition info">
+<p class="admonition-title">볼륨 스토리지 마운트 포인트의 중요성</p>
+<p>HCI 기반, 또는 일반 가상화 기반 환경에서 볼륨 스토리지는 매우 중요합니다. 이미 등록된 볼륨 스토리지는 항상 가상화 호스트에 마운트 되어 있어야 하며, 만약 마운트가 비정상적인 경우 호스트가 비정상으로 표시됩니다. </p>
+<p>또한 마운트 포인트에 Hang이 발생하는 경우 해당 호스트에서 실행 중인 모든 가상머신의 IO가 중단되고, 설정에 따라 호스트가 자동으로 재시작될 수 있습니다. 호스트에서 비정상적인 상태가 모니터링되는 경우 반드시 스토리지의 상태를 확인해야 합니다. </p>
+</div>
+<h2 id="_7">네트워크 관리<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<p>Mold는 다양한 형식의 가상 네트워크를 지원할 뿐 아니라, 다양한 하드웨어와의 연동을 통해 물리적인 네트워크 영역(Underlay Network) 및 가상 네트워크 영역(Overlay Network)을 GUI에서 모두 관리할 수 있도록 기능을 지원합니다. </p>
+<p>Mold는 Zone 단위로 물리적인 네트워크 구성을 지원하며 물리적인 네트워크 형식은 다음과 같습니다. </p>
+<ul>
+<li>Basic Network : 사용자의 네트워크가 물리적으로 단일 네트워크로 구성되어 있는 경우 사용</li>
+<li>Advanced Network : 사용자의 네트워크가 물리적으로 다수의 네트워크로 구성되어 있는 경우 사용</li>
+</ul>
+<p>이러한 물리적인 네트워크 구성을 이용해 Mold는 가상머신이 사용할 수 있는 다양한 형식의 가상 네트워크를 제공합니다.</p>
+<div class="admonition info">
+<p class="admonition-title">Overlay/Underlay Network</p>
+<p>클라우드/가상화 환경에서 자주 접하게 되는 네트워크 용어 중 하나는 바로 Overlay Network, Underlay Network입니다. </p>
+<p>클라우드 환경에서는 물리적인 네트워크를 Underlay Network라고 부릅니다. 즉, 하이퍼바이저의 아래에 위치한 네트워크라는 의미로, 실제 서버의 NIC에 연결된 네트워크를 의미합니다. </p>
+<p>하이퍼바이저에 의해서 만들어져 제공되는 네트워크는 Overlay Network라고 부릅니다. Mold는 웹 콘솔을 통해 가상화 네트워크에 대한 통제를 제공하게 되며, 사용자는 웹 콘솔을 이용해 완벽하게 네트워크를 통제할 수 있게 됩니다. </p>
+</div>
+<h3 id="basic-network">Basic Network<a class="headerlink" href="#basic-network" title="Permanent link">¶</a></h3>
+<p>Mold의 Zone을 구성할 때, 사용자는 ABLESTACK HCI를 이용한 Zone의 네트워크를 어떻게 구성해야 할지 결정해야 합니다. </p>
+<p>Basic Network는 사용자의 네트워크 환경이 단일 네트워크로 구성되어 있는 경우 적용할 수 있는 물리적인 구성 방법을 제공합니다. </p>
+<p>Basic Network 구성상에서 Mold는 1개의 가상 네트워크를 제공할 수 있으며, 이 네트워크는 사용자의 물리적인 네트워크와 동일한 네트워크를 공유합니다. </p>
+<p>다음의 그림은 일반적인 Basic Network의 구성을 예시로 보여줍니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/basic-network-architecture.png"><img alt="basic-network-architecture" src="../../assets/images/basic-network-architecture.png"/></a>
+</center></p>
+<p>Basic Network는 L3, VPN, Firewall Load Balancer 등의 네트워크 인프라가 Underlay에 위치하는 구조입니다. 즉, 사용자가 기존의 네트워크 인프라를 물리적으로 보유하고 있고, 이러한 인프라를 이용해서 가상화 네트워크를 구성하고자 할 때 사용할 수 있습니다. </p>
+<p>가상네트워크는 사용자의 기존 환경의 네트워크를 공유하는데 위의 그림의 예와 같이 192.168.0.0/24 대역의 네트워크가 사용자의 환경에 존재한다면 해당 네트워크를 사용하게 됩니다. Basic Network는 사용자가 기존에 보유하고 있는 단일 네트워크만 사용할 수 있습니다. </p>
+<p>가상화 네트워크인 Overlay Network 영역에는 가상 라우터가 가상머신의 형태로 제공되는데 다음의 기능을 지원합니다. </p>
+<ul>
+<li>DHCP 서버 : 사용자가 생성한 가상머신에 자동으로 IP 등의 정보를 설정하고 관리합니다. </li>
+<li>DNS 서버 : 가상 네트워크 내의 가상머신의 네임 서버 역할을 제공합니다. </li>
+<li>User Data : 가상머신 생성 시 Cloud-Init 자동화 스크립트 및 설정 정보를 넘길 때 사용하는 데이터를 가상머신에 제공합니다. </li>
+</ul>
+<p>가상머신의 사용자 간 격리 및 가상머신 간의 격리는 Security Group을 사용합니다. </p>
+<h3 id="advanced-network">Advanced Network<a class="headerlink" href="#advanced-network" title="Permanent link">¶</a></h3>
+<p>Mold의 Zone을 구성할 때, 사용자의 네트워크가 여러 개로 이루어진 경우, 그리고 가상머신들이 여러 개의 물리적인 네트워크를 사용해야 하는 경우 Advanced Network를 구성하여 적용할 수 있습니다.</p>
+<p>Advanced Network 구성상에서 Mold는 다수의 가상 네트워크를 제공할 수 있으며, 사용자가 어떻게 각각의 가상네트워크를 구성하고 격리하고자 하느냐에 따라 Advanced Network는 크게 두 가지 방식으로 나눠 구성이 가능합니다. </p>
+<table>
+<thead>
+<tr>
+<th>격리방식</th>
+<th>VLAN Only</th>
+<th>VLAN 및 Security Group</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>방화벽</td>
+<td>Virtual Router</td>
+<td>Security Group</td>
+</tr>
+<tr>
+<td>로드밸런서</td>
+<td>Virtual Router</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>VPN</td>
+<td>Virtual Router</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>포트 전송</td>
+<td>Virtual Router</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>정적 NAT</td>
+<td>Virtual Router</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>소스 NAT</td>
+<td>Virtual Router</td>
+<td>Physical</td>
+</tr>
+<tr>
+<td>UserData</td>
+<td>Virtual Router</td>
+<td>Virtual Router</td>
+</tr>
+<tr>
+<td>DNS/DHCP</td>
+<td>Virtual Router</td>
+<td>Virtual Router</td>
+</tr>
+</tbody>
+</table>
+<p>다음의 그림은 가상네트워크의 격리방식을 VLAN만을 이용해 Advanced Network를 구성할 때의 예시를 보여줍니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/vlan-advanced-network-architecture.png"><img alt="vlan-advanced-network-architecture" src="../../assets/images/vlan-advanced-network-architecture.png"/></a>
+</center></p>
+<p>위의 그림처럼, 사용자의 물리적인 네트워크 환경은 2개의 퍼블릭 네트워크(인터넷 연결)로 구성되어 있고, 그 중 하나는 방화벽 및 로드밸런서 등의 모든 네트워크 자원이 물리적으로 구성되어 있는 네트워크입니다. 그리고 나머지 하나는 인터넷으로 연결된 망과 외부와는 단절된 L2 네트워크로만 구성되어 있는 네트워크입니다. 그리고 각각의 네트워크의 게스트 네트워크는 모두 VLAN을 지원하도록 설정되어 있습니다. </p>
+<p>이러한 물리적인 네트워크를 이용하면 가상네트워크는 매우 다양한 형태로 생성할 수 있습니다. 위의 그림에서 표시된 네트워크는 다음과 같습니다. </p>
+<ul>
+<li>가상라우터로 만들어진 L3 네트워크와 방화벽, 로드밸런서를 포함한 가상네트워크로 라우터는 퍼블릭 네트워크와 게스트 네트워크에 연결되어 인터넷 게이트웨이 역할을 함</li>
+<li>가상라우터로 만들어진 L3 네트워크와 방화벽, VPN을 포함한 가상네트워크로 라우터는 퍼블릭 네트워크와 게스트 네트워크에 연결되어 인터넷 게이트웨이 역할을 함</li>
+<li>물리적으로 구성된 L3 네트워크 및 방화벽, 로드밸런서의 환경에서 VLAN으로 연결된 가상네트워크</li>
+</ul>
+<p>VLAN으로 격리된 Advanced Network는 가장 유연한 네트워크 구성 기능을 사용자에게 제공합니다. </p>
+<p>다음의 그림은 가상네트워크의 격리방식을 VLAN 및 Security Group을 이용해 Advanced Network를 구성할 때의 예시를 보여줍니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/sg-advanced-network-architecture.png"><img alt="sg-advanced-network-architecture" src="../../assets/images/sg-advanced-network-architecture.png"/></a>
+</center></p>
+<p>위의 그림처럼, 사용자의 물리적인 네트워크 환경은 2개의 퍼블릭 네트워크(인터넷 연결)로 구성되어 있고, 그 중 하나는 방화벽 및 로드밸런서 등의 모든 네트워크 자원이 물리적으로 구성되어 있는 네트워크입니다. 그리고 나머지 하나는 인터넷 연결만 제공하고 나머지 네트워크 인프라는 없는 간단한 구조입니다. </p>
+<p>이러한 물리적인 네트워크를 이용해 가상네트워크를 만들되, 해당 네트워크는 Security Group을 이용해 사용자 간, 가상머신 간에 격리됩니다.</p>
+<p>위의 그림에 표시된 가상 네트워크는 총 2개입니다. 하나는 L3, 방화벽, 로드밸런서 등이 모두 물리적으로 구성된 네트워크와 자원을 공유하는 네트워크이고, 또 다른 하나는 단순한 물리적 인프라로 구성된 네트워크와 자원을 공유하는 네트워크입니다. </p>
+<p>Security Group으로 격리된 Advanced Network는 사용자의 물리적 네트워크와 동일한 구조로 가상네트워크를 생성하고, 네트워크 자원을 격리하기 때문에, 관리자의 네트워크 관리가 편하고, 모든 가상머신 간의 높은 수준의 접근 제어를 적용할 수 있다는 장점이 있습니다. </p>
+<h3 id="_8">마이크로 세그멘테이션<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<p>현대의 인프라 환경은 빅데이터 및 AI 분석 등의 환경 적용으로 인해 데이터센터 내에 수많은 물리적 서버 및 가상머신으로 구성되는 경우가 많습니다. </p>
+<p>전통적인 데이터센터는 종적 트래픽(North-South Traffic)이 많았지만, 현대의 데이터센터는 수많은 서버로 이루어지고 상호 간의 클러스터링 구성이 이루어지기 때문에 횡적 트래픽(East-West Traffic)이 대부분을 차지하고 있습니다. </p>
+<p>이러한 환경에서 데이터센터의 한 호스트가 공격받아 무력화되는 경우 해당 호스트와 횡적 트래픽으로 연관되어 있는 모든 서버 및 가상머신이 공격의 대상이 될 수 있고, 이는 데이터센터 운영의 심각한 보안 위협이 될 수 있습니다. </p>
+<p>Mold는 위에서 설명한 다양한 가상머신 격리 방법을 이용해 이러한 횡적 공격을 효과적으로 방어할 수 있을 뿐 아니라, 이러한 방어 정책은 UI를 통해 확인할 수 있고, 관리할 수 있습니다. 특히 Security Group의 경우 미리 정책을 만들어 놓고, 각각의 가상머신마다 미리 정의된 Security Group을 적용함으로써, 가상머신 내에서의 방화벽 설정이 아니라, 하이퍼바이저 및 가상 네트워크상에서의 가상머신 간의 격리를 효과적으로 적용함으로써 현대적인 데이터센터 환경에서도 보안 위협에 효과적으로 대응할 수 있는 환경을 제공합니다. </p>
+<p>이러한 기술을 '마이크로 세그멘테이션'이라고 부르는데, 적용되는 보안 기술은 보편적으로 사용되는 NAC(Network Access Control)이지만, 마이크로 세그멘테이션의 가장 중요한 특징은 '자동화 및 오케스트레이션 툴, 그리고 사용자 인터페이스가 결합된 사용하기 쉬운 구현'을 가진 네트워크 세그멘테이션으로, 중앙 정책을 만들어 놓고, 이를 각각의 개별 시스템으로 분산하여 적용하는 보안기술이라는 점입니다.</p>
+<p>다음의 그림은 Mold의 마이크로 세그멘테이션 기술에 대한 아키텍처를 보여줍니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-micro-segmentation.png"><img alt="mold-micro-segmentation" src="../../assets/images/mold-micro-segmentation.png"/></a>
+</center></p>
+<p>Mold는 다음과 같은 방식의 Micro Segmentation을 지원합니다. </p>
+<ul>
+<li>하이퍼바이저 세그멘테이션 : 위의 그림에서 Mold 일반 네트워크 보안그룹을 이용할 때 사용하는 방식으로 Cell Hypervisor의 Firewalld 및 ebtables 등을 이용해 호스트 및 가상머신의 접근 정책을 관리합니다. 하이퍼바이저 정책은 가상머신이 다른 호스트로 이관될 때 자동으로 이동 적용됩니다. </li>
+<li>네트워크 세그멘테이션 : 위의 그림에서 Mold VPC 보안그룹을 이용할 때 사용하는 방식으로 사용자별로 만들어진 VPC 네트워크를 위한 가상 라우터의 iptables를 이용해 North-South, East-West Traffic의 모든 정책을 관리하고 적용합니다. </li>
+</ul>
+<h2 id="_9">백업 관리<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<p>Mold는 시스템의 안정적 운영을 제공하고, 불의의 사고에 대비하기 위해 다양한 형태의 가상머신 백업을 지원하도록 설계되어 있습니다. </p>
+<p>Mold가 지원하는 백업 정책은 다음과 같습니다. </p>
+<ul>
+<li>Snapshot 백업 : 외부의 NFS 스테이징 스토리지에 가상머신의 스냅샷 이미지를 백업합니다. 사용자가 수동으로, 또는 스케줄에 의한 자동 백업을 지원합니다. </li>
+<li>Veeam 백업 : 써드파티 백업 솔루션은 Veeam을 이용해 VMWare Hypervisor를 기반으로 구성된 ABLESTACK Mold에 대해 가상머신의 수동, 자동 백업을 지원합니다. </li>
+</ul>
+<h3 id="_10">스냅샷 백업<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<p>스냅샷이란 특정 시간의 디스크의 상태를 나타내며, Mold는 가상머신에 연결된 디스크 볼륨에 대해 스냅샷을 생성하는 시점의 디스크 상태를 기록하게 됩니다. </p>
+<p>이 때, Mold의 설정에 따라 생성된 스냅샷의 시점 정보를 이용해 디스크 볼륨의 해당 시점까지의 데이터를 Mold에 연결된 2차(Secondary) 스토리지에 전송하여 이미지로 백업하게 되고, 백업한 이미지는 Mold UI를 이용해 디스크 볼륨으로 다시 복원할 수 있습니다. </p>
+<p>다음의 그림은 Mold의 스냅샷 백업 아키텍처를 설명합니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-snapshot-backup.png"><img alt="mold-snapshot-backup" src="../../assets/images/mold-snapshot-backup.png"/></a>
+</center></p>
+<p>ABLESTACK Cell 기반의 HCI 환경에서 스냅샷을 사용하기 위해서는 다음의 항목에 대한 설정을 Mold의 전역 설정 기능을 이용해 활성화해야 합니다. </p>
+<ul>
+<li>kvm.snapshot.enabled : Cell의 KVM에 대한 스냅샷 기능을 활성화합니다. 기본값 : false</li>
+<li>snapshot.backup.to.secondary : 가상머신에 대한 볼륨 스냅샷 정보를 로컬에만 유지할지, 스냅샷의 데이터를 Secondary Storage로 백업할지를 결정합니다. 기본값 : true</li>
+</ul>
+<p>설정을 완료한 후 사용자는 가상머신의 볼륨을 선택하여 수동으로 스냅샷을 생성하여 백업하거나, 정기 스냅샷 정책을 만들어 스케줄에 의해 스냅샷을 생성하여 백업할 수 있습니다. </p>
+<p>가상머신에 대한 스냅샷이 생성되면 해당 스냅샷 정보를 이용해 해당 시점의 데이터를 추출한 뒤, 호스트에 Secondary Storage를 NFS로 마운트하고 해당 위치에 데이터 파일을 저장하여 백업합니다. </p>
+<p>백업한 데이터는 사용자가 원할 때 언제든지 해당 볼륨에 복원하거나, 별도의 볼륨을 만들어 사용할 수 있습니다. </p>
+<h3 id="veeam">Veeam 백업<a class="headerlink" href="#veeam" title="Permanent link">¶</a></h3>
+<p>Mold는 VMWare 기반의 하이퍼바이저를 사용하여 ABLESTACK을 구성한 사용자 환경에 대해 Veeam 플러그인을 이용한 백업을 지원합니다. </p>
+<p>위의 기능을 사용하기 위해서는 먼저 하이퍼바이저를 VMWare로 설치해야 하고, Veeam Backup &amp; Recovery Enterprise Edition을 설치해야 합니다. ABLESTACK Veeam Backup Plubin은 Veeam B&amp;R 9.5 u4b Enterprise Edition에서 테스트 되었습니다.</p>
+<p>다음의 그림은 Mold의 Veeam 백업 아키텍처를 설명합니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-veeam-backup.png"><img alt="mold-veeam-backup" src="../../assets/images/mold-veeam-backup.png"/></a>
+</center></p>
+<p>ABLESTACK을 VMWare 하이퍼바이저와 함께 구성한 경우 Veeam 백업/복구 솔루션을 사용할 수 있으며, 해당 기능을 사용하기 위해서는 플러그인 설정 정보를 먼저 등록해 줘야 합니다. 글로벌 설정에서 다음의 항목을 설정할 수 있습니다. </p>
+<ul>
+<li>backup.framework.enabled : 백업 프레임워크를 활성화할지의 여부를 설정합니다. 기본값 : false</li>
+<li>backup.framework.provider.plugin : 백업 프레임워크 사용 시 어떤 플러그인을 사용할지를 설정합니다. Veeam을 사용할 경우 veeam으로 값을 변경합니다. 기본값 : dummy</li>
+<li>backup.plugin.veeam.url : Veeam 백업 서버의 주소를 설정합니다. 기본값 : <code>https://localhost:9393/api</code></li>
+<li>backup.plugin.veeam.username : Veeam 백업 서버의 백업/복구 작업을 위한 사용자입니다. 기본값 : administrator</li>
+<li>backup.plugin.veeam.password : Veeam 백업 서버의 사용자에 대한 비밀번호입니다. </li>
+<li>backup.plugin.veeam.validate.ssl : Veeam 백업 서버 연결 시 ssl 인증서에 대한 유효성을 검증할지를 결정합니다. 기본값 : false</li>
+<li>backup.plugin.veeam.request.timeout : Veeam 백업 서버에 요청을 전송할 때 응답이 올 때까지 대기할 시간을 지정합니다. 기본값 : 300초</li>
+</ul>
+<p>글로벌 설정을 통해 백업 서버가 연결되면, 해당 서버를 이용한 백업 정책을 만들 수 있습니다. </p>
+<p>그리고 만들어진 백업 정책을 각각의 가상머신별로 설정하여 백업을 수행하도록 할 수 있으며, 백업 내역을 확인할 수 있고, 또 Mold UI에서 백업된 디스크를 복원할 수 있습니다. </p>
+<p>백업을 요청하게 되면 Veeam 서버는 VMWare 호스트 상에 있는 가상머신의 볼륨에 대한 백업을 실시하고, 해당 데이터는 Veeam 서버의 백엔드 스토리지로 저장됩니다. </p>
+<h2 id="_11">고가용성 제공<a class="headerlink" href="#_11" title="Permanent link">¶</a></h2>
+<p>고가용성이란 IT 서비스를 위해 구성된 인프라 중 일부에 장애가 발생해도 운영 중인 서비스는 중단되지 않고 연속성을 보장하는 기술을 말합니다. </p>
+<p>고가용성을 설명할 때 가장 중요한 용어는 단일실패지점(Single Point of Failure)라는 기술 용어입니다. 용어를 풀어보면 하나의 실패로 인해 모든 시스템이 중단되는 지점을 말합니다.</p>
+<p>이러한 단일실패 지점을 제거하기 위해 가장 많이 사용하는 기술은 바로 이중화 기술입니다. 예를 들어 전원을 이중화하거나, 스위치와 NIC를 이중화하거나, 서버를 이중화하는 등의 작업을 하게 됩니다. </p>
+<p>Mold는 단순한 이중화가 아닌 분산 개체기술을 이용해 단일실패 지점을 제거하고, 일부 구성요소의 장애에도 서비스가 지속적으로 이루어질 수 있도록 가상머신 및 호스트에 대한 고가용성을 제공합니다. </p>
+<p>고가용성 기능을 통해 다음의 장애가 발생하는 경우에는 자동으로 장애 조치가 이루어집니다. </p>
+<ul>
+<li>가상머신이 사용자의 명령 없이 중지되는 경우 가상머신을 다시 실행합니다.</li>
+<li>예기치 않게 호스트가 중지되는 경우 호스트에서 실행되는 가상머신을 다른 호스트에서 실행합니다.</li>
+<li>특정 호스트에서 Glue 스토리지 접근이 불가능한 경우 호스트를 자동으로 재부팅하고, 해당 호스트에 있는 가상머신은 다른 호스트에서 실행합니다. </li>
+<li>Mold GUI를 실행 중인 어플라이언스가 중지되거나 실행 중인 호스트가 중지되면 자동으로 다른 호스트에서 어플라이언스를 실행해 Mold 서비스를 무중단으로 제공합니다. </li>
+</ul>
+<p>다음의 그림은 Mold의 고가용성 아키텍처를 설명합니다. </p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-high-availability.png"><img alt="mold-high-availability" src="../../assets/images/mold-high-availability.png"/></a>
+</center></p>
+<p>가상머신에 대한 고가용성 정책은 'Compute Offering"에서 가상머신의 HA 설정을 적용함으로써 가능합니다. HA 설정이 적용된 가상머신은 'Cell HA Investigator'에 의해 가상머신이 실행 중인지 계속 점검하고, 가상머신이 정지된 것이 확인되면 자동으로 가상머신을 다시 시작하게 됩니다. </p>
+<p>호스트에 대한 고가용성은 Glue File Storage와 호스트의 IPMI 또는 Redfish API를 이용해 제공합니다. </p>
+<p>호스트의 HA Investigator는 매 1분마다 Glue File Storage에 Heartbeat 파일을 기록하여 호스트가 스토리지에 잘 연결되어 있는지, 그리고 호스트가 정상인지를 확인합니다. 그리고 IPMI/Redfish API를 이용해 호스트의 전원 상태를 점검합니다. 이 두 가지의 확인 과정을 통해 호스트의 정상 여부를 확인하고, 다음과 같이 처리합니다. </p>
+<ul>
+<li>스토리지 Heartbeat가 비정상이면 해당 호스트를 재부팅(Fencing)하고, 해당 호스트에 있는 가상머신을 다른 호스트로 이관합니다.</li>
+<li>호스트 전원상태가 비정상이면 해당 호스트에 있는 가상머신을 다른 호스트로 이관합니다. </li>
+</ul>
+<p>Mold VM에 대한 고가용성은 Cube의 Pacemaker를 이용하여 HA 클러스터를 구성함으로써 기능을 제공합니다. </p>
+<p>Mold VM이 실행 중인 호스트가 셧다운 되거나 Mold VM이 중지되면 자동으로 다른 호스트에서 Mold VM을 시작하여 지속적으로 ABLESTACK HCI를 관리할 수 있도록 연속성을 제공합니다. </p>
+<h2 id="_12">호스트 롤링 업데이트<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
+<p>Mold는 ABLESTACK HCI의 소프트웨어 스택의 업데이트가 필요하고, 그 업데이트가 호스트의 재부팅을 요구하는 경우에 서비스가 중단되지 않고 호스트를 업데이트할 수 있도록 호스트 롤링 업데이트 기능을 지원합니다. </p>
+<p>또한 Mold는 호스트 롤링 업데이트 시 처리해야 할 작업을 사용자가 직접 정의하여 사용자 환경에 맞는 관리 작업이 가능하도록 커스터마이징 할 수 있도록 설계되어 있습니다. </p>
+<p>다음의 그림은 Mold의 호스트 롤링 업데이트 아키텍처를 설명합니다.</p>
+<p><center>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/mold-rolling-maintenance.png"><img alt="mold-rolling-maintenance" src="../../assets/images/mold-rolling-maintenance.png"/></a>
+</center></p>
+<p>Mold를 이용해 호스트에 대한 롤링 유지 관리를 실행하면, 위의 그림에서 표시된 절차에 따라 유지관리가 실행됩니다. 유지관리 실행 단계는 다음과 같습니다. </p>
+<ul>
+<li>용량 확인 : 유지관리를 실행할 호스트의 가상머신이 다른 호스트로 이관될 수 있도록 남아 있는 용량을 확인합니다. (Mold가 정의)</li>
+<li>유지관리 실행 전 확인 : 유지관리 작업을 하기 전에 확인하도록 사용자가 정의한 사항을 확인합니다. (사용자가 정의)</li>
+<li>사전 준비 : 유지관리 작업을 하기 전에 사용자가 정의한 작업(안전한 서비스 종료 및 HCI 어플라이언스 종료 등)을 수행합니다. (사용자가 정의)</li>
+<li>유지관리 실행 : 유지관리 모드로 진입한 후 사용자가 정의한 유지관리 작업(소프트웨어 업그레이드 등)을 실행합니다. 실행이 완료되면 가상머신이 모두 다른 호스트로 이관되고 호스트가 재부팅됩니다. (사용자가 정의)</li>
+<li>유지관리 완료 후 확인 : 유지관리 실행 후 호스트가 실행되면 정상적으로 업데이트가 실행되었는지 사용자가 정의한 확인 작업을 실행합니다. (사용자가 정의)</li>
+</ul>
+<p>이러한 실행 단계에 맞는 스크립트는 각 호스트의 <code>agent.properties</code> 파일의 <code>rolling.maintenance.hooks.dir</code>에 정의 되어 있는 디렉토리에서 스크립트를 찾습니다. 각 단계별 사용자 정의 스크립트의 파일명은 다음과 같아야 합니다. </p>
+<ul>
+<li>유지관리 실행 전 확인 : <code>PreFlight</code>, <code>PreFlight.py</code>, <code>PreFlight.sh</code> 중 하나</li>
+<li>사전 준비 : <code>PreMaintenance</code>, <code>PreMaintenance.py</code>, <code>PreMaintenance.sh</code> 중 하나</li>
+<li>유지관리 실행 : <code>Maintenance</code>, <code>Maintenance.py</code>, <code>Maintenance.sh</code> 중 하나</li>
+<li>유지관리 완료 후 확인 : <code>PostMaintenance</code>, <code>PostMaintenance.py</code>, <code>PostMaintenance.sh</code> 중 하나</li>
+</ul>
+<p>각 단계별로 이러한 스크립트를 찾으면 해당 스크립트를 Mold Agent는 <code>systemd</code> 서비스로 생성한 뒤 스크립트를 실행하고, 그 결과를 사용자에게 전달합니다.</p>
+<p>이러한 '사용자화가 가능한' 호스트 롤링 업데이트를 통해 사용자 환경에 맞는 시스템 유지보수가 가능해지고, 또 소프트웨어 업데이트가 안전하게 이루어질 수 있게 됩니다. </p>
+<h2 id="api">API 및 인터페이스<a class="headerlink" href="#api" title="Permanent link">¶</a></h2>
+<p>Mold는 웹 기반의 GUI 외에 다양한 방식의 사용자 인터페이스를 제공합니다. 제공되는 사용자 인터페이스는 다음과 같습니다. </p>
+<ul>
+<li>HTTP GET/POST 쿼리 문자열 방식의 API</li>
+<li>명령행 인터페이스</li>
+</ul>
+<p>Mold GUI는 모두 Mold API, 즉 HTTP GET/POST 쿼리 문자열 방식의 API를 백엔드로 사용하여, 해당 API를 호출함으로써 구현되어 있습니다. </p>
+<p>따라서 사용자가 기업 내의 시스템과 ABLESTACK의 기능을 통합하고자 하는 경우 이러한 API 를 이용하여 기능을 개발할 수 있습니다. </p>
+<p>Mold는 GUI 외에 별도의 CLI를 제공합니다. 사용자는 명령행 도구를 이용해 웹 페이지를 사용하지 않고, 직접 명령행 실행을 통해 가상머신 등의 모든 기능을 관리할 수 있습니다. </p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            맨위로
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2021-2023 ABLECLOUD Co. Ltd.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ablecloud-team" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

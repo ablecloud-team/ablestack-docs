@@ -1,0 +1,1536 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="kr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ABLECLOUD Co. Ltd" name="author"/>
+<link href="../.." rel="prev"/>
+<link href="../birth-of-ablestack/" rel="next"/>
+<link href="../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.15" name="generator"/>
+<title>데이터센터의 역사와 문제점 - ABLESTACK Online Docs</title>
+<link href="../../assets/stylesheets/main.113286f1.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CCutive+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"Cutive Mono"}</style>
+<link href="../../assets/css/basic.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#_1">
+          콘텐츠로 이동
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ABLESTACK Online Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ABLESTACK Online Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              데이터센터의 역사와 문제점
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="검색" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="검색" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="검색" class="md-search__options">
+<button aria-label="지우기" class="md-search__icon md-icon" tabindex="-1" title="지우기" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            검색 초기화
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="저장소로 이동">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      환영합니다
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="./">
+        아키텍처
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../getting-started/getting-started-overview/">
+        시작하기
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../administration/cube/userinterface-guide/">
+        관리가이드
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../userGuide/vms/centos-guide-prepare-vm/">
+        레퍼런스 가이드
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../releaseNote/release-cerato/">
+        릴리즈노트
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../troubleshooting/troubleshooting/">
+        지식베이스
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ABLESTACK Online Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    ABLESTACK Online Docs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="저장소로 이동">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        환영합니다
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          아키텍처
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          아키텍처
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          ABLESTACK의 탄생
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK의 탄생
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          데이터센터의 역사와 문제점
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        데이터센터의 역사와 문제점
+      </a>
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    데이터센터란 무엇인가?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    데이터센터의 역사
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    효과적인 데이터센터 운영요소
+  </a>
+<nav aria-label="효과적인 데이터센터 운영요소" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    안정성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    신속성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    확장성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    일관성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    가시성
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    데이터센터 운영이 어려운 원인
+  </a>
+<nav aria-label="데이터센터 운영이 어려운 원인" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    복잡한 인프라 구성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    인프라의 경직성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    고비용이 소요되는 가용성 제공 환경
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    다양한 관리 시스템
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    결론
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../birth-of-ablestack/">
+        문제해결방법-ABLESTACK
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          ABLESTACK 물리 아키텍처
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK 물리 아키텍처
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ablestack-basic-structure/">
+        ABLESTACK의 기본구조
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../host-architecture/">
+        호스트 아키텍처
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../network-architecture/">
+        네트워크 아키텍처
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-cube/">
+        Cube 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-cell/">
+        Cell 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-glue/">
+        Glue 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-mold/">
+        Mold 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          ABLESTACK Extended
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Extended
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-wall/">
+        Wall 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-koral/">
+        Koral 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          ABLESTACK Service
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Service
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-works/">
+        Works 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../book-of-genie/">
+        Genie 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          시작하기
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          시작하기
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/getting-started-overview/">
+        시작하며
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-cube/">
+        Cube 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-glue/">
+        Glue 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-mold/">
+        Mold 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          ABLESTACK Extended
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Extended
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-wall/">
+        Wall 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          ABLESTACK Service
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Service
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-works/">
+        Works 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-genie/">
+        Genie 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          ABLESTACK Add Host
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Add Host
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../getting-started/install-guide-add-host/">
+        호스트 추가 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          관리가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          관리가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Cube 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Cube 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/overview-guide/">
+        개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/log-guide/">
+        기록
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/storage-guide/">
+        저장소
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/networking-guide/">
+        네트워킹
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/account-guide/">
+        계정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/service-guide/">
+        서비스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/ablestack-guide/">
+        ABLESTACK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/update-software-guide/">
+        소프트웨어 최신화
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/application-guide/">
+        애플리케이션
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/diagnostic-guide/">
+        진단 보고서
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/kerneldump-guide/">
+        커널 덤프
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/terminal-guide/">
+        터미널
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/selinux-guide/">
+        SELinux
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Mold 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Mold 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/account-mngt-guide/">
+        계정 및 사용자 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/project-mngt-guide/">
+        프로젝트 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/serviceoffering-mngt-guide/">
+        서비스오퍼링 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/network-mngt-guide/">
+        사용자 네트워크 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/vm-mngt-guide/">
+        가상머신 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/template%26ISO-mngt-guide/">
+        템플릿 및 ISO 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/host-mngt-guide/">
+        호스트 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/storage-mngt-guide/">
+        스토리지 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/network%26traffic-mngt-guide/">
+        네트워크 및 트래픽 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/systemvm-mngt-guide/">
+        시스템VM 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/usage-mngt-guide/">
+        Usage 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/cloud-mngt-guide/">
+        Cloud 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/ha-mngt-guide/">
+        고가용성(HA) 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/event-mngt-guide/">
+        이벤트 관리
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Glue 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Glue 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/config-guide/">
+        설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/account%26role-guide/">
+        사용자 및 역할 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/proxyconfig-guide/">
+        프록시 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/api-request-audit-guide/">
+        API 요청 감사
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/nfs-ganesha-mngt-guide/">
+        NFS-Ganesha 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/plugin-guide/">
+        플러그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/troubleshooting-guide/">
+        문제해결
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Wall 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          Wall 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/dashboard-search/">
+        대시보드 검색
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/create/">
+        생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/dashboard/">
+        대시보드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/explore/">
+        탐색
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/alerting/">
+        경고
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/preferences/">
+        환경 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/netdive-guide/">
+        Netdive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          Works 관리자 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          Works 관리자 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-login/">
+        관리자 로그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-dashboard/">
+        대시보드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-workspaces/">
+        워크스페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-virtual-machines/">
+        가상머신
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-user/">
+        사용자
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-setting/">
+        설정
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+          Works 사용자 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+          Works 사용자 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/user-login/">
+        사용자 로그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/user-desktop/">
+        데스크탑
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          Genie 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+          Genie 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/quick-start/">
+        Quick Start
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/views/">
+        Views
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/resources/">
+        리소스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/access/">
+        액세스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/management/">
+        관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/configuration/">
+        설정
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system-check/">
+        ABLESTACK 시스템점검
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system-restart/">
+        ABLESTACK 시스템 재기동
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          레퍼런스 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          레퍼런스 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          CentOS 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_1">
+<span class="md-nav__icon md-icon"></span>
+          CentOS 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-ssh-key-use/">
+        비밀번호/SSH Key 관리기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-userdata/">
+        UserData 적용 기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Ubuntu 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Ubuntu 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-ssh-key-use/">
+        비밀번호/SSH Key 관리기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-userdata/">
+        UserData 적용 기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          Windows 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+          Windows 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-password-userdata/">
+        가상머신 설정 자동화 적용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          Windows 기반 3Tier 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Windows 기반 3Tier 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-architecture/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-network/">
+        네트워크 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-db/">
+        DB 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-was/">
+        WAS 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-web/">
+        WEB 구성
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Linux 기반 3Tier 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Linux 기반 3Tier 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-prepare/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-network/">
+        네트워크 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm/">
+        관리 가상머신 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-db/">
+        DB 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-was/">
+        WAS 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-web/">
+        WEB 서버 구성
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          Kubernete 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_6">
+<span class="md-nav__icon md-icon"></span>
+          Kubernete 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-prepare/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-network-create/">
+        네트워크 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-iso-add/">
+        Kubernetes ISO 등록
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-create/">
+        Cluster 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-setting/">
+        Cluster 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-shared-volume-create/">
+        공유 볼륨 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-service-add/">
+        서비스 배포
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          릴리즈노트
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          릴리즈노트
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../releaseNote/release-cerato/">
+        Cerato
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../releaseNote/release-note/">
+        Bronto
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          지식베이스
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          지식베이스
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../troubleshooting/troubleshooting/">
+        문제해결사례
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    데이터센터란 무엇인가?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    데이터센터의 역사
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    효과적인 데이터센터 운영요소
+  </a>
+<nav aria-label="효과적인 데이터센터 운영요소" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    안정성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    신속성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    확장성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    일관성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    가시성
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_9">
+    데이터센터 운영이 어려운 원인
+  </a>
+<nav aria-label="데이터센터 운영이 어려운 원인" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_10">
+    복잡한 인프라 구성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_11">
+    인프라의 경직성
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_12">
+    고비용이 소요되는 가용성 제공 환경
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_13">
+    다양한 관리 시스템
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_14">
+    결론
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>데이터센터의 역사와 문제점</h1>
+<p>ABLESTACK은 x86 기반의 서버와 가상화 기술, 그리고 소프트웨어 정의 기술을 접목하여 HCI를 구성하는 소프트웨어 스택입니다. ABLESTACK은 현대의 데이터센터가 직면한 문제를 해결하고, 보다 혁신적이고 효율적인 인프라 환경을 기업의 데이터센터에 제공하기 위해서 탄생했습니다. 본 제품의 기본적인 아키텍처 및 상세한 구성요소별 아키텍처를 이해하기 위해서는 먼저 ABLESTACK이 어떤 문제의식을 가지고 만들어 졌으며, 그 지향점이 무엇인지를 이해하는 것이 매우 중요합니다. </p>
+<p>본 장에서는 본격적으로 ABLESTACK의 지향점과 이를 실현하기 위한 기술적 아키텍처를 설명하기 전에 ABLESTACK이 가진 문제의식이 무엇인지를 설명합니다. 이를 위해 현대의 IT 환경에서 기업의 데이터센터가 직면한 문제점에 대해 먼저 설명하고자 합니다. </p>
+<h2 id="_1">데이터센터란 무엇인가?<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>데이터센터는 인터넷 데이터센터(IDC), 또는 서버호텔이라고도 부르며 서버, 네트워크, 스토리지 등 IT 서비스 제공에 필요한 장비를 한 건물 안에 모아 24시간 265일 운영하고 통합 관리하는 시설을 말합니다. 서버와 스토리지 같은 하드웨어들을 효과적이면서도 안정적으로 운영하기 위해 고도화된 전원 관리 시스템이나 고대역 네트워크 환경은 물론 백업 시스템, 보안 시스템, 공조 시스템을 비롯해 화재는 물론 폭우나 태풍 같은 환경 재해를 극복할 수 있는 시설을 갖추고 있습니다. </p>
+<h2 id="_2">데이터센터의 역사<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>오늘날 서버라고 부르는 기기는 1980년대에는 Micro Computer나 Mini Computer라고 불렀습니다. 수십 년 전의 컴퓨터는 워낙 거대했기 때문에 작은 방 하나 정도를 가득 채울 만한 크기의 컴퓨터는 Mini Computer라 불렀습니다. 당시에 이런 기기들은 운영 편의성보다는 사용자 접근성에 중점을 두어 주로 사용자가 있는 곳에 설치하여 사용했습니다.</p>
+<p>그러다가 산발적으로 흩어져 있는 자원을 한 곳에 모아서 관리하는 방법을 고민하기 시작했습니다. 그 결과로 1990년 대에는 데이터 센터의 초창기 형태라 할 수 있는 전산실 설비가 각 기업에 등장하기 시작했습니다. 이런 전산실은 표준화된 케이블링(cabling), 계층화된 네트워크 장비를 사용했습니다.</p>
+<p>데이터 센터가 본격적으로 등장한 때는 1990년 대 말과 2000년 대 초반 사이의 닷컴버블 시대입니다. 규모가 작은 벤처 기업 입장은 비용상의 문제로 독자적인 전산실을 운영할 수 없는 상황이었고, 이런 벤처 기업의 수가 폭발적으로 증가하자 현재와 같은 IDC(Internet Data Center) 비즈니스가 태동하게 되었습니다. 그 후 점점 IDC 운영이 전문화되고 많은 수의 서버를 운영해야 하는 큰 기업도 자체 전산실과 함께 전문화된 IDC를 이용하는 것이 효율성과 품질면에서 나아지게 됨에 따라, 닷컴버블 이후에도 지속적으로 IDC는 계속 성장해 왔습니다.</p>
+<p>일반적인 공장에서 단위 시간당 생산량 등을 기준으로 공장의 효율성을 평가하듯이, IDC에서는 얼마나 많은 서버를 안정적으로 운영할 수 있는지가 중요한 척도입니다. 당연히 IDC는 많은 서버를 효과적으로 운영할 수 있는 방법 위주로 발전하기 시작했으며, 대규모 환경(large-scale 운영 환경)에 대한 요구도 지속적으로 발생했습니다. 또한 최근에는 초대규모(hyper-scale) 환경을 요구하는 등 데이터 급증 및 IT 서비스 급증에 따른 새로운 개념의 데이터센터가 지속적으로 요구되고 있습니다. 또한 새로운 기술들이 속속 데이터 센터에 도입되면서 데이터 센터는 계속 발전해 왔습니다.</p>
+<p>요즘 데이터 센터를 변화시키는 핵심 화두는 클라우드 입니다. 수요에 탄력적으로 대응하면서 필요한 만큼만 인프라를 사용하도록 하는 IaaS(Infrastructure as a Service), PaaS(Platform as a Service), SaaS(Soft as a Service) 등과 같은 서비스가 부상하면서, 데이터 센터 또한 DcaaS(Data Center as a Service)라는 이름으로 클라우드 기술을 적용하고 있습니다. 수요에 탄력적으로 대응할 수 있도록 수 분만에 신규 기기를 투입할 수 있는 기술들이 DCaaS에 소개되고 있습니다.</p>
+<h2 id="_3">효과적인 데이터센터 운영요소<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>현대의 IT 환경은 모바일, IoT, 빅데이터, AI 등을 활용한 애플리케이션의 폭증으로 인해 방대한 서버 인프라를 필요로 하고, 이러한 인프라가 폭증하는 상황에 처해 있습니다. 그리고 이러한 환경 가운데에서도 효과적으로 다양한 사용자에 대한 IT서비스를 제공해야 합니다. 기업 데이터센터는 효율적인 데이터센터의 운영을 위해 다음의 운영 요소를 만족해야 합니다. </p>
+<h3 id="_4">안정성<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<p>데이터센터 운영에 있어서 안정성은 가장 중요한 요소입니다. 데이터센터 표준화 단체인 TIA(Telecommunications Industry Association)에서는 데이터센터 가용성에 대한 신뢰도에 따라 데이터센터를 등급화 하고 있습니다. 등급의 단계는 총 4단계로 이루어지는데 다음과 같습니다. </p>
+<ul>
+<li>Tier 1 - 리던던트(Redundant) 구성요소가 없음, 99.671% 가용성  <ul>
+<li>계획/비계획적인 활동에 따른 장애 가능성 있음</li>
+<li>전력 공급과 냉각, 네트워크 등이 단일 경로화 되어 있음</li>
+<li>예방 유지 보수를 수행하기 위해 셧다운해야 함</li>
+<li>연간 28.8 시간의 다운타임</li>
+</ul>
+</li>
+<li>Tier 2 - 리던던트 구성요소, 99.741% 가용성<ul>
+<li>계획/비계획적인 활동에 따른 장애 가능성이 Tier 1에 비해 낮음</li>
+<li>전력과 냉각 설비는 리던던트 구성으로 되어 있으나 이에 대한 공급 경로는 단일 경로로 되어 있음</li>
+<li>Raised Floor, UPS 및 발전기 포함</li>
+<li>연간 22.0 시간의 다운타임</li>
+</ul>
+</li>
+<li>Tier 3 - Concurrent 유지 보수 환경, 99.982% 가용성<ul>
+<li>전산 시스템에 대한 영향 없이 정기 예방 점검과 유지 보수와 같은 계획된 활동이 가능함 (비계획 활동의 경우에는 장애를 유발시킬 수 있음)</li>
+<li>전력과 냉각, 네트워크 등의 공급경로의 복수 구성, 하나는 액티브 경로, 리던던트 구성</li>
+<li>연간 1.6시간의 다운타임</li>
+</ul>
+</li>
+<li>Tier 4 - Fault Tolerant, 99.995% 가용성<ul>
+<li>계획된 활동은 핵심 운영에 영향을 주지 않으며, 예상치 못한 최악의 사고가 발생해도 핵심 부하에 영향을 주지는 않음</li>
+<li>복수의 액티브 전력 및 냉각, 네트워크 경로</li>
+<li>연간 0.4 시간의 다운타임</li>
+</ul>
+</li>
+</ul>
+<p>데이터센터는 궁극적으로 Tier 4에 도달할 수 있도록 구축되길 원하게 됩니다. Tier 4에 도달한 데이터센터는 높은 가용성을 보장하여 서비스의 안정성을 높이고, 엔지니어의 관여 없이도 인프라를 운영할 수 있도록 함으로써 효율성을 높이는 것을 목표로 합니다. 하지만 Tier 3에 도달하는 것도, 그리고 궁극적으로 Tier 4에 도달하는 것은 두배 이상의 면적, 두배 이상의 전력 공급 경로, 두배 이상의 구축 비용을 필요로 하게 되는 문제점을 갖고 있습니다. </p>
+<h3 id="_5">신속성<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>모바일 환경의 전면적 확대 및 빅데이터를 기반으로하는 새로운 IT 서비스의 제공, 짧은 생명주기의 애플리케이션의 출현 등의 현대 IT 환경의 특징은 데이터센터에게 지속적인 변화와 대응을 요구하게 됩니다. 빠르게 필요한 서버를 배포하고, 네트워크를 구성할 수 있어야 합니다. </p>
+<p>또한 애플리케이션의 생명주기가 짧기 때문에 다양한 애플리케이션에 대한 개발환경을 제공해 줘야 하고, 개발된 결과를 빠르게 운영에 반영할 수 있어야 합니다. 기업의 데이터센터는 이러한 요구에 대응할 수 있도록 하기 위해 보다 더 유연한 인프라를 구성해서 운영해야 합니다. </p>
+<p>하지만 전통적인 데이터센터는 애플리케이션과 인프라가 밀접하게 연관되어 있기 때문에 애플리케이션의 변화에 효과적으로 대응할 수 없으며, 대응에 소요되는 시간도 많이 소요되는 문제점을 갖고 있습니다. 또한 개발환경에서 운영환경으로의 빠른 전환이 필요한데, 개발자와 시스템 운영자가 서로 분리 또는 격리되어 있는 경우가 빈번하게 발생합니다.</p>
+<h3 id="_6">확장성<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<p>빅데이터 환경이 보편화 됨에 따라 기업의 데이터는 더 이상 백업 데이터로 뒷전에 밀려나지 않고, 계속해서 현재의 시스템에 영향을 주는 데이터로 남아 있게 됩니다. 즉, 시간이 지나면 지날 수록 더 많은 용량의 데이터를 보관하고 운영해야 합니다. 또한 다양한 서비스를 운영하게 됨에 따라 더 많은 사용자를 처리해야 합니다. </p>
+<p>따라서 데이터센터는 인프라를 쉽게 확장할 수 있어야 합니다. 확장성에는 당연히 안정성을 담보해야 합니다. 즉, 확장하는 가운데에도 서비스는 계속해서 유지되어야 합니다. 데이터센터는 IT서비스를 제공하기 위해 다양한 인프라가 하나의 애플리케이션 단위로 유기적인 결합을 하고 있는 경우가 대부분입니다 따라서 확장성을 제공하는 데 많은 제약이 있습니다. 네트워크 확장, 서버 확장, 스토리지 확장 등 다양한 구성 요소에 대한 확장이 수반되어야 하고, 경우에 따라 상면과 전력 등의 확장도 필요하게 됩니다. 즉, 인프라의 확장을 안정성을 담보해 수행하는데 많은 기술적, 물리적 어려움을 갖게 되는 것입니다. </p>
+<h3 id="_7">일관성<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>데이터센터는 수많은 네트워크 스위치, 서버, 스토리지로 구성되는 복잡한 패브릭의 집합체입니다. 이러한 인프라를 도입하고 관리함에 있어서 일관성 있는 정책의 운영은 필수적입니다. 서버의 운영 정책, 네트워크의 구성 정책, 전원 관리 정책, 가용성 유지를 위한 정책 등 다양한 관리 정책이 존재할 수 있고, 이러한 정책에 의해 운영되는 데이터센터 일수록 더 효율적이며 안정적이라고 판단할 수 있습니다. 실제로 일관성 있는 시스템이 운영되면 장애가 발생하는 경우에도 빠르게 장애를 복구할 수 있게 됩니다. 또한 신규 시스템을 도입하고 확장할 때에도 일관성 있는 정책에 의해 도입/확장 되기 때문에 시간을 단축할 수 있습니다. </p>
+<p>또한 시스템의 특성에 따라 일관성 있는 인프라 배포 정책, 관리 정책을 보유하고 있어야 하며, 이러한 정책이 데이터센터를 관리하는 모든 관리 엔지니어에게 공유될 수 있어야 합니다. </p>
+<h3 id="_8">가시성<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<p>수많은 서버와 네트워크 장비, 그리고 스토리지가 운영되는 환경이기 때문에 서로 다른 애플리케이션을 운영하는 인프라를 운영하는 데에는 많은 인력과, 그 인력의 기술적 노하우를 필요로 합니다. 또한 네트워크, 서버, 스토리지별로 관리하는 방법이 다르기 때문에 해당 분야의 전문 엔지니어도 필요하게 됩니다. </p>
+<p>이러한 엔지니어 의존성은 시간이 지나면서 인프라가 많아지고 다양해 지면서 더 높아지게 됩니다. 따라서 효율적인 데이터센터 운영을 위해서는 인프라 관리 방법의 자산화와 자동화가 반드시 필요하게 됩니다. 또한 애플리케이션 단위로 다양한 인프라를 갖게 되는데, 이러한 인프라는 상호 연관성이 있기 때문에 이러한 복잡한 구성 정보를 관리할 수 있는 체계가 필요하게 됩니다. </p>
+<p>이러한 필요에 의해 통합된 가시성을 제공하는 관리시스템이 데이터센터에는 필요하게 됩니다. 인프라를 모니터링하고, 자원을 시각적으로 보여주며, 다양한 관리 지식을 자산화 하고 이를 자동화하여 실행하는 체계는 데이터센터 운영에 있어서 필수적인 요소가 됩니다. </p>
+<h2 id="_9">데이터센터 운영이 어려운 원인<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<p>위에서 제시한 데이터센터 운영 요건을 실현하는데 있어서 실제로는 많은 어려움을 겪고 있습니다. 또한 급속도로 발전하는 IT 환경에 비해 IT 인프라를 관리하는 데이터센터의 대응은 이러한 운영의 어려움으로 인해 문제점이 날로 커져가고 있습니다. 기업 데이터센터 운영에 있어서 어려움이 발생하는 원인은 다음과 같습니다. </p>
+<h3 id="_10">복잡한 인프라 구성<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
+<p>기업의 데이터센터는 애플리케이션을 실행하고 서비스 하기 위해 수많은 서버와 네트워크 장비, 스토리지로 연결되어 있습니다. 애플리케이션이 늘어날 수록 그 복잡도는 계속 높아지며, 그로 인해 매우 높은 관리 역량을 필요로 하게 됩니다. 또한 복잡한 인프라 패브릭으로 인해 시스템에 대한 가시성이 매우 떨어지게 됩니다. </p>
+<p>단순히 애플리케이션과 그에 대응하는 인프라 때문에 인프라 패브릭이 복잡해 지는 것이 아닙니다. 안정성을 제공하기 위해서는 매우 복잡한 구성을 해야 합니다. 서버 이중화 구성, 네트워크 이중화 구성, 스토리지 미러링, 백업 체계 등 다양한 인프라 안정성 보장을 위한 구성이 필요하고, 이러한 구성은 인프라의 복잡도를 가중시키는 가장 중요한 요소가 됩니다. </p>
+<h3 id="_11">인프라의 경직성<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
+<p>애플리케이션 단위로 물리적으로 서버와 스토리지, 스위치가 구성되면, 이러한 물리적 구성을 다른 애플리케이션을 위해 사용하는 것은 거의 불가능합니다. 따라서 새로운 애플리케이션을 준비하기 위해서는 애플리케이션을 위한 물리적인 인프라를 따로 준비해야 하고, 더불어 개발을 위한 환경도 준비해야 하기 때문에 준비 과정에 많은 시간이 소요 됩니다. </p>
+<p>이러한 인프라의 경직성은 애플리케이션이 증가함에 따라 인프라가 계속해서 증가하는 문제를 가지게 되고, 또한 인프라를 도입하는데 많은 시간이 소요되며, 애플리케이션을 개발하는 것도 준비 과정을 거쳐야 하기 때문에 신속하게 애플리케이션을 개발하거나, 테스트하는데 있어서 많은 제약이 따르게 되어 서비스의 경쟁력도 저하시키는 원인이 됩니다. </p>
+<p>최신의 IT 환경은 빅데이터 환경을 기반으로 하기 때문에 시간이 지나면 지날 수록 데이터가 증가하는 현상을 보입니다. 때문에 연산능력과 저장공간을 서비스에 영향을 주지 않고 확장해야 할 필요가 발생합니다. 이러한 경우 인프라의 경직성은 확장에 있어서 심각한 결함을 가지고 있습니다. 전통적인 데이터센터는 결국 최신의 IT 환경 변화에 능동적으로 대응하는데 한계가 있습니다. </p>
+<h3 id="_12">고비용이 소요되는 가용성 제공 환경<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
+<p>데이터센터를 운영하는 가장 중요한 이유 중 하나는 안정적인 인프라 운영 환경을 제공하기 때문입니다. 전원, 공조 등의 환경적인 요소가 안정적으로 제공되기 위해서도 데이터센터 공간에 막대한 비용 투자가 발생하지만, 서버, 네트워크, 스토리지 등의 인프라에 대한 안정성을 높이기 위해서도 물리적인 이중화가 필수적으로 적용되야 합니다. </p>
+<p>이러한 고가용성 구조는 필연적으로 높은 비용 투자가 따라 옵니다. 또한 이중화 구조의 인프라는 구성과 유지보수가 어렵기 때문에 전문가의 지원이 필수적으로 필요하게 됩니다. 이러한 관리 비용까지 지속적으로 증가하기 때문에 기업이 데이터센터를 운영하는 것은 매우 어려운 과제가 되는 것입니다. </p>
+<h3 id="_13">다양한 관리 시스템<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
+<p>인프라가 많아지면 많아질수록 다양한 벤더의 제품이 설치됩니다. 그리고 서버, 네트워크 장비, 스토리지 등 다양한 벤더의 제품에 따라 서로 다른 관리 인터페이스를 제공합니다. 관리 인터페이스는 경우에 따라 단순한 CLI 방식부터 웹 기반 인터페이스까지 다양한 형태로 제공됩니다. 이러한 다양성으로 인해 실제 인프라를 관리시스템을 통해 관리하는 것은 매우 어려운 일이 됩니다. </p>
+<p>결국 다양한 관리 인터페이스는 실제로는 벤더의 전문 엔지니어가 참여하여 유지보수를 하기 위한 인터페이스이지, 데이터센터 관리 엔지니어가 관리할 수 있는 인터페이스가 아닙니다. 때문에 기업 데이터센터 관리는 더욱 어려워지고, 복잡해지며, 전문가의 참여가 필수적이기 때문에 높은 비용 투자의 문제가 발생할 수 밖에 없습니다. </p>
+<h2 id="_14">결론<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
+<p>기업의 데이터센터는 오래전부터 기업의 서버실로 시작해 전산실, 그리고 데이터센터로 변화하고, 현재는 특정 기업을 위한 데이터센터가 아니라 인터넷데이터센터, 클라우드데이터센터 등 퍼블릭 사용자를 위한 데이터센터로 그 역할이 확대되고 있습니다. 그리고 이러한 데이터센터의 역할은 앞으로 더욱 중요해 질 것입니다. </p>
+<p>기업이 데이터센터를 운영하는 방법을 정리해 보면 다음과 같습니다. </p>
+<ul>
+<li>직접 운영 : 건물, 상면, 전원, 공조, 서버 등의 인프라를 모두 직접 구성하고 운영</li>
+<li>퍼블릭 데이터센터에 상면만 임대<ul>
+<li>퍼블릭 데이터센터 : 건물, 상면, 전원, 공조, Rack</li>
+<li>기업 : 서버 인프라 구성, 인프라 관리, 서비스 개발/운영</li>
+</ul>
+</li>
+<li>퍼블릭 데이터센터에 인프라 전체를 임대<ul>
+<li>퍼블릭 데이터센터 : 건물, 상면, 전원, 공조, Rack, 서버 인프라 구성, 인프라 관리</li>
+<li>기업 : 서비스 개발/운영</li>
+</ul>
+</li>
+</ul>
+<p>위와 같은 운영 방법 중 어떠한 방법을 사용하더라도, 위에서 제시한 문제, 즉 복잡한 인프라 구성, 인프라의 경직성, 고비용 구조, 관리체계의 문제 등이 모두 발생합니다. 또한 필요에 따라 위의 운영 방식을 변경해야 할 경우도 있습니다. 즉, 직접 운영에서 임대로, 또는 임대에서 직접 운영으로 변경될 수 있는 것입니다. 이러한 전략적 결정에 있어서 데이터센터가 가지는 문제점은 많은 비용 투자의 원인이 되고 전략적 의사결정을 미루게 되는 원인이 됩니다. </p>
+<p>따라서 급변하는 IT 환경에 능동적으로 대응하고, 효율적인 데이터센터 운영을 위해서는 이러한 데이터센터의 문제점을 해결할 수 있는 솔루션이 필요한 것입니다. </p>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            맨위로
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2021-2023 ABLECLOUD Co. Ltd.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ablecloud-team" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

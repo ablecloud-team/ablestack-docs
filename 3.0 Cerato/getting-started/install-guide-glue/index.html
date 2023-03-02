@@ -1,0 +1,2294 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="kr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ABLECLOUD Co. Ltd" name="author"/>
+<link href="../install-guide-cube/" rel="prev"/>
+<link href="../install-guide-mold/" rel="next"/>
+<link href="../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.15" name="generator"/>
+<title>Glue 설치 가이드 - ABLESTACK Online Docs</title>
+<link href="../../assets/stylesheets/main.113286f1.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CCutive+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"Cutive Mono"}</style>
+<link href="../../assets/css/basic.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#ablestack-glue">
+          콘텐츠로 이동
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ABLESTACK Online Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ABLESTACK Online Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Glue 설치 가이드
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="red" data-md-color-media="" data-md-color-primary="red" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="검색" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="검색" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="검색" class="md-search__options">
+<button aria-label="지우기" class="md-search__icon md-icon" tabindex="-1" title="지우기" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            검색 초기화
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="저장소로 이동">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+      환영합니다
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../architecture/architecture-overview/">
+        아키텍처
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="../getting-started-overview/">
+        시작하기
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../administration/cube/userinterface-guide/">
+        관리가이드
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../userGuide/vms/centos-guide-prepare-vm/">
+        레퍼런스 가이드
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../releaseNote/release-cerato/">
+        릴리즈노트
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../troubleshooting/troubleshooting/">
+        지식베이스
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ABLESTACK Online Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+    ABLESTACK Online Docs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="저장소로 이동">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        환영합니다
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          아키텍처
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          아키텍처
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          ABLESTACK의 탄생
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK의 탄생
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/architecture-overview/">
+        데이터센터의 역사와 문제점
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/birth-of-ablestack/">
+        문제해결방법-ABLESTACK
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          ABLESTACK 물리 아키텍처
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK 물리 아키텍처
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/ablestack-basic-structure/">
+        ABLESTACK의 기본구조
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/host-architecture/">
+        호스트 아키텍처
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/network-architecture/">
+        네트워크 아키텍처
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-cube/">
+        Cube 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-cell/">
+        Cell 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-glue/">
+        Glue 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-mold/">
+        Mold 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          ABLESTACK Extended
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Extended
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-wall/">
+        Wall 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-koral/">
+        Koral 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          ABLESTACK Service
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Service
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-works/">
+        Works 알아보기
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../architecture/book-of-genie/">
+        Genie 알아보기
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          시작하기
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          시작하기
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../getting-started-overview/">
+        시작하며
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          ABLESTACK Core
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Core
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../install-guide-cube/">
+        Cube 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Glue 설치 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Glue 설치 가이드
+      </a>
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ablestack">
+    ABLESTACK 메인 화면
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1">
+    클러스터 구성 준비(1번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1_1">
+    스토리지센터 가상머신 배포(1번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2">
+    클러스터 구성 준비(2번  호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2_1">
+    스토리지센터 가상머신 배포(2번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+    클러스터 구성 준비(3번  호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3_1">
+    스토리지센터 가상머신 배포(3번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    스토리지센터 클러스터 구성
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../install-guide-mold/">
+        Mold 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          ABLESTACK Extended
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Extended
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../install-guide-wall/">
+        Wall 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          ABLESTACK Service
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Service
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../install-guide-works/">
+        Works 설치 가이드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../install-guide-genie/">
+        Genie 설치 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          ABLESTACK Add Host
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_5">
+<span class="md-nav__icon md-icon"></span>
+          ABLESTACK Add Host
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../install-guide-add-host/">
+        호스트 추가 가이드
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          관리가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          관리가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Cube 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+          Cube 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/overview-guide/">
+        개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/log-guide/">
+        기록
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/storage-guide/">
+        저장소
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/networking-guide/">
+        네트워킹
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/account-guide/">
+        계정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/service-guide/">
+        서비스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/ablestack-guide/">
+        ABLESTACK
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/update-software-guide/">
+        소프트웨어 최신화
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/application-guide/">
+        애플리케이션
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/diagnostic-guide/">
+        진단 보고서
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/kerneldump-guide/">
+        커널 덤프
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/terminal-guide/">
+        터미널
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/cube/selinux-guide/">
+        SELinux
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Mold 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+          Mold 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/account-mngt-guide/">
+        계정 및 사용자 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/project-mngt-guide/">
+        프로젝트 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/serviceoffering-mngt-guide/">
+        서비스오퍼링 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/network-mngt-guide/">
+        사용자 네트워크 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/vm-mngt-guide/">
+        가상머신 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/template%26ISO-mngt-guide/">
+        템플릿 및 ISO 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/host-mngt-guide/">
+        호스트 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/storage-mngt-guide/">
+        스토리지 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/network%26traffic-mngt-guide/">
+        네트워크 및 트래픽 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/systemvm-mngt-guide/">
+        시스템VM 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/usage-mngt-guide/">
+        Usage 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/cloud-mngt-guide/">
+        Cloud 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/ha-mngt-guide/">
+        고가용성(HA) 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/mold/event-mngt-guide/">
+        이벤트 관리
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Glue 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+          Glue 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/config-guide/">
+        설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/account%26role-guide/">
+        사용자 및 역할 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/proxyconfig-guide/">
+        프록시 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/api-request-audit-guide/">
+        API 요청 감사
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/nfs-ganesha-mngt-guide/">
+        NFS-Ganesha 관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/plugin-guide/">
+        플러그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/glue/troubleshooting-guide/">
+        문제해결
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Wall 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+          Wall 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/dashboard-search/">
+        대시보드 검색
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/create/">
+        생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/dashboard/">
+        대시보드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/explore/">
+        탐색
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/alerting/">
+        경고
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/preferences/">
+        환경 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/wall/netdive-guide/">
+        Netdive
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          Works 관리자 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+          Works 관리자 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-login/">
+        관리자 로그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-dashboard/">
+        대시보드
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-workspaces/">
+        워크스페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-virtual-machines/">
+        가상머신
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-user/">
+        사용자
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/admin-setting/">
+        설정
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_6" id="__nav_4_6_label" tabindex="0">
+          Works 사용자 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_6">
+<span class="md-nav__icon md-icon"></span>
+          Works 사용자 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/user-login/">
+        사용자 로그인
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/works/user-desktop/">
+        데스크탑
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+          Genie 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+          Genie 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/userinterface-guide/">
+        사용자 인터페이스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/quick-start/">
+        Quick Start
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/views/">
+        Views
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/resources/">
+        리소스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/access/">
+        액세스
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/management/">
+        관리
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/genie/configuration/">
+        설정
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system-check/">
+        ABLESTACK 시스템점검
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../administration/system-restart/">
+        ABLESTACK 시스템 재기동
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          레퍼런스 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          레퍼런스 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          CentOS 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_1">
+<span class="md-nav__icon md-icon"></span>
+          CentOS 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-ssh-key-use/">
+        비밀번호/SSH Key 관리기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-userdata/">
+        UserData 적용 기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/centos-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Ubuntu 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Ubuntu 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-ssh-key-use/">
+        비밀번호/SSH Key 관리기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-userdata/">
+        UserData 적용 기능 추가
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/ubuntu-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          Windows 가상머신 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+          Windows 가상머신 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-prepare-vm/">
+        ISO를 이용한 VM/템플릿 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-add-and-use-vm/">
+        템플릿을 이용한 VM 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-password-userdata/">
+        가상머신 설정 자동화 적용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-storage/">
+        가상머신 볼륨 사용
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/vms/windows-guide-nics/">
+        가상머신 NIC 사용
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          Windows 기반 3Tier 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+          Windows 기반 3Tier 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-architecture/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-network/">
+        네트워크 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-db/">
+        DB 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-was/">
+        WAS 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/windows/windows-guide-web/">
+        WEB 구성
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+          Linux 기반 3Tier 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+          Linux 기반 3Tier 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-prepare/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-network/">
+        네트워크 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm/">
+        관리 가상머신 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-db/">
+        DB 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-was/">
+        WAS 구성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/3tiers/linux/3tiers-linux-guide-web/">
+        WEB 서버 구성
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+          Kubernete 구성 가이드
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_6">
+<span class="md-nav__icon md-icon"></span>
+          Kubernete 구성 가이드
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-prepare/">
+        구성 개요
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-network-create/">
+        네트워크 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-iso-add/">
+        Kubernetes ISO 등록
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-create/">
+        Cluster 생성
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-setting/">
+        Cluster 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-shared-volume-create/">
+        공유 볼륨 설정
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../userGuide/kubernetes/kubernetes-cluster-service-add/">
+        서비스 배포
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          릴리즈노트
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          릴리즈노트
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../releaseNote/release-cerato/">
+        Cerato
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../releaseNote/release-note/">
+        Bronto
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          지식베이스
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+          지식베이스
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../troubleshooting/troubleshooting/">
+        문제해결사례
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="목차" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ablestack">
+    ABLESTACK 메인 화면
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1">
+    클러스터 구성 준비(1번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1_1">
+    스토리지센터 가상머신 배포(1번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2">
+    클러스터 구성 준비(2번  호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2_1">
+    스토리지센터 가상머신 배포(2번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+    클러스터 구성 준비(3번  호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3_1">
+    스토리지센터 가상머신 배포(3번 호스트)
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    스토리지센터 클러스터 구성
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
+해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.</p>
+</div>
+<h1 id="ablestack-glue">ABLESTACK Glue 설치진행<a class="headerlink" href="#ablestack-glue" title="Permanent link">¶</a></h1>
+<p>ABLESTACK Glue 설치 진행 가이드 입니다.<br/>
+이 문서에서는 ABLESTACK Glue 용 가상머신 생성 및 해당 가상머신에서 공용 스토리지 생성절차를 가이드 하고 있습니다.
+ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.<br/>
+기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.</p>
+<h2 id="ablestack">ABLESTACK 메인 화면<a class="headerlink" href="#ablestack" title="Permanent link">¶</a></h2>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-01.png"><img align="center" alt="ABLESTACK 메인 화면" src="../../assets/images/install-guide-glue-01.png"/></a>
+- 왼쪽 ABLESTACK 메뉴 클릭시 보이는 화면입니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ABLESTACK 클러스터는 최소 3식이상의 호스트로 구성되어야 합니다.</p>
+<p>이 문서에서는 3식의 호스트를 기준으로 가이드가 되어있으며 만약 4식이상의 호스트로 구성된다면 호스트 구성 작업을 반복하면 됩니다.</p>
+</div>
+<h2 id="1">클러스터 구성 준비(1번 호스트)<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>개요
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-02.png"><img align="center" alt="클러스터 구성 준비 개요" src="../../assets/images/install-guide-glue-02.png"/></a></p>
+<ul>
+<li>상단 리본의 <strong>클러스터 구성 준비</strong> 링크를 클릭하면 보이는 화면입니다.</li>
+<li>ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.</li>
+<li><strong>다음</strong> 버튼을 눌러 클러스터 구성 준비를 시작합니다.</li>
+</ul>
+</li>
+<li>
+<p>SSH Key 파일(신규생성)
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-03.png"><img align="center" alt="SSH Key 파일" src="../../assets/images/install-guide-glue-03.png"/></a></p>
+<ul>
+<li>모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.</li>
+<li><strong>SSH Key 준비 방법</strong> 에서 <strong>신규 생성</strong> 을 선택하고 <strong>다음</strong> 버튼을 클릭하여 신규 SSH Key 를 생성합니다.</li>
+</ul>
+</li>
+<li>
+<p>클러스터 구성 파일
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-04.png"><img align="center" alt="클러스터 구성 파일" src="../../assets/images/install-guide-glue-04.png"/></a></p>
+<ul>
+<li>클러스터 구성 설정하는 화면입니다. <strong>클러스터 호스트 구분</strong> 을 <strong>신규 클러스터 호스트</strong> 로 선택한다.</li>
+<li><strong>클러스터 구성 파일 준비</strong> 에서 <strong>신규 생성</strong> 을 선택합니다.</li>
+<li><strong>현재 호스트명</strong> 은 해당 호스트의 이름을 자동으로 불러옵니다.</li>
+<li><strong>구성 호스트 수</strong> 3대로 입력합니다.</li>
+<li><strong>클러스터 구성 프로파일</strong> 호스트 명 및 IP 정보를 입력 합니다.
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-04-1.png"><img align="center" alt="클러스터 구성 파일1" src="../../assets/images/install-guide-glue-04-1.png"/></a></li>
+<li><strong>CCVM 관리 IP</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC CIDR</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC Gateway</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC DNS</strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1" title="GitHub Issue: squidfunk/mkdocs-material #1">#1</a></strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2" title="GitHub Issue: squidfunk/mkdocs-material #2">#2</a></strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/3" title="GitHub Issue: squidfunk/mkdocs-material #3">#3</a></strong> 정보를 입력 합니다.</li>
+<li>위 항목을 입력 및 확인 후에 <strong>다음</strong> 버튼을 클릭합니다. </li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>idx 순서에 맞게 호스트 명과 ip 정보를 입력해야 합니다.<br/>
+현재 호스트명을 자동으로 불러오며, 클러스터 구성 프로파일에 현재 호스트명과 동일한 호스트 명이 존재해야 합니다.<br/>
+호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수 만큼의 예제 항목이 생성됩니다.<br/></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ul>
+<li>호스트 프로파일 예제</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">idx</th>
+<th align="center">호스트 명</th>
+<th align="center">호스트 IP</th>
+<th align="center">SCVM MNGT IP</th>
+<th align="center">호스트 PN IP</th>
+<th align="center">SCVM PN IP</th>
+<th align="center">SCVM CN IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">ablecube1</td>
+<td align="center">10.10.2.1</td>
+<td align="center">10.10.2.11</td>
+<td align="center">100.100.2.1</td>
+<td align="center">100.100.2.11</td>
+<td align="center">100.200.2.11</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">ablecube2</td>
+<td align="center">10.10.2.2</td>
+<td align="center">10.10.2.12</td>
+<td align="center">100.100.2.2</td>
+<td align="center">100.100.2.12</td>
+<td align="center">100.200.2.12</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">ablecube3</td>
+<td align="center">10.10.2.3</td>
+<td align="center">10.10.2.13</td>
+<td align="center">100.100.2.3</td>
+<td align="center">100.100.2.13</td>
+<td align="center">100.200.2.13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>시간서버 </p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ABLESTACK에서 시간서버는 매우 중요한 역할을 합니다. 
+시간동기화가 맞지 않으면 스토리지 데이터들의 무결성 확보에 치명적일 수 있습니다.
+따라서 시간서버는 반드시 구성해야하며 시간서버 구성에는 두가지 방식이 있습니다.
+인터넷등 외부 통신이 가능한 환경이어서 외부 공인된 시간서버(NTP)에 접속이 가능하거나 내부에 별도의 시간서버(NTP)가 존재하는 경우에는 "외부시간서버"를 선택하여 진행하고,
+폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 ABLESTACK에서 자체적으로 시간서버를 구성합니다. 이때에는 "로컬 시간서버"를 선택하여 진행하면 됩니다.</p>
+<p>이 문서는 "로컬 시간서버"로 구성하는 방식에 대하여 설명되어 있습니다.</p>
+</div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-05.png"><img align="center" alt="시간 서비" src="../../assets/images/install-guide-glue-05.png"/></a></p>
+<ul>
+<li>시간 서버 구성하는 화면입니다.</li>
+<li>클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.</li>
+<li><strong>시간서버 종류</strong> 에서 <strong>로컬 시간서버</strong> 를 선택하고 <strong>현재 Host</strong> 를 <strong>Master Server</strong> 를 선택합니다.</li>
+<li>기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. </li>
+<li><strong>시간서버 1</strong> 에는 <strong>1번 호스트의 Public Storage IP</strong>, <strong>시간서버 2</strong> 에는 <strong>2번 호스트의 Public Storage IP</strong> 을 입력하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>설정확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-06.png"><img align="center" alt="설정확인" src="../../assets/images/install-guide-glue-06.png"/></a></p>
+<ul>
+<li>구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.</li>
+<li>설정된 값을 확인 후 이상이 없는 경우 <strong>완료</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>완료
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-07-1.png"><img align="center" alt="진행" src="../../assets/images/install-guide-glue-07-1.png"/></a></p>
+<ul>
+<li>클러스터 구성 준비 3단계 진행상황을 확인합니다.</li>
+<li>정상적으로 끝날 경우 완료 화면이 호출 됩니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-07.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-07.png"/></a></p>
+<ul>
+<li>1번 호스트의 사전구성 완료 화면입니다.</li>
+<li><strong>Private SSH Key</strong>, <strong>Public SSH Key</strong>, <strong>클러스터 구성 프로파일</strong> 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH Key 및 클러스터 구성 프로파일을 다운로드 한 후에 2번 호스트, 3번 호스트 구성시 다운로드한 파일을 재사용 해야 정상적으로 구성이 됩니다.</p>
+</div>
+<h2 id="1_1">스토리지센터 가상머신 배포(1번 호스트)<a class="headerlink" href="#1_1" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>개요
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-08.png"><img align="center" alt="스토리지센터 가상머신 배포 개요" src="../../assets/images/install-guide-glue-08.png"/></a></p>
+<ul>
+<li>ABLESTACK 스토리지센터 가상머신 배포 마법사 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>가상머신 장치 구성 - 컴퓨트
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-09.png"><img align="center" alt="가상머신 장치 구성 - 컴퓨트" src="../../assets/images/install-guide-glue-09.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.</li>
+<li><strong>CPU</strong> 는 <strong>8 vCore</strong> 를 선택 하고, <strong>Memory</strong> 는 <strong>16GiB</strong> 를 선택 하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>스토리지의 성능 최적화를 위해 스토리지센터 가상머신의 컴퓨트 자원은 가상머신이 컨트롤 할 디스크의 수 및 가용량에 따라 적정하게 선택해야 합니다.<br/>
+CPU 는 컨트롤 할 호스트의 디스크가 <strong>10개</strong> 이내이면, <strong>8 vCore</strong> 를 그이상이면 <strong>16 vCore</strong> 를 선택히시면 됩니다.<br/>
+Memory 는 컨트롤 할 호스트의 디스크 용량이 <strong>10 TB</strong> 이내이면, <strong>16 GiB</strong>, <strong>10 ~ 30 TB</strong> 이면 <strong>32 GiB</strong>, <strong>30 TB</strong> 를 초과하면 <strong>64 Gib</strong> 
+를 선택하시면 됩니다.
+ROOT Disk의 크기는 <strong>70GiB</strong> 를 디스크가 <strong>Thin Provisioning</strong> 방식으로 제공됩니다.</p>
+</div>
+</li>
+<li>
+<p>가상머신 장치구성 - 디스크</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>스토리지 센터 가상머신의 디스크로 스토리지 클러스터를 구성하게 됩니다.
+구성 방법에 따라 Raid-Passthrough와 LUN-Passthrough를 선택하게 됩니다.
+Raid-Passthrough는 Raid 카드를 스토리지 센터 가성머신에 할당할 경우이며, 해당 항목을 선택하면 Raid 카드 목록이 출력됩니다.
+LUN-Passthrough는 기 구성된 LUN을 스토리지 센터 가상머신에 할당하는 경우이며, 해당 항목을 선택하면 LUN 목록이 출력됩니다.</p>
+<p>이 문서는 "LUN Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.</p>
+</div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-10.png"><img align="center" alt="가상머신 장치 구성 - 컴퓨트" src="../../assets/images/install-guide-glue-10.png"/></a></p>
+<ul>
+<li>스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.</li>
+<li><strong>디스크 구성 방식</strong> 은 <strong>LUN Passthrough</strong> 를 선택하고 <strong>Glue 스토리지로 사용할 디스크</strong> 를 선택하고 <strong>다음</strong> 버튼을 클릭 합니다.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>가상머신 장치 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.<br/>
+만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 ABLESTACK Cube 가 삭제가 될 수 있습니다.</p>
+</div>
+</li>
+<li>
+<p>가상머신 장치구성 - 네트워크</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>스토리지 센터 가상머신의 관리 및 스토리지 전용 네트워크를 구성하게 됩니다.
+구성 방법에 따라 NIC-Passthrough, NIC-Passthrough-Bonding, Bridge-Network를 선택하게 됩니다.
+NIC-Passthrough 및 NIC-Passthrough-Bonding 일 경우에는 물리적인 NIC 디바이스 목록이 출력됩니다.
+서버용 NIC, 복제용 NIC를 선택하시면 됩니다.
+NIC-Passthrough-Bonding 경우에는 NIC 별로 2개씩 디바이스 목록을 선택하게 됩니다. 실제로 본딩 구성이 되는것은 아니며 스토리지센터 가상머신 배포 후에 해당 관리화면(Cube)에서 본딩 구성을 완료하셔야 합니다.
+Bridge-Network는 Cube 구성 시 생성했던 Bridge 목록이 출력됩니다.</p>
+<p>이 문서는 "NIC-Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.</p>
+</div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-11.png"><img align="center" alt="가상머신 장치 구성 - 네트워크" src="../../assets/images/install-guide-glue-11.png"/></a></p>
+<ul>
+<li>스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.</li>
+<li><strong>관리 NIC 용 Bridge</strong> 선택 박스에서 <strong>관리용 Bridge 네트워크</strong> 를 선택합니다.</li>
+<li><strong>스토리지 NIC 구성 방식</strong> 에서 <strong>NIC Passthrough</strong> 를 선택하고 <strong>서버용 NIC</strong> 선택 박스에서는 <strong>서버용으로 사용할 NIC</strong> 를 <strong>복제용 NIC</strong> 
+선택 박스에서는 <strong>복제용으로 사용할 NIC</strong> 을 선택하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>추가 네트워크 정보
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-12.png"><img align="center" alt="추가 네트워크 정보" src="../../assets/images/install-guide-glue-12.png"/></a></p>
+<ul>
+<li><strong>클러스터 구성 파일 준비</strong> 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.</li>
+<li><strong>호스트명(SCVM)</strong> 을 입력 및 확인합니다.</li>
+<li><strong>관리 NIC IP</strong> 를 입력 및 확인합니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-12-1.png"><img align="center" alt="추가 네트워크 정보1" src="../../assets/images/install-guide-glue-12-1.png"/></a></p>
+<ul>
+<li><strong>관리 NIC Gateway</strong> 를 입력 및 확인합니다.</li>
+<li><strong>관리 NIC DNS</strong> 를 입력 및 확인합니다.</li>
+<li><strong>스토리지 서버 NIC IP</strong> 를 입력 및 확인합니다.</li>
+<li><strong>스토리지 복제 NIC IP</strong> 를 입력 및 확인합니다.</li>
+<li><strong>CCVM 관리 IP</strong> 를 확인합니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>스토리지센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
+해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.</p>
+</div>
+</li>
+<li>
+<p>SSH Key 정보
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-13.png"><img align="center" alt="SSH Key 정보" src="../../assets/images/install-guide-glue-13.png"/></a></p>
+<ul>
+<li>SSH Key 정보를 확인하는 화면입니다.</li>
+<li>클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH 개인 Key 파일 명은 <strong>id_rsa</strong>, SSH 공개 Key 파일명은 <strong>id_rsa.pub</strong> 으로 고정되어 있습니다.<br/>
+키 파일명을 변경할 경우 등록이 불가능 합니다.</p>
+</div>
+</li>
+<li>
+<p>설정확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-14.png"><img align="center" alt="설정확인" src="../../assets/images/install-guide-glue-14.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.</li>
+<li><strong>배포</strong> 버튼을 클릭하면 확인창이 보이며 <strong>실행</strong> 버튼을 눌러 스토리지 가상머신을 배포 합니다.</li>
+</ul>
+</li>
+<li>
+<p>배포
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-15.png"><img align="center" alt="배포" src="../../assets/images/install-guide-glue-15.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>완료
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-16.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-16.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포 완료 후 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>스토리지센터 가상머신 상태 확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-17.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-17.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 상태 카드에서 가상머신 상태가 <strong>Running</strong> 인지 확인합니다.</li>
+</ul>
+</li>
+</ol>
+<h2 id="2">클러스터 구성 준비(2번  호스트)<a class="headerlink" href="#2" title="Permanent link">¶</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>2번 호스트 구성 방법 입니다. (기본적인 절차는 1번 호스트와 동일합니다)</p>
+</div>
+<ol>
+<li>
+<p>개요
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-18.png"><img align="center" alt="클러스터 구성 준비 개요" src="../../assets/images/install-guide-glue-18.png"/></a></p>
+<ul>
+<li>상단 리본의 <strong>클러스터 구성 준비</strong> 링크를 클릭하면 보이는 화면입니다.</li>
+<li>ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.</li>
+<li><strong>다음</strong> 버튼을 눌러 클러스터 구성 준비를 시작합니다.</li>
+</ul>
+</li>
+<li>
+<p>SSH Key 파일(기존파일사용)
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-19.png"><img align="center" alt="SSH Key 파일" src="../../assets/images/install-guide-glue-19.png"/></a></p>
+<ul>
+<li>모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.</li>
+<li><strong>SSH Key 준비 방법</strong> 에서 <strong>기존 파일 사용</strong> 을 선택하고 <strong>SSH 개인 Key</strong> 와 <strong>SSH 공개 Key</strong> 를 <strong>파일 선택</strong> 버튼을 눌러 1번 호스트 클러스터 구성 준비 단계에서 
+다운로드한 SSH Key 를 등록합니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH 개인 Key 파일 명은 <strong>id_rsa</strong>, SSH 공개 Key 파일명은 <strong>id_rsa.pub</strong> 으로 고정되어 있습니다.<br/>
+다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.</p>
+</div>
+</li>
+<li>
+<p>클러스터 구성 파일
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-20.png"><img align="center" alt="클러스터 구성 파일" src="../../assets/images/install-guide-glue-20.png"/></a></p>
+<ul>
+<li>클러스터 구성 설정하는 화면입니다. <strong>클러스터 호스트 구분</strong> 을 <strong>신규 클러스터 호스트</strong> 로 선택한다.</li>
+<li><strong>클러스터 구성 파일 준비</strong> 에서 <strong>기존 파일 사용</strong> 을 선택합니다.</li>
+<li><strong>클러스터 구성 파일</strong> 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.</li>
+<li><strong>현재 호스트명</strong> 은 해당 호스트의 이름을 자동으로 불러옵니다.</li>
+<li><strong>구성 호스트 수</strong> 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.</li>
+<li><strong>클러스터 구성 프로파일</strong> 정보를 확인합니다.
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-20-1.png"><img align="center" alt="클러스터 구성 파일1" src="../../assets/images/install-guide-glue-20-1.png"/></a></li>
+<li><strong>CCVM 관리 IP</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC CIDR</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC Gateway</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC DNS</strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1" title="GitHub Issue: squidfunk/mkdocs-material #1">#1</a></strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2" title="GitHub Issue: squidfunk/mkdocs-material #2">#2</a></strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/3" title="GitHub Issue: squidfunk/mkdocs-material #3">#3</a></strong> 정보를 입력 합니다.</li>
+<li>위 항목을 입력 및 확인 후에 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>idx 순서에 맞게 호스트 명과 ip 정보를 입력해야 합니다.<br/>
+현재 호스트명을 자동으로 불러오며, 클러스터 구성 프로파일에 현재 호스트명과 동일한 호스트 명이 존재해야 합니다.<br/>
+호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수 만큼의 예제 항목이 생성됩니다.<br/></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ul>
+<li>호스트 프로파일 예제</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">idx</th>
+<th align="center">호스트 명</th>
+<th align="center">호스트 IP</th>
+<th align="center">SCVM MNGT IP</th>
+<th align="center">호스트 PN IP</th>
+<th align="center">SCVM PN IP</th>
+<th align="center">SCVM CN IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">ablecube1</td>
+<td align="center">10.10.2.1</td>
+<td align="center">10.10.2.11</td>
+<td align="center">100.100.2.1</td>
+<td align="center">100.100.2.11</td>
+<td align="center">100.200.2.11</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">ablecube2</td>
+<td align="center">10.10.2.2</td>
+<td align="center">10.10.2.12</td>
+<td align="center">100.100.2.2</td>
+<td align="center">100.100.2.12</td>
+<td align="center">100.200.2.12</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">ablecube3</td>
+<td align="center">10.10.2.3</td>
+<td align="center">10.10.2.13</td>
+<td align="center">100.100.2.3</td>
+<td align="center">100.100.2.13</td>
+<td align="center">100.200.2.13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>시간서버
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-21.png"><img align="center" alt="Host 파일" src="../../assets/images/install-guide-glue-21.png"/></a></p>
+<ul>
+<li>시간 서버 구성하는 화면입니다.</li>
+<li>클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.</li>
+<li><strong>시간서버 종류</strong> 에서 <strong>로컬 시간서버</strong> 를 선택하고 <strong>현재 Host</strong> 를 <strong>Master Server</strong> 를 선택합니다.</li>
+<li>기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. </li>
+<li><strong>시간서버 1</strong> 에는 <strong>1번 호스트의 Public Storage IP</strong>, <strong>시간서버 2</strong> 에는 <strong>2번 호스트의 Public Storage IP</strong> 을 입력하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>설정확인
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-22.png"><img align="center" alt="설정확인" src="../../assets/images/install-guide-glue-22.png"/></a></p>
+<ul>
+<li>구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.</li>
+<li>설정된 값을 확인 후 이상이 없는경우 <strong>완료</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>완료
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-23-1.png"><img align="center" alt="진행" src="../../assets/images/install-guide-glue-23-1.png"/></a></p>
+<ul>
+<li>클러스터 구성 준비 3단계 진행상황을 확인합니다.</li>
+<li>정상적으로 끝날 경우 완료 화면이 호출 됩니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-23.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-23.png"/></a></p>
+<ul>
+<li>2번 호스트의 사전구성 완료 화면입니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH Key 및  클러스터 구성 파일은 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.</p>
+</div>
+</li>
+</ol>
+<h2 id="2_1">스토리지센터 가상머신 배포(2번 호스트)<a class="headerlink" href="#2_1" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>개요
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-24.png"><img align="center" alt="스토리지센터 가상머신 배포 개요" src="../../assets/images/install-guide-glue-24.png"/></a></p>
+<ul>
+<li>ABLESTACK 스토리지센터 가상머신 배포 마법사 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>가상머신 장치 구성 - 컴퓨트
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-25.png"><img align="center" alt="가상머신 장치 구성 - 컴퓨트" src="../../assets/images/install-guide-glue-25.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.</li>
+<li><strong>CPU</strong> 는 <strong>8 vCore</strong> 를 선택 하고, <strong>Memory</strong> 는 <strong>16GiB</strong> 를 선택 하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>스토리지의 성능 최적화를 위해 스토리지센터 가상머신의 컴퓨트 자원은 가상머신이 컨트롤 할 디스크의 수 및 가용량에 따라 적정하게 선택해야 합니다.<br/>
+CPU 는 컨트롤 할 호스트의 디스크가 <strong>10개</strong> 이내이면, <strong>8 vCore</strong> 를 그이상이면 <strong>16 vCore</strong> 를 선택히시면 됩니다.<br/>
+Memory 는 컨트롤 할 호스트의 디스크 용량이 <strong>10 TB</strong> 이내이면, <strong>16 GiB</strong>, <strong>10 ~ 30 TB</strong> 이면 <strong>32 GiB</strong>, <strong>30 TB</strong> 를 초과하면 <strong>64 Gib</strong>
+를 선택하시면 됩니다.
+ROOT 디스크는 <strong>70 Gib</strong> 고정입니다.</p>
+</div>
+</li>
+<li>
+<p>가상머신 장치구성 - 디스크
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-26.png"><img align="center" alt="가상머신 장치 구성 - 컴퓨트" src="../../assets/images/install-guide-glue-26.png"/></a></p>
+<ul>
+<li>스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.</li>
+<li><strong>디스크 구성 방식</strong> 은 <strong>LUN Passthrough</strong> 를 선택하고 <strong>Glue 스토리지로 사용할 디스크</strong> 를 선택하고 <strong>다음</strong> 버튼을 클릭 합니다.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>가상머신 장치 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.<br/>
+만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 ABLESTACK Cube 가 삭제가 될 수 있습니다.</p>
+</div>
+</li>
+<li>
+<p>가상머신 장치구성 - 네트워크
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-27.png"><img align="center" alt="가상머신 장치 구성 - 네트워크" src="../../assets/images/install-guide-glue-27.png"/></a></p>
+<ul>
+<li>스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.</li>
+<li><strong>관리 NIC 용 Bridge</strong> 선택 박스에서 <strong>관리용 Bridge 네트워크</strong> 를 선택합니다.</li>
+<li><strong>스토리지 NIC 구성 방식</strong> 에서 <strong>NIC Passthrough</strong> 를 선택하고 <strong>서버용 NIC</strong> 선택 박스에서는 <strong>서버용으로 사용할 NIC</strong> 를 <strong>복제용 NIC</strong> 
+선택 박스에서는 <strong>복제용으로 사용할 NIC</strong> 을 선택하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>추가 네트워크 정보
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-28.png"><img align="center" alt="추가 네트워크 정보" src="../../assets/images/install-guide-glue-28.png"/></a></p>
+<ul>
+<li><strong>클러스터 구성 파일 준비</strong> 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.</li>
+<li><strong>호스트명(SCVM)</strong> 을 입력 및 확인합니다.</li>
+<li><strong>관리 NIC IP</strong> 를 입력 및 확인합니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-28-1.png"><img align="center" alt="추가 네트워크 정보1" src="../../assets/images/install-guide-glue-28-1.png"/></a></p>
+<ul>
+<li><strong>관리 NIC Gateway</strong> 를 입력 및 확인합니다.</li>
+<li><strong>관리 NIC DNS</strong> 를 입력 및 확인합니다.</li>
+<li><strong>스토리지 서버 NIC IP</strong> 를 입력 및 확인합니다.</li>
+<li><strong>스토리지 복제 NIC IP</strong> 를 입력 및 확인합니다.</li>
+<li><strong>CCVM 관리 IP</strong> 를 확인합니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>스토리지센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
+해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.</p>
+</div>
+</li>
+<li>
+<p>SSH Key 정보
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-29.png"><img align="center" alt="SSH Key 정보" src="../../assets/images/install-guide-glue-29.png"/></a></p>
+<ul>
+<li>SSH Key 정보를 확인하는 화면입니다.</li>
+<li>클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH 개인 Key 파일 명은 <strong>id_rsa</strong>, SSH 공개 Key 파일명은 <strong>id_rsa.pub</strong> 으로 고정되어 있습니다.<br/>
+다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.</p>
+</div>
+</li>
+<li>
+<p>설정확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-30.png"><img align="center" alt="설정확인" src="../../assets/images/install-guide-glue-30.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.</li>
+<li><strong>배포</strong> 버튼을 클릭하면 확인창이 보이며 <strong>실행</strong> 버튼을 눌러 스토리지 가상머신을 배포 합니다.</li>
+</ul>
+</li>
+<li>
+<p>배포
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-31.png"><img align="center" alt="배포" src="../../assets/images/install-guide-glue-31.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>완료
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-32.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-32.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포 완료 후 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>스토리지센터 가상머신 상태 확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-33.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-33.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 상태 카드에서 가상머신 상태가 <strong>Running</strong> 인지 확인합니다.</li>
+</ul>
+</li>
+</ol>
+<h2 id="3">클러스터 구성 준비(3번  호스트)<a class="headerlink" href="#3" title="Permanent link">¶</a></h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>3번 호스트 구성 방법 입니다. 3번 호스트 구성방법은 IP 설정 및 호스트 이름 제외하고는 2번 호스트와 동일합니다.</p>
+</div>
+<ol>
+<li>
+<p>개요
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-34.png"><img align="center" alt="클러스터 구성 준비 개요" src="../../assets/images/install-guide-glue-34.png"/></a></p>
+<ul>
+<li>상단 리본의 <strong>클러스터 구성 준비</strong> 링크를 클릭하면 보이는 화면입니다.</li>
+<li>ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.</li>
+<li><strong>다음</strong> 버튼을 눌러 클러스터 구성 준비를 시작합니다.</li>
+</ul>
+</li>
+<li>
+<p>SSH Key 파일(기존파일사용)
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-35.png"><img align="center" alt="SSH Key 파일" src="../../assets/images/install-guide-glue-35.png"/></a></p>
+<ul>
+<li>모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.</li>
+<li><strong>SSH Key 준비 방법</strong> 에서 <strong>기존 파일 사용</strong> 을 선택하고 <strong>SSH 개인 Key</strong> 와 <strong>SSH 공개 Key</strong> 를 <strong>파일 선택</strong> 버튼을 눌러 1번 호스트 클러스터 구성 준비 단계에서 
+다운로드한 SSH Key 를 등록합니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH 개인 Key 파일 명은 <strong>id_rsa</strong>, SSH 공개 Key 파일명은 <strong>id_rsa.pub</strong> 으로 고정되어 있습니다.<br/>
+다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.</p>
+</div>
+</li>
+<li>
+<p>클러스터 구성 파일
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-36.png"><img align="center" alt="클러스터 구성 파일" src="../../assets/images/install-guide-glue-36.png"/></a></p>
+<ul>
+<li>클러스터 구성 설정하는 화면입니다. <strong>클러스터 호스트 구분</strong> 을 <strong>신규 클러스터 호스트</strong> 로 선택한다.</li>
+<li><strong>클러스터 구성 파일 준비</strong> 에서 <strong>기존 파일 사용</strong> 을 선택합니다.</li>
+<li><strong>클러스터 구성 파일</strong> 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.</li>
+<li><strong>현재 호스트명</strong> 은 해당 호스트의 이름을 자동으로 불러옵니다.</li>
+<li><strong>구성 호스트 수</strong> 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.</li>
+<li><strong>클러스터 구성 프로파일</strong> 정보를 확인합니다.
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-36-1.png"><img align="center" alt="클러스터 구성 파일1" src="../../assets/images/install-guide-glue-36-1.png"/></a></li>
+<li><strong>CCVM 관리 IP</strong> 정보를 확인합니다.</li>
+<li><strong>관리 NIC CIDR</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC Gateway</strong> 정보를 입력 합니다.</li>
+<li><strong>관리 NIC DNS</strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/1" title="GitHub Issue: squidfunk/mkdocs-material #1">#1</a></strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/2" title="GitHub Issue: squidfunk/mkdocs-material #2">#2</a></strong> 정보를 입력 합니다.</li>
+<li><strong>PCS 호스트명 PN IP <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/squidfunk/mkdocs-material/issues/3" title="GitHub Issue: squidfunk/mkdocs-material #3">#3</a></strong> 정보를 입력 합니다.</li>
+<li>위 항목을 입력 및 확인 후에 <strong>다음</strong> 버튼을 클릭합니다.  </li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>idx 순서에 맞게 호스트 명과 ip 정보를 입력해야 합니다.<br/>
+현재 호스트명을 자동으로 불러오며, 클러스터 구성 프로파일에 현재 호스트명과 동일한 호스트 명이 존재해야 합니다.<br/>
+호스트 파일을 신규로 구성 호스트 수를 선택하면 하단의 호스트 파일에 호스트 수 만큼의 예제 항목이 생성됩니다.<br/></p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<ul>
+<li>호스트 프로파일 예제</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">idx</th>
+<th align="center">호스트 명</th>
+<th align="center">호스트 IP</th>
+<th align="center">SCVM MNGT IP</th>
+<th align="center">호스트 PN IP</th>
+<th align="center">SCVM PN IP</th>
+<th align="center">SCVM CN IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">ablecube1</td>
+<td align="center">10.10.2.1</td>
+<td align="center">10.10.2.11</td>
+<td align="center">100.100.2.1</td>
+<td align="center">100.100.2.11</td>
+<td align="center">100.200.2.11</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">ablecube2</td>
+<td align="center">10.10.2.2</td>
+<td align="center">10.10.2.12</td>
+<td align="center">100.100.2.2</td>
+<td align="center">100.100.2.12</td>
+<td align="center">100.200.2.12</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">ablecube3</td>
+<td align="center">10.10.2.3</td>
+<td align="center">10.10.2.13</td>
+<td align="center">100.100.2.3</td>
+<td align="center">100.100.2.13</td>
+<td align="center">100.200.2.13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li>
+<p>시간서버
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-37.png"><img align="center" alt="Host 파일" src="../../assets/images/install-guide-glue-37.png"/></a></p>
+<ul>
+<li>시간 서버 구성하는 화면입니다.</li>
+<li>클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.</li>
+<li><strong>시간서버 종류</strong> 에서 <strong>로컬 시간서버</strong> 를 선택하고 <strong>현재 Host</strong> 를 <strong>Master Server</strong> 를 선택합니다.</li>
+<li>기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. </li>
+<li><strong>시간서버 1</strong> 에는 <strong>1번 호스트의 Public Storage IP</strong>, <strong>시간서버 2</strong> 에는 <strong>2번 호스트의 Public Storage IP</strong> 을 입력하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>설정확인
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-38.png"><img align="center" alt="설정확인" src="../../assets/images/install-guide-glue-38.png"/></a></p>
+<ul>
+<li>구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.</li>
+<li>설정된 값을 확인 후 이상이 없는경우 <strong>완료</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>완료
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-39-1.png"><img align="center" alt="진행" src="../../assets/images/install-guide-glue-39-1.png"/></a></p>
+<ul>
+<li>클러스터 구성 준비 3단계 진행상황을 확인합니다.</li>
+<li>정상적으로 끝날 경우 완료 화면이 호출 됩니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-39.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-39.png"/></a></p>
+<ul>
+<li>3번 호스트의 사전구성 완료 화면입니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH Key 및  클러스터 구성 파일은 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.</p>
+</div>
+</li>
+</ol>
+<h2 id="3_1">스토리지센터 가상머신 배포(3번 호스트)<a class="headerlink" href="#3_1" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>개요
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-40.png"><img align="center" alt="스토리지센터 가상머신 배포 개요" src="../../assets/images/install-guide-glue-40.png"/></a></p>
+<ul>
+<li>ABLESTACK 스토리지센터 가상머신 배포 마법사 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>가상머신 장치 구성 - 컴퓨트
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-41.png"><img align="center" alt="가상머신 장치 구성 - 컴퓨트" src="../../assets/images/install-guide-glue-41.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.</li>
+<li><strong>CPU</strong> 는 <strong>8 vCore</strong> 를 선택 하고, <strong>Memory</strong> 는 <strong>16GiB</strong> 를 선택 하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>스토리지의 성능 최적화를 위해 스토리지센터 가상머신의 컴퓨트 자원은 가상머신이 컨트롤 할 디스크의 수 및 가용량에 따라 적정하게 선택해야 합니다.<br/>
+CPU 는 컨트롤 할 호스트의 디스크가 <strong>10개</strong> 이내이면, <strong>8 vCore</strong> 를 그이상이면 <strong>16 vCore</strong> 를 선택히시면 됩니다.<br/>
+Memory 는 컨트롤 할 호스트의 디스크 용량이 <strong>10 TB</strong> 이내이면, <strong>16 GiB</strong>, <strong>10 ~ 30 TB</strong> 이면 <strong>32 GiB</strong>, <strong>30 TB</strong> 를 초과하면 <strong>64 Gib</strong>
+를 선택하시면 됩니다.
+ROOT 디스크는 <strong>70 Gib</strong> 고정입니다.</p>
+</div>
+</li>
+<li>
+<p>가상머신 장치구성 - 디스크
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-42.png"><img align="center" alt="가상머신 장치 구성 - 컴퓨트" src="../../assets/images/install-guide-glue-42.png"/></a></p>
+<ul>
+<li>스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.</li>
+<li><strong>디스크 구성 방식</strong> 은 <strong>LUN Passthrough</strong> 를 선택하고 <strong>Glue 스토리지로 사용할 디스크</strong> 를 선택하고 <strong>다음</strong> 버튼을 클릭 합니다.</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>가상머신 장치 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.<br/>
+만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 ABLESTACK Cube 가 삭제가 될 수 있습니다.</p>
+</div>
+</li>
+<li>
+<p>가상머신 장치구성 - 네트워크
+   <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-43.png"><img align="center" alt="가상머신 장치 구성 - 네트워크" src="../../assets/images/install-guide-glue-43.png"/></a></p>
+<ul>
+<li>스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.</li>
+<li><strong>관리 NIC 용 Bridge</strong> 선택 박스에서 <strong>관리용 Bridge 네트워크</strong> 를 선택합니다.</li>
+<li><strong>스토리지 NIC 구성 방식</strong> 에서 <strong>NIC Passthrough</strong> 를 선택하고 <strong>서버용 NIC</strong> 선택 박스에서는 <strong>서버용으로 사용할 NIC</strong> 를 <strong>복제용 NIC</strong> 
+선택 박스에서는 <strong>복제용으로 사용할 NIC</strong> 을 선택하고 <strong>다음</strong> 버튼을 클릭합니다.</li>
+</ul>
+</li>
+<li>
+<p>추가 네트워크 정보
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-44.png"><img align="center" alt="추가 네트워크 정보" src="../../assets/images/install-guide-glue-44.png"/></a></p>
+<ul>
+<li><strong>클러스터 구성 파일 준비</strong> 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.</li>
+<li><strong>호스트명(SCVM)</strong> 을 입력 및 확인합니다.</li>
+<li><strong>관리 NIC IP</strong> 를 입력 및 확인합니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-44-1.png"><img align="center" alt="추가 네트워크 정보1" src="../../assets/images/install-guide-glue-44-1.png"/></a></p>
+<ul>
+<li><strong>관리 NIC Gateway</strong> 를 입력 및 확인합니다.</li>
+<li><strong>관리 NIC DNS</strong> 를 입력 및 확인합니다.</li>
+<li><strong>스토리지 서버 NIC IP</strong> 를 입력 및 확인합니다.</li>
+<li><strong>스토리지 복제 NIC IP</strong> 를 입력 및 확인합니다.</li>
+<li><strong>CCVM 관리 IP</strong> 를 확인합니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>스토리지센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
+해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.</p>
+</div>
+</li>
+<li>
+<p>SSH Key 정보
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-45.png"><img align="center" alt="SSH Key 정보" src="../../assets/images/install-guide-glue-45.png"/></a></p>
+<ul>
+<li>SSH Key 정보를 확인하는 화면입니다.</li>
+<li>클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>SSH 개인 Key 파일 명은 <strong>id_rsa</strong>, SSH 공개 Key 파일명은 <strong>id_rsa.pub</strong> 으로 고정되어 있습니다.<br/>
+다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.</p>
+</div>
+</li>
+<li>
+<p>설정확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-46.png"><img align="center" alt="설정확인" src="../../assets/images/install-guide-glue-46.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.</li>
+<li><strong>배포</strong> 버튼을 클릭하면 확인창이 보이며 <strong>실행</strong> 버튼을 눌러 스토리지 가상머신을 배포 합니다.</li>
+</ul>
+</li>
+<li>
+<p>배포
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-47.png"><img align="center" alt="배포" src="../../assets/images/install-guide-glue-47.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>완료
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-48.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-48.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 배포 완료 후 화면입니다.</li>
+</ul>
+</li>
+<li>
+<p>스토리지센터 가상머신 상태 확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-49.png"><img align="center" alt="완료" src="../../assets/images/install-guide-glue-49.png"/></a></p>
+<ul>
+<li>스토리지센터 가상머신 상태 카드에서 가상머신 상태가 <strong>Running</strong> 인지 확인합니다.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>1번, 2번, 3번 호스트의 스토리지 센터 가상머신 생성이 마무리 되였습니다. ABLESTACK Glue 대쉬보드 사용을 위한 절차를 진행 후 Glue 대시보를 이용하여 스토리지 센터 클러스터를 구성하시면 됩니다.</p>
+</div>
+<div class="admonition check">
+<p class="admonition-title">Check</p>
+<p>모든 스토리지센터 가상머신이 배포가 된 후에는 각 호스트 및 스토리지센터 가상머신간의 네트워크 통신이 정상적으로 되는지 확인이 반드시 필요합니다.
+관리 네트워크 및 스토리지 네트워크간의 PING 체크를 통하여 정상적으로 통신이 되는지 확인 후 다음 단계를 진행하여야 하며, 통신이 정상적이지 않을 경우에는 네트워크 구간을 체크하여야 합니다.
+특히 스토리지 네트워크(스토리지 서버 네트워크, 스토리지 복제 네트워크)간에는 일반 PING 과 점보프레임 PING 체크를 해야 합니다.
+점보프레임 PING 체크는 "ping -M do -s 8972 [IP주소]" 를 통하여 수행 합니다</p>
+</div>
+<h2 id="_1">스토리지센터 클러스터 구성<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>스토리지센터 클러스터 구성은 ABLESTACK Glue 대시보드를 이용하여 구성을 할 수 있습니다. 
+Glue 대시보드를 실행하기 위해서는 <strong>Bootstrap</strong> 우선 실행해야 하며 <strong>Bootstrap</strong> 실행 및 스토리지센터 클러스터 구성 절차에 대하여 설명하고 있습니다.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Bootstrap</strong> 은 한개의 호스트에서 한번의 실행이 되야 합니다. <strong>(1번 ablecube 호스트에서 실행시키는 것을 권장합니다.)</strong></p>
+<p>사용자의 실수를 방지하기 위하여 <strong>Bootstrap</strong> 이 실행되면 실행된 호스트를 포함하여 다른 호스트에서도 <strong>Bootstrap</strong> 을 실행하지 못하도록 버튼이 사라집니다.</p>
+</div>
+<ol>
+<li>
+<p>Bootstrap 실행
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-50.png"><img align="center" alt="Bootstrap 실행 1-3" src="../../assets/images/install-guide-glue-50.png"/></a></p>
+<ul>
+<li>1번 호스트의 ABLESTACK Cube 웹 콘솔로 이동합니다.</li>
+<li>스토리지센터 클러스터 상태 카드의 메뉴 버튼을 클릭하여 <strong>Bootstrap 실행</strong> 버튼을 클릭합니다.
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-51.png"><img align="center" alt="Bootstrap 실행 2-3" src="../../assets/images/install-guide-glue-51.png"/></a></li>
+<li><strong>실행</strong> 버튼을 클릭하여 <strong>Bootstrap</strong> 을 실행시킵니다.
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-52.png"><img align="center" alt="Bootstrap 실행 3-3" src="../../assets/images/install-guide-glue-52.png"/></a></li>
+<li><strong>Bootstrap</strong> 이 정상적으로 실행되면 스토리지센터 클러스터 상태 카드에서 클러스터 상태가 <strong>Health Warn</strong> 으로 표시됩니다.</li>
+<li>상단 리본에서 <strong>스토리지센터 대시보드 연결</strong> 링크를 클릭하여 ABLESTACK Glue 대시보드여 접속합니다.</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Bootstrap 은 1개의 호스트에서만 실행 됩니다. 1번 호스트에서 실행이 된경우에는 2번, 3번 호스트에서는 <strong>Bootstrap 실행</strong> 버튼이 사라지게 됩니다.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>크롬을 이용하여 <strong>스토리지센터 대시보드</strong> 접속 할 경우 <strong>연결이 비공개로 설정되어 있지 않습니다.</strong> 문구와 함게 페이지를 열 수 없습니다.
+이 경우에는 해당 화면에서 <strong>thisisunsafe</strong> 입력 후 엔터키를 입력하면 해당 페이지에 접속 할 수 있습니다.</p>
+</div>
+</li>
+<li>
+<p>Glue 대시보드 접속 및 비밀번호 변경
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-Glue-dashboard-login.png"><img align="center" alt="Glue 대시보드 로그인 화면" src="../../assets/images/install-guide-glue-Glue-dashboard-login.png"/></a></p>
+<ul>
+<li>Glue 대시보드 로그인 화면입니다.</li>
+<li><strong>사용자 이름</strong> 과 <strong>비밀번호</strong> 를 입력하고 <strong>로그인</strong> 버튼을 클릭하여 로그인 합니다.</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ABLESTACK Glue 대시보드 로그인 사용자 이름 은 <strong>ablecloud</strong>, 초기 비밀번호 는 <strong>password</strong> 입니다.
+해당 계정 및 비밀번호로 최초 로그인을 하시면 비밀번호를 무조건 변경 하셔야 합니다.</p>
+</div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-Glue-dashboard-chgpw.png"><img align="center" alt="Glue 대시보드 비밀번호 변경" src="../../assets/images/install-guide-glue-Glue-dashboard-chgpw.png"/></a>
+- 초기 비밀번호 변경하는 화면입니다.<br/>
+- <strong>Old password</strong> 입력창에는 기존의 비밀번호를 입력하고 <strong>New password</strong> 와 <strong>Confirm new password</strong> 입력창에 신규 비밀번호를 입력하고 <strong>Change Password</strong> 버튼을 클릭합니다.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>초기 비밀번호를 변경하시고 나면 바뀐 비밀번호로 다시 로그인 하셔야 합니다.</p>
+</div>
+</li>
+<li>
+<p>클러스터 구성 정보 확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-cluster-configinfo-01.png"><img align="center" alt="클러스터 구성 정보 확인1" src="../../assets/images/install-guide-glue-cluster-configinfo-01.png"/></a></p>
+<ul>
+<li><strong>클러스터 &gt; 호스트</strong> 를 클릭하면 보여지는 클러스터 구성될 Host 정보를 확인하는 화면입니다.</li>
+<li>Bootstrap 실행시 Hosts 파일의 정보를 자동으로 읽어와 호스트에 자동으로 추가가 됩니다.</li>
+</ul>
+<div class="admonition check">
+<p class="admonition-title">Check</p>
+<p>Hostname 에 추가된 Host 정보를 확인하셔야 합니다. ABLESTACK Cube 가 설치된 모든 호스트가 정상적으로 추가 되여 있는지 확인하셔야 합니다.
+Services 항목은 이미지와 동일한 순서대로 입력이 안되어 있을 수도 있습니다.</p>
+</div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-cluster-configinfo-02.png"><img align="center" alt="클러스터 구성 정보 확인2" src="../../assets/images/install-guide-glue-cluster-configinfo-02.png"/></a>
+- <strong>클러스터 &gt; 물리 디스크</strong> 를 클릭하면 보여지는 클러스터로 구성될 디스크를 확인하는 화면입니다.</p>
+<div class="admonition check">
+<p class="admonition-title">Check</p>
+<p>스토리기센터 가상머신 배포 마법사에서 선택한 디스크 수량, Type, Size 항목이 정상인지 확인하셔야 합니다.<br/>
+또한 Available 항목이 모든 디스크에 체크가 되여 있는지 확인 하셔야 합니다.</p>
+</div>
+</li>
+<li>
+<p>스토리지 디바이스 추가
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-OSDs-add.png"><img align="center" alt="OSDs 추가 화면" src="../../assets/images/install-guide-glue-OSDs-add.png"/></a></p>
+<ul>
+<li><strong>클러스터 &gt; 스토리지 디바이스</strong> 클릭하시면 보여지는 OSDs 추가하는 화면입니다.</li>
+<li><strong>생성</strong> 버튼을 클릭합니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-OSDs-add-detail.png"><img align="center" alt="OSDs 추가 화면 상세화면" src="../../assets/images/install-guide-glue-OSDs-add-detail.png"/></a>
+- 스토리지 디바이스 추가하는 화면입니다. <strong>Primary 장치</strong> 항목의 <strong>추가</strong> 버튼을 클릭합니다.  </p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-OSDs-add-OSDs-select.png"><img align="center" alt="OSDs 추가 OSDs 선택화면" src="../../assets/images/install-guide-glue-OSDs-add-OSDs-select.png"/></a>
+- 스토리지 디바이스를 선택하는 화면입니다. 오른쪽 상단의 <strong>호스트 이름</strong> 으로 되여있는 Filter 클릭하여 <strong>Type</strong> 으로 변경하고, <strong>Any</strong> 로 되여있는 Filter 를 클릭하여
+<strong>ssd</strong> 를 선택합니다.<br/>
+- 추가된 스토리지 디바이스의 수량 및 Size 를 확인하고 이상 없는 경우 <strong>추가</strong> 버튼을 클릭합니다.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-OSDs-add-OSDs-preview.png"><img align="center" alt="OSDs 추가 OSDs 프리뷰" src="../../assets/images/install-guide-glue-OSDs-add-OSDs-preview.png"/></a>
+- <strong>미리보기</strong> 버튼을 클릭하여 스토리지 디바이스 생성 미리 보기를 확인하고 <strong>생성</strong> 버튼을 클릭합니다.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-OSDs-add-confirm.png"><img align="center" alt="OSDs 추가 확인" src="../../assets/images/install-guide-glue-OSDs-add-confirm.png"/></a>
+- 추가된 스토지리 디바이스 수량 및 <strong>상태</strong> 값이 <strong><code>In</code></strong>, <strong><code>up</code></strong> 상태인지 확인해야 합니다.</p>
+</li>
+<li>
+<p>데이터 풀 생성
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-Pools-create-main.png"><img align="center" alt="Pools 생성 메인화면" src="../../assets/images/install-guide-glue-Pools-create-main.png"/></a></p>
+<ul>
+<li><strong>데이터 풀</strong> 메뉴를 클릭하면 보이는 화면입니다. <strong>생성</strong> 버튼을 클릭하여 데이터 풀 생성 화면으로 들어갑니다.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-Pools-create.png"><img align="center" alt="Pools 생성" src="../../assets/images/install-guide-glue-Pools-create.png"/></a>
+- <strong>이름</strong> 항목에 <strong>rbd</strong> 입력, <strong>데이터 풀 형태</strong> 선택 박스에서 <strong>replicated</strong> 를 선택, <strong>PG 오토스케일</strong> 선택 박스에서 <strong>on</strong> 을 선택, 
+<strong>복제크기</strong> 항목에 <strong>2</strong> 입력, <strong>응용 프로그램</strong> 항목에서 <strong>편집</strong> 버튼을 클릭하여 <strong>rbd</strong> 항목을 선택합니다.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-Pools-crush-ruleset.png"><img align="center" alt="Pools Crush ruleset" src="../../assets/images/install-guide-glue-Pools-crush-ruleset.png"/></a>
+- 데이터 풀의 크러쉬 룰 생성하는 화면입니다.<br/>
+- <strong>이름</strong> 항목에는 <strong>rbd</strong>, <strong>Root</strong> 선택 박스는 <strong>default</strong> 를 선택하고, <strong>도메인 유형 실패</strong> 선택 박스는 <strong>host (3)</strong> 을 선택하고, 
+<strong>장치 클래스</strong> 선택 박스는 <strong>ssd</strong> 를 선택 하고 <strong>생성 크래쉬 룰</strong> 버튼을 클릭합니다.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-Pools-create-completed.png"><img align="center" alt="Pools 생성 완료" src="../../assets/images/install-guide-glue-Pools-create-completed.png"/></a>
+- <strong>생성 데이터 풀</strong> 버튼을 클릭하여 데이터 풀 생성을 완료합니다.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-Pools-create-completed-list.png"><img align="center" alt="Pools 생성 완료 리스트" src="../../assets/images/install-guide-glue-Pools-create-completed-list.png"/></a>
+- 데이터 풀 생성이 정상적으로 완료가 되었는지 확인합니다.</p>
+</li>
+<li>
+<p>ABLESTACK 확인
+    <a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="80%" href="../../assets/images/install-guide-glue-ABLESTACK-check.png"><img align="center" alt="ABLESTACK 확인" src="../../assets/images/install-guide-glue-ABLESTACK-check.png"/></a></p>
+<ul>
+<li>ABLESTACK 메인화면에서 스토리지센터 클러스터 상태 카드에서 클러스터가 상태가 <strong>Health OK</strong> 인지 확인합니다.</li>
+</ul>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>ABLESTACK Glue 구성이 완료되었습니다.
+ABLESTACK Mold 구성도 ABLESTACK Cube 웹 콘솔을 이용하여 할 수 있습니다.</p>
+</div>
+</article>
+</div>
+</div>
+<a class="md-top md-icon" data-md-component="top" hidden="" href="#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"></path></svg>
+            맨위로
+          </a>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2021-2023 ABLECLOUD Co. Ltd.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ablecloud-team" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": {"provider": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.2a6f1dda.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
