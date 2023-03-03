@@ -148,8 +148,7 @@ Using default value 2048
 
 파티션의 용량을 설정합니다. 디스크 전체를 하나의 파티션으로 생성할 경우 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
 ``` linenums="1"
-First sector (2048-143305919, default 2048): 
-Using default value 2048
+Last sector, +sectors or +size{K,M,G,T,P} (4096-262143, default 262143):
 ```
 
 **w** 를 입력하여 파티션 정보를 디스크에 적용합니다.

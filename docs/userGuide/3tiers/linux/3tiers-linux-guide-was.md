@@ -140,10 +140,15 @@ passwd user1
 smbpasswd -a user1
 ```
 
-WAS에서 구동할 샘플 소스를 Samba 스토리지의 공유폴더로 다운로드하기 위해 먼저 git 패키지를 설치한 후 생성한 폴더에 Git 샘플 소스를 다운로드합니다.
+WAS에서 구동할 샘플 소스를 Samba 스토리지의 공유폴더로 다운로드하기 위해 먼저 git 패키지를 설치한 후 생성한 폴더에 Git 샘플 소스를 다운로드하고 경로를 수정합니다.
 ``` 
 dnf install git
-git clone https://github.com/stardom3645/3tier_linux_example.git /mnt/data/shared_folder/
+git clone https://github.com/ablecloud-team/ablestack-docs-sample.git /mnt/data/shared_folder/
+
+cd /mnt/data/shared_folder/
+rm -rfv !("linux-3tier-example")
+mv linux-3tier-example/* ./
+rm -rf linux-3tier-example/
 ```
 
 !!! info "다른 웹소스를 NodeJS 서버에 구동하기"
