@@ -49,6 +49,24 @@ Ablestack Docs 사이트는 MkDocs의 Third Party 테마인 Material Theme을 �
 ```
 $ pip install mkdocs-material
 ```
+
+## 플러그인 설치
+### mike
+여러 버전의 MkDocs 기반 문서를 쉽게 배포할 수 있게 해주는 플러그인 입니다.
+
+다음의 명령을 개발환경에서 실행합니다.
+```
+$ pip install mike
+```
+
+### glightbox (Image Lightbox)
+이미지 확대/축소 기능을 사용할 수 있는 플러그인 입니다.
+
+다음의 명령을 개발환경에서 실행합니다.
+```
+$ pip install mkdocs-glightbox
+```
+
 ## 개발 참여
 
 개발환경을 설정했다면 Mold 사용자 가이드 소스를 GitHub 사용자 계정애 Fork하여 개발에 참여할 수 있습니다. GitHub 소스를 Fork 하고, 사용자 개발 환경에 Clone하여 개발에 참여하는 것은 GitHub의 사용자 가이드를 참고합니다. 
@@ -60,6 +78,15 @@ Ablestack Docs 소스를 Clone 한 디렉토리로 이동하면 mkdocs.yml 파�
 ```
 $ mkdocs serve
 ```
+
+> jinja2.exceptions.TemplateNotFound 에러 처리
+> 
+> ``` 
+> # Material의 language 템플릿 파일 ko.html를 kr.html로 이름을 변경합니다.
+> $ cd /opt/homebrew/lib/python3.10/site-packages/material/partials/languages/
+> $ mv ko.html kr.html
+> ```
+    
 
 변경된 소스가 바로 반영되어 웹 브라우저에서 결과를 확인할 수 있으며 다음의 주소를 주소창에 입력하여 작성된 문서의 내용을 확인할 수 있습니다. 
 

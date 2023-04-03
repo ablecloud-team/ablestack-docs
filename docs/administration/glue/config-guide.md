@@ -93,7 +93,7 @@ $ ceph config set mgr mgr/GLUE/$name/ssl_server_port $PORT
 ## 사용자명과 비밀번호
 
 
-GLUR는 로그인을 하기 위한 사용자를 추가하는 명령어를 제공합니다.
+GLUE는 로그인을 하기 위한 사용자를 추가하는 명령어를 제공합니다.
 생성되는 계정은 하나 이상의 역할이 지정되어야 합니다. GLUE는 사전에 정의된 *system role*을 제공합니다.
 자세한 내용은 [`사용자 및 역할관리`](account&role-guide.md)를 참고하세요.
 
@@ -179,7 +179,7 @@ $ ceph dashboard set-rgw-api-scheme <scheme> # http or https
 $ ceph dashboard set-rgw-api-admin-resource <admin_resource>
 ```
 
-다음 설정은 사용해 GLUE가 자체서명 인증서를 사용한 호스트의 접속을 서명되지 않았거나, 호스트이름이 일치하지 않는다고 거부하는것을 방지해야 합니다.
+다음 설정을 사용해 GLUE가 자체서명 인증서를 사용한 호스트의 접속을 서명되지 않았거나, 호스트이름이 일치하지 않는다고 거부하는것을 방지해야 합니다.
 
 ```shell
 $ ceph GLUE set-rgw-api-ssl-verify False
@@ -291,7 +291,7 @@ exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행
     
     `wget https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/ceph-cluster.json` 를 사용할 수 있습니다.
 
-    혹은 직점 새로운 dashboard를 생성할 수도 있습니다.
+    혹은 직접 새로운 dashboard를 생성할 수도 있습니다.
 
 6.  `/etc/grafana/grafana.ini`에서 익명 모드를 사용할 수 있습니다.
 
@@ -303,7 +303,7 @@ exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행
     ```
     
     6.2.0-beta1 버전 이상의 Grafana에는 `allow_embedding` 옵션이 추가되었습니다. 이 옵션은 반드시 `true`로 되어 있어야 GLUE에 내장할 수 있습니다.
-    기본값은 `false`입니다..
+    기본값은 `false`입니다.
     ```editorconfig
     [security]
     allow_embedding = true
@@ -311,7 +311,7 @@ exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행
     
 ### RBD-Image monitoring 활성화
 
-RBD 이미지의 모니터링은 기본적으로 비활성화 되어있고, 성능에 상당향 영향을 줍니다. 자세한 내용은 [`prometheus-rbd-io-statistics`](under-construction.md)을 참고하세요.
+RBD 이미지의 모니터링은 기본적으로 비활성화 되어있고, 성능에 상당한 영향을 줍니다. 자세한 내용은 [`prometheus-rbd-io-statistics`](under-construction.md)을 참고하세요.
 비활성화 된 경우 Grafana의 overview와 상세 dashboard가 표시되지 않습니다.
 
 ### dashboard 설정
@@ -348,7 +348,7 @@ $ ceph GLUE set-grafana-api-ssl-verify False
 
 ### 브라우저를 위한 대체 URL
 
-GLUE는 Grafana dashboard를 화면상에 보여주기 이전부터 Grafana의 존재를 확인하기 위해 URL를 필요로 합니다.
+GLUE는 Grafana dashboard를 화면상에 보여주기 이전부터 Grafana의 존재를 확인하기 위해 URL을 필요로 합니다.
 그렇기 때문에 다음과 같이 2시점의 연결이 필요하게 됩니다.
 
 -   Backend(Ceph Mgr module): 요청한 그래프의 존재를 확인하기 위해 필요합니다. 이 요청이 정상적으로 처리되면, Frontend에 Grafana에 접근이 가능하다고 알립니다.
@@ -458,7 +458,7 @@ Alertmanager에 SSL 인증서를 설정하는것이 좋습니다. 자세한 내�
 
 침묵(Silence) 또한 id, 생성자, 상태, 시작/수정/종료 시간에 따라 정렬이 가능합니다. 침묵은 다양한 방법으로 만들어지고, 파기될 수 있습니다.
 
-1.  처츰부터 생성
+1.  처음부터 생성
 
 2.  선택된 경고로 부터 생성
 
@@ -476,7 +476,7 @@ Alertmanager에 SSL 인증서를 설정하는것이 좋습니다. 자세한 내�
     $ ceph dashboard set-alertmanager-api-host 'http://localhost:9093'
 ```
 
-모든 설정된 경고를 보기 위해서 Prometheus API에 URL을 설정해야 합니다. 이 API를 사용하면 UI가 새로운 침묵을 해당 경고와 일치하는지 확인해는데 도움이됩니다.
+모든 설정된 경고를 보기 위해서 Prometheus API에 URL을 설정해야 합니다. 이 API를 사용하면 UI가 새로운 침묵을 해당 경고와 일치하는지 확인하는데 도움이됩니다.
 
 ```shell
     $ ceph dashboard set-prometheus-api-host <prometheus-host:port\>  # default: ''

@@ -1,15 +1,15 @@
 # 경고
 경고를 통해 시스템 문제가 발생한 직후 문제에 대해 알 수 있습니다. 강력하고 실행 가능한 경고를 통해 문제를 신속하게 식별하고 해결하여 서비스 중단을 최소화할 수 있습니다.
 
-![wall-dashboard-search-list](../../assets/images/wall-dashboard-dashboard-alerting-meun.png)
+![wall-dashboard-dashboard-alerting-meun](../../assets/images/wall-dashboard-dashboard-alerting-meun.png)
 
 메뉴 구조는 경고 규칙을 확인할 수 있는 "경고 규칙", 경고 알림 서비스를 설정할 수 있는 "알림 채널" 기능으로 구성되어 있습니다.
 
 ## 경고 규칙
 
-![wall-dashboard-search-list](../../assets/images/wall-dashboard-dashboard-alerting-alert-rule.png)
+![wall-dashboard-dashboard-alerting-alert-rule](../../assets/images/wall-dashboard-dashboard-alerting-alert-rule.png)
 
-경고 규칙은 Wall에 기존 설정된 Alert 폴더애 있는 "사용자 VM 알람 대시보드", "스토리지 센터 알람 대시보드", "클라우드 센터 알람 대시보드", "호스트 알람 대시보드"에 설정되어 있는 알람 패널에 대한 알람 정보를 확인할 수 있습니다.
+경고 규칙은 Wall에 기존 설정된 Alert 폴더에 있는 "사용자 VM 알람 대시보드", "스토리지 센터 알람 대시보드", "클라우드 센터 알람 대시보드", "호스트 알람 대시보드"에 설정되어 있는 알람 패널에 대한 알람 정보를 확인할 수 있습니다.
 
 * 경고 검색 : 경고 이름으로 목록을 조회
 * States : 경고 상태에 따라 조회
@@ -25,7 +25,7 @@
 
 ## 알림 채널
 
-![wall-dashboard-search-list](../../assets/images/wall-dashboard-dashboard-alerting-alert-channel.png)
+![wall-dashboard-dashboard-alerting-alert-channel](../../assets/images/wall-dashboard-dashboard-alerting-alert-channel.png)
 
 알림 채널을 등록하고 등록된 알림 채널의 목록을 확인할 수 있습니다. 
 
@@ -37,7 +37,7 @@
 
 ### 새 채널
 
-![wall-dashboard-search-list](../../assets/images/wall-dashboard-dashboard-alerting-alert-new-channel.png)
+![wall-dashboard-dashboard-alerting-alert-new-channel](../../assets/images/wall-dashboard-dashboard-alerting-alert-new-channel.png)
 
 새 알림 채널을 등록하는 화면입니다.
 

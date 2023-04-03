@@ -1,3 +1,9 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 ![main-image](assets/images/illustration.png){ align=right }
 ABLESTACK은 상용(Off-the-Shelf) x86 서버를  
 가상화 기술 및 소프트웨어정의 기술, 클러스터링 기술을 이용해  

@@ -28,7 +28,7 @@ Cube 웹 콘솔은 터미널에서와 동일한 시스템 API를 사용하며 �
  ```
  https://<Host IP>:9090
  ```
-![cube-login-webui](../../assets/images/cube_login_webUI.png)
+![cube-login-webui](../../assets/images/cube_login_webUI2.png)
 
 2. 사용자 이름, 암호에 값을 입력합니다.
 3. 기타옵션(선택)
