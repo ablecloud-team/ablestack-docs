@@ -203,7 +203,7 @@ cmd 창에서 소스를 다운로드 받을 위치로 이동한 후 소스를 �
 ``` 
 C:\Users\Administrator>Z:
 Z:\>cd shared
-Z:\shared>git clone https://github.com/sjyu1/3tier_windows_example.git
+Z:\shared>git clone https://github.com/ablecloud-team/ablestack-docs-sample.git
 ```
 
 ## NodeJS 설치(NODE1, NODE2)
@@ -219,7 +219,8 @@ NodeJS를 다운로드 및 설치합니다.
 NodeJS를 실행합니다.
 
 ``` 
-Z:\shared\3tier_windows_example>node server.js
+Z:\shared\ablestack-docs-sample>cd windows-3tier-example
+Z:\shared\ablestack-docs-sample\windows-3tier-example>node server.js
 ```
 
 ## 로드 밸런서(부하 분산) 설정
