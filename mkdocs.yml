@@ -274,6 +274,12 @@ nav:
       - Cluster 설정: userGuide/kubernetes/kubernetes-cluster-setting.md
       - 공유 볼륨 설정: userGuide/kubernetes/kubernetes-cluster-shared-volume-create.md
       - 서비스 배포: userGuide/kubernetes/kubernetes-cluster-service-add.md
+    - Oracle RAC 구성 가이드:
+      - 구성 개요: userGuide/oraclerac/oracle-rac-prepare.md
+      - 가상환경 구성: userGuide/oraclerac/oracle-rac-infra-setup.md
+      - ASM 및 GI 구성: userGuide/oraclerac/oracle-rac-asm-gi-setup.md
+      - Oracle 데이터베이스 구성: userGuide/oraclerac/oracle-rac-db-setup.md
+
     # - 템플릿 :
     #   - 샘플 템플릿: userGuide/templateSample/template.md
     #   - readme: userGuide/templateSample/readme.md
