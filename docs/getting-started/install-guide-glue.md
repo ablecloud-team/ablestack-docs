@@ -609,11 +609,6 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
     - **이름** 항목에 **rbd** 입력, **데이터 풀 형태** 선택 박스에서 **replicated** 를 선택, **PG 오토스케일** 선택 박스에서 **on** 을 선택, 
     **복제크기** 항목에 **2** 입력, **응용 프로그램** 항목에서 **편집** 버튼을 클릭하여 **rbd** 항목을 선택합니다.
 
-    ![Pools Crush ruleset](../assets/images/install-guide-glue-Pools-crush-ruleset.png){ align=center }
-    - 데이터 풀의 크러쉬 룰 생성하는 화면입니다.  
-    - **이름** 항목에는 **rbd**, **Root** 선택 박스는 **default** 를 선택하고, **도메인 유형 실패** 선택 박스는 **host (3)** 을 선택하고, 
-    **장치 클래스** 선택 박스는 **ssd** 를 선택 하고 **생성 크래쉬 룰** 버튼을 클릭합니다.
-
     ![Pools 생성 완료](../assets/images/install-guide-glue-Pools-create-completed.png){ align=center }
     - **생성 데이터 풀** 버튼을 클릭하여 데이터 풀 생성을 완료합니다.
 
