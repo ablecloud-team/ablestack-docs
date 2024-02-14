@@ -180,6 +180,11 @@ mkdir -p /mnt/data/mount-nfs
 chmod -R 777 /mnt/data/mount-nfs
 ```
 
+마운트가 적용되도록 합니다.
+```
+mount 192.168.1.13:/mnt/data/nfs /mnt/data/mount-nfs
+```
+
 추가적으로 재부팅 시 자동으로 마운트가 적용되도록 합니다.
 ``` title="fstab"  linenums="1"
 192.168.1.13:/mnt/data/nfs /mnt/data/mount-nfs nfs defaults 0 0
