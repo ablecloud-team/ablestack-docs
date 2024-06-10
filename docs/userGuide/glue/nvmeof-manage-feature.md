@@ -29,7 +29,7 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
 !!! info
     현재 버전에선 ABLESTACK Glue NVMe-oF 서비스의 배치 호스트는 하나의 호스트만을 제공합니다.
 
-    ABLESTACK GLue NVMe-oF 서비스는 CPU를 8Core를 고정적으로 사용하기 때문에 부하가 적은 호스트를 사용하시길 바랍니다.
+    ABLESTACK Glue NVMe-oF 서비스는 CPU를 8Core를 고정적으로 사용하기 때문에 부하가 적은 호스트를 사용하시길 바랍니다.
 
 !!! note
     이름(데이터풀)을 원하시는 명을 적으시면 풀이 생성되면서 NVMe-oF 서비스를 사용합니다.
@@ -44,7 +44,7 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     - **배치 호스트** 정보를 선택 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
     ![Glue NVMe-oF 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-create-03.png){ align=center }
-    - Glue nvmeof 서비스가 구성된 화면입니다.
+    - Glue NVMe-oF 서비스가 구성된 화면입니다.
     !!! info
         스토리지 서비스에 등록된 호스트만 배치가 가능합니다.
 

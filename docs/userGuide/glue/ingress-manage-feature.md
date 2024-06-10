@@ -4,7 +4,7 @@
     접속할 경로는 기존에 구성된 Storage Center Virtual Machine(SCVM) IP로 접속 하시면 됩니다.
 
 # Glue Ingress 관리
-ABLESTACK Glue Service 에서의 Glue Ingress 관리 하는 가이드 입니다.
+ABLESTACK Glue Service 에서의 Glue Ingress를 관리 하는 가이드 입니다.
 이 문서에서는 ABLESTACK Glue Ingress 관리 및 제공되는 기능절차를 가이드 하고 있습니다.
 ABLESTACK Cube의 웹콘솔로 진행되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
@@ -41,7 +41,7 @@ NFS, OBJECT GATEWAY 서비스에 대한 INGRESS 서비스를 배포하면 가상
     - **모니터 PORT** 정보를 입력합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
     ![Glue Ingress 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-ingress-create-03.png){ align=center }
-    - Glue ingress 서비스가 구성된 화면입니다.
+    - Glue Ingress 서비스가 구성된 화면입니다.
     ![Glue Ingress 서비스 구성 확인](../../assets/images/glue-service/install-guide-glue-ingress-create-04.png){ align=center }
     - 전체 왼쪽 메뉴에서 **네트워킹** 탭을 클릭 합니다.
     - Glue Ingress 입력한 **가상 IP** 를 확인 합니다.

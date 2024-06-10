@@ -196,7 +196,7 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
 #### Samba AD Server 구성
 1. Samba AD Server 구성
     ![AD 서버 구성1](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-01.png){ align=center }
-    - 사용한 OS는 window server 2019 버전 입니다. 사용자에 맞게 구성 하시길 바랍니다.
+    - 사용한 OS는 window server 2019 버전 입니다. 사용자의 환경에 맞게 구성 하시길 바랍니다.
     - 사용하실 윈도우에 접속합니다.
     - **Add roles and features** 버튼을 클릭 합니다.
     ![AD 서버 구성2](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-02.png){ align=center }

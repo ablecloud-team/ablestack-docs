@@ -98,7 +98,7 @@ iSCSI Target을 생성하고 관리할 수 있습니다.
     - **용량(GiB)** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
     ![Glue iSCSI Target 생성 완료](../../assets/images/glue-service/install-guide-glue-iscsi-target-create-03.png){ align=center }
-    - Glue iscsi 서비스가 구성된 화면입니다.
+    - Glue iSCSI 서비스가 구성된 화면입니다.
     !!! info
         Glue iSCSI 서비스에 등록된 호스트만 포탈 이용이 가능합니다.
 

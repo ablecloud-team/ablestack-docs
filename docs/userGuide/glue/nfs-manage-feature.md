@@ -4,7 +4,7 @@
     접속할 경로는 기존에 구성된 Storage Center Virtual Machine(SCVM) IP로 접속 하시면 됩니다.
 
 # Glue NFS 관리
-ABLESTACK Glue Service 에서의 Glue NFS 관리 하는 가이드 입니다.<br
+ABLESTACK Glue Service 에서의 Glue NFS 관리 하는 가이드 입니다.
 이 문서에서는 ABLESTACK Glue Network File System Service 관리 및 제공되는 기능절차를 가이드 하고 있습니다.
 ABLESTACK Cube의 웹콘솔로 진행되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
