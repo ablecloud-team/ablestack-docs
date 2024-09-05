@@ -29,12 +29,12 @@ ABLESTACK Genie에서 기본 제공되는 템플릿은 애플리케이션 배포
 
     **VM 탬플릿** : 
     ```
-    이름: CentOS-8-5-2111-cloudinit
-    OS: CentOS-8-5-2111
+    이름: Rocky-9-cloudinit
+    OS: Rocky-9.2
     기타 조건: cloud-init 설치 필요
     ```
 
-    **VM 오퍼핑** :
+    **VM 오퍼링** :
     ```
     이름: 2C-4GB-RBD-HA
     오퍼링: CPU(2Core), Memory(4GB)
