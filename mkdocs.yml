@@ -279,6 +279,14 @@ nav:
       - 가상환경 구성: userGuide/oraclerac/oracle-rac-infra-setup.md
       - ASM 및 GI 구성: userGuide/oraclerac/oracle-rac-asm-gi-setup.md
       - Oracle 데이터베이스 구성: userGuide/oraclerac/oracle-rac-db-setup.md
+    - Mold Fence Agent 활용한 HA 구성 가이드:
+      - 구성 개요: userGuide/mold_fence/mold-fence-prepare.md
+      - 구성 환경: userGuide/mold_fence/mold-fence-configuration-environment.md
+      - Pacemaker 클러스터 구성: userGuide/mold_fence/mold-fence-configuration-pacemaker-cluster.md
+      - Shared Volume를 활용한 Mysql 구성: userGuide/mold_fence/mold-fence-configuration-shared-volume.md
+      - MOLD Fence Agent 설치 및 STONITH 구성: userGuide/mold_fence/mold-fence-configuration-mold-fence.md
+      - Mysql 이중화를 위한 PCS Resource 구성: userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource.md
+      - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
 
     # - 템플릿 :
     #   - 샘플 템플릿: userGuide/templateSample/template.md
