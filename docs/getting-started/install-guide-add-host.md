@@ -1,11 +1,11 @@
-!!! danger 
+!!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
     해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
 
 # ABLESTACK 호스트 추가 작업진행
-ABLESTACK 호스트 추가 설치 진행 가이드 입니다.  
+ABLESTACK 호스트 추가 설치 진행 가이드 입니다.
 이 문서에서는 기구축된 ABLESTACK 환경에 추가적으로 ABLESTACK 호스트를 추가하기 위한 절차를 가이드 하고 있습니다.
-ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.  
+ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
 
 ## ABLESTACK Cube 메인 화면
@@ -16,7 +16,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     ABLESTACK Cube 호스트 추가는 기 구축된 클러스터 정보를 이용하여 추가 구축합니다.
 
     여러 대를 추가 시 해당 작업을 반복하십시오.
-    
+
     ABLESTACK Cube 호스트 추가 작업은 반드시 모든 구성요소(Cube 호스트, 스토리지센터 가상머신, 클라우드센터 가상머신)가 정상(Running) 동작 상태에서만 진행하십시오.
 
 ## 클러스터 설정파일 다운로드
@@ -36,14 +36,14 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
-    
+
 2. SSH Key 파일(신규생성)
     ![SSH Key 파일](../assets/images/install-guide-add-host-04.png){ align=center }
     - 클러스터 설정파일 다운로드 작업에서 받은 id_rsa, id_rsa.pub 파일을 이용하여 등록합니다.
     - **SSH Key 준비 방법** 에서 **기존 파일 사용** 을 선택하고 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 추가 호스트 다운로드한 SSH Key 를 등록합니다.
 
     !!! info
-        SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
+        SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.
         다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 3. 클러스터 구성 파일
@@ -62,13 +62,13 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     - **PCS 호스트명 PN IP #1** 정보를 확인 합니다.
     - **PCS 호스트명 PN IP #2** 정보를 확인 합니다.
     - **PCS 호스트명 PN IP #3** 정보를 확인 합니다.
-    - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다. 
-    
+    - 위 항목을 입력 및 확인 후에 **다음** 버튼을 클릭합니다.
+
     !!! info
         현재 호스트명을 자동으로 불러오며, 클러스터 구성 프로파일에 현재 호스트명과 동일한 호스트 명이 존재해야 합니다.<br/>
         기존 구성 정보를 수정할 수 없으며 추가 호스트의 정보만 입력가능 합니다.<br/>
 
-    !!! example 
+    !!! example
         - 호스트 프로파일 예제
 
         idx | 호스트 명 | 호스트 IP | SCVM MNGT IP | 호스트 PN IP | SCVM PN IP | SCVM CN IP
@@ -77,10 +77,10 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
         2 | ablecube32 | 10.10.3.2 | 10.10.3.12 | 100.100.3.2 | 100.100.3.12 | 100.200.3.12
         3 | ablecube33 | 10.10.3.3 | 10.10.3.13 | 100.100.3.3 | 100.100.3.13 | 100.200.3.13
         4 | ablecube34 | 10.10.3.4 | 10.10.3.14 | 100.100.3.4 | 100.100.3.14 | 100.200.3.14
-        
-   
-4. 시간서버 
-    
+
+
+4. 시간서버
+
     !!! info
         ABLESTACK에서 시간서버는 매우 중요한 역할을 합니다. </br>
         시간동기화가 맞지 않으면 스토리지 데이터들의 무결성 확보에 치명적일 수 있습니다.</br>
@@ -93,18 +93,18 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
         이 문서는 "로컬 시간서버"로 구성하는 방식에 대하여 설명되어 있습니다.
 
     ![시간 서비](../assets/images/install-guide-add-host-06.png){ align=center }
-    
+
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
-    - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다. 
+    - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
     - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
     ![설정확인](../assets/images/install-guide-add-host-07.png){ align=center }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는 경우 **완료** 버튼을 클릭합니다.
-    
+
 6. 완료
     ![진행](../assets/images/install-guide-add-host-07-1.png){ align=center }
     - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
@@ -125,14 +125,14 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     - **CPU** 는 **8 vCore** 를 선택 하고, **Memory** 는 **16GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
 
     !!! tip
-        스토리지의 성능 최적화를 위해 스토리지센터 가상머신의 컴퓨트 자원은 가상머신이 컨트롤 할 디스크의 수 및 가용량에 따라 적정하게 선택해야 합니다.  
-        CPU 는 컨트롤 할 호스트의 디스크가 **10개** 이내이면, **8 vCore** 를 그이상이면 **16 vCore** 를 선택히시면 됩니다.  
-        Memory 는 컨트롤 할 호스트의 디스크 용량이 **10 TB** 이내이면, **16 GiB**, **10 ~ 30 TB** 이면 **32 GiB**, **30 TB** 를 초과하면 **64 Gib** 
+        스토리지의 성능 최적화를 위해 스토리지센터 가상머신의 컴퓨트 자원은 가상머신이 컨트롤 할 디스크의 수 및 가용량에 따라 적정하게 선택해야 합니다.
+        CPU 는 컨트롤 할 호스트의 디스크가 **10개** 이내이면, **8 vCore** 를 그이상이면 **16 vCore** 를 선택히시면 됩니다.
+        Memory 는 컨트롤 할 호스트의 디스크 용량이 **10 TB** 이내이면, **16 GiB**, **10 ~ 30 TB** 이면 **32 GiB**, **30 TB** 를 초과하면 **64 Gib**
         를 선택하시면 됩니다.
         ROOT Disk의 크기는 **70GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
 
 3. 가상머신 장치구성 - 디스크
-    
+
     !!! info
         스토리지 센터 가상머신의 디스크로 스토리지 클러스터를 구성하게 됩니다.</br>
         구성 방법에 따라 Raid-Passthrough와 LUN-Passthrough를 선택하게 됩니다.</br>
@@ -145,13 +145,13 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
-    
+
     !!! warning
-        가상머신 장치션 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.  
+        가상머신 장치션 구성 - 디스크 구성시 파티션이 구성된 디스크의 선택을 하시면 안됩니다.
         만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 ABLESTACK Cube 가 삭제가 될 수 있습니다.
 
 4. 가상머신 장치구성 - 네트워크
-    
+
     !!! info
         스토리지 센터 가상머신의 관리 및 스토리지 전용 네트워크를 구성하게 됩니다.</br>
         구성 방법에 따라 NIC-Passthrough, NIC-Passthrough-Bonding, Bridge-Network를 선택하게 됩니다.</br>
@@ -166,7 +166,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
     - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
     - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC** 
+    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
     선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 
@@ -183,7 +183,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     - **스토리지 서버 NIC IP** 를 입력 및 확인합니다.
     - **스토리지 복제 NIC IP** 를 입력 및 확인합니다.
     - **CCVM 관리 IP** 를 확인합니다.
-      
+
     !!! info
         스토리지센터 가상머신 배포시 ablecube 호스트에서 설정파일 읽어와 일부 정보를 자동세팅되며 입력 정보를 정확히 확인해야 합니다.
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
@@ -194,22 +194,22 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
     !!! info
-        SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.  
+        SSH 개인 Key 파일 명은 **id_rsa**, SSH 공개 Key 파일명은 **id_rsa.pub** 으로 고정되어 있습니다.
         키 파일명을 변경할 경우 등록이 불가능 합니다.
 
 7. 설정확인
     ![설정확인](../assets/images/install-guide-add-host-15.png){ align=center }
     - 스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.
     - **배포** 버튼을 클릭하면 확인창이 보이며 **실행** 버튼을 눌러 스토리지 가상머신을 배포 합니다.
-    
+
 8. 배포
     ![배포](../assets/images/install-guide-add-host-16.png){ align=center }
     - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
-    
+
 9.  완료
     ![완료](../assets/images/install-guide-add-host-17.png){ align=center }
     - 스토리지센터 가상머신 배포 완료 후 화면입니다.
-    
+
 10. 스토리지센터 가상머신 상태 확인
     ![완료](../assets/images/install-guide-add-host-18.png){ align=center }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
@@ -219,7 +219,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
 1. Glue 대시보드 연결
     ![Glue 대시보드 연결](../assets/images/install-guide-add-host-19.png){ align=center }
-    - 기 구축된 1번 Cube 로 이동하여 로그인 합니다. 
+    - 기 구축된 1번 Cube 로 이동하여 로그인 합니다.
     - 상단 리본의 **스토리지센터 대시보드 연결** 링크를 클릭하여 Glue 대시보드로 연결합니다.
 
 2. 스토리지센터 가상머신 추가
@@ -244,27 +244,27 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
 1. Mold 대시보드 연결
     ![Mold 대시보드 연결](../assets/images/install-guide-add-host-24.png){ align=center }
-    - 1번 Cube 로 이동하여 로그인 합니다. 
+    - 1번 Cube 로 이동하여 로그인 합니다.
     - 상단 리본의 **클라우드센터 대시보드 연결** 링크를 클릭하여 Mold 대시보드로 연결합니다.
-    
+
     ![Mold 대시보드 로그인](../assets/images/install-guide-add-host-25.png){ align=center }
-    - IP, Password를 입력하여 로그인합니다. 
+    - IP, Password를 입력하여 로그인합니다.
 
 2. Mold 호스트 추가
     ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-26.png){ align=center }
     - Mold 대시보드에 로그인하여, 인프라스트럭쳐 > 호스트 메뉴에서 **호스트 추가** 버튼을 클릭합니다.
-    
+
     ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-27.png){ align=center }
 
-    - **Zone 이름** 을 입력합니다. 
-    - **Pod 이름** 을 입력합니다. 
-    - **클러스터** 를 입력합니다. 
-    - **호스트 이름** 을 입력합니다. 
-    - **사용자 이름** 을 입력합니다. 
-    - **비밀번호** 를 입력합니다. 
-    - **호스트 태그** 를 입력합니다. 
+    - **Zone 이름** 을 입력합니다.
+    - **Pod 이름** 을 입력합니다.
+    - **클러스터** 를 입력합니다.
+    - **호스트 이름** 을 입력합니다.
+    - **사용자 이름** 을 입력합니다.
+    - **비밀번호** 를 입력합니다.
+    - **호스트 태그** 를 입력합니다.
     - 위 정보를 입력후 **확인** 버튼을 클릭하여 Mold에 컴퓨팅 호스트를 추가합니다.
-    
+
 3. Mold 호스트 추가 완료
     ![클라우드센터 호스터 추가 완료](../assets/images/install-guide-add-host-28.png){ align=center }
     - 호스트 목록에 추가된 호스트 정보를 확인할 수 있습니다.

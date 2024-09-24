@@ -129,7 +129,7 @@ nav:
     - ABLESTACK Core:
       - Cube 알아보기 : architecture/book-of-cube.md
       - Cell 알아보기 : architecture/book-of-cell.md
-      - Glue 알아보기 : architecture/book-of-glue.md      
+      - Glue 알아보기 : architecture/book-of-glue.md
       - Mold 알아보기 : architecture/book-of-mold.md
     - ABLESTACK Extended:
       - Wall 알아보기 : architecture/book-of-wall.md
@@ -158,7 +158,7 @@ nav:
 #  - 설정 및 구성:
 #    - 시작하며: setup/setup-overview.md
   - 관리가이드:
-    - Cube 가이드: 
+    - Cube 가이드:
       - 사용자 인터페이스 : administration/cube/userinterface-guide.md
       - 개요 : administration/cube/overview-guide.md
       - 기록 : administration/cube/log-guide.md
@@ -190,7 +190,7 @@ nav:
       - Cloud 관리: administration/mold/cloud-mngt-guide.md
       - 고가용성(HA) 관리: administration/mold/ha-mngt-guide.md
       - 이벤트 관리: administration/mold/event-mngt-guide.md
-    - Glue 가이드: 
+    - Glue 가이드:
       - 사용자 인터페이스 : administration/glue/userinterface-guide.md
       - 설정 : administration/glue/config-guide.md
       - 사용자 및 역할 관리 : administration/glue/account&role-guide.md
@@ -200,7 +200,7 @@ nav:
       - 플러그인 : administration/glue/plugin-guide.md
       - 문제해결 : administration/glue/troubleshooting-guide.md
 #    - Cell 가이드: administration/cell/cell-guide-overview.md
-    - Wall 가이드: 
+    - Wall 가이드:
       - 사용자 인터페이스 : administration/wall/userinterface-guide.md
       - 대시보드 검색 : administration/wall/dashboard-search.md
       - 생성 : administration/wall/create.md
@@ -233,14 +233,14 @@ nav:
     - ABLESTACK 시스템점검: administration/system-check.md
     - ABLESTACK 시스템 재기동: administration/system-restart.md
   - 레퍼런스 가이드 :
-    - CentOS 가상머신 가이드 : 
+    - CentOS 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
       - 템플릿을 이용한 VM 생성 : userGuide/vms/centos-guide-add-and-use-vm.md
       - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/centos-guide-ssh-key-use.md
       - UserData 적용 기능 추가 : userGuide/vms/centos-guide-userdata.md
       - 가상머신 볼륨 사용 : userGuide/vms/centos-guide-storage.md
       - 가상머신 NIC 사용 : userGuide/vms/centos-guide-nics.md
-    - Ubuntu 가상머신 가이드 : 
+    - Ubuntu 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/ubuntu-guide-prepare-vm.md
       - 템플릿을 이용한 VM 생성 : userGuide/vms/ubuntu-guide-add-and-use-vm.md
       - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/ubuntu-guide-ssh-key-use.md
@@ -279,6 +279,17 @@ nav:
       - 가상환경 구성: userGuide/oraclerac/oracle-rac-infra-setup.md
       - ASM 및 GI 구성: userGuide/oraclerac/oracle-rac-asm-gi-setup.md
       - Oracle 데이터베이스 구성: userGuide/oraclerac/oracle-rac-db-setup.md
+<<<<<<< HEAD
+    - Glue Service 관리 가이드:
+      - 게이트웨이 가상머신 관리 및 기능: userGuide/glue/gwvm-manage-feature.md
+      - Glue FS 관리 및 기능: userGuide/glue/fs-manage-feature.md
+      - Glue NFS 관리 및 기능: userGuide/glue/nfs-manage-feature.md
+      - Glue Object Gateway 관리 및 기능: userGuide/glue/rgw-manage-feature.md
+      - Glue Ingress 관리 및 기능: userGuide/glue/ingress-manage-feature.md
+      - Glue iSCSI 관리 및 기능: userGuide/glue/iscsi-manage-feature.md
+      - Glue NVMe-oF 관리 및 기능: userGuide/glue/nvmeof-manage-feature.md
+      - Glue Samba 관리 및 기능: userGuide/glue/samba-manage-feature.md
+=======
     - Mold Fence Agent 활용한 HA 구성 가이드:
       - 구성 개요: userGuide/mold_fence/mold-fence-prepare.md
       - 구성 환경: userGuide/mold_fence/mold-fence-configuration-environment.md
@@ -287,14 +298,15 @@ nav:
       - MOLD Fence Agent 설치 및 STONITH 구성: userGuide/mold_fence/mold-fence-configuration-mold-fence.md
       - Mysql 이중화를 위한 PCS Resource 구성: userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource.md
       - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
+>>>>>>> 4a915cc328d64205374954c7cd18781da210e812
 
     # - 템플릿 :
     #   - 샘플 템플릿: userGuide/templateSample/template.md
     #   - readme: userGuide/templateSample/readme.md
 #  - 레퍼런스:
 #    - 시작하며: reference/reference-overview.md
-  - 릴리즈노트 : 
+  - 릴리즈노트 :
     - Cerato : releaseNote/release-cerato.md
     - Bronto : releaseNote/release-note.md
-  - 지식베이스 : 
+  - 지식베이스 :
     - 문제해결사례 : troubleshooting/troubleshooting.md
