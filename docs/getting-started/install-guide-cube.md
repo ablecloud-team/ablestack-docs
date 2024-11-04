@@ -208,17 +208,31 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
             - 화면 중간 버튼그룹 중 **본드 추가** 버튼을 클릭하면 보이는 화면이며, 본드를 설정하는 팝업 화면입니다.
             ![Public Storage Network 본드 구성](../assets/images/install-guide-cube-21-2.png){ align=center }
             - 본드 이름을 **bond 1** 을 입력해주고, 연결장치는 **Public Storage NIC** 를 선택하고 **추가** 버튼을 클릭합니다.
+            ![Public Storage Network 본드 MTU 설정1](../assets/images/install-guide-cube-21-3.png){ align=center }
+            - 해당 Public Storage Network 본드에서도 전과 동일하게 MTU를 설정해야 합니다.
+            ![Public Storage Network 본드 MTU 설정2](../assets/images/install-guide-cube-21-4.png){ align=center }
+            - MTU 설정 화면입니다.
 
         4. Public Storage Network 브릿지 설정
             ![Public Storage Network 브릿지 설정](../assets/images/install-guide-cube-22-1.png){ align=center }
             - 화면 중간 버튼그룹 중 **브릿지 추가** 버튼을 클릭하면 보이는 화면이며, 브릿지를 설정하는 팝업 화면입니다.
             ![Public Storage Network 브릿지 구성](../assets/images/install-guide-cube-22-2.png){ align=center }
             - 브릿지 이름을 **bridge-HPN** 을 입력해주고, 연결장치는 **bond 1** 를 선택하고 **저장** 버튼을 클릭합니다.
+            ![Public Storage Network 브릿지 MTU 설정1](../assets/images/install-guide-cube-22-3.png){ align=center }
+            - 해당 Public Storage Network 브릿지에서도 전과 동일하게 MTU를 설정해야 합니다.
+            ![Public Storage Network 브릿지 MTU 설정2](../assets/images/install-guide-cube-22-4.png){ align=center }
+            - MTU 설정 화면입니다.
 
             !!! info
                 해당 과정은 물리적인 Public Storage Network를 Gateway VM에서 사용할 수 있게 브릿지를 하는 과정입니다.
 
                 브릿지의 IP 설정은 ABLESTACK Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
+
+            !!! check
+                Public Storage Network 설정 할 시, 물리 인터페이스 및 본드 및 브릿지 MTU 설정 값이 같아야 합니다.
+
+                확인 후 다음 단계로 넘어가시길 바랍니다.
+
 
 !!! info
     ABLESTACK 클러스터는 최소 3식이상의 호스트로 구성되어야 합니다.
