@@ -20,9 +20,9 @@ DR 클러스터를 추가하려면:
 1. 인프라스트럭쳐 > 재난 복구 클러스터 메뉴로 이동하여 **재난복구 클러스터 추가** 버튼을 클릭합니다.
 2. 재난 복구 클러스터 추가 모달에서 다음 필드에 적절한 세부 정보를 입력합니다.
 ![mold-dr-create-cluster](../../assets/images/mold-dr-create-cluster.png)
-    *	URL - Secondary 클러스터 Mold 의 URL로 포트까지 입력합니다.
+    *	MOLD URL - Secondary 클러스터 Mold 의 URL로 포트까지 입력합니다.
     *   API 키, 비밀 키 - Secondary 클러스터 Mold 의 관리자 계정의 API 키, 비밀 키를 입력합니다.
-    *   Glue IP - Secondary 클러스터 Glue 의 IP 를 입력합니다.
+    *   Glue URL - Secondary 클러스터 Glue 의 IP 를 입력합니다.
     *   Glue 개인키 - Secondary 클러스터 Glue 의 /root/.ssh/id_rsa 경로의 개인 키 파일을 입력합니다.
 3. **연결 테스트** 버튼을 클릭하여 Secondary 클러스터의 Mold 와 Glue 상태를 확인하고, 정상인 경우 확인 버튼이 활성화되며 **확인** 버튼을 클릭하여 재난 복구 클러스터를 추가합니다.
 !!! check
