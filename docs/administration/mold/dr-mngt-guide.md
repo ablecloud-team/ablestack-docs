@@ -121,7 +121,7 @@ DR 상황 발생 후 Primary 클러스터를 복구한 경우 :
 
 1. Primary 클러스터 사전 작업
     - Primary 클러스터의 Mold 와 Glue 상태가 정상인지 확인
-    - Primary, Secondary 클러스터의 Mold의 머러링 가상머신 모두 정지
+    - Primary, Secondary 클러스터의 Mold의 미러링 가상머신 모두 정지
 
 2. DR 클러스터 동기화
     - Secondary 클러스터의 인프라스트럭쳐 > 재난 복구 클러스터 메뉴 이동
