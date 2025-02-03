@@ -309,11 +309,8 @@ nav:
       - MOLD Fence Agent 설치 및 STONITH 구성: userGuide/mold_fence/mold-fence-configuration-mold-fence.md
       - Mysql 이중화를 위한 PCS Resource 구성: userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource.md
       - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
-<<<<<<< HEAD
     - 압축/중복제거 볼륨 사용방법 가이드:
       - 압축/중복제거 볼륨 사용방법: userGuide/compress_dedup/compress_dedup_guide.md
-=======
->>>>>>> PowerFlex
     # - 템플릿 :
     #   - 샘플 템플릿: userGuide/templateSample/template.md
     #   - readme: userGuide/templateSample/readme.md
