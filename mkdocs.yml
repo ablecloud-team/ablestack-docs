@@ -130,21 +130,35 @@ nav:
     - ABLESTACK 구성요소:
       - Cube 알아보기 : architecture/book-of-cube.md
       - Cell 알아보기 : architecture/book-of-cell.md
-      - Glue 알아보기 : architecture/book-of-glue.md
+      - Glue 알아보기 :
+        - ABLESTACK : architecture/book-of-glue.md
+        - PowerFlex : architecture/book-of-powerflex.md
       - Mold 알아보기 : architecture/book-of-mold.md
       - Wall 알아보기 : architecture/book-of-wall.md
       - Koral 알아보기 : architecture/book-of-koral.md
       - Genie 알아보기 : architecture/book-of-genie.md
   - 시작하기:
-    - 시작하며: getting-started/getting-started-overview.md
-    - 구성요소별 설치 가이드:
-      - Cube 설치 가이드: getting-started/install-guide-cube.md
-      - Glue 설치 가이드: getting-started/install-guide-glue.md
-      - Mold 설치 가이드: getting-started/install-guide-mold.md
-      - Wall 설치 가이드: getting-started/install-guide-wall.md
-      - Genie 설치 가이드: getting-started/install-guide-genie.md
-    - ABLESTACK 구성관리:
-      - 호스트 추가 가이드: getting-started/install-guide-add-host.md
+    - ABLESTACK 설치 가이드:
+      - 설치전 준비사항: getting-started/getting-started-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-glue.md
+        - Mold 설치 가이드: getting-started/install-guide-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-wall.md
+        - Genie 설치 가이드: getting-started/install-guide-genie.md
+      - ABLESTACK 구성관리:
+        - 호스트 추가 가이드: getting-started/install-guide-add-host.md
+    - PowerFlex 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-powerflex-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-powerflex-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-powerflex-glue.md
+        - PFMP 설치 가이드: getting-started/install-guide-powerflex-pfmp.md
+        - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
+
+#  - 설정 및 구성:
+#    - 시작하며: setup/setup-overview.md
   - 관리가이드:
     - Cube 가이드:
       - 사용자 인터페이스 : administration/cube/userinterface-guide.md

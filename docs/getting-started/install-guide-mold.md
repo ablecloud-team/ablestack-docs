@@ -224,7 +224,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 
 14. ablecube2 호스트 추가
     ![호스트 추가](../assets/images/install-guide-mold-add-host2.png){ align=center }
-    - 클라우드센터 ablecube2 호스트를 추가하는 화면 입니다.
+    - 클라우드센터 ablecube2 호스트를 추가하는 화면 입니다.install-guide-mold.md
     - **Zone 이름** 항목에는 **Zone** 을 선택합니다.
     - **Pod 이름** 항목에는 **Pod** 을 선택합니다.
     - **클러스터** 항목에는 **Cluster** 를 선택합니다.
