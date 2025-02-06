@@ -158,11 +158,13 @@ nav:
         - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
     - 일반 가상화 설치 가이드:
       - 설치전 준비사항: getting-started/install-guide-general-virtualization-overview.md
-      - Core:
+      - 구성요소별 설치 가이드:
         - Cube 설치 가이드: getting-started/install-guide-general-virtualization-cube.md
         - Mold 설치 가이드: getting-started/install-guide-general-virtualization-mold.md
-      - Extended:
         - Wall 설치 가이드: getting-started/install-guide-general-virtualization-wall.md
+      - 일반 가상화 구성관리:
+        - GFS 디스크 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
+        - CLVM 디스크 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
 #  - 설정 및 구성:
 #    - 시작하며: setup/setup-overview.md
   - 관리가이드:
