@@ -1,4 +1,4 @@
-# Copyright (c) 2021 ABLECLOUD Co. Ltd.
+# Copyright (c) 2021-2025 ABLECLOUD Co. Ltd.
 
 # 이 파일은 Mold Docs의 도큐먼트 설정 및 테마 설정을 위한 설정 파일입니다.
 # 최초 작성일 : 2021. 03. 18
@@ -122,41 +122,29 @@ nav:
     - ABLESTACK의 탄생:
       - 데이터센터의 역사와 문제점: architecture/architecture-overview.md
       - 문제해결방법-ABLESTACK: architecture/birth-of-ablestack.md
+      - ABLESTACK 제품 및 구성 : architecture/product-and-component.md
     - ABLESTACK 물리 아키텍처:
       - ABLESTACK의 기본구조 : architecture/ablestack-basic-structure.md
       - 호스트 아키텍처 : architecture/host-architecture.md
       - 네트워크 아키텍처 : architecture/network-architecture.md
-    - ABLESTACK Core:
+    - ABLESTACK 구성요소:
       - Cube 알아보기 : architecture/book-of-cube.md
       - Cell 알아보기 : architecture/book-of-cell.md
       - Glue 알아보기 : architecture/book-of-glue.md
       - Mold 알아보기 : architecture/book-of-mold.md
-    - ABLESTACK Extended:
       - Wall 알아보기 : architecture/book-of-wall.md
       - Koral 알아보기 : architecture/book-of-koral.md
-    - ABLESTACK Service:
-      - Works 알아보기 : architecture/book-of-works.md
       - Genie 알아보기 : architecture/book-of-genie.md
-#    - ABLESTACK on Others:
-#      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
-#      - Citrix 기반 ABLESTACK: architecture/book-of-citrix.md
-#      - HyperV 기반 ABLESTACK: architecture/book-of-hyperv.md
-#      - ABLESTACK과 OpenStack: architecture/book-of-openstack.md
   - 시작하기:
     - 시작하며: getting-started/getting-started-overview.md
-    - ABLESTACK Core:
+    - 구성요소별 설치 가이드:
       - Cube 설치 가이드: getting-started/install-guide-cube.md
       - Glue 설치 가이드: getting-started/install-guide-glue.md
       - Mold 설치 가이드: getting-started/install-guide-mold.md
-    - ABLESTACK Extended:
       - Wall 설치 가이드: getting-started/install-guide-wall.md
-    - ABLESTACK Service:
-      - Works 설치 가이드: getting-started/install-guide-works.md
       - Genie 설치 가이드: getting-started/install-guide-genie.md
-    - ABLESTACK Add Host:
+    - ABLESTACK 구성관리:
       - 호스트 추가 가이드: getting-started/install-guide-add-host.md
-#  - 설정 및 구성:
-#    - 시작하며: setup/setup-overview.md
   - 관리가이드:
     - Cube 가이드:
       - 사용자 인터페이스 : administration/cube/userinterface-guide.md
@@ -164,7 +152,6 @@ nav:
       - 기록 : administration/cube/log-guide.md
       - 저장소 : administration/cube/storage-guide.md
       - 네트워킹 : administration/cube/networking-guide.md
-      #- 가상머신 : administration/cube/vm-guide.md
       - 계정 : administration/cube/account-guide.md
       - 서비스 : administration/cube/service-guide.md
       - ABLESTACK : administration/cube/ablestack-guide.md
@@ -211,16 +198,16 @@ nav:
 #      - 서버 관리 : administration/wall/server-management.md
 #      - 기본설정 : administration/wall/basic-setting.md
       - Netdive : administration/wall/netdive-guide.md
-    - Works 관리자 가이드:
-      -  관리자 로그인: administration/works/admin-login.md
-      -  대시보드: administration/works/admin-dashboard.md
-      -  워크스페이스: administration/works/admin-workspaces.md
-      -  가상머신: administration/works/admin-virtual-machines.md
-      -  사용자: administration/works/admin-user.md
-      -  설정: administration/works/admin-setting.md
-    - Works 사용자 가이드:
-        - 사용자 로그인: administration/works/user-login.md
-        - 데스크탑: administration/works/user-desktop.md
+#    - Works 관리자 가이드:
+#      -  관리자 로그인: administration/works/admin-login.md
+#      -  대시보드: administration/works/admin-dashboard.md
+#      -  워크스페이스: administration/works/admin-workspaces.md
+#      -  가상머신: administration/works/admin-virtual-machines.md
+#      -  사용자: administration/works/admin-user.md
+#      -  설정: administration/works/admin-setting.md
+#    - Works 사용자 가이드:
+#        - 사용자 로그인: administration/works/user-login.md
+#        - 데스크탑: administration/works/user-desktop.md
         # - 데스크탑 접속(Guacamole Client): administration/works/user-desktop-connection.md
     - Genie 가이드:
       -  사용자 인터페이스: administration/genie/userinterface-guide.md

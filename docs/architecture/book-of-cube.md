@@ -12,7 +12,7 @@ Cube는 상용 서버에서 ABLESTACK HCI가 동작할 수 있도록 설치하�
     - 부팅 가능 ISO 이미지 제공 (별도로 USB 등의 매체로 변환 가능)
     - Anaconda 및 자동 설치 관리자(Kickstart) 제공
 - Kernel 및 핵심 라이브러리
-    - CentOS 8을 기반으로 하는 Linux Kernel 포함
+    - Rocky Linux 9을 기반으로 하는 Linux Kernel 포함
     - ABLESTACK Glue, Cell Labrary 및 VM Appliance Image 포함
 - 웹 기반 관리 기능
     - 웹을 이용해 호스트 관리, 호스트의 가상머신 및 컨테이너 관리, 각종 서비스 및 호스트 보안 관리 기능을 제공
