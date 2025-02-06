@@ -129,7 +129,9 @@ nav:
     - ABLESTACK Core:
       - Cube 알아보기 : architecture/book-of-cube.md
       - Cell 알아보기 : architecture/book-of-cell.md
-      - Glue 알아보기 : architecture/book-of-glue.md
+      - Glue 알아보기 :
+        - ABLESTACK : architecture/book-of-glue.md
+        - PowerFlex : architecture/book-of-powerflex.md
       - Mold 알아보기 : architecture/book-of-mold.md
     - ABLESTACK Extended:
       - Wall 알아보기 : architecture/book-of-wall.md
@@ -143,18 +145,29 @@ nav:
 #      - HyperV 기반 ABLESTACK: architecture/book-of-hyperv.md
 #      - ABLESTACK과 OpenStack: architecture/book-of-openstack.md
   - 시작하기:
-    - 시작하며: getting-started/getting-started-overview.md
-    - ABLESTACK Core:
-      - Cube 설치 가이드: getting-started/install-guide-cube.md
-      - Glue 설치 가이드: getting-started/install-guide-glue.md
-      - Mold 설치 가이드: getting-started/install-guide-mold.md
-    - ABLESTACK Extended:
-      - Wall 설치 가이드: getting-started/install-guide-wall.md
-    - ABLESTACK Service:
-      - Works 설치 가이드: getting-started/install-guide-works.md
-      - Genie 설치 가이드: getting-started/install-guide-genie.md
-    - ABLESTACK Add Host:
-      - 호스트 추가 가이드: getting-started/install-guide-add-host.md
+    - ABLESTACK 설치 가이드:
+      - 설치전 준비사항: getting-started/getting-started-overview.md
+      - Core:
+        - Cube 설치 가이드: getting-started/install-guide-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-glue.md
+        - Mold 설치 가이드: getting-started/install-guide-mold.md
+      - Extended:
+        - Wall 설치 가이드: getting-started/install-guide-wall.md
+      - Service:
+        - Works 설치 가이드: getting-started/install-guide-works.md
+        - Genie 설치 가이드: getting-started/install-guide-genie.md
+      - Add Host:
+        - 호스트 추가 가이드: getting-started/install-guide-add-host.md
+    - PowerFlex 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-powerflex-overview.md
+      - Core:
+        - Cube 설치 가이드: getting-started/install-guide-powerflex-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-powerflex-glue.md
+        - PFMP 설치 가이드: getting-started/install-guide-powerflex-pfmp.md
+        - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
+      - Extended:
+        - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
+
 #  - 설정 및 구성:
 #    - 시작하며: setup/setup-overview.md
   - 관리가이드:
@@ -296,7 +309,8 @@ nav:
       - MOLD Fence Agent 설치 및 STONITH 구성: userGuide/mold_fence/mold-fence-configuration-mold-fence.md
       - Mysql 이중화를 위한 PCS Resource 구성: userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource.md
       - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
-
+    - 압축/중복제거 볼륨 사용방법 가이드:
+      - 압축/중복제거 볼륨 사용방법: userGuide/compress_dedup/compress_dedup_guide.md
     # - 템플릿 :
     #   - 샘플 템플릿: userGuide/templateSample/template.md
     #   - readme: userGuide/templateSample/readme.md

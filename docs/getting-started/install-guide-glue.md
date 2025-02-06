@@ -27,12 +27,18 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
-2. SSH Key 파일(신규생성)
+2. 클러스터 종류
+    ![클러스터 종류](../assets/images/install-guide-glue-02-1.png){ align=center }
+    - 클러스터 종류를 설정하는 화면입니다.
+    - **ABLESTACK** 를 선택합니다.
+    - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
+
+3. SSH Key 파일(신규생성)
     ![SSH Key 파일](../assets/images/install-guide-glue-03.png){ align=center }
     - 모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.
     - **SSH Key 준비 방법** 에서 **신규 생성** 을 선택하고 **다음** 버튼을 클릭하여 신규 SSH Key 를 생성합니다.
 
-3. 클러스터 구성 파일
+4. 클러스터 구성 파일
     ![클러스터 구성 파일](../assets/images/install-guide-glue-04.png){ align=center }
     - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
     - **클러스터 구성 파일 준비** 에서 **신규 생성** 을 선택합니다.
@@ -64,7 +70,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
         3 | ablecube3 | 10.10.2.3 | 10.10.2.13 | 100.100.2.3 | 100.100.2.13 | 100.200.2.13
 
 
-4. 시간서버
+5. 시간서버
 
     !!! info
         ABLESTACK에서 시간서버는 매우 중요한 역할을 합니다. </br>
@@ -83,12 +89,12 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
     - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
-5. 설정확인
+6. 설정확인
     ![설정확인](../assets/images/install-guide-glue-06.png){ align=center }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는 경우 **완료** 버튼을 클릭합니다.
 
-6. 완료
+7. 완료
     ![진행](../assets/images/install-guide-glue-07-1.png){ align=center }
     - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
     - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
@@ -213,6 +219,12 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
+
+2. 클러스터 종류
+    ![클러스터 종류](../assets/images/install-guide-glue-18-1.png){ align=center }
+    - 클러스터 종류를 설정하는 화면입니다.
+    - **ABLESTACK** 를 선택합니다.
+    - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 2. SSH Key 파일(기존파일사용)
    ![SSH Key 파일](../assets/images/install-guide-glue-19.png){ align=center }
@@ -370,6 +382,12 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
+
+2. 클러스터 종류
+    ![클러스터 종류](../assets/images/install-guide-glue-34-1.png){ align=center }
+    - 클러스터 종류를 설정하는 화면입니다.
+    - **ABLESTACK** 를 선택합니다.
+    - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 2. SSH Key 파일(기존파일사용)
    ![SSH Key 파일](../assets/images/install-guide-glue-35.png){ align=center }
