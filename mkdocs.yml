@@ -167,7 +167,13 @@ nav:
         - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
       - Extended:
         - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
-
+    - 일반 가상화 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-general-virtualization-overview.md
+      - Core:
+        - Cube 설치 가이드: getting-started/install-guide-general-virtualization-cube.md
+        - Mold 설치 가이드: getting-started/install-guide-general-virtualization-mold.md
+      - Extended:
+        - Wall 설치 가이드: getting-started/install-guide-general-virtualization-wall.md
 #  - 설정 및 구성:
 #    - 시작하며: setup/setup-overview.md
   - 관리가이드:
