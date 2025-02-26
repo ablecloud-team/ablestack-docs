@@ -166,5 +166,4 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     또는
     df -h | grep /mnt/test
     ```
-!!! info
-    현재 윈도우에서는 자체 NVMe-oF 드라이버를  제공하지 않습니다.
+

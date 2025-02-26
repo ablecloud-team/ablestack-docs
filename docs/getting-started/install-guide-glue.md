@@ -636,6 +636,5 @@ Glue 대시보드를 실행하기 위해서는 **Bootstrap** 우선 실행해야
     ![ABLESTACK 확인](../assets/images/install-guide-glue-ABLESTACK-check.png){ align=center }
     - ABLESTACK 메인화면에서 스토리지센터 클러스터 상태 카드에서 클러스터가 상태가 **Health OK** 인지 확인합니다.
 
-!!! info
-    ABLESTACK Glue 구성이 완료되었습니다.
-    ABLESTACK Mold 구성도 ABLESTACK Cube 웹 콘솔을 이용하여 할 수 있습니다.
+ABLESTACK Glue 구성이 완료되었습니다.
+ABLESTACK Mold 구성도 ABLESTACK Cube 웹 콘솔을 이용하여 할 수 있습니다.

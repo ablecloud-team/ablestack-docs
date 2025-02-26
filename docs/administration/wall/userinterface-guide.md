@@ -42,10 +42,11 @@ admin 권한의 게정으로 Mold UI로 로그인 하고 ![wall-moldadmin-logon-
 "Monitoring Dashboard" 버튼을 클릭하여 Wall UI 로그인 페이지로 접근 가능 합니다.
 
 ## 최종 사용자 계정 Mold UI에서 Wall UI 접속 방법
+
+!!! info
+    최종 사용자는 별도의 로그인 필요 없이 접근 가능합니다.
+    
 최종 사용자 권한의 게정으로 Mold UI로 로그인 하고 (컴퓨트 > 가상머신) 메뉴에서 가상머신을 선택합니다.  
 선택 후 ![wall-enduser-monitoring-button](../../assets/images/wall-enduser-monitoring-button.png) 버튼을 클릭하면 해당 가상머신의 모니터링을 확인할 수 있는 Wall UI 대시보드 페이지로 접근 합니다.
 
 ![wall-enduser-main-page](../../assets/images/wall-enduser-main-page.png)
-
-!!! info
-    최종 사용자는 별도의 로그인 필요 없이 접근 가능합니다.

@@ -1,10 +1,10 @@
 Glue는 접착제, 풀을 뜻하는 단어로, ABLESTACK 통합 스토리지 플랫폼의 이름입니다. 호스트에 있는 디스크를 이용해 통합된 저장공간을 제공하고, 다양한 형태로 스토리지 서비스를 제공하는 HCI 스토리지의 특성을 잘 설명할 수 있는 단어로, 통합 스토리지라는 의미를 담고 있습니다.
 
-Glue는 PowerFlex HCI를 구성함으로써 데이터센터에서 필요로 하는 모든 스토리지 서비스를 제공하는 것을 목표로 설계, 개발되었습니다.
+Glue는 ABLESTACK PowerFlex를 구성함으로써 데이터센터에서 필요로 하는 모든 스토리지 서비스를 제공하는 것을 목표로 설계, 개발되었습니다.
 
 ## Glue의 설계 목표
 
-Glue는 PowerFlex HCI를 실현하기 위한 핵심 구성요소로, PowerFlex에 가상머신용 볼륨 스토리지, HA 지원을 위한 Heartbeat 스토리지, 파일시스템 등 다양한 저장소를 제공하는 구성요소입니다. 사용자는 실제로는 Mold를 사용하지만, 이 Mold가 일할 수 있는 기반을 제공해주는 플랫폼입니다. 즉, 사용자는 Glue가 어떻게 서비스 되는지에 대한 관심이 크게 없다는 것입니다. 따라서 이러한 관점에서 Glue는 다음과 같은 목표로 지속적인 플랫폼 개발 및 업그레이드를 계획하고 실행합니다.
+Glue는 ABLESTACK PowerFlex를 실현하기 위한 핵심 구성요소로, PowerFlex에 가상머신용 볼륨 스토리지, HA 지원을 위한 Heartbeat 스토리지, 파일시스템 등 다양한 저장소를 제공하는 구성요소입니다. 사용자는 실제로는 Mold를 사용하지만, 이 Mold가 일할 수 있는 기반을 제공해주는 플랫폼입니다. 즉, 사용자는 Glue가 어떻게 서비스 되는지에 대한 관심이 크게 없다는 것입니다. 따라서 이러한 관점에서 Glue는 다음과 같은 목표로 지속적인 플랫폼 개발 및 업그레이드를 계획하고 실행합니다.
 
 - 사용자 관점에서 투명한 스토리지 환경을 제공 (스토리지 아키텍처가 사용자 환경에 영향을 미치지 않음)
 - 간결하고 직관적인 웹 기반 관리 환경 제공
@@ -16,9 +16,9 @@ Glue는 PowerFlex HCI를 실현하기 위한 핵심 구성요소로, PowerFlex�
 
 ## 아키텍처 개요
 
-Glue는 PowerFlex HCI의 핵심 구성요소로 HCI의 스토리지를 제공하기 위한 플랫폼입니다.
+Glue는 ABLESTACK PowerFlex의 핵심 구성요소로 HCI의 스토리지를 제공하기 위한 플랫폼입니다.
 
-다음의 그림은 PowerFlex HCI의 전체 구성요소 중 Glue가 제공하는 기능을 아키텍처로 표현합니다.
+다음의 그림은 ABLESTACK PowerFlex의 전체 구성요소 중 Glue가 제공하는 기능을 아키텍처로 표현합니다.
 
 <center>
 ![glue-powerflex-architecture-overview](../assets/images/glue-powerflex-architecture-overview.png)
@@ -122,7 +122,7 @@ MDM 클러스터의 변경 사항을 반영하려면 모든 SDC를 다시 구성
 ![glue-powerflex-vm-storage-controller](../assets/images/glue-powerflex-vm-storage-controller.png)
 </center>
 
-스토리지 컨트롤러는 PowerFlex HCI 클러스터를 구성하는 호스트에 1대씩 만들어집니다. 설치하는 과정에서 PFMP(PowerFlex Manager PlatForm) 가상머신에 Glue의 컨테이너 이미지가 내장되어 있습니다. PFMP 가상머신에서 스토리지 가상머신에 배포 한 후, 각 쿠버네티스 서비스가 실행됩니다.
+스토리지 컨트롤러는 ABLESTACK PowerFlex 클러스터를 구성하는 호스트에 1대씩 만들어집니다. 설치하는 과정에서 PFMP(PowerFlex Manager PlatForm) 가상머신에 Glue의 컨테이너 이미지가 내장되어 있습니다. PFMP 가상머신에서 스토리지 가상머신에 배포 한 후, 각 쿠버네티스 서비스가 실행됩니다.
 
 **Kubectl Service** 는 각 가상머신에서 수 많은 역할을 가진 컨테이너로 실행되며, Glue 스토리지 대시보드, 웹 서비스, 인증 등 Glue 스토리지를 관리하기 위한 서비스로, 모든 스토리지 컨트롤러에서 동작합니다.
 

@@ -149,3 +149,4 @@ NAME             CAPACITY   ACCESSMODES   RECLAIMPOLICY   STATUS      CLAIM     
 redis-pv         300Gi      RWO           Retain          Available             manual                   4s
 minos-pv         300Gi      RWO           Retain          Available             manual                   4s
 ```
+

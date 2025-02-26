@@ -15,6 +15,11 @@ repo_url: https://github.com/ablecloud-team/ablestack-docs
 # Copyright
 copyright: Copyright &copy; 2021-2023 ABLECLOUD Co. Ltd.
 
+validation:
+  absolute_links: ignore
+  unrecognized_links: ignore
+  anchors: ignore
+
 # Configuration
 theme:
   name: material
@@ -36,18 +41,26 @@ theme:
 
 
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    - scheme: slate
-      primary: red
-      accent: red
-      toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-auto
         name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 
   font:
     text: Noto Sans KR
@@ -56,12 +69,46 @@ theme:
   favicon: assets/favicon.png
   logo: assets/logo.png
 
+hooks:
+  - pdf-title-hook.py
+
 # Plugin
 plugins:
   - search
   - mike
   - glightbox:
      width: 80%
+  - macros
+  - exporter:
+      formats:
+        pdf:
+          enabled: !ENV [MKDOCS_EXPORTER_PDF, true]
+          concurrency: 1
+          stylesheets:
+            - resources/stylesheets/pdf.scss
+          covers:
+            front: resources/templates/covers/front.html.j2
+            back: resources/templates/covers/back.html.j2
+          aggregator:
+            enabled: true
+            output: .well-known/site.pdf
+            covers: all
+          browser:
+            timeout: 0
+            debug: true
+      logging:
+        level: debug
+      buttons:
+        - title: View as PDF
+          icon: material-file-move-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes:
+            target: _blank
+            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
+        - title: Download as PDF
+          icon: material-file-download-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
 
 # Customization
 extra:
@@ -81,7 +128,6 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
-  - meta
   - md_in_html
   - toc:
       permalink: true
@@ -93,8 +139,8 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
@@ -131,12 +177,15 @@ nav:
       - Cube 알아보기 : architecture/book-of-cube.md
       - Cell 알아보기 : architecture/book-of-cell.md
       - Glue 알아보기 :
-        - ABLESTACK : architecture/book-of-glue.md
-        - PowerFlex : architecture/book-of-powerflex.md
+        - ABLESTACK HCI : architecture/book-of-glue.md
+        - ABLESTACK PowerFlex : architecture/book-of-powerflex.md
       - Mold 알아보기 : architecture/book-of-mold.md
       - Wall 알아보기 : architecture/book-of-wall.md
       - Koral 알아보기 : architecture/book-of-koral.md
       - Genie 알아보기 : architecture/book-of-genie.md
+      - Link 알아보기 : architecture/book-of-link.md
+      - Over 알아보기 : architecture/book-of-over.md
+      - Silo 알아보기 : architecture/book-of-silo.md
   - 시작하기:
     - ABLESTACK 설치 가이드:
       - 설치전 준비사항: getting-started/getting-started-overview.md
@@ -156,9 +205,6 @@ nav:
         - PFMP 설치 가이드: getting-started/install-guide-powerflex-pfmp.md
         - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
         - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
-
-#  - 설정 및 구성:
-#    - 시작하며: setup/setup-overview.md
   - 관리가이드:
     - Cube 가이드:
       - 사용자 인터페이스 : administration/cube/userinterface-guide.md
@@ -200,7 +246,6 @@ nav:
       - NFS-Ganesha 관리 : administration/glue/nfs-ganesha-mngt-guide.md
       - 플러그인 : administration/glue/plugin-guide.md
       - 문제해결 : administration/glue/troubleshooting-guide.md
-#    - Cell 가이드: administration/cell/cell-guide-overview.md
     - Wall 가이드:
       - 사용자 인터페이스 : administration/wall/userinterface-guide.md
       - 대시보드 검색 : administration/wall/dashboard-search.md
@@ -209,20 +254,7 @@ nav:
       - 탐색 : administration/wall/explore.md
       - 경고 : administration/wall/alerting.md
       - 환경 설정 : administration/wall/preferences.md
-#      - 서버 관리 : administration/wall/server-management.md
-#      - 기본설정 : administration/wall/basic-setting.md
       - Netdive : administration/wall/netdive-guide.md
-#    - Works 관리자 가이드:
-#      -  관리자 로그인: administration/works/admin-login.md
-#      -  대시보드: administration/works/admin-dashboard.md
-#      -  워크스페이스: administration/works/admin-workspaces.md
-#      -  가상머신: administration/works/admin-virtual-machines.md
-#      -  사용자: administration/works/admin-user.md
-#      -  설정: administration/works/admin-setting.md
-#    - Works 사용자 가이드:
-#        - 사용자 로그인: administration/works/user-login.md
-#        - 데스크탑: administration/works/user-desktop.md
-        # - 데스크탑 접속(Guacamole Client): administration/works/user-desktop-connection.md
     - Genie 가이드:
       -  사용자 인터페이스: administration/genie/userinterface-guide.md
       -  Quick Start: administration/genie/quick-start.md
@@ -299,11 +331,6 @@ nav:
       - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
     - 압축/중복제거 볼륨 사용방법 가이드:
       - 압축/중복제거 볼륨 사용방법: userGuide/compress_dedup/compress_dedup_guide.md
-    # - 템플릿 :
-    #   - 샘플 템플릿: userGuide/templateSample/template.md
-    #   - readme: userGuide/templateSample/readme.md
-#  - 레퍼런스:
-#    - 시작하며: reference/reference-overview.md
   - 릴리즈노트 :
     - Cerato : releaseNote/release-cerato.md
     - Bronto : releaseNote/release-note.md

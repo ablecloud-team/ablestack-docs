@@ -213,6 +213,5 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
     현재 버전에서 PowerFlex 클러스터는 3식 호스트로 구성되어야 합니다.
     PowerFlex Cube 설치 진행절차는 2번, 3번 호스트도 동일합니다. 위 설치 절차를 2번, 3번 호스트에도 진행하시기 바랍니다.
 
-!!! check
-    PowerFlex Cube 및 PowerFlex Cell의 설치 및 구성이 끝났습니다.
-    PowerFlex Glue 및 PowerFlex PFMP 및 PowerFlex Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.
+PowerFlex Cube 및 PowerFlex Cell의 설치 및 구성이 끝났습니다.
+PowerFlex Glue 및 PowerFlex PFMP 및 PowerFlex Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.

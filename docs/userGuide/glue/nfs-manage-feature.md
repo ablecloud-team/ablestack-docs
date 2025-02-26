@@ -162,3 +162,4 @@ NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를
     또는
     df -h | grep /mnt/nfs
     ```
+

@@ -241,4 +241,5 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
 !!! check
     ABLESTACK Cube 및 ABLESTACK Cell의 설치 및 구성이 끝났습니다.
-    ABLESTACK Glue 및 ABLESTACK Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.
+
+ABLESTACK Glue 및 ABLESTACK Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.

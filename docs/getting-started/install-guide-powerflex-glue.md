@@ -559,4 +559,5 @@ Glue 대시보드에서 설정하기 위해서는 **Bootstrap** 우선 실행해
 !!! info
     PowerFlex Glue의 **Bootstrap** 은 대시보드를 배포하기 전, 미리 클러스터와 스토리지 시스템이 설정되는 절차입니다.
 
-    PowerFlex PFMP 배포 한 후, 설치 다음 대시보드 화면이 생성됩니다.
+
+PowerFlex PFMP 배포 한 후, 설치 다음 대시보드 화면이 생성됩니다.

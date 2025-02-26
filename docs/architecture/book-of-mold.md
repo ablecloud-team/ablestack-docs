@@ -1,10 +1,10 @@
 Mold는 '주형, 뼈대' 등의 의미를 가진 명사로, 틀에 부어 만드는 것을 가리키는 단어입니다. Mold는 이러한 단어의 의미를 이용해 Cloud 관리 플랫폼에 Mold 라는 이름을 붙였습니다. 말 그대로 사용자에게 자동화 또는 오케스트레이션 등을 통해 일정한 틀을 만들어 제공하고, 사용자는 그 틀 안에서 가상자원을 생성하고 사용하도록 하는 플랫폼입니다. 
 
-Mold는 이러한 클라우드의 기본적인 사상과 Mold HCI의 특성을 조합하여, 사용자에게 최상의 클라우드 환경을 제공하기 위해 개발되었습니다. 
+Mold는 이러한 클라우드의 기본적인 사상과 ABLESTACK의 특성을 조합하여, 사용자에게 최상의 클라우드 환경을 제공하기 위해 개발되었습니다. 
 
 ## Mold의 설계 목표
 
-Mold는 실제 사용자의 입장에서 Mold HCI를 사용해 가상머신과 네트워크를 만들고, 서비스를 배포하기 위한 핵심 플랫폼입니다. 즉, 사용자가 가장 많이 사용하는 플랫폼입니다. 따라서 사용자가 편리하게 사용할 수 있는 사용자 환경을 제공해야 하는데, 이를 실현하기 위해 다음과 같은 목표로 지속적인 플랫폼 개발 및 업그레이드를 계획하고 실행합니다. 
+Mold는 실제 사용자의 입장에서 ABLESTACK을 사용해 가상머신과 네트워크를 만들고, 서비스를 배포하기 위한 핵심 플랫폼입니다. 즉, 사용자가 가장 많이 사용하는 플랫폼입니다. 따라서 사용자가 편리하게 사용할 수 있는 사용자 환경을 제공해야 하는데, 이를 실현하기 위해 다음과 같은 목표로 지속적인 플랫폼 개발 및 업그레이드를 계획하고 실행합니다. 
 
 - 간결하고 직관적인 웹 기반, 멀티 플랫폼, 완벽한 모바일 환경 대응 제품
 - 완벽한 Private Cloud 환경 제공을 위해 다양한 가상화 플랫폼을 통합하여 관리
@@ -16,17 +16,17 @@ Mold는 실제 사용자의 입장에서 Mold HCI를 사용해 가상머신과 �
 
 ## 아키텍처
 
-Mold는 클라우드 플랫폼으로, Mold으로 구성된 HCI 클러스터 및 로컬 또는 외부에서 호스팅 되는 또 다른 Mold HCI 클러스터, VMWare/Citrix Hypervisor/Hyper-V 클러스터의 개체 및 서비스를 관리하고 모니터링 할 수 있습니다. 이러한 기능은 Mold HCI 클러스터 상에서 실행되는 Mold Cloud VM에 의해 서비스됩니다. 
+Mold는 클라우드 플랫폼으로, Mold으로 구성된 HCI 클러스터 및 로컬 또는 외부에서 호스팅 되는 또 다른 ABLESTACK 클러스터, VMWare/Citrix Hypervisor/Hyper-V 클러스터의 개체 및 서비스를 관리하고 모니터링 할 수 있습니다. 이러한 기능은 ABLESTACK 클러스터 상에서 실행되는 Mold Cloud VM에 의해 서비스됩니다. 
 
 ### Mold Cloud VM
 
-Mold는 Mold HCI 내에서 실행되는 Mold Cloud VM에 의해서 서비스됩니다. 해당 가상머신은 Mold 서비스가 모두 내장되어 있는 가상 어플라이언스입니다. Mold Cloud VM은 Mold HCI 클러스터를 구성하는 호스트 상에 고가용성 클러스터를 구성하고, 해당 클러스터 내에 1개의 가상머신을 이용해 구성됩니다. 
+Mold는 ABLESTACK 내에서 실행되는 Mold Cloud VM에 의해서 서비스됩니다. 해당 가상머신은 Mold 서비스가 모두 내장되어 있는 가상 어플라이언스입니다. Mold Cloud VM은 ABLESTACK 클러스터를 구성하는 호스트 상에 고가용성 클러스터를 구성하고, 해당 클러스터 내에 1개의 가상머신을 이용해 구성됩니다. 
 
 <center>
 ![mold-software-architecture](../assets/images/mold-software-architecture.png)
 </center>
 
-최소 3대로 구성된 Mold HCI 호스트는 각각에 Failover Cluster를 구성할 수 있는 Agent가 설치되어 있습니다. 이를 통해 Mold VM에 대한 장애 조치 클러스터 서비스를 운영합니다.
+최소 3대로 구성된 ABLESTACK 호스트는 각각에 Failover Cluster를 구성할 수 있는 Agent가 설치되어 있습니다. 이를 통해 Mold VM에 대한 장애 조치 클러스터 서비스를 운영합니다.
 
 장애 조치 클러스터는 Management Network를 통해 각각의 Failover Cluster Agent에게 Cluster Heartbeat 신호를 보내서 해당 호스트가 정상적으로 동작하고 있는지 계속 확인합니다. 
 
@@ -48,7 +48,7 @@ Mold Platform은 크게 5가지의 구성요소로 이루어지며 각각의 구
 
 각각의 구성요소를 설명하면 다음과 같습니다. 
 
-- Mold Agent : 각각의 Mold HCI Host에 설치됩니다. 이 에이전트는 Cell 하이퍼바이저의 libvirt 라이브러리를 이용해 가상머신과 관련된 모든 명령을 실제적으로 Cell에 전달하는 역할과 호스트의 상태를 모니터링 하는 역할을 수행합니다. 
+- Mold Agent : 각각의 ABLESTACK Host에 설치됩니다. 이 에이전트는 Cell 하이퍼바이저의 libvirt 라이브러리를 이용해 가상머신과 관련된 모든 명령을 실제적으로 Cell에 전달하는 역할과 호스트의 상태를 모니터링 하는 역할을 수행합니다. 
 - Mold Core Component : 인프라(호스트, 스토리지 등) 관리, 가상머신 관리, 볼륨 관리, 네트워크 관리 등의 핵심 기능을 처리하는 모듈과 플러그인을 제공합니다. 
 - Mold API : REST형식의 API를 제공하여 가상머신 등을 관리하는 인터페이스를 제공합니다. 
 - Mold CLI : Mold API를 호출하여 명령행 환경에서 사용자가 직접 명령을 전달하고, 가상자원을 관리할 수 있도록 지원합니다. 
@@ -64,18 +64,18 @@ Mold는 완벽한 클라우드 환경을 구성하기 위해 다양한 개념의
 
 각각의 인프라 구성요소의 의미 및 역할은 다음과 같습니다. 
 
-- Zone : 물리적인 데이터센터를 의미합니다. 수많은 Rack과 Mold HCI 서버, 네트워크 장비 등으로 구성되어 있는 공간을 생각할 수 있습니다. 네트워크 토폴로지 상에 여러 North-West Traffic과 East-West Traffic을 포함합니다. 
+- Zone : 물리적인 데이터센터를 의미합니다. 수많은 Rack과 ABLESTACK 서버, 네트워크 장비 등으로 구성되어 있는 공간을 생각할 수 있습니다. 네트워크 토폴로지 상에 여러 North-West Traffic과 East-West Traffic을 포함합니다. 
 - Pod : 물리적으로 여러 개의 Rack으로 구성된 인프라 전체를 나타냅니다. 네트워크 토폴로지 상에 동일 East-West Traffic을 사용하는 서버와 네트워크 장비가 하나의 Pod입니다. 
 - Cluster : 물리적으로 여러 개의 Host로 구성된 인프라를 나타냅니다. 일반적으로 동일 ToR 스위치 상에 연결되어 있는 호스트의 집합으로 구성됩니다. 
 - Host : Mold Cube가 설치된 단일 서버를 나타내거나, VMWare ESXi, Citrix Hypervisor 등이 설치된 호스트일 수 있습니다. 클러스터 내의 Host는 반드시 동일한 클러스터 스위치(ToR 스위치)에 연결돼 있어야 합니다.
-- Primary Storage : Mold가 가상머신을 만들 때 가상머신의 디스크로 사용하기 위해 연결하는 주스토리지입니다. Mold HCI는 기본적으로 Glue 스토리지를 사용하며, 이때 Glue의 Block Storage GW를 사용합니다. 
-- Secondary Storage : 가상머신을 생성하기 위한 ISO 및 템플릿 이미지 파일을 관리하거나, 스냅샷 백업을 저장하는 백업스토리지입니다. Mold HCI는 이미지만을 관리하는 목적으로 Glue 스토리지를 사용하며, 이때 Glue의 Filesystem GW를 사용합니다. 만약 스냅샷 백업을 저장하는 백업 용도인 경우 반드시 NFS를 지원하는 별도의 외장 백업 스토리지를 사용해야 합니다. 
+- Primary Storage : Mold가 가상머신을 만들 때 가상머신의 디스크로 사용하기 위해 연결하는 주스토리지입니다. ABLESTACK은 기본적으로 Glue 스토리지를 사용하며, 이때 Glue의 Block Storage GW를 사용합니다. 
+- Secondary Storage : 가상머신을 생성하기 위한 ISO 및 템플릿 이미지 파일을 관리하거나, 스냅샷 백업을 저장하는 백업스토리지입니다. ABLESTACK은 이미지만을 관리하는 목적으로 Glue 스토리지를 사용하며, 이때 Glue의 Filesystem GW를 사용합니다. 만약 스냅샷 백업을 저장하는 백업 용도인 경우 반드시 NFS를 지원하는 별도의 외장 백업 스토리지를 사용해야 합니다. 
 - Console Proxy VM : 가상머신의 콘솔을 표시하기 위한 시스템 가상머신입니다.
 - Secondary Storage VM : 백업스토리지를 호스트에 연결하거나 백업을 처리하기 위한 에이전트를 포함하는 이미지/백업 서비스 가상머신입니다. 
 
 ## System VM
 
-Mold는 Multi Hypervisor를 지원하는 클라우드 플랫폼으로 Mold HCI 클러스터를 다양한 하이퍼바이저로 구성하거나 별도로 구성된 하이퍼바이저 클러스터를 통합관리할 수 있습니다. 
+Mold는 Multi Hypervisor를 지원하는 클라우드 플랫폼으로 ABLESTACK 클러스터를 다양한 하이퍼바이저로 구성하거나 별도로 구성된 하이퍼바이저 클러스터를 통합관리할 수 있습니다. 
 
 이러한 멀티 하이퍼바이저 환경 속에서 Mold는 다양한 하이퍼바이저에서 실행되는 가상머신의 콘솔을 확인하거나 가상머신의 스냅샷을 백업하고, ISO 이미지를 제공하는 등의 기능 지원할 수 있어야 합니다. 이런 기능을 통합해서 지원하도록 설계된 가상머신을 System VM이라고 부릅니다. System VM은 위에서 소개한 Mold Infra를 구성하면 자동으로 배포되며 역할에 따라 Console Proxy VM과 Secondary Storage VM으로 나눌 수 있습니다. 
 
@@ -119,7 +119,7 @@ Secondary Storage VM의 구조를 그림으로 표현하면 다음과 같습니�
 Secondary Storage VM은 2개의 구성요소를 포함하고 있습니다. 살펴보면 다음과 같습니다. 
 
 - NFS 데몬 : Secondary Storage를 NFS 방식으로 마운트하고, 스토리지의 상태 및 용량 등을 확인하여 이미지 스토리지가 정상적인지 확인하게 됩니다.
-- Secondary Storage Agent : 스토리지의 마운트 상태를 확인하여 Mold Core에 상태를 보고하고, Image 요청에 따라 동적으로 ABLESTACK HCI 서버에 Secondary Storage를 연결하는 작업을 수행합니다.
+- Secondary Storage Agent : 스토리지의 마운트 상태를 확인하여 Mold Core에 상태를 보고하고, Image 요청에 따라 동적으로 ABLESTACK 서버에 Secondary Storage를 연결하는 작업을 수행합니다.
 
 사용자가 ISO 연결을 요청하면 Secondary Storage를 호스트에 연결하고, 연결이 이루어지면 요청한 이미지를 가상머신에 연결해 주는 일련의 작업을 수행하여 사용자가 GUI 상에서 간단한 버튼 액션만으로도 모든 작업이 이루어질 수 있도록 기능을 제공합니다.
 
@@ -203,7 +203,7 @@ Mold는 관리자가 하이퍼바이저 및 HCI 구성 여부와 관계없이, M
 - 가상머신의 생명주기를 웹 기반 UI 및 API를 통해 완벽하게 관리
 - Multi Hypervisor 지원 : Cell, KVM (CentOS, Ubuntu, RHEL), VMWare ESXi, Citrix Hypervisor, XCP-ng 등
 
-Mold의 가장 강력한 기능을 바로 ABLESTACK HCI로 구성된 클러스터 외에도, 일반 가상화 구성까지 폭넓게 가상화를 지원한다는 것입니다. 이러한 기능을 통해 ABLESTACK HCI를 도입하게 되면 현재 운영 중인 모든 가상화 환경을 클라우드로 전환하고, 통합할 수 있게 됩니다. 
+Mold의 가장 강력한 기능을 바로 ABLESTACK으로 구성된 클러스터 외에도, 일반 가상화 구성까지 폭넓게 가상화를 지원한다는 것입니다. 이러한 기능을 통해 ABLESTACK을 도입하게 되면 현재 운영 중인 모든 가상화 환경을 클라우드로 전환하고, 통합할 수 있게 됩니다. 
 
 다음의 그림은 Mold가 어떻게 다양한 하이퍼바이저 환경에서 동일한 가상머신 생명주기 관리를 제공할 수 있는지를 나타냅니다. 
 
@@ -233,7 +233,7 @@ Mold는 ABLESTACK Glue 스토리지 외에도 다양한 외장 스토리지의 �
 - iSCSI, Clustered LVM, Posix Compliant Storage, NFS 등 거의 대부분의 외장 스토리지 연결이 가능합니다. 
 - Thin Provisioning 및 Overprovisioning을 지원하여 스토리지 용량을 효율적으로 사용할 수 있습니다. 
 
-Mold를 통해 ABLESTACK HCI 또는 다른 하이퍼바이저 클러스터의 스토리지를 연결하고 관리하면 높은 유연성과 용량 효율성을 보장 받을 수 있습니다. 
+Mold를 통해 ABLESTACK 또는 다른 하이퍼바이저 클러스터의 스토리지를 연결하고 관리하면 높은 유연성과 용량 효율성을 보장 받을 수 있습니다. 
 
 다음의 그림은 Mold가 어떻게 다양한 스토리지를 연결하고 볼륨 서비스를 제공하는지를 나타냅니다. 
 
@@ -287,7 +287,7 @@ Mold는 Zone 단위로 물리적인 네트워크 구성을 지원하며 물리�
 
 ### Basic Network
 
-Mold의 Zone을 구성할 때, 사용자는 ABLESTACK HCI를 이용한 Zone의 네트워크를 어떻게 구성해야 할지 결정해야 합니다. 
+Mold의 Zone을 구성할 때, 사용자는 ABLESTACK을 이용한 Zone의 네트워크를 어떻게 구성해야 할지 결정해야 합니다. 
 
 Basic Network는 사용자의 네트워크 환경이 단일 네트워크로 구성되어 있는 경우 적용할 수 있는 물리적인 구성 방법을 제공합니다. 
 
@@ -475,11 +475,11 @@ Mold는 단순한 이중화가 아닌 분산 개체기술을 이용해 단일실
 
 Mold VM에 대한 고가용성은 Cube의 Pacemaker를 이용하여 HA 클러스터를 구성함으로써 기능을 제공합니다. 
 
-Mold VM이 실행 중인 호스트가 셧다운 되거나 Mold VM이 중지되면 자동으로 다른 호스트에서 Mold VM을 시작하여 지속적으로 ABLESTACK HCI를 관리할 수 있도록 연속성을 제공합니다. 
+Mold VM이 실행 중인 호스트가 셧다운 되거나 Mold VM이 중지되면 자동으로 다른 호스트에서 Mold VM을 시작하여 지속적으로 ABLESTACK을 관리할 수 있도록 연속성을 제공합니다. 
 
 ## 호스트 롤링 업데이트
 
-Mold는 ABLESTACK HCI의 소프트웨어 스택의 업데이트가 필요하고, 그 업데이트가 호스트의 재부팅을 요구하는 경우에 서비스가 중단되지 않고 호스트를 업데이트할 수 있도록 호스트 롤링 업데이트 기능을 지원합니다. 
+Mold는 ABLESTACK의 소프트웨어 스택의 업데이트가 필요하고, 그 업데이트가 호스트의 재부팅을 요구하는 경우에 서비스가 중단되지 않고 호스트를 업데이트할 수 있도록 호스트 롤링 업데이트 기능을 지원합니다. 
 
 또한 Mold는 호스트 롤링 업데이트 시 처리해야 할 작업을 사용자가 직접 정의하여 사용자 환경에 맞는 관리 작업이 가능하도록 커스터마이징 할 수 있도록 설계되어 있습니다. 
 
