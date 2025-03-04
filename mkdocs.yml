@@ -83,7 +83,7 @@ plugins:
       formats:
         pdf:
           enabled: !ENV [MKDOCS_EXPORTER_PDF, true]
-          concurrency: 1
+          concurrency: 16
           stylesheets:
             - resources/stylesheets/pdf.scss
           covers:
@@ -91,8 +91,8 @@ plugins:
             back: resources/templates/covers/back.html.j2
           aggregator:
             enabled: true
-            output: .well-known/site.pdf
-            covers: all
+            output: ablestack-docs.pdf
+            covers: book
           browser:
             timeout: 0
             debug: true
