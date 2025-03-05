@@ -1,3 +1,5 @@
+# PowerFlex Glue 설치진행
+
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
     해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
@@ -6,8 +8,7 @@
     PowerFlex용 SCVM 템플릿과 PFMP 템플릿 이미지는 내장 되어있지 않습니다.
 
     Glue 설치 진행 전, PowerFlex용 SCVM 템플릿 이미지 및 PFMP 템플릿 이미지를 꼭 확인해주시길 바랍니다.
-
-# PowerFlex Glue 설치진행
+    
 PowerFlex Glue 설치 진행 가이드 입니다.
 이 문서에서는 PowerFlex Glue 용 가상머신 생성 및 해당 가상머신에서 공용 스토리지 생성절차를 가이드 하고 있습니다.
 PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
@@ -559,4 +560,5 @@ Glue 대시보드에서 설정하기 위해서는 **Bootstrap** 우선 실행해
 !!! info
     PowerFlex Glue의 **Bootstrap** 은 대시보드를 배포하기 전, 미리 클러스터와 스토리지 시스템이 설정되는 절차입니다.
 
-    PowerFlex PFMP 배포 한 후, 설치 다음 대시보드 화면이 생성됩니다.
+
+PowerFlex PFMP 배포 한 후, 설치 다음 대시보드 화면이 생성됩니다.

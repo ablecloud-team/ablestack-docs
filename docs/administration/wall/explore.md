@@ -64,5 +64,3 @@
 ![wall-dashboard-dashboard-explore_inspector_data](../../assets/images/wall-dashboard-dashboard-explore_inspector_data.png)
 
 쿼리 조회 결과를 테이블 형식으로 표현하고, csv 형식으로 다운로드할 수 있습니다.
-
-

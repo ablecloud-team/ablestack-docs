@@ -427,7 +427,7 @@ C:\Windows\System32\Sysprep> .\sysprep.exe /generalize /oobe /shutdown
 
 ![windows-18-vm-template-detail](../../assets/images/windows-18-vm-template-detail.png){ :class="imgCenter" }
 
-이제 생성된 기본 템플릿을 이용해 언제든지 가상머신을 생성할 수 있습니다. 
-
 !!! info "템플릿을 생성한 원본 가상머신의 관리"
     가상머신의 형상, 즉 최초로 생성한 원본 가상머신은 나중에 시스템을 운영할 때, 다양한 기능을 추가하여 템플릿을 생성하고자 할 때 유용하게 사용할 수 있습니다. 따라서 이러한 템플릿 운영 편리성을 위해 최초로 생성한 가상머신은 가상머신 스냅샷 등을 통해 시점별로 보관하여 관리하는 것을 권장합니다. 
+
+이제 생성된 기본 템플릿을 이용해 언제든지 가상머신을 생성할 수 있습니다. 

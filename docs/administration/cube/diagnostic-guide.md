@@ -10,4 +10,4 @@ Cube 웹 콘솔에서 호스트의 시스템 구성 및 진단 정보를 수집�
 2. **보고서 만들기** 버튼을 클릭합니다.
 3. 프로세스가 완료되면 **보고 내려받기** 버튼을 클릭합니다.
 
-    ![cube-diagnostic-end.png](../../assets/images/cube-diagnostic-end.png)
+![cube-diagnostic-end.png](../../assets/images/cube-diagnostic-end.png)

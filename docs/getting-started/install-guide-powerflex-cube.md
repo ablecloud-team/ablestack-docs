@@ -1,7 +1,8 @@
+# PowerFlex Cube 설치진행
+
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
 
-# PowerFlex Cube 설치진행
 PowerFlex Cube를 설치 진행 가이드 입니다.
 해당 가이드는 기본적으로 Linux 계열의 OS 설치 경험이 없어도 설치 할 수 있는 쉬운 사용자 경험을 제공 하나 기본적인 Linux 계열의 OS 이해도를 가지고 있으면 조금더 쉽게 설치가 가능합니다.
 
@@ -213,6 +214,5 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
     현재 버전에서 PowerFlex 클러스터는 3식 호스트로 구성되어야 합니다.
     PowerFlex Cube 설치 진행절차는 2번, 3번 호스트도 동일합니다. 위 설치 절차를 2번, 3번 호스트에도 진행하시기 바랍니다.
 
-!!! check
-    PowerFlex Cube 및 PowerFlex Cell의 설치 및 구성이 끝났습니다.
-    PowerFlex Glue 및 PowerFlex PFMP 및 PowerFlex Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.
+PowerFlex Cube 및 PowerFlex Cell의 설치 및 구성이 끝났습니다.
+PowerFlex Glue 및 PowerFlex PFMP 및 PowerFlex Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.

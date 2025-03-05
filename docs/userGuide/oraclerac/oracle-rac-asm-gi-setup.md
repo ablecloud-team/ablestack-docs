@@ -407,5 +407,4 @@ crsctl stat res -t
 
 ![asm-gi-29](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-29.png){:class="imgCenter"}
 
-!!! note "ASM 및 GI 구성 완료"
-    ASM 및 GI 작업이 완료 되었으며, 다음 작업으로 Oracle 데이터베이스 소프트웨어 설치 및 데이터베이스 구성 작업을 진행합니다.
+ASM 및 GI 작업이 완료 되었으며, 다음 작업으로 Oracle 데이터베이스 소프트웨어 설치 및 데이터베이스 구성 작업을 진행합니다.

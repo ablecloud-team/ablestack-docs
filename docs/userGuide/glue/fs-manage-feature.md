@@ -143,3 +143,4 @@ Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 �
 
     admin@{fsid}.gluefs=/volumes/gluefs /mnt/gluefs ceph name=admin,secret={secret key},rw,relatime,seclabel,defaults 0 0
     ```
+    

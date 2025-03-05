@@ -60,9 +60,9 @@
 
 ## 라이브러리 패널
 
+!!! info
+    라이브러리 패널 삭제는 연결된 패널이 없을 경우에만 가능합니다.
+    
 ![wall-dashboard-dashboard-library](../../assets/images/wall-dashboard-dashboard-library.png)
 
 라이브러리 패널은 현재 등록된 라이브러리 목록을 확인 가능합니다. 또한 휴지통 버튼을 클릭하여 라이브러리 패널을 삭제할 수 있습니다.
-
-!!! info
-    라이브러리 패널 삭제는 연결된 패널이 없을 경우에만 가능합니다.
