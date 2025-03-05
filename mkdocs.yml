@@ -49,7 +49,7 @@ theme:
 
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
-      scheme: default 
+      scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -251,7 +251,7 @@ nav:
       - 대시보드 검색 : administration/wall/dashboard-search.md
       - 생성 : administration/wall/create.md
       - 대시보드 : administration/wall/dashboard.md
-      - 탐색 : administration/wall/explore.md
+#      - 탐색 : administration/wall/explore.md
       - 경고 : administration/wall/alerting.md
       - 환경 설정 : administration/wall/preferences.md
       - Netdive : administration/wall/netdive-guide.md
