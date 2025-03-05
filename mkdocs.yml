@@ -205,9 +205,9 @@ nav:
       - 대시보드 검색 : administration/wall/dashboard-search.md
       - 생성 : administration/wall/create.md
       - 대시보드 : administration/wall/dashboard.md
-      - 탐색 : administration/wall/explore.md
+#      - 탐색 : administration/wall/explore.md
       - 경고 : administration/wall/alerting.md
-      - 환경 설정 : administration/wall/preferences.md
+      - 설정 : administration/wall/preferences.md
 #      - 서버 관리 : administration/wall/server-management.md
 #      - 기본설정 : administration/wall/basic-setting.md
       - Netdive : administration/wall/netdive-guide.md

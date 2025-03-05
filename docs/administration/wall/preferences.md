@@ -1,17 +1,18 @@
-# 환경 설정
-Wall 모니터링에 필요한 환경 설정 정보를 관리할 수 있습니다. 
-
-![wall-dashboard-dashboard-preferences-meun](../../assets/images/wall-dashboard-dashboard-preferences-meun.png)
-
-메뉴 구조는 원천 데이터를 제공하는 "데이터 소스", Wall 사용자를 관리하는 "사용자", 팀을 관리하는 "팀", 패널을 플러그인으로 추가할 수 있는 "플러그인", Wall의 기본 설정을 설정할 수 있는 "기본 설정", API 활용에 필요한 키 관리하는 "API 키" 기능으로 구성되어 있습니다.
-
-## 데이터 소스
+# 데이터 소스
 
 ![wall-dashboard-dashboard-preferences-datasource](../../assets/images/wall-dashboard-dashboard-preferences-datasource.png)
 
 데이터 소스 항목에서 등록되어 있는 데이터 소스의 목록을 확인 가능합니다. 또한 "이름과 유형으로 검색" 기능은 검색하고자 하는 데이터 소스의 이름 또는 유형으로 검색이 가능합니다.
 
-* 데이터 소스 추가 : 기본적으로 Wall에서는 "Glue", "Mold", "Wall" 3개의 데이터 소스가 설정되어 있으며 "Glue", "Wall"의 데이터 소스는 Prometheus이며 "Mold"의 데이터 소스는 Mysql을 사용합니다.
+* 데이터 소스 추가 : 기본적으로 Wall에서는 "Glue", "Mold", "Wall", "Loki", "yesoreyeram-infinity" 데이터 소스가 설정되어 있으며 "Glue", "Wall"의 데이터 소스는 Prometheus이며 "Mold"의 데이터 소스는 Mysql을 사용합니다.
+
+
+# 관리
+Wall 모니터링에 필요한 환경 설정 정보를 관리할 수 있습니다.
+
+![wall-dashboard-dashboard-preferences-meun](../../assets/images/wall-dashboard-dashboard-preferences-meun.png)
+
+Wall 전역 기본 환경설정 및 설정 관리하는 "일반", 패널을 플러그인으로 추가할 수 있는 "플러그인 및 데이터", Wall 사용자(팀) 및 액세스를 관리하는 "사용자 및 액세스" 기능으로 구성되어 있습니다.
 
 ## 사용자
 
@@ -50,7 +51,7 @@ Wall 모니터링에 필요한 환경 설정 정보를 관리할 수 있습니�
 
 팀은 Wall 서버에 조직에 할당된 사용자의 그룹입니다. 각 사용자는 둘 이상의 조직과 둘 이상의 팀에 속할 수 있습니다. 팀은 일반적으로 조직 관리자가 관리하지만 editors_can_admin 서버 설정을 true로 설정하면 편집자도 관리할 수 있습니다. 자세한 내용은 역할 비교를 참조하십시오.
 
-* 새팀 : 새 팀을 추가합니다.  
+* 새로운 팀 : 새 팀을 추가합니다.  
 
 ### 팀 추가
 ![wall-dashboard-dashboard-preferences-team-add](../../assets/images/wall-dashboard-dashboard-preferences-team-add.png)
@@ -63,9 +64,7 @@ Wall 모니터링에 필요한 환경 설정 정보를 관리할 수 있습니�
 ![wall-dashboard-dashboard-preferences-team-user-add](../../assets/images/wall-dashboard-dashboard-preferences-team-user-add.png)
 생성된 팀에 팀원을 추가하는 화면입니다.
 
-* 회원 검색 : 팀에 추가할 사용자 검색합니다.  
-* 멤버 추가 : 멤버 추가를 클릭하여 팀원 추가 영역 활성화합니다.  
-* 팀에 추가 : 선택한 맴버를 팀에 추가합니다.  
+* 구성원 추가 : 멤버 추가를 클릭하여 팀원 추가 영역 활성화합니다.  
 
 ### 팀 목록
 ![wall-dashboard-dashboard-preferences-team-list](../../assets/images/wall-dashboard-dashboard-preferences-team-list.png)
@@ -97,25 +96,24 @@ Worldmap Panel, Clock 및 Pie Chart 와 같은 패널 플러그인을 사용하�
 !!! info
     Wall은 기본적으로 외부에서 접근 가능한 조직 "viewerOrg"와 관리자 전용 조직 "adminOrg"로 구성되어 있으며 해당 2개의 조직은 변경되면 모니터링에 문제가 발생할 수 있으니, 해당 2개의 조직을 변경 및 삭제는 관리자에게 문의바랍니다.
 
-## API 키
-![wall-dashboard-dashboard-preferences-apikey](../../assets/images/wall-dashboard-dashboard-preferences-apikey.png)
+## 토큰
+![wall-dashboard-dashboard-preferences-apikey-add](../../assets/images/wall-dashboard-dashboard-preferences-apikey.png)
 
-Wall에서 제공하는 API를 사용하기 위한 api key를 생성하고 관리하는 기능을 제공합니다.
+Wall에서 제공하는 API를 사용하기 위한 토큰을 생성하고 관리하는 기능을 제공합니다. 서비스 계정 화면에서 토큰을 생성 및 관리합니다.
 
-* 새 API 키 : 새로운 API 키를 추가합니다.
+* 토큰 추가 : 새로운 토큰을 추가합니다.
 
-### API 키 추가
+### 토큰 추가
 ![wall-dashboard-dashboard-preferences-apikey-add](../../assets/images/wall-dashboard-dashboard-preferences-apikey-add.png)
 
-1) key 이름 : 키의 이름을 입력  
-2) 권한 : admin, editor, viewer 중 선택  
-3) API 키 수명 : 키의 사용 가능 기간 입력 ( 입력하지 않으면 : 만료일 없음)  
-4) 추가 : 추가 버튼을 클릭하여 키 생성  
+1) 이름 표시 : 쉽게 식별할 수 있는 키의 이름을 입력하거나 기본 값으로 입력하지 않음  
+2) 만료 : 키의 사용 가능 기간 입력 ( 입력하지 않으면 : 만료일 없음)  
+3) 토큰 생성 : 토큰 생성 버튼을 클릭하여 토큰 생성  
 
-**API 키 생성 완료 화면**
+**토큰 생성 완료 화면**
 ![wall-dashboard-dashboard-preferences-apikey-add-success](../../assets/images/wall-dashboard-dashboard-preferences-apikey-add-success.png)
 
-성공적으로 키가 생성되면 위와 같은 화면을 호출합니다.
+성공적으로 토큰이 생성되면 위와 같은 화면을 호출합니다.
 
 ### API 키 목록
 ![wall-dashboard-dashboard-preferences-apikey-list](../../assets/images/wall-dashboard-dashboard-preferences-apikey-list.png)
