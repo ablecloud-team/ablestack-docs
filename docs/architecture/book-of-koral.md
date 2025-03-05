@@ -213,7 +213,7 @@ create-kubernetes-binaries-iso.sh ~/. 1.23.1 1.0.1 1.22.0 https://cloud.weave.wo
 !!! warning "바이너리 ISO 빌드 시 주의사항"
     바이너리 ISO를 정상적으로 빌드하기 위해서는 다음과 같은 요건이 충족되어야 합니다. 
 
-    - 바이너리 ISO는 Mold VM(CCVM)에서 실행할 수 없습니다. 별도의 CentOS 8.5 가상머신을 사용하고, Mold Common RPM을 설치한 후 명령을 실행하십시오.
+    - 바이너리 ISO는 Mold VM(CCVM)에서 실행할 수 없습니다. 별도의 RockyLinux 가상머신을 사용하고, Mold Common RPM을 설치한 후 명령을 실행하십시오.
     - 바이너리 ISO를 빌드하기 위해서는 반드시 빌드 환경이 인터넷에 연결되어 있어야 합니다. 
     - 가상머신에는 Docker 또는 Podman이 설치되어 있어야 하고 Docker Hub가 기본 리파지터리로 설정되어 있어야 합니다. 
 

@@ -9,7 +9,15 @@ ABLESTACK은 다양한 기술을 적용해서 상용 서버에 적용하기 위�
     - Glue : 소프트웨어 정의 스토리지를 통해 통합 스토리지를 제공하고, 다양한 게이트웨이를 제공하는 스토리지 플랫폼
     - Cube : x86 기반의 서버에 Linux Kernel을 제공하고, 호스트 관리 환경을 제공하는 서버 OS
 
-다음의 그림은 ABLESTACK HCI 플랫폼의 전체적인 구조를 보여줍니다. 
+위와 같은 일반적인 구성요소는 ABLESTACK을 어떤 구조로 배포하느냐에 따라 구성요소가 달라질 수 있습니다. ABLESTACK는 배포 구조에 따라 전통적인 서버 - 외장스토리지(SAN, iSCSI, NFS 등)의 구성을 사용하는 ABLESTACK VM, 서버에 연결되어 있는 로컬 디스크 만을 이용한 구성을 제공하는 ABLESTACK HCI로 나뉘어 집니다. 
+
+ABLESTACK VM은 외장 스토리지를 사용하기 때문에 소프트웨어 정의 스토리지 구성요소인 Glue는 사용되지 않으며 다음의 그림은 ABLESTACK VM 플랫폼의 전체적인 구조를 보여줍니다. 
+
+<center>
+![ablestack-platform-architecture](../assets/images/ablestack-vm-platform-architecture.png)
+</center>
+
+ABLESTACK HCI는 내장된 디스크를 이용해 스토리지를 구성하고 읿반적으로 전통적인 외장 스토리지는 사용하지 않기 때문에 소프트웨어 정의 스토리지인 Glue를 사용합니다. 다음의 그림은 ABLESTACK HCI 플랫폼의 전체적인 구조를 보여줍니다. 
 
 <center>
 ![ablestack-platform-architecture](../assets/images/ablestack-platform-architecture.png)
@@ -25,7 +33,7 @@ ABLESTACK Cube는 다음과 같은 주요 기능과 특징을 가집니다.
 
 ### Downstream Linux OS
 
-Cube는 엔터프라이즈 환경에서 안정적인 운영 환경을 제공하기 위해 Enterprise Linux OS의 다운스트림인 CentOS를 기반으로 합니다. 다운스트림 OS란 상용으로 릴리즈되어 엔터프라이즈 환경에서 운영되는 제품의 형상을 그대로 사용하여 배포되는 OS를 의미합니다. 
+Cube는 엔터프라이즈 환경에서 안정적인 운영 환경을 제공하기 위해 Enterprise Linux OS의 다운스트림 RockyLinux를 기반으로 합니다. 다운스트림 OS란 상용으로 릴리즈되어 엔터프라이즈 환경에서 운영되는 제품의 형상을 그대로 사용하여 배포되는 OS를 의미합니다. 
 
 그만큼 매우 안정적입니다. 또한 업스트림에서 발생한 이슈가 다운스트림에 자동으로 적용되기 때문에 언제든 최적의 상태를 사용자에게 제공할 수 있습니다. 
 
@@ -38,6 +46,9 @@ Cube를 호스트에 설치하면 바로 웹 기반의 호스트 관리 기능�
 Cube의 웹 기반 관리 기능을 통해 ABLESTACK을 마법사를 이용해 쉽게 배포할 수 있습니다. 마법사 페이지에서 제시하는 정보를 입력하고 선택해서 바로 ABLESTACK 클러스터를 구성할 수 있기 때문에 빠르게 구성이 가능하고, 바로 모든 기능을 사용할 수 있습니다. 
 
 ## Glue : SW정의 스토리지
+
+!!! info "ABLESTACK VM 구성요소에서 제외"
+    Glue는 호스트의 내장 디스크를 클러스터링 하여 고가용성 외장 스토리지를 제공하기 위한 구성요소입니다. ABLESTACK VM은 외장 스토리지를 이용해 서버가상화 및 클라우드 환경을 구성하는 제품으로 해당 제품에는 Glue를 사용하지 않습니다. 
 
 Glue는 ABLESTACK을 구성하는 물리적인 호스트에 장착된 디스크를 소프트웨어로 정의하여 스토리지를 제공하는 구성요소입니다. Glue는 간단하며 대규모 확장이 가능한 스토리지 플랫폼으로 ABLESTACK의 가상머신 볼륨 뿐 아니라 고성능이 필요한 현대적인 데이터 파이프라인에 적합합니다. 데이터 분석, 인공지능/머신러닝, 이머징 워크로드 등을 위해 설계된 스토리지로 다음과 같은 이점을 가집니다. 
 
