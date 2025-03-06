@@ -115,11 +115,9 @@ Wall에서 제공하는 API를 사용하기 위한 토큰을 생성하고 관리
 
 성공적으로 토큰이 생성되면 위와 같은 화면을 호출합니다.
 
-### API 키 목록
+### 토큰 목록
 ![wall-dashboard-dashboard-preferences-apikey-list](../../assets/images/wall-dashboard-dashboard-preferences-apikey-list.png)
-등록된 API 키 목록을 보여주고 새로운 API 키를 추가하거나 삭제, 수정 등의 작업을 수행할 수 있습니다.
+등록된 토큰 목록을 보여주고 새로운 토큰을 추가하거나 삭제, 수정 등의 작업을 수행할 수 있습니다.
 
-1) 키 검색 : 검색하고자 하는 키 이름 입력  
-2) API 키 추가 : 새 API 키를 추가  
-3) 만료된 키 보기 : 만료일이 지난 키 조회  
-4) x 버튼 : x 버튼을 클릭하여 API 키 삭제  
+1) 토큰 추가 : 새 토큰을 추가  
+2) x 버튼 : x 버튼을 클릭하여 토큰 삭제  
