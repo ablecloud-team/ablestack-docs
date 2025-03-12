@@ -36,7 +36,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 2. 클러스터 종류
     ![클러스터 종류](../assets/images/install-guide-powerflex-glue-03.png){ align=center }
     - 클러스터 종류를 설정하는 화면입니다.
-    - **PowerFlex** 를 선택합니다.
+    - **ABLESTACK-PowerFlex** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 3. SSH Key 파일(신규생성)
@@ -79,21 +79,19 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 5. 시간서버
 
     !!! info
-        PowerFlex에서 시간서버는 매우 중요한 역할을 합니다. </br>
+        PowerFlex 시간서버는 매우 중요한 역할을 합니다. </br>
         시간동기화가 맞지 않으면 스토리지 데이터들의 무결성 확보에 치명적일 수 있습니다.</br>
-        따라서 시간서버는 반드시 구성해야하며 시간서버 구성에는 두가지 방식이 있습니다.</br>
-        인터넷등 외부 통신이 가능한 환경이어서 외부 공인된 시간서버(NTP)에 접속이 가능하거나 내부에 별도의 시간서버(NTP)가 존재하는 경우에는 "외부시간서버"를 선택하여 진행하고,</br>
-        폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 PowerFlex에서 자체적으로 시간서버를 구성합니다. 이때에는 "로컬 시간서버"를 선택하여 진행하면 됩니다.
-
-        이 문서는 "로컬 시간서버"로 구성하는 방식에 대하여 설명되어 있습니다.
+        따라서 시간서버는 반드시 구성해야합니다.</br>
+        인터넷등 외부 통신이 가능한 환경이어서 외부 공인된 시간서버(NTP)에 접속이 가능하거나 내부에 별도의 시간서버(NTP)가 존재하는 경우에는 "외부 시간 서버"를 입력하여 진행하고, 없으시면 "다음" 으로 넘어가시면 됩니다.</br>
+        폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 PowerFlex에서 자체적으로 시간서버를 구성합니다.
 
     ![시간 서비](../assets/images/install-guide-powerflex-glue-06.png){ align=center }
 
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
-    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
+    - 별도로 **외부시간서버(NTP)** 가 존재한다면, 외부 시간서버 입력란에 입력합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
+    - 설정된 값을 확인한 후, **다음** 버튼을 클릭합니다.
 
 6. 설정확인
     ![설정확인](../assets/images/install-guide-powerflex-glue-07.png){ align=center }
@@ -224,7 +222,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 2. 클러스터 종류
     ![클러스터 종류](../assets/images/install-guide-powerflex-glue-18-1.png){ align=center }
     - 클러스터 종류를 설정하는 화면입니다.
-    - **PowerFlex** 를 선택합니다.
+    - **ABLESTACK-PowerFlex** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 3. SSH Key 파일(기존파일사용)
@@ -273,9 +271,8 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
    ![Host 파일](../assets/images/install-guide-powerflex-glue-21.png){ align=center }
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
-    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
+    - 설정된 값을 확인한 후, **다음** 버튼을 클릭합니다.
 
 5. 설정확인
    ![설정확인](../assets/images/install-guide-powerflex-glue-22.png){ align=center }
@@ -382,7 +379,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 2. 클러스터 종류
     ![클러스터 종류](../assets/images/install-guide-powerflex-glue-34-1.png){ align=center }
     - 클러스터 종류를 설정하는 화면입니다.
-    - **PowerFlex** 를 선택합니다.
+    - **ABLESTACK-PowerFlex** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 2. SSH Key 파일(기존파일사용)
@@ -431,9 +428,8 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
    ![Host 파일](../assets/images/install-guide-powerflex-glue-37.png){ align=center }
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
-    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
+    - 설정된 값을 확인한 후, **다음** 버튼을 클릭합니다.
 
 5. 설정확인
    ![설정확인](../assets/images/install-guide-powerflex-glue-38.png){ align=center }

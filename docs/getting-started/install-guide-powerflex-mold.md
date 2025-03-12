@@ -1,5 +1,5 @@
-# PowerFlex Mold 설치진행
 
+# PowerFlex Mold 설치진행
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
     해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
@@ -146,10 +146,8 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Mold 웹콘솔을 이용하여 진행�
 
 5. 클라우드센터 Zone 물리 네트워크
    ![클라우드센터 Zone 물리 네트워크](../assets/images/install-guide-powerflex-mold-cloudcenter-physical-network.png){ align=center }
-    - Zone 의 네트워크 정보를 입력하는 화면입니다.
-        ![클라우드센터 Zone 물리 네트워크 정보 입력](../assets/images/install-guide-powerflex-mold-cloudcenter-physical-network-info.png){ align=center }
-        - **트래픽 유형** 의 **MANAGEMENT**, **GUEST**, **PUBLIC** 각각의 **편집** 버튼을 클릭하여 **트래픽 라벨** 항목에 **bridge0** 을 입력합니다.
-    - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
+    - Zone 의 네트워크 정보를 확인하는 화면입니다.
+    - 입력된 정보를 확인 후 **다음** 버튼을 클릭합니다.
 
 6. 클라우드센터 Zone 서비스용 네트워크 정보
     ![클라우드센터 Zone 서비스용 네트워크 정보](../assets/images/install-guide-powerflex-mold-cloudcenter-service-network.png){ align=center }
