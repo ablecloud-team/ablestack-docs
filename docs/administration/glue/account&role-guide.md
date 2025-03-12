@@ -1,6 +1,8 @@
+
+# 사용자 및 역할 관리
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
-# 사용자 및 역할 관리
+
 사용자 및 역할 관리에서는 다음과 같은 기능을 제공합니다.
 ## 비밀번호 정책
 비밀번호 정책은 기본적으로 다음의 항목을 포함하여 활성화됩니다.
@@ -23,16 +25,16 @@ ceph dashboard set-pwd-policy-check-oldpwd-enabled <true|false>
 ```
 ceph dashboard set-pwd-policy-check-username-enabled <true|false>
 ```
-``` 
+```
 ceph dashboard set-pwd-policy-check-exclusion-list-enabled <true|false>
 ```
-``` 
+```
 ceph dashboard set-pwd-policy-check-complexity-enabled <true|false>
 ```
-``` 
+```
 ceph dashboard set-pwd-policy-check-sequential-chars-enabled <true|false>
 ```
-``` 
+```
 ceph dashboard set-pwd-policy-check-repetitive-chars-enabled <true|false>
 ```
 
@@ -102,7 +104,7 @@ ceph dashboard ac-user-set-password-hash <username> -i <file-containing-password
 
     !!! info
         해시는 bcrupt 해시 및 솔트 값 이어야 합니다. 외부 데이터베이스에서 사용자를 가져오는데 사용할 수 있습니다.
-    
+
 - 사용자(이름 및 이메일) 수정
 ```
 ceph dashboard ac-user-set-info <username> <name> <email>
@@ -127,29 +129,29 @@ ceph dashboard ac-user-enable <username>
     config-opt : Ceph 구성 옵션 관리와 관련된 모든 기능을 포함합니다.
 
     pool : 풀 관리와 관련된 모든 기능을 포함합니다.
-    
+
     osd : OSD 관리와 관련된 모든 기능을 포함합니다.
-    
+
     monitor : 모니터 관리와 관련된 모든 기능을 포함합니다.
-    
+
     rbd-image : RBD 이미지 관리와 관련된 모든 기능을 포함합니다.
-    
+
     rbd-mirroring : RBD 미러링 관리와 관련된 모든 기능을 포함합니다.
-    
+
     iscsi : iSCSI 관리와 관련된 모든 기능을 포함합니다.
-    
+
     rgw : RGW (RADOS Gateway) 관리와 관련된 모든 기능을 포함합니다.
-    
+
     cephfs : CephFS 관리와 관련된 모든 기능을 포함합니다.
-    
+
     manager : Ceph Manager 관리와 관련된 모든 기능을 포함합니다.
-    
+
     log : Ceph 로그 관리와 관련된 모든 기능을 포함합니다.
-    
+
     grafana : Grafana 프록시와 관련된 모든 기능을 포함합니다.
-    
+
     prometheus : Prometheus 경보 관리와 관련된 모든 기능을 포함합니다.
-    
+
     dashboard-settings : 대시보드 설정을 변경할 수 있습니다.
 
 역할은 보안 범위와 권한 사이의 매핑 집합을 지정합니다. 다음과 같은 네 가지 유형의 권한이 있습니다.
@@ -157,9 +159,9 @@ ceph dashboard ac-user-enable <username>
 - 권한 유형
 
     읽기 (read)
-    
+
     생성 (create)
-    
+
     업데이트 (update)
 
     삭제 (delete)
@@ -183,15 +185,15 @@ ceph dashboard ac-user-enable <username>
 - 시스템 역할 목록
 
     administrator : 모든 보안 범위에 대한 전체 권한을 허용합니다.
-    
+
     read-only : 대시 보드 설정을 제외한 모든 보안 범위에 대한 읽기 권한을 허용합니다.
-    
+
     block-manager : rbd-image , rbd-mirroring 및 iscsi 범위에 대한 전체 권한을 허용합니다.
-    
+
     rgw-manager : rgw 범위에 대한 전체 권한을 허용합니다.
-    
+
     cluster-manager : hosts , osd , monitor , manager 및 config-opt 범위에 대한 전체 권한을 허용합니다.
-    
+
     pool-manager : 풀 범위에 대한 전체 권한을 허용합니다.
 
     cephfs-manager : cephfs 범위에 대한 전체 권한을 허용합니다.
@@ -201,7 +203,7 @@ ceph dashboard ac-user-enable <username>
 ceph dashboard ac-role-show [<rolename\>]
 ```
 CLI를 이용하여 새로운 역할을 만들 수 있습니다. 사용 가능한 명령어는 다음과 같습니다.
-    
+
 - 역할 생성
     ```
     ceph dashboard ac-role-create <rolename\> [<description\>]
@@ -248,7 +250,7 @@ CLI를 이용하여 새로운 역할을 만들 수 있습니다. 사용 가능�
     ```
     ```
     ceph dashboard ac-role-add-scope-perms rbd/pool-manager rbd-image read create update delete
-    ``` 
+    ```
     ```
     ceph dashboard ac-role-add-scope-perms rbd/pool-manager pool read create
     ```
