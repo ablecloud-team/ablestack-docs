@@ -26,3 +26,4 @@ Cube의 웹 콘솔에서 현재 사용중인 애플리케이션과 사용할 수
 | Session Recording      | cockpit-session-recording     | 사용자 세션 기록 및 관리          |
 | Storage                | cockpit-storaged              | 스토리지 관리 (기본적으로 설치됨)   |
 | Subscription Manager   | subscription-manager-cockpit  | 시스템 구독 관리                |
+

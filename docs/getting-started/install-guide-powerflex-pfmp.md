@@ -184,4 +184,5 @@ PFMP 설치는 PowerFlex Glue 대시보드 화면을 생성하기 위한 절차�
 
 !!! info
     PowerFlex Glue 대시보드 구성이 완료되었습니다.
-    PowerFlex Mold 구성도 PowerFlex Cube 웹 콘솔을 이용하여 할 수 있습니다.
+
+PowerFlex Mold 구성도 PowerFlex Cube 웹 콘솔을 이용하여 할 수 있습니다.

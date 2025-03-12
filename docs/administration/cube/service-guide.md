@@ -37,3 +37,4 @@ Cube의 웹 콘솔을 사용하여 시스템 서비스를 재시작 할 수 있�
 4. 서비스를 다시 시작하려면 **재시작** 버튼을 클릭합니다.
 
     ![cube-service-action2](../../assets/images/cube-service-action2.png)
+
