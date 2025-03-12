@@ -29,7 +29,7 @@
 2. 클러스터 종류
     ![클러스터 종류](../assets/images/install-guide-general-virtualization-mold-03.png){ align=center }
     - 클러스터 종류를 설정하는 화면입니다.
-    - **일반 가상화** 를 선택합니다.
+    - **ABLESTACK-VM** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 3. SSH Key 파일(신규생성)
@@ -81,7 +81,6 @@
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
     - **외부 시간서버** 가 존재하는 경우에는 입력 하고, 존재하지 않을 경우에는 빈칸으로 남겨두고 넘어 갑니다.
-    - **시간서버 1** 에는 **1번 호스트의 ManageMent IP**, **시간서버 2** 에는 **2번 호스트의 ManageMent IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
 6. 설정확인
     ![설정확인](../assets/images/install-guide-general-virtualization-mold-07.png){ align=center }
@@ -116,7 +115,7 @@
 2. 클러스터 종류
     ![클러스터 종류](../assets/images/install-guide-general-virtualization-mold-11.png){ align=center }
     - 클러스터 종류를 설정하는 화면입니다.
-    - **일반 가상화** 를 선택합니다.
+    - **ABLESTACK-VM** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 3. SSH Key 파일(기존파일사용)
@@ -164,7 +163,6 @@
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - **외부 시간서버** 가 존재할 경우, 자동으로 기본 셋팅합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
    ![설정확인](../assets/images/install-guide-general-virtualization-mold-16.png){ align=center }
@@ -198,7 +196,7 @@
 2. 클러스터 종류
     ![클러스터 종류](../assets/images/install-guide-general-virtualization-mold-20.png){ align=center }
     - 클러스터 종류를 설정하는 화면입니다.
-    - **일반 가상화** 를 선택합니다.
+    - **ABLESTACK-VM** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 3. SSH Key 파일(기존파일사용)
@@ -246,7 +244,6 @@
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - **외부 시간서버** 가 존재할 경우, 자동으로 기본 셋팅합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
    ![설정확인](../assets/images/install-guide-general-virtualization-mold-25.png){ align=center }

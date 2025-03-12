@@ -123,11 +123,32 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
     - 해당 볼륨이 삭제된 화면입니다.
 
 4. Mold 디스크 오퍼링 화면
+    ![Mold 디스크 오퍼링 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-10.png){ align=center }
+    - **서비스 오퍼링** 에서 **디스크 오퍼링** 을 클릭한 화면입니다.
 5. Mold 디스크 오퍼링 삭제 진행 화면
+    ![Mold 디스크 오퍼링 삭제 진행 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-11.png){ align=center }
+    - 해당 **디스크 오퍼링** 의 옵션을 선택하여 **디스크 오퍼링 비활성화** 를 클릭합니다.
+    ![Mold 디스크 오퍼링 삭제 진행 화면1](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-12.png){ align=center }
+    - **확인** 을 클릭합니다.
 6. Mold 디스크 오퍼링 삭제 완료 화면
+    ![Mold 디스크 오퍼링 삭제 완료 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-13.png){ align=center }
+    - 해당 **디스크 오퍼링** 이 삭제된 화면입니다.
+
 7. Mold 기본 스토리지 화면
+    ![Mold 기본 스토리지 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-14.png){ align=center }
+    - **인프라스트럭쳐** 에 **기본 스토리지** 를 클릭한 화면입니다.
 8. Mold 기본 스토리지 삭제 진행 화면
+    ![Mold 기본 스토리지 삭제 진행 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-15.png){ align=center }
+    - 해당 하는 **기본 스토리지** 의 옵션을 선택하여 **유지보수 모드 활성화** 를 클릭합니다.
+    ![Mold 기본 스토리지 삭제 진행 화면1](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-16.png){ align=center }
+    - 상태에서 **유지보수 모드** 가 활성화된 화면입니다.
+    ![Mold 기본 스토리지 삭제 진행 화면2](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-17.png){ align=center }
+    - 해당 하는 **기본 스토리지** 의 옵션을 선택하여 **기본 스토리지 삭제** 를 클릭합니다.
+    ![Mold 기본 스토리지 삭제 진행 화면3](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-18.png){ align=center }
+    - **확인** 버튼을 클릭합니다.
 9. Mold 기본 스토리지 삭제 완료 화면
+    ![Mold 기본 스토리지 삭제 완료 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-19.png){ align=center }
+    - 해당 하는 **기본 스토리지** 가 삭제된 화면입니다.
 
 10. ABLESTACK Cube 화면
     ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-01.png){ align=center }
@@ -137,9 +158,9 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
     - 사용할 디스크를 선택합니다.
     !!! warning
         선택한 디스크의 모든 데이터가 영구적으로 삭제됩니다. 삭제된 데이터는 복구가 불가능하니, 반드시 신중하게 확인 후 진행하시기 바랍니다.
-12. CLVM 디스크 삭제 진행 화면
-    ![CLVM 디스크 삭제 진행 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-03.png){ align=center }
-    - 선택한 CLVM 디스크를 삭제하는 과정입니다.
+12. CLVM 디스크 삭제 완료 화면
+    ![CLVM 디스크 삭제 완료 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-03.png){ align=center }
+    - 선택한 CLVM 디스크가 삭제된 화면입니다.
 
 ### CLVM 디스크 조회
 1. ABLESTACK Cube 화면
