@@ -21,7 +21,7 @@ lsblk
 
 디스크 목록에 sdb가 있는지 확인
 
-![asm-gi-1](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-1.png){:class="imgCenter"}
+![asm-gi-1](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-1.png){:class="imgCenter"}
 
 
 ```shell title="호스트 네임 세팅 ( 노드 : node1 / 계정 : root )"
@@ -41,7 +41,7 @@ preinstall이 완료되면 자동으로 rpm을 설치하고, 필요 그룹을 �
 cat /etc/group
 ```
 
-![asm-gi-2](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-2.png){:class="imgCenter"}
+![asm-gi-2](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-2.png){:class="imgCenter"}
 
 ```shell title="oracle, grid 유저 생성 및 비밀번호 수정 ( 노드 : 전체 / 계정 : root )"
 useradd -s /bin/bash -g dba oracle
@@ -180,7 +180,7 @@ oracle       soft     memlock    3145728
 oracle       hard     memlock    3145728
 ```
 
-![asm-gi-3](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-3.png){:class="imgCenter"}
+![asm-gi-3](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-3.png){:class="imgCenter"}
 
 ```shell title="asmlib 설치 ( 노드 : 전체 / 계정 : root )"
 yum install -y oracleasm-support
@@ -213,7 +213,7 @@ oracleasm scandisks
 1,2번 노드에 DATA가 출력되는지 확인
 ```
 
-![asm-gi-4](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-4.png){:class="imgCenter"}
+![asm-gi-4](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-4.png){:class="imgCenter"}
 
 
 ```shell title="grid S/W 설치 ( 노드 : node1 / 계정 : root )"
@@ -258,7 +258,7 @@ alias oh='cd $ORACLE_HOME'
 
 ~grid/.bash_profile 확인
 
-![asm-gi-5](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-5.png){:class="imgCenter"}
+![asm-gi-5](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-5.png){:class="imgCenter"}
 
 
 ```shell title="grid 설치파일 압축 풀기 ( 노드 : node1 / 계정 : grid )"
@@ -276,31 +276,31 @@ su - grid
 ## grid infrastructure 구성
 grid infrastructure 구성 마법사를 통해 작업을 진행합니다.
 
-![asm-gi-6](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-6.png){:class="imgCenter"}
+![asm-gi-6](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-6.png){:class="imgCenter"}
 
 - Configure Oracle Grid Infrastructure for a New Cluster 선택
 - Next 버튼 클릭
 
-![asm-gi-7](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-7.png){:class="imgCenter"}
+![asm-gi-7](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-7.png){:class="imgCenter"}
 
 - Configure an Oracle Standalone Cluster 선택
 - Next 버튼 클릭
 
-![asm-gi-8](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-8.png){:class="imgCenter"}
+![asm-gi-8](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-8.png){:class="imgCenter"}
 
 - Cluster Name : ol7rac-cluster 입력
 - SCAN Name : ol7rac-scan 입력
 - SCAN Port : 1521 입력
 - Next 버튼 클릭
 
-![asm-gi-9](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-9.png){:class="imgCenter"}
+![asm-gi-9](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-9.png){:class="imgCenter"}
 
 - Add 버튼 클릭
 - Public Hostname : ol7rac2 입력
 - Virtual Hostname : ol7rac2-vip 입력
 - Ok 버튼 클릭
 
-![asm-gi-10](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-10.png){:class="imgCenter"}
+![asm-gi-10](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-10.png){:class="imgCenter"}
 
 - ol7rac1, ol7rac2 선택
 - SSH connectivity 클릭
@@ -308,94 +308,94 @@ grid infrastructure 구성 마법사를 통해 작업을 진행합니다.
 - Setup 버튼 클릭
 - Next 버튼 클릭
 
-![asm-gi-11](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-11.png){:class="imgCenter"}
+![asm-gi-11](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-11.png){:class="imgCenter"}
 
 - eth0 : Public
 - eth1 : ASM & Private
 - Next 버튼 클릭
 
-![asm-gi-12](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-12.png){:class="imgCenter"}
+![asm-gi-12](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-12.png){:class="imgCenter"}
 
 - Use Oracle Flex ASM for storage 선택
 - Next 버튼 클릭
 
-![asm-gi-13](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-13.png){:class="imgCenter"}
+![asm-gi-13](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-13.png){:class="imgCenter"}
 
 - No 선택
 - Next 버튼 클릭
 
-![asm-gi-14](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-14.png){:class="imgCenter"}
+![asm-gi-14](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-14.png){:class="imgCenter"}
 
 - Change Discovery Path 선택
 - /dev/oracleasm/disks/* 입력
 - 엔터 입력
 
-![asm-gi-15](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-15.png){:class="imgCenter"}
+![asm-gi-15](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-15.png){:class="imgCenter"}
 
 - External 선택
 - /dev/oracleasm/disks/DATA 선택
 - Next 버튼 클릭
 
-![asm-gi-16](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-16.png){:class="imgCenter"}
+![asm-gi-16](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-16.png){:class="imgCenter"}
 오라클 관리자 계정 비밀번호 입력
 - Use same passwords for these accounts 선택
 - 비밀번호 입력
 - Next 버튼 클릭
 
-![asm-gi-17](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-17.png){:class="imgCenter"}
+![asm-gi-17](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-17.png){:class="imgCenter"}
 
 - Do not use Intelligent Platform Management Interface (IPMI) 선택
 - Next 버튼 클릭
 
-![asm-gi-18](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-18.png){:class="imgCenter"}
+![asm-gi-18](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-18.png){:class="imgCenter"}
 
 - Register with Enterprise Manager (EM) Cloud Control 해제
 - Next 버튼 클릭
 
-![asm-gi-19](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-19.png){:class="imgCenter"}
+![asm-gi-19](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-19.png){:class="imgCenter"}
 
 - OSASM group, OSDBA for ASM Group dba로 선택
 - Next 버튼 클릭
 - Yes 버튼 클릭
 
-![asm-gi-20](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-20.png){:class="imgCenter"}
+![asm-gi-20](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-20.png){:class="imgCenter"}
 
 - Next 버튼 클릭
 
-![asm-gi-21](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-21.png){:class="imgCenter"}
+![asm-gi-21](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-21.png){:class="imgCenter"}
 
 - Next 버튼 클릭
 
-![asm-gi-22](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-22.png){:class="imgCenter"}
+![asm-gi-22](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-22.png){:class="imgCenter"}
 
 - Automatically run configuration scripts 선택
 - Password : root 계정 비밀번호 입력
 - Next 버튼 클릭
 
-![asm-gi-23](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-23.png){:class="imgCenter"}
+![asm-gi-23](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-23.png){:class="imgCenter"}
 
 - 설치 전 체크 테스트 화면
 
-![asm-gi-24](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-24.png){:class="imgCenter"}
+![asm-gi-24](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-24.png){:class="imgCenter"}
 
 - Ignore 선택
 - Next 버튼 클릭
 - Yes 버튼 클릭
 
-![asm-gi-25](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-25.png){:class="imgCenter"}
+![asm-gi-25](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-25.png){:class="imgCenter"}
 
 - Install 버튼 클릭
 
-![asm-gi-26](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-26.png){:class="imgCenter"}
+![asm-gi-26](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-26.png){:class="imgCenter"}
 
 - Ok 버튼 클릭
 - Next 버튼 클릭
 
-![asm-gi-27](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-27.png){:class="imgCenter"}
+![asm-gi-27](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-27.png){:class="imgCenter"}
 
 - Yes 버튼 클릭 (SCAN 구성 관련 에러 무시하고 진행)
 
-![asm-gi-28](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-28.png){:class="imgCenter"}
+![asm-gi-28](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-28.png){:class="imgCenter"}
 
 - Close 버튼 클릭
 
@@ -405,6 +405,6 @@ ASM 및 Grid Infrastructure 구성 완료
 crsctl stat res -t
 ```
 
-![asm-gi-29](../../../../assets/images/oraclerac/oracle-rac-asm-gi-setup-29.png){:class="imgCenter"}
+![asm-gi-29](../../assets/images/oraclerac/oracle-rac-asm-gi-setup-29.png){:class="imgCenter"}
 
 ASM 및 GI 작업이 완료 되었으며, 다음 작업으로 Oracle 데이터베이스 소프트웨어 설치 및 데이터베이스 구성 작업을 진행합니다.
