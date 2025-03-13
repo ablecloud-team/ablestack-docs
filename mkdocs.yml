@@ -13,7 +13,7 @@ repo_name: ablecloud-team/ablestack-docs
 repo_url: https://github.com/ablecloud-team/ablestack-docs
 
 # Copyright
-copyright: Copyright &copy; 2021-2023 ABLECLOUD Co. Ltd.
+copyright: Copyright &copy; 2021-2025 ABLECLOUD Co. Ltd.
 
 validation:
   absolute_links: ignore
@@ -69,8 +69,8 @@ theme:
   favicon: assets/favicon.png
   logo: assets/logo.png
 
-hooks:
-  - pdf-title-hook.py
+# hooks:
+#   - pdf-title-hook.py
 
 # Plugin
 plugins:
@@ -79,36 +79,36 @@ plugins:
   - glightbox:
      width: 80%
   - macros
-  - exporter:
-      formats:
-        pdf:
-          enabled: !ENV [MKDOCS_EXPORTER_PDF, true]
-          concurrency: 16
-          stylesheets:
-            - resources/stylesheets/pdf.scss
-          covers:
-            front: resources/templates/covers/front.html.j2
-            back: resources/templates/covers/back.html.j2
-          aggregator:
-            enabled: true
-            output: ablestack-docs.pdf
-            covers: book
-          browser:
-            timeout: 0
-            debug: true
-      logging:
-        level: debug
-      buttons:
-        - title: View as PDF
-          icon: material-file-move-outline
-          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-          attributes:
-            target: _blank
-            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
-        - title: Download as PDF
-          icon: material-file-download-outline
-          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
+  # - exporter:
+  #     formats:
+  #       pdf:
+  #         enabled: !ENV [MKDOCS_EXPORTER_PDF, true]
+  #         concurrency: 16
+  #         stylesheets:
+  #           - resources/stylesheets/pdf.scss
+  #         covers:
+  #           front: resources/templates/covers/front.html.j2
+  #           back: resources/templates/covers/back.html.j2
+  #         aggregator:
+  #           enabled: true
+  #           output: ablestack-docs.pdf
+  #           covers: book
+  #         browser:
+  #           timeout: 0
+  #           debug: true
+  #     logging:
+  #       level: debug
+  #     buttons:
+  #       - title: View as PDF
+  #         icon: material-file-move-outline
+  #         enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+  #         attributes:
+  #           target: _blank
+  #           href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
+  #       - title: Download as PDF
+  #         icon: material-file-download-outline
+  #         enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+  #         attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
 
 # Customization
 extra:
@@ -276,8 +276,8 @@ nav:
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
   - 관리자 가이드:
-    - 가상머신: administration/system-restart.md
-    - 볼륨: administration/system-check.md
+    - 가상머신: admin-guide/mold/mold-admin-guide-compute-vm.md
+    - 볼륨: admin-guide/mold/mold-admin-guide-storage-volumes.md
   - 레퍼런스 가이드 :
     - CentOS 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
