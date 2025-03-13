@@ -276,8 +276,13 @@ nav:
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
   - 관리자 가이드:
-    - 가상머신: admin-guide/mold/mold-admin-guide-compute-vm.md
-    - 볼륨: admin-guide/mold/mold-admin-guide-storage-volumes.md
+    - 컴퓨트:
+      - 가상머신: admin-guide/mold/mold-admin-guide-compute-vm.md
+    - 스토리지:
+      - 볼륨: admin-guide/mold/mold-admin-guide-storage-volume.md
+      - 스냅샷: admin-guide/mold/mold-admin-guide-storage-snapshot.md
+      - 버킷: admin-guide/mold/mold-admin-guide-storage-bucket.md
+      - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
   - 레퍼런스 가이드 :
     - CentOS 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
