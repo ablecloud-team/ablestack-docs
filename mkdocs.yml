@@ -248,7 +248,7 @@ nav:
     - ABLESTACK 시스템점검: administration/system-check.md
     - ABLESTACK 시스템 재기동: administration/system-restart.md
   - 시작하기:
-    - ABLESTACK 설치 가이드:
+    - ABLESTACK HCI 설치 가이드:
       - 설치전 준비사항: getting-started/getting-started-overview.md
       - 구성요소별 설치 가이드:
         - Cube 설치 가이드: getting-started/install-guide-cube.md
@@ -256,9 +256,9 @@ nav:
         - Mold 설치 가이드: getting-started/install-guide-mold.md
         - Wall 설치 가이드: getting-started/install-guide-wall.md
         - Genie 설치 가이드: getting-started/install-guide-genie.md
-      - ABLESTACK 구성관리:
+      - ABLESTACK HCI 구성관리:
         - 호스트 추가 가이드: getting-started/install-guide-add-host.md
-    - PowerFlex 설치 가이드:
+    - ABLESTACK PowerFlex 설치 가이드:
       - 설치전 준비사항: getting-started/install-guide-powerflex-overview.md
       - 구성요소별 설치 가이드:
         - Cube 설치 가이드: getting-started/install-guide-powerflex-cube.md
@@ -266,6 +266,15 @@ nav:
         - PFMP 설치 가이드: getting-started/install-guide-powerflex-pfmp.md
         - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
         - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
+    - ABLESTACK VM 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-general-virtualization-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-general-virtualization-cube.md
+        - Mold 설치 가이드: getting-started/install-guide-general-virtualization-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-general-virtualization-wall.md
+      - ABLESTACK VM 구성관리:
+        - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
+        - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
   - 관리자 가이드:
     - 가상머신: administration/system-restart.md
     - 볼륨: administration/system-check.md
