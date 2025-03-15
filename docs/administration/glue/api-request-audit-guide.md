@@ -1,6 +1,8 @@
+
+# API 요청 감사
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
-# API 요청 감사
+
 REST API는 PUT, POST 및 DELETE 요청을 Ceph 감사 로그에 기록 할 수 있습니다. 이 기능은 기본적으로 비활성화 되어 있지만 다음 명령을 사용하여 활성화 할 수 있습니다.
 ```
 ceph dashboard set-audit-api-enabled <true|false\>
