@@ -222,6 +222,7 @@ nav:
           - Usage 관리: administration/mold/usage-mngt-guide.md
           - Cloud 관리: administration/mold/cloud-mngt-guide.md
           - 고가용성(HA) 관리: administration/mold/ha-mngt-guide.md
+          - 재난 복구(DR) 관리: administration/mold/dr-mngt-guide.md
           - 이벤트 관리: administration/mold/event-mngt-guide.md
       - Wall :
         - 알아보기 : architecture/book-of-wall.md
