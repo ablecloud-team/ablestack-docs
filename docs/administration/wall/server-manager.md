@@ -84,9 +84,9 @@ Wall 서버 관리자 정보를 관리하는 기능을 제공합니다. 해당 �
 
 ## 설정
 
+!!!info
+    설정정보는 defaults.ini에 정의 되어있으, 변경시 서버 재시작하여 반영할 수 있습니다.
+
 ![wall-dashboard-server-manager-org-setting](../../assets/images/wall-dashboard-server-manager-org-setting.png)
 
 현재 설정된 Wall 서버의 설정 정보를 리스트로 조회 가능합니다.
-
-!!!info
-    설정정보는 defaults.ini에 정의 되어있으, 변경시 서버 재시작하여 반영할 수 있습니다.

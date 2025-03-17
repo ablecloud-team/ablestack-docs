@@ -1,6 +1,8 @@
+
+# NFS-Ganesha 관리
+
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
-# NFS-Ganesha 관리 
 
 Glue 대시보드는 CephFS 또는 RGW를 백 스토어로 사용하는 NFS Ganesha 내보내기를 관리할 수 있습니다. Glue 대시보드에서 이 기능을 활성화하려면 NFS-Ganesha 서비스가 구성되는 방식과 관련하여 충족 되어야하는 몇 가지 가정이 있습니다.
 
@@ -26,7 +28,7 @@ ceph dashboard set-ganesha-clusters-rados-pool-namespace <pool_name>[/<namespace
 위의 명령을 실행하면 Glue 대시보드는 NFS-Ganesha 구성 개체를 찾을 수 있으며 웹 UI를 통해 내보내기를 관리 할 수 있습니다.
 ???+ warning
     NFS 공유를 위한 전용 풀을 사용해야 합니다.
-    
+
     그렇지 않고 NFS 개체가 단일 풀에 많은 다른 개체와 함께 저장되는 경우에는 공유 목록에 문제가 발생할 수 있습니다.
 
 ## 여러 NFS-Ganesha 클러스터 지원

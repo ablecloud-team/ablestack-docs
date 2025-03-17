@@ -1,7 +1,7 @@
+# ABLESTACK Works 구성진행
+
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
-
-# ABLESTACK Works 구성진행
 
 ABLESTACK Works 설치 진행 가이드 입니다.  
 ABLESTACK Mold 의 **데스크톱 서비스** 를 이용하여 진행이 되며 **데스크톱 서비스** 메뉴는 **Mold > 구성 > 글로벌 설정** 에서 **cloud.desktop.service.enabled** 항목을

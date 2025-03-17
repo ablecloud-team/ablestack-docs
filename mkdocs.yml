@@ -1,4 +1,4 @@
-# Copyright (c) 2021 ABLECLOUD Co. Ltd.
+# Copyright (c) 2021-2025 ABLECLOUD Co. Ltd.
 
 # 이 파일은 Mold Docs의 도큐먼트 설정 및 테마 설정을 위한 설정 파일입니다.
 # 최초 작성일 : 2021. 03. 18
@@ -13,7 +13,12 @@ repo_name: ablecloud-team/ablestack-docs
 repo_url: https://github.com/ablecloud-team/ablestack-docs
 
 # Copyright
-copyright: Copyright &copy; 2021-2023 ABLECLOUD Co. Ltd.
+copyright: Copyright &copy; 2021-2025 ABLECLOUD Co. Ltd.
+
+validation:
+  absolute_links: ignore
+  unrecognized_links: ignore
+  anchors: ignore
 
 # Configuration
 theme:
@@ -36,18 +41,26 @@ theme:
 
 
   palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
       toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to dark mode
-    - scheme: slate
-      primary: red
-      accent: red
-      toggle:
-        icon: material/toggle-switch
+        icon: material/brightness-auto
         name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
 
   font:
     text: Noto Sans KR
@@ -56,12 +69,46 @@ theme:
   favicon: assets/favicon.png
   logo: assets/logo.png
 
+# hooks:
+#   - pdf-title-hook.py
+
 # Plugin
 plugins:
   - search
   - mike
   - glightbox:
      width: 80%
+  - macros
+  - exporter:
+      formats:
+        pdf:
+          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
+          concurrency: 16
+          stylesheets:
+            - resources/stylesheets/pdf.scss
+          covers:
+            front: resources/templates/covers/front.html.j2
+            back: resources/templates/covers/back.html.j2
+          aggregator:
+            enabled: true
+            output: ablestack-docs.pdf
+            covers: book
+          browser:
+            timeout: 0
+            debug: true
+      logging:
+        level: debug
+      buttons:
+        - title: View as PDF
+          icon: material-file-move-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes:
+            target: _blank
+            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
+        - title: Download as PDF
+          icon: material-file-download-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
 
 # Customization
 extra:
@@ -81,7 +128,6 @@ markdown_extensions:
   - attr_list
   - def_list
   - footnotes
-  - meta
   - md_in_html
   - toc:
       permalink: true
@@ -93,8 +139,8 @@ markdown_extensions:
   - pymdownx.critic
   - pymdownx.details
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
@@ -122,125 +168,130 @@ nav:
     - ABLESTACK의 탄생:
       - 데이터센터의 역사와 문제점: architecture/architecture-overview.md
       - 문제해결방법-ABLESTACK: architecture/birth-of-ablestack.md
+      - ABLESTACK 제품 및 구성 : architecture/product-and-component.md
     - ABLESTACK 물리 아키텍처:
       - ABLESTACK의 기본구조 : architecture/ablestack-basic-structure.md
       - 호스트 아키텍처 : architecture/host-architecture.md
       - 네트워크 아키텍처 : architecture/network-architecture.md
-    - ABLESTACK Core:
-      - Cube 알아보기 : architecture/book-of-cube.md
-      - Cell 알아보기 : architecture/book-of-cell.md
-      - Glue 알아보기 : architecture/book-of-glue.md      
-      - Mold 알아보기 : architecture/book-of-mold.md
-    - ABLESTACK Extended:
-      - Wall 알아보기 : architecture/book-of-wall.md
-      - Koral 알아보기 : architecture/book-of-koral.md
-    - ABLESTACK Service:
-      - Works 알아보기 : architecture/book-of-works.md
-      - Genie 알아보기 : architecture/book-of-genie.md
-#    - ABLESTACK on Others:
-#      - vSphere 기반 ABLESTACK: architecture/book-of-vsphere.md
-#      - Citrix 기반 ABLESTACK: architecture/book-of-citrix.md
-#      - HyperV 기반 ABLESTACK: architecture/book-of-hyperv.md
-#      - ABLESTACK과 OpenStack: architecture/book-of-openstack.md
-  - 시작하기:
-    - 시작하며: getting-started/getting-started-overview.md
-    - ABLESTACK Core:
-      - Cube 설치 가이드: getting-started/install-guide-cube.md
-      - Glue 설치 가이드: getting-started/install-guide-glue.md
-      - Mold 설치 가이드: getting-started/install-guide-mold.md
-    - ABLESTACK Extended:
-      - Wall 설치 가이드: getting-started/install-guide-wall.md
-    - ABLESTACK Service:
-      - Works 설치 가이드: getting-started/install-guide-works.md
-      - Genie 설치 가이드: getting-started/install-guide-genie.md
-    - ABLESTACK Add Host:
-      - 호스트 추가 가이드: getting-started/install-guide-add-host.md
-#  - 설정 및 구성:
-#    - 시작하며: setup/setup-overview.md
-  - 관리가이드:
-    - Cube 가이드: 
-      - 사용자 인터페이스 : administration/cube/userinterface-guide.md
-      - 개요 : administration/cube/overview-guide.md
-      - 기록 : administration/cube/log-guide.md
-      - 저장소 : administration/cube/storage-guide.md
-      - 네트워킹 : administration/cube/networking-guide.md
-      #- 가상머신 : administration/cube/vm-guide.md
-      - 계정 : administration/cube/account-guide.md
-      - 서비스 : administration/cube/service-guide.md
-      - ABLESTACK : administration/cube/ablestack-guide.md
-      - 소프트웨어 최신화 : administration/cube/update-software-guide.md
-      - 애플리케이션 : administration/cube/application-guide.md
-      - 진단 보고서 : administration/cube/diagnostic-guide.md
-      - 커널 덤프 : administration/cube/kerneldump-guide.md
-      - 터미널 : administration/cube/terminal-guide.md
-      - SELinux : administration/cube/selinux-guide.md
-    - Mold 가이드:
-      - 사용자 인터페이스: administration/mold/userinterface-guide.md
-      - 계정 및 사용자 관리: administration/mold/account-mngt-guide.md
-      - 프로젝트 관리: administration/mold/project-mngt-guide.md
-      - 서비스오퍼링 관리 : administration/mold/serviceoffering-mngt-guide.md
-      - 사용자 네트워크 관리 : administration/mold/network-mngt-guide.md
-      - 가상머신 관리: administration/mold/vm-mngt-guide.md
-      - 템플릿 및 ISO 관리: administration/mold/template&ISO-mngt-guide.md
-      - 호스트 관리: administration/mold/host-mngt-guide.md
-      - 스토리지 관리: administration/mold/storage-mngt-guide.md
-      - 네트워크 및 트래픽 관리: administration/mold/network&traffic-mngt-guide.md
-      - 시스템VM 관리: administration/mold/systemvm-mngt-guide.md
-      - Usage 관리: administration/mold/usage-mngt-guide.md
-      - Cloud 관리: administration/mold/cloud-mngt-guide.md
-      - 고가용성(HA) 관리: administration/mold/ha-mngt-guide.md
-      - 이벤트 관리: administration/mold/event-mngt-guide.md
-    - Glue 가이드: 
-      - 사용자 인터페이스 : administration/glue/userinterface-guide.md
-      - 설정 : administration/glue/config-guide.md
-      - 사용자 및 역할 관리 : administration/glue/account&role-guide.md
-      - 프록시 설정 : administration/glue/proxyconfig-guide.md
-      - API 요청 감사 : administration/glue/api-request-audit-guide.md
-      - NFS-Ganesha 관리 : administration/glue/nfs-ganesha-mngt-guide.md
-      - 플러그인 : administration/glue/plugin-guide.md
-      - 문제해결 : administration/glue/troubleshooting-guide.md
-#    - Cell 가이드: administration/cell/cell-guide-overview.md
-    - Wall 가이드: 
-      - 사용자 인터페이스 : administration/wall/userinterface-guide.md
-      - 대시보드 검색 : administration/wall/dashboard-search.md
-      - 생성 : administration/wall/create.md
-      - 대시보드 : administration/wall/dashboard.md
-      - 탐색 : administration/wall/explore.md
-      - 경고 : administration/wall/alerting.md
-      - 환경 설정 : administration/wall/preferences.md
-#      - 서버 관리 : administration/wall/server-management.md
-#      - 기본설정 : administration/wall/basic-setting.md
-      - Netdive : administration/wall/netdive-guide.md
-    - Works 관리자 가이드:
-      -  관리자 로그인: administration/works/admin-login.md
-      -  대시보드: administration/works/admin-dashboard.md
-      -  워크스페이스: administration/works/admin-workspaces.md
-      -  가상머신: administration/works/admin-virtual-machines.md
-      -  사용자: administration/works/admin-user.md
-      -  설정: administration/works/admin-setting.md
-    - Works 사용자 가이드:
-        - 사용자 로그인: administration/works/user-login.md
-        - 데스크탑: administration/works/user-desktop.md
-        # - 데스크탑 접속(Guacamole Client): administration/works/user-desktop-connection.md
-    - Genie 가이드:
-      -  사용자 인터페이스: administration/genie/userinterface-guide.md
-      -  Quick Start: administration/genie/quick-start.md
-      -  Views: administration/genie/views.md
-      -  리소스: administration/genie/resources.md
-      -  액세스: administration/genie/access.md
-      -  관리: administration/genie/management.md
-      -  설정: administration/genie/configuration.md
+    - ABLESTACK 구성요소:
+      - Cell : architecture/book-of-cell.md
+      - Cube :
+        - 알아보기 : architecture/book-of-cube.md
+        - 가이드 :
+          - 사용자 인터페이스 : administration/cube/userinterface-guide.md
+          - 개요 : administration/cube/overview-guide.md
+          - 기록 : administration/cube/log-guide.md
+          - 저장소 : administration/cube/storage-guide.md
+          - 네트워킹 : administration/cube/networking-guide.md
+          - 계정 : administration/cube/account-guide.md
+          - 서비스 : administration/cube/service-guide.md
+          - ABLESTACK : administration/cube/ablestack-guide.md
+          - 소프트웨어 최신화 : administration/cube/update-software-guide.md
+          - 애플리케이션 : administration/cube/application-guide.md
+          - 진단 보고서 : administration/cube/diagnostic-guide.md
+          - 커널 덤프 : administration/cube/kerneldump-guide.md
+          - 터미널 : administration/cube/terminal-guide.md
+          - SELinux : administration/cube/selinux-guide.md
+      - Glue :
+        - 알아보기 :
+          - ABLESTACK HCI : architecture/book-of-glue.md
+          - ABLESTACK PowerFlex : architecture/book-of-powerflex.md
+        - 가이드 :
+          - 사용자 인터페이스 : administration/glue/userinterface-guide.md
+          - 설정 : administration/glue/config-guide.md
+          - 사용자 및 역할 관리 : administration/glue/account&role-guide.md
+          - 프록시 설정 : administration/glue/proxyconfig-guide.md
+          - API 요청 감사 : administration/glue/api-request-audit-guide.md
+          - NFS-Ganesha 관리 : administration/glue/nfs-ganesha-mngt-guide.md
+          - 플러그인 : administration/glue/plugin-guide.md
+          - 문제해결 : administration/glue/troubleshooting-guide.md
+      - Mold :
+        - 알아보기 : architecture/book-of-mold.md
+        - 가이드 :
+          - 사용자 인터페이스: administration/mold/userinterface-guide.md
+          - 계정 및 사용자 관리: administration/mold/account-mngt-guide.md
+          - 프로젝트 관리: administration/mold/project-mngt-guide.md
+          - 서비스오퍼링 관리 : administration/mold/serviceoffering-mngt-guide.md
+          - 사용자 네트워크 관리 : administration/mold/network-mngt-guide.md
+          - 가상머신 관리: administration/mold/vm-mngt-guide.md
+          - 템플릿 및 ISO 관리: administration/mold/template&ISO-mngt-guide.md
+          - 호스트 관리: administration/mold/host-mngt-guide.md
+          - 스토리지 관리: administration/mold/storage-mngt-guide.md
+          - 네트워크 및 트래픽 관리: administration/mold/network&traffic-mngt-guide.md
+          - 시스템VM 관리: administration/mold/systemvm-mngt-guide.md
+          - Usage 관리: administration/mold/usage-mngt-guide.md
+          - Cloud 관리: administration/mold/cloud-mngt-guide.md
+          - 고가용성(HA) 관리: administration/mold/ha-mngt-guide.md
+          - 이벤트 관리: administration/mold/event-mngt-guide.md
+      - Wall :
+        - 알아보기 : architecture/book-of-wall.md
+        - 가이드 :
+          - 사용자 인터페이스 : administration/wall/userinterface-guide.md
+          - 대시보드 검색 : administration/wall/dashboard-search.md
+          - 생성 : administration/wall/create.md
+          - 대시보드 : administration/wall/dashboard.md
+          - 탐색 : administration/wall/explore.md
+          - 경고 : administration/wall/alerting.md
+          - 환경 설정 : administration/wall/preferences.md
+          - Netdive : administration/wall/netdive-guide.md
+      - Koral : architecture/book-of-koral.md
+      - Genie :
+        - 알아보기 : architecture/book-of-genie.md
+        - 가이드:
+          - 사용자 인터페이스: administration/genie/userinterface-guide.md
+          - Quick Start: administration/genie/quick-start.md
+          - Views: administration/genie/views.md
+          - 리소스: administration/genie/resources.md
+          - 액세스: administration/genie/access.md
+          - 관리: administration/genie/management.md
+          - 설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
     - ABLESTACK 시스템 재기동: administration/system-restart.md
+  - 시작하기:
+    - ABLESTACK HCI 설치 가이드:
+      - 설치전 준비사항: getting-started/getting-started-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-glue.md
+        - Mold 설치 가이드: getting-started/install-guide-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-wall.md
+        - Genie 설치 가이드: getting-started/install-guide-genie.md
+      - ABLESTACK HCI 구성관리:
+        - 호스트 추가 가이드: getting-started/install-guide-add-host.md
+    - ABLESTACK PowerFlex 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-powerflex-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-powerflex-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-powerflex-glue.md
+        - PFMP 설치 가이드: getting-started/install-guide-powerflex-pfmp.md
+        - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
+    - ABLESTACK VM 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-general-virtualization-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-general-virtualization-cube.md
+        - Mold 설치 가이드: getting-started/install-guide-general-virtualization-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-general-virtualization-wall.md
+      - ABLESTACK VM 구성관리:
+        - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
+        - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
+  - 관리자 가이드:
+    - 컴퓨트:
+      - 가상머신: admin-guide/mold/mold-admin-guide-compute-vm.md
+    - 스토리지:
+      - 볼륨: admin-guide/mold/mold-admin-guide-storage-volume.md
+      - 스냅샷: admin-guide/mold/mold-admin-guide-storage-snapshot.md
+      - 버킷: admin-guide/mold/mold-admin-guide-storage-bucket.md
+      - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
   - 레퍼런스 가이드 :
-    - CentOS 가상머신 가이드 : 
+    - CentOS 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
       - 템플릿을 이용한 VM 생성 : userGuide/vms/centos-guide-add-and-use-vm.md
       - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/centos-guide-ssh-key-use.md
       - UserData 적용 기능 추가 : userGuide/vms/centos-guide-userdata.md
       - 가상머신 볼륨 사용 : userGuide/vms/centos-guide-storage.md
       - 가상머신 NIC 사용 : userGuide/vms/centos-guide-nics.md
-    - Ubuntu 가상머신 가이드 : 
+    - Ubuntu 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/ubuntu-guide-prepare-vm.md
       - 템플릿을 이용한 VM 생성 : userGuide/vms/ubuntu-guide-add-and-use-vm.md
       - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/ubuntu-guide-ssh-key-use.md
@@ -279,14 +330,27 @@ nav:
       - 가상환경 구성: userGuide/oraclerac/oracle-rac-infra-setup.md
       - ASM 및 GI 구성: userGuide/oraclerac/oracle-rac-asm-gi-setup.md
       - Oracle 데이터베이스 구성: userGuide/oraclerac/oracle-rac-db-setup.md
-
-    # - 템플릿 :
-    #   - 샘플 템플릿: userGuide/templateSample/template.md
-    #   - readme: userGuide/templateSample/readme.md
-#  - 레퍼런스:
-#    - 시작하며: reference/reference-overview.md
-  - 릴리즈노트 : 
+    - Glue Service 관리 가이드:
+      - 게이트웨이 가상머신 관리 및 기능: userGuide/glue/gwvm-manage-feature.md
+      - Glue FS 관리 및 기능: userGuide/glue/fs-manage-feature.md
+      - Glue NFS 관리 및 기능: userGuide/glue/nfs-manage-feature.md
+      - Glue Object Gateway 관리 및 기능: userGuide/glue/rgw-manage-feature.md
+      - Glue Ingress 관리 및 기능: userGuide/glue/ingress-manage-feature.md
+      - Glue iSCSI 관리 및 기능: userGuide/glue/iscsi-manage-feature.md
+      - Glue NVMe-oF 관리 및 기능: userGuide/glue/nvmeof-manage-feature.md
+      - Glue Samba 관리 및 기능: userGuide/glue/samba-manage-feature.md
+    - Mold Fence Agent 활용한 HA 구성 가이드:
+      - 구성 개요: userGuide/mold_fence/mold-fence-prepare.md
+      - 구성 환경: userGuide/mold_fence/mold-fence-configuration-environment.md
+      - Pacemaker 클러스터 구성: userGuide/mold_fence/mold-fence-configuration-pacemaker-cluster.md
+      - Shared Volume를 활용한 Mysql 구성: userGuide/mold_fence/mold-fence-configuration-shared-volume.md
+      - MOLD Fence Agent 설치 및 STONITH 구성: userGuide/mold_fence/mold-fence-configuration-mold-fence.md
+      - Mysql 이중화를 위한 PCS Resource 구성: userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource.md
+      - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
+    - 압축/중복제거 볼륨 사용방법 가이드:
+      - 압축/중복제거 볼륨 사용방법: userGuide/compress_dedup/compress_dedup_guide.md
+  - 릴리즈노트 :
     - Cerato : releaseNote/release-cerato.md
     - Bronto : releaseNote/release-note.md
-  - 지식베이스 : 
+  - 지식베이스 :
     - 문제해결사례 : troubleshooting/troubleshooting.md

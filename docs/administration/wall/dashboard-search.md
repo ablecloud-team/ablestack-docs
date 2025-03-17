@@ -1,5 +1,5 @@
 # 대시보드 검색
-대시보드 검색 메뉴는 최근 본 대시보드, Alert 대시보드 4종, General 대시보드 7종에 대한 검색을 할 수 있는 기능을 제공합니다.
+대시보드 검색 메뉴는 최근 본 대시보드, Alert 대시보드, Log 대시보드, General 대시보드에 대한 검색을 할 수 있는 기능을 제공합니다.
 
 ![wall-dashboard-search-menu](../../assets/images/wall-dashboard-search-menu.png)
 
