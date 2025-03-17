@@ -1,10 +1,15 @@
-ABLESTACK HCI를 구성하기 위해서는 최소 3대의 호스트가 필요합니다. 그리고 이 호스트가 서로 유기적으로 묶여서 동작하기 위해서는 물리적인 네트워크 구성이 필요합니다. 
+ABLESTACK 클러스터를 구성하기 위해서는 제품의 형상에 따라 다음과 같은 최소 호스트가 필요합니다. 
 
-ABLESTACK HCI의 클러스터 구성을 위한 네트워크 트래픽과 호스트 구성을 개념적으로 도식화하면 다음과 같습니다. 
+- ABLESTACK VM : 1대, 고가용성 제공을 위해서는 최소 2대
+- ABLESTACK HCI : 3대
+
+클러스터 내의 호스트가 서로 유기적으로 묶여서 동작하기 위해서는 물리적인 네트워크 구성이 필요합니다. 
+
+ABLESTACK 클러스터 구성을 위한 네트워크 트래픽과 호스트 구성을 개념적으로 도식화하면 다음과 같습니다. 
 
 ![network-architecture](../assets/images/network-architecture.png){ align=center }
 
-HCI는 가상화기술 및 소프트웨어 정의 스토리지, 소프트웨어 정의 네트워크 등 다양한 기술이 융합되어 있고, 또한 고가용성 클러스터링까지 포함되어 있기 때문에 다양한 트래픽이 네트워크를 통해 전송되고 처리됩니다. 위의 그림과 같이 트래픽을 큰 단위로 세분화하면 총 6개의 트래픽이 존재합니다. 
+ABLESTACK VM 및 HCI는 가상화기술 및 소프트웨어 정의 스토리지, 소프트웨어 정의 네트워크 등 다양한 기술이 융합되어 있고, 또한 고가용성 클러스터링까지 포함되어 있기 때문에 다양한 트래픽이 네트워크를 통해 전송되고 처리됩니다. 위의 그림과 같이 트래픽을 큰 단위로 세분화하면 총 6개의 트래픽이 존재합니다. 
 
 !!! tip "실제 네트워크 구성 팁"
     위의 구성도는 네트워크 흐름을 구분하여 도식화 한 것입니다. 실제 물리적인 네트워크를 구성할 때는 위의 그림을 참고하여, 트래픽이 구분되어 흐를 수 있도록 구성하되 물리적으로는 케이블의 수를 줄일 수 있습니다.  
@@ -14,6 +19,9 @@ HCI는 가상화기술 및 소프트웨어 정의 스토리지, 소프트웨어 
 각각의 트래픽을 처리하는 네트워크와 해당 네트워크의 구성 방법, 내부 아키텍처를 소개하면 다음과 같습니다. 
 
 ## Glue 네트워크
+
+!!! info "구성 참고"
+    Glue 네트워크는 ABLESTACK HCI를 구성하는 경우에만 필요한 네트워크이며 ABLESTACK VM 구성의 경우 해당 네트워크를 구성하지 않아도 됩니다. 
 
 Glue 네트워크는 ABLESTACK HCI로 구성된 스토리지에서 발생하는 트래픽을 처리하기 위한 네트워크 입니다. 스토리지를 서비스하고, 데이터를 저장, 복제하며, 복구하기 위한 트래픽을 처리하고, 다양한 클라이언트에 의해 발생하는 IO 트래픽을 효과적으로 처리합니다. 따라서 각각의 트래픽을 효과적으로 격리하고 분산할 수 있는 아키텍처와 성능을 높이기 위한 고려가 반드시 필요합니다. 
 
@@ -48,7 +56,7 @@ ABLESTACK Glue는 가상머신이 스토리지 컨트롤러로 실행됩니다. 
 
 ## Cell 네트워크
 
-Cell 네트워크는 ABLESTACK HCI로 구성된 호스크 클러스터에서 가상화를 관리하고, 생성된 가상머신 간의 네트워크 통신을 처리하고, 외부 사용자를 위한 서비스를 제공하기 위한 트래픽을 처리합니다. 그리고 가상머신을 다른 호스트로 마이그레이션하거나, 호스트 간의 상태를 확인하고, 장애를 인식하여 처리하는 등의 작업을 위한 트래픽도 처리합니다. 
+Cell 네트워크는 ABLESTACK으로 구성된 호스크 클러스터에서 가상화를 관리하고, 생성된 가상머신 간의 네트워크 통신을 처리하고, 외부 사용자를 위한 서비스를 제공하기 위한 트래픽을 처리합니다. 그리고 가상머신을 다른 호스트로 마이그레이션하거나, 호스트 간의 상태를 확인하고, 장애를 인식하여 처리하는 등의 작업을 위한 트래픽도 처리합니다. 
 
 ABLESTACK Cell은 가상화 호스트 및 가상머신에서 발생하는 트래픽을 효과적으로 격리하고 분산하여 처리하기 위해 크게 3가지의 네트워크를 구분하여 구성하는 것을 권장합니다. 각각의 네트워크의 역할과 포트 구성은 다음과 같습니다. 
 
@@ -73,11 +81,29 @@ Public Service 네트워크를 물리적으로 구성하는 것이 어려울 경
 ### Management 네트워크
 
 !!! info "네트워크 포트 속성"
-    &nbsp;&nbsp;:octicons-key-16:{ style="color: #4287B2;" }&nbsp;&nbsp;필수네트워크&nbsp;&nbsp;&nbsp; :octicons-plug-16:{ style="color: #00AB6C" }&nbsp;&nbsp;물리구성 필요&nbsp;&nbsp;&nbsp;물리구성 필요&nbsp;&nbsp;:octicons-rocket-16:{ style="color: #1DA1F2" }&nbsp;&nbsp;1GbE/1Gb SFP 이상
+    &nbsp;&nbsp;:octicons-key-16:{ style="color: #4287B2;" }&nbsp;&nbsp;필수네트워크&nbsp;&nbsp;&nbsp; :octicons-plug-16:{ style="color: #00AB6C" }&nbsp;&nbsp;물리구성 필요&nbsp;&nbsp;&nbsp;:octicons-rocket-16:{ style="color: #1DA1F2" }&nbsp;&nbsp;1GbE/1Gb SFP 이상
 
 Management 네트워크는 ABLESTACK 호스트를 클러스터링하고, 가상화 명령을 전달하기 위한 트래픽을 처리합니다. 관리 트래픽은 클러스터링, HA Heartbeat, 라이브마이그레이션, 스토리지 마이그레이션, 데이터 백업 등의 작업과 관련됩니다. 
 
 Management 네트워크를 물리적으로 분리해야 하며, 1Gb 이상의 네트워크로 구성해야 합니다. 단 라이브마이그레이션, 데이터 백업 등의 성능을 높이려면 10Gb 이상의 네트워크 구성을 권장합니다. 
+
+### SAN(스토리지) 네트워크
+
+!!! info "네트워크 포트 속성"
+    &nbsp;&nbsp;:octicons-key-16:{ style="color: #4287B2;" }&nbsp;&nbsp;필수네트워크(VM), 선택네트워크(HCI)&nbsp;&nbsp;&nbsp; :octicons-plug-16:{ style="color: #00AB6C" }&nbsp;&nbsp;물리구성 권장(iSCSI 등의 경우 Management 네트워크 사용 가능)&nbsp;&nbsp;&nbsp;:octicons-rocket-16:{ style="color: #1DA1F2" }&nbsp;&nbsp;10GbE/10Gb SFP 이상
+
+SAN(스토리지) 네트워크는 ABLESTACK 클러스터에 별도의 외장 스토리지 연결을 통해 데이터 입출력 트래픽을 처리합니다. 스토리지의 연결 방식에 따라 해당 네트워크는 전용 SAN 스위치와 HBA 카드를 통해서 연결되거나 iSCSI, NFS와 같이 일반적인 L2 스위치를 사용하여 연결합니다. 
+
+SAN(스토리지) 네트워크는 ABLESTACK VM의 경우 필수 네트워크이며, HCI의 경우 선택네트워크입니다. 물리적 구성을 권장하며, 10Gb 이상의 성능을 제공하는 네트워크 구성을 권장합니다. 
+
+### Migration 네트워크
+
+!!! info "네트워크 포트 속성"
+    &nbsp;&nbsp;:octicons-key-16:{ style="color: #4287B2;" }&nbsp;&nbsp;선택네트워크&nbsp;&nbsp;&nbsp; :octicons-plug-16:{ style="color: #00AB6C" }&nbsp;&nbsp;물리구성 권장&nbsp;&nbsp;&nbsp;:octicons-rocket-16:{ style="color: #1DA1F2" }&nbsp;&nbsp;10GbE/10Gb SFP 이상
+
+Migration 네트워크는 가상머신 운영 중에 가상머신을 다른 호스트로 마이그레이션 할 때 가상머신의 동기화를 위한 데이터를 처리합니다. 마이그레이션이 안정적으로 이루어지고 대용량 메모리를 가진 가상머신이 빠르게 마이그레이션을 처리하기 원하는 경우 마이그레이션 데이터만 처리할 수 있는 전용 네트워크를 구성할 수 있습니다. 
+
+Migration 네트워크는 선택네트워크이며, 물리적으로 분리하지 않는 경우 Management 네트워크를 대신 사용합니다. 물리적 구성 시 10Gb 이상의 네트워크 구성을 권장합니다. 
 
 ## 물리적 구성 예시
 
@@ -94,12 +120,12 @@ ABLESTACK HCI를 물리적으로 구성하려면 다음과 같은 준비가 필�
 
 !!! 장비사양예시
 
-    === "HCI용 서버"
+    === "가상화 서버"
 
         * CPU : Intel Xeon Silver 4215 Processor (8Core, 2.5GHz), 2 Socket
         * Memory : 256GB DDR4-ECC
         * Disk : Single SAS RAID, 960GB SAS MU SSD 8개
-        * NIC : 1GbE 4Port Onboard, 10Gb SFP+ 2Port 1개
+        * NIC : 1GbE 4Port Onboard, 10Gb SFP+ 2Port 1개, HBA 16G 1Port 1개(SAN 스토리지 연결 시)
 
     === "외부연결용 라우터"
 
@@ -107,17 +133,17 @@ ABLESTACK HCI를 물리적으로 구성하려면 다음과 같은 준비가 필�
         * 주요 지원 사양 : VLAN Routing, Inter VLAN Routing, VLAN Support, PVLAN, STP 등
         * Speed/Port : 1GbE/24Port
 
-    === "관리/가상머신 트래픽용 스위치"
+    === "관리/Migration/가상머신 트래픽용 스위치"
 
         * Type : L2
         * 주요 지원 사양 : VLAN Support, PVLAN, STP 등
-        * Speed/Port : 1GbE/24Port
+        * Speed/Port : 10Gb SFP+/24Port
 
     === "스토리지 트래픽용 스위치"
 
-        * Type : L2
+        * Type : L2(HCI, VM)/SAN(VM)
         * 주요 지원 사양 : VLAN Support, PVLAN, STP 등
-        * Speed/Port : 10Gb SFP+/16Port
+        * Speed/Port : 10Gb SFP+/16Port (SAN의 경우 16G 이상 권장)
 
 !!! warning "장비사양 참고 시 주의"
     위에서 제시한 장비 사양은 물리적 구성의 예시를 위해 편의적으로 구성한 사양입니다. 실제 환경에서 구성 시에는 해당 사용자 환경에 맞게 서버 및 스위치 등을 구성해야 합니다. 

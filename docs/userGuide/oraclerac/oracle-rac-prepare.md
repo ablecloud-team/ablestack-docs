@@ -7,7 +7,7 @@ ABLESTACK Mold 가상화 환경에서 Oracle RAC를 구성하는 방법을 제�
 ABLESTACK Mold를 통해 Oracle RAC 구성하는 구조를 보여줍니다. RAC 구성을 위해 2개의 가상머신, 네트워크 용도에 따라 public, pricate 2개의 네트워크, 1개의 공유 스토리지 볼륨을 생성하여 구성하는 구성도입니다. (해당 가이드에서는 public network와 Private network
 를 Isolated로 구성하였으며, 환경에 따라 L2 네트워크도 사용가능합니다.)
 
-![rac-prepare](../../../../assets/images/oraclerac/oracle-rac-architecture.png){: .center }
+![rac-prepare](../../assets/images/oraclerac/oracle-rac-architecture.png){: .center }
 
 ## Oracle RAC 구성요소
 ### Grid Infrastructure 

@@ -145,3 +145,5 @@ bootcmd:
     사용자 데이터를 통해 가상머신 구성을 자동화 하고자 한다면 cloud-init에 대한 사용 방법을 좀 더 자세히 알아야 합니다. 
 
     cloud-init에 대한 상세한 사용 방법을 알고자 한다면 [cloud-init 온라인 설명서](https://cloudinit.readthedocs.io/en/latest/){ target="_blank" }를 참고하십시오.
+
+사용자 데이터 구성을 완료합니다.
