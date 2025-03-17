@@ -277,13 +277,46 @@ nav:
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
   - 관리자 가이드:
+    - 대시보드:
+      - 대시보드: admin-guide/mold/mold-admin-guide-dashboard.md
     - 컴퓨트:
       - 가상머신: admin-guide/mold/mold-admin-guide-compute-vm.md
+      - VM 스냅샷: admin-guide/mold/mold-admin-guide-compute-vm-snapshots.md
+      - 쿠버네티스: admin-guide/mold/mold-admin-guide-compute-kubernetes.md
+      - 오토스케일 VM 그룹: admin-guide/mold/mold-admin-guide-compute-autoscale.md
+      - 가상머신 그룹: admin-guide/mold/mold-admin-guide-compute-vm-group.md
+      - SSH 키 쌍: admin-guide/mold/mold-admin-guide-compute-sshkeypairs.md
+      - 사용자 데이터: admin-guide/mold/mold-admin-guide-compute-userdata.md
+      - Affinity 그룹: admin-guide/mold/mold-admin-guide-compute-affinity-group.md
     - 스토리지:
       - 볼륨: admin-guide/mold/mold-admin-guide-storage-volume.md
       - 스냅샷: admin-guide/mold/mold-admin-guide-storage-snapshot.md
       - 버킷: admin-guide/mold/mold-admin-guide-storage-bucket.md
       - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
+    - 네트워크:
+      - 가상머신용 네트워크: admin-guide/mold/mold-admin-guide-network-guest-networks.md
+    - 이미지:
+      - 템플릿: admin-guide/mold/mold-admin-guide-images-templates.md
+    - 오토메이션:
+      - 컨트롤러 템플릿: admin-guide/mold/mold-admin-guide-automation-controller-templates.md
+    - 이벤트:
+      - 이벤트: admin-guide/mold/mold-admin-guide-events.md
+    - 프로젝트:
+      - 프로젝트: admin-guide/mold/mold-admin-guide-projects.md
+    - 역할:
+      - 역할: admin-guide/mold/mold-admin-guide-roles.md
+    - 계정:
+      - 계정: admin-guide/mold/mold-admin-guide-accounts.md
+    - 도메인:
+      - 도메인: admin-guide/mold/mold-admin-guide-domains.md
+    - 인프라스트럭쳐:
+      - 요약: admin-guide/mold/mold-admin-guide-infrastructure-summary.md
+    - 서비스 오퍼링:
+      - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
+    - 구성:
+      - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
+    - 도구:
+      - 코멘트: admin-guide/mold/mold-admin-guide-tools-comments.md
   - 레퍼런스 가이드 :
     - CentOS 가상머신 가이드 :
       - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
