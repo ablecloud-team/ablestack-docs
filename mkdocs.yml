@@ -277,112 +277,113 @@ nav:
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
   - 관리자 가이드:
-    - 대시보드:
-      - 대시보드: admin-guide/mold/mold-admin-guide-dashboard.md
-    - 컴퓨트:
-      - 가상머신: admin-guide/mold/mold-admin-guide-compute-vm.md
-      - VM 스냅샷: admin-guide/mold/mold-admin-guide-compute-vm-snapshots.md
-      - 쿠버네티스: admin-guide/mold/mold-admin-guide-compute-kubernetes.md
-      - 오토스케일 VM 그룹: admin-guide/mold/mold-admin-guide-compute-autoscale.md
-      - 가상머신 그룹: admin-guide/mold/mold-admin-guide-compute-vm-group.md
-      - SSH 키 쌍: admin-guide/mold/mold-admin-guide-compute-sshkeypairs.md
-      - 사용자 데이터: admin-guide/mold/mold-admin-guide-compute-userdata.md
-      - Affinity 그룹: admin-guide/mold/mold-admin-guide-compute-affinity-group.md
-    - 스토리지:
-      - 볼륨: admin-guide/mold/mold-admin-guide-storage-volume.md
-      - 스냅샷: admin-guide/mold/mold-admin-guide-storage-snapshot.md
-      - 버킷: admin-guide/mold/mold-admin-guide-storage-bucket.md
-      - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
-    - 네트워크:
-      - 가상머신용 네트워크: admin-guide/mold/mold-admin-guide-network-guest-networks.md
-    - 이미지:
-      - 템플릿: admin-guide/mold/mold-admin-guide-images-templates.md
-    - 오토메이션:
-      - 컨트롤러 템플릿: admin-guide/mold/mold-admin-guide-automation-controller-templates.md
-    - 이벤트:
-      - 이벤트: admin-guide/mold/mold-admin-guide-events.md
-    - 프로젝트:
-      - 프로젝트: admin-guide/mold/mold-admin-guide-projects.md
-    - 역할:
-      - 역할: admin-guide/mold/mold-admin-guide-roles.md
-    - 계정:
-      - 계정: admin-guide/mold/mold-admin-guide-accounts.md
-    - 도메인:
-      - 도메인: admin-guide/mold/mold-admin-guide-domains.md
-    - 인프라스트럭쳐:
-      - 요약: admin-guide/mold/mold-admin-guide-infrastructure-summary.md
-    - 서비스 오퍼링:
-      - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
-    - 구성:
-      - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
-    - 도구:
-      - 코멘트: admin-guide/mold/mold-admin-guide-tools-comments.md
-  - 레퍼런스 가이드 :
-    - CentOS 가상머신 가이드 :
-      - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
-      - 템플릿을 이용한 VM 생성 : userGuide/vms/centos-guide-add-and-use-vm.md
-      - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/centos-guide-ssh-key-use.md
-      - UserData 적용 기능 추가 : userGuide/vms/centos-guide-userdata.md
-      - 가상머신 볼륨 사용 : userGuide/vms/centos-guide-storage.md
-      - 가상머신 NIC 사용 : userGuide/vms/centos-guide-nics.md
-    - Ubuntu 가상머신 가이드 :
-      - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/ubuntu-guide-prepare-vm.md
-      - 템플릿을 이용한 VM 생성 : userGuide/vms/ubuntu-guide-add-and-use-vm.md
-      - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/ubuntu-guide-ssh-key-use.md
-      - UserData 적용 기능 추가 : userGuide/vms/ubuntu-guide-userdata.md
-      - 가상머신 볼륨 사용 : userGuide/vms/ubuntu-guide-storage.md
-      - 가상머신 NIC 사용 : userGuide/vms/ubuntu-guide-nics.md
-    - Windows 가상머신 가이드 :
-      - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/windows-guide-prepare-vm.md
-      - 템플릿을 이용한 VM 생성 : userGuide/vms/windows-guide-add-and-use-vm.md
-      - 가상머신 설정 자동화 적용 : userGuide/vms/windows-guide-password-userdata.md
-      - 가상머신 볼륨 사용 : userGuide/vms/windows-guide-storage.md
-      - 가상머신 NIC 사용 : userGuide/vms/windows-guide-nics.md
-    - Windows 기반 3Tier 구성 가이드 :
-      - 구성 개요 : userGuide/3tiers/windows/windows-guide-architecture.md
-      - 네트워크 구성 : userGuide/3tiers/windows/windows-guide-network.md
-      - DB 구성 : userGuide/3tiers/windows/windows-guide-db.md
-      - WAS 구성 : userGuide/3tiers/windows/windows-guide-was.md
-      - WEB 구성 : userGuide/3tiers/windows/windows-guide-web.md
-    - Linux 기반 3Tier 구성 가이드:
-      - 구성 개요: userGuide/3tiers/linux/3tiers-linux-guide-prepare.md
-      - 네트워크 구성: userGuide/3tiers/linux/3tiers-linux-guide-network.md
-      - 관리 가상머신 구성: userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm.md
-      - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
-      - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
-      - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
-    - Kubernete 구성 가이드:
-      - 구성 개요: userGuide/kubernetes/kubernetes-cluster-prepare.md
-      - 네트워크 생성: userGuide/kubernetes/kubernetes-cluster-network-create.md
-      - Kubernetes ISO 등록: userGuide/kubernetes/kubernetes-cluster-iso-add.md
-      - Cluster 생성: userGuide/kubernetes/kubernetes-cluster-create.md
-      - Cluster 설정: userGuide/kubernetes/kubernetes-cluster-setting.md
-      - 공유 볼륨 설정: userGuide/kubernetes/kubernetes-cluster-shared-volume-create.md
-      - 서비스 배포: userGuide/kubernetes/kubernetes-cluster-service-add.md
-    - Oracle RAC 구성 가이드:
-      - 구성 개요: userGuide/oraclerac/oracle-rac-prepare.md
-      - 가상환경 구성: userGuide/oraclerac/oracle-rac-infra-setup.md
-      - ASM 및 GI 구성: userGuide/oraclerac/oracle-rac-asm-gi-setup.md
-      - Oracle 데이터베이스 구성: userGuide/oraclerac/oracle-rac-db-setup.md
-    - Glue Service 관리 가이드:
-      - 게이트웨이 가상머신 관리 및 기능: userGuide/glue/gwvm-manage-feature.md
-      - Glue FS 관리 및 기능: userGuide/glue/fs-manage-feature.md
-      - Glue NFS 관리 및 기능: userGuide/glue/nfs-manage-feature.md
-      - Glue Object Gateway 관리 및 기능: userGuide/glue/rgw-manage-feature.md
-      - Glue Ingress 관리 및 기능: userGuide/glue/ingress-manage-feature.md
-      - Glue iSCSI 관리 및 기능: userGuide/glue/iscsi-manage-feature.md
-      - Glue NVMe-oF 관리 및 기능: userGuide/glue/nvmeof-manage-feature.md
-      - Glue Samba 관리 및 기능: userGuide/glue/samba-manage-feature.md
-    - Mold Fence Agent 활용한 HA 구성 가이드:
-      - 구성 개요: userGuide/mold_fence/mold-fence-prepare.md
-      - 구성 환경: userGuide/mold_fence/mold-fence-configuration-environment.md
-      - Pacemaker 클러스터 구성: userGuide/mold_fence/mold-fence-configuration-pacemaker-cluster.md
-      - Shared Volume를 활용한 Mysql 구성: userGuide/mold_fence/mold-fence-configuration-shared-volume.md
-      - MOLD Fence Agent 설치 및 STONITH 구성: userGuide/mold_fence/mold-fence-configuration-mold-fence.md
-      - Mysql 이중화를 위한 PCS Resource 구성: userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource.md
-      - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
-    - 압축/중복제거 볼륨 사용방법 가이드:
-      - 압축/중복제거 볼륨 사용방법: userGuide/compress_dedup/compress_dedup_guide.md
+    - Mold 가이드:
+      - 대시보드:
+        - 대시보드: admin-guide/mold/mold-admin-guide-dashboard.md
+      - 컴퓨트:
+        - 가상머신: admin-guide/mold/mold-admin-guide-compute-vm.md
+        - VM 스냅샷: admin-guide/mold/mold-admin-guide-compute-vm-snapshots.md
+        - 쿠버네티스: admin-guide/mold/mold-admin-guide-compute-kubernetes.md
+        - 오토스케일 VM 그룹: admin-guide/mold/mold-admin-guide-compute-autoscale.md
+        - 가상머신 그룹: admin-guide/mold/mold-admin-guide-compute-vm-group.md
+        - SSH 키 쌍: admin-guide/mold/mold-admin-guide-compute-sshkeypairs.md
+        - 사용자 데이터: admin-guide/mold/mold-admin-guide-compute-userdata.md
+        - Affinity 그룹: admin-guide/mold/mold-admin-guide-compute-affinity-group.md
+      - 스토리지:
+        - 볼륨: admin-guide/mold/mold-admin-guide-storage-volume.md
+        - 스냅샷: admin-guide/mold/mold-admin-guide-storage-snapshot.md
+        - 버킷: admin-guide/mold/mold-admin-guide-storage-bucket.md
+        - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
+      - 네트워크:
+        - 가상머신용 네트워크: admin-guide/mold/mold-admin-guide-network-guest-networks.md
+      - 이미지:
+        - 템플릿: admin-guide/mold/mold-admin-guide-images-templates.md
+      - 오토메이션:
+        - 컨트롤러 템플릿: admin-guide/mold/mold-admin-guide-automation-controller-templates.md
+      - 이벤트:
+        - 이벤트: admin-guide/mold/mold-admin-guide-events.md
+      - 프로젝트:
+        - 프로젝트: admin-guide/mold/mold-admin-guide-projects.md
+      - 역할:
+        - 역할: admin-guide/mold/mold-admin-guide-roles.md
+      - 계정:
+        - 계정: admin-guide/mold/mold-admin-guide-accounts.md
+      - 도메인:
+        - 도메인: admin-guide/mold/mold-admin-guide-domains.md
+      - 인프라스트럭쳐:
+        - 요약: admin-guide/mold/mold-admin-guide-infrastructure-summary.md
+      - 서비스 오퍼링:
+        - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
+      - 구성:
+        - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
+      - 도구:
+        - 코멘트: admin-guide/mold/mold-admin-guide-tools-comments.md
+    - 레퍼런스 가이드 :
+      - CentOS 가상머신 가이드 :
+        - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
+        - 템플릿을 이용한 VM 생성 : userGuide/vms/centos-guide-add-and-use-vm.md
+        - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/centos-guide-ssh-key-use.md
+        - UserData 적용 기능 추가 : userGuide/vms/centos-guide-userdata.md
+        - 가상머신 볼륨 사용 : userGuide/vms/centos-guide-storage.md
+        - 가상머신 NIC 사용 : userGuide/vms/centos-guide-nics.md
+      - Ubuntu 가상머신 가이드 :
+        - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/ubuntu-guide-prepare-vm.md
+        - 템플릿을 이용한 VM 생성 : userGuide/vms/ubuntu-guide-add-and-use-vm.md
+        - 비밀번호/SSH Key 관리기능 추가 : userGuide/vms/ubuntu-guide-ssh-key-use.md
+        - UserData 적용 기능 추가 : userGuide/vms/ubuntu-guide-userdata.md
+        - 가상머신 볼륨 사용 : userGuide/vms/ubuntu-guide-storage.md
+        - 가상머신 NIC 사용 : userGuide/vms/ubuntu-guide-nics.md
+      - Windows 가상머신 가이드 :
+        - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/windows-guide-prepare-vm.md
+        - 템플릿을 이용한 VM 생성 : userGuide/vms/windows-guide-add-and-use-vm.md
+        - 가상머신 설정 자동화 적용 : userGuide/vms/windows-guide-password-userdata.md
+        - 가상머신 볼륨 사용 : userGuide/vms/windows-guide-storage.md
+        - 가상머신 NIC 사용 : userGuide/vms/windows-guide-nics.md
+      - Windows 기반 3Tier 구성 가이드 :
+        - 구성 개요 : userGuide/3tiers/windows/windows-guide-architecture.md
+        - 네트워크 구성 : userGuide/3tiers/windows/windows-guide-network.md
+        - DB 구성 : userGuide/3tiers/windows/windows-guide-db.md
+        - WAS 구성 : userGuide/3tiers/windows/windows-guide-was.md
+        - WEB 구성 : userGuide/3tiers/windows/windows-guide-web.md
+      - Linux 기반 3Tier 구성 가이드:
+        - 구성 개요: userGuide/3tiers/linux/3tiers-linux-guide-prepare.md
+        - 네트워크 구성: userGuide/3tiers/linux/3tiers-linux-guide-network.md
+        - 관리 가상머신 구성: userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm.md
+        - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
+        - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
+        - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
+      - Kubernete 구성 가이드:
+        - 구성 개요: userGuide/kubernetes/kubernetes-cluster-prepare.md
+        - 네트워크 생성: userGuide/kubernetes/kubernetes-cluster-network-create.md
+        - Kubernetes ISO 등록: userGuide/kubernetes/kubernetes-cluster-iso-add.md
+        - Cluster 생성: userGuide/kubernetes/kubernetes-cluster-create.md
+        - Cluster 설정: userGuide/kubernetes/kubernetes-cluster-setting.md
+        - 공유 볼륨 설정: userGuide/kubernetes/kubernetes-cluster-shared-volume-create.md
+        - 서비스 배포: userGuide/kubernetes/kubernetes-cluster-service-add.md
+      - Oracle RAC 구성 가이드:
+        - 구성 개요: userGuide/oraclerac/oracle-rac-prepare.md
+        - 가상환경 구성: userGuide/oraclerac/oracle-rac-infra-setup.md
+        - ASM 및 GI 구성: userGuide/oraclerac/oracle-rac-asm-gi-setup.md
+        - Oracle 데이터베이스 구성: userGuide/oraclerac/oracle-rac-db-setup.md
+      - Glue Service 관리 가이드:
+        - 게이트웨이 가상머신 관리 및 기능: userGuide/glue/gwvm-manage-feature.md
+        - Glue FS 관리 및 기능: userGuide/glue/fs-manage-feature.md
+        - Glue NFS 관리 및 기능: userGuide/glue/nfs-manage-feature.md
+        - Glue Object Gateway 관리 및 기능: userGuide/glue/rgw-manage-feature.md
+        - Glue Ingress 관리 및 기능: userGuide/glue/ingress-manage-feature.md
+        - Glue iSCSI 관리 및 기능: userGuide/glue/iscsi-manage-feature.md
+        - Glue NVMe-oF 관리 및 기능: userGuide/glue/nvmeof-manage-feature.md
+        - Glue Samba 관리 및 기능: userGuide/glue/samba-manage-feature.md
+      - Mold Fence Agent 활용한 HA 구성 가이드:
+        - 구성 개요: userGuide/mold_fence/mold-fence-prepare.md
+        - 구성 환경: userGuide/mold_fence/mold-fence-configuration-environment.md
+        - Pacemaker 클러스터 구성: userGuide/mold_fence/mold-fence-configuration-pacemaker-cluster.md
+        - Shared Volume를 활용한 Mysql 구성: userGuide/mold_fence/mold-fence-configuration-shared-volume.md
+        - MOLD Fence Agent 설치 및 STONITH 구성: userGuide/mold_fence/mold-fence-configuration-mold-fence.md
+        - Mysql 이중화를 위한 PCS Resource 구성: userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource.md
+        - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
+      - 압축/중복제거 볼륨 사용방법 가이드:
+        - 압축/중복제거 볼륨 사용방법: userGuide/compress_dedup/compress_dedup_guide.md
   - 릴리즈노트 :
     - Cerato : releaseNote/release-cerato.md
     - Bronto : releaseNote/release-note.md
