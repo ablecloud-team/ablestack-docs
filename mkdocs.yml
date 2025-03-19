@@ -79,36 +79,36 @@ plugins:
   - glightbox:
      width: 80%
   - macros
-  - exporter:
-      formats:
-        pdf:
-          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
-          concurrency: 16
-          stylesheets:
-            - resources/stylesheets/pdf.scss
-          covers:
-            front: resources/templates/covers/front.html.j2
-            back: resources/templates/covers/back.html.j2
-          aggregator:
-            enabled: true
-            output: ablestack-docs.pdf
-            covers: book
-          browser:
-            timeout: 0
-            debug: true
-      logging:
-        level: debug
-      buttons:
-        - title: View as PDF
-          icon: material-file-move-outline
-          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-          attributes:
-            target: _blank
-            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
-        - title: Download as PDF
-          icon: material-file-download-outline
-          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
+  # - exporter:
+  #     formats:
+  #       pdf:
+  #         enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
+  #         concurrency: 16
+  #         stylesheets:
+  #           - resources/stylesheets/pdf.scss
+  #         covers:
+  #           front: resources/templates/covers/front.html.j2
+  #           back: resources/templates/covers/back.html.j2
+  #         aggregator:
+  #           enabled: true
+  #           output: ablestack-docs.pdf
+  #           covers: book
+  #         browser:
+  #           timeout: 0
+  #           debug: true
+  #     logging:
+  #       level: debug
+  #     buttons:
+  #       - title: View as PDF
+  #         icon: material-file-move-outline
+  #         enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+  #         attributes:
+  #           target: _blank
+  #           href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
+  #       - title: Download as PDF
+  #         icon: material-file-download-outline
+  #         enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+  #         attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
 
 # Customization
 extra:
