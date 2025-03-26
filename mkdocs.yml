@@ -69,8 +69,8 @@ theme:
   favicon: assets/favicon.png
   logo: assets/logo.png
 
-# hooks:
-#   - pdf-title-hook.py
+hooks:
+  - pdf-title-hook.py
 
 # Plugin
 plugins:
@@ -79,36 +79,36 @@ plugins:
   - glightbox:
      width: 80%
   - macros
-  # - exporter:
-  #     formats:
-  #       pdf:
-  #         enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
-  #         concurrency: 16
-  #         stylesheets:
-  #           - resources/stylesheets/pdf.scss
-  #         covers:
-  #           front: resources/templates/covers/front.html.j2
-  #           back: resources/templates/covers/back.html.j2
-  #         aggregator:
-  #           enabled: true
-  #           output: ablestack-docs.pdf
-  #           covers: book
-  #         browser:
-  #           timeout: 0
-  #           debug: true
-  #     logging:
-  #       level: debug
-  #     buttons:
-  #       - title: View as PDF
-  #         icon: material-file-move-outline
-  #         enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-  #         attributes:
-  #           target: _blank
-  #           href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
-  #       - title: Download as PDF
-  #         icon: material-file-download-outline
-  #         enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-  #         attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
+  - exporter:
+      formats:
+        pdf:
+          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
+          concurrency: 16
+          stylesheets:
+            - resources/stylesheets/pdf.scss
+          covers:
+            front: resources/templates/covers/front.html.j2
+            back: resources/templates/covers/back.html.j2
+          aggregator:
+            enabled: true
+            output: ablestack-docs.pdf
+            covers: book
+          browser:
+            timeout: 0
+            debug: true
+      logging:
+        level: debug
+      buttons:
+        - title: View as PDF
+          icon: material-file-move-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes:
+            target: _blank
+            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
+        - title: Download as PDF
+          icon: material-file-download-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
 
 # Customization
 extra:
@@ -314,6 +314,10 @@ nav:
         - 요약: admin-guide/mold/mold-admin-guide-infrastructure-summary.md
       - 서비스 오퍼링:
         - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
+        - 디스크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-disk-offerings.md
+        - 시스템 오퍼링: admin-guide/mold/mold-admin-guide-offerings-system-offerings.md
+        - 네트워크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-network-offerings.md
+        - VPC 오퍼링: admin-guide/mold/mold-admin-guide-offerings-vpc-offerings.md
       - 구성:
         - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
       - 도구:
