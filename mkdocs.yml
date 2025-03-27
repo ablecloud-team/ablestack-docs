@@ -24,7 +24,7 @@ validation:
 theme:
   name: material
 
-  language: kr
+  # language: kr
 
   static_templates:
     - 404.html
@@ -69,8 +69,8 @@ theme:
   favicon: assets/favicon.png
   logo: assets/logo.png
 
-# hooks:
-#   - pdf-title-hook.py
+hooks:
+  - pdf-title-hook.py
 
 # Plugin
 plugins:
@@ -222,7 +222,6 @@ nav:
           - Usage 관리: administration/mold/usage-mngt-guide.md
           - Cloud 관리: administration/mold/cloud-mngt-guide.md
           - 고가용성(HA) 관리: administration/mold/ha-mngt-guide.md
-          - 재난 복구(DR) 관리: administration/mold/dr-mngt-guide.md
           - 이벤트 관리: administration/mold/event-mngt-guide.md
       - Wall :
         - 알아보기 : architecture/book-of-wall.md
@@ -296,6 +295,16 @@ nav:
         - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
       - 네트워크:
         - 가상머신용 네트워크: admin-guide/mold/mold-admin-guide-network-guest-networks.md
+        - VPC: admin-guide/mold/mold-admin-guide-network-vpc.md
+        - 보안그룹: admin-guide/mold/mold-admin-guide-network-security-group.md
+        - VNF 기기: admin-guide/mold/mold-admin-guide-network-vnf.md
+        - Public IP 주소: admin-guide/mold/mold-admin-guide-network-public-ip.md
+        - AS Numbers: admin-guide/mold/mold-admin-guide-network-as-numbers.md
+        - 사이트간 사설네트워크(VPN): admin-guide/mold/mold-admin-guide-network-sitetosite-vpn.md
+        - VPN 사용자: admin-guide/mold/mold-admin-guide-network-vpn-users.md
+        - VPN 고객 게이트웨이: admin-guide/mold/mold-admin-guide-network-vpn-customer-gateway.md
+        - 게스트 VLAN: admin-guide/mold/mold-admin-guide-network-guest-vlan.md
+        - IPv4 서브넷: admin-guide/mold/mold-admin-guide-network-ipv4-subnets.md
       - 이미지:
         - 템플릿: admin-guide/mold/mold-admin-guide-images-templates.md
       - 오토메이션:
