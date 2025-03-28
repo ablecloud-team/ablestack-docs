@@ -306,7 +306,9 @@ nav:
         - 게스트 VLAN: admin-guide/mold/mold-admin-guide-network-guest-vlan.md
         - IPv4 서브넷: admin-guide/mold/mold-admin-guide-network-ipv4-subnets.md
       - 이미지:
-        - 템플릿: admin-guide/mold/mold-admin-guide-images-templates.md
+        - 템플릿: admin-guide/mold/mold-admin-guide-image-template.md
+        - ISO: admin-guide/mold/mold-admin-guide-image-iso.md
+        - 쿠버네티스 ISO: admin-guide/mold/mold-admin-guide-image-kubernetes-iso.md
       - 오토메이션:
         - 컨트롤러 템플릿: admin-guide/mold/mold-admin-guide-automation-controller-templates.md
       - 이벤트:
@@ -323,6 +325,10 @@ nav:
         - 요약: admin-guide/mold/mold-admin-guide-infrastructure-summary.md
       - 서비스 오퍼링:
         - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
+        - 디스크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-disk-offerings.md
+        - 시스템 오퍼링: admin-guide/mold/mold-admin-guide-offerings-system-offerings.md
+        - 네트워크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-network-offerings.md
+        - VPC 오퍼링: admin-guide/mold/mold-admin-guide-offerings-vpc-offerings.md
       - 구성:
         - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
       - 도구:
