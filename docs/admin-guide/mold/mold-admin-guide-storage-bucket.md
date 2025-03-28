@@ -27,7 +27,7 @@
     ![버킷 목록 조회](../../assets/images/admin-guide/mold/storage/bucket/bucket-dashboard.png){ .imgCenter .imgBorder }
 
     !!! info
-        프로젝트 버튼을 활성화할 때 해당 프로젝트에 대한 정보를 볼륨 목록에서 확인할 수 있습니다.
+        프로젝트 버튼을 활성화할 때 해당 프로젝트에 대한 정보를 버킷 목록에서 확인할 수 있습니다.
 
 ## 버킷 만들기
 1. 스토리지의 버킷에서 상단의 버킷 만들기 버튼을 클릭합니다.
@@ -53,13 +53,17 @@
     - **할당량(GB)** 을 입력합니다.
     - **버킷 정책** 을 선택합니다.
 
+### 삭제
+6. 업로드된 파일을 삭제할 수 있습니다. 삭제할 파일을 선택한 후 삭제 버튼을 클릭하면 해당 파일이 제거됩니다.
+    ![삭제](../../assets/images/admin-guide/mold/storage/bucket/bucket-browser-delete.png){ .imgCenter .imgBorder }
+
 ## 버킷 상세 탭
 1. 버킷 목록 조회에서 확인하고 싶은 버킷 목록을 조회합니다. 버킷에 대한 상세 정보를 확인하는 화면입니다. 해당 버킷에 대한 크기, UUID, 이름 등 상세 정보를 확인할 수 있습니다.
     ![버킷 상세 탭](../../assets/images/admin-guide/mold/storage/bucket/bucket-detail-info.png){ .imgCenter .imgBorder }
 
 ## 버킷 브라우저 탭
 1. 버킷에 대한 브라우저를 확인 및 관리하는 화면입니다. 해당 버킷에서 조회 및 관리할 수 있습니다.
-    ![버킷 브라우저](../../assets/images/admin-guide/mold/storage/bucket/bucket-browser.png){ .imgCenter .imgBorder }
+    ![버킷 브라우저 탭](../../assets/images/admin-guide/mold/storage/bucket/bucket-browser.png){ .imgCenter .imgBorder }
 
 ### 업로드
 2. 해당 버킷에 객체 형태의 파일을 업로드할 수 있는 기능을 제공합니다. 업로드 버튼을 클릭합니다.
@@ -72,10 +76,6 @@
     ![다운로드 버튼](../../assets/images/admin-guide/mold/storage/bucket/bucket-browser-download-01.png){ .imgCenter .imgBorder }
 5. 파일 이름을 클릭한 화면입니다. Link를 클릭하여 다운로드 받으세요.
     ![다운로드](../../assets/images/admin-guide/mold/storage/bucket/bucket-browser-download-02.png){ .imgCenter .imgBorder }
-
-### 삭제
-6. 업로드된 파일을 삭제할 수 있습니다. 삭제할 파일을 선택한 후 삭제 버튼을 클릭하면 해당 파일이 제거됩니다.
-    ![삭제](../../assets/images/admin-guide/mold/storage/bucket/bucket-browser-delete.png){ .imgCenter .imgBorder }
 
 ## 버킷 이벤트 탭
 1. 버킷 목록 조회에서 확인하고 싶은 버킷 목록을 조회합니다. 버킷에 대한 이벤트 정보를 확인하는 화면입니다. 해당 버킷의 유형 및 생성일 등 확인할 수 있습니다.

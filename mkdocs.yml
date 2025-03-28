@@ -297,7 +297,9 @@ nav:
       - 네트워크:
         - 가상머신용 네트워크: admin-guide/mold/mold-admin-guide-network-guest-networks.md
       - 이미지:
-        - 템플릿: admin-guide/mold/mold-admin-guide-images-templates.md
+        - 템플릿: admin-guide/mold/mold-admin-guide-image-template.md
+        - ISO: admin-guide/mold/mold-admin-guide-image-iso.md
+        - 쿠버네티스 ISO: admin-guide/mold/mold-admin-guide-image-kubernetes-iso.md
       - 오토메이션:
         - 컨트롤러 템플릿: admin-guide/mold/mold-admin-guide-automation-controller-templates.md
       - 이벤트:

@@ -55,18 +55,6 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![편집](../../assets/images/admin-guide/mold/storage/volume/volume-edit-02.png){ .imgCenter .imgBorder }
     - **이름** 을 입력합니다.
 
-## 볼륨 상세 탭
-1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨에 대한 상세 정보를 확인하는 화면입니다. 해당 볼륨에 대한 크기, UUID, 이름 등 상세 정보를 확인할 수 있습니다.
-    ![볼륨 상세 정보](../../assets/images/admin-guide/mold/storage/volume/volume-detail-info.png){ .imgCenter .imgBorder }
-
-## 볼륨 이벤트 탭
-1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨과 관련된 이벤트 정보를 확인할 수 있는 화면입니다. 볼륨에서 발생한 다양한 액션과 변경 사항을 쉽게 파악할 수 있습니다.
-    ![볼륨 이벤트 정보](../../assets/images/admin-guide/mold/storage/volume/volume-event-info.png){ .imgCenter .imgBorder }
-
-## 볼륨 코멘트 탭
-1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨과 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 볼륨에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
-    ![볼륨 코멘트 정보](../../assets/images/admin-guide/mold/storage/volume/volume-coment-info.png){ .imgCenter .imgBorder }
-
 ## 로컬에서 볼륨 업로드
 1. 볼륨 생성 버튼 오른쪽 버튼 중 로컬에서 볼륨 업로드 버튼을 클릭합니다.
     ![로컬에서 볼륨 업로드 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-local-upload-01.png){ .imgCenter .imgBorder }
@@ -217,5 +205,17 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     - **HVM** 을 활성화합니다.
     - **공개** 를 활성화합니다.
     - **추천** 을 활성화합니다.
+
+## 볼륨 상세 탭
+1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨에 대한 상세 정보를 확인하는 화면입니다. 해당 볼륨에 대한 크기, UUID, 이름 등 상세 정보를 확인할 수 있습니다.
+    ![볼륨 상세 탭](../../assets/images/admin-guide/mold/storage/volume/volume-detail-info.png){ .imgCenter .imgBorder }
+
+## 볼륨 이벤트 탭
+1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨과 관련된 이벤트 정보를 확인할 수 있는 화면입니다. 볼륨에서 발생한 다양한 액션과 변경 사항을 쉽게 파악할 수 있습니다.
+    ![볼륨 이벤트 탭](../../assets/images/admin-guide/mold/storage/volume/volume-event-info.png){ .imgCenter .imgBorder }
+
+## 볼륨 코멘트 탭
+1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨과 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 볼륨에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+    ![볼륨 코멘트 탭](../../assets/images/admin-guide/mold/storage/volume/volume-coment-info.png){ .imgCenter .imgBorder }
 
 ## 용어 사전

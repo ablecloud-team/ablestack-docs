@@ -19,10 +19,10 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     ![공유 파일 시스템 목록 조회](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-dashboard.png){ .imgCenter .imgBorder }
 
     !!! info
-        매트릭 버튼을 활성화할 때 해당 디스크에 대한 상세 정보를 볼륨 목록에서 확인할 수 있습니다.
+        매트릭 버튼을 활성화할 때 해당 디스크에 대한 상세 정보를 공유 파일 시스템 목록에서 확인할 수 있습니다.
 
 
-        프로젝트 버튼을 활성화할 때 해당 프로젝트에 대한 정보를 볼륨 목록에서 확인할 수 있습니다.
+        프로젝트 버튼을 활성화할 때 해당 프로젝트에 대한 정보를 공유 파일 시스템 목록에서 확인할 수 있습니다.
 
 ## 공유 파일 시스템 생성
 1. 스토리지의 공유 파일 시스템에 상단의 공유 파일 시스템 생성 버튼을 클릭합니다.
@@ -67,19 +67,6 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     !!! danger
         공유 파일 시스템에서 작업한 모든 데이터가 삭제됩니다. 삭제 전에 반드시 다시 확인해 주세요!
 
-## 공유 파일 시스템 상세 탭
-1. 공유 파일 시스템에 대한 상세 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 크기, UUID, 이름 등 상세 정보를 확인할 수 있습니다.
-    ![공유 파일 시스템 상세 정보](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-detail-info.png){ .imgCenter .imgBorder }
-
-## 공유 파일 시스템 액세스 탭
-1. 공유 파일 시스템에 대한 액세스 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 마운트 정보를 확인할 수 있습니다.
-    ![공유 파일 시스템 액세스 정보](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-access-info.png){ .imgCenter .imgBorder }
-
-
-## 공유 파일 시스템 네트워크 탭
-1. 공유 파일 시스템에 대한 네트워크 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 네트워크 정보를 확인할 수 있습니다.
-    ![공유 파일 시스템 네트워크 정보](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-network-info.png){ .imgCenter .imgBorder }
-
 ### VM에 네트워크 추가
 2. VM에 네트워크 추가 버튼을 클릭한 화면입니다.
     ![VM에 네트워크 추가](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-network-info-vm-network-add.png){ .imgCenter .imgBorder }
@@ -100,18 +87,6 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     ![보조 IP 편집 버튼](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-network-info-ip-seconde-update-01.png){ .imgCenter .imgBorder }
 6. 보조 IP 편집 버튼을 클릭한 화면입니다.
     ![보조 IP 편집](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-network-info-ip-seconde-update-02.png){ .imgCenter .imgBorder }
-
-## 공유 파일 시스템 매트릭 탭
-1. 공유 파일 시스템에 대한 매트릭 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 CPU, Memory, Network 등 할당량 및 사용량을 확인할 수 있습니다.
-    ![공유 파일 시스템 매트릭 정보1](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-metric-info-01.png){ .imgCenter .imgBorder }
-    ![공유 파일 시스템 매트릭 정보2](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-metric-info-02.png){ .imgCenter .imgBorder }
-
-    !!! info
-        사용자가 원하는 시간과 단위 등을 커스터마이징 할 수 있습니다.
-
-## 공유 파일 시스템 이벤트 탭
-1. 공유 파일 시스템에 대한 이벤트 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 유형 및 생성일 등 확인할 수 있습니다.
-    ![공유 파일 시스템 이벤트 정보](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-event-info.png){ .imgCenter .imgBorder }
 
 ## 공유 파일 시스템 시작
 !!! check
@@ -164,5 +139,30 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     서비스 오퍼링을 변경할 경우, 미리 사전에 생성되어 있어야 합니다.
 
     <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[컴퓨트 오퍼링 생성 가이드](../mold-admin-guide-offerings-compute-offerings/#_4)</span>
+
+## 공유 파일 시스템 상세 탭
+1. 공유 파일 시스템에 대한 상세 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 크기, UUID, 이름 등 상세 정보를 확인할 수 있습니다.
+    ![공유 파일 시스템 상세 탭](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-detail-info.png){ .imgCenter .imgBorder }
+
+## 공유 파일 시스템 액세스 탭
+1. 공유 파일 시스템에 대한 액세스 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 마운트 정보를 확인할 수 있습니다.
+    ![공유 파일 시스템 액세스 탭](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-access-info.png){ .imgCenter .imgBorder }
+
+
+## 공유 파일 시스템 네트워크 탭
+1. 공유 파일 시스템에 대한 네트워크 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 네트워크 정보를 확인할 수 있습니다.
+    ![공유 파일 시스템 네트워크 탭](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-network-info.png){ .imgCenter .imgBorder }
+
+## 공유 파일 시스템 매트릭 탭
+1. 공유 파일 시스템에 대한 매트릭 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 CPU, Memory, Network 등 할당량 및 사용량을 확인할 수 있습니다.
+    ![공유 파일 시스템 매트릭 탭1](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-metric-info-01.png){ .imgCenter .imgBorder }
+    ![공유 파일 시스템 매트릭 탭2](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-metric-info-02.png){ .imgCenter .imgBorder }
+
+    !!! info
+        사용자가 원하는 시간과 단위 등을 커스터마이징 할 수 있습니다.
+
+## 공유 파일 시스템 이벤트 탭
+1. 공유 파일 시스템에 대한 이벤트 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 유형 및 생성일 등 확인할 수 있습니다.
+    ![공유 파일 시스템 이벤트 탭](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-event-info.png){ .imgCenter .imgBorder }
 
 ## 용어사전
