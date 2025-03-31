@@ -37,7 +37,7 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
         <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[디스크 오퍼링 생성 가이드](./mold-admin-guide-storage-volume.md/#_3)</span></br>
         <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[가상머신용 컴퓨트 오퍼링 생성 가이드](./mold-admin-guide-storage-volume.md/#_3)</span>
 
-## 공유 파일 시스템 상세 정보
+## 공유 파일 시스템 상세 탭
 1. 공유 파일 시스템에 대한 상세 정보를 확인하는 화면입니다. 해당 공유 파일 시스템에 대한 크기, UUID, 이름 등 상세 정보를 확인할 수 있습니다.
     ![공유 파일 시스템 상세 정보](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-detail-info.png){ align=center }
 
