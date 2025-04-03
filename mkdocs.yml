@@ -79,36 +79,36 @@ plugins:
   - glightbox:
      width: 80%
   - macros
-  - exporter:
-      formats:
-        pdf:
-          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
-          concurrency: 16
-          stylesheets:
-            - resources/stylesheets/pdf.scss
-          covers:
-            front: resources/templates/covers/front.html.j2
-            back: resources/templates/covers/back.html.j2
-          aggregator:
-            enabled: true
-            output: ablestack-docs.pdf
-            covers: book
-          browser:
-            timeout: 0
-            debug: true
-      logging:
-        level: debug
-      buttons:
-        - title: View as PDF
-          icon: material-file-move-outline
-          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-          attributes:
-            target: _blank
-            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
-        - title: Download as PDF
-          icon: material-file-download-outline
-          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
+#  - exporter:
+#      formats:
+#        pdf:
+#          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
+#          concurrency: 16
+#          stylesheets:
+#            - resources/stylesheets/pdf.scss
+#          covers:
+#            front: resources/templates/covers/front.html.j2
+#            back: resources/templates/covers/back.html.j2
+#          aggregator:
+#            enabled: true
+#            output: ablestack-docs.pdf
+#            covers: book
+#          browser:
+#            timeout: 0
+#            debug: true
+#      logging:
+#        level: debug
+#      buttons:
+#        - title: View as PDF
+#          icon: material-file-move-outline
+#          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+#          attributes:
+#            target: _blank
+#            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
+#        - title: Download as PDF
+#          icon: material-file-download-outline
+#          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+#          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
 
 # Customization
 extra:
@@ -331,8 +331,17 @@ nav:
         - VPC 오퍼링: admin-guide/mold/mold-admin-guide-offerings-vpc-offerings.md
       - 구성:
         - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
+        - LDAP 구성: admin-guide/mold/mold-admin-guide-configration-ldap.md
+        - OAuth 구성: admin-guide/mold/mold-admin-guide-configration-oauth.md
+        - 하이퍼바이저 기능: admin-guide/mold/mold-admin-guide-configration-hypervisor-capability.md
+        - 게스트 OS: admin-guide/mold/mold-admin-guide-configration-guest-os.md
+        - 게스트 OS 매핑: admin-guide/mold/mold-admin-guide-configration-guest-os-hypervisor-mapping.md
       - 도구:
         - 코멘트: admin-guide/mold/mold-admin-guide-tools-comments.md
+        - 사용량: admin-guide/mold/mold-admin-guide-tools-usage.md
+        - 인스턴스 가져오기-내보내기: admin-guide/mold/mold-admin-guide-tools-import-export-instances.md
+        - 데이터 볼륨 가져오기: admin-guide/mold/mold-admin-guide-tools-import-data-volumes.md
+        - Webhooks: admin-guide/mold/mold-admin-guide-tools-webhooks.md
     - 레퍼런스 가이드 :
       - CentOS 가상머신 가이드 :
         - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md
