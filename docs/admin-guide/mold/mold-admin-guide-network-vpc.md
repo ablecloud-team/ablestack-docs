@@ -46,7 +46,7 @@ VPC(Virtual Private Cloud)는 ABLESTACK 내에서 독립적이고 격리된 네�
     ![VPC 새 서브넷 추가 버튼](../../assets/images/admin-guide/mold/network/vpc/vpc-network-add-btn.png){ align=center }
 
 2. VPC의 새 서브넷 추가 버튼을 클릭하여 새 서브넷 추가 화면으로 이동합니다.
-    
+
     ![VPC 새 서브넷 추가 화면](../../assets/images/admin-guide/mold/network/vpc/vpc-network-add.png){ align=center }
 
     * **이름** 을 입력합니다.
@@ -74,9 +74,9 @@ VPC(Virtual Private Cloud)는 ABLESTACK 내에서 독립적이고 격리된 네�
     * **Pod** 를 선택합니다.
     * **클러스터** 를 선택합니다.
     * **호스트** 를 선택합니다.
-    
+
     ![VPC 새 서브넷 가상머신 추가2](../../assets/images/admin-guide/mold/network/vpc/vpc-subnet-vm-add2.png){ align=center }
-    
+
     * **템플릿** 을 선택합니다.
 
     ![VPC 새 서브넷 가상머신 추가3](../../assets/images/admin-guide/mold/network/vpc/vpc-subnet-vm-add3.png){ align=center }
@@ -107,7 +107,7 @@ VPC(Virtual Private Cloud)는 ABLESTACK 내에서 독립적이고 격리된 네�
     ![VPC 내부 LB 추가 버튼](../../assets/images/admin-guide/mold/network/vpc/vpc-subnet-lb-add-btn.png){ align=center }
 
 2. 내부 LB 추가에 필요한 값을 입력합니다.
-    
+
     ![VPC 내부 LB 추가 화면](../../assets/images/admin-guide/mold/network/vpc/vpc-subnet-lb-add.png){ align=center }
 
     * **이름** 을 입력합니다.
@@ -198,7 +198,7 @@ VPC(Virtual Private Cloud)는 ABLESTACK 내에서 독립적이고 격리된 네�
 1. VPN 게이트웨이 추가 버튼을 클릭합니다.
 
     ![vpn 게이트웨이 추가 버튼](../../assets/images/admin-guide/mold/network/vpc/vpc-vpn-gateway-add-btn.png){ align=center }
-    
+
     * **사이트 간 VPN 게이트웨이 생성** 버튼을 클릭하여 VPN 게이트웨이를 추가합니다.
 
 2. VPN 게이트웨이가 자동으로 생성됩니다.
@@ -216,7 +216,7 @@ VPC(Virtual Private Cloud)는 ABLESTACK 내에서 독립적이고 격리된 네�
 1. 사이트 간 VPN 연결 생성 버튼을 클릭합니다.
 
     ![사이트 간 VPN 연결 생성 버튼](../../assets/images/admin-guide/mold/network/vpc/vpc-vpn-connection-add-btn.png){ align=center }
-    
+
     * **사이트 간 VPN 게이트웨이 생성** 버튼을 클릭하여 VPN 게이트웨이를 추가합니다.
 
 2. 사이트 간 VPN 연결에 필요한 값을 입력합니다.
@@ -246,7 +246,7 @@ VPC(Virtual Private Cloud)는 ABLESTACK 내에서 독립적이고 격리된 네�
 
 ## 코멘트 탭
 
-1. VPC 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. VPC 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있니다.
 
     ![vpc 코멘트 탭](../../assets/images/admin-guide/mold/network/vpc/vpc-comments-tab.png){ align=center }
 

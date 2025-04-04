@@ -19,7 +19,7 @@
 
 ### Isolated 생성
 Isolated Network는 네트워크가 다른 네트워크와 격리되어 독립적으로 운영되는 방식입니다. 이 네트워크 타입에서는 가상머신이 서로 다른 네트워크에서 독립적으로 동작합니다.
-    
+
 1. Isolated 네트워크 생성 정보 입력
     ![Isolated 네트워크 생성1](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-add-isolated1.png){ align=center }
     * **이름** 을 입력합니다.
@@ -38,7 +38,7 @@ L2 Network는 물리적인 네트워크에서 Layer 2 (데이터 링크 계층) 
 
 1. L2 네트워크 생성 정보 입력
     ![L2 네트워크 생성1](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-add-l2.png){ align=center }
-    
+
     * **이름** 을 입력합니다.
     * **설명** 을 입력합니다.
     * **Zone** 을 선택합니다.
@@ -54,7 +54,7 @@ Shared Network는 여러 사용자와 VM이 동일한 VLAN을 공유하는 네�
 
 1. Shared 네트워크 생성 정보 입력
     ![Shared 네트워크 생성1](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-add-Shared1.png){ align=center }
-    
+
     * **이름** 을 입력합니다.
     * **설명** 을 입력합니다.
     * **Zone** 을 선택합니다.
@@ -117,7 +117,7 @@ Shared Network는 여러 사용자와 VM이 동일한 VLAN을 공유하는 네�
 
 ### Public IP 주소 일괄 해제
 
-1. Isolated 네트워크에 Public IP 주소를 해제할 수 있습니다. 
+1. Isolated 네트워크에 Public IP 주소를 해제할 수 있습니다.
 
     ![isolated public ip 해제](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-isolated-public-ip-delete.png){ align=center }
 
@@ -176,7 +176,7 @@ Shared Network는 여러 사용자와 VM이 동일한 VLAN을 공유하는 네�
 
 ## 코멘트 탭 (Isolated)
 
-1. Isolated 네트워크에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. Isolated 네트워크에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있니다.
 
     ![isolated 코멘트 탭](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-isolated-comments-tab.png){ align=center }
 
@@ -270,7 +270,7 @@ Shared Network는 여러 사용자와 VM이 동일한 VLAN을 공유하는 네�
 
 ## 코멘트 탭 (L2)
 
-1. L2 네트워크에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. L2 네트워크에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있니다.
 
     ![l2 코멘트 탭](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-l2-comments-tab.png){ align=center }
 
@@ -313,10 +313,10 @@ Shared Network는 여러 사용자와 VM이 동일한 VLAN을 공유하는 네�
 
 ### Public IP 주소 일괄 해제
 
-1. Shared 네트워크에 Public IP 주소를 해제할 수 있습니다. 
+1. Shared 네트워크에 Public IP 주소를 해제할 수 있습니다.
 
     ![shared public ip 해제](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-shared-public-ip-delete-btn1.png){ align=center }
-    
+
     * **Public IP 주소 일괄 해제** 버튼을 클릭하여 Public IP 주소 일괄 해제 화면을 호출합니다.
 
     ![shared public ip 해제 팝업](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-shared-public-ip-delete-btn2.png){ align=center }
@@ -387,6 +387,6 @@ Shared Network는 여러 사용자와 VM이 동일한 VLAN을 공유하는 네�
 
 ## 코멘트 탭 (Shared)
 
-1. Shared 네트워크에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. Shared 네트워크에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있니다.
 
     ![shared 코멘트 탭](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-shared-comments-tab.png){ align=center }
