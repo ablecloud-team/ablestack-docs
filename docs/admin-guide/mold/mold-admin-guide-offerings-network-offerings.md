@@ -92,7 +92,7 @@
     ![네트워크 오퍼링 이벤트 탭](../../assets/images/admin-guide/mold/offering/network/network-offering-event.png){ .imgCenter .imgBorder }
 
 ## 네트워크 오퍼링 코멘트 탭
-1. 네트워크 오퍼링 목록 조회에서 확인하고 싶은 네트워크 오퍼링 목록을 조회합니다. 네트워크 오퍼링과 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크 오퍼링에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. 네트워크 오퍼링 목록 조회에서 확인하고 싶은 네트워크 오퍼링 목록을 조회합니다. 네트워크 오퍼링과 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크 오퍼링에 대한 코멘트 정보를 조회 및 관리할 수 있니다.
     ![네트워크 오퍼링 코멘트 탭](../../assets/images/admin-guide/mold/offering/network/network-offering-coment.png){ .imgCenter .imgBorder }
 
 ## 용어사전
