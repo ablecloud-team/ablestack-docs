@@ -79,36 +79,36 @@ plugins:
   - glightbox:
      width: 80%
   - macros
-#  - exporter:
-#      formats:
-#        pdf:
-#          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
-#          concurrency: 16
-#          stylesheets:
-#            - resources/stylesheets/pdf.scss
-#          covers:
-#            front: resources/templates/covers/front.html.j2
-#            back: resources/templates/covers/back.html.j2
-#          aggregator:
-#            enabled: true
-#            output: ablestack-docs.pdf
-#            covers: book
-#          browser:
-#            timeout: 0
-#            debug: true
-#      logging:
-#        level: debug
-#      buttons:
-#        - title: View as PDF
-#          icon: material-file-move-outline
-#          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-#          attributes:
-#            target: _blank
-#            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
-#        - title: Download as PDF
-#          icon: material-file-download-outline
-#          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
-#          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
+  - exporter:
+      formats:
+        pdf:
+          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
+          concurrency: 16
+          stylesheets:
+            - resources/stylesheets/pdf.scss
+          covers:
+            front: resources/templates/covers/front.html.j2
+            back: resources/templates/covers/back.html.j2
+          aggregator:
+            enabled: true
+            output: ablestack-docs.pdf
+            covers: book
+          browser:
+            timeout: 0
+            debug: true
+      logging:
+        level: debug
+      buttons:
+        - title: View as PDF
+          icon: material-file-move-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes:
+            target: _blank
+            href: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.href
+        - title: Download as PDF
+          icon: material-file-download-outline
+          enabled: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.enabled
+          attributes: !!python/name:mkdocs_exporter.formats.pdf.buttons.download.attributes
 
 # Customization
 extra:
@@ -222,6 +222,7 @@ nav:
           - Usage 관리: administration/mold/usage-mngt-guide.md
           - Cloud 관리: administration/mold/cloud-mngt-guide.md
           - 고가용성(HA) 관리: administration/mold/ha-mngt-guide.md
+          - 재난 복구(DR) 관리: administration/mold/dr-mngt-guide.md
           - 이벤트 관리: administration/mold/event-mngt-guide.md
       - Wall :
         - 알아보기 : architecture/book-of-wall.md
@@ -311,6 +312,8 @@ nav:
         - 쿠버네티스 ISO: admin-guide/mold/mold-admin-guide-image-kubernetes-iso.md
       - 오토메이션:
         - 컨트롤러 템플릿: admin-guide/mold/mold-admin-guide-automation-controller-templates.md
+        - 오토메이션 컨트롤러: admin-guide/mold/mold-admin-guide-automation-controller.md
+        - 배포된 패키지: admin-guide/mold/mold-admin-guide-automation-deployed-packages.md
       - 이벤트:
         - 이벤트: admin-guide/mold/mold-admin-guide-events.md
       - 프로젝트:
@@ -323,6 +326,21 @@ nav:
         - 도메인: admin-guide/mold/mold-admin-guide-domains.md
       - 인프라스트럭쳐:
         - 요약: admin-guide/mold/mold-admin-guide-infrastructure-summary.md
+        - Zone: admin-guide/mold/mold-admin-guide-infrastructure-zones.md
+        - Pods: admin-guide/mold/mold-admin-guide-infrastructure-pods.md
+        - 클러스터: admin-guide/mold/mold-admin-guide-infrastructure-clusters.md
+        - 호스트: admin-guide/mold/mold-admin-guide-infrastructure-hosts.md
+        - 기본 스토리지: admin-guide/mold/mold-admin-guide-infrastructure-primary-storage.md
+        - 2차 스토리지: admin-guide/mold/mold-admin-guide-infrastructure-secondary-storage.md
+        - Object 스토리지: admin-guide/mold/mold-admin-guide-infrastructure-object-storage.md
+        - 시스템 VM: admin-guide/mold/mold-admin-guide-infrastructure-system-vms.md
+        - 가상 라우터: admin-guide/mold/mold-admin-guide-infrastructure-virtual-routers.md
+        - 내부 LB: admin-guide/mold/mold-admin-guide-infrastructure-internal-lb.md
+        - 관리 서버: admin-guide/mold/mold-admin-guide-infrastructure-management-server.md
+        - 재난 복구 클러스터: admin-guide/mold/mold-admin-guide-infrastructure-dr-cluster.md
+        - CPU 소켓: admin-guide/mold/mold-admin-guide-infrastructure-cpu-sockets.md
+        - DB/Usage 서버: admin-guide/mold/mold-admin-guide-infrastructure-db-usage-server.md
+        - 알림: admin-guide/mold/mold-admin-guide-infrastructure-alerts.md
       - 서비스 오퍼링:
         - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
         - 디스크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-disk-offerings.md

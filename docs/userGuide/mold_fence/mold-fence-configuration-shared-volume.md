@@ -51,7 +51,7 @@ systemctl restart mysqld
 ```
 ```
 mysql -uroot -p
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'Ablecloud1!';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
 FLUSH PRIVILEGES;
 ```
 

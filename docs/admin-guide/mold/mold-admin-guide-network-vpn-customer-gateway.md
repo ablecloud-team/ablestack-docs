@@ -21,29 +21,23 @@
 2. VPN 고객 게이트웨이 추가를 위한 항목을 입력합니다.
     ![vpn 고객 게이트웨이 추가1](../../assets/images/admin-guide/mold/network/vpn-customer-gateway/vpn-customer-gateway-add1.png){ align=center }
     
-    * **이름** 을 입력합니다.
-    * **게이트웨이** 를 입력합니다.
-    * **CIDR 목록** 을 입력합니다.
-    * **IPsec 사전 공유키** 를 입력합니다.
-    * **IKE 암호화** 를 선택합니다.
-    * **IKE 해시** 를 선택합니다.
-    * **IKE 버전** 을 선택합니다.
-    * **IKE DH** 를 선택합니다.
-    * **ESP 암호화** 를 선택합니다.
-    * **ESP 해시** 를 선택합니다.
-    * **완벽한 순방향 비밀성** 을 선택합니다.
-    * **IKE 유효기간(초)** 을 입력합니다.
+    * **이름:**이름을 입력합니다.
+    * **게이트웨이:** 게이트웨이를 입력합니다.
+    * **CIDR 목록:** CIDR 목록을 입력합니다.
+    * **IPsec 사전 공유키:** IPsec 사전 공유키를 입력합니다.
+    * **IKE 암호화:** IKE 암호화를 선택합니다.
+    * **IKE 해시:** IKE 해시를 선택합니다.
+    * **IKE 버전:** IKE 버전을 선택합니다.
+    * **IKE DH:** IKE DH를 선택합니다.
+    * **ESP 암호화:** ESP 암호화를 선택합니다.
+    * **ESP 해시:** ESP 해시를 선택합니다.
+    * **완벽한 순방향 비밀성:** 완벽한 순방향 비밀성을 선택합니다.
+    * **IKE 유효기간(초):** IKE 유효기간(초)을 입력합니다.
     
     ![vpn 고객 게이트웨이 추가2](../../assets/images/admin-guide/mold/network/vpn-customer-gateway/vpn-customer-gateway-add2.png){ align=center }
     
-    * **ESP 유효기간(초)** 을 입력합니다.
+    * **ESP 유효기간(초):** ESP 유효기간(초)을 입력합니다.
     * **확인** 버튼을 클릭하여 VPN 고객 게이트웨이를 생성합니다.
-
-## 상세 탭
-
-1. VPN 고객 게이트웨이에 대한 상세정보를 조회하는 화면입니다. 해당 VPN 고객 게이트웨이의 이름, 아이디, 게이트웨이, CIDR 목록, IPsec 사전 공유 키, IKE 정책, IKE 유효시간(초), IKE 버전, ESP 정책, ESP 유효기간(초), Dead 피어 감지, 연결 분할, ESP 패킷의 UDP 캡슐화 강제, 계정, 도메인 등의 정보를 확인할 수 있습니다.
-
-    ![vpn 고객 게이트웨이 상세 탭](../../assets/images/admin-guide/mold/network/vpn-customer-gateway/vpn-customer-gateway-detail-tab.png){ align=center }
 
 ## 편집
 
@@ -69,3 +63,9 @@
     ![vpn 고객 게이트웨이 삭제 화면](../../assets/images/admin-guide/mold/network/vpn-customer-gateway/vpn-customer-gateway-remove.png){ align=center }
 
     * **확인** 버튼을 클릭하여 VPN 고객 게이트웨이를 삭제합니다.
+
+## 상세 탭
+
+1. VPN 고객 게이트웨이에 대한 상세정보를 조회하는 화면입니다. 해당 VPN 고객 게이트웨이의 이름, 아이디, 게이트웨이, CIDR 목록, IPsec 사전 공유 키, IKE 정책, IKE 유효시간(초), IKE 버전, ESP 정책, ESP 유효기간(초), Dead 피어 감지, 연결 분할, ESP 패킷의 UDP 캡슐화 강제, 계정, 도메인 등의 정보를 확인할 수 있습니다.
+
+    ![vpn 고객 게이트웨이 상세 탭](../../assets/images/admin-guide/mold/network/vpn-customer-gateway/vpn-customer-gateway-detail-tab.png){ align=center }
