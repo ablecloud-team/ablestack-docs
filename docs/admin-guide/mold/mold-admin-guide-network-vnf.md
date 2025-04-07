@@ -13,14 +13,14 @@
 ## VNF 어플라이언스 추가
 
 1. VNF 어플라이언스 추가 버튼 클릭 하여 VNF 어플라이언스 추가 팝업을 호출합니다.
-    
+
     ![vnf 추가 버튼](../../assets/images/admin-guide/mold/network/vnf/vnf-add-btn.png){ align=center }
-    
+
     * **VNF 어플라이언스 추가** 버튼을 클릭하여 VNF 어플라이언스 추가 화면을 호출합니다.
 
 2. VNF 어플라이언스 추가를 위한 항목을 입력합니다.
     ![vnf 추가1](../../assets/images/admin-guide/mold/network/vnf/vnf-appliance-add1.png){ align=center }
-    
+
     * **Zone** 을 선택합니다.
     * **템플릿** 을 선택합니다.
 
@@ -68,7 +68,7 @@
     * **볼륨 생성 및 추가** 버튼을 클릭하여 볼륨 생성 및 추가 화면을 호출합니다.
 
     ![vnf 뷸륨 추가 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-volume-add.png){ align=center }
-    
+
     * **소유자 유형** 을 선택합니다.
     * **도메인** 을 선택합니다.
     * **계정** 을 선택합니다.
@@ -93,7 +93,7 @@
     * **NIC 생성 및 추가** 버튼을 클릭하여 NIC 생성 및 추가 화면을 호출합니다.
 
     ![vnf 네트워크 추가 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-nic-add.png){ align=center }
-    
+
     * **네트워크** 를 선택합니다
     * **확인** 버튼을 클릭하여 가상머신에 네크워크를 연결합니다.
 
@@ -106,7 +106,7 @@
     * **기본 NIC 설정** 버튼을 클릭하여 기본 NIC 설정 모달 화면을 호출합니다.
 
     ![vnf 기본 NIC 설정 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-default-nic.png){ align=center }
-    
+
     * **예** 버튼을 클릭하여 기본 NIC로 설정합니다.
 
 ### 기본 NIC 설정
@@ -118,7 +118,7 @@
     * **기본 NIC 설정** 버튼을 클릭하여 기본 NIC 설정 모달 화면을 호출합니다.
 
     ![vnf 기본 NIC 설정 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-default-nic.png){ align=center }
-    
+
     * **예** 버튼을 클릭하여 기본 NIC로 설정합니다.
 
 ### IP 주소 변경
@@ -130,7 +130,7 @@
     * **IP 주소 변경** 버튼을 클릭하여 NIC의 IP 주소 변경 화면을 호출합니다.
 
     ![vnf IP 주소 변경 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-change-ip.png){ align=center }
-    
+
     * **IP 주소** 를 입력합니다
     * **확인** 버튼을 클릭하여 NIC의 IP 주소를 설정합니다. (가상머신이 정지된 상태에서 변경 가능)
 
@@ -143,7 +143,7 @@
     * **보조 IP 편집** 버튼을 클릭하여 NIC의 새 보조 IP 주소 가져오기 화면을 호출합니다.
 
     ![vnf 보조 IP  변경 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-secondary-ip.png){ align=center }
-    
+
     * **IP 주소** 를 입력합니다
     * **보조 IP 추가** 버튼을 클릭하여 NIC의 새로운 보조 IP 주소를 설정합니다.
 
@@ -156,7 +156,7 @@
     * **NIC 제거** 버튼을 클릭하여 NIC 삭제 모달 화면을 호출합니다.
 
     ![vnf nic 제거 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-nic-delete.png){ align=center }
-    
+
     * **예** 버튼을 클릭하여 NIC 삭제합니다.
 
 ### NIC 상태변경
@@ -168,11 +168,11 @@
     * **NIC 제거** 버튼을 클릭하여 NIC 상태 변경 모달 화면을 호출합니다.
 
     ![vnf nic 상태 Down 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-nic-status-chanege-down.png){ align=center }
-    
+
     * **예** 버튼을 클릭하여 NIC를 Down 상태로 변경합니다. (NIC 상태가 Up 인경우 활성화)
 
     ![vnf nic 상태 UP 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-nic-status-chanege-up.png){ align=center }
-    
+
     * **예** 버튼을 클릭하여 NIC를 Up 상태로 변경합니다. (NIC 상태가 Down 인경우 활성화)
 
 ## VM 스냅샷 탭
@@ -180,7 +180,7 @@
 1. VNF 어플라이언스에 대한 VM 스냅샷을 조회하는 화면입니다. 해당 VNF의 VM 스냅샷 이름 표시, 상태, 유형, 생성일 등의 정보를 확인할 수 있습니다.
 
     ![vnf VM 스냅샷 탭](../../assets/images/admin-guide/mold/network/vnf/vnf-vm-snapshot-tab.png){ align=center }
-    
+
     * VNF VM 스냅샷 목록을 확인할 수 있습니다.
 
 ## 보안그룹 탭
@@ -188,7 +188,7 @@
 1. VNF 어플라이언스에 대한 보안 그룹을 조회 및 관리하는 화면입니다. 해당 VNF의 보안 그룹의 이름, 설명 등의 정보를 확인할 수 있습니다.
 
     ![vnf 보안 그룹 탭](../../assets/images/admin-guide/mold/network/vnf/vnf-security-groups-tab.png){ align=center }
-    
+
     * VNF 보안 그룹 목록을 확인할 수 있습니다.
 
 ## Schedules 탭
@@ -206,7 +206,7 @@
     * **Add schedule** 버튼을 클릭하여 스케줄 추가 화면을 호출합니다.
 
     ![vnf schedule 추가 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-schedules-add.png){ align=center }
-    
+
     * **설명** 을 입력합니다
     * **동작** 을 선택합니다
     * **시간대** 를 선택합니다
@@ -224,7 +224,7 @@
     * **편집** 버튼을 클릭하여 스케줄 편집 화면을 호출합니다.
 
     ![vnf schedule 편집 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-schedules-update.png){ align=center }
-    
+
     * 수정할 **항목** 을 입력합니다.
     * **확인** 버튼을 클릭하여 스케줄을 편집 합니다.
 
@@ -251,7 +251,7 @@
     * **+ 설정 추가** 버튼을 클릭하여 설정 추가 화면을 호출합니다.
 
     ![vnf 설정 추가 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-settings-add.png){ align=center }
-    
+
     * **이름** 을 선택 및 입력합니다.
     * **값** 을 선택 및 입력합니다.
     * **설정 추가** 버튼을 클릭하여 설정을 등록합니다.
@@ -265,7 +265,7 @@
     * **+ 설정 편집** 버튼을 클릭하여 설정 편집 화면을 호출합니다.
 
     ![vnf 설정 편집 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-settings-update.png){ align=center }
-    
+
     * 수정할 **항목** 을 입력합니다.
     * **확인** 버튼을 클릭하여 설정을 편집합니다.
 
@@ -278,7 +278,7 @@
     * **+ 삭제** 버튼을 클릭하여 설정 삭제 모달을 호출합니다.
 
     ![vnf 설정 삭제 화면](../../assets/images/admin-guide/mold/network/vnf/vnf-settings-delete.png){ align=center }
-    
+
     * **예** 버튼을 클릭하여 설정을 삭제합니다.
 
 ## 이벤트 탭
@@ -289,7 +289,7 @@
 
 ## 코멘트 탭
 
-1. VNF 어플라이언스에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. VNF 어플라이언스에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 네트워크에 대한 코멘트 정보를 조회 및 관리할 수 있니다.
 
     ![vnf 코멘트 탭](../../assets/images/admin-guide/mold/network/vnf/vnf-comments-tab.png){ align=center }
 
