@@ -55,3 +55,8 @@ table tr:hover td {
         padding: 8px; /* 작은 화면에서 셀 여백을 줄임 */
     }
 }
+
+/* 하위 목록 스타일: 굵고 명확한 EN DASH */
+article ul ul {
+    list-style-type: circle !important;
+}

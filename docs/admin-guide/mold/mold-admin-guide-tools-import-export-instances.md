@@ -1,8 +1,7 @@
 # 인스턴스 가져오기-내보내기
 
 ## 개요
-인스턴스 가져오기-내보내기 메뉴는 기존 VMware 또는 ABLESTACK 클러스터에서 인스턴스를 가져오거나 내보낼 수 있는 기능을 제공합니다.  
-이를 통해 이미 사용 중인 인스턴스를 관리하거나, 관리 해제하여 ABLESTACK 관리 기능을 제거할 수 있습니다.  
+인스턴스 가져오기-내보내기 메뉴는 기존 VMware 또는 ABLESTACK 클러스터에서 인스턴스를 가져오거나 내보낼 수 있는 기능을 제공합니다. 이를 통해 이미 사용 중인 인스턴스를 관리하거나, 관리 해제하여 ABLESTACK 관리 기능을 제거할 수 있습니다.  
 관리 해제된 인스턴스는 실행 상태를 그대로 유지하며, 하이퍼바이저의 VM 자체에는 영향을 주지 않습니다.
 
 ![인스턴스 가져오기-내보내기 개요](../../assets/images/admin-guide/mold/tools/import-export-instances/mold-admin-guide-tools-import-export-instances-1-1.png){ .imgCenter .imgBorder }
@@ -86,4 +85,13 @@
 관리 인스턴스의 우측 하단에 있는 비관리 인스턴스 버튼을 클릭하면 ABLESTACK 클라우드에서 관리 중인 해당 인스턴스를 다시 외부 관리 상태로 되돌리는 작업을 수행합니다.
 
 ![인스턴스 가져오기-내보내기 비관리 인스턴스](../../assets/images/admin-guide/mold/tools/import-export-instances/mold-admin-guide-tools-import-export-instances-1-3.png){ .imgCenter .imgBorder }
+
+
+## 용어사전
+
+* QCOW2 이미지 (QEMU Copy-On-Write Version 2)
+    * 클라우드 인프라
+    * QEMU(Quick EMUlator)에서 사용하는 디스크 이미지 파일 형식으로, 가상 머신(VM)의 디스크 저장소로 널리 사용됩니다.
+    * Copy-On-Write(COW) 메커니즘을 사용하여 효율적인 디스크 공간 관리와 스냅샷 기능을 제공합니다.
+    * Mold에서도 KVM 기반 가상 머신의 기본 디스크 포맷으로 사용됩니다.
 

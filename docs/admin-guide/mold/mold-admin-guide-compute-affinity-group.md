@@ -13,9 +13,9 @@ Affinity 그룹 목록을 확인하는 화면입니다. 생성된 Affinity 그�
 ![Affinity 그룹 만들기](../../assets/images/admin-guide/mold/compute/affinity-group/mold-admin-guide-compute-affinity-group-2.png){ align=center }
 ![Affinity 그룹 만들기](../../assets/images/admin-guide/mold/compute/affinity-group/mold-admin-guide-compute-affinity-group-3.png){ align=center }
 
-  - **이름** 을 입력합니다.
-  - **설명** 을 입력합니다.
-  - **유형** 을 선택합니다.
+  - **이름** :Affinity 그룹의 이름을 입력합니다.
+  - **설명** :Affinity 그룹의 설명을 입력합니다.
+  - **유형** :Affinity 그룹의 유형을 선택합니다.
     - host affinity (Strict)
         - 동일한 Affinity 그룹 내 VM들이 **반드시** 같은 호스트에 배치됩니다.
         - 고속 네트워크 통신이 필요한 애플리케이션에 적합합니다.
