@@ -69,3 +69,26 @@
 1. VPN 고객 게이트웨이에 대한 상세정보를 조회하는 화면입니다. 해당 VPN 고객 게이트웨이의 이름, 아이디, 게이트웨이, CIDR 목록, IPsec 사전 공유 키, IKE 정책, IKE 유효시간(초), IKE 버전, ESP 정책, ESP 유효기간(초), Dead 피어 감지, 연결 분할, ESP 패킷의 UDP 캡슐화 강제, 계정, 도메인 등의 정보를 확인할 수 있습니다.
 
     ![vpn 고객 게이트웨이 상세 탭](../../assets/images/admin-guide/mold/network/vpn-customer-gateway/vpn-customer-gateway-detail-tab.png){ align=center }
+
+## 용어사전
+
+* IPsec
+	* IPsec은 인터넷 통신의 보안을 위한 프로토콜로 데이터 암호화와 인증을 통해 기밀성, 무결성, 인증을 보장합니다.
+
+* IKE (Internet Key Exchange)
+	* IKE는 IPsec에서 보안 연결을 설정하고 안전한 키 교환과 인증을 담당하는 프로토콜입니다.
+
+* IKE 암호화
+	* IKE 암호화는 키 교환 과정에서 데이터를 보호하는 암호화 기술로 주로 DES, 3DES, AES 등의 알고리즘을 사용합니다.
+
+* IKE DH (Diffie-Hellman)
+	* Diffie-Hellman(DH)은 두 노드 간에 안전하게 공유 비밀 키를 생성하는 공개 키 암호화 방식으로 해킹 공격을 방지합니다.
+
+* IKE 해시
+	* IKE 해시는 키 교환과 인증 과정에서 데이터 무결성을 검증하기 위해 사용되는 해시 함수로, HMAC과 SHA 알고리즘을 사용합니다.
+
+* ESP 암호화
+	* ESP는 IPsec의 암호화 프로토콜로 데이터 페이로드를 암호화하고 AES, 3DES와 같은 대칭 키 암호화 방식을 사용하여 기밀성을 제공합니다.
+
+* ESP 해시
+	* ESP 해시는 암호화된 데이터의 무결성을 확인하는 기능으로, HMAC과 SHA 알고리즘을 통해 데이터가 변조되지 않았음을 검증합니다.

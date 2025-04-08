@@ -6,8 +6,7 @@
 
 ## 목록 조회
 
-1. 계정 목록을 확인하는 화면입니다.
-    생성된 계정 목록을 확인하거나 계정 추가 버튼을 클릭하여 계정을 추가할 수 있습니다.
+1. 계정 목록을 확인하는 화면입니다. 생성된 계정 목록을 확인하거나 계정 추가 버튼을 클릭하여 계정을 추가할 수 있습니다.
 
     ![accounts 목록 조회](../../assets/images/admin-guide/mold/accounts/accounts-list.png){ align=center }
 
