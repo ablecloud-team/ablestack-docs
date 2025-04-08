@@ -2,7 +2,7 @@
 # VM 스냅샷
 
 ## 개요
-VM 스냅샷을 관리하는 기능입니다. VM 스냅샷은 가상머신의 특정 시점 상태를 저장하여 이후 복원할 수 있도록 하는 기능으로, 시스템 장애 발생 시 
+Mold에서 VM 스냅샷을 관리하는 기능입니다. VM 스냅샷은 가상머신의 특정 시점 상태를 저장하여 이후 복원할 수 있도록 하는 기능으로, 시스템 장애 발생 시 
 빠르게 복구하거나 중요한 변경 전에 백업용으로 사용할 수 있습니다. 가상머신 메뉴에서 스냅샷을 생성하면 해당 시점의 VM 디스크 및 메모리 상태가 저장되며, 
 필요할 때 이를 활용하여 동일한 상태로 복원할 수 있습니다. Mold에서는 VM 스냅샷을 수동으로 생성하거나 일정에 따라 자동으로 생성하도록 설정할 수 있습니다.
 
@@ -29,7 +29,8 @@ VM 스냅샷 상세 화면 오른쪽 상단의 VM 스냅샷 복원 버튼을 클
 ## VM 스냅샷 삭제
 VM 스냅샷 상세 화면 오른쪽 상단의 VM 스냅샷 삭제 버튼을 클릭하여 VM 스냅샷을 삭제할 수 있습니다.
 
-!!! warning "이 VM 스냅샷을 삭제하시겠습니까? KVM에서 실행 중인 경우, 스냅샷 삭제 전에 인스턴스가 일시 중지되며, 삭제 후 자동으로 다시 시작됩니다."
+!!! warning "WARN"
+    VM 스냅샷 삭제 시, KVM에서 실행 중인 경우, 스냅샷 삭제 전에 인스턴스가 일시 중지되며, 삭제 후 자동으로 다시 시작됩니다.
 
 ![VM 스냅샷 삭제](../../assets/images/admin-guide/mold/compute/vm-snapshots/mold-admin-guide-vm-snapshots-4-1.png){ .imgCenter .imgBorder }
 ![VM 스냅샷 삭제](../../assets/images/admin-guide/mold/compute/vm-snapshots/mold-admin-guide-vm-snapshots-4-2.png){ .imgCenter .imgBorder }
@@ -43,6 +44,23 @@ VM 스냅샷 클러스터에 대한 이벤트를 확인하는 화면입니다.
 ![VM 스냅샷 이벤트 탭](../../assets/images/admin-guide/mold/compute/vm-snapshots/mold-admin-guide-vm-snapshots-6-1.png){ .imgCenter .imgBorder }
 
 ## VM 스냅샷 코멘트
-쿠버네티스에 대한 코멘트를 확인하는 화면입니다.
+VM 스냅샷에 대한 코멘트를 확인하는 화면입니다.
 ![VM 스냅샷 코멘트 탭](../../assets/images/admin-guide/mold/compute/vm-snapshots/mold-admin-guide-vm-snapshots-7-1.png){ .imgCenter .imgBorder }
+
+## 용어사전
+
+* 정지 스냅샷 (Cold Snapshot)
+    * VM이 중지된 상태에서 생성된 스냅샷입니다.
+    * 메모리 상태를 포함하지 않으며, 디스크 상태만 보존합니다.
+    * 데이터 일관성이 확보되어 있어 안정적입니다.
+
+* 실행 중 스냅샷 (Hot Snapshot)
+    * VM이 실행 중인 상태에서 생성된 스냅샷입니다.
+    * 메모리 상태는 포함되지 않고, 디스크 상태만 보존합니다.
+    * 성능 저하와 데이터 일관성 문제를 최소화하려면 쓰기 I/O를 줄이는 것이 좋습니다.
+
+* 메모리 스냅샷 (Memory Snapshot)
+    * VM의 메모리 상태를 포함하여 생성한 스냅샷입니다.
+    * 스냅샷을 복구하면 VM은 해당 시점의 메모리 상태와 실행 중이던 애플리케이션도 복구됩니다.
+    * 일반적으로 VM이 중지 상태로 전환되지 않고 복구할 수 있는 장점이 있습니다.
 

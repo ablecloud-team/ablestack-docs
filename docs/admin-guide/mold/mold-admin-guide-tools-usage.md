@@ -36,12 +36,20 @@ Mold에서 클라우드 자원의 사용 이력을 관리하는 도구입니다.
 ## 사용량 기록 생성
 사용량 메뉴 화면 오른쪽 상단의 사용량 기록 생성 버튼을 클릭하여 특정 시간 범위 내 클라우드 자원의 사용량 데이터를 수집하여 기록을 생성합니다. 이 기능은 예약된 사용 작업이 실행되지 않았거나 실패한 경우에 수동으로 사용량 기록을 생성할 때 유용합니다.
 
-![사용량 기록 생성](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-comments-1-2.png){ .imgCenter .imgBorder }
-![사용량 기록 생성](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-comments-1-3.png){ .imgCenter .imgBorder }
+![사용량 기록 생성](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-usage-1-2.png){ .imgCenter .imgBorder }
+![사용량 기록 생성](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-usage-1-3.png){ .imgCenter .imgBorder }
 
 ## 사용량 기록 삭제
 사용량 메뉴 화면 오른쪽 상단의 사용량 기록 삭제 버튼을 클릭합니다. 이 기능은 데이터베이스에 저장된 사용량 기록을 영구적으로 제거하여 데이터베이스의 부하를 줄이기 위해 사용됩니다.
 
-![사용량 기록 삭제](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-comments-1-4.png){ .imgCenter .imgBorder }
-![사용량 기록 삭제](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-comments-1-5.png){ .imgCenter .imgBorder }
+![사용량 기록 삭제](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-usage-1-4.png){ .imgCenter .imgBorder }
+![사용량 기록 삭제](../../assets/images/admin-guide/mold/tools/usage/mold-admin-guide-tools-usage-1-5.png){ .imgCenter .imgBorder }
+
+
+## 용어사전
+
+* Heartbeat (하트비트)
+    * 클라우드 인프라와 분산 시스템에서 서버나 노드 간의 상태를 주기적으로 확인하기 위해 사용하는 신호 패킷입니다.
+    * 노드가 정상적으로 동작하고 있는지 확인하기 위해 일정 주기로 신호를 보내고, 응답이 없으면 장애 발생으로 간주합니다.
+    * 클러스터 환경에서 가용성(HA)을 확보하기 위한 핵심 요소로 사용됩니다.
 
