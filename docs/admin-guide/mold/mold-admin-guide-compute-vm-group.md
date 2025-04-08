@@ -13,7 +13,7 @@
 ![인스턴스 그룹 등록](../../assets/images/admin-guide/mold/compute/vm-group/mold-admin-guide-compute-vm-group-2.png){ align=center }
 ![인스턴스 그룹 등록](../../assets/images/admin-guide/mold/compute/vm-group/mold-admin-guide-compute-vm-group-3.png){ align=center }
 
-- **이름** 을 입력합니다.
+- **이름** :인스턴스 그룹의 이름을 입력합니다.
 
 !!! info "가상머신에 인스턴스 그룹 적용 방법"
     인스턴스 그룹을 생성한 후 가상머신 생성 시 이를 적용합니다.
