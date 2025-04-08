@@ -291,3 +291,9 @@ VPC(Virtual Private Cloud)는 ABLESTACK 내에서 독립적이고 격리된 네�
 
 * VNI
     * VNI는 **VXLAN (Virtual Extensible LAN)** 에서 사용하는 개념으로, 물리적인 네트워크를 넘어서 여러 데이터센터나 네트워크 구간을 가상화하는 기술에서 사용됩니다. VXLAN은 대규모 데이터 센터나 클라우드 환경에서 여러 가상 네트워크를 확장하고 관리하는 데 사용됩니다.
+
+* Public IP
+    * 외부 접근 허용 목적으로 vm이나 로드 밸런서, 방화벽 등 외부에서 접근해야 하는 리소스에 대해 Public ip를 할당합니다.  클라우드 내의 VM이 외부 인터넷과 통신할 수 있게 하기 위해 사용됩니다.
+
+* ACL
+	* 네트워크 ACL(Access Control List)은 네트워크에서 트래픽의 접근을 제어하는 보안 기능입니다.

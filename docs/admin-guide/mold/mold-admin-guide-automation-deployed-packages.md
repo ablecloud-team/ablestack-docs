@@ -7,8 +7,7 @@
 
 ## 목록 조회
 
-1. 배포된 패키지 목록을 확인하는 화면입니다.
-    생성된 배포된 패키지 목록을 확인할 수 있습니다.
+1. 배포된 패키지 목록을 확인하는 화면입니다. 생성된 배포된 패키지 목록을 확인할 수 있습니다.
 
     ![배포된 패키지 목록 조회](../../assets/images/admin-guide/mold/automation/deployed-packages-list.png){ align=center }
 

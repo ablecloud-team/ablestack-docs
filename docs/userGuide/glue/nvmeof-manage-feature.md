@@ -1,13 +1,13 @@
-!!! note
-    ABLESTACK Glue Service는 호스트가 아닌 Storage Center Virtual Machine(SCVM)에서 제공되고 있습니다.
-
-    접속할 경로는 기존에 구성된 Storage Center Virtual Machine(SCVM) IP로 접속 하시면 됩니다.
-
 # Glue NVMe-oF 관리
 ABLESTACK Glue Service 에서의 Glue NVMe-oF 관리 하는 가이드 입니다.
 이 문서에서는 ABLESTACK Glue NVMe-oF 관리 및 제공되는 기능절차를 가이드 하고 있습니다.
 ABLESTACK Cube의 웹콘솔로 진행되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
+
+!!! note
+    ABLESTACK Glue Service는 호스트가 아닌 Storage Center Virtual Machine(SCVM)에서 제공되고 있습니다.
+
+    접속할 경로는 기존에 구성된 Storage Center Virtual Machine(SCVM) IP로 접속 하시면 됩니다.
 
 ## Glue NVMe-oF 기능 설명
 NVMe-oF 게이트웨이 서비스는 RBD(RADOS 블록 장치) 이미지를 NVMe 네임스페이스로 내보내는 NVMe-oF 타겟을 제공합니다.
