@@ -138,7 +138,7 @@
     ![템플릿 이벤트 탭](../../assets/images/admin-guide/mold/image/template/template-event.png){ .imgCenter .imgBorder }
 
 ## 템플릿 코멘트 탭
-1. 템플릿 목록 조회에서 확인하고 싶은 템플릿 목록을 조회합니다. 템플릿에 대한 코멘트 정보를 확인하는 장면입니다. 각 사용자별로 해당 템플릿에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. 템플릿 목록 조회에서 확인하고 싶은 템플릿 목록을 조회합니다. 템플릿에 대한 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 템플릿에 대한 코멘트 정보를 조회 및 관리할 수 있습니다.
     ![템플릿 코멘트 탭](../../assets/images/admin-guide/mold/image/template/template-coment.png){ .imgCenter .imgBorder }
 
 ## 용어사전

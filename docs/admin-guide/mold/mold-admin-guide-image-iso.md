@@ -128,7 +128,7 @@ ISO에 대한 기본적인 정보와 상태를 제공하며, 필요하면 업데
     ![ISO 이벤트 탭](../../assets/images/admin-guide/mold/image/iso/iso-event.png){ .imgCenter .imgBorder }
 
 ## ISO 코멘트 탭
-1. ISO 목록 조회에서 확인하고 싶은 ISO 목록을 조회합니다. ISO에 대한 코멘트 정보를 확인하는 장면입니다. 각 사용자별로 해당 ISO에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. ISO 목록 조회에서 확인하고 싶은 ISO 목록을 조회합니다. ISO에 대한 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 ISO에 대한 코멘트 정보를 조회 및 관리할 수 있습니다.
     ![ISO 코멘트 탭](../../assets/images/admin-guide/mold/image/iso/iso-coment.png){ .imgCenter .imgBorder }
 
 ## 용어사전

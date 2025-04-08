@@ -215,7 +215,7 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![볼륨 이벤트 탭](../../assets/images/admin-guide/mold/storage/volume/volume-event-info.png){ .imgCenter .imgBorder }
 
 ## 볼륨 코멘트 탭
-1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨과 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 볼륨에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨과 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 볼륨에 대한 코멘트 정보를 조회 및 관리할 수 있습니다.
     ![볼륨 코멘트 탭](../../assets/images/admin-guide/mold/storage/volume/volume-coment-info.png){ .imgCenter .imgBorder }
 
 ## 용어 사전

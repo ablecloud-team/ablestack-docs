@@ -167,9 +167,6 @@ PFMP 설치는 PowerFlex Glue 대시보드 화면을 생성하기 위한 절차�
     - **Credentials Name** 을 입력합니다.
     - **LIA Password** 및 **Confirm LIA Password** 를 입력합니다.
 
-        !!! check
-            LIA Password는 **Ablecloud1!** 입니다.
-
     - **Save** 버튼을 클릭하여 다음 절차를 진행합니다.
     ![Glue 클러스터 및 스토리지 구성5](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-06.png){ align=center }
     - **Next** 버튼을 클릭하여 다음 절차를 진행합니다.
