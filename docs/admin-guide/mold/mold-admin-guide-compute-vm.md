@@ -141,9 +141,9 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
 ![가상머신 정지](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-20-1.png){ .imgCenter .imgBorder }
 ![가상머신 정지](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-20-2.png){ .imgCenter .imgBorder }
 
-* **Pod**: 가상 머신을 배포할 Pod ID를 설정합니다.
-* **클러스터**: 가상 머신을 배포할 클러스터 ID를 설정합니다.
-* **호스트**: 가상 머신을 배포할 호스트 ID를 설정합니다.
+* **Pod**: 가상 머신을 배포할 Pod를 선택합니다.
+* **클러스터**: 가상 머신을 배포할 클러스터를 선택합니다.
+* **호스트**: 가상 머신을 배포할 호스트를 선택합니다.
 * **마지막 호스트 고려**: 가상 머신이 마지막에 실행된 호스트에 자동으로 배포됩니다. 이 기능은 VM이 특정 호스트에서 계속 실행되도록 보장할 수 있습니다.
 
 ## 가상머신 정지
@@ -221,7 +221,7 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
 가상머신 상세 화면 오른쪽 상단의 ISO 분리 버튼을 클릭하여 연결되었던 ISO를 연결 해제합니다.
 
 !!! info "INFO"
-    연결된 이미지가 연결된 상태에서 해당 기능 사용이 가능합니다.
+    이미지가 연결된 상태에서 해당 기능 사용이 가능합니다.
 
 ![가상머신 ISO 분리](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-14-1.png){ .imgCenter .imgBorder }
 ![가상머신 ISO 분리](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-14-2.png){ .imgCenter .imgBorder }
@@ -247,9 +247,9 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
 ![가상머신 마이그레이션](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-20-1.png){ .imgCenter .imgBorder }
 ![가상머신 마이그레이션](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-20-2.png){ .imgCenter .imgBorder }
 
-* **Pod**: 가상 머신을 배포할 Pod ID를 설정합니다.
-* **클러스터**: 가상 머신을 배포할 클러스터 ID를 설정합니다.
-* **호스트**: 가상 머신을 배포할 호스트 ID를 설정합니다.
+* **Pod**: 가상 머신을 배포할 Pod를 선택합니다.
+* **클러스터**: 가상 머신을 배포할 클러스터를 선택합니다.
+* **호스트**: 가상 머신을 배포할 호스트를 선택합니다.
 * **마지막 호스트 고려**: 가상 머신이 마지막에 실행된 호스트에 자동으로 배포됩니다. 이 기능은 VM이 특정 호스트에서 계속 실행되도록 보장할 수 있습니다.
 
 ## SSH 키 쌍 재설정 (가상머신 정지 시 활성화)
@@ -266,7 +266,7 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
 ## VM에서 사용자 데이터 재설정 (가상머신 정지 시 활성화)
 가상머신 상세 화면 오른쪽 상단의 VM에서 사용자 데이터 재설정 버튼을 클릭하여 가상머신의 초기 설정 정보(Userdata)를 필요에 따라 업데이트하거나 변경할 수 있습니다.
 
-!!! info "INFO"
+!!! note "NOTE"
     * Userdata 재설정 후, 가상머신을 재부팅해야 변경 사항이 완전히 적용됩니다.
     * 잘못된 Userdata 입력 시 가상머신이 정상적으로 동작하지 않을 수 있습니다.
 
@@ -285,7 +285,7 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
 
 * **소유자 유형**: 계정 또는 프로젝트를 선택합니다.
 * **도메인**: VM이 속할 도메인을 선택합니다.
-* **계정** VM이 속할 계정을 선택합니다.
+* **계정**: VM이 속할 계정을 선택합니다.
 * **프로젝트**: VM이 속할 프로젝트를 선택합니다.
 * **네트워크**: VM이 속할 네트워크를 선택합니다.
     * 인스턴스의 기본 NIC가 서비스용 네트워크에 있으면 네트워크를 지정하지 않아도 됩니다. 이 경우 ABLESTACK에서 새 계정의 네트워크 사용 가능 여부를 자동으로 확인합니다.
@@ -307,7 +307,8 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
     * 메모리 사용량: 대상 호스트가 충분한 메모리를 보유하고 있어야 합니다.
 * **스토리지 마이그레이션**: 마이그레이션에 적합 판정이 된 호스트를 선택합니다.
     * 스토리지 마이그레이션 필요 여부: 활성화 하면 스토리지 마이그레이션도 함께 진행됩니다.
-    * 볼륨 및 스토리지 정보: 예를 들어, ROOT-782 볼륨이 GlueBlock PS 스토리지에 저장되어 있고, 이를 "자동 할당"된 스토리지로 마이그레이션할 수 있습니다. "자동 할당" 대신 다른 스토리지를 변경하기 위해 "변경" 버튼을 눌러 선택합니다.
+    * 볼륨 및 스토리지 정보: 예를 들어, ROOT-782 볼륨이 GlueBlock PS 스토리지에 저장되어 있고, 이를 "자동 할당"된 스토리지로 마이그레이션할 수 있습니다.
+    * "자동 할당" 대신 다른 스토리지를 변경하기 위해 "변경" 버튼을 눌러 선택합니다.
 
 ## 가상머신 관리 해제
 가상머신 상세 화면 오른쪽 상단의 콘솔 보기 버튼을 클릭하여 가상머신 관리 해제를 할 수 있습니다. 특정 가상 머신을 Mold의 관리 대상에서 제외하여 이후 해당 VM을 Mold 외부의 도구나 플랫폼에서 직접 관리할 수 있도록 하는 기능입니다.
@@ -322,7 +323,7 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
 ![가상머신 VBMC 포트 할당](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-18-1.png){ .imgCenter .imgBorder }
 ![가상머신 VBMC 포트 할당](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-18-2.png){ .imgCenter .imgBorder }
 
-## VBMC 포트 해제 (VBMC 할당 시)
+## VBMC 포트 해제 (VBMC 할당 시 활성화)
 가상머신 상세 화면 오른쪽 상단의 VBMC 포트 해제 버튼을 클릭하여 해당 가상머신에 VBMC(Virtual Baseboard Management Controller) 포트를 해제합니다.
 ![가상머신 VBMC 포트 해제](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-18-3.png){ .imgCenter .imgBorder }
 ![가상머신 VBMC 포트 해제](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-18-4.png){ .imgCenter .imgBorder }
