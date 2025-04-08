@@ -113,3 +113,11 @@ Oracle VM 하이퍼바이저를 사용하는 경우 OVM이 지원하지 않으�
     ![스냅샷 코멘트 탭](../../assets/images/admin-guide/mold/storage/snapshot/snapshot-coment-info.png){ .imgCenter .imgBorder }
 
 ## 용어사전
+* HVM
+    * 하드웨어 가상화를 지원하는지의 여부
+
+* 비밀번호 관리 사용
+    * 가상머신 생성 시 root 사용자에 대한 비밀번호를 생성할 것인지의 여부
+
+* 동적으로 확장 가능
+    * 템플릿에 의해 생성된 가상머신에 대해 동적 스케일링을 지원할 것인지의 여부

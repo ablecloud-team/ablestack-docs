@@ -142,3 +142,23 @@
     ![템플릿 코멘트 탭](../../assets/images/admin-guide/mold/image/template/template-coment.png){ .imgCenter .imgBorder }
 
 ## 용어사전
+* 템플릿 형식
+    * 템플릿을 어던 용도로 만들어졌는지 또는 어떤 역할을 수행하는지를 나타내는 논리적인 구분
+        * user : 사용자가 생성하거나 등록한 일반 VM 템플릿
+        * system : 내부 기능을 위한 시스템 VM(console proxy vm, secondary storage vm)을 위한 템플릿
+        * builtin : 기본 제공하는 내장 템플릿
+        * routing : 가상 라우터(VR, Virtual Router) 생성을 위한 템플릿
+        * vnf : VNF(Virtual Network Fuction) 용도 템플릿, VPN, 방화벽 등 네트워크 기능 담당
+* 사용자 데이터 링크 정책
+    * 가상머신이 시작될 때, 사용자 데이터를 어떤 방식으로 접근할 수 있게 할지 결정하는 정책
+        * allowoverride : 기존 사용자 데이터가 있어도, 새로운 사용자 데이터로 덮어씀. 즉, 기존 값을 무시하고 새 값을 사용.
+        * append : 기존 사용자 데이터가 있으면, 새로운 데이터를 기존 데이터 뒤에 추가. 데이터를 합쳐서 전달함.
+        * denyoverride : 기존 사용자 데이터가 있으면, 새로운 데이터는 무시. 덮어쓰기를 허용하지 않음.
+* HVM
+    * 하드웨어 가상화를 지원하는지의 여부
+* 비밀번호 관리 사용
+    * 가상머신 생성 시 root 사용자에 대한 비밀번호를 생성할 것인지의 여부
+* 동적으로 확장 가능
+    * 템플릿에 의해 생성된 가상머신에 대해 동적 스케일링을 지원할 것인지의 여부
+* 추출 가능
+    * 해당 ISO를 외부에 다운로드할 수 있도록 허용합니다.
