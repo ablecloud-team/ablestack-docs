@@ -21,14 +21,8 @@ Site-to-site VPN은 고객의 데이터 센터와 ABLESTACK 클라우드 인프�
 2. VPN 게이트웨이 추가를 위한 항목을 입력합니다.
     ![vpn 추가](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-add.png){ align=center }
     
-    * **VPC** 를 선택합니다.
+    * **VPC:** VPC를 선택합니다.
     * **확인** 버튼을 클릭하여 VPN 게이트웨이를 생성합니다.
-
-## 상세 탭
-
-1. VPN 게이트웨이에 대한 상세정보를 조회하는 화면입니다. 해당 VPN의 Public IP 주소, 계정, 도메인 등의 정보를 확인할 수 있습니다.
-
-    ![vpn 상세 탭](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-detail-tab.png){ align=center }
 
 ## VPN 게이트웨이 삭제
 
@@ -41,3 +35,9 @@ Site-to-site VPN은 고객의 데이터 센터와 ABLESTACK 클라우드 인프�
     ![vpn 게이트웨이 삭제 화면](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-remove.png){ align=center }
 
     * **확인** 버튼을 클릭하여 VPN 게이트웨이를 삭제합니다.
+
+## 상세 탭
+
+1. VPN 게이트웨이에 대한 상세정보를 조회하는 화면입니다. 해당 VPN의 Public IP 주소, 계정, 도메인 등의 정보를 확인할 수 있습니다.
+
+    ![vpn 상세 탭](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-detail-tab.png){ align=center }
