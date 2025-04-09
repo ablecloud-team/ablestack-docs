@@ -33,33 +33,33 @@
     ![디스크 오퍼링 추가 버튼](../../assets/images/admin-guide/mold/offering/disk/disk-offering-add-01.png){ .imgCenter .imgBorder }
 2. 디스크 오퍼링 추가 버튼을 클릭한 화면입니다.
     ![디스크 오퍼링 추가1](../../assets/images/admin-guide/mold/offering/disk/disk-offering-add-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **스토리지 유형** 을 선택합니다.
-    - **프로비저닝 유형** 를 선택합니다.
-    - **사용자지정 디스크 크기** 를 활성화 및 비활성화합니다.
-    - **Qos 유형** 을 선택합니다.
-    - **압축/중복제거** 를 활성화 및 비활성화합니다.
-    - **공유볼륨** 을 활성화 및 비활성화합니다.
-    - **Write-cache 유형** 을 선택합니다.
-    - **스토리지 태그** 를 입력합니다.
-    - **공개** 를 활성화합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **스토리지 유형:** 스토리지 유형을 선택합니다.
+    - **프로비저닝 유형:** 프로비저닝 유형를 선택합니다.
+    - **사용자지정 디스크 크기:** 사용자지정 디스크 크기를 활성화 및 비활성화합니다.
+    - **Qos 유형:** Qos 유형을 선택합니다.
+    - **압축/중복제거:** 압축/중복제거를 활성화 및 비활성화합니다. ( 압축/중복제거는 Glue 스토리지에서만 사용가능합니다. )
+    - **공유볼륨:** 공유볼륨을 활성화 및 비활성화합니다.
+    - **Write-cache 유형:** Write-cache 유형을 선택합니다.
+    - **스토리지 태그:** 스토리지 태그를 입력합니다.
+    - **공개:** 공개를 활성화합니다.
 
 ## 편집
 1. 디스크 오퍼링 상세 오른쪽 상단의 편집 버튼을 클릭합니다.
     ![편집 버튼](../../assets/images/admin-guide/mold/offering/disk/disk-offering-update-01.png){ .imgCenter .imgBorder }
 2. 편집 버튼을 클릭한 화면입니다.
     ![편집](../../assets/images/admin-guide/mold/offering/disk/disk-offering-update-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **태그** 를 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **태그:** 태그를 입력합니다.
 
 ## 오퍼링 액세스 업데이트
 1. 디스크 오퍼링 상세 오른쪽 상단의 오퍼링 액세스 업데이트 버튼을 클릭합니다.
     ![오퍼링 액세스 업데이트 버튼](../../assets/images/admin-guide/mold/offering/disk/disk-offering-access-update-01.png){ .imgCenter .imgBorder }
 2. 오퍼링 액세스 업데이트 버튼을 클릭한 화면입니다.
     ![오퍼링 액세스 업데이트](../../assets/images/admin-guide/mold/offering/disk/disk-offering-access-update-02.png){ .imgCenter .imgBorder }
-    - **Zone** 을 선택합니다.
+    - **Zone:** Zone을 선택합니다.
 
 ## 디스크 오퍼링 비활성화
 1. 디스크 오퍼링 상세 오른쪽 상단의 디스크 오퍼링 비활성화 버튼을 클릭합니다.

@@ -360,6 +360,69 @@ nav:
         - 인스턴스 가져오기-내보내기: admin-guide/mold/mold-admin-guide-tools-import-export-instances.md
         - 데이터 볼륨 가져오기: admin-guide/mold/mold-admin-guide-tools-import-data-volumes.md
         - Webhooks: admin-guide/mold/mold-admin-guide-tools-webhooks.md
+    - Cube 가이드:
+      - 개요:
+        - 개요: admin-guide/cube/cube-admin-guide-outline.md
+      - 기록:
+        - 기록: admin-guide/cube/cube-admin-guide-record.md
+      - 저장소:
+        - 저장소: admin-guide/cube/cube-admin-guide-repository.md
+      - 네트워킹:
+        - 네트워킹: admin-guide/cube/cube-admin-guide-networking.md
+      - 포드맨 컨테이너:
+        - 포드맨 컨테이너: admin-guide/cube/cube-admin-guide-podman-container.md
+      - 가상 머신:
+        - 가상 머신: admin-guide/cube/cube-admin-guide-vm.md
+      - 계정:
+        - 계정: admin-guide/cube/cube-admin-guide-account.md
+      - 서비스:
+        - 서비스: admin-guide/cube/cube-admin-guide-service.md
+      - ABLESTACK:
+        - ABLESTACK: admin-guide/cube/cube-admin-guide-ablestack.md
+      - 소프트웨어 최신화:
+        - 소프트웨어 최신화: admin-guide/cube/cube-admin-guide-software-updates.md
+      - 응용프로그램:
+        - 응용프로그램: admin-guide/cube/cube-admin-guide-application.md
+      - 진단 보고서:
+        - 진단 보고서: admin-guide/cube/cube-admin-guide-diagnostic-report.md
+      - 커널 덤프:
+        - 커널 덤프: admin-guide/cube/cube-admin-guide-kernel-dump.md
+      - 터미널:
+        - 터미널: admin-guide/cube/cube-admin-guide-terminal.md
+      - SELinux:
+        - SELinux:  admin-guide/cube/cube-admin-guide-selinux.md
+    - Glue 가이드:
+      - 대시보드:
+        - 대시보드: admin-guide/glue/glue-admin-guide-dashboard.md
+      - 클러스터:
+        - 호스트: admin-guide/glue/glue-admin-guide-cluster-hosts.md
+        - 물리디스크: admin-guide/glue/glue-admin-guide-cluster-physical-disks.md
+        - 모니터: admin-guide/glue/glue-admin-guide-cluster-monitors.md
+        - 서비스: admin-guide/glue/glue-admin-guide-cluster-services.md
+        - 스토리지 디바이스: admin-guide/glue/glue-admin-guide-cluster-osds.md
+        - 설정: admin-guide/glue/glue-admin-guide-cluster-configuration.md
+        - 크러쉬 맵: admin-guide/glue/glue-admin-guide-cluster-crush-map.md
+        - 매니저 모듈: admin-guide/glue/glue-admin-guide-cluster-manager-modules.md
+        - Ceph User: admin-guide/glue/glue-admin-guide-cluster-ceph-users.md
+        - 로그: admin-guide/glue/glue-admin-guide-cluster-logs.md
+        - 경고: admin-guide/glue/glue-admin-guide-cluster-alerts.md
+        - Upgrade: admin-guide/glue/glue-admin-guide-cluster-upgrade.md
+      - 데이터 풀:
+        - 데이터 풀: admin-guide/glue/glue-admin-guide-pools.md
+      - 블럭 디바이스:
+        - 이미지: admin-guide/glue/glue-admin-guide-block-images.md
+        - 미러링: admin-guide/glue/glue-admin-guide-block-mirroring.md
+        - iSCSI: admin-guide/glue/glue-admin-guide-block-iscsi.md
+      - NFS:
+        - NFS: admin-guide/glue/glue-admin-guide-nfs.md
+      - 파일 시스템:
+        - 파일 시스템: admin-guide/glue/glue-admin-guide-file-systems.md
+      - 오브젝트 게이트웨이:
+        - 개요: admin-guide/glue/glue-admin-guide-og-overview.md
+        - 게이트웨이: admin-guide/glue/glue-admin-guide-og-gateways.md
+        - 사용자: admin-guide/glue/glue-admin-guide-og-users.md
+        - 버킷: admin-guide/glue/glue-admin-guide-og-buckets.md
+        - Multi-Site: admin-guide/glue/glue-admin-guide-og-multi-site.md
     - 레퍼런스 가이드 :
       - CentOS 가상머신 가이드 :
         - ISO를 이용한 VM/템플릿 생성 : userGuide/vms/centos-guide-prepare-vm.md

@@ -32,44 +32,44 @@
     ![네트워크 오퍼링 추가 버튼](../../assets/images/admin-guide/mold/offering/network/network-offering-add-01.png){ .imgCenter .imgBorder }
 2. 네트워크 오퍼링 추가 버튼을 클릭한 화면입니다.
     ![네트워크 오퍼링 추가1](../../assets/images/admin-guide/mold/offering/network/network-offering-add-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **네트워크 속도(Mb/s)** 를 입력합니다.
-    - **게스트 유형** 를 선택합니다.
-    - **VLAN 지정** 을 활성화 및 비활성화합니다.
-    - **영구적** 을 활성화 및 비활성화합니다.
-    - **VPC** 을 활성화 및 비활성화합니다.
-    - **NSX** 를 활성화 및 비활성화합니다.
-    - **네트워크 모드** 를 선택합니다.
-    - **비규칙 모드** 를 선택합니다.
-    - **Mac 변조 전송** 을 선택합니다.
-    - **MAC 주소 변경** 을 선택합니다.
-    - **MAC Learning** 을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **네트워크 속도(Mb/s):** 네트워크 속도(Mb/s)를 입력합니다.
+    - **게스트 유형:** 게스트 유형를 선택합니다.
+    - **VLAN 지정:** VLAN 지정을 활성화 및 비활성화합니다.
+    - **영구적:** 영구적을 활성화 및 비활성화합니다.
+    - **VPC:** VPC를 활성화 및 비활성화합니다.
+    - **NSX:** NSX를 활성화 및 비활성화합니다.
+    - **네트워크 모드:** 네트워크 모드를 선택합니다.
+    - **비규칙 모드:** 비규칙 모드를 선택합니다.
+    - **Mac 변조 전송:** Mac 변조 전송을 선택합니다.
+    - **MAC 주소 변경:** MAC 주소 변경을 선택합니다.
+    - **MAC Learning:** MAC Learning을 선택합니다.
     ![네트워크 오퍼링 추가2](../../assets/images/admin-guide/mold/offering/network/network-offering-add-03.png){ .imgCenter .imgBorder }
-    - **지원되는 서비스** 를 선택합니다.
-    - **컴퓨트 오퍼링** 을 선택합니다.
-    - **절약 모드** 를 활성화 및 비활성화합니다.
-    - **태그** 를 입력합니다.
-    - **공개** 를 활성화 및 비활성화합니다.
-    - **Zone** 을 선택합니다.
-    - **네트워크 오퍼링 활성화** 를 활성화 및 비활성화합니다.
+    - **지원되는 서비스:** 지원되는 서비스를 선택합니다.
+    - **컴퓨트 오퍼링:** 컴퓨트 오퍼링을 선택합니다.
+    - **절약 모드:** 절약 모드를 활성화 및 비활성화합니다.
+    - **태그:** 태그를 입력합니다.
+    - **공개:** 공개를 활성화 및 비활성화합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **네트워크 오퍼링 활성화:** 네트워크 오퍼링 활성화를 활성화 및 비활성화합니다.
 
 ## 편집
 1. 네트워크 오퍼링 상세 오른쪽 상단의 편집 버튼을 클릭합니다.
     ![편집 버튼](../../assets/images/admin-guide/mold/offering/network/network-offering-update-01.png){ .imgCenter .imgBorder }
 2. 편집 버튼을 클릭한 화면입니다.
     ![편집](../../assets/images/admin-guide/mold/offering/network/network-offering-update-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **가용성** 을 선택합니다.
-    - **태그** 를 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **가용성:** 가용성을 선택합니다.
+    - **태그:** 태그를 입력합니다.
 
 ## 오퍼링 액세스 업데이트
 1. 네트워크 오퍼링 상세 오른쪽 상단의 오퍼링 액세스 업데이트 버튼을 클릭합니다.
     ![오퍼링 액세스 업데이트 버튼](../../assets/images/admin-guide/mold/offering/network/network-offering-access-update-01.png){ .imgCenter .imgBorder }
 2. 오퍼링 액세스 업데이트 버튼을 클릭한 화면입니다.
     ![오퍼링 액세스 업데이트](../../assets/images/admin-guide/mold/offering/network/network-offering-access-update-02.png){ .imgCenter .imgBorder }
-    - **Zone** 을 선택합니다.
+    - **Zone:** Zone을 선택합니다.
 
 ## 네트워크 오퍼링 비활성화
 1. 네트워크 오퍼링 상세 오른쪽 상단의 네트워크 오퍼링 비활성화 버튼을 클릭합니다.
