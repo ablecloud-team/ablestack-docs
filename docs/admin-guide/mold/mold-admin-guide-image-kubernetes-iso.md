@@ -22,21 +22,21 @@
     ![쿠버네티스 버전 추가 버튼](../../assets/images/admin-guide/mold/image/kubernetes-iso/kubernetes-iso-url-register-01.png){ .imgCenter .imgBorder }
 2. 쿠버네티스 버전 추가 버튼을 클릭한 화면입니다.
     ![쿠버네티스 버전 추가](../../assets/images/admin-guide/mold/image/kubernetes-iso/kubernetes-iso-url-register-02.png){ .imgCenter .imgBorder }
-    - **시맨틱 버전** 을 입력합니다.
-    - **이름** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **URL** 를 입력합니다.
-    - **최소 CPU 코어** 를 입력합니다.
-    - **최소 메모리(MB)** 을 입력합니다.
-    - **직접 다운로드** 를 활성화 및 비활성화합니다.
-    - **CPU 아키텍처** 를 선택합니다.
+    - **시맨틱 버전:** 시맨틱 버전을 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **URL:** URL를 입력합니다.
+    - **최소 CPU 코어:** 최소 CPU 코어를 입력합니다.
+    - **최소 메모리(MB):** 최소 메모리(MB)을 입력합니다.
+    - **직접 다운로드:** 직접 다운로드를 활성화 및 비활성화합니다.
+    - **CPU 아키텍처:** CPU 아키텍처를 선택합니다.
 
 ## 쿠버네티스 버전 관리
 1. 쿠버네티스 ISO 상세 오른쪽 상단의 쿠버네티스 버전 관리 버튼을 클릭합니다.
     ![쿠버네티스 버전 관리 버튼](../../assets/images/admin-guide/mold/image/kubernetes-iso/kubernetes-iso-update-01.png){ .imgCenter .imgBorder }
 2. 쿠버네티스 버전 관리 버튼을 클릭한 화면입니다.
     ![쿠버네티스 버전 관리](../../assets/images/admin-guide/mold/image/kubernetes-iso/kubernetes-iso-update-02.png){ .imgCenter .imgBorder }
-    - **상태** 를 선택합니다.
+    - **상태:** 상태를 선택합니다.
 
 ## 쿠버네티스 버전 삭제
 1. 쿠버네티스 ISO 상세 오른쪽 상단의 쿠버네티스 버전 삭제 버튼을 클릭합니다.

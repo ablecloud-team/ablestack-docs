@@ -39,28 +39,28 @@ Oracle VM 하이퍼바이저를 사용하는 경우 OVM이 지원하지 않으�
     ![템플릿 생성 버튼](../../assets/images/admin-guide/mold/storage/snapshot/snapshot-template-create-01.png){ .imgCenter .imgBorder }
 2. 템플릿 생성 버튼을 클릭한 화면입니다.
     ![템플릿 생성](../../assets/images/admin-guide/mold/storage/snapshot/snapshot-template-create-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **도메인 아이디** 를 선택합니다.
-    - **OS 유형** 을 선택합니다.
-    - **동적으로 확장 가능** 을 체크합니다.
-    - **HVM** 을 체크합니다.
-    - **추천** 을 체크합니다.
-    - **공개** 를 체크합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **도메인 아이디:** 도메인 아이디를 선택합니다.
+    - **OS 유형:** OS 유형을 선택합니다.
+    - **동적으로 확장 가능:** 동적으로 확장 가능을 체크합니다.
+    - **HVM:** HVM을 체크합니다.
+    - **추천:** 추천을 체크합니다.
+    - **공개:** 공개를 체크합니다.
 
 ## 볼륨 생성
 1. 스냅샷 상세 오른쪽 상단의 볼륨 생성 버튼을 클릭합니다.
     ![볼륨 생성 버튼](../../assets/images/admin-guide/mold/storage/snapshot/snapshot-volume-create-01.png){ .imgCenter .imgBorder }
 2. 볼륨 생성 버튼을 클릭한 화면입니다.
     ![볼륨 생성](../../assets/images/admin-guide/mold/storage/snapshot/snapshot-volume-create-02.png){ .imgCenter .imgBorder }
-    - **소유자 유형** 을 선택합니다.
-    - **도메인** 을 선택합니다.
-    - **계정** 을 선택합니다.
-    - **이름** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **디스크 오퍼링** 을 선택합니다.
-    - **크기** 를 선택합니다.
+    - **소유자 유형:** 소유자 유형을 선택합니다.
+    - **도메인:** 도메인을 선택합니다.
+    - **계정:** 계정을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **디스크 오퍼링:** 디스크 오퍼링을 선택합니다.
+    - **크기:** 크기를 선택합니다.
 
 ## 스냅샷 복원
 1. 스냅샷 상세 오른쪽 상단의 스냅샷 복원 버튼을 클릭합니다.
@@ -90,7 +90,7 @@ Oracle VM 하이퍼바이저를 사용하는 경우 OVM이 지원하지 않으�
     ![스냅샷 Zone 탭 복사 버튼](../../assets/images/admin-guide/mold/storage/snapshot/snapshot-zone-info-copy-01.png){ .imgCenter .imgBorder }
 3. 스냅샷 복사 버튼을 클릭한 화면입니다.
     ![스냅샷 Zone 탭 복사](../../assets/images/admin-guide/mold/storage/snapshot/snapshot-zone-info-copy-02.png){ .imgCenter .imgBorder }
-    - **Zone** 을 선택합니다.
+    - **Zone:** Zone을 선택합니다.
 
 ### 스냅샷 삭제
 4. 스냅샷이 포함된 Zone에서 해당 스냅샷 삭제 기능 을 제공합니다.
