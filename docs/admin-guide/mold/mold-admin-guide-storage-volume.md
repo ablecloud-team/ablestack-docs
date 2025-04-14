@@ -26,13 +26,13 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![볼륨 생성 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-create-01.png){ .imgCenter .imgBorder }
 2. 볼륨 생성 화면입니다.
     ![볼륨 생성](../../assets/images/admin-guide/mold/storage/volume/volume-create-02.png){ .imgCenter .imgBorder }
-    - **소유자 유형** 을 선택합니다.
-    - **도메인** 을 선택합니다.
-    - **계정** 을 선택합니다.
-    - **이름** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **디스크 오퍼링** 을 선택합니다.
-    - **크기** 를 입력합니다.
+    - **소유자 유형:** 소유자 유형을 선택합니다.
+    - **도메인:** 도메인을 선택합니다.
+    - **계정:** 계정을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **디스크 오퍼링:** 디스크 오퍼링을 선택합니다.
+    - **크기:** 크기를 입력합니다.
 
     !!! info
         고정 디스크 오퍼링을 선택할 시, 해당 크기는 오퍼링에서 고정으로 할당된 값으로 만들어 집니다.
@@ -53,20 +53,20 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![편집 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-edit-01.png){ .imgCenter .imgBorder }
 2. 편집 버튼을 클릭한 화면입니다.
     ![편집](../../assets/images/admin-guide/mold/storage/volume/volume-edit-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
+    - **이름:** 이름을 입력합니다.
 
 ## 로컬에서 볼륨 업로드
 1. 볼륨 생성 버튼 오른쪽 버튼 중 로컬에서 볼륨 업로드 버튼을 클릭합니다.
     ![로컬에서 볼륨 업로드 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-local-upload-01.png){ .imgCenter .imgBorder }
 2. 로컬에서 볼륨 업로드 화면입니다.
     ![로컬에서 볼륨 업로드](../../assets/images/admin-guide/mold/storage/volume/volume-local-upload-02.png){ .imgCenter .imgBorder }
-    - **로컬 파일** 을 선택하여 로컬에서 볼륨 파일을 선택합니다.
-    - **Zone** 을 선택합니다.
-    - **이름** 을 입력합니다.
-    - **디스크 오퍼링** 을 미선택 및 선택합니다.
-    - **형식** 을 선택합니다.
-    - **도메인** 을 선택합니다.
-    - **계정** 을 선택합니다.
+    - **로컬 파일:** 로컬 파일을 선택하여 로컬에서 볼륨 파일을 선택합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **디스크 오퍼링:** 디스크 오퍼링을 미선택 및 선택합니다.
+    - **형식:** 형식을 선택합니다.
+    - **도메인:** 도메인을 선택합니다.
+    - **계정:** 계정을 선택합니다.
 
     !!! info
         형식은 해당 디스크의 형식에 맞게 선택합니다.
@@ -78,13 +78,13 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![URL에서 볼륨 업로드 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-url-upload-01.png){ .imgCenter .imgBorder }
 2. URL에서 볼륨 업로드 화면입니다.
     ![URL에서 볼륨 업로드](../../assets/images/admin-guide/mold/storage/volume/volume-url-upload-02.png){ .imgCenter .imgBorder }
-    - **URL** 을 입력합니다.
-    - **이름** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **형식** 을 선택합니다.
-    - **디스크 오퍼링** 을 미선택 및 선택합니다.
-    - **도메인** 을 선택합니다.
-    - **계정** 을 선택합니다.
+    - **URL:** URL을 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **형식:** 형식을 선택합니다.
+    - **디스크 오퍼링:** 디스크 오퍼링을 미선택 및 선택합니다.
+    - **도메인:** 도메인을 선택합니다.
+    - **계정:** 계정을 선택합니다.
 
     !!! info
         형식은 해당 디스크의 형식에 맞게 선택합니다.
@@ -99,7 +99,7 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![디스크 연결 버튼 ](../../assets/images/admin-guide/mold/storage/volume/volume-disk-connect-01.png){ .imgCenter .imgBorder }
 2. 디스크 연결 버튼을 클릭한 화면입니다.
     ![디스크 연결](../../assets/images/admin-guide/mold/storage/volume/volume-disk-connect-02.png){ .imgCenter .imgBorder }
-    - **VM ID** 를 선택합니다.
+    - **VM ID:** VM ID를 선택합니다.
 
 ## 디스크 분리
 !!! check
@@ -118,7 +118,7 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![볼륨 크기 변경 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-size-change-01.png){ .imgCenter .imgBorder }
 2. 볼륨 크기 변경 버튼을 클릭한 화면입니다.
     ![볼륨 크기 변경](../../assets/images/admin-guide/mold/storage/volume/volume-size-change-02.png){ .imgCenter .imgBorder }
-    - **크기** 을 입력합니다.
+    - **크기:** 크기를 입력합니다.
 
     !!! info
         볼륨을 축소할 경우, 볼륨 축소 허용을 활성화합니다.
@@ -130,7 +130,7 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![볼륨에 대한 디스크 오퍼링 변경 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-disk-offering-change-01.png){ .imgCenter .imgBorder }
 2. 볼륨에 대한 디스크 오퍼링 변경 버튼을 클릭한 화면입니다.
     ![볼륨에 대한 디스크 오퍼링 변경](../../assets/images/admin-guide/mold/storage/volume/volume-disk-offering-change-02.png){ .imgCenter .imgBorder }
-    - **디스크 오퍼링** 을 선택합니다.
+    - **디스크 오퍼링:** 디스크 오퍼링을 선택합니다.
 
     !!! info
         볼륨을 축소할 경우, 볼륨 축소 허용을 활성화 합니다.
@@ -145,8 +145,8 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![스냅샷 생성 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-snapshot-create-01.png){ .imgCenter .imgBorder }
 2. 스냅샷 생성 버튼을 클릭한 화면입니다.
     ![스냅샷 생성](../../assets/images/admin-guide/mold/storage/volume/volume-snapshot-create-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **Zone** 을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
 
     !!! info
         비동기 작업을 원하시면, 비동기 작업을 활성화합니다.
@@ -161,11 +161,11 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![정기 스냅샷 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-regular-snapshot-01.png){ .imgCenter .imgBorder }
 2. 정기 스냅샷 버튼을 클릭한 화면입니다.
     ![정기 스냅샷](../../assets/images/admin-guide/mold/storage/volume/volume-regular-snapshot-02.png){ .imgCenter .imgBorder }
-    - **간격 유형** 을 선택합니다.
-    - **시간** 을 입력합니다.
-    - **유지** 를 입력합니다.
-    - **시간대** 를 입력합니다.
-    - **Zone** 을 선택합니다.
+    - **간격 유형:** 간격 유형을 선택합니다.
+    - **시간:** 시간을 입력합니다.
+    - **유지:** 유지를 입력합니다.
+    - **시간대:** 시간대를 입력합니다.
+    - **Zone:** Zone을 선택합니다.
 3. 정기 스냅샷의 예약된 스냅샷을 클릭한 화면입니다.
     ![예약된 스냅샷](../../assets/images/admin-guide/mold/storage/volume/volume-regular-snapshot-03.png){ .imgCenter .imgBorder }
 
@@ -199,13 +199,13 @@ ABLESTACK은 이러한 추가 볼륨을 지원하여, 사용자가 필요에 따
     ![볼륨으로 템플릿 생성 버튼](../../assets/images/admin-guide/mold/storage/volume/volume-template-create-01.png){ .imgCenter .imgBorder }
 2. 볼륨으로 템플릿 생성 버튼을 클릭한 화면입니다.
     ![볼륨으로 템플릿 생성](../../assets/images/admin-guide/mold/storage/volume/volume-template-create-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **OS 유형** 을 선택합니다.
-    - **동적으로 확장 가능** 을 활성화합니다.
-    - **HVM** 을 활성화합니다.
-    - **공개** 를 활성화합니다.
-    - **추천** 을 활성화합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **OS 유형:** OS 유형을 선택합니다.
+    - **동적으로 확장 가능:** 동적으로 확장 가능을 활성화합니다.
+    - **HVM:** HVM을 활성화합니다.
+    - **공개:** 공개를 활성화합니다.
+    - **추천:** 추천을 활성화합니다.
 
 ## 볼륨 상세 탭
 1. 볼륨 목록 조회에서 확인하고 싶은 볼륨 목록을 조회합니다. 볼륨에 대한 상세 정보를 확인하는 화면입니다. 해당 볼륨에 대한 크기, UUID, 이름 등 상세 정보를 확인할 수 있습니다.

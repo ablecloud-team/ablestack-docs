@@ -29,17 +29,17 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     ![공유 파일 시스템 생성 버튼](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-create-01.png){ .imgCenter .imgBorder }
 2. 공유 파일 시스템 생성 버튼을 클릭한 화면입니다.
     ![공유 파일 시스템 생성](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-create-02.png){ .imgCenter .imgBorder }
-    - **소유자 유형** 을 선택합니다.
-    - **도메인** 을 선택합니다.
-    - **계정** 을 선택합니다.
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **파일 시스템** 을 선택합니다.
-    - **네트워크** 를 선택합니다.
-    - **디스크 오퍼링** 을 선택합니다.
-    - **크기** 를 입력합니다.
-    - **가상머신용 컴퓨트 오퍼링** 을 선택합니다.
+    - **소유자 유형:** 소유자 유형을 선택합니다.
+    - **도메인:** 도메인을 선택합니다.
+    - **계정:** 계정을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **파일 시스템:** 파일 시스템을 선택합니다.
+    - **네트워크:** 네트워크를 선택합니다.
+    - **디스크 오퍼링:** 디스크 오퍼링을 선택합니다.
+    - **크기:** 크기를 입력합니다.
+    - **가상머신용 컴퓨트 오퍼링:** 가상머신용 컴퓨트 오퍼링을 선택합니다.
 
     !!! info
         네트워크, 디스크 오퍼링, 가상머신용 컴퓨트 오퍼링 경우, 미리 사전에 생성되어 있어야 합니다.
@@ -55,8 +55,8 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     ![공유 파일 시스템 업데이트 버튼](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-update-01.png){ .imgCenter .imgBorder }
 2. 공유 파일 시스템 업데이트 버튼을 클릭한 화면입니다.
     ![공유 파일 시스템 업데이트](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-update-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
 
 ## 공유 파일 시스템 파기
 1. 공유 파일 시스템 상세 오른쪽 상단의 공유 파일 시스템 파기 버튼을 클릭합니다.
@@ -70,8 +70,8 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
 ### VM에 네트워크 추가
 2. VM에 네트워크 추가 버튼을 클릭한 화면입니다.
     ![VM에 네트워크 추가](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-network-info-vm-network-add.png){ .imgCenter .imgBorder }
-    - **네트워크** 를 선택합니다.
-    - **IP 주소** 를 입력합니다.
+    - **네트워크:** 네트워크를 선택합니다.
+    - **IP 주소:** IP 주소를 입력합니다.
 
     !!! info
         해당 네트워크를 기본값으로 설정하면 최우선으로 사용됩니다.
@@ -117,8 +117,8 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     ![디스크 오퍼링 변경 버튼](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-disk-offering-change-01.png){ .imgCenter .imgBorder }
 2. 디스크 오퍼링 변경 버튼을 클릭한 화면입니다.
     ![디스크 오퍼링 변경](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-disk-offering-change-02.png){ .imgCenter .imgBorder }
-    - **디스크 오퍼링** 을 선택합니다.
-    - **크기** 를 입력합니다.
+    - **디스크 오퍼링:** 디스크 오퍼링을 선택합니다.
+    - **크기:** 를 입력합니다.
 
     !!! info
         고정 디스크 오퍼링을 선택할 시, 해당 크기는 오퍼링에서 고정으로 할당된 값으로 만들어 집니다.
@@ -133,7 +133,7 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     ![서비스 오퍼링 변경 버튼](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-service-offering-change-01.png){ .imgCenter .imgBorder }
 2. 서비스 오퍼링 변경 버튼을 클릭한 화면입니다.
     ![서비스 오퍼링 변경](../../assets/images/admin-guide/mold/storage/shared-file-system/shared-file-system-service-offering-change-02.png){ .imgCenter .imgBorder }
-    - **컴퓨트 오퍼링** 을 선택합니다.
+    - **컴퓨트 오퍼링:** 디스크 오퍼링을 선택합니다.
 
 !!! info
     서비스 오퍼링을 변경할 경우, 미리 사전에 생성되어 있어야 합니다.

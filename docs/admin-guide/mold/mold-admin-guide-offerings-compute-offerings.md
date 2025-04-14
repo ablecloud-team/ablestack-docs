@@ -31,39 +31,39 @@
     ![컴퓨트 오퍼링 추가 버튼](../../assets/images/admin-guide/mold/offering/compute/compute-offering-add-01.png){ .imgCenter .imgBorder }
 2. 컴퓨트 오퍼링 추가 버튼을 클릭한 화면입니다.
     ![컴퓨트 오퍼링 추가1](../../assets/images/admin-guide/mold/offering/compute/compute-offering-add-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **컴퓨트 오퍼링 유형** 을 선택합니다.
-    - **CPU 코어** 를 입력합니다.
-    - **CPU(MHz)** 를 입력합니다.
-    - **메모리(MB)** 를 입력합니다.
-    - **네트워크 속도(Mb/s)** 를 입력합니다.
-    - **HA제공** 을 활성화합니다.
-    - **공개** 를 활성화합니다.
-    - **컴퓨팅 전용 디스크 제공** 을 활성화합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **컴퓨트 오퍼링 유형:** 컴퓨트 오퍼링 유형을 선택합니다.
+    - **CPU 코어:** CPU 코어를 입력합니다.
+    - **CPU(MHz):** CPU(MHz)를 입력합니다.
+    - **메모리(MB):** 메모리(MB)를 입력합니다.
+    - **네트워크 속도(Mb/s):** 네트워크 속도(Mb/s)를 입력합니다.
+    - **HA제공:** HA제공을 활성화합니다.
+    - **공개:** 공개를 활성화합니다.
+    - **컴퓨팅 전용 디스크 제공:** 컴퓨팅 전용 디스크 제공을 활성화합니다.
     ![컴퓨트 오퍼링 추가2](../../assets/images/admin-guide/mold/offering/compute/compute-offering-add-03.png){ .imgCenter .imgBorder }
-    - **스토리지 유형** 을 선택합니다.
-    - **프로비저닝 유형** 을 선택합니다.
-    - **압축/중복제거** 가 필요할 경우, 활성화합니다.
-    - **Write-cache 유형** 을 선택합니다.
-    - **QoS 유형** 을 선택합니다.
-    - **스토리지 태그** 를 입력합니다.
+    - **스토리지 유형:** 스토리지 유형을 선택합니다.
+    - **프로비저닝 유형:** 프로비저닝 유형을 선택합니다.
+    - **압축/중복제거** 압축/중복제거가 필요할 경우, 활성화합니다.
+    - **Write-cache 유형:** Write-cache 유형을 선택합니다.
+    - **QoS 유형:** QoS 유형을 선택합니다.
+    - **스토리지 태그:** 스토리지 태그를 입력합니다.
 
 ## 편집
 1. 컴퓨트 오퍼링 상세 오른쪽 상단의 편집 버튼을 클릭합니다.
     ![편집 버튼](../../assets/images/admin-guide/mold/offering/compute/compute-offering-update-01.png){ .imgCenter .imgBorder }
 2. 편집 버튼을 클릭한 화면입니다.
     ![편집](../../assets/images/admin-guide/mold/offering/compute/compute-offering-update-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **스토리지 태그** 를 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **스토리지 태그:** 스토리지 태그를 입력합니다.
 
 ## 오퍼링 액세스 업데이트
 1. 컴퓨트 오퍼링 상세 오른쪽 상단의 오퍼링 액세스 업데이트 버튼을 클릭합니다.
     ![오퍼링 액세스 업데이트 버튼](../../assets/images/admin-guide/mold/offering/compute/compute-offering-access-update-01.png){ .imgCenter .imgBorder }
 2. 오퍼링 액세스 업데이트 버튼을 클릭한 화면입니다.
     ![오퍼링 액세스 업데이트](../../assets/images/admin-guide/mold/offering/compute/compute-offering-access-update-02.png){ .imgCenter .imgBorder }
-    - **Zone** 을 선택합니다.
+    - **Zone:** Zone을 선택합니다.
 
 ## 서비스 오퍼링 비활성화
 1. 컴퓨트 오퍼링 상세 오른쪽 상단의 서비스 오퍼링 비활성화 버튼을 클릭합니다.

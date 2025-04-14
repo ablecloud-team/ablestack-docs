@@ -29,57 +29,57 @@ ISO에 대한 기본적인 정보와 상태를 제공하며, 필요하면 업데
     ![ISO 등록 버튼](../../assets/images/admin-guide/mold/image/iso/iso-url-register-01.png){ .imgCenter .imgBorder }
 2. ISO 등록 버튼을 클릭한 화면입니다.
     ![ISO 등록](../../assets/images/admin-guide/mold/image/iso/iso-url-register-02.png){ .imgCenter .imgBorder }
-    - **URL** 을 입력합니다.
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **도메인 아이디** 를 선택합니다.
-    - **부팅 가능** 을 활성화합니다.
-    - **OS 유형** 을 검색하여 선택합니다.
-    - **CPU 아키텍처** 를 선택합니다.
-    - **추출 가능** 을 체크합니다.
-    - **동적으로 확장 가능** 을 활성화합니다.
-    - **비밀번호 관리 사용** 을 활성화합니다.
-    - **추천** 을 활성화합니다.
-    - **공개** 를 활성화합니다.
+    - **URL:** URL을 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **도메인 아이디:** 도메인 아이디를 선택합니다.
+    - **부팅 가능:** 부팅 가능을 활성화합니다.
+    - **OS 유형:** OS 유형을 검색하여 선택합니다.
+    - **CPU 아키텍처:** CPU 아키텍처를 선택합니다.
+    - **추출 가능:** 추출 가능을 체크합니다.
+    - **동적으로 확장 가능:** 동적으로 확장 가능을 활성화합니다.
+    - **비밀번호 관리 사용:** 비밀번호 관리 사용을 활성화합니다.
+    - **추천:** 추천을 활성화합니다.
+    - **공개:** 공개를 활성화합니다.
 
 ## 로컬에서 ISO 업로드
 1. 이미지의 ISO에서 상단의 로컬에서 ISO 업로드 버튼을 클릭합니다.
     ![로컬에서 ISO 업로드 버튼](../../assets/images/admin-guide/mold/image/iso/iso-local-upload-01.png){ .imgCenter .imgBorder }
 2. 로컬에서 ISO 업로드 버튼을 클릭한 화면입니다.
     ![로컬에서 ISO 업로드](../../assets/images/admin-guide/mold/image/iso/iso-local-upload-02.png){ .imgCenter .imgBorder }
-    - **로컬 파일** 을 클릭하여 파일을 선택합니다.
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **Zone** 을 선택합니다.
-    - **도메인 아이디** 를 선택합니다.
-    - **부팅 가능** 을 활성화합니다.
-    - **OS 유형** 을 검색하여 선택합니다.
-    - **CPU 아키텍처** 를 선택합니다.
-    - **추출 가능** 을 활성화합니다.
-    - **동적으로 확장 가능** 을 활성화합니다.
-    - **추천** 을 활성화합니다.
-    - **공개** 를 활성화합니다.
+    - **로컬 파일:** 로컬 파일을 클릭하여 파일을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **Zone:** Zone을 선택합니다.
+    - **도메인 아이디:** 도메인 아이디를 선택합니다.
+    - **부팅 가능:** 부팅 가능을 활성화합니다.
+    - **OS 유형:** OS 유형을 검색하여 선택합니다.
+    - **CPU 아키텍처:** 를 선택합니다.
+    - **추출 가능:** 추출 가능을 활성화합니다.
+    - **동적으로 확장 가능:** 동적으로 확장 가능을 활성화합니다.
+    - **추천:** 추천을 활성화합니다.
+    - **공개:** 공개를 활성화합니다.
 
 ## ISO 편집
 1. ISO 상세 오른쪽 상단의 ISO 편집 버튼을 클릭합니다.
     ![ISO 편집 버튼](../../assets/images/admin-guide/mold/image/iso/iso-update-01.png){ .imgCenter .imgBorder }
 2. ISO 편집 버튼을 클릭한 화면입니다.
     ![ISO 편집](../../assets/images/admin-guide/mold/image/iso/iso-update-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **OS 유형** 을 검색하여 선택합니다.
-    - **동적으로 확장 가능** 을 활성화 및 비활성화합니다.
-    - **CPU 아키텍처** 를 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **OS 유형:** OS 유형을 검색하여 선택합니다.
+    - **동적으로 확장 가능:** 동적으로 확장 가능을 활성화 및 비활성화합니다.
+    - **CPU 아키텍처:** CPU 아키텍처를 선택합니다.
 
 ## 공유 ISO 업데이트
 1. ISO 상세 오른쪽 상단의 공유 ISO 업데이트 버튼을 클릭합니다.
     ![공유 ISO 업데이트 버튼](../../assets/images/admin-guide/mold/image/iso/iso-share-update-01.png){ .imgCenter .imgBorder }
 2. 공유 ISO 업데이트 버튼을 클릭한 화면입니다.
     ![공유 ISO 업데이트](../../assets/images/admin-guide/mold/image/iso/iso-share-update-02.png){ .imgCenter .imgBorder }
-    - **공개** 를 활성화합니다.
-    - **추천** 을 활성화합니다.
-    - **추출 가능** 을 활성화합니다.
+    - **공개:** 공개를 활성화합니다.
+    - **추천:** 추천을 활성화합니다.
+    - **추출 가능:** 추출 가능을 활성화합니다.
 
 ## ISO 다운로드
 1. ISO 상세 오른쪽 상단의 ISO 다운로드 버튼을 클릭합니다.
@@ -92,9 +92,9 @@ ISO에 대한 기본적인 정보와 상태를 제공하며, 필요하면 업데
     ![ISO 권한 업데이트 버튼](../../assets/images/admin-guide/mold/image/iso/iso-authority-update-01.png){ .imgCenter .imgBorder }
 2. ISO 권한 업데이트 버튼을 클릭한 화면입니다.
     ![ISO 권한 업데이트](../../assets/images/admin-guide/mold/image/iso/iso-authority-update-02.png){ .imgCenter .imgBorder }
-    - **연산** 을 선택합니다.
-    - **공유** 를 선택합니다.
-    - **계정** 을 선택합니다.
+    - **연산:** 연산을 선택합니다.
+    - **공유:** 공유를 선택합니다.
+    - **계정:** 계정을 선택합니다.
 
 ## ISO 상세 탭
 1. ISO 목록 조회에서 확인하고 싶은 ISO 목록을 조회합니다. ISO에 대한 상세 정보를 확인하는 화면입니다. 해당 ISO에 대한 이름, 아이디 등 상세 정보를 확인할 수 있습니다.
@@ -111,7 +111,7 @@ ISO에 대한 기본적인 정보와 상태를 제공하며, 필요하면 업데
     ![ISO Zone 탭 복사 버튼](../../assets/images/admin-guide/mold/image/iso/iso-zone-info-copy-01.png){ .imgCenter .imgBorder }
 4. ISO 복사 버튼을 클릭한 화면입니다.
     ![ISO Zone 탭 복사](../../assets/images/admin-guide/mold/image/iso/iso-zone-info-copy-02.png){ .imgCenter .imgBorder }
-    - **Zone** 을 선택합니다.
+    - **Zone:** 을 선택합니다.
 
 ### ISO 삭제
 5. ISO이 포함된 Zone에서 해당 ISO 삭제 기능 을 제공합니다.

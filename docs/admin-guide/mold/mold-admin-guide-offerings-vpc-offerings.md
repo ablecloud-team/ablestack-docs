@@ -31,24 +31,24 @@ VPC 오퍼링을 적절히 활용하면 클라우드 환경에서 안전하고 �
     ![VPC 오퍼링 추가 버튼](../../assets/images/admin-guide/mold/offering/vpc/vpc-offering-add-01.png){ .imgCenter .imgBorder }
 2. VPC 오퍼링 추가 버튼을 클릭한 화면입니다.
     ![VPC 오퍼링 추가1](../../assets/images/admin-guide/mold/offering/vpc/vpc-offering-add-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
-    - **NSX** 를 활성화 및 비활성화합니다.
-    - **네트워크 모드** 를 선택합니다.
-    - **지원되는 서비스** 를 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **NSX:** NSX를 활성화 및 비활성화합니다.
+    - **네트워크 모드:** 네트워크 모드를 선택합니다.
+    - **지원되는 서비스:** 지원되는 서비스를 선택합니다.
     ![VPC 오퍼링 추가2](../../assets/images/admin-guide/mold/offering/vpc/vpc-offering-add-03.png){ .imgCenter .imgBorder }
-    - **컴퓨트 오퍼링** 을 선택합니다.
-    - **공개** 를 활성화 및 비활성화합니다.
-    - **Zone** 을 활성화 및 비활성화합니다.
-    - **VPC 오퍼링 활성화** 를 활성화 및 비활성화합니다.
+    - **컴퓨트 오퍼링:** 컴퓨트 오퍼링을 선택합니다.
+    - **공개:** 공개를 활성화 및 비활성화합니다.
+    - **Zone:** Zone을 활성화 및 비활성화합니다.
+    - **VPC 오퍼링 활성화:** VPC 오퍼링 활성화를 활성화 및 비활성화합니다.
 
 ## 편집
 1. VPC 오퍼링 상세 오른쪽 상단의 편집 버튼을 클릭합니다.
     ![편집 버튼](../../assets/images/admin-guide/mold/offering/vpc/vpc-offering-update-01.png){ .imgCenter .imgBorder }
 2. 편집 버튼을 클릭한 화면입니다.
     ![편집](../../assets/images/admin-guide/mold/offering/vpc/vpc-offering-update-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **설명** 을 입력합니다.
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
 
 ## VPC 서비스 오퍼링 비활성화
 1. VPC 오퍼링 상세 오른쪽 상단의 VPC 서비스 오퍼링 비활성화 버튼을 클릭합니다.
@@ -61,7 +61,7 @@ VPC 오퍼링을 적절히 활용하면 클라우드 환경에서 안전하고 �
     ![오퍼링 액세스 업데이트 버튼](../../assets/images/admin-guide/mold/offering/vpc/vpc-offering-access-update-01.png){ .imgCenter .imgBorder }
 2. 오퍼링 액세스 업데이트 버튼을 클릭한 화면입니다.
     ![오퍼링 액세스 업데이트](../../assets/images/admin-guide/mold/offering/vpc/vpc-offering-access-update-02.png){ .imgCenter .imgBorder }
-    - **Zone** 을 선택합니다.
+    - **Zone:** Zone을 선택합니다.
 
 ## VPC 오퍼링 삭제
 1. VPC 오퍼링 상세 오른쪽 상단의 VPC 오퍼링 삭제 버튼을 클릭합니다.

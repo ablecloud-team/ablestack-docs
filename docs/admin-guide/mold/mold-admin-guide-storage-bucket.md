@@ -34,10 +34,10 @@
     ![버킷 만들기 버튼](../../assets/images/admin-guide/mold/storage/bucket/bucket-create-01.png){ .imgCenter .imgBorder }
 2. 버킷 만들기 버튼을 클릭한 화면입니다.
     ![버킷 만들기](../../assets/images/admin-guide/mold/storage/bucket/bucket-create-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
-    - **Object 스토리지** 를 선택합니다.
-    - **할당량(GB)** 을 입력합니다.
-    - **버킷 정책** 을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **Object 스토리지:** Object 스토리지를 선택합니다.
+    - **할당량(GB):** 할당량(GB)을 입력합니다.
+    - **버킷 정책:** 버킷 정책을 선택합니다.
 
 ## 버킷 삭제
 1. 버킷 상세 오른쪽 상단의 버킷 삭제 버튼을 클릭합니다.
@@ -50,8 +50,8 @@
     ![버킷 업데이트 버튼](../../assets/images/admin-guide/mold/storage/bucket/bucket-update-01.png){ .imgCenter .imgBorder }
 2. 버킷 업데이트 버튼을 클릭한 화면입니다.
     ![버킷 업데이트](../../assets/images/admin-guide/mold/storage/bucket/bucket-update-02.png){ .imgCenter .imgBorder }
-    - **할당량(GB)** 을 입력합니다.
-    - **버킷 정책** 을 선택합니다.
+    - **할당량(GB):** 할당량(GB)을 입력합니다.
+    - **버킷 정책:** 버킷 정책을 선택합니다.
 
 ### 삭제
 6. 업로드된 파일을 삭제할 수 있습니다. 삭제할 파일을 선택한 후 삭제 버튼을 클릭하면 해당 파일이 제거됩니다.

@@ -30,14 +30,14 @@ API 및 UI를 통해 도메인을 생성, 수정, 삭제 할 수 있으며, 특�
     ![도메인 추가 버튼](../../assets/images/admin-guide/mold/domain/domain-add-01.png){ .imgCenter .imgBorder }
 2. 도메인 추가 버튼을 클릭한 화면입니다.
     ![도메인 추가](../../assets/images/admin-guide/mold/domain/domain-add-02.png){ .imgCenter .imgBorder }
-    - **이름** 을 입력합니다.
+    - **이름:** 이름을 입력합니다.
 
 ## 도메인 편집
 1. 도메인 목록에서 오른쪽 상단의 도메인 편집 버튼을 클릭합니다.
     ![도메인 편집 버튼](../../assets/images/admin-guide/mold/domain/domain-update-01.png){ .imgCenter .imgBorder }
 2. 도메인 편집 버튼을 클릭한 화면입니다.
     ![도메인 편집](../../assets/images/admin-guide/mold/domain/domain-update-02.png){ .imgCenter .imgBorder }
-    - **네트워크 도메인** 을 입력합니다.
+    - **네트워크 도메인:** 네트워크 도메인을 입력합니다.
 
 ## 리소스 수 업데이트
 1. 도메인 목록에서 오른쪽 상단의 리소스 수 업데이트 버튼을 클릭합니다.
@@ -50,10 +50,10 @@ API 및 UI를 통해 도메인을 생성, 수정, 삭제 할 수 있으며, 특�
     ![LDAP에 도메인 연결 버튼](../../assets/images/admin-guide/mold/domain/domain-ldap-connect-01.png){ .imgCenter .imgBorder }
 2. LDAP에 도메인 연결을 클릭한 화면입니다.
     ![LDAP에 도메인 연결](../../assets/images/admin-guide/mold/domain/domain-ldap-connect-02.png){ .imgCenter .imgBorder }
-    - **유형** 을 선택합니다.
-    - **이름** 을 입력합니다.
-    - **계정 유형** 을 선택합니다.
-    - **관리자** 를 입력합니다.
+    - **유형:** 유형을 선택합니다.
+    - **이름:** 이름을 입력합니다.
+    - **계정 유형:** 계정 유형을 선택합니다.
+    - **관리자:** 관리자를 입력합니다.
 
 ## 도메인 탭
 1. 도메인 목록 조회에서 확인하고 싶은 도메인 목록을 조회합니다. 도메인에 대한 상태 및 아이디를 확인하실 수 있으며, 도메인이 포함된 계정, 가상머신 등을 확인할 수 있습니다.
