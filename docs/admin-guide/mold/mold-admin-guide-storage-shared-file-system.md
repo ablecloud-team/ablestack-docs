@@ -44,7 +44,7 @@ NFS를 통해 마운트할 수 있는 관리 공유 파일 시스템을 설정�
     !!! info
         네트워크, 디스크 오퍼링, 가상머신용 컴퓨트 오퍼링 경우, 미리 사전에 생성되어 있어야 합니다.
 
-        <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[네트워크 생성 가이드](../mold-admin-guide-storage-volume.md/#_3)</span>
+        <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[네트워크 생성 가이드](../mold-admin-guide-network-guest-networks/#_4)</span>
 
         <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[디스크 오퍼링 생성 가이드](../mold-admin-guide-offerings-disk-offerings/#_4)</span>
 
