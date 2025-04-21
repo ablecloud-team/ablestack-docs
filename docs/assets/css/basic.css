@@ -60,3 +60,7 @@ table tr:hover td {
 article ul ul {
     list-style-type: circle !important;
 }
+
+article ul ul ul {
+    list-style-type: square !important;
+}
