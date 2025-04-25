@@ -8,7 +8,7 @@
     PowerFlex용 SCVM 템플릿과 PFMP 템플릿 이미지는 내장 되어있지 않습니다.
 
     Glue 설치 진행 전, PowerFlex용 SCVM 템플릿 이미지 및 PFMP 템플릿 이미지를 꼭 확인해주시길 바랍니다.
-    
+
 PowerFlex Glue 설치 진행 가이드 입니다.
 이 문서에서는 PowerFlex Glue 용 가상머신 생성 및 해당 가상머신에서 공용 스토리지 생성절차를 가이드 하고 있습니다.
 PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
@@ -23,9 +23,20 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
     이 문서에서는 3식의 호스트를 기준으로 가이드를 제공하고 있습니다.
 
+## 라이선스 관리(1번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
+
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license1-01.png){ align=center }
+    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license1-02.png){ align=center }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
 
 ## 클러스터 구성 준비(1번 호스트)
-
 
 1. 개요
     ![클러스터 구성 준비 개요](../assets/images/install-guide-powerflex-glue-02.png){ align=center }
@@ -206,9 +217,20 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
     ![완료](../assets/images/install-guide-powerflex-glue-17.png){ align=center }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
+## 라이선스 관리(2번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
+
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license2-01.png){ align=center }
+    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license2-02.png){ align=center }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
 
 ## 클러스터 구성 준비(2번  호스트)
-
 
 !!! info
     2번 호스트 구성 방법 입니다. (기본적인 절차는 1번 호스트와 동일합니다)
@@ -363,9 +385,20 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
     ![완료](../assets/images/install-guide-powerflex-glue-33.png){ align=center }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
+## 라이선스 관리(3번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
+
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license3-01.png){ align=center }
+    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license3-02.png){ align=center }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
 
 ## 클러스터 구성 준비(3번  호스트)
-
 
 !!! info
     3번 호스트 구성 방법 입니다. 3번 호스트 구성방법은 IP 설정 및 호스트 이름 제외하고는 2번 호스트와 동일합니다.
