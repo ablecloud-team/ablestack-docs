@@ -1,4 +1,4 @@
-# ABLESTACK 재기동
+# ABLESTACK 시스템 재기동
  ABLESTACK HCI의 전체시스템을 안정적으로 재기동하기 위해서는 규정된 절차에 따라 시행되어야 합니다.
  재기동 절차 및 방법은 다음과 같습니다. 
 
@@ -104,4 +104,85 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
   ![restart-start-vm](../assets/images/restart-start-vm.png)
 
   11. 사용자 가상머신 및 서비스 상태를 확인합니다.
-  
+
+
+## HCI 구성에서 1개 호스트 재기동 절차
+
+### Cube
+호스트를 재기동하기 위해 먼저 Cube 웹 UI를 통하여 스토리지 클러스터 상태가 정상 작동 중임을 확인해야 합니다.
+
+1. Cube 웹 UI에 접속합니다.
+
+    !!! info
+        각 호스트별 Cube 웹 UI 접속 URL은 다음과 같습니다.
+        https://[호스트IP]:9090
+
+    ![host-failure-restart](../assets/images/host-failure-restart-cube-1-1.png)
+
+2. 스토리지 클러스터 상태가 "Health Ok" 인지 확인합니다.
+    * 표시: Health Ok
+        * 클러스터가 정상적으로 작동 중임을 의미합니다.
+    * Warning, Error 등의 상태일 경우 즉각적인 점검 필요합니다.
+
+### Mold
+
+1. HA 상태 확인
+    * Mold에 접속하여 메뉴 '인프라스트럭처' > '호스트'로 이동합니다.
+      ![host-failure-restart](../assets/images/host-failure-restart-1-1.png)
+    * 장애가 발생한 호스트를 클릭하여 상세정보 탭에서 HA 상태 및 호스트 상태를 확인합니다.
+      ![host-failure-restart](../assets/images/host-failure-restart-1-2.png)
+2. 장애 발생 호스트의 VM 재배치 여부 확인하기
+    * 좌측 '가상머신 보기' 버튼을 클릭하여 VM이 정상적으로 다른 호스트로 이동 완료되었는지 확인합니다.
+      ![host-failure-restart](../assets/images/host-failure-restart-2-1.png)
+3. 유지보수 모드 전환
+    * 장애 해결 이후, 호스트 상태가 "다운(Down)" 또는 "경고(Alert)"인 경우 아래 단계를 따라 진행합니다.
+    * 호스트가 현재 "다운(Down)" 상태라면, 즉시 유지보수 모드로 전환이 불가능하므로, 먼저 다음 단계(4번)로 진행하여 장애 호스트를 복구합니다.
+    * 만약 호스트 상태가 부분적으로 정상화되었다면, 유지보수 모드로 전환합니다.
+      ![host-failure-restart](../assets/images/host-failure-restart-3-1.png)
+      ![host-failure-restart](../assets/images/host-failure-restart-3-2.png)
+        * 호스트 > 장애 호스트 선택 > "유지보수 모드 활성화" 버튼을 클릭합니다.
+4. 장애 호스트 문제 해결 및 복구
+    * 실제 장애가 발생했던 물리 호스트에서 복구 작업을 수행합니다.
+5. 호스트 정상화 후 Mold 연결 확인
+    * 복구된 호스트가 정상 상태가 되면, Mold에서 자동으로 호스트 상태가 업데이트될 수 있습니다.
+    * 자동으로 복구되지 않을 경우, 다음 방법으로 강제로 재연결을 시도합니다.
+        1. 장애 발생했던 호스트에 SSH로 접속한 뒤, Mold 에이전트의 상태를 확인합니다.
+           ```title="bash"
+              systemctl status mold-agent
+           ```
+        2. Mold 에이전트를 재기동합니다.
+           ```title="bash"
+              systemctl restart mold-agent
+           ```
+6. 유지보수 모드에서 해제 및 호스트 활성화
+    * 호스트가 정상적으로 연결되었고 상태가 "UP"이라면, 유지보수 모드로 설정했던 경우 다음 절차를 통해 해제합니다
+      ![host-failure-restart](../assets/images/host-failure-restart-6-1.png)
+    * "유지보수 모드 취소" 버튼을 클릭하여 호스트 유지보수 모드를 해제합니다.
+
+
+## Cube 서비스 재기동 절차
+네트워크 단절, 설정 변경 또는 예기치 않은 오류로 인해 Cube 서비스가 비정상적으로 작동할 경우, 아래 절차에 따라 서비스를 재기동할 수 있습니다.
+
+1. Cube 작동 상태 확인
+    * SSH를 통해 해당 호스트(서버)에 접속한 뒤, Cube 서비스가 정상적으로 작동 중인지 확인합니다.
+   ```title="bash"
+      systemctl status cockpit.soket
+   ```
+    * active (running) 상태인 경우: 서비스는 정상 작동 중입니다.
+    * inactive, failed, dead 등으로 표시되는 경우: 서비스가 중지되었거나 오류가 발생한 것입니다.       
+
+2. Cube 서비스를 재기동
+    * Cube 서비스에 이상이 발견되었거나, 설정 변경 후 적용이 필요한 경우에는 아래 명령어로 서비스를 재기동합니다.
+   ```title="bash"
+      systemctl restart cockpit.soket 
+   ```   
+    * 재기동 시 약 2~5초간 일시적인 중단이 있을 수 있습니다.
+    * restart는 내부적으로 stop → start 순으로 실행됩니다.
+    * active (running) 상태로 복귀했는지 확인합니다.
+
+
+
+
+
+
+
