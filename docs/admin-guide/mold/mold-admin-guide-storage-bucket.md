@@ -9,7 +9,7 @@
 
     3. 적절한 액세스 정책 및 권한을 사전에 구성하는 것이 좋습니다.
 
-    <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[Object 스토리지 가이드](./mold-admin-guide-storage-volume.md/#_3)</span>
+    <span style="font-size:20px">👉 &nbsp;&nbsp;🔗[Object 스토리지 가이드](./mold-admin-guide-infrastructure-object-storage.md/#_2)</span>
 
 ## 개요
 

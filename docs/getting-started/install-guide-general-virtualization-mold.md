@@ -19,6 +19,18 @@
 
     이 문서에서는 3식의 호스트를 기준으로 가이드를 제공하고 있습니다.
 
+## 라이선스 관리(1번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
+
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-general-virtualization-mold-license1-01.png){ align=center }
+    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-general-virtualization-mold-license1-02.png){ align=center }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
 
 ## 클러스터 구성 준비(1번 호스트)
 
@@ -102,8 +114,20 @@
 !!! info
     SSH Key 및 클러스터 구성 프로파일을 다운로드 한 후에 2번 호스트, 3번 호스트 구성시 다운로드한 파일을 재사용 해야 정상적으로 구성이 됩니다.
 
-## 클러스터 구성 준비(2번  호스트)
+## 라이선스 관리(2번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
 
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-general-virtualization-mold-license2-01.png){ align=center }
+    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-general-virtualization-mold-license2-02.png){ align=center }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
+
+## 클러스터 구성 준비(2번  호스트)
 
 !!! info
     2번 호스트 구성 방법 입니다. (기본적인 절차는 1번 호스트와 동일합니다)
@@ -183,8 +207,20 @@
     !!! info
         SSH Key 및  클러스터 구성 파일은 1번 호스트에서 다운로드 하셨다면 해당 화면에서 다운로드 하지 않으셔도 됩니다.
 
-## 클러스터 구성 준비(3번  호스트)
+## 라이선스 관리(3번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
 
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-general-virtualization-mold-license3-01.png){ align=center }
+    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-general-virtualization-mold-license3-02.png){ align=center }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
+
+## 클러스터 구성 준비(3번  호스트)
 
 !!! info
     3번 호스트 구성 방법 입니다. (절차는 2번 호스트와 동일합니다)
@@ -540,3 +576,7 @@
     - **비밀번호** 항목에는 **비밀번호** 를 입력합니다.
     - **호스트 태그** 항목에는 **ablecube3** 를 입력합니다.
     - 입력한 정보를 확인 후 **다음** 버튼을 클릭합니다.
+
+15. 호스트 라이선스 확인
+    ![호스트 라이선스 확인](../assets/images/install-guide-general-virtualization-mold-check-license.png){ align=center }
+    - 해당 하는 호스트 이름을 클릭하여 라이선스 유효기간을 확인할 수 있습니다.
