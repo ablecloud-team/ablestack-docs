@@ -82,7 +82,7 @@ plugins:
   - exporter:
       formats:
         pdf:
-          enabled: !ENV [MKDOCS_EXPORTER_PDF, true]
+          enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
           concurrency: 16
           stylesheets:
             - resources/stylesheets/pdf.scss
