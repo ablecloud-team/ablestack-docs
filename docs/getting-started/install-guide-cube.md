@@ -13,11 +13,12 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 !!! 사전준비 info
     - ABLESTACK 설치용 ISO 또는 ABLESTACK 설치용 USB
     - 호스트의 Manage Network 대역에 접근 가능한 Desktop 또는 Notebook
-    - Manage Network IP(ABLESTACK은 Manage Network IP를 호스트 1대당 3개의 IP를 필요로 하고 있습니다.)
+    - Manage Network IP(ABLESTACK은 Manage Network IP 용으로 호스트 1대당 3개의 IP를 필요로 하고 있습니다.)
 
 !!! 사전설정 warning
     - ABLESTACK Diplo 는 Asia/Seoul를 기준으로 시간서버를 설정합니다.
     - 따라서 ABLESTACK 설치 전 서버 BIOS 설정에서 해당 서버의 시간을 Asia/Seoul로 설정해야 합니다.
+    - 부팅시 UEFI 로 부팅하여 주십시오.
 
 ## ABLESTACK Cube 설치 진행 가이드
 
@@ -38,7 +39,8 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
     !!! info
         ABLESTACK Cube는 기본적인 정보는 자동으로 설정이 되어 있습니다.
-        **Installation Destination, Network & Host name** 항목에 대해서만 설정하면 됩니다.</br>
+        - Time & Date 가 Asia/Seoul 인지 확인하십시오.
+        - **Installation Destination, Network & Host name** 항목에 대해서만 설정하면 됩니다.
         - Keyboard, Language Support, Installation Source, Software Selection, KDUMP, Security Policy, Root Password 항목은 수정하실 필요가 없습니다.
 
     !!! Tip
@@ -55,7 +57,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         * 적용 버튼을 클릭하여 Host name을 적용합니다.
         * 적용된 Host name이 정상적으로 현재 호스트 이름에 표시 되는지 확인합니다.
 
-        * 호스트 이름 설정한 후, 해당 하는 NIC를 선택합니다.
+        * 호스트 이름 설정한 후, NIC를 선택합니다. 설치 완료 후, 해당 NIC 에 설정한 주소로 Cube 에 접속하게 됩니다.
 
     2. 자동 우선 순위 설정
         ![자동 우선 순위 설정](../assets/images/install-guide-cube-04-2.png){ align=center }
@@ -94,18 +96,19 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
     * **Click here to create them automatically** 을 클릭하면 해당화면으로 이동됩니다
 
-    1. 파티션 구성 화면 1-2
+
+    1. 파티션 구성 화면 1-1
         ![파티션 구성 1-2](../assets/images/install-guide-cube-07.png){ align=center }
         * 해당 화면은 파티션을 구성하는 화면입니다.
         * **/home** 파티션 선택 후 아래 **-** 버튼을 클릭하여 home 파티션을 삭제합니다.
-    2. 파티션 구성 화면 2-2
+    2. 파티션 구성 화면 1-2
         ![파티션 구성 2-2](../assets/images/install-guide-cube-08.png){ align=center }
-        * **swap 파티션 선택 후 희망 용량** 의 입력 값에 **32GiB(최소 권장)** 을 입력 후 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
+        * **swap 파티션 선택 후 희망 용량** 의 입력 값에 **64GiB(최소 권장)** 을 입력 후 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
         !!! info
             **swap** 파티션은 서버 메모리 크기와 같은 크기로 설정하는 것을 권장합니다.</br>
             디스크의 크기가 여유롭지 못하면 **32GiB 이상** 을 권장합니다.
 
-    3. 파티션 구성 화면 3-2
+    3. 파티션 구성 화면 1-3
         ![파티션 구성 3-2](../assets/images/install-guide-cube-09.png){ align=center }
         * **/(root파티션)** 파티션 선택 후 **희망 용량** 나머지 전체의 용량을 할당하고 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
         * 파티션 구성 완료 후 **Done** 버튼을 클릭하여 파티션 설정을 마무리 합니다.
@@ -115,8 +118,6 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
 6. Root 초기 암호
 
-!!! check
-    Root Password 초기 암호는 **password** 입니다.
 
 
 7. ABLESTACK Cube 구성 마무리
@@ -137,12 +138,16 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 1. ABLESTACK Cube 로그인
     ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.png){ align=center }
     - ABLESTACK Cube 로그인 화면입니다.
-    - 접속 URL은 **호스트IP:9090** 입니다
+    - 접속 URL은 설치시 NIC 에 입력한 **호스트IP:9090** 입니다.
     - 사용자 이름은 **root** 를 암호는 초기 암호를 입력하여, 원하시는 비밀번호로 변경한 후, **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
+!!! check
+    Root Password 초기 암호는 **password** 입니다.
+
 
 2. ABLESTACK Cube 메인 화면
     ![ABLESTACK Cube 메인 화면](../assets/images/install-guide-cube-15.png){ align=center }
     - ABLESTACK Cube 로그인 후 화면입니다.
+    
 
 3. ABLESTACK Cube 네트워킹 구성
     ![ABLESTACK Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ align=center }
@@ -154,7 +159,6 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     !!! info
         해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다.
         이 문서를 바탕으로 설치 사이트에 맞게 구성을 변경 및 IP 주소를 입력 하셔야 합니다.
-
         그리고 본드(bond) 구성이 필요한 경우 본드(bond)구성 완료 후 진행하셔야 합니다.
         현재 과정에서는 Management Network에 대한 본드 구성 혹은 Storage Network 구성이 Bridge일 경우에만 본드 구성을 진행하며
         Storage Network가 NIC pass-through 일 경우에는 SCVM 구성완료 후 해당 가상머신에서 본드 구성을 진행합니다.
@@ -236,8 +240,8 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
 
 !!! info
-    ABLESTACK 클러스터는 최소 3식이상의 호스트로 구성되어야 합니다.
-    이 문서에서는 3식의 호스트를 기준으로 가이드가 되어있으며 만약 4식이상의 호스트로 구성된다면 호스트 구성 작업을 반복하면 됩니다.
+    ABLESTACK HCI 클러스터는 최소 3식 이상의 호스트로 구성되어야 합니다.
+    이 문서에서는 3식 호스트를 기준으로 가이드 되어있으며 만약 4식 이상의 호스트로 구성된다면 호스트 구성 작업을 반복하면 됩니다.
     ABLESTACK Cube 설치 진행절차는 2번, 3번 호스트도 동일합니다. 위 설치 절차를 2번, 3번 호스트에도 진행하시기 바랍니다.
 
 !!! check
