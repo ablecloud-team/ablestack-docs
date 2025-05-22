@@ -174,15 +174,15 @@ nav:
       - 호스트 아키텍처 : architecture/host-architecture.md
       - 네트워크 아키텍처 : architecture/network-architecture.md
     - ABLESTACK 구성요소:
-      - Cube : architecture/book-of-cube.md
-      - Cell : architecture/book-of-cell.md
-      - Glue :
+      - Cube 알아보기 : architecture/book-of-cube.md
+      - Cell 알아보기 : architecture/book-of-cell.md
+      - Glue 알아보기 :
         - Glue (ABLESTACK HCI) : architecture/book-of-glue.md
         - Glue (ABLESTACK PowerFlex) : architecture/book-of-powerflex.md
-      - Mold : architecture/book-of-mold.md
-      - Wall : architecture/book-of-wall.md
-      - Koral : architecture/book-of-koral.md
-      - Genie : architecture/book-of-genie.md
+      - Mold 알아보기 : architecture/book-of-mold.md
+      - Wall 알아보기 : architecture/book-of-wall.md
+      - Koral 알아보기 : architecture/book-of-koral.md
+      - Genie 알아보기 : architecture/book-of-genie.md
   - 시작하기:
     - ABLESTACK HCI 설치 가이드:
       - 설치전 준비사항: getting-started/getting-started-overview.md
@@ -212,21 +212,22 @@ nav:
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
   - 관리 가이드:
-    - Cube 가이드 :
-      - 사용자 인터페이스 : administration/cube/userinterface-guide.md
-      - 개요 : administration/cube/overview-guide.md
-      - 기록 : administration/cube/log-guide.md
-      - 저장소 : administration/cube/storage-guide.md
-      - 네트워킹 : administration/cube/networking-guide.md
-      - 계정 : administration/cube/account-guide.md
-      - 서비스 : administration/cube/service-guide.md
-      - ABLESTACK : administration/cube/ablestack-guide.md
-      - 소프트웨어 최신화 : administration/cube/update-software-guide.md
-      - 애플리케이션 : administration/cube/application-guide.md
-      - 진단 보고서 : administration/cube/diagnostic-guide.md
-      - 커널 덤프 : administration/cube/kerneldump-guide.md
-      - 터미널 : administration/cube/terminal-guide.md
-      - SELinux : administration/cube/selinux-guide.md
+    - Cube 가이드:
+      - 개요: admin-guide/cube/cube-admin-guide-outline.md
+      - 기록: admin-guide/cube/cube-admin-guide-record.md
+      - 저장소: admin-guide/cube/cube-admin-guide-repository.md
+      - 네트워킹: admin-guide/cube/cube-admin-guide-networking.md
+      - 계정: admin-guide/cube/cube-admin-guide-account.md
+      - 서비스: admin-guide/cube/cube-admin-guide-service.md
+      - ABLESTACK:
+        - ABLESTACK HCI: admin-guide/cube/cube-admin-guide-ablestack-hci.md
+        - ABLESTACK VM: admin-guide/cube/cube-admin-guide-ablestack-vm.md
+      - 소프트웨어 최신화: admin-guide/cube/cube-admin-guide-software-updates.md
+      - 응용프로그램: admin-guide/cube/cube-admin-guide-application.md
+      - 진단 보고서: admin-guide/cube/cube-admin-guide-diagnostic-report.md
+      - 커널 덤프: admin-guide/cube/cube-admin-guide-kernel-dump.md
+      - 터미널: admin-guide/cube/cube-admin-guide-terminal.md
+      - SELinux: admin-guide/cube/cube-admin-guide-selinux.md
     # - Mold 가이드 :
     #   - 사용자 인터페이스: administration/mold/userinterface-guide.md
     #   - 계정 및 사용자 관리: administration/mold/account-mngt-guide.md
@@ -355,37 +356,6 @@ nav:
       - 설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
     - ABLESTACK 시스템 재기동: administration/system-restart.md
-    # - Cube 가이드:
-    #   - 개요:
-    #     - 개요: admin-guide/cube/cube-admin-guide-outline.md
-    #   - 기록:
-    #     - 기록: admin-guide/cube/cube-admin-guide-record.md
-    #   - 저장소:
-    #     - 저장소: admin-guide/cube/cube-admin-guide-repository.md
-    #   - 네트워킹:
-    #     - 네트워킹: admin-guide/cube/cube-admin-guide-networking.md
-    #   - 포드맨 컨테이너:
-    #     - 포드맨 컨테이너: admin-guide/cube/cube-admin-guide-podman-container.md
-    #   - 가상 머신:
-    #     - 가상 머신: admin-guide/cube/cube-admin-guide-vm.md
-    #   - 계정:
-    #     - 계정: admin-guide/cube/cube-admin-guide-account.md
-    #   - 서비스:
-    #     - 서비스: admin-guide/cube/cube-admin-guide-service.md
-    #   - ABLESTACK:
-    #     - ABLESTACK: admin-guide/cube/cube-admin-guide-ablestack.md
-    #   - 소프트웨어 최신화:
-    #     - 소프트웨어 최신화: admin-guide/cube/cube-admin-guide-software-updates.md
-    #   - 응용프로그램:
-    #     - 응용프로그램: admin-guide/cube/cube-admin-guide-application.md
-    #   - 진단 보고서:
-    #     - 진단 보고서: admin-guide/cube/cube-admin-guide-diagnostic-report.md
-    #   - 커널 덤프:
-    #     - 커널 덤프: admin-guide/cube/cube-admin-guide-kernel-dump.md
-    #   - 터미널:
-    #     - 터미널: admin-guide/cube/cube-admin-guide-terminal.md
-    #   - SELinux:
-    #     - SELinux:  admin-guide/cube/cube-admin-guide-selinux.md
     # - Glue 가이드:
     #   - 대시보드:
     #     - 대시보드: admin-guide/glue/glue-admin-guide-dashboard.md
@@ -484,6 +454,9 @@ nav:
       - 마이그레이션 및 Agent 정상 동작 테스트: userGuide/mold_fence/mold-fence-test.md
     - 압축/중복제거 볼륨 사용방법 가이드:
       - 압축/중복제거 볼륨 사용방법: userGuide/compress_dedup/compress_dedup_guide.md
+    - 도메인 활용 방안:
+      # - 도메인 별 자원 분리 방안: userGuide/using-domain/using-domain-guide.md
+      - 학과별 도메인 분리 방안: userGuide/using-domain/using-domain-guide.md
   - 릴리즈노트 :
     - Cerato : releaseNote/release-cerato.md
     - Bronto : releaseNote/release-note.md
