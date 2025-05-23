@@ -24,11 +24,11 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
 ## PowerFlex Cube 설치 진행 가이드
 
 1. ABLESTACK ISO를 이용한 USB 부팅 화면 입니다.
-    ![ABLESTACK Cube 부팅화면](../assets/images/install-guide-cube-01.png){ align=center }
+    ![ABLESTACK Cube 부팅화면](../assets/images/install-guide-cube-01.png){ .imgCenter .imgBorder }
 
 2. 부팅 완료 후 PowerFlex 설치 메뉴 화면 입니다.
     정상적으로 ISO 또는 USB를 이용하여 정상적으로 부팅되면 아래와 같은 이미지의 화면으로 전환됩니다.
-    ![PowerFlex Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ align=center }
+    ![PowerFlex Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ .imgCenter .imgBorder }
 
     !!! Check
         화면에서 **Install ABLESTACK Diplo** 메뉴가 보이는지 확인해야 합니다. 해당 메뉴가 보이면 PowerFlex Cube 정상적으로 설치를 하실 수 있습니다.</br>
@@ -36,7 +36,7 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
         다시 한번 부팅해도 해당 메뉴가 보이지 않는다면 ISO 또는 USB가 손상되었을 수 있습니다.
 
 3. PowerFlex Cube 구성 화면 입니다.
-    ![PowerFlex Cube 구성 화면](../assets/images/install-guide-cube-03.png){ align=center }
+    ![PowerFlex Cube 구성 화면](../assets/images/install-guide-cube-03.png){ .imgCenter .imgBorder }
 
     !!! info
         PowerFlex Cube는 기본적인 정보는 자동으로 설정이 되어 있습니다.
@@ -50,7 +50,7 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
     - PowerFlex Cube 구성화면에서 **Network & Host Name** 을 클릭하면 해당 화면으로 이동됩니다.
 
     1. 호스트 이름 설정
-        ![네트워크 및 호스트 이름](../assets/images/install-guide-cube-04-1.png){ align=center }
+        ![네트워크 및 호스트 이름](../assets/images/install-guide-cube-04-1.png){ .imgCenter .imgBorder }
         * Host name에 hostname을 입력합니다.
         !!! Tip
             일반적으로 호스트명은 "ablecube23"과 같이 ablecube + 넘버링 형태로 지정하면 향후 관리가 용이합니다.
@@ -60,16 +60,16 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
         * 호스트 이름 설정한 후, 해당 하는 NIC를 선택합니다.
 
     2. 자동 우선 순위 설정
-        ![자동 우선 순위 설정](../assets/images/install-guide-cube-04-2.png){ align=center }
+        ![자동 우선 순위 설정](../assets/images/install-guide-cube-04-2.png){ .imgCenter .imgBorder }
         - **General** 탭에서 **Connect automatically with priority** 를 선택 하여 기본 값 **0** 으로 설정합니다.
 
     3. IP 설정
-        ![IP 설정](../assets/images/install-guide-cube-04-3.png){ align=center }
+        ![IP 설정](../assets/images/install-guide-cube-04-3.png){ .imgCenter .imgBorder }
         - IP 설정을 수동으로 할 시 **Manual** 을 선택합니다.
         - 미리 설정 해둔 **Address** , **Netmask** , **Gateway** , **DNS** 를 입력합니다.
 
     4. 네트워크 활성화
-        ![네트워크 활성화](../assets/images/install-guide-cube-04-4.png){ align=center }
+        ![네트워크 활성화](../assets/images/install-guide-cube-04-4.png){ .imgCenter .imgBorder }
 
         !!! check
             IP 설정을 다 한 후, 꼭 NIC를 활성화 하여야 합니다.
@@ -80,7 +80,7 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
 5. 설치 대상 구성 화면
     - PowerFlex Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.
 
-    ![설치 대상](../assets/images/install-guide-cube-06.png){ align=center }
+    ![설치 대상](../assets/images/install-guide-cube-06.png){ .imgCenter .imgBorder }
 
     !!! note
         디스크 장치 목록은 디스크 구성 및 종류,수량에 따라 다르게 표시될 수 있습니다.
@@ -92,23 +92,23 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
 
     * 저장소 구성항목을 **Custom** 을 선택한 후 Done를 클릭합니다.
 
-    ![설치 대상](../assets/images/install-guide-cube-06-01.png){ align=center }
+    ![설치 대상](../assets/images/install-guide-cube-06-01.png){ .imgCenter .imgBorder }
 
     * **Click here to create them automatically** 을 클릭하면 해당화면으로 이동됩니다
 
     1. 파티션 구성 화면 1-2
-        ![파티션 구성 1-2](../assets/images/install-guide-cube-07.png){ align=center }
+        ![파티션 구성 1-2](../assets/images/install-guide-cube-07.png){ .imgCenter .imgBorder }
         * 해당 화면은 파티션을 구성하는 화면입니다.
         * **/home** 파티션 선택 후 아래 **-** 버튼을 클릭하여 home 파티션을 삭제합니다.
     2. 파티션 구성 화면 2-2
-        ![파티션 구성 2-2](../assets/images/install-guide-cube-08.png){ align=center }
+        ![파티션 구성 2-2](../assets/images/install-guide-cube-08.png){ .imgCenter .imgBorder }
         * **swap 파티션 선택 후 희망 용량** 의 입력 값에 **32GiB(최소 권장)** 을 입력 후 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
         !!! info
             **swap** 파티션은 서버 메모리 크기와 같은 크기로 설정하는 것을 권장합니다.</br>
             디스크의 크기가 여유롭지 못하면 **32GiB 이상** 을 권장합니다.
 
     3. 파티션 구성 화면 3-2
-        ![파티션 구성 3-2](../assets/images/install-guide-cube-09.png){ align=center }
+        ![파티션 구성 3-2](../assets/images/install-guide-cube-09.png){ .imgCenter .imgBorder }
         * **/(root파티션)** 파티션 선택 후 **희망 용량** 나머지 전체의 용량을 할당하고 **설정 업데이트** 버튼을 클릭하여 파티션 용량 재설정 합니다.
         * 파티션 구성 완료 후 **Done** 버튼을 클릭하여 파티션 설정을 마무리 합니다.
 
@@ -122,30 +122,30 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
 
 
 7. PowerFlex Cube 구성 마무리
-    ![PowerFlex Cube 구성 마무리](../assets/images/install-guide-cube-12.png){ align=center }
+    ![PowerFlex Cube 구성 마무리](../assets/images/install-guide-cube-12.png){ .imgCenter .imgBorder }
     - PowerFlex Cube 설정 완료 후 **Begin installation** 버튼을 클릭하여 PowerFlex 설치를 진행 합니다.
 
-    ![PowerFlex Cube 구성 마무리](../assets/images/install-guide-cube-12-1.png){ align=center }
+    ![PowerFlex Cube 구성 마무리](../assets/images/install-guide-cube-12-1.png){ .imgCenter .imgBorder }
 
     - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되어 있는 ABLESTACK ISO 또는 USB를 제거하여 PowerFlex Cube 설치를 마무리 합니다.
 
-    ![PowerFlex Cube 설치완료](../assets/images/install-guide-cube-13.png){ align=center }
+    ![PowerFlex Cube 설치완료](../assets/images/install-guide-cube-13.png){ .imgCenter .imgBorder }
     - 설치가 정상적으로 완료되면 PowerFlex 콘솔 로그인 화면이 보이게 됩니다.
 
 ## PowerFlex Cube Network 셋팅
 
 1. PowerFlex Cube 로그인
-    ![PowerFlex Cube 로그인](../assets/images/install-guide-cube-14.png){ align=center }
+    ![PowerFlex Cube 로그인](../assets/images/install-guide-cube-14.png){ .imgCenter .imgBorder }
     - PowerFlex Cube 로그인 화면입니다.
     - 접속 URL은 **호스트IP:9090** 입니다
     - 사용자 이름은 **root** 를 암호는 초기 암호를 입력하여, 원하시는 비밀번호로 변경한 후, **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
 
 2. PowerFlex Cube 메인 화면
-    ![PowerFlex Cube 메인 화면](../assets/images/install-guide-cube-15.png){ align=center }
+    ![PowerFlex Cube 메인 화면](../assets/images/install-guide-cube-15.png){ .imgCenter .imgBorder }
     - PowerFlex Cube 로그인 후 화면입니다.
 
 3. PowerFlex Cube 네트워킹 구성
-    ![PowerFlex Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ align=center }
+    ![PowerFlex Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ .imgCenter .imgBorder }
     - PowerFlex Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
 
     !!! note
@@ -162,15 +162,15 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
         **본 설치 가이드는 Storage Network가 NIC pass-through 이며, 본드구성 없이 단일 NIC로 구성된 형태 입니다.**
 
     1. Management Network 본드 설정
-        ![Management Network 본드 설정](../assets/images/install-guide-cube-16.png){ align=center }
+        ![Management Network 본드 설정](../assets/images/install-guide-cube-16.png){ .imgCenter .imgBorder }
         - 화면 중간 버튼 그룹 중 **본드 추가** 버튼을 클릭하면 보이는 화면이며, 본드을 설정하는 팝업 화면입니다.
-        ![Management Network 본드 구성](../assets/images/install-guide-cube-16-1.png){ align=center }
+        ![Management Network 본드 구성](../assets/images/install-guide-cube-16-1.png){ .imgCenter .imgBorder }
         - 본드 이름을 **bond0** 을 입력해주고, 연결장치는 **Management NIC** 를 선택하고 **추가** 버튼을 클릭합니다.
 
     2. Management Network 브릿지 설정
-        ![Management Network 브릿지 설정](../assets/images/install-guide-cube-17.png){ align=center }
+        ![Management Network 브릿지 설정](../assets/images/install-guide-cube-17.png){ .imgCenter .imgBorder }
         - 화면 중간 버튼그룹 중 **브릿지 추가** 버튼을 클릭하면 보이는 화면이며, 브릿지를 설정하는 팝업 화면입니다.
-        ![Management Network 브릿지 구성](../assets/images/install-guide-cube-18.png){ align=center }
+        ![Management Network 브릿지 구성](../assets/images/install-guide-cube-18.png){ .imgCenter .imgBorder }
         - 브릿지 이름을 **bridge0** 을 입력해주고, 연결장치는 **bond 0** 를 선택하고 **저장** 버튼을 클릭합니다.
 
         !!! info
@@ -179,12 +179,12 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
             브릿지의 IP 설정은 PowerFlex Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
 
     3. Public Storage Network 설정
-        ![Public Storage Network 설정](../assets/images/install-guide-cube-19.png){ align=center }
+        ![Public Storage Network 설정](../assets/images/install-guide-cube-19.png){ .imgCenter .imgBorder }
         - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **Public Storage** 로 사용할 NIC를 클릭하여 들어온 화면입니다.
 
 
         1. Public Storage Network IP 설정
-            ![Public Storage Network IP 설정](../assets/images/install-guide-cube-20.png){ align=center }
+            ![Public Storage Network IP 설정](../assets/images/install-guide-cube-20.png){ .imgCenter .imgBorder }
             - IPv4 항목의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
             - 주소 입력 창의 오른쪽에 있는 **자동(DHCP)** 선택 박스를 눌러 **수동** 으로 변경을 합니다.
             - **Address** 입력창에 **사전에 지정한 IP** 를 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
@@ -196,12 +196,12 @@ PowerFlex Cube를 설치 진행 가이드 입니다.
 
 
         2. Public Storage Network MTU 설정
-            ![Public Storage Network MTU 설정](../assets/images/install-guide-cube-20-1.png){ align=center }
+            ![Public Storage Network MTU 설정](../assets/images/install-guide-cube-20-1.png){ .imgCenter .imgBorder }
             - MTU 항목의 **편집** 버튼을 눌러 들어온 MTU 설정 화면입니다.
             - 라디오 버튼을 **설정** 으로 선택하고 입력값을 **9000** 으로 입력 후에 **적용** 버튼을 클릭합니다.
 
         3. Public Storage 자동연결 및 활성화 설정
-            ![Public Storage 자동연결 및 활성화 설정](../assets/images/install-guide-cube-21.png){ align=center }
+            ![Public Storage 자동연결 및 활성화 설정](../assets/images/install-guide-cube-21.png){ .imgCenter .imgBorder }
             - 입력이 끝난 후 저장 후, **자동으로 연결** 버튼을 클릭하여 활성화 합니다.
 
             !!! check

@@ -6,12 +6,12 @@
 
 ## 사용자 데이터 조회
 사용자 데이터 목록을 확인하는 화면입니다. 생성된 사용자 데이터 목록을 확인하거나 사용자 데이터에 대한 이름, UUID, 계정, 도메인등 정보를 확인할 수 있습니다.
-![사용자 데이터 목록 조회](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-1.png){ align=center }
+![사용자 데이터 목록 조회](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-1.png){ .imgCenter .imgBorder }
 
 ## 사용자 데이터 등록
 새로운 사용자 데이터를 생성할 수 있습니다.
-![사용자 데이터 등록](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-2.png){ align=center }
-![사용자 데이터 등록](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-3.png){ align=center }
+![사용자 데이터 등록](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-2.png){ .imgCenter .imgBorder }
+![사용자 데이터 등록](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-3.png){ .imgCenter .imgBorder }
 
  - **이름** :사용자 데이터의 이름을 입력합니다.
  - **Userdata** : 사용자 데이터를 입력합니다.
@@ -44,16 +44,16 @@
 
 ## 사용자 데이터 삭제
 사용자 데이터 상세 화면 오른쪽 상단의 사용자 데이터 삭제 버튼을 클릭하여 사용자 데이터를 삭제할 수 있습니다.
-![사용자 데이터 삭제](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-4.png){ align=center }
-![사용자 데이터 삭제](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-5.png){ align=center }
+![사용자 데이터 삭제](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-4.png){ .imgCenter .imgBorder }
+![사용자 데이터 삭제](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-5.png){ .imgCenter .imgBorder }
 
 ## 사용자 데이터 상세 정보
 사용자 데이터에 대한 상세 정보를 확인하는 화면입니다. 우측 화면에서는 목록이름, UUID, Userdata, 계정, 도메인등 상세 정보를 확인할 수 있습니다.
-![사용자 데이터 상세 정보](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-6.png){ align=center }
+![사용자 데이터 상세 정보](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-6.png){ .imgCenter .imgBorder }
 
 ## 사용자 데이터 코멘트
 사용자 데이터에 대한 코멘트를 확인하는 화면입니다.
-![사용자 데이터 이벤트](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-7.png){ align=center }
+![사용자 데이터 이벤트](../../assets/images/admin-guide/mold/compute/userdata/mold-admin-guide-compute-userdata-7.png){ .imgCenter .imgBorder }
 
 
 ## 용어사전
@@ -68,4 +68,3 @@
     * 클라우드 인스턴스의 초기화 과정에서 사용되며, cloud-init이라는 도구를 통해 실행됩니다.
     * YAML 형식으로 작성되며, 인스턴스 시작 시 자동으로 파싱되어 초기화 작업을 수행합니다.
     * VM 생성 시 사용자 데이터를 통해 cloud-config 스크립트를 전달할 수 있습니다.
-

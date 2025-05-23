@@ -8,11 +8,11 @@
 초기 구성 혹은 운영 중 Secondary Storage VM Agent 상태가 "disconnect" 혹은 "Alert" 상태가 되어 2차 스토리지와 관련된 작업에 에러가 있거나 2차 스토리지 용량 표기가 안되는 현상
 </span>
 
-![Mold 대시보드 2차스토리지 오류](../assets/images/mold_secondarystorage_error.png){ align=center }
+![Mold 대시보드 2차스토리지 오류](../assets/images/mold_secondarystorage_error.png){ .imgCenter .imgBorder }
 
  ssvm에 접속해서
- 
- (접속하는 방법은 웹에서 웹콘솔로 접속하거나 ssvm 이 있는 호스트에 접속해서 virsh console s-oo-oo 로 접속) 
+
+ (접속하는 방법은 웹에서 웹콘솔로 접속하거나 ssvm 이 있는 호스트에 접속해서 virsh console s-oo-oo 로 접속)
 
 tail -f /var/log/cloud.log 를 확인하여 다음과 같은 에러메시지가 나온다면
 
@@ -81,16 +81,16 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
     ``` shell
     ceph-volume lvm zap /dev/{device_id} --destroy
     ```
-    
+
     !!! info
         해당 OSD가 어떤 디바이스인지 알기 위해서는 "ceph-volume lvm list"를 통하여 osd.id의 devices 정보를 확인
-(osd 정보가 남아있을 경우 다음 4,5 절차 진행)       
+(osd 정보가 남아있을 경우 다음 4,5 절차 진행)
 
 4. 장애가 발생한 OSD를 제거
     ``` shell
     ceph osd rm osd.{osd_id}
     ```
-5. 제거한 OSD를 Crushmap에서 제거   
+5. 제거한 OSD를 Crushmap에서 제거
     ``` shell
     ceph osd crush rm osd.{osd_id}
     ```
@@ -101,10 +101,10 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
 
     !!! note
         디스크를 추가 시에는 해당 초기 구성방법에 따라 Raid에 인식이 되어야 하며 OS 상에서도 인식이 되어야 합니다
-        경우에 따라서는 호스트 혹은 scvm의 재기동이 필요합니다.      
-    
+        경우에 따라서는 호스트 혹은 scvm의 재기동이 필요합니다.
+
 7. 추가된 디스크를 OSD로 배포
-    
+
     !!! info
         7번의 절차는 ceph 계정으로 실행하여야 합니다. "su - ceph "
 
@@ -116,7 +116,7 @@ SCVM에 접속하여 다음의 절차를 진행하여 교체
         [ceph_deploy.osd][DEBUG ] Deploying osd to scvm3 </br>
         [ceph_deploy.osd][ERROR ] RuntimeError: config file /etc/ceph/ceph.conf exists with different content; use --overwrite-conf to overwrite </br>
         [ceph_deploy][ERROR ] GenericError: Failed to create 1 OSDs
-    "/etc/ceph/ceph.conf" 파일을 ceph 계정 홈 디렉토리(현재작업중인 디렉토리)로 복사(이미 있는경우 덮어쓰기)한 후에 다시 실행 합니다.    
+    "/etc/ceph/ceph.conf" 파일을 ceph 계정 홈 디렉토리(현재작업중인 디렉토리)로 복사(이미 있는경우 덮어쓰기)한 후에 다시 실행 합니다.
 
 8. 배포된 OSD를 풀에 추가
     ``` shell
@@ -177,7 +177,7 @@ ceph auth del client.사용자명
 실제 데이터 사용은 미비하나 META가 비정상적으로 많이 사용되어 OSD의 (near)Full 이 발생하는 현상
 </span>
 
-![osdmetafull_error](../assets/images/osdmetafull_error.png){ align=center }
+![osdmetafull_error](../assets/images/osdmetafull_error.png){ .imgCenter .imgBorder }
 
 
 [<span style="color:#ff9900;">조치방법</span>]
@@ -202,7 +202,7 @@ ceph tell osd.\* compact
 스토리지 클러스터의 상태가 Warn 이고, 메시지가 "mons are allowing insecure global_id reclaim"로 나오는 경우
 </span>
 
-![osdmetafull_error](../assets/images/cluster_warn_reclaim.png){ align=center }
+![osdmetafull_error](../assets/images/cluster_warn_reclaim.png){ .imgCenter .imgBorder }
 
 Ceph 14.2.20 릴리스와 함께 Ceph 인증 프레임워크에서 보안 취약점이 해결되어 클러스터가 패치되면서 경고가 표시되는 현상
 

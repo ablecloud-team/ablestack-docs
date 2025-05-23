@@ -6,7 +6,7 @@ ABLESTACK 대시보드는 관리자가 인프라 전반의 상태를 한눈에 �
 ## 대시보드 조회
 
 1. 인프라 전반의 현황을 확인할 수 있습니다.
-    ![대시보드 조회](../../assets/images/admin-guide/mold/dashboard/dashboard.png){ align=center }
+    ![대시보드 조회](../../assets/images/admin-guide/mold/dashboard/dashboard.png){ .imgCenter .imgBorder }
 
      * 인프라스트럭쳐 카드
         * 시스템의 각 구성 요소에 대한 현황을 확인할 수 있습니다.

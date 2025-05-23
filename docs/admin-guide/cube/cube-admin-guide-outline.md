@@ -34,7 +34,7 @@ Cube 웹 콘솔을 사용하여 연결된 시스템을 다시 시작할 수 있�
     시스템 재시작 및 시스템 종료가 필요한 경우 사전에 해당 호스트의 운영중인 가상머신이 존재하는지 확인하여 다른 호스트로 마이그레이션 조치 후 진행하시기 바랍니다.
     확인이 어려우실 경우 기술지원 엔지니어를 통한 작업을 권고합니다.
 
-시스템 재시작 하려면 : 
+시스템 재시작 하려면 :
 
 1. 재시작 버튼을 클릭 합니다.
 ![전원 조작 버튼](../../assets/images/admin-guide/cube/outline/power-controll.png){ align=center }
@@ -48,7 +48,7 @@ Cube 웹 콘솔을 사용하여 연결된 시스템을 다시 시작할 수 있�
 
 Cube 웹 콘솔을 사용하여 연결된 시스템을 종료 할 수 있습니다.
 
-시스템 종료 하려면 : 
+시스템 종료 하려면 :
 
 1. 드롭다운 목록에서 종료를 선택합니다.
 ![전원 조작 버튼](../../assets/images/admin-guide/cube/outline/power-controll.png){ align=center }
@@ -127,6 +127,3 @@ Cube 웹 콘솔을 사용하여 선택한 작업에 대한 시스템 성능을 �
 ![시스템 성능 최적화 확인](../../assets/images/admin-guide/cube/outline/performance-profile.png){ align=center }
 
 * **프로파일 변경** 을 클릭 합니다.
-
-
-

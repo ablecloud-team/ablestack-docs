@@ -28,16 +28,16 @@ Works 는 사용자에게 효과적인 DaaS 서비스 제공을 위해 다음과
 ## 아키텍처
 
 Works는 DaaS(Desktop as a Service) 플랫폼으로, ABLESTACK Mold로 구성된 가상화 서비스에서 데스크탑 가상머신을 제공할 수 있습니다.
-Mold에서 데스크톱 서비스를 활성화 시키고, Mold를 통하여 데스크톱 클러스터를 계정별로 배포할 수 있습니다. 배포된 데스크톱 클러스터에서 관리자 웹 서비스를 제공하며 
+Mold에서 데스크톱 서비스를 활성화 시키고, Mold를 통하여 데스크톱 클러스터를 계정별로 배포할 수 있습니다. 배포된 데스크톱 클러스터에서 관리자 웹 서비스를 제공하며
 해당 웹 서비스를 이용하여 사용자용 데스크톱 가상머신을 생성 및 배포 할수 있습니다.
 
-![works-platform-architecture-01](../assets/images/works-platform-architecture-01.png){ align=center }
+![works-platform-architecture-01](../assets/images/works-platform-architecture-01.png){ .imgCenter .imgBorder }
 
 ### 관리자 포털
 
 Works 관리자는 워크스페이스, 데스크탑 가상머신, 데스크탑 사용자, 그룹 정책 등을 관리하며 모든 행위는 웹 서비스인 Works 관리자 포털 서비스를 이용하게 됩니다.
 
-![works-platform-architecture-02](../assets/images/works-platform-architecture-02.png){ align=center }
+![works-platform-architecture-02](../assets/images/works-platform-architecture-02.png){ .imgCenter .imgBorder }
 ![works-dashboard](../assets/images/works-admin-dashboard.png)
 ![works-admin-workspaces](../assets/images/works-admin-workspaces.png)
 
@@ -46,7 +46,7 @@ Works 관리자는 워크스페이스, 데스크탑 가상머신, 데스크탑 �
 Works 사용자는 관리자가 생성하고 할당한 데스크탑 가상머신에 접속하기 위해 해당 포털을 이용하여 접근 합니다.
 해당 포털에 접속 하면 사용자에게 할당된 데스크탑 가상머신 리스트를 확인 할 수 있으며, 해당 포털을 이용하여 웹 브라우저에서 데스크탑 가상머신을 사용 할 수 있습니다.
 
-![works-platform-architecture-03](../assets/images/works-platform-architecture-03.png){ align=center }
+![works-platform-architecture-03](../assets/images/works-platform-architecture-03.png){ .imgCenter .imgBorder }
 
 ![works-user-desktop-list](../assets/images/works-user-desktop-list.png)
 ![works-user-desktop-webcon3](../assets/images/works-user-desktop-webcon3.png)

@@ -26,37 +26,37 @@ ABLESTACK Mold를 통해 가상머신을 생성할 때, 선택적으로 압축/�
 압축/중복제거 기능을 사용하기 위해서는 디스크 오퍼링 및 서비스 오퍼링에 압축/중복제거 옵션이 적용되어 있어야 사용할 수 있습니다.
 
 ## 압축/중복제거 컴퓨트 오퍼링 생성 방법
-![압축/중복제거 컴퓨트 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-01.png){ align=center }
-![압축/중복제거 컴퓨트 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-02.png){ align=center }
+![압축/중복제거 컴퓨트 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-01.png){ .imgCenter .imgBorder }
+![압축/중복제거 컴퓨트 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-02.png){ .imgCenter .imgBorder }
 
 - 서비스 오퍼링 > 컴퓨트 오퍼링 메뉴에서 **컴퓨트 오퍼링 추가** 버튼을 클릭하여 서비스 오퍼링 생성 화면을 볼러온다.
 - 오퍼링 생성 방식에 따라 값을 입력한다.
 - **압축/중복제거** 옵션을 클릭하여 전용 디스크에 압축/중복제거 기능을 적용한다.
 - 확인 버튼을 클릭하여 컴퓨트 오퍼링을 생성한다.
 
-![압축/중복제거 컴퓨트 오퍼링 목록 화면](../../assets/images/compress-dedup/compress-dedup-03.png){ align=center }
+![압축/중복제거 컴퓨트 오퍼링 목록 화면](../../assets/images/compress-dedup/compress-dedup-03.png){ .imgCenter .imgBorder }
 
 - 생성된 컴퓨트 오퍼링을 확인한다.
 
 ## 압축/중복제거 디스크 오퍼링 생성 방법
-![압축/중복제거 디스크 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-04.png){ align=center }
-![압축/중복제거 디스크 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-05.png){ align=center }
+![압축/중복제거 디스크 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-04.png){ .imgCenter .imgBorder }
+![압축/중복제거 디스크 오퍼링 생성 화면](../../assets/images/compress-dedup/compress-dedup-05.png){ .imgCenter .imgBorder }
 
 - 서비스 오퍼링 > 디스크 오퍼링 메뉴에서 **디스크 오퍼링 추가** 버튼을 클릭하여 디스크 오퍼링 생성 화면을 볼러온다.
 - 오퍼링 생성 방식에 따라 값을 입력한다.
 - **압축/중복제거** 옵션을 클릭하여 전용 디스크에 압축/중복제거 기능을 적용한다.
 - 확인 버튼을 클릭하여 디스크 오퍼링을 생성한다.
 
-![압축/중복제거 디스크 오퍼링 목록 화면](../../assets/images/compress-dedup/compress-dedup-06.png){ align=center }
+![압축/중복제거 디스크 오퍼링 목록 화면](../../assets/images/compress-dedup/compress-dedup-06.png){ .imgCenter .imgBorder }
 
 - 생성된 디스크 오퍼링을 확인한다.
 
 ## ISO를 통한 압축/중복제거 ROOT 디스크 가상머신 생성
 ISO를 이용하여 가상머신을 만들때 압축/중복제거가 적용된 디스크 오퍼링으로 ROOT 디스크를 생성하여 가상머신을 만드는 방법을 확인할 수 있습니다.
 
-![ISO를 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-07.png){ align=center }
-![ISO를 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-08.png){ align=center }
-![ISO를 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-09.png){ align=center }
+![ISO를 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-07.png){ .imgCenter .imgBorder }
+![ISO를 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-08.png){ .imgCenter .imgBorder }
+![ISO를 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-09.png){ .imgCenter .imgBorder }
 
 - 컴퓨트 > 가상머신 메뉴에서 **가상머신 추가** 버튼을 클릭하여 가상머신 생성 화면을 볼러온다.
 - 가상머신 생성에 따라 필요 값을 입력한다.
@@ -70,12 +70,12 @@ ISO를 이용하여 가상머신을 만들때 압축/중복제거가 적용된 �
 !!! tip
     ISO를 이용하여 가상머신 만들면 가상머신의 볼륨에 따라 자동적으로 압축/중복제거가 적용된 템플릿으로 생성됩니다.
 
-![압축/중복제거 VM 템플릿 생성 화면](../../assets/images/compress-dedup/compress-dedup-10.png){ align=center }
+![압축/중복제거 VM 템플릿 생성 화면](../../assets/images/compress-dedup/compress-dedup-10.png){ .imgCenter .imgBorder }
 
 - 스토리지 > 볼륨 메뉴에서 템플릿 생성할 ROOT 디스크를 선택하여 상세 화면으로 이동한다.
 - **볼륨으로 템플릿 생성** 버튼을 클릭한다.
 
-![압축/중복제거 VM 템플릿 생성 화면](../../assets/images/compress-dedup/compress-dedup-11.png){ align=center }
+![압축/중복제거 VM 템플릿 생성 화면](../../assets/images/compress-dedup/compress-dedup-11.png){ .imgCenter .imgBorder }
 
 - **이름** 정보를 입력 합니다.
 - **설명** 정보를 입력 합니다.
@@ -89,7 +89,7 @@ ISO를 이용하여 가상머신을 만들때 압축/중복제거가 적용된 �
 ## 템플릿을 통한 압축/중복제거 ROOT 디스크 가상머신 생성
 템플릿을 이용하여 가상머신을 만들때 압축/중복제거가 적용된 디스크 오퍼링으로 ROOT 디스크를 생성하여 가상머신을 만드는 방법을 확인할 수 있습니다.
 
-![템플릿을 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-12.png){ align=center }
+![템플릿을 활용한 ROOT 디스크 압축/중복제거 적용 가상머신 생성 화면](../../assets/images/compress-dedup/compress-dedup-12.png){ .imgCenter .imgBorder }
 
 - 컴퓨트 > 가상머신 메뉴에서 **가상머신 추가** 버튼을 클릭하여 가상머신 생성 화면을 볼러온다.
 - 가상머신 생성에 따라 필요 값을 입력한다.
@@ -100,7 +100,7 @@ ISO를 이용하여 가상머신을 만들때 압축/중복제거가 적용된 �
 
 ## 압축/중복제거 DATA 볼륨 생성
 압축/중복제거 적용된 디스크 오퍼링으로 DATA 디스크를 생성할 수 있는 기능을 제공합니다.
-![압축/중복제거 DATA 볼륨 생성](../../assets/images/compress-dedup/compress-dedup-14.png){ align=center }
+![압축/중복제거 DATA 볼륨 생성](../../assets/images/compress-dedup/compress-dedup-14.png){ .imgCenter .imgBorder }
 
 - **이름** 정보를 입력 합니다.
 - **디스크 오퍼링** 정보를 압축/중복제거가 적용된 디스크 오퍼링을 입력 합니다.
@@ -108,35 +108,35 @@ ISO를 이용하여 가상머신을 만들때 압축/중복제거가 적용된 �
 
 ## 압축/중복제거 DATA 볼륨 연결
 압축/중복제거 적용된 디스크 오퍼링으로 DATA 디스크를 연결할 수 있는 기능을 제공합니다.
-![압축/중복제거 DATA 볼륨 연결](../../assets/images/compress-dedup/compress-dedup-15.png){ align=center }
+![압축/중복제거 DATA 볼륨 연결](../../assets/images/compress-dedup/compress-dedup-15.png){ .imgCenter .imgBorder }
 
 - 스토리지 > 볼륨 메뉴화면에서 연결할 디스크 액션버튼 중 디스크 연결 버튼을 클릭한다.
 
-![압축/중복제거 DATA 볼륨 연결](../../assets/images/compress-dedup/compress-dedup-16.png){ align=center }
+![압축/중복제거 DATA 볼륨 연결](../../assets/images/compress-dedup/compress-dedup-16.png){ .imgCenter .imgBorder }
 
 - **VM ID** 정보를 입력 합니다.
 - 확인 버튼을 클릭하여 디스크를 연결 한다.
 
-![압축/중복제거 DATA 볼륨 연결](../../assets/images/compress-dedup/compress-dedup-17.png){ align=center }
+![압축/중복제거 DATA 볼륨 연결](../../assets/images/compress-dedup/compress-dedup-17.png){ .imgCenter .imgBorder }
 
 - 압축/중복제거가 적용된 /dev/sdb 100GiB가 적용된 것을 확인할 수 있다.
 
 ## 압축/중복제거 DATA 볼륨 해제
 압축/중복제거 적용된 디스크 오퍼링으로 DATA 디스크를 해제할 수 있는 기능을 제공합니다.
-![압축/중복제거 DATA 볼륨 해제](../../assets/images/compress-dedup/compress-dedup-18.png){ align=center }
+![압축/중복제거 DATA 볼륨 해제](../../assets/images/compress-dedup/compress-dedup-18.png){ .imgCenter .imgBorder }
 
 - 스토리지 > 볼륨 메뉴화면에서 해제할 디스크 액션버튼 중 디스크 연결 버튼을 클릭한다.
 
-![압축/중복제거 DATA 볼륨 해제](../../assets/images/compress-dedup/compress-dedup-19.png){ align=center }
+![압축/중복제거 DATA 볼륨 해제](../../assets/images/compress-dedup/compress-dedup-19.png){ .imgCenter .imgBorder }
 
 - 확인 버튼을 클릭하여 디스크를 해제 한다.
 
-![압축/중복제거 DATA 볼륨 해제](../../assets/images/compress-dedup/compress-dedup-20.png){ align=center }
+![압축/중복제거 DATA 볼륨 해제](../../assets/images/compress-dedup/compress-dedup-20.png){ .imgCenter .imgBorder }
 
 - 압축/중복제거가 적용된 /dev/sdb 100GiB가 해제된 것을 확인할 수 있다.
 
 ## 압축/중복제거 볼륨 정보 Mold 확인
-![압축/중복제거 볼륨 정보 Mold 확인](../../assets/images/compress-dedup/compress-dedup-21.png){ align=center }
+![압축/중복제거 볼륨 정보 Mold 확인](../../assets/images/compress-dedup/compress-dedup-21.png){ .imgCenter .imgBorder }
 
 - 스토리지 > 볼륨 메뉴화면에서 정보를 확인할 디스크 이름을 클릭 상세정보를 확인한다.
 - **크기** 는 할당한 디스크 크기 입니다.
@@ -148,26 +148,26 @@ ISO를 이용하여 가상머신을 만들때 압축/중복제거가 적용된 �
 
 ## 압축/중복제거 볼륨 정보 CLI 확인
 ABLECUBE 호스트에서 실행하여 확인 가능합니다.
-![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-22.png){ align=center }
+![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-22.png){ .imgCenter .imgBorder }
 
 - virsh list로 실행중인 가상머신 확인
 
-![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-23.png){ align=center }
+![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-23.png){ .imgCenter .imgBorder }
 
 - virsh edit <가상머신 ID> 명령으로 xml 확인
 
-![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-24.png){ align=center }
+![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-24.png){ .imgCenter .imgBorder }
 
 - disk > block > source에 vg_...ablestack_kvdo 확인하여 압축/중복제거 적용된 이미지 여부 확인 가능
 
-![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-25.png){ align=center }
+![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-25.png){ .imgCenter .imgBorder }
 
 - pvs 목록에 vg_... 로 이름으로 적용된 pv가 있는지 확인
 
-![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-26.png){ align=center }
+![압축/중복제거 볼륨 정보 CLI 확인](../../assets/images/compress-dedup/compress-dedup-26.png){ .imgCenter .imgBorder }
 
 - vgs 목록에 vg_... 이름으로 생성된 vg가 있는지 확인
 
-![압축/중복제거 DATA 볼륨 생성 화면](../../assets/images/compress-dedup/compress-dedup-27.png){ align=center }
+![압축/중복제거 DATA 볼륨 생성 화면](../../assets/images/compress-dedup/compress-dedup-27.png){ .imgCenter .imgBorder }
 
 - lvs 목록에 vg_... 이름으로 된 lv가 있는지 확인

@@ -14,7 +14,7 @@ Glue 가상머신을 클러스터링 하여 NFS 서비스를 제공하는 클러
 NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를 설정 및 관리할 수 있습니다.
 
 ## Glue NFS 메인 화면
-![Glue NFS 메인 화면](../../assets/images/glue-service/install-guide-glue-nfs-main-01.png){ align=center }
+![Glue NFS 메인 화면](../../assets/images/glue-service/install-guide-glue-nfs-main-01.png){ .imgCenter .imgBorder }
 - ABLESTACK 메인 화면에서 상단 NFS 메뉴를 클릭한 화면입니다.
 
 !!! info
@@ -29,14 +29,14 @@ NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를
     ABLESTACK Glue Network File System Cluster 서비스는 한 번에 여러 서비스를 사용하는 것보다 하나의 서비스를 선호합니다.
 
 1. Glue NFS Cluster 구성
-    ![Glue NFS Cluster 구성 준비](../../assets/images/glue-service/install-guide-glue-nfs-cluster-create-01.png){ align=center }
+    ![Glue NFS Cluster 구성 준비](../../assets/images/glue-service/install-guide-glue-nfs-cluster-create-01.png){ .imgCenter .imgBorder }
     - **NFS Cluster** 카드란에 **추가** 버튼을 클릭합니다.
-    ![Glue NFS Cluster 구성](../../assets/images/glue-service/install-guide-glue-nfs-cluster-create-02.png){ align=center }
+    ![Glue NFS Cluster 구성](../../assets/images/glue-service/install-guide-glue-nfs-cluster-create-02.png){ .imgCenter .imgBorder }
     - **NFS 클러스터 이름** 정보를 입력 합니다.
     - **배치 호스트** 정보를 선택 합니다.
     - **포트 번호** 정보를 입력 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NFS Cluster 구성 완료](../../assets/images/glue-service/install-guide-glue-nfs-cluster-create-03.png){ align=center }
+    ![Glue NFS Cluster 구성 완료](../../assets/images/glue-service/install-guide-glue-nfs-cluster-create-03.png){ .imgCenter .imgBorder }
     - NFS 서비스가 구성된 화면입니다.
 
     !!! info
@@ -45,28 +45,28 @@ NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를
 ## Glue NFS Cluster 수정
 
 1. Glue NFS Cluster 수정
-    ![Glue NFS 수정 준비](../../assets/images/glue-service/install-guide-glue-nfs-cluster-update-01.png){ align=center }
+    ![Glue NFS 수정 준비](../../assets/images/glue-service/install-guide-glue-nfs-cluster-update-01.png){ .imgCenter .imgBorder }
     - NFS Cluster 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **NFS Cluster 수정** 버튼을 클릭합니다.
-    ![Glue NFS 수정](../../assets/images/glue-service/install-guide-glue-nfs-cluster-update-02.png){ align=center }
+    ![Glue NFS 수정](../../assets/images/glue-service/install-guide-glue-nfs-cluster-update-02.png){ .imgCenter .imgBorder }
     - **NFS 클러스터 이름** 을 확인 합니다.
     - 변경될 **배치 호스트** 정보를 선택합니다.
     - 변경될 **포트 번호** 정보를 입력합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NFS 수정 완료](../../assets/images/glue-service/install-guide-glue-nfs-cluster-update-03.png){ align=center }
+    ![Glue NFS 수정 완료](../../assets/images/glue-service/install-guide-glue-nfs-cluster-update-03.png){ .imgCenter .imgBorder }
     - 수정된 화면입니다.
 
 
 ## Glue NFS Cluster 삭제
 
 1. Glue NFS Cluster 삭제
-    ![Glue NFS 삭제 준비](../../assets/images/glue-service/install-guide-glue-nfs-cluster-delete-01.png){ align=center }
+    ![Glue NFS 삭제 준비](../../assets/images/glue-service/install-guide-glue-nfs-cluster-delete-01.png){ .imgCenter .imgBorder }
     - NFS Cluster 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **NFS Cluster 삭제** 버튼을 클릭합니다.
-    ![Glue NFS 삭제](../../assets/images/glue-service/install-guide-glue-nfs-cluster-delete-02.png){ align=center }
+    ![Glue NFS 삭제](../../assets/images/glue-service/install-guide-glue-nfs-cluster-delete-02.png){ .imgCenter .imgBorder }
     - **데이터가 삭제됩니다. 예, 확실히 삭제합니다.** 체크를 활성화 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NFS 삭제 완료](../../assets/images/glue-service/install-guide-glue-nfs-cluster-delete-03.png){ align=center }
+    ![Glue NFS 삭제 완료](../../assets/images/glue-service/install-guide-glue-nfs-cluster-delete-03.png){ .imgCenter .imgBorder }
     - 삭제가 된 화면입니다.
 
 ## Glue NFS Export 생성
@@ -75,9 +75,9 @@ NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를
     Glue NFS Cluster Service의 상태가 모두 정상으로 실행 되는지 확인 후, 작업 하시길 바랍니다.
 
 1. Glue NFS Export 생성
-    ![Glue NFS Export 생성 준비](../../assets/images/glue-service/install-guide-glue-nfs-export-create-01.png){ align=center }
+    ![Glue NFS Export 생성 준비](../../assets/images/glue-service/install-guide-glue-nfs-export-create-01.png){ .imgCenter .imgBorder }
     - NFS Export 카드란에 **추가** 버튼을 클릭합니다.
-    ![Glue NFS Export 생성](../../assets/images/glue-service/install-guide-glue-nfs-export-create-02.png){ align=center }
+    ![Glue NFS Export 생성](../../assets/images/glue-service/install-guide-glue-nfs-export-create-02.png){ .imgCenter .imgBorder }
     - **내보내기 경로** 정보를 입력합니다.
     - **NFS 클러스터 이름** 정보를 선택합니다.
     - **스토리지 타입** 정보를 선택합니다.
@@ -86,16 +86,16 @@ NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를
     - **접근 타입** 정보를 선택합니다.
     - **스쿼시** 정보를 선택합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NFS Export 생성 완료](../../assets/images/glue-service/install-guide-glue-nfs-export-create-03.png){ align=center }
+    ![Glue NFS Export 생성 완료](../../assets/images/glue-service/install-guide-glue-nfs-export-create-03.png){ .imgCenter .imgBorder }
     - 생성된 화면입니다.
 
 ## Glue NFS Export 수정
 
 1. Glue NFS Export 수정
-    ![Glue NFS Export 수정 준비](../../assets/images/glue-service/install-guide-glue-nfs-export-update-01.png){ align=center }
+    ![Glue NFS Export 수정 준비](../../assets/images/glue-service/install-guide-glue-nfs-export-update-01.png){ .imgCenter .imgBorder }
     - NFS Export 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **NFS Export 수정** 버튼을 클릭합니다.
-    ![Glue NFS Export 수정](../../assets/images/glue-service/install-guide-glue-nfs-export-update-02.png){ align=center }
+    ![Glue NFS Export 수정](../../assets/images/glue-service/install-guide-glue-nfs-export-update-02.png){ .imgCenter .imgBorder }
     - 변경될 **내보내기 경로** 정보를 입력합니다.
     - 변경될 **NFS 클러스터 이름** 정보를 선택합니다.
     - 변경될 **스토리지 타입** 정보를 선택합니다.
@@ -104,32 +104,32 @@ NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를
     - 변경될 **접근 타입** 정보를 선택합니다.
     - 변경될 **스쿼시** 정보를 선택합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NFS Export 수정 완료](../../assets/images/glue-service/install-guide-glue-nfs-export-update-03.png){ align=center }
+    ![Glue NFS Export 수정 완료](../../assets/images/glue-service/install-guide-glue-nfs-export-update-03.png){ .imgCenter .imgBorder }
     - 변경된 화면입니다.
 
 ## Glue NFS Export 삭제
 
 1. Glue NFS Export 삭제
-    ![Glue NFS Export 삭제 준비](../../assets/images/glue-service/install-guide-glue-nfs-export-delete-01.png){ align=center }
+    ![Glue NFS Export 삭제 준비](../../assets/images/glue-service/install-guide-glue-nfs-export-delete-01.png){ .imgCenter .imgBorder }
     - NFS Export 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **NFS Export 삭제** 버튼을 클릭합니다.
-    ![Glue NFS Export 삭제](../../assets/images/glue-service/install-guide-glue-nfs-export-delete-02.png){ align=center }
+    ![Glue NFS Export 삭제](../../assets/images/glue-service/install-guide-glue-nfs-export-delete-02.png){ .imgCenter .imgBorder }
     - **예, 확실히 삭제합니다.** 란에 체크를 활성화 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NFS Export 삭제 완료](../../assets/images/glue-service/install-guide-glue-nfs-export-delete-03.png){ align=center }
+    ![Glue NFS Export 삭제 완료](../../assets/images/glue-service/install-guide-glue-nfs-export-delete-03.png){ .imgCenter .imgBorder }
     - 삭제된 화면입니다.
 
 ## Glue NFS 실사용 방법
 
 ### Glue FS Service 확인 및 Glue NFS용 Subvolume Group 확인
 1. Glue FS Service 확인 및 Glue NFS용 Subvolume Group 확인
-    ![Glue FS Service 확인 및 Glue NFS용 Subvolume Group 확인](../../assets/images/glue-service/install-guide-glue-fs-actual-use-02.png){ align=center }
+    ![Glue FS Service 확인 및 Glue NFS용 Subvolume Group 확인](../../assets/images/glue-service/install-guide-glue-fs-actual-use-02.png){ .imgCenter .imgBorder }
     - Glue FS Service 및 Glue NFS Subvolume Group을 확인하는 화면입니다.
     - Glue NFS 용 **이름** , **경로** , **할당 용량** 정보를 확인 합니다.
 
 ### Glue NFS Cluster Service 확인 및 Glue NFS Export 확인
 2. Glue NFS Cluster Service 확인 및 Glue NFS Export 확인
-    ![Glue NFS Cluster Service 확인 및 Glue NFS Export 확인](../../assets/images/glue-service/install-guide-glue-nfs-actual-use-01.png){ align=center }
+    ![Glue NFS Cluster Service 확인 및 Glue NFS Export 확인](../../assets/images/glue-service/install-guide-glue-nfs-actual-use-01.png){ .imgCenter .imgBorder }
     - Glue NFS Cluster Service 및 Glue NFS Export를 확인하는 화면입니다.
     - Glue NFS Cluster Service의 **상태** , **호스트 명** , **PORT** 정보를 확인 합니다.
     - Glue NFS Export의 **내보내기 경로** , **접근 타입** , **Sqaush** 정보를 확인 합니다.
@@ -162,4 +162,3 @@ NFS Export의 내보내기 경로, GlueFS, 프로토콜, 접근타입, Squash를
     또는
     df -h | grep /mnt/nfs
     ```
-
