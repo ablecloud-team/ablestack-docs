@@ -8,19 +8,19 @@ Site-to-site VPN은 고객의 데이터 센터와 ABLESTACK 클라우드 인프�
 
 1. Site-to-site VPN 목록을 확인하는 화면입니다.
     생성된 Site-to-site VPN 목록을 확인하거나 VPN 게이트웨이 추가 버튼을 클릭하여 Site-to-site VPN을 생성할 수 있습니다.
-    ![sts vpn 목록 조회](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-list.png){ align=center }
+    ![sts vpn 목록 조회](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-list.png){ .imgCenter .imgBorder }
 
 ## VPN 게이트웨이 추가
 
 1. VPN 게이트웨이 추가 버튼 클릭 하여 VPN 게이트웨이 추가 화면을 호출합니다.
-    
-    ![sts vpn 추가 버튼](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-add-btn.png){ align=center }
-    
+
+    ![sts vpn 추가 버튼](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-add-btn.png){ .imgCenter .imgBorder }
+
     * **VPN 게이트웨이 추가** 버튼을 클릭하여 VPN 게이트웨이 추가 화면을 호출합니다.
 
 2. VPN 게이트웨이 추가를 위한 항목을 입력합니다.
-    ![vpn 추가](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-add.png){ align=center }
-    
+    ![vpn 추가](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-add.png){ .imgCenter .imgBorder }
+
     * **VPC:** VPC를 선택합니다.
     * **확인** 버튼을 클릭하여 VPN 게이트웨이를 생성합니다.
 
@@ -28,11 +28,11 @@ Site-to-site VPN은 고객의 데이터 센터와 ABLESTACK 클라우드 인프�
 
 1. VPN 게이트웨이를 삭제할 수 있습니다.
 
-    ![vpn 게이트웨이 삭제 버튼](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-remove-btn.png){ align=center }
+    ![vpn 게이트웨이 삭제 버튼](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-remove-btn.png){ .imgCenter .imgBorder }
 
     * **VPN 게이트웨이 삭제** 버튼을 클릭하여 VPN 게이트웨이 삭제 화면을 호출합니다.
 
-    ![vpn 게이트웨이 삭제 화면](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-remove.png){ align=center }
+    ![vpn 게이트웨이 삭제 화면](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-remove.png){ .imgCenter .imgBorder }
 
     * **확인** 버튼을 클릭하여 VPN 게이트웨이를 삭제합니다.
 
@@ -40,4 +40,4 @@ Site-to-site VPN은 고객의 데이터 센터와 ABLESTACK 클라우드 인프�
 
 1. VPN 게이트웨이에 대한 상세정보를 조회하는 화면입니다. 해당 VPN의 Public IP 주소, 계정, 도메인 등의 정보를 확인할 수 있습니다.
 
-    ![vpn 상세 탭](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-detail-tab.png){ align=center }
+    ![vpn 상세 탭](../../assets/images/admin-guide/mold/network/sitetosite-vpn/stsvpn-detail-tab.png){ .imgCenter .imgBorder }

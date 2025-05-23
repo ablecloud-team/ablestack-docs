@@ -8,4 +8,4 @@ ABLESTACK 클라우드 인프라에서 사용되는 하이퍼바이저 별 호�
 
 1. CPU 소켓 현황을 확인하는 화면입니다.
 
-    ![CPU 소켓 현황 조회](../../assets/images/admin-guide/mold/infrastructure/cpu-sockets/cpu-socket-list.png){ align=center }
+    ![CPU 소켓 현황 조회](../../assets/images/admin-guide/mold/infrastructure/cpu-sockets/cpu-socket-list.png){ .imgCenter .imgBorder }

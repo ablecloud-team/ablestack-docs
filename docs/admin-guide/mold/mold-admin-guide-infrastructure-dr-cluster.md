@@ -11,17 +11,17 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 1. 재난 복구 클러스터 목록을 확인하는 화면입니다.
     생성된 재난 복구 클러스터 목록을 확인할 수 있습니다.
-    ![dr cluster 목록 조회](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-list.png){ align=center }
+    ![dr cluster 목록 조회](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-list.png){ .imgCenter .imgBorder }
 
 ## 재난 복구 클러스터 추가
 
 1. 재난 복구 클러스터 추가 버튼 클릭 하여 재난 복구 클러스터 추가 팝업을 호출합니다.
-    
-    ![재난 복구 클러스터 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-add-btn.png){ align=center }
+
+    ![재난 복구 클러스터 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-add-btn.png){ .imgCenter .imgBorder }
 
 2. 재난 복구 클러스터 추가를 위한 항목을 입력합니다.
 
-    ![재난 복구 클러스터 추가 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-add.png){ align=center }
+    ![재난 복구 클러스터 추가 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-add.png){ .imgCenter .imgBorder }
 
     * **이름:** 이름을 입력합니다.
     * **설명:** 설명을 입력합니다.
@@ -39,11 +39,11 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 1. 재난 복구 클러스터를 편집할 수 있습니다.
 
-    ![재난 복구 클러스터 편집 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-update-btn.png){ align=center }
+    ![재난 복구 클러스터 편집 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-update-btn.png){ .imgCenter .imgBorder }
 
     * **재난 복구 클러스터 편집** 버튼을 클릭하여 재난 복구 클러스터 편집 화면을 호출합니다.
 
-    ![재난 복구 클러스터 편집 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-update.png){ align=center }
+    ![재난 복구 클러스터 편집 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-update.png){ .imgCenter .imgBorder }
 
     * **확인** 버튼을 클릭하여 재난 복구 클러스터를 편집합니다.
 
@@ -51,11 +51,11 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 1. 재난 복구 클러스터를 강제 프로모트할 수 있습니다.
 
-    ![재난 복구 클러스터 강제 프로모트 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-force-promote-btn.png){ align=center }
+    ![재난 복구 클러스터 강제 프로모트 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-force-promote-btn.png){ .imgCenter .imgBorder }
 
     * **재난 복구 클러스터 프로모트** 버튼을 클릭하여 재난 복구 클러스터 강제 프로모트 화면을 호출합니다.
 
-    ![재난 복구 클러스터 강제 프로모트 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-force-promote.png){ align=center }
+    ![재난 복구 클러스터 강제 프로모트 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-force-promote.png){ .imgCenter .imgBorder }
 
     * **확인** 버튼을 클릭하여 재난 복구 클러스터를 강제 프로모트합니다.
 
@@ -66,11 +66,11 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 1. 재난 복구 클러스터 동기화할 수 있습니다.
 
-    ![재난 복구 클러스터 동기화 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-resync-btn.png){ align=center }
+    ![재난 복구 클러스터 동기화 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-resync-btn.png){ .imgCenter .imgBorder }
 
     * **재난 복구 클러스터 동기화** 버튼을 클릭하여 재난 복구 클러스터 강제 디모트 화면을 호출합니다.
 
-    ![재난 복구 클러스터 강제 디모트 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-resync.png){ align=center }
+    ![재난 복구 클러스터 강제 디모트 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-resync.png){ .imgCenter .imgBorder }
 
     * **확인** 버튼을 클릭하여 재난 복구 클러스터를 강제 디모트합니다.
 
@@ -81,11 +81,11 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 1. 재난 복구 클러스터 가비지 삭제할 수 있습니다.
 
-    ![재난 복구 클러스터 가비지 삭제 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-clear-btn.png){ align=center }
+    ![재난 복구 클러스터 가비지 삭제 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-clear-btn.png){ .imgCenter .imgBorder }
 
     * **재난 복구 클러스터 가비지 삭제** 버튼을 클릭하여 재난 복구 클러스터 가비지 삭제 화면을 호출합니다.
 
-    ![재난 복구 클러스터 가비지 삭제 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-clear.png){ align=center }
+    ![재난 복구 클러스터 가비지 삭제 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-clear.png){ .imgCenter .imgBorder }
 
     * **확인** 버튼을 클릭하여 재난 복구 클러스터 가비지를 삭제합니다.
 
@@ -93,11 +93,11 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 1. 재난 복구 클러스터 삭제할 수 있습니다.
 
-    ![재난 복구 클러스터 삭제 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-delete-btn.png){ align=center }
+    ![재난 복구 클러스터 삭제 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-delete-btn.png){ .imgCenter .imgBorder }
 
     * **재난 복구 클러스터 삭제** 버튼을 클릭하여 재난 복구 클러스터 삭제 화면을 호출합니다.
 
-    ![재난 복구 클러스터 삭제 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-delete.png){ align=center }
+    ![재난 복구 클러스터 삭제 화면](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-delete.png){ .imgCenter .imgBorder }
 
     * **확인** 버튼을 클릭하여 재난 복구 클러스터를 삭제합니다.
 
@@ -105,42 +105,42 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 1. 재난 복구 클러스터에 대한 상세정보를 조회하는 화면입니다. 해당 재난 복구 클러스터의 이름, 아이디, 설명, 클러스터 타입, 클러스터 URL, 클러스터 상태, 미러링 에이전트 상태 등의 정보를 확인할 수 있습니다.
 
-    ![dr cluster 상세 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-detail-tab.png){ align=center }
+    ![dr cluster 상세 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-detail-tab.png){ .imgCenter .imgBorder }
 
 ## 가상머신 탭
 
 1. DR 구성된 Secondary 클러스터와 Primary 클러스터에 동기화된 가상머신 정보를 확인할 수 있습니다.
 
-    ![dr cluster 가상머신 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-vm-tab.png){ align=center }
+    ![dr cluster 가상머신 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-vm-tab.png){ .imgCenter .imgBorder }
 
 ## 설정 탭
 
 1. 재난 복구 클러스터에서 사용하는 설정을 조회 및 관리하는 화면입니다. 해당 재난 복구 클러스터 설정 정보를 편집하고 초기값으로 원복할 수 있습니다.
 
-    ![설정 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-setting-tab.png){ align=center }
+    ![설정 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-setting-tab.png){ .imgCenter .imgBorder }
 
 ### 편집
 
 1. 재난 복구 클러스터에서 설정 값을 변경합니다.
 
-    ![설정 편집](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-setting-update-btn.png){ align=center }
+    ![설정 편집](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-setting-update-btn.png){ .imgCenter .imgBorder }
 
-    * 설정 값을 수정후 확인 버튼을 클릭하여 해당 재난 복구 클러스에 설정 값을 변경합니다. 
+    * 설정 값을 수정후 확인 버튼을 클릭하여 해당 재난 복구 클러스에 설정 값을 변경합니다.
 
 ### 기본값으로 재설정
 
 1. 기본 스토리지의 설정 값을 초기값으로 재설정합니다.
 
-    ![기본값으로 재설정](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-setting-reset-btn.png){ align=center }
+    ![기본값으로 재설정](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-setting-reset-btn.png){ .imgCenter .imgBorder }
 
 ## 이벤트 탭
 
 1. 재난 복구 클러스터에 관련된 이벤트 정보를 확인할 수 있는 화면입니다. 재난 복구 클러스터에서 발생한 다양한 액션과 변경 사항을 쉽게 파악할 수 있습니다.
 
-    ![dr cluster 이벤트 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-events-tab.png){ align=center }
+    ![dr cluster 이벤트 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-events-tab.png){ .imgCenter .imgBorder }
 
 ## 코멘트 탭
 
 1. 재난 복구 클러스터에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 재난 복구 클러스터에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
 
-    ![dr cluster 코멘트 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-comments-tab.png){ align=center }
+    ![dr cluster 코멘트 탭](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-comments-tab.png){ .imgCenter .imgBorder }

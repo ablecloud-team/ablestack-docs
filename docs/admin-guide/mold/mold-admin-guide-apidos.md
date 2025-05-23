@@ -7,4 +7,4 @@ ABLESTACK API Docs 메뉴는 Mold의 기능을 프로그래밍적으로 제어�
 
 1. ABLESTACK Mold에서 사용 가능한 API 목록을 제공합니다. 목록을 선택하여 API를 요청 및 응답 파라미터를 확인할 수 있습니다.
 
-    ![API 문서 조회](../../assets/images/admin-guide/mold/apidocs/apidocs-list.png){ align=center }
+    ![API 문서 조회](../../assets/images/admin-guide/mold/apidocs/apidocs-list.png){ .imgCenter .imgBorder }

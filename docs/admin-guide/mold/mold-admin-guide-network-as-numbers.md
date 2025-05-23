@@ -8,4 +8,4 @@ AS Numbers는 동적 라우팅을 설정하는 데 필수적인 요소입니다.
 
 1. AS Numbers 목록을 확인할 수 있습니다.
     Zone에 할당된 AS Number의 AS Number, 할당 상태, AS Rnage, 연결된 네트워크 이름 등 다양한 정보를 확인할 수 있습니다.
-    ![AS Numbers 목록 조회](../../assets/images/admin-guide/mold/network/asnumbers/asnumber-list.png){ align=center }
+    ![AS Numbers 목록 조회](../../assets/images/admin-guide/mold/network/asnumbers/asnumber-list.png){ .imgCenter .imgBorder }

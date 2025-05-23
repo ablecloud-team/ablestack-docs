@@ -6,6 +6,6 @@ Cube 대시보드는 관리자가 호스트의 정보를 한눈에 확인할 수
 ## 개요 조회
 
 1. 인프라 전반의 현황을 확인할 수 있습니다.
-    ![대시보드 조회](../../assets/images/admin-guide/cube/outline/outline.png){ align=center }
+    ![대시보드 조회](../../assets/images/admin-guide/cube/outline/outline.png){ .imgCenter .imgBorder }
 
 이 대시보드는 관리자에게 호스트의 현황을 직관적으로 제공하여 호스트의 전반적인 상태를 한눈에 확인할 수 있습니다.

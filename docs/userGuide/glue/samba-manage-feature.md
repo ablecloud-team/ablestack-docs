@@ -14,7 +14,7 @@ ABLESTACK Cube의 웹콘솔로 진행되며, 웹 접속 IP는 별도의 표시�
 Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수 있습니다. 또한 사용자 정보를 관리할 수 있습니다.
 
 ## Glue Samba 메인 화면
-![Glue Samba 메인 화면](../../assets/images/glue-service/install-guide-glue-smb-main-01.png){ align=center }
+![Glue Samba 메인 화면](../../assets/images/glue-service/install-guide-glue-smb-main-01.png){ .imgCenter .imgBorder }
 - ABLESTACK 메인 화면에서 상단 SMB 메뉴를 클릭한 화면입니다.
 
 !!! note
@@ -33,9 +33,9 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
     따라서, Glue Samba 서비스를 설정할 때는 초기화 과정이 완료된 후에 서비스를 생성하여 최적의 성능을 유지하시기 바랍니다.
 
 1. Glue Samba 일반용 서비스 생성
-    ![Glue Samba 일반용 서비스 생성 준비](../../assets/images/glue-service/install-guide-glue-smb-normal-create-01.png){ align=center }
+    ![Glue Samba 일반용 서비스 생성 준비](../../assets/images/glue-service/install-guide-glue-smb-normal-create-01.png){ .imgCenter .imgBorder }
     - Glue Samba 일반용 서비스 더보기란에 **SMB 서비스 구성** 버튼을 클릭합니다.
-    ![Glue Samba 일반용 서비스 생성](../../assets/images/glue-service/install-guide-glue-smb-normal-create-02.png){ align=center }
+    ![Glue Samba 일반용 서비스 생성](../../assets/images/glue-service/install-guide-glue-smb-normal-create-02.png){ .imgCenter .imgBorder }
     - **호스트** 정보를 확인 합니다.
     - **SMB 공유 폴더 명** 정보를 입력 합니다.
     - **SMB 마운트 경로** 정보를 확인 합니다.
@@ -45,7 +45,7 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
     - **User 이름** 정보를 입력 합니다.
     - **User 비밀번호** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
-    ![Glue Samba 일반용 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-smb-normal-create-03.png){ align=center }
+    ![Glue Samba 일반용 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-smb-normal-create-03.png){ .imgCenter .imgBorder }
     - Glue Samba 일반용 서비스가 구성된 화면입니다.
 
 !!! info
@@ -53,9 +53,9 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
     이는 파일 서버의 부하를 줄이고, 클라이언트가 네트워크 연결이 불안정하거나 없는 경우에도 파일을 계속 사용할 수 있게 합니다
 
 2. Glue Samba AD용 서비스 생성
-    ![Glue Samba AD용 서비스 생성 준비](../../assets/images/glue-service/install-guide-glue-smb-ads-create-01.png){ align=center }
+    ![Glue Samba AD용 서비스 생성 준비](../../assets/images/glue-service/install-guide-glue-smb-ads-create-01.png){ .imgCenter .imgBorder }
     - Glue Samba 서비스 더보기란에 **SMB 서비스 구성** 버튼을 클릭합니다.
-    ![Glue Samba AD용 서비스 생성](../../assets/images/glue-service/install-guide-glue-smb-ads-create-02.png){ align=center }
+    ![Glue Samba AD용 서비스 생성](../../assets/images/glue-service/install-guide-glue-smb-ads-create-02.png){ .imgCenter .imgBorder }
     - **호스트** 정보를 확인 합니다.
     - **SMB 공유 폴더 명** 정보를 입력 합니다.
     - **SMB 마운트 경로** 정보를 확인 합니다.
@@ -68,16 +68,16 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
     - **AD Realm** 정보를 입력 합니다.
     - **AD DNS IP** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
-    ![Glue Samba AD용 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-smb-ads-create-03.png){ align=center }
+    ![Glue Samba AD용 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-smb-ads-create-03.png){ .imgCenter .imgBorder }
     - Glue Samba AD용 서비스가 구성된 화면입니다.
 
 !!! info
     Glue Samba AD용 유저 관리는 Glue Samba Service단에서 제공하지 않습니다. AD Server를 가진 윈도우에서 관리 하시길 바랍니다.
 
 3. Glue Samba 다중 구성
-    ![Glue Samba 다중 구성 준비](../../assets/images/glue-service/install-guide-glue-smb-multiple-create-01.png){ align=center }
+    ![Glue Samba 다중 구성 준비](../../assets/images/glue-service/install-guide-glue-smb-multiple-create-01.png){ .imgCenter .imgBorder }
     - Glue Samba 서비스 카드란에 **다중 구성** 버튼을 클릭합니다.
-    ![Glue Samba 다중 구성](../../assets/images/glue-service/install-guide-glue-smb-multiple-create-02.png){ align=center }
+    ![Glue Samba 다중 구성](../../assets/images/glue-service/install-guide-glue-smb-multiple-create-02.png){ .imgCenter .imgBorder }
     - 필요한 **호스트** 정보를 선택 합니다.
     - **SMB 공유 폴더 명** 정보를 입력 합니다.
     - **SMB 마운트 경로** 정보를 확인 합니다.
@@ -90,7 +90,7 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
     - **AD Realm** 정보를 입력 합니다.
     - **AD DNS IP** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
-    ![Glue Samba 다중 구성 완료](../../assets/images/glue-service/install-guide-glue-smb-multiple-create-03.png){ align=center }
+    ![Glue Samba 다중 구성 완료](../../assets/images/glue-service/install-guide-glue-smb-multiple-create-03.png){ .imgCenter .imgBorder }
     - Glue Samba AD용 다중 구성 서비스가 구성된 화면입니다.
 
 !!! info
@@ -102,34 +102,34 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
 ## Glue Samba 서비스 삭제
 
 1. Glue Samba 서비스 삭제
-    ![Glue Samba 서비스 삭제 준비](../../assets/images/glue-service/install-guide-glue-smb-delete-01.png){ align=center }
+    ![Glue Samba 서비스 삭제 준비](../../assets/images/glue-service/install-guide-glue-smb-delete-01.png){ .imgCenter .imgBorder }
     - Glue Samba 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **Samba 서비스 삭제** 버튼을 클릭 합니다.
-    ![Glue Samba 서비스 삭제](../../assets/images/glue-service/install-guide-glue-smb-delete-02.png){ align=center }
+    ![Glue Samba 서비스 삭제](../../assets/images/glue-service/install-guide-glue-smb-delete-02.png){ .imgCenter .imgBorder }
     - **예, 확실히 삭제합니다.** 체크를 활성화 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue Samba 서비스 삭제 완료](../../assets/images/glue-service/install-guide-glue-smb-delete-03.png){ align=center }
+    ![Glue Samba 서비스 삭제 완료](../../assets/images/glue-service/install-guide-glue-smb-delete-03.png){ .imgCenter .imgBorder }
     - 삭제가 된 화면입니다.
 
 ## Glue Samba 일반용 User 생성
 
 1. Glue Samba 일반용 User 생성
-    ![Glue Samba 일반용 User 생성 준비](../../assets/images/glue-service/install-guide-glue-smb-user-create-01.png){ align=center }
+    ![Glue Samba 일반용 User 생성 준비](../../assets/images/glue-service/install-guide-glue-smb-user-create-01.png){ .imgCenter .imgBorder }
     - Glue Samba 서비스 더보기란에 **유저 생성** 버튼을 클릭합니다.
-    ![Glue Samba 일반용 User 생성](../../assets/images/glue-service/install-guide-glue-smb-user-create-02.png){ align=center }
+    ![Glue Samba 일반용 User 생성](../../assets/images/glue-service/install-guide-glue-smb-user-create-02.png){ .imgCenter .imgBorder }
     - **사용자 이름** 정보를 입력 합니다.
     - **비밀번호** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
-    ![Glue Samba 일반용 User 생성 완료](../../assets/images/glue-service/install-guide-glue-smb-user-create-03.png){ align=center }
+    ![Glue Samba 일반용 User 생성 완료](../../assets/images/glue-service/install-guide-glue-smb-user-create-03.png){ .imgCenter .imgBorder }
     - Samba 유저가 구성된 화면입니다.
 
 ## Glue Samba 일반용 User 조회 목록
 
 1. Glue Samba 일반용 User 조회 목록
-    ![Glue Samba 일반용 User 조회 목록](../../assets/images/glue-service/install-guide-glue-smb-user-select-01.png){ align=center }
+    ![Glue Samba 일반용 User 조회 목록](../../assets/images/glue-service/install-guide-glue-smb-user-select-01.png){ .imgCenter .imgBorder }
     - Glue Samba 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **유저 목록** 버튼을 클릭합니다.
-    ![Glue Samba 일반용 User 조회 목록1](../../assets/images/glue-service/install-guide-glue-smb-user-select-02.png){ align=center }
+    ![Glue Samba 일반용 User 조회 목록1](../../assets/images/glue-service/install-guide-glue-smb-user-select-02.png){ .imgCenter .imgBorder }
     - 추가된 **유저 이름** 정보를 확인 합니다.
     - 위 항목을 확인 후에 **취소** 버튼을 클릭 합니다.
 
@@ -140,10 +140,10 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
     비밀번호 변경을 확인하실려면 윈도우 접속을 통하여 확인하시길 바랍니다.
 
 1. Glue Samba 일반용 User 비밀번호 변경
-    ![Glue Samba 일반용 User 비밀번호 변경 준비](../../assets/images/glue-service/install-guide-glue-smb-user-passwd-change-01.png){ align=center }
+    ![Glue Samba 일반용 User 비밀번호 변경 준비](../../assets/images/glue-service/install-guide-glue-smb-user-passwd-change-01.png){ .imgCenter .imgBorder }
     - Glue Samba 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **유저 비밀번호 변경** 버튼을 클릭 합니다.
-    ![Glue Samba 일반용 User 비밀번호 변경](../../assets/images/glue-service/install-guide-glue-smb-user-passwd-change-02.png){ align=center }
+    ![Glue Samba 일반용 User 비밀번호 변경](../../assets/images/glue-service/install-guide-glue-smb-user-passwd-change-02.png){ .imgCenter .imgBorder }
     - **사용자** 정보를 선택 합니다.
     - **비밀번호** 정보를 입력 합니다.
     - **비밀번호 확인** 정보를 재입력 합니다.
@@ -152,13 +152,13 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
 ## Glue Samba 일반용 User 삭제
 
 1. Glue Samba 일반용 User 삭제
-    ![Glue Samba 일반용 User 삭제 준비](../../assets/images/glue-service/install-guide-glue-smb-user-delete-01.png){ align=center }
+    ![Glue Samba 일반용 User 삭제 준비](../../assets/images/glue-service/install-guide-glue-smb-user-delete-01.png){ .imgCenter .imgBorder }
     - Glue Samba 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **유저 삭제** 버튼을 클릭 합니다.
-    ![Glue Samba 일반용 User 삭제](../../assets/images/glue-service/install-guide-glue-smb-user-delete-02.png){ align=center }
+    ![Glue Samba 일반용 User 삭제](../../assets/images/glue-service/install-guide-glue-smb-user-delete-02.png){ .imgCenter .imgBorder }
     - 삭제할 **사용자** 정보를 선택 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue Samba 일반용 User 삭제 완료](../../assets/images/glue-service/install-guide-glue-smb-user-delete-03.png){ align=center }
+    ![Glue Samba 일반용 User 삭제 완료](../../assets/images/glue-service/install-guide-glue-smb-user-delete-03.png){ .imgCenter .imgBorder }
     - 삭제가 된 화면입니다.
 
 ## Glue Samba 실사용 방법
@@ -168,27 +168,27 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
 
 ### Glue Samba 일반용 및 AD용 서비스 확인
 1. Glue Samba 일반용 및 AD용 서비스 확인
-    ![Glue Samba 일반용 및 AD용 서비스 확인](../../assets/images/glue-service/install-guide-glue-smb-actual-use-01.png){ align=center }
+    ![Glue Samba 일반용 및 AD용 서비스 확인](../../assets/images/glue-service/install-guide-glue-smb-actual-use-01.png){ .imgCenter .imgBorder }
     - **호스트 및 IP** 정보를 확인 합니다.
     - **상태 및 보안 타입** 정보를 확인 합니다.
     - **SMB 공유 폴더** 정보를 확인 합니다.
 
 ### Samba 일반용 윈도우 가상머신 작업
 1. Samba 일반용 윈도우 가상머신 작업
-    ![윈도우 가상머신 작업](../../assets/images/glue-service/install-guide-glue-smb-actual-use-02.png){ align=center }
+    ![윈도우 가상머신 작업](../../assets/images/glue-service/install-guide-glue-smb-actual-use-02.png){ .imgCenter .imgBorder }
     - 사용하실 윈도우에 접속합니다.
-    ![윈도우 가상머신 작업1](../../assets/images/glue-service/install-guide-glue-smb-actual-use-03.png){ align=center }
+    ![윈도우 가상머신 작업1](../../assets/images/glue-service/install-guide-glue-smb-actual-use-03.png){ .imgCenter .imgBorder }
     - **파일 탐색기** 를 클릭 합니다.
     - **내 PC** 에서 마우스 오른쪽 클릭 하여 **네트워크 드라이브 연결** 을 클릭 합니다.
-    ![윈도우 가상머신 작업2](../../assets/images/glue-service/install-guide-glue-smb-actual-use-04.png){ align=center }
+    ![윈도우 가상머신 작업2](../../assets/images/glue-service/install-guide-glue-smb-actual-use-04.png){ .imgCenter .imgBorder }
     - **폴더** 에서 Glue Samba Service를 구성한 **IP** 와 **공유 폴더** 명을 입력 합니다.
     - **로그인할 때 다시 연결** 을 체크 합니다.
     - **다른 자격 증명을 사용하여 연결** 을 체크 합니다.
     - 위 항목들을 입력 및 확인 후에 **마침** 버튼을 클릭합니다.
-    ![윈도우 가상머신 작업3](../../assets/images/glue-service/install-guide-glue-smb-actual-use-05.png){ align=center }
+    ![윈도우 가상머신 작업3](../../assets/images/glue-service/install-guide-glue-smb-actual-use-05.png){ .imgCenter .imgBorder }
     - Glue Samba Service를 생성 할 때, 만들었던 **유저 이름** 과 **유저 패스워드** 를 입력 합니다.
     - 위 항목들을 입력 및 확인 후에 **확인** 버튼을 클릭합니다.
-    ![윈도우 가상머신 작업4](../../assets/images/glue-service/install-guide-glue-smb-actual-use-06.png){ align=center }
+    ![윈도우 가상머신 작업4](../../assets/images/glue-service/install-guide-glue-smb-actual-use-06.png){ .imgCenter .imgBorder }
     - 연결된 화면입니다.
     - **폴더 및 파일** 의 생성, 수정, 삭제가 되는 지 확인 하신 후, 사용 하시면 됩니다.
 
@@ -196,50 +196,50 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
 
 #### Samba AD Server 구성
 1. Samba AD Server 구성
-    ![AD 서버 구성1](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-01.png){ align=center }
+    ![AD 서버 구성1](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-01.png){ .imgCenter .imgBorder }
     - 사용한 OS는 window server 2019 버전 입니다. 사용자의 환경에 맞게 구성 하시길 바랍니다.
     - 사용하실 윈도우에 접속합니다.
     - **Add roles and features** 버튼을 클릭 합니다.
-    ![AD 서버 구성2](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-02.png){ align=center }
+    ![AD 서버 구성2](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-02.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성3](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-03.png){ align=center }
+    ![AD 서버 구성3](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-03.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성4](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-04.png){ align=center }
+    ![AD 서버 구성4](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-04.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성5](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-05.png){ align=center }
+    ![AD 서버 구성5](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-05.png){ .imgCenter .imgBorder }
     - **Active Directory Domain Services** 버튼을 체크 합니다.
     - **DNS Server** 버튼을 체크 합니다.
     - 후에 **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성6](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-06.png){ align=center }
+    ![AD 서버 구성6](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-06.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성7](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-07.png){ align=center }
+    ![AD 서버 구성7](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-07.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성8](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-08.png){ align=center }
+    ![AD 서버 구성8](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-08.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성9](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-09.png){ align=center }
+    ![AD 서버 구성9](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-09.png){ .imgCenter .imgBorder }
     - **Restart the destination server automatically if required** 버튼을 체크 합니다.
     - **Install** 버튼을 클릭 합니다.
-    ![AD 서버 구성10](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-10.png){ align=center }
+    ![AD 서버 구성10](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-10.png){ .imgCenter .imgBorder }
     - **Promote this server to a domain controller** 버튼을 클릭 합니다.
-    ![AD 서버 구성11](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-11.png){ align=center }
+    ![AD 서버 구성11](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-11.png){ .imgCenter .imgBorder }
     - **Add a new forest** 버튼을 체크 합니다.
     - **Root domain name** 입력란엔 설정한 도메인 이름을 입력 합니다.
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성12](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-12.png){ align=center }
+    ![AD 서버 구성12](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-12.png){ .imgCenter .imgBorder }
     - **Password** 입력란에 설정한 패스워드를 입력 합니다.
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성13](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-13.png){ align=center }
+    ![AD 서버 구성13](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-13.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성14](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-14.png){ align=center }
+    ![AD 서버 구성14](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-14.png){ .imgCenter .imgBorder }
     - **NetBIOS domain name** 은 자동으로 설정 됩니다.
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성15](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-15.png){ align=center }
+    ![AD 서버 구성15](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-15.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성16](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-16.png){ align=center }
+    ![AD 서버 구성16](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-16.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![AD 서버 구성17](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-17.png){ align=center }
+    ![AD 서버 구성17](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-17.png){ .imgCenter .imgBorder }
     - **Install** 버튼을 클릭 하여 설치를 진행 합니다.
-    ![AD 서버 구성18](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-18.png){ align=center }
+    ![AD 서버 구성18](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-18.png){ .imgCenter .imgBorder }
     - 모든 설치가 완료 되고, 자동 재시작 후 구성된 화면입니다.
 
 #### Samba Hyper-V 관리자 구성
@@ -247,44 +247,44 @@ Glue 가상머신 별 SMB 서비스를 제공 및 활성화 하고 관리할 수
     앞의 구성 부분은 Samba AD용 구성 부분과 동일 합니다.
 
 2. Samba Hyper-V 관리자 구성
-    ![hyper-v 서버 구성1](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-19.png){ align=center }
+    ![hyper-v 서버 구성1](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-19.png){ .imgCenter .imgBorder }
     - **Hyper-V** 버튼을 체크 합니다.
     - 후에 **Next** 버튼을 클릭 합니다.
-    ![hyper-v 서버 구성2](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-20.png){ align=center }
+    ![hyper-v 서버 구성2](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-20.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![hyper-v 서버 구성3](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-21.png){ align=center }
+    ![hyper-v 서버 구성3](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-21.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![hyper-v 서버 구성4](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-22.png){ align=center }
+    ![hyper-v 서버 구성4](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-22.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![hyper-v 서버 구성5](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-23.png){ align=center }
+    ![hyper-v 서버 구성5](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-23.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![hyper-v 서버 구성6](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-24.png){ align=center }
+    ![hyper-v 서버 구성6](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-24.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭 합니다.
-    ![hyper-v 서버 구성7](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-25.png){ align=center }
+    ![hyper-v 서버 구성7](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-25.png){ .imgCenter .imgBorder }
     - **Restart the destination server automatically if required** 버튼을 체크 합니다.
     - **Install** 버튼을 클릭 합니다.
-    ![hyper-v 서버 구성8](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-26.png){ align=center }
+    ![hyper-v 서버 구성8](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-26.png){ .imgCenter .imgBorder }
     - 모든 설치가 완료 되고, 자동 재시작 후 구성된 화면입니다.
 
 #### Samba AD용 사용 방법
 3. Samba AD용 사용 방법
-    ![Samba AD용 사용 방법1](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-27.png){ align=center }
+    ![Samba AD용 사용 방법1](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-27.png){ .imgCenter .imgBorder }
     - 왼쪽 상단에 **Hyper-V** 버튼을 클릭 합니다.
     - 해당 서버를 오른쪽 마우스 클릭 하여 **Hyper-V 관리자** 버튼을 클릭 합니다.
-    ![Samba AD용 사용 방법2](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-28.png){ align=center }
+    ![Samba AD용 사용 방법2](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-28.png){ .imgCenter .imgBorder }
     - 사용 했던 가상 컴퓨터의 디스크를 찾기 위해 오른쪽 마우스를 클릭 하여 **설정** 을 클릭 합니다.
-    ![Samba AD용 사용 방법3](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-29.png){ align=center }
+    ![Samba AD용 사용 방법3](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-29.png){ .imgCenter .imgBorder }
     - 왼쪽 탭에서 복사할 하드 드라이브를 클릭 하여 **경로** 를 복사 합니다.
-    ![Samba AD용 사용 방법4](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-30.png){ align=center }
+    ![Samba AD용 사용 방법4](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-30.png){ .imgCenter .imgBorder }
     - **파일 탐색기** 를 사용하여 해당 **경로** 로 접속 합니다.
     - 복사할 디스크를 선택하여 **복사** 를 진행 합니다.
-    ![Samba AD용 사용 방법5](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-31.png){ align=center }
+    ![Samba AD용 사용 방법5](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-31.png){ .imgCenter .imgBorder }
     - Samba 공유 폴더에 연결 하기 위해 **내 PC** -> **네트워크 드라이브 연결** 버튼을 클릭 합니다.
-    ![Samba AD용 사용 방법6](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-32.png){ align=center }
+    ![Samba AD용 사용 방법6](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-32.png){ .imgCenter .imgBorder }
     - Glue Samba Service 에서 AD용으로 구성된 **Storage Center 가상머신 IP 주소** 와 **공유 폴더명** 을 입력 합니다.
     - **로그인할 때 다시 연결** 및 **다른 자격 증명을 사용하여 연결** 부분을 해당 사항이 있을 경우 체크하여 **마침** 버튼을 클릭 합니다.
-    ![Samba AD용 사용 방법7](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-33.png){ align=center }
+    ![Samba AD용 사용 방법7](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-33.png){ .imgCenter .imgBorder }
     - Glue Samba Service에서 생성할 때의 **유저 이름** 과 **패스워드** 를 입력 합니다.
     - **확인** 버튼을 클릭 합니다.
-    ![Samba AD용 사용 방법8](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-34.png){ align=center }
+    ![Samba AD용 사용 방법8](../../assets/images/glue-service/install-guide-glue-smb-ads-actual-use-34.png){ .imgCenter .imgBorder }
     - 사용자의 환경에 맞게 **폴더** 를 생성하여 해당 **가상컴퓨터 디스크** 를 복사합니다.

@@ -15,7 +15,7 @@ NVMe-oF 프로토콜을 사용하면 클라이언트(이니시에이터)가 TCP/
 NVMe-oF Target을 생성하고 관리할 수 있습니다.
 
 ## Glue NVMe-oF 메인 화면
-![Glue NVMe-oF 메인 화면](../../assets/images/glue-service/install-guide-glue-nvmeof-main-01.png){ align=center }
+![Glue NVMe-oF 메인 화면](../../assets/images/glue-service/install-guide-glue-nvmeof-main-01.png){ .imgCenter .imgBorder }
 - ABLESTACK 메인 화면에서 상단 NVMe-oF 메뉴를 클릭한 화면입니다.
 
 !!! warning
@@ -37,13 +37,13 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     기존 데이터풀을 사용하실려면 이름(데이터풀)에서 사용하시면 됩니다.
 
 1. Glue NVMe-oF 서비스 생성
-    ![Glue NVMe-oF 서비스 생성 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-create-01.png){ align=center }
+    ![Glue NVMe-oF 서비스 생성 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-create-01.png){ .imgCenter .imgBorder }
     - Glue NVMe-oF 서비스 카드란에 **추가** 버튼을 클릭합니다.
-    ![Glue NVMe-oF 서비스 생성](../../assets/images/glue-service/install-guide-glue-nvmeof-create-02.png){ align=center }
+    ![Glue NVMe-oF 서비스 생성](../../assets/images/glue-service/install-guide-glue-nvmeof-create-02.png){ .imgCenter .imgBorder }
     - **이름(데이터풀)** 정보를 입력 합니다.
     - **배치 호스트** 정보를 선택 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
-    ![Glue NVMe-oF 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-create-03.png){ align=center }
+    ![Glue NVMe-oF 서비스 생성 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-create-03.png){ .imgCenter .imgBorder }
     - Glue NVMe-oF 서비스가 구성된 화면입니다.
     !!! info
         스토리지 서비스에 등록된 호스트만 배치가 가능합니다.
@@ -57,13 +57,13 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     ABLESTACK Glue NVMe-oF Target의 데이터는 이미지형태로 남아 있기에 서비스를 삭제하셔도 데이터는 존재합니다.
 
 1. Glue NVMe-oF 서비스 삭제
-    ![Glue NVMe-oF 서비스 삭제 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-delete-01.png){ align=center }
+    ![Glue NVMe-oF 서비스 삭제 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-delete-01.png){ .imgCenter .imgBorder }
     - Glue NVMe-oF 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **NVMe-oF 서비스 삭제** 버튼을 클릭 합니다.
-    ![Glue NVMe-oF 서비스 삭제](../../assets/images/glue-service/install-guide-glue-nvmeof-delete-02.png){ align=center }
+    ![Glue NVMe-oF 서비스 삭제](../../assets/images/glue-service/install-guide-glue-nvmeof-delete-02.png){ .imgCenter .imgBorder }
     - **예, 확실히 삭제합니다.** 체크를 활성화 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NVMe-oF 서비스 삭제 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-delete-03.png){ align=center }
+    ![Glue NVMe-oF 서비스 삭제 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-delete-03.png){ .imgCenter .imgBorder }
     - 삭제가 된 화면입니다.
 
 ## Glue NVMe-oF Target 생성
@@ -77,9 +77,9 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     커스터마이징이 필요할 시, NQN은 {nqn.yyyy-mm.naming-authority:unique}의 규칙을 따라야합니다. 이미지명은 무관합니다.
 
 1. Glue NVMe-oF Target 생성
-    ![Glue NVMe-oF Target 생성 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-target-create-01.png){ align=center }
+    ![Glue NVMe-oF Target 생성 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-target-create-01.png){ .imgCenter .imgBorder }
     - Glue NVMe-oF 카드란에 **추가** 버튼을 클릭합니다.
-    ![Glue NVMe-oF Target 생성](../../assets/images/glue-service/install-guide-glue-nvmeof-target-create-02.png){ align=center }
+    ![Glue NVMe-oF Target 생성](../../assets/images/glue-service/install-guide-glue-nvmeof-target-create-02.png){ .imgCenter .imgBorder }
     - **IQN** 정보를 입력 합니다.
     - **포탈** 정보를 선택 합니다.
     - **기존 이미지 사용** 시 정보를 체크 합니다.
@@ -87,7 +87,7 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     - **이미지 명** 정보를 입력 합니다.
     - **용량(GiB)** 정보를 입력 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭 합니다.
-    ![Glue NVMe-oF Target 생성 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-target-create-03.png){ align=center }
+    ![Glue NVMe-oF Target 생성 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-target-create-03.png){ .imgCenter .imgBorder }
     - Glue NVMe-oF 서비스가 구성된 화면입니다.
     !!! info
         Glue NVMe-oF 서비스에 등록된 호스트만 포탈 이용이 가능합니다.
@@ -100,20 +100,20 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     ABLESTACK Glue NVMe-oF Target의 데이터는 이미지형태로 남아 있기에 서비스를 삭제하셔도 데이터는 존재합니다.
 
 1. Glue NVMe-oF Target 삭제
-    ![Glue NVMe-oF Target 삭제 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-target-delete-01.png){ align=center }
+    ![Glue NVMe-oF Target 삭제 준비](../../assets/images/glue-service/install-guide-glue-nvmeof-target-delete-01.png){ .imgCenter .imgBorder }
     - Glue NVMe-oF 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **NVMe-oF 서비스 삭제** 버튼을 클릭 합니다.
-    ![Glue NVMe-oF Target 삭제](../../assets/images/glue-service/install-guide-glue-nvmeof-target-delete-02.png){ align=center }
+    ![Glue NVMe-oF Target 삭제](../../assets/images/glue-service/install-guide-glue-nvmeof-target-delete-02.png){ .imgCenter .imgBorder }
     - **예, 확실히 삭제합니다.** 체크를 활성화 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue NVMe-oF Target 삭제 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-target-delete-03.png){ align=center }
+    ![Glue NVMe-oF Target 삭제 완료](../../assets/images/glue-service/install-guide-glue-nvmeof-target-delete-03.png){ .imgCenter .imgBorder }
     - 삭제가 된 화면입니다.
 
 ## Glue NVMe-oF 실사용 방법
 
 ### Glue NVMe-oF Service 확인 및 NVMe-oF Target 확인
 1. Glue NVMe-oF Service 확인 및 NVMe-oF Target 확인
-    ![Glue NVMe-oF Service 확인](../../assets/images/glue-service/install-guide-glue-nvmeof-actual-use-01.png){ align=center }
+    ![Glue NVMe-oF Service 확인](../../assets/images/glue-service/install-guide-glue-nvmeof-actual-use-01.png){ .imgCenter .imgBorder }
     - Glue NVMe-oF Service 및 NVMe-oF Target을 확인하는 화면입니다.
     - Glue NVMe-oF Service **상태** , **배치 호스트** , **데이터 풀** , **API PORT** 정보를 확인 합니다.
     - Glue NVMe-oF Target의 **NQN** , **포탈** , **디스크 정보** 를 확인 합니다.</br>
@@ -166,4 +166,3 @@ NVMe-oF Target을 생성하고 관리할 수 있습니다.
     또는
     df -h | grep /mnt/test
     ```
-
