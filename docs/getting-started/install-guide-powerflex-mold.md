@@ -17,6 +17,17 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Mold 웹콘솔을 이용하여 진행�
     ![클라우드센터 가상머신 배포 개요](../assets/images/install-guide-powerflex-mold-cloudcenter-VM-deploy-overview.png){ .imgCenter .imgBorder }
     - 클라우드센터 가상머신 배포 개요 화면입니다. 개요의 내용을 확인 후 **다음** 버튼을 클릭합니다.
 
+2. 클라우드센터 가상머신 설정 - 클러스터 민감도
+    ![클라우드센터 가상머신 설정 - 클러스터 민감도](../assets/images/install-guide-powerflex-mold-cluster-sync.png){ .imgCenter .imgBorder }
+    - 클라우드센터 가상머신의 클러스터 민감도를 설정하는 화면입니다.
+    - **클라스터 민감도(초)** 입력란에 0 ~ 300초 사이에 해당하는 숫자를 입력하세요.
+
+    !!! info
+        클러스터 민감도 - 이는 노드 간 통신 지연, 장애 감지 속도, 장애 시 클러스터의 반응 방식 등을 결정하는 중요한 요소입니다.
+
+        예를 들어, 네트워크 상태가 불안정한 환경에서는 타이머 값을 조정하여 오탐(false positive)을 줄이고, 반대로 빠른 장애 감지가 필요한 경우 보다 민감하게 설정할 수 있습니다.
+
+        최소 0초에서 최대 300초 사이 시간 범위 내에 입력하시길 바랍니다.
 
 2. 클라우드센터 가상머신 설정 - 컴퓨트
     ![클라우드센터 가상머신 설정 - 컴퓨트](../assets/images/install-guide-powerflex-mold-cloudcenter-VM-config-compute.png){ .imgCenter .imgBorder }
@@ -30,9 +41,18 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Mold 웹콘솔을 이용하여 진행�
         ROOT Disk의 크기는 **500GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
 
 3. 클라우드센터 가상머신 설정 - 네트워크
-    ![클라우드센터 가상머신 설정 - 네트워크](../assets/images/install-guide-powerflex-mold-cloudcenter-VM-config-network.png){ .imgCenter .imgBorder }
-    - 클라우드센터 가상머신의 네트워크 설정하는 화면입니다.
-    - **관리네트워크** 선택 박스에서 **bridge0** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+        ![클라우드센터 가상머신 설정 - 네트워크](../assets/images/install-guide-powerflex-mold-cloudcenter-VM-config-network.png){ .imgCenter .imgBorder }
+        - 클라우드센터 가상머신의 네트워크 설정하는 화면입니다.
+        - **관리네트워크** 선택 박스에서 **bridge0** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-mold-network-ovs.png){ .imgCenter .imgBorder }
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
 
     !!! info
         관리 네트워크와 서비스 네트워크가 분리되여 있는 경우 그리고 외부에서 클라우드센터 웹콘솔에 접근해야 하는경우에는 **네트워크 구성** 항목에서
@@ -145,9 +165,20 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Mold 웹콘솔을 이용하여 진행�
     - 입력 정보 확인 후에 **다음** 버튼을 클릭 합니다.
 
 5. 클라우드센터 Zone 물리 네트워크
-   ![클라우드센터 Zone 물리 네트워크](../assets/images/install-guide-powerflex-mold-cloudcenter-physical-network.png){ .imgCenter .imgBorder }
-    - Zone 의 네트워크 정보를 확인하는 화면입니다.
-    - 입력된 정보를 확인 후 **다음** 버튼을 클릭합니다.
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+        ![클라우드센터 Zone 물리 네트워크](../assets/images/install-guide-powerflex-mold-cloudcenter-physical-network.png){ .imgCenter .imgBorder }
+        - Zone 의 네트워크 정보를 확인하는 화면입니다.
+        - 입력된 정보를 확인 후 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![OpenvSwitch 네트워크 구성할 경우 클라우드센터 Zone 물리 네트워크](../assets/images/install-guide-mold-cloudcenter-ovs-physical-network.png){ .imgCenter .imgBorder }
+
+        - **Isolation 메소드** 선택 박스에서 **GRE** 를 선택합니다.
+        - **트래픽 유형** 에서 **bridge0** 를 OpenvSwitch로 구성한 브릿지 네트워크인 **ovsbr0** 로 수정합니다.
 
 6. 클라우드센터 Zone 서비스용 네트워크 정보
     ![클라우드센터 Zone 서비스용 네트워크 정보](../assets/images/install-guide-powerflex-mold-cloudcenter-service-network.png){ .imgCenter .imgBorder }
@@ -252,13 +283,14 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Mold 웹콘솔을 이용하여 진행�
     ![호스트 라이선스 확인](../assets/images/install-guide-powerflex-mold-check-license.png){ .imgCenter .imgBorder }
     - 해당 하는 호스트 이름을 클릭하여 라이선스 유효기간을 확인할 수 있습니다.
 
-16. 호스트 고정 메모리 할당
+## 호스트 agent 구성
 
 !!! info
     PowerFlex구성 시 필요한 최소 3식의 x86 호스트 서버가 준비되어 있어야 하며, 스토리지센터 가상머신은 각 호스트당 1대씩, 클라우드센터 가상머신은 총 1대입니다.
 
     스토리지센터 가상머신과 클라우드센터 가상머신의 성능 안정화를 위해 **스토리지센터 가상머신(최소 32GB) + 클라우드센터 가상머신(최소 16GB) + 여유 용량 (A)** 가 필요합니다.
 
+### 호스트 고정 메모리 할당
 1. 호스트 agent 구성파일
     ![호스트 설정파일](../assets/images/install-guide-host-memory-add.png){ .imgCenter .imgBorder }
     - 호스트 Cube 터미널 화면입니다.
@@ -267,6 +299,22 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Mold 웹콘솔을 이용하여 진행�
 
     !!! check
         각 호스트에서 명령어를 실행해야 합니다.
+
+2. 호스트 cloudstack-agent 서비스 시작
+    ![호스트 클라우드 서비스](../assets/images/install-guide-host-memory-add-1.png){ .imgCenter .imgBorder }
+    - 터미널 명령어 **systemctl restart cloudstack-agent.service** 를 실행합니다.
+
+### 호스트 agent 파일 수정
+!!! check
+    각 호스트에서 명령어를 실행해야 합니다.
+
+#### Broadcom NIC 사용 시
+
+1. 호스트 agent 구성파일
+    ![호스트 설정파일](../assets/images/install-guide-host-ovs-add.png){ .imgCenter .imgBorder }
+    - 호스트 Cube 터미널 화면입니다.
+    - 터미널 명령어 **vi /etc/cloudstack/agent/agent.properties** 입력하고 Enter를 누릅니다.
+    - **libvirt.vif.driver=com.cloud.hypervisor.kvm.resource.OvsVifDriver** , **network.bridge.type=openvswitch** 라인을 추가하고 **:wq** 명령어로 저장합니다.
 
 2. 호스트 cloudstack-agent 서비스 시작
     ![호스트 클라우드 서비스](../assets/images/install-guide-host-memory-add-1.png){ .imgCenter .imgBorder }

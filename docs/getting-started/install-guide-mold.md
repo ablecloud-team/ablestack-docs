@@ -40,7 +40,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     ### Broadcom NIC 사용 시
     1. Broadcom NIC 사용 시
         OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
-        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-mold-network-ovs.png)
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-mold-network-ovs.png){ .imgCenter .imgBorder }
         - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
 
     !!! info
@@ -286,7 +286,6 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
 
     스토리지센터 가상머신과 클라우드센터 가상머신의 성능 안정화를 위해 **스토리지센터 가상머신(최소 32GB) + 클라우드센터 가상머신(최소 16GB) + 여유 용량 (A)** 가 필요합니다.
 
-
 ### 호스트 고정 메모리 할당
 1. 호스트 agent 구성파일
     ![호스트 설정파일](../assets/images/install-guide-host-memory-add.png){ .imgCenter .imgBorder }
@@ -302,15 +301,16 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Mold 웹콘솔을 이용하여 진행�
     - 터미널 명령어 **systemctl restart cloudstack-agent.service** 를 실행합니다.
 
 ### 호스트 agent 파일 수정
+!!! check
+    각 호스트에서 명령어를 실행해야 합니다.
+
 #### Broadcom NIC 사용 시
+
 1. 호스트 agent 구성파일
     ![호스트 설정파일](../assets/images/install-guide-host-ovs-add.png){ .imgCenter .imgBorder }
     - 호스트 Cube 터미널 화면입니다.
     - 터미널 명령어 **vi /etc/cloudstack/agent/agent.properties** 입력하고 Enter를 누릅니다.
     - **libvirt.vif.driver=com.cloud.hypervisor.kvm.resource.OvsVifDriver** , **network.bridge.type=openvswitch** 라인을 추가하고 **:wq** 명령어로 저장합니다.
-
-    !!! check
-        각 호스트에서 명령어를 실행해야 합니다.
 
 2. 호스트 cloudstack-agent 서비스 시작
     ![호스트 클라우드 서비스](../assets/images/install-guide-host-memory-add-1.png){ .imgCenter .imgBorder }
