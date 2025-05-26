@@ -236,6 +236,13 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
                 확인 후 다음 단계로 넘어가시길 바랍니다.
 
 ### Broadcom NIC 일 경우
+!!! check "OpenvSwitch 구성 가이드"
+    본 문서는 OpenvSwitch 설치 및 설정 방법을 단계별로 설명합니다.
+
+    또한, 사용자의 이해를 돕기 위해 **프레젠테이션 자료(PPT)** 형식도 함께 제공합니다.
+
+    해당 링크 클릭 시, 다운로드 됩니다.    <span style="font-size:1.5em;">&nbsp;&nbsp;👉 &nbsp;&nbsp; 🔗[OpenvSwitch 구성 가이드](../downloads/OpenvSwitch-Configuration-Guide.pptx)</span>
+
 !!! info
     ABLESTACK 제품에서 Broadcom NIC를 사용할 경우, 드라이버 및 기능 호환성 문제로 인해 OpenvSwtich로 구성하셔야 합니다.
 
@@ -252,6 +259,22 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         IPMI 콘솔 또는 직접 물리 콘솔을 통한 접근을 반드시 확보한 상태에서 진행하십시오.
 
         예기치 않은 연결 손실로 인해 시스템 제어가 불가능해질 수 있습니다.
+
+    #### OpenvSwitch 설치 및 서비스 설정
+    !!! check
+        현재 시스템에 OpenvSwitch가 설치되어 있지 않습니다.
+
+        해당 기능을 사용하기 위해서는 OpenvSwitch RPM 패키지를 먼저 설치한 후, 네트워크 구성을 진행해주시기 바랍니다.
+
+    ```
+    # 1. OpenvSwitch 관련 RPM 패키지 설치 (전체 호스트 실행)
+    dnf install -y /usr/share/ablestack/ovs/*.rpm
+
+    # 2. OpenvSwitch 서비스 활성화 및 KVM 기반 Network 서비스 재시작
+    systemctl enable --now openvswitch
+    systemctl restart NetworkManager
+
+    ```
 
     #### 단일 OpenvSwitch NIC 구성
     !!! check
@@ -280,6 +303,8 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 
     # 5. 기존 ens1f0np0 설정을 삭제하여 네트워크 구성을 깔끔하게 정리합니다.
     nmcli con delete ens1f0np0
+
+
     ```
 
     1. 단일 OpenvSwitch NIC 구성 확인
@@ -287,6 +312,14 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         - nmcli con show 명령어로 확인한 화면입니다.
         ![nmcli 확인2](../assets/images/install-guide-cube-openvswitch-ovs.png){ .imgCenter .imgBorder }
         - ovs-vsctl show 명령어로 확인한 화면입니다.
+
+    2. 시스템 재시작
+        - 해당 OpenvSwitch NIC 구성 확인을 하셨으면, 시스템을 재부팅을 하셔야 합니다.
+        ```
+        # 1. 설정 확인 후, 재부팅(전체 호스트 실행) - 각 호스트마다 설정을 확인하신 후, 재부팅하시길 바랍니다.
+
+        reboot
+        ```
 
     #### 본딩 OpenvSwitch NIC 구성
     !!! check
@@ -348,6 +381,13 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         ![nmcli 확인2](../assets/images/install-guide-cube-openvswitch-bond-ovs.png){ .imgCenter .imgBorder }
         - ovs-vsctl show 명령어로 확인한 화면입니다.
 
+    2. 시스템 재시작
+        - 해당 OpenvSwitch NIC 구성 확인을 하셨으면, 시스템을 재부팅을 하셔야 합니다.
+        ```
+        # 1. 설정 확인 후, 재부팅(전체 호스트 실행) - 각 호스트마다 설정을 확인하신 후, 재부팅하시길 바랍니다.
+
+        reboot
+        ```
 #### 스토리지 네트워크 설정
 1. ABLESTACK Cube 로그인
     ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.png){ .imgCenter .imgBorder }

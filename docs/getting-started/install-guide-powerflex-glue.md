@@ -30,7 +30,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license1-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license1-02.png){ .imgCenter .imgBorder }
@@ -168,12 +168,22 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
         이 문서는 "NIC-Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
 
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
     ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-11.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
-    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-1.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 
 5. 추가 네트워크 정보
@@ -224,7 +234,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license2-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license2-02.png){ .imgCenter .imgBorder }
@@ -338,11 +348,23 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 PowerFlex Cube 가 삭제가 될 수 있습니다.
 
 4. 가상머신 장치구성 - 네트워크
-   ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-27.png){ .imgCenter .imgBorder }
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
-    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-27.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-1.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-28.png){ .imgCenter .imgBorder }
@@ -392,7 +414,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license3-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license3-02.png){ .imgCenter .imgBorder }
@@ -506,11 +528,23 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 PowerFlex Cube 가 삭제가 될 수 있습니다.
 
 4. 가상머신 장치구성 - 네트워크
-   ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-43.png){ .imgCenter .imgBorder }
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
-    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-43.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-1.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-44.png){ .imgCenter .imgBorder }

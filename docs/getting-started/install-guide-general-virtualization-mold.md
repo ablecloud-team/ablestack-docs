@@ -26,7 +26,7 @@
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-general-virtualization-mold-license1-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-general-virtualization-mold-license1-02.png){ .imgCenter .imgBorder }
@@ -121,7 +121,7 @@
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-general-virtualization-mold-license2-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-general-virtualization-mold-license2-02.png){ .imgCenter .imgBorder }
@@ -214,7 +214,7 @@
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-general-virtualization-mold-license3-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-general-virtualization-mold-license3-02.png){ .imgCenter .imgBorder }
@@ -304,7 +304,7 @@
 !!! warning
     클라우드센터 가상머신 배포 전, 반드시 외부 스토리지 디스크와의 연결이 되었는지 확인해야 합니다.
 
-!!! info
+!!! check
     반드시 외부 스토리지가 이중화로 되어 있을 경우에만, 해당 다중 경로 활성화를 실행합니다.
 
     이중화가 되어 있지 않을 경우에는 해당 사항을 넘어 갑니다.
@@ -315,7 +315,7 @@
     ![다중 경로 활성화](../assets/images/install-guide-general-virtualization-mold-28.png){ .imgCenter .imgBorder }
     - 이중화된 외부 스토리지를 사용하는 클라우드센터 가상 머신을 구축할 때, 이 버튼을 활성화하면 모든 호스트에서 여러 개의 디스크를 동기화하여 다중 경로(Multipath)로 구성합니다.
     - 이를 통해 스토리지 경로를 최적화하고, 보다 안정적이고 효율적인 스토리지 접근을 보장합니다.
-    - 다중 경로를 꼭 활성화한 후 다음 단계를 진행하세요.
+    - 다음 단계를 진행하세요.
 
 ## 클라우드센터 가상머신 배포
 ![클라우드센터 가상머신 배포](../assets/images/install-guide-general-virtualization-mold-29.png){ .imgCenter .imgBorder }
@@ -349,6 +349,7 @@
         ROOT Disk의 크기는 **500GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
 
 4. 클라우드센터 가상머신 설정 - 네트워크
+
     ### Intel NIC 사용 시
     1. Intel NIC 사용 시
         ![클라우드센터 가상머신 설정 - 네트워크](../assets/images/install-guide-general-virtualization-mold-33.png){ .imgCenter .imgBorder }
@@ -359,6 +360,7 @@
     1. Broadcom NIC 사용 시
         OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
         ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-mold-network-ovs.png)
+        - 클라우드센터 가상머신의 네트워크 설정하는 화면입니다.
         - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
 
     !!! info
@@ -487,6 +489,7 @@
     - 입력 정보 확인 후에 **다음** 버튼을 클릭 합니다.
 
 5. 클라우드센터 Zone 물리 네트워크
+
     ### Intel NIC 사용 시
     1. Intel NIC 사용 시
         ![클라우드센터 Zone 물리 네트워크](../assets/images/install-guide-general-virtualization-mold-51.png){ .imgCenter .imgBorder }
@@ -505,6 +508,7 @@
         해당 탭이 별도로 표시되는 경우에만 해당 항목만 설정해주시면 됩니다.
         만약 탭이 표시되지 않으면, 이후 설치 과정은 동일한 방식으로 진행하시면 되며
         별도의 추가 설정 없이 다음 단계로 넘어가셔도 됩니다.
+
 6. 클라우드센터 Zone 서비스용 네트워크 정보
     ![클라우드센터 Zone 서비스용 네트워크 정보](../assets/images/install-guide-general-virtualization-mold-52.png){ .imgCenter .imgBorder }
     - Zone 의 서비스용 네트워크 정보를 입력 하는 화면입니다.
@@ -607,3 +611,18 @@
 15. 호스트 라이선스 확인
     ![호스트 라이선스 확인](../assets/images/install-guide-general-virtualization-mold-check-license.png){ .imgCenter .imgBorder }
     - 해당 하는 호스트 이름을 클릭하여 라이선스 유효기간을 확인할 수 있습니다.
+
+## 호스트 agent 파일 수정
+!!! check
+    각 호스트에서 명령어를 실행해야 합니다.
+
+### Broadcom NIC 사용 시
+1. 호스트 agent 구성파일
+    ![호스트 설정파일](../assets/images/install-guide-host-ovs-add.png){ .imgCenter .imgBorder }
+    - 호스트 Cube 터미널 화면입니다.
+    - 터미널 명령어 **vi /etc/cloudstack/agent/agent.properties** 입력하고 Enter를 누릅니다.
+    - **libvirt.vif.driver=com.cloud.hypervisor.kvm.resource.OvsVifDriver** , **network.bridge.type=openvswitch** 라인을 추가하고 **:wq** 명령어로 저장합니다.
+
+2. 호스트 cloudstack-agent 서비스 시작
+    ![호스트 클라우드 서비스](../assets/images/install-guide-host-memory-add-1.png){ .imgCenter .imgBorder }
+    - 터미널 명령어 **systemctl restart cloudstack-agent.service** 를 실행합니다.

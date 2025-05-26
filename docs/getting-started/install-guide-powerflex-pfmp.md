@@ -39,10 +39,23 @@ PowerFlex Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 �
         ROOT 디스크는 100GiB 크기로, Thin Provisioning 방식으로 제공됩니다.
 
 3. 가상머신 장치구성 - 네트워크
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
     ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-pfmp-04.png){ .imgCenter .imgBorder }
-    - PFMP 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **PFMP 관리 IP** , **관리 NIC CIDR** , **관리 NIC Gateway** , **관리 NIC DNS** 를 입력합니다.
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-powerflex-pfmp-ovs-network.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-powerflex-pfmp-05.png){ .imgCenter .imgBorder }
@@ -166,6 +179,9 @@ PFMP 설치는 PowerFlex Glue 대시보드 화면을 생성하기 위한 절차�
     ![Glue 클러스터 및 스토리지 구성4](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-05.png){ .imgCenter .imgBorder }
     - **Credentials Name** 을 입력합니다.
     - **LIA Password** 및 **Confirm LIA Password** 를 입력합니다.
+
+        !!! info
+            LIA 비밀번호는 **Ablestack123!** 입니다.
 
     - **Save** 버튼을 클릭하여 다음 절차를 진행합니다.
     ![Glue 클러스터 및 스토리지 구성5](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-06.png){ .imgCenter .imgBorder }

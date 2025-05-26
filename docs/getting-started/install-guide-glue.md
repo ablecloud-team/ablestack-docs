@@ -25,7 +25,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-glue-license1-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-glue-license1-02.png){ .imgCenter .imgBorder }
@@ -177,7 +177,10 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     1. Broadcom NIC 사용 시
         OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
         ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-1.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
         - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
     ![추가 네트워크 정보](../assets/images/install-guide-glue-12.png){ .imgCenter .imgBorder }
@@ -230,7 +233,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-glue-license2-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-glue-license2-02.png){ .imgCenter .imgBorder }
@@ -359,7 +362,10 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     1. Broadcom NIC 사용 시
         OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
         ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-2.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
         - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 
 5. 추가 네트워크 정보
@@ -413,7 +419,7 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
 
 1. 라이선스 등록
     ![라이선스 등록](../assets/images/install-guide-glue-license3-01.png){ .imgCenter .imgBorder }
-    - 구축 전, 발급 받은 **트라이얼 라이선스 파일** 을 등록 해줍니다.
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
 
 2. 라이선스 확인
     ![라이선스 확인](../assets/images/install-guide-glue-license3-02.png){ .imgCenter .imgBorder }
@@ -542,7 +548,10 @@ ABLESTACK Cube 의 웹콘솔과 ABLESTACK Glue 웹콘솔을 이용하여 진행�
     1. Broadcom NIC 사용 시
         OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
         ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-3.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
         - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
     !!! info
         해당 탭이 별도로 표시되는 경우에만 해당 항목만 설정해주시면 됩니다.

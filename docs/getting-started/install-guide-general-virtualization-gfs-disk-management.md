@@ -173,6 +173,58 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
     ![GFS 디스크 삭제 완료 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-delete-04.png){ .imgCenter .imgBorder }
     - 삭제가 완료되면 Cube 메인 화면에서 GFS 디스크 상태의 마운트 경로에서 자동으로 삭제됩니다.
 
+### GFS 디스크 확장
+1. ABLESTACK Cube 화면
+    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-01.png){ .imgCenter .imgBorder }
+    - ABLESTACK Cube 화면 입니다.
+2. GFS 디스크 확장 화면
+    1. 확장할 GFS 디스크 및 마운트 이름 선택
+        ![확장할 GFS 디스크 및 마운트 이름](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-02.png){ .imgCenter .imgBorder }
+        - 확장할 GFS 디스크 및 마운트 이름을 선택합니다.
+
+        !!! check
+            스토리지 측에서 디스크 사이즈를 변경하셨다면, 해당 변경 사항이 실제로 반영되었는지 스토리지 시스템에서 기존 디스크 크기와 변경된 크기를 다시 한 번 확인해 주시기 바랍니다.
+
+            또한, 새로운 디스크를 추가하는 경우에는 디스크 이름 및 wwn명이 정확한지 다시 한 번 확인해 주시기 바랍니다.
+
+    2. 확장 방식 선택
+        1. 기존 디스크 사이즈만 확장
+            ![기존 디스크 사이즈만 확장](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-03.png){ .imgCenter .imgBorder }
+            - 해당 디스크의 사이즈만 확장할 경우, **기존 디스크 사이즈만 확장** 을 선택합니다.
+        2. 새로운 LUN 디스크 추가
+            ![새로운 LUN 디스크 추가](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-04.png){ .imgCenter .imgBorder }
+            - 새로운 디스크를 추가할 경우, **새로운 LUN 디스크 추가** 를 선택합니다.
+            - 추가된 디스크를 선택합니다.
+
+    3. 무중단 확장
+        ![무중단 확장](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-05.png){ .imgCenter .imgBorder }
+
+        !!! info
+            무중단 확장을 진행하는 동안, 클러스터는 자원 상태를 감시하거나 자동으로 조치하지 않습니다.
+
+            서비스는 정상적으로 유지되며 중단되지 않지만, 이 기간 동안 자원 장애 발생 시 자동 복구나 페일오버가 동작하지 않으므로 주의가 필요합니다.
+
+3. GFS 디스크 확장 진행 화면
+    1. GFS 디스크 스캔
+        ![GFS 디스크 스캔](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-06.png){ .imgCenter .imgBorder }
+        - 변경된 GFS 디스크를 OS 영역에서 스캔합니다.
+    2. GFS 디스크 논리 볼륨 확장
+        ![GFS 디스크 논리 볼륨 확장](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-07.png){ .imgCenter .imgBorder }
+        - GFS 디스크를 확장합니다.
+
+    !!! info
+        확장하려는 GFS 디스크의 크기에 따라 작업 시간이 달라질 수 있습니다.
+
+        디스크 용량이 클수록 확장 완료까지 더 많은 시간이 소요될 수 있습니다.
+
+4. GFS 디스크 확장 완료 화면
+    1. Cube 대시보드 화면
+        ![Cube GFS 디스크 확장 완료](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-08.png){ .imgCenter .imgBorder }
+        - 확장이 완료된 GFS 디스크를 Cube 대시보드 화면에서 확인하실 수 있습니다.
+    2. Mold 기본 스토리지 화면
+        ![Mold GFS 디스크 확장 완료](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-09.png){ .imgCenter .imgBorder }
+        - 확장이 완료된 GFS 디스크를 Mold 기본 스토리지 화면에서 확인하실 수 있습니다.
+
 ### GFS 디스크 조회
 1. ABLESTACK Cube 화면
     ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-read-01.png){ .imgCenter .imgBorder }
