@@ -90,7 +90,7 @@ plugins:
             front: resources/templates/covers/front.html.j2
             back: resources/templates/covers/back.html.j2
           aggregator:
-            enabled: true
+            enabled: false
             output: ablestack-docs.pdf
             covers: book
           browser:
