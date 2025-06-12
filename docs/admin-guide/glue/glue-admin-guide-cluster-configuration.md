@@ -26,3 +26,4 @@
     ![편집2](../../assets/images/admin-guide/glue/cluster/configuration/glue-configuration-edit-2.png){ .imgCenter .imgBorder }
     - 값에 변경될 설정 값을 선택합니다.
     - **업데이트** 버튼을 클릭합니다.
+    

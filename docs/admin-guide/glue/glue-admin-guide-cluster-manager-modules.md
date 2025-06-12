@@ -61,3 +61,4 @@ MGR데몬은 MON과 OSD 사이의 상태 정보를 종합해 실시간 상태를
     - 비활성화할 모듈을 선택합니다.
 2. 비활성화 버튼을 클릭한 화면입니다.
     ![비활성화2](../../assets/images/admin-guide/glue/cluster/manage-modules/glue-manage-modules-disable-2.png){ .imgCenter .imgBorder }
+    

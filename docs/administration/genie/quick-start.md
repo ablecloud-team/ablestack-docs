@@ -73,4 +73,5 @@ ABLESTACK Genie에서 기본 제공되는 템플릿은 애플리케이션 배포
 삭제 전 "next cloud" 항목이 존재하지만 삭제 후에는 항목이 삭제된 것을 확인할 수 있습니다.
 ![genie-templates-destory-result-2](../../assets/images/genie-templates-destory-result-2.png)
 
+배포된 서비스가 석제 되었습니다.
 
