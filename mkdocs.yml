@@ -476,6 +476,7 @@ nav:
       - DB 구성: userGuide/3tiers/linux/3tiers-linux-guide-db.md
       - WAS 구성: userGuide/3tiers/linux/3tiers-linux-guide-was.md
       - WEB 서버 구성: userGuide/3tiers/linux/3tiers-linux-guide-web.md
+    - 재난 복구(DR) 관리: administration/mold/dr-mngt-guide.md
     - Kubernete 구성 가이드:
       - 구성 개요: userGuide/kubernetes/kubernetes-cluster-prepare.md
       - 네트워크 생성: userGuide/kubernetes/kubernetes-cluster-network-create.md
