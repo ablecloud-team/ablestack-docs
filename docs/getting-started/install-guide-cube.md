@@ -1,14 +1,14 @@
-# ABLESTACK Cube 설치진행
+# ABLESTACK HCI Cube 설치진행
 
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
 
-ABLESTACK Cube를 설치 진행 가이드 입니다.
+ABLESTACK HCI Cube를 설치 진행 가이드 입니다.
 해당 가이드는 기본적으로 Linux 계열의 OS 설치 경험이 없어도 설치 할 수 있는 쉬운 사용자 경험을 제공 하나 기본적인 Linux 계열의 OS 이해도를 가지고 있으면 조금더 쉽게 설치가 가능합니다.
 
 !!! info
     - 해당 문서는 사용자의 네트워크 환경 및 설정 정보를 고려하지 않고 작성된 문서 입니다. 이 문서를 기준으로 활용을 하셔야 하며 수정 및 변경 할 부분은 **강조** 표시를 해두었습니다.
-    - ABLESTACK Cube 설치시 ABLESTACK Cell이 동시에 설치가 진행되며, ABLESTACK Cell의 설치가이드는 따로 제공 되고 있지 않습니다.
+    - ABLESTACK HCI Cube 설치시 ABLESTACK Cell이 동시에 설치가 진행되며, ABLESTACK Cell의 설치가이드는 따로 제공 되고 있지 않습니다.
 
 !!! 사전준비 info
     - ABLESTACK 설치용 ISO 또는 ABLESTACK 설치용 USB
@@ -19,25 +19,25 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     - ABLESTACK Diplo 는 Asia/Seoul를 기준으로 시간서버를 설정합니다.
     - 따라서 ABLESTACK 설치 전 서버 BIOS 설정에서 해당 서버의 시간을 Asia/Seoul로 설정해야 합니다.
 
-## ABLESTACK Cube 설치 진행 가이드
+## ABLESTACK HCI Cube 설치 진행 가이드
 
 1. ABLESTACK ISO를 이용한 USB 부팅 화면 입니다.
-    ![ABLESTACK Cube 부팅화면](../assets/images/install-guide-cube-01.png){ .imgCenter .imgBorder }
+    ![ABLESTACK HCI Cube 부팅화면](../assets/images/install-guide-cube-01.png){ .imgCenter .imgBorder }
 
 2. 부팅 완료 후 ABLESTACK 설치 메뉴 화면 입니다.
     정상적으로 ISO 또는 USB를 이용하여 정상적으로 부팅되면 아래와 같은 이미지의 화면으로 전환됩니다.
-    ![ABLESTACK Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ .imgCenter .imgBorder }
+    ![ABLESTACK HCI Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ .imgCenter .imgBorder }
 
     !!! Check
-        화면에서 **Install ABLESTACK Diplo** 메뉴가 보이는지 확인해야 합니다. 해당 메뉴가 보이면 ABLESTACK Cube 정상적으로 설치를 하실 수 있습니다.</br>
+        화면에서 **Install ABLESTACK Diplo** 메뉴가 보이는지 확인해야 합니다. 해당 메뉴가 보이면 ABLESTACK HCI Cube 정상적으로 설치를 하실 수 있습니다.</br>
         만약 해당 메뉴가 보이지 않는다면 정상적인 부팅이 되지 않은 경우이므로 부팅매체를 확인하고 재부팅을 해야 합니다.</br>
         다시 한번 부팅해도 해당 메뉴가 보이지 않는다면 ISO 또는 USB가 손상되었을 수 있습니다.
 
-3. ABLESTACK Cube 구성 화면 입니다.
-    ![ABLESTACK Cube 구성 화면](../assets/images/install-guide-cube-03.png){ .imgCenter .imgBorder }
+3. ABLESTACK HCI Cube 구성 화면 입니다.
+    ![ABLESTACK HCI Cube 구성 화면](../assets/images/install-guide-cube-03.png){ .imgCenter .imgBorder }
 
     !!! info
-        ABLESTACK Cube는 기본적인 정보는 자동으로 설정이 되어 있습니다.
+        ABLESTACK HCI Cube는 기본적인 정보는 자동으로 설정이 되어 있습니다.
         **Installation Destination, Network & Host name** 항목에 대해서만 설정하면 됩니다.</br>
         - Keyboard, Language Support, Installation Source, Software Selection, KDUMP, Security Policy, Root Password 항목은 수정하실 필요가 없습니다.
 
@@ -45,7 +45,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         설정정보 입력시 'Network & Host name' > 'Installation Destination' 순서대로 설정하는 것을 권장합니다.
 
 4. 네트워크 및 호스트 이름 구성변경 화면
-    - ABLESTACK Cube 구성화면에서 **Network & Host Name** 을 클릭하면 해당 화면으로 이동됩니다.
+    - ABLESTACK HCI Cube 구성화면에서 **Network & Host Name** 을 클릭하면 해당 화면으로 이동됩니다.
 
     1. 호스트 이름 설정
         ![네트워크 및 호스트 이름](../assets/images/install-guide-cube-04-1.png){ .imgCenter .imgBorder }
@@ -76,7 +76,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         네트워크의 목록 및 장치명 등은 물리적 네트워크의 구성과 하드웨어 벤더사에 따라 다르게 표기될 수 있습니다.
 
 5. 설치 대상 구성 화면
-    - ABLESTACK Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.
+    - ABLESTACK HCI Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.
 
     ![설치 대상](../assets/images/install-guide-cube-06.png){ .imgCenter .imgBorder }
 
@@ -119,35 +119,35 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
     Root Password 초기 암호는 **password** 입니다.
 
 
-7. ABLESTACK Cube 구성 마무리
-    ![ABLESTACK Cube 구성 마무리](../assets/images/install-guide-cube-12.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 설정 완료 후 **Begin installation** 버튼을 클릭하여 ABLESTACK 설치를 진행 합니다.
+7. ABLESTACK HCI Cube 구성 마무리
+    ![ABLESTACK HCI Cube 구성 마무리](../assets/images/install-guide-cube-12.png){ .imgCenter .imgBorder }
+    - ABLESTACK HCI Cube 설정 완료 후 **Begin installation** 버튼을 클릭하여 ABLESTACK 설치를 진행 합니다.
 
-    ![ABLESTACK Cube 구성 마무리](../assets/images/install-guide-cube-12-1.png){ .imgCenter .imgBorder }
+    ![ABLESTACK HCI Cube 구성 마무리](../assets/images/install-guide-cube-12-1.png){ .imgCenter .imgBorder }
 
-    - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되어 있는 ABLESTACK ISO 또는 USB를 제거하여 ABLESTACK Cube 설치를 마무리 합니다.
+    - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되어 있는 ABLESTACK ISO 또는 USB를 제거하여 ABLESTACK HCI Cube 설치를 마무리 합니다.
 
-    ![ABLESTACK Cube 설치완료](../assets/images/install-guide-cube-13.png){ .imgCenter .imgBorder }
+    ![ABLESTACK HCI Cube 설치완료](../assets/images/install-guide-cube-13.png){ .imgCenter .imgBorder }
     - 설치가 정상적으로 완료되면 ABLESTACK 콘솔 로그인 화면이 보이게 됩니다.
 !!! note
     ABLESTACK Diplo 버전부터는 콘솔화면에 대한 GUI 환경, CLI 환경 둘 중 하나를 선택할 수 있습니다.
 
-## ABLESTACK Cube Network 셋팅
+## ABLESTACK HCI Cube Network 셋팅
 
 ### Intel NIC 일 경우
-1. ABLESTACK Cube 로그인
-    ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 로그인 화면입니다.
+1. ABLESTACK HCI Cube 로그인
+    ![ABLESTACK HCI Cube 로그인](../assets/images/install-guide-cube-14.png){ .imgCenter .imgBorder }
+    - ABLESTACK HCI Cube 로그인 화면입니다.
     - 접속 URL은 **호스트IP:9090** 입니다
     - 사용자 이름은 **root** 를 암호는 초기 암호를 입력하여, 원하시는 비밀번호로 변경한 후, **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
 
-2. ABLESTACK Cube 메인 화면
-    ![ABLESTACK Cube 메인 화면](../assets/images/install-guide-cube-15.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 로그인 후 화면입니다.
+2. ABLESTACK HCI Cube 메인 화면
+    ![ABLESTACK HCI Cube 메인 화면](../assets/images/install-guide-cube-15.png){ .imgCenter .imgBorder }
+    - ABLESTACK HCI Cube 로그인 후 화면입니다.
 
-3. ABLESTACK Cube 네트워킹 구성
-    ![ABLESTACK Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
+3. ABLESTACK HCI Cube 네트워킹 구성
+    ![ABLESTACK HCI Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ .imgCenter .imgBorder }
+    - ABLESTACK HCI Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
 
     !!! note
         인터페이스 목록 및 IP주소 등은 물리적 네트워크의 구성과 하드웨어 벤더사 및 초기 설정한 IP주소에 따라 다르게 표기될 수 있습니다.
@@ -177,7 +177,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         !!! info
             해당 과정은 물리적인 Management Network를 SystemVM 및 다른 가상머신에서 사용할 수 있게 브릿지를 하는 과정입니다.
 
-            브릿지의 IP 설정은 ABLESTACK Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
+            브릿지의 IP 설정은 ABLESTACK HCI Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
 
     3. Public Storage Network 설정
         ![Public Storage Network 설정](../assets/images/install-guide-cube-19.png){ .imgCenter .imgBorder }
@@ -228,7 +228,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
             !!! info
                 해당 과정은 물리적인 Public Storage Network를 Gateway VM에서 사용할 수 있게 브릿지를 하는 과정입니다.
 
-                브릿지의 IP 설정은 ABLESTACK Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
+                브릿지의 IP 설정은 ABLESTACK HCI Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
 
             !!! check
                 Public Storage Network 설정 할 시, 물리 인터페이스 및 본드 및 브릿지 MTU 설정 값이 같아야 합니다.
@@ -389,19 +389,19 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
         reboot
         ```
 #### 스토리지 네트워크 설정
-1. ABLESTACK Cube 로그인
-    ![ABLESTACK Cube 로그인](../assets/images/install-guide-cube-14.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 로그인 화면입니다.
+1. ABLESTACK HCI Cube 로그인
+    ![ABLESTACK HCI Cube 로그인](../assets/images/install-guide-cube-14.png){ .imgCenter .imgBorder }
+    - ABLESTACK HCI Cube 로그인 화면입니다.
     - 접속 URL은 **호스트IP:9090** 입니다
     - 사용자 이름은 **root** 를 암호는 초기 암호를 입력하여, 원하시는 비밀번호로 변경한 후, **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
 
-2. ABLESTACK Cube 메인 화면
-    ![ABLESTACK Cube 메인 화면](../assets/images/install-guide-cube-15.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 로그인 후 화면입니다.
+2. ABLESTACK HCI Cube 메인 화면
+    ![ABLESTACK HCI Cube 메인 화면](../assets/images/install-guide-cube-15.png){ .imgCenter .imgBorder }
+    - ABLESTACK HCI Cube 로그인 후 화면입니다.
 
-3. ABLESTACK Cube 네트워킹 구성
-    ![ABLESTACK Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
+3. ABLESTACK HCI Cube 네트워킹 구성
+    ![ABLESTACK HCI Cube 네트워킹 구성](../assets/images/install-guide-cube-16.png){ .imgCenter .imgBorder }
+    - ABLESTACK HCI Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
 
     !!! note
         인터페이스 목록 및 IP주소 등은 물리적 네트워크의 구성과 하드웨어 벤더사 및 초기 설정한 IP주소에 따라 다르게 표기될 수 있습니다.
@@ -465,7 +465,7 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
             !!! info
                 해당 과정은 물리적인 Public Storage Network를 Gateway VM에서 사용할 수 있게 브릿지를 하는 과정입니다.
 
-                브릿지의 IP 설정은 ABLESTACK Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
+                브릿지의 IP 설정은 ABLESTACK HCI Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
 
             !!! check
                 Public Storage Network 설정 할 시, 물리 인터페이스 및 본드 및 브릿지 MTU 설정 값이 같아야 합니다.
@@ -475,8 +475,8 @@ ABLESTACK Cube를 설치 진행 가이드 입니다.
 !!! info
     ABLESTACK 클러스터는 최소 3식이상의 호스트로 구성되어야 합니다.
     이 문서에서는 3식의 호스트를 기준으로 가이드가 되어있으며 만약 4식이상의 호스트로 구성된다면 호스트 구성 작업을 반복하면 됩니다.
-    ABLESTACK Cube 설치 진행절차는 2번, 3번 호스트도 동일합니다. 위 설치 절차를 2번, 3번 호스트에도 진행하시기 바랍니다.
+    ABLESTACK HCI Cube 설치 진행절차는 2번, 3번 호스트도 동일합니다. 위 설치 절차를 2번, 3번 호스트에도 진행하시기 바랍니다.
 
 !!! check
-    ABLESTACK Cube 및 ABLESTACK Cell의 설치 및 구성이 끝났습니다.
+    ABLESTACK HCI Cube 및 ABLESTACK Cell의 설치 및 구성이 끝났습니다.
 ABLESTACK Glue 및 ABLESTACK Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.

@@ -1,16 +1,16 @@
 
-# 일반 가상화 GFS 디스크 관리
+# ABLESTACK VM GFS 디스크 관리
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
 
-일반 가상화 GFS 디스크 관리 가이드입니다.이 문서에서는 구축된 일반 가상화 환경에서 추가적인 GFS 디스크 생성, 삭제, 조회로 관리를 위한 절차를 가이드 하고 있습니다.
-ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다. 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
+ABLESTACK VM GFS 디스크 관리 가이드입니다.이 문서에서는 구축된 ABLESTACK VM 환경에서 추가적인 GFS 디스크 생성, 삭제, 조회로 관리를 위한 절차를 가이드 하고 있습니다.
+ABLESTACK VM Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다. 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
 
-## ABLESTACK Cube 메인 화면
-![ABLESTACK Cube 메인 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-main.png){ .imgCenter .imgBorder }
+## ABLESTACK VM Cube 메인 화면
+![ABLESTACK VM Cube 메인 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-main.png){ .imgCenter .imgBorder }
 - 왼쪽 ABLESTACK 메뉴 클릭시 보이는 화면입니다.
 
-## 일반 가상화 GFS 디스크 관리
+## ABLESTACK VM GFS 디스크 관리
 
 ### GFS 디스크 추가
 !!! info
@@ -18,8 +18,8 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
 
     wwn으로 해당 디스크를 찾아 선택하시면 됩니다.
 
-1. ABLESTACK Cube 화면
-    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-add-01.png){ .imgCenter .imgBorder }
+1. ABLESTACK VM Cube 화면
+    ![ABLESTACK VM Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-add-01.png){ .imgCenter .imgBorder }
     - GFS 디스크 상태란의 GFS 디스크 추가를 클릭합니다.
 2. GFS 디스크 추가 화면
     ![GFS 디스크 추가 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-add-02.png){ .imgCenter .imgBorder }
@@ -155,8 +155,8 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
     ![Mold 컴퓨트 오퍼링 삭제 완료 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-mold-delete-15.png){ .imgCenter .imgBorder }
     - 해당 기본 스토리지를 삭제한 화면입니다.
 
-10. ABLESTACK Cube 화면
-    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-delete-01.png){ .imgCenter .imgBorder }
+10. ABLESTACK VM Cube 화면
+    ![ABLESTACK VM Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-delete-01.png){ .imgCenter .imgBorder }
     - GFS 디스크 상태란의 GFS 디스크 삭제 클릭합니다.
 
 11. GFS 디스크 삭제 화면
@@ -174,9 +174,9 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
     - 삭제가 완료되면 Cube 메인 화면에서 GFS 디스크 상태의 마운트 경로에서 자동으로 삭제됩니다.
 
 ### GFS 디스크 확장
-1. ABLESTACK Cube 화면
-    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-01.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 화면 입니다.
+1. ABLESTACK VM Cube 화면
+    ![ABLESTACK VM Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-01.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 화면 입니다.
 2. GFS 디스크 확장 화면
     1. 확장할 GFS 디스크 및 마운트 이름 선택
         ![확장할 GFS 디스크 및 마운트 이름](../assets/images/install-guide-general-virtualization-gfs-disk-management-extend-02.png){ .imgCenter .imgBorder }
@@ -226,9 +226,9 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
         - 확장이 완료된 GFS 디스크를 Mold 기본 스토리지 화면에서 확인하실 수 있습니다.
 
 ### GFS 디스크 조회
-1. ABLESTACK Cube 화면
-    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-read-01.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 화면 입니다.
+1. ABLESTACK VM Cube 화면
+    ![ABLESTACK VM Cube 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-read-01.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 화면 입니다.
 2. GFS 디스크 조회 화면
     ![GFS 디스크 조회 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-read-02.png){ .imgCenter .imgBorder }
     - GFS 디스크 상태 카드에서 확인할 디스크의 마운트 경로를 선택하여 클릭합니다.

@@ -1,47 +1,47 @@
 
-# 일반 가상화 Cube 설치진행
+# ABLESTACK VM Cube 설치진행
 
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
 
-일반 가상화 Cube를 설치 진행 가이드 입니다.
+ABLESTACK VM Cube를 설치 진행 가이드 입니다.
 해당 가이드는 기본적으로 Linux 계열의 OS 설치 경험이 없어도 설치 할 수 있는 쉬운 사용자 경험을 제공 하나 기본적인 Linux 계열의 OS 이해도를 가지고 있으면 조금더 쉽게 설치가 가능합니다.
 
 !!! info
     - 해당 문서는 사용자의 네트워크 환경 및 설정 정보를 고려하지 않고 작성된 문서 입니다. 이 문서를 기준으로 활용을 하셔야 하며 수정 및 변경 할 부분은 **강조** 표시를 해두었습니다.
-    - 일반 가상화 Cube 설치시 일반 가상화 Cell이 동시에 설치가 진행되며, 일반 가상화 Cell의 설치가이드는 따로 제공 되고 있지 않습니다.
-    - 일반 가상화 설치는 ABLESTACK ISO에서 패키지 별로 설치 제공합니다.
+    - ABLESTACK VM Cube 설치시 ABLESTACK VM Cell이 동시에 설치가 진행되며, ABLESTACK VM Cell의 설치가이드는 따로 제공 되고 있지 않습니다.
+    - ABLESTACK VM 설치는 ABLESTACK ISO에서 패키지 별로 설치 제공합니다.
 
 !!! 사전준비 info
     - ABLESTACK 설치용 ISO 또는 ABLESTACK 설치용 USB
-    - 일반 가상화용 CCVM 템플릿 이미지가 들어 있는 USB
+    - ABLESTACK VM용 CCVM 템플릿 이미지가 들어 있는 USB
     - 호스트의 Manage Network 대역에 접근 가능한 Desktop 또는 Notebook
-    - Manage Network IP(일반 가상화은 Manage Network IP를 호스트 1대당 3개의 IP를 필요로 하고 있습니다.)
+    - Manage Network IP(ABLESTACK VM은 Manage Network IP를 호스트 1대당 3개의 IP를 필요로 하고 있습니다.)
     - 외부 스토리지 정보
 
 !!! 사전설정 warning
-    - 일반 가상화는 Asia/Seoul를 기준으로 시간서버를 설정합니다.
-    - 따라서 일반 가상화 설치 전 서버 BIOS 설정에서 해당 서버의 시간을 Asia/Seoul로 설정해야 합니다.
+    - ABLESTACK VM는 Asia/Seoul를 기준으로 시간서버를 설정합니다.
+    - 따라서 ABLESTACK VM 설치 전 서버 BIOS 설정에서 해당 서버의 시간을 Asia/Seoul로 설정해야 합니다.
 
-## 일반 가상화 Cube 설치 진행 가이드
+## ABLESTACK VM Cube 설치 진행 가이드
 
 1. ABLESTACK ISO를 이용한 USB 부팅 화면 입니다.
-    ![ABLESTACK Cube 부팅화면](../assets/images/install-guide-cube-01.png){ .imgCenter .imgBorder }
+    ![ABLESTACK VM Cube 부팅화면](../assets/images/install-guide-cube-01.png){ .imgCenter .imgBorder }
 
-2. 부팅 완료 후 일반 가상화 설치 메뉴 화면 입니다.
+2. 부팅 완료 후 ABLESTACK VM 설치 메뉴 화면 입니다.
     정상적으로 ISO 또는 USB를 이용하여 정상적으로 부팅되면 아래와 같은 이미지의 화면으로 전환됩니다.
-    ![일반 가상화 Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ .imgCenter .imgBorder }
+    ![ABLESTACK VM Cube 설치 메뉴화면](../assets/images/install-guide-cube-02.png){ .imgCenter .imgBorder }
 
     !!! Check
-        화면에서 **Install ABLESTACK Diplo** 메뉴가 보이는지 확인해야 합니다. 해당 메뉴가 보이면 일반 가상화 Cube 정상적으로 설치를 하실 수 있습니다.</br>
+        화면에서 **Install ABLESTACK Diplo** 메뉴가 보이는지 확인해야 합니다. 해당 메뉴가 보이면 ABLESTACK VM Cube 정상적으로 설치를 하실 수 있습니다.</br>
         만약 해당 메뉴가 보이지 않는다면 정상적인 부팅이 되지 않은 경우이므로 부팅매체를 확인하고 재부팅을 해야 합니다.</br>
         다시 한번 부팅해도 해당 메뉴가 보이지 않는다면 ISO 또는 USB가 손상되었을 수 있습니다.
 
-3. 일반 가상화 Cube 구성 화면 입니다.
-    ![일반 가상화 Cube 구성 화면](../assets/images/install-guide-cube-03.png){ .imgCenter .imgBorder }
+3. ABLESTACK VM Cube 구성 화면 입니다.
+    ![ABLESTACK VM Cube 구성 화면](../assets/images/install-guide-cube-03.png){ .imgCenter .imgBorder }
 
     !!! info
-        일반 가상화 Cube는 기본적인 정보는 자동으로 설정이 되어 있습니다.
+        ABLESTACK VM Cube는 기본적인 정보는 자동으로 설정이 되어 있습니다.
         **Installation Destination, Network & Host name** 항목에 대해서만 설정하면 됩니다.</br>
         - Keyboard, Language Support, Installation Source, Software Selection, KDUMP, Security Policy, Root Password 항목은 수정하실 필요가 없습니다.
 
@@ -49,7 +49,7 @@
         설정정보 입력시 'Network & Host name' > 'Installation Destination' 순서대로 설정하는 것을 권장합니다.
 
 4. 네트워크 및 호스트 이름 구성변경 화면
-    - 일반 가상화 Cube 구성화면에서 **Network & Host Name** 을 클릭하면 해당 화면으로 이동됩니다.
+    - ABLESTACK VM Cube 구성화면에서 **Network & Host Name** 을 클릭하면 해당 화면으로 이동됩니다.
 
     1. 호스트 이름 설정
         ![네트워크 및 호스트 이름](../assets/images/install-guide-cube-04-1.png){ .imgCenter .imgBorder }
@@ -80,13 +80,13 @@
         네트워크의 목록 및 장치명 등은 물리적 네트워크의 구성과 하드웨어 벤더사에 따라 다르게 표기될 수 있습니다.
 
 5. 설치 대상 구성 화면
-    - 일반 가상화 Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.
+    - ABLESTACK VM Cube 구성화면에서 **Installation Destination** 을 클릭하면 해당 화면으로 이동됩니다.
 
     ![설치 대상](../assets/images/install-guide-cube-06.png){ .imgCenter .imgBorder }
 
     !!! note
         디스크 장치 목록은 디스크 구성 및 종류,수량에 따라 다르게 표시될 수 있습니다.
-    * 디스크 목록 중 일반 가상화 Cube OS 가 설치될 디스크를 선택하시고 나머지 디스크는 모두 선택을 해제합니다.
+    * 디스크 목록 중 ABLESTACK VM Cube OS 가 설치될 디스크를 선택하시고 나머지 디스크는 모두 선택을 해제합니다.
 
     !!! check
         설치 대상 디스크 이외의 모든 디스크는 반드시 선택 해제를 해야합니다.</br>
@@ -123,32 +123,32 @@
     Root Password 초기 암호는 **password** 입니다.
 
 
-7. 일반 가상화 Cube 구성 마무리
-    ![일반 가상화 Cube 구성 마무리](../assets/images/install-guide-cube-12.png){ .imgCenter .imgBorder }
-    - 일반 가상화 Cube 설정 완료 후 **Begin installation** 버튼을 클릭하여 일반 가상화 설치를 진행 합니다.
+7. ABLESTACK VM Cube 구성 마무리
+    ![ABLESTACK VM Cube 구성 마무리](../assets/images/install-guide-cube-12.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 설정 완료 후 **Begin installation** 버튼을 클릭하여 ABLESTACK VM 설치를 진행 합니다.
 
-    ![일반 가상화 Cube 구성 마무리](../assets/images/install-guide-cube-12-1.png){ .imgCenter .imgBorder }
+    ![ABLESTACK VM Cube 구성 마무리](../assets/images/install-guide-cube-12-1.png){ .imgCenter .imgBorder }
 
-    - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되어 있는 ABLESTACK ISO 또는 USB를 제거하여 일반 가상화 Cube 설치를 마무리 합니다.
+    - 설치가 완료가 되면 자동으로 재부팅 절차가 진행되며 연결되어 있는 ABLESTACK ISO 또는 USB를 제거하여 ABLESTACK VM Cube 설치를 마무리 합니다.
 
-    ![일반 가상화 Cube 설치완료](../assets/images/install-guide-cube-13.png){ .imgCenter .imgBorder }
-    - 설치가 정상적으로 완료되면 일반 가상화 콘솔 로그인 화면이 보이게 됩니다.
+    ![ABLESTACK VM Cube 설치완료](../assets/images/install-guide-cube-13.png){ .imgCenter .imgBorder }
+    - 설치가 정상적으로 완료되면 ABLESTACK VM 콘솔 로그인 화면이 보이게 됩니다.
 
-## 일반 가상화 Cube Network 셋팅
+## ABLESTACK VM Cube Network 셋팅
 ### Intel NIC 일 경우
-1. 일반 가상화 Cube 로그인
-    ![일반 가상화 Cube 로그인](../assets/images/install-guide-general-virtualization-cube-1.png){ .imgCenter .imgBorder }
-    - 일반 가상화 Cube 로그인 화면입니다.
+1. ABLESTACK VM Cube 로그인
+    ![ABLESTACK VM Cube 로그인](../assets/images/install-guide-general-virtualization-cube-1.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 로그인 화면입니다.
     - 접속 URL은 **호스트IP:9090** 입니다
     - 사용자 이름은 **root** 를 암호는 초기 암호를 입력하여, 원하시는 비밀번호로 변경한 후, **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
 
-2. 일반 가상화 Cube 메인 화면
-    ![일반 가상화 Cube 메인 화면](../assets/images/install-guide-general-virtualization-cube-2.png){ .imgCenter .imgBorder }
-    - 일반 가상화 Cube 로그인 후 화면입니다.
+2. ABLESTACK VM Cube 메인 화면
+    ![ABLESTACK VM Cube 메인 화면](../assets/images/install-guide-general-virtualization-cube-2.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 로그인 후 화면입니다.
 
-3. 일반 가상화 Cube 네트워킹 구성
-    ![일반 가상화 Cube 네트워킹 구성](../assets/images/install-guide-general-virtualization-cube-3.png){ .imgCenter .imgBorder }
-    - 일반 가상화 Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
+3. ABLESTACK VM Cube 네트워킹 구성
+    ![ABLESTACK VM Cube 네트워킹 구성](../assets/images/install-guide-general-virtualization-cube-3.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
 
     !!! note
         인터페이스 목록 및 IP주소 등은 물리적 네트워크의 구성과 하드웨어 벤더사 및 초기 설정한 IP주소에 따라 다르게 표기될 수 있습니다.
@@ -172,7 +172,7 @@
         !!! info
             해당 과정은 물리적인 Management Network를 SystemVM 및 다른 가상머신에서 사용할 수 있게 브릿지를 하는 과정입니다.
 
-            브릿지의 IP 설정은 일반 가상화 Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
+            브릿지의 IP 설정은 ABLESTACK VM Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
 
 ### Broadcom NIC 일 경우
 !!! check "OpenvSwitch 구성 가이드"
@@ -327,16 +327,16 @@
         ```
 
 !!! info
-    일반 가상화 환경에서는 자체 Glue를 사용하지 않습니다.
+    ABLESTACK VM 환경에서는 자체 Glue를 사용하지 않습니다.
 
     외부 스토리지의 정보 및 연결 설정을 확인한 후, 해당 디스크에 맞게 적절히 연결하시기 바랍니다.
 
 !!! info
-    현재 버전에서 일반 가상화 클러스터는 1식 호스트 이상으로 구성을 권장합니다.
+    현재 버전에서 ABLESTACK VM 클러스터는 1식 호스트 이상으로 구성을 권장합니다.
 
-    여러 개의 호스트가 있는 경우에도 일반 가상화 Cube의 설치 절차는 동일합니다. 따라서, 위의 설치 절차를 모든 호스트에서 동일하게 진행하시기 바랍니다.
+    여러 개의 호스트가 있는 경우에도 ABLESTACK VM Cube의 설치 절차는 동일합니다. 따라서, 위의 설치 절차를 모든 호스트에서 동일하게 진행하시기 바랍니다.
 
 !!! check
-    일반 가상화 Cube 및 일반 가상화 Cell의 설치 및 구성이 끝났습니다.
+    ABLESTACK VM Cube 및 ABLESTACK VM Cell의 설치 및 구성이 끝났습니다.
 
-    일반 가상화 Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.
+    ABLESTACK VM Mold는 ABLESTACK 메뉴에서 구성이 가능하며, 다음 설치 가이드를 보고 따라가시면 됩니다.
