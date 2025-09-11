@@ -194,14 +194,14 @@ nav:
         - Genie 설치 가이드: getting-started/install-guide-genie.md
       - ABLESTACK HCI 구성관리:
         - 호스트 추가 가이드: getting-started/install-guide-add-host.md
-    - ABLESTACK PowerFlex 설치 가이드:
-      - 설치전 준비사항: getting-started/install-guide-powerflex-overview.md
-      - 구성요소별 설치 가이드:
-        - Cube 설치 가이드: getting-started/install-guide-powerflex-cube.md
-        - Glue 설치 가이드: getting-started/install-guide-powerflex-glue.md
-        - PFMP 설치 가이드: getting-started/install-guide-powerflex-pfmp.md
-        - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
-        - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
+    # - ABLESTACK PowerFlex 설치 가이드:
+    #   - 설치전 준비사항: getting-started/install-guide-powerflex-overview.md
+    #   - 구성요소별 설치 가이드:
+    #     - Cube 설치 가이드: getting-started/install-guide-powerflex-cube.md
+    #     - Glue 설치 가이드: getting-started/install-guide-powerflex-glue.md
+    #     - PFMP 설치 가이드: getting-started/install-guide-powerflex-pfmp.md
+    #     - Mold 설치 가이드: getting-started/install-guide-powerflex-mold.md
+    #     - Wall 설치 가이드: getting-started/install-guide-powerflex-wall.md
     - ABLESTACK VM 설치 가이드:
       - 설치전 준비사항: getting-started/install-guide-general-virtualization-overview.md
       - 구성요소별 설치 가이드:
@@ -211,6 +211,12 @@ nav:
       - ABLESTACK VM 구성관리:
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
+    - ABLESTACK STANALONE 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-standalone-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-standalone-cube.md
+        - Mold 설치 가이드: getting-started/install-guide-standalone-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-standalone-wall.md
   - 관리 가이드:
     - Cube 가이드:
       - 개요: admin-guide/cube/cube-admin-guide-outline.md

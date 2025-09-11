@@ -1,12 +1,12 @@
 
-# ABLESTACK 일반 가상화 Wall 구성진행
+# ABLESTACK VM Wall 구성진행
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
     해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
 
 
-ABLESTACK 일반 가상화 Wall 설치 진행 가이드 입니다.
-ABLESTACK Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
+ABLESTACK VM Wall 설치 진행 가이드 입니다.
+ABLESTACK VM Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
 
 ## Wall 모니터링 구성
@@ -70,6 +70,8 @@ ABLESTACK Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 �
     ![모니터링센터 구성 완료](../assets/images/install-guide-general-virtualization-wall-10.png){ .imgCenter .imgBorder }
     - ccvm_mngt_ip:3000/login 으로 접속하시면 로그인 페이지를 확인할 수 있습니다.
 
+    !!! info
+        초기 아이디는 **admin** 이며, 초기 비밀번호는 **admin** 입니다.
 10. Wall 메인 대시보드
     ![모니터링센터 구성 완료](../assets/images/install-guide-general-virtualization-wall-11.png){ .imgCenter .imgBorder }
     - 로그인 완료 후에 메인 대시보드 화면이 나타납니다.
