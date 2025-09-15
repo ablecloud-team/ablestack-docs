@@ -1,17 +1,17 @@
 
-# 일반 가상화 CLVM 디스크 관리
+# ABLESTACK VM CLVM 디스크 관리
 
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
 
-일반 가상화 CLVM 디스크 관리 가이드입니다.이 문서에서는 구축된 일반 가상화 환경에서 추가적인 CLVM 디스크 생성, 삭제, 조회로 관리를 위한 절차를 가이드 하고 있습니다.
-ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다. 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
+ABLESTACK VM CLVM 디스크 관리 가이드입니다.이 문서에서는 구축된 ABLESTACK VM 환경에서 추가적인 CLVM 디스크 생성, 삭제, 조회로 관리를 위한 절차를 가이드 하고 있습니다.
+ABLESTACK VM Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다. 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
 
-## ABLESTACK Cube 메인 화면
-![ABLESTACK Cube 메인 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-main.png){ .imgCenter .imgBorder }
+## ABLESTACK VM Cube 메인 화면
+![ABLESTACK VM Cube 메인 화면](../assets/images/install-guide-general-virtualization-gfs-disk-management-main.png){ .imgCenter .imgBorder }
 - 왼쪽 ABLESTACK 메뉴 클릭시 보이는 화면입니다.
 
-## 일반 가상화 CLVM 디스크 관리
+## ABLESTACK VM CLVM 디스크 관리
 
 ### CLVM 디스크 추가
 !!! info
@@ -19,8 +19,8 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
 
     wwn으로 해당 디스크를 찾아 선택하시면 됩니다.
 
-1. ABLESTACK Cube 화면
-    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-add-01.png){ .imgCenter .imgBorder }
+1. ABLESTACK VM Cube 화면
+    ![ABLESTACK VM Cube 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-add-01.png){ .imgCenter .imgBorder }
     - CLVM 디스크 상태란의 CLVM 디스크 추가를 클릭합니다.
 2. CLVM 디스크 추가 화면
     ![CLVM 디스크 추가 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-add-02.png){ .imgCenter .imgBorder }
@@ -152,8 +152,8 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
     ![Mold 기본 스토리지 삭제 완료 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-19.png){ .imgCenter .imgBorder }
     - 해당 하는 **기본 스토리지** 가 삭제된 화면입니다.
 
-10. ABLESTACK Cube 화면
-    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-01.png){ .imgCenter .imgBorder }
+10. ABLESTACK VM Cube 화면
+    ![ABLESTACK VM Cube 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-01.png){ .imgCenter .imgBorder }
     - CLVM 디스크 상태란의 CLVM 디스크 삭제 클릭합니다.
 11. CLVM 디스크 삭제 화면
     ![CLVM 디스크 삭제 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-delete-02.png){ .imgCenter .imgBorder }
@@ -165,9 +165,9 @@ ABLESTACK Cube의 웹콘솔 및 Mold의 웹콘솔을 이용하여 진행이 되�
     - 선택한 CLVM 디스크가 삭제된 화면입니다.
 
 ### CLVM 디스크 조회
-1. ABLESTACK Cube 화면
-    ![ABLESTACK Cube 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-read-01.png){ .imgCenter .imgBorder }
-    - ABLESTACK Cube 화면 입니다.
+1. ABLESTACK VM Cube 화면
+    ![ABLESTACK VM Cube 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-read-01.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 화면 입니다.
 2. CLVM 디스크 조회 화면
     ![CLVM 디스크 조회 화면](../assets/images/install-guide-general-virtualization-clvm-disk-management-read-02.png){ .imgCenter .imgBorder }
     - GFS 디스크 상태에서 CLVM 디스크 정보를 클릭합니다.
