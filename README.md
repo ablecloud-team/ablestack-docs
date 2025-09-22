@@ -25,52 +25,6 @@ Homebrew가 설치되면 다음의 명령을 이용해 MkDocs 패키지를 설�
 ```
 $ brew install mkdocs
 ```
-### Windows에 MkDocs 설치
-다음은 기본 Windows 에서 Windows 패키지 매니저 중 하나인 chocolatery 로 진행합니다. 기설치된 패키지는 생략합니다.
-```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-```
-https://chocolatey.org/install
-
-Git 설치
-```
-choco install git
-```
-mkdocs 설치
-```
-choco install mkdocs
-```
-파이썬 설치
-```
-choco install python
-```
-mkdocs 플러그인 설치
-```
-pip install mkdocs-exporter
-```
-```
-pip install mkdocs-macros-plugin
-```
-```
-pip install mike
-```
-```
-pip install mkdocs-glightbox
-```
-```
-playwright install
-```
-ablecloud-team/ablestack-docs 레포지토리를 본인의 레포지토리로 fork 하고 가져옵니다.
-```
-git clone <fork 된 ablestack-docs>
-```
-이동 및 mkdocs 실행
-```
-cd ablestack-docs
-```
-```
-mkdocs serve
-```
 
 ### 수동으로 MkDocs 설치
 
@@ -112,6 +66,51 @@ $ pip install mike
 다음의 명령을 개발환경에서 실행합니다.
 ```
 $ pip install mkdocs-glightbox
+```
+### Windows에 MkDocs 설치
+다음은 기본 Windows 에서 Windows 패키지 매니저 중 하나인 chocolatery 로 진행합니다. 기설치된 패키지는 생략합니다.
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+Git 설치
+```
+choco install git
+```
+mkdocs 설치
+```
+choco install mkdocs
+```
+파이썬 설치
+```
+choco install python
+```
+mkdocs 플러그인 설치
+```
+pip install mkdocs-exporter
+```
+```
+pip install mkdocs-macros-plugin
+```
+```
+pip install mike
+```
+```
+pip install mkdocs-glightbox
+```
+```
+playwright install
+```
+ablecloud-team/ablestack-docs 레포지토리를 본인의 레포지토리로 fork 합니다
+```
+git clone <fork 된 ablestack-docs 주소>
+```
+이동 및 mkdocs 실행
+```
+cd ablestack-docs
+```
+```
+mkdocs serve
 ```
 
 ## 개발 참여
