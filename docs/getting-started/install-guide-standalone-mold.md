@@ -137,6 +137,9 @@ ABLESTACK STANDALONE Cube 의 웹콘솔과 ABLESTACK STANDALONE Mold 웹콘솔�
     - 로컬 디스크 구성이 완료 후 Cube 웹콘솔에서 로컬 디스크 상태 카드 항목에서 **디스크 마운트 상태** 가 **Health Ok**, **마운트 경로, 물리볼륨, 볼륨 그룹, 디스크 크기** 를 확인한 후, 다음 단계로 진행하시길 바랍니다.
 
 ## 클라우드센터 가상머신 배포
+!!! important
+    해당 클라우드센터 가상머신은 로컬 스토리지 기반으로 운영됩니다.
+
 ![클라우드센터 가상머신 배포](../assets/images/install-guide-standalone-mold-vm-1.png){ .imgCenter .imgBorder }
 - 클라우드센터 가상머신을 배포하기 위한 화면입니다. 상단 상태 리본의 클라우드센터 가상머신 배포 링크를 클릭합나다.
 
