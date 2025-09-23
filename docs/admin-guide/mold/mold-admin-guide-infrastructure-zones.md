@@ -286,9 +286,9 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
     ![physical network 추가 화면](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add.png){ .imgCenter .imgBorder }
 
     * **이름:** 이름을 입력합니다.
-    * **Isolation 메소드:** Isolation 메소드를 선택합니다.
-    * **VLAN/VNI:** VLAN/VNI를 입력합니다.
-    * **태그:** 태그를 입력합니다.
+    * **Isolation 메소드:** Isolation 메소드를 선택합니다. ex) VLAN
+    * **VLAN/VNI:** VLAN/VNI를 입력합니다. ex) 1-1(default vlan 이 1일 경우)
+    * **태그:** 태그를 입력합니다. 게스트 네트워크 추가시 반드시 추가해줍니다.
     * **네트워크 속도:** 네트워크 속도를 입력합니다.
     * **브로드캐스트 도메인 범위:** 브로드캐스트 도메인 범위를 입력합니다.
     * **확인** 버튼을 클릭하여 Zone을 추가합니다.
