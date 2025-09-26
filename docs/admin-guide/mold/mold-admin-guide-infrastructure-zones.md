@@ -286,30 +286,42 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
 
     * **물리 네트워크 추가** 버튼을 클릭하여 볼륨 생성 및 추가 화면을 호출합니다.
 
-    ![physical network 추가 화면](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add.png){ .imgCenter .imgBorder }
+    ![physical network 추가 화면2](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add.png){ .imgCenter .imgBorder }
 
     * **이름:** 이름을 입력합니다.
     * **Isolation 메소드:** Isolation 메소드를 선택합니다.
     * **VLAN/VNI:** VLAN/VNI를 입력합니다.
-    * **태그:** 태그를 입력합니다. ==게스트 네트워크 추가시 반드시 추가해줍니다.==
+    * **태그:** 태그를 입력합니다.
     * **네트워크 속도:** 네트워크 속도를 입력합니다.
     * **브로드캐스트 도메인 범위:** 브로드캐스트 도메인 범위를 입력합니다.
     * **확인** 버튼을 클릭하여 Zone을 추가합니다.
 
-    ![Guest 네트워크 설정](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest.png){ .imgCenter .imgBorder }
+    ![Guest 네트워크 설정1](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest.png){ .imgCenter .imgBorder }
 
     * 생성된 물리네트워크로 들어가 트래픽 라벨을 업데이트 합니다.
 
-    ![Guest 네트워크 설정](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest-traffic-label.png){ .imgCenter .imgBorder }
+    ![Guest 네트워크 설정2](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest-traffic-label.png){ .imgCenter .imgBorder }
 
     * 트래픽 유형을 GUEST 로 설정합니다.
     * KVM 트래픽 라벨에 Cube 에서 추가한 bridge 명을 추가합니다.
 
-    ![Guest 네트워크 설정](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest-traffic-category.png){ .imgCenter .imgBorder }
+    ![Guest 네트워크 설정3](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest-traffic-category.png){ .imgCenter .imgBorder }
+
+    * 트래픽 유형 추가를 클릭합니다.
+
+    ![Guest 네트워크 설정4](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest-traffic-category2.png){ .imgCenter .imgBorder }
 
     * 트래픽 유형을 GUEST 로 설정합니다.
     * Isolation 메소드를 vlan 으로 선택합니다.
 
+    ![Guest 네트워크 설정5](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest-traffic-update.png){ .imgCenter .imgBorder }
+
+    * 물리 네트워크 업데이트를 클릭합니다.
+
+    ![Guest 네트워크 설정6](../../assets/images/admin-guide/mold/infrastructure/zones/physical-network-add-guest-traffic-update2.png){ .imgCenter .imgBorder }
+
+    * VLAN으로 나뉘어 있을 경우 VLAN 을 입력합니다.
+    * 해당 물리네크워크를 확인할 수있는 태그를 설정합니다.
     !!! info
         *추가한 물리네트워크를 이용하기 위해서는 [해당 물리네트워크의 태그를 단 네트워크 오퍼링을 생성](../mold/mold-admin-guide-offerings-network-offerings.md/#_1)해야 합니다. 
 
