@@ -59,10 +59,7 @@ Koral은 시스템 VM 템플릿을 이용해 Kubernetes 클러스터용 가상�
 
 | Kubernetes 바이너리 버전       | 다운로드 링크             | 
 | -----------  | -------------      | 
-| 1.20.9 | [다운로드](https://images.ablecloud.io/koral-setup-1.20.9.iso) |
-| 1.21.3 | [다운로드](https://images.ablecloud.io/koral-setup-1.21.3.iso) |
-| 1.22.4 | [다운로드](https://images.ablecloud.io/koral-setup-1.22.4.iso) |
-| 1.23.0 | [다운로드](https://images.ablecloud.io/koral-setup-1.23.0.iso) |
+| 1.30.3 | [다운로드](https://gofile.me/3ThCa/mr2Nh95uY) |
 
 ### Kubernetes를 위한 기본 네트워크 오퍼링
 
