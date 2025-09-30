@@ -99,7 +99,7 @@ cloudbase-init은 ABLESTACK에서 생성되는 가상머신의 호스트명, 관
 cloudbase-init은 ABLESTACK 다운로드 사이트를 통해 다운로드 받을 수 있습니다. 가상머신에서 웹 브라우저를 실행하여 다음의 주소를 통해 이미지 파일을 다운로드 합니다. 
 
 ```
-https://images.ablecloud.io/CloudbaseInitSetup_1_1_2_x64.msi
+https://gofile.me/3ThCa/t5qdfHCVY
 ```
 
 파일을 다운로드 한 후 파일을 실행하여 다음과 같이 프로그램을 설치합니다. 

@@ -156,6 +156,23 @@ NFS를 제거 하려면 :
 
 - **삭제** 버튼을 클릭하여 NFS를 제거합니다.
 
+## iSCSI 마운트 관리
+iSCSI 로 연결된 볼륨을 추가하여 스토리지로 사용할 수 있습니다.
+
+### 신규 iSCSI 마운트 적재
+
+![cube_storage41_iscsi](../../assets/images/admin-guide/cube/repository/cube_storage41_iscsi.png)
+
+- **iSCSI 포털 추가** 를 클릭합니다.
+
+![cube_storage42_iscsi](../../assets/images/admin-guide/cube/repository/cube_storage42_iscsi.png)
+
+- 저장소 주소와 ID, 패스워드를 입력합니다.
+
+![cube_storage42_iscsi](../../assets/images/admin-guide/cube/repository/cube_storage43_iscsi.png)
+
+- 디스크를 추가합니다.
+
 ## 독립 디스크 중복 관리
 
 RAID(Redundant Arrays of Independent Disks)는 더 많은 Disk를 하나의 스토리지로 정렬하는 방법을 나타냅니다. RAID는 Disk에 저장된 데이터를 Disk 장애로부터 보호합니다.
