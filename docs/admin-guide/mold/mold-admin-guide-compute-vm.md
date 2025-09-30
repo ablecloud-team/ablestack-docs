@@ -206,6 +206,40 @@ Mold의 가상머신(Virtual Machine, VM) 메뉴는 클라우드 환경에서 �
 * **이름**: VM 볼륨 스냅샷의 이름을 입력합니다.
 * **스냅샷 메모리**: 스냅샷 생성 작업을 비동기적으로 수행할지 여부를 결정합니다. 비동기 백업을 활성화하면 스냅샷 생성 요청이 즉시 반환되며, 백그라운드에서 스냅샷 생성이 진행됩니다. 이를 통해 사용자 인터페이스의 응답성을 유지할 수 있습니다.
 
+## 백업 시작 (가상머신 백업 오퍼링 할당 시 활성화)
+가상머신 상세 화면 오른쪽 상단의 백업 시작 버튼을 클릭하여 해당 가상머신을 백업합니다.
+![백업 시작](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-5.png){ .imgCenter .imgBorder }
+![백업 시작](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-6.png){ .imgCenter .imgBorder }
+
+## 백업 스케줄 구성 (가상머신 백업 오퍼링 할당 시 활성화)
+가상머신 상세 화면 오른쪽 상단의 백업 스케줄 구성 버튼을 클릭하여 해당 가상머신에 백업 스케줄을 구성합니다.
+![백업 스케줄 구성](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-7.png){ .imgCenter .imgBorder }
+![백업 스케줄 구성](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-8.png){ .imgCenter .imgBorder }
+
+!!! info "INFO"
+    가상머신은 한 개의 백업 스케줄만 설정이 가능합니다.
+
+* **스케줄**: 매시간, 매일, 매주, 매월 유형으로 스케줄을 설정할 수 있습니다.
+* **예약된 백업**: 예약된 백업 스케줄을 표시하며, 삭제 버튼을 클릭하여 예약된 백업을 삭제할 수 있습니다.
+
+## 가상머신에 백업 오퍼링 할당
+가상머신 상세 화면 오른쪽 상단의 가상머신에 백업 오퍼링 할당 버튼을 클릭하여 해당 가상머신에 백업 오퍼링을 할당합니다.
+![가상머신 백업 오퍼링 할당](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-1.png){ .imgCenter .imgBorder }
+![가상머신 백업 오퍼링 할당](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-2.png){ .imgCenter .imgBorder }
+
+* **백업 오퍼링 ID**: 가상머신에 할당하려는 백업 오퍼링을 선택합니다.
+
+!!! info "INFO"
+    * 글로벌 설정에서 ```backup.framework.enabled``` 값을 ```true```로 설정하여 가상머신에 백업 오퍼링 할당 기능을 활성화 할 수 있으며, 사전에 서비스 오퍼링의 백업 오퍼링 메뉴에서 백업 오퍼링 가져오기를 실행해야 합니다.
+
+## 가상머신에 백업 오퍼링 제거 (가상머신 백업 오퍼링 할당 시 활성화)
+가상머신 상세 화면 오른쪽 상단의 가상머신에 백업 오퍼링 제거 버튼을 클릭하여 해당 가상머신에 백업 오퍼링을 제거합니다.
+![가상머신 백업 오퍼링 제거](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-3.png){ .imgCenter .imgBorder }
+![가상머신 백업 오퍼링 제거](../../assets/images/admin-guide/mold/compute/vm/mold-admin-guide-vm-32-4.png){ .imgCenter .imgBorder }
+
+!!! warning "WARN"
+    - 강제: 체크 시 가상머신의 백업도 함께 삭제됩니다.
+
 ## 가상머신 ISO 연결
 가상머신 상세 화면 오른쪽 상단의 ISO 연결 버튼을 클릭하여 사용자가 운영체제 설치, 소프트웨어 추가, 드라이버 업데이트 등 다양한 작업을 수행할 수 있도록 합니다.
 

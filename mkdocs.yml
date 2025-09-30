@@ -266,6 +266,7 @@ nav:
       - 스토리지:
         - 볼륨: admin-guide/mold/mold-admin-guide-storage-volume.md
         - 스냅샷: admin-guide/mold/mold-admin-guide-storage-snapshot.md
+        - 백업: admin-guide/mold/mold-admin-guide-storage-backup.md
         - 버킷: admin-guide/mold/mold-admin-guide-storage-bucket.md
         - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
       - 네트워크:
@@ -318,6 +319,7 @@ nav:
       - 서비스 오퍼링:
         - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
         - 디스크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-disk-offerings.md
+        - 백업 오퍼링: admin-guide/mold/mold-admin-guide-offerings-backup-offerings.md
         - 시스템 오퍼링: admin-guide/mold/mold-admin-guide-offerings-system-offerings.md
         - 네트워크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-network-offerings.md
         - VPC 오퍼링: admin-guide/mold/mold-admin-guide-offerings-vpc-offerings.md
@@ -325,6 +327,7 @@ nav:
         - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
         - LDAP 구성: admin-guide/mold/mold-admin-guide-configration-ldap.md
         - OAuth 구성: admin-guide/mold/mold-admin-guide-configration-oauth.md
+        - 백업 저장소: admin-guide/mold/mold-admin-guide-configration-backup-repository.md
         - 하이퍼바이저 기능: admin-guide/mold/mold-admin-guide-configration-hypervisor-capability.md
         - 게스트 OS: admin-guide/mold/mold-admin-guide-configration-guest-os.md
         - 게스트 OS 매핑: admin-guide/mold/mold-admin-guide-configration-guest-os-hypervisor-mapping.md
