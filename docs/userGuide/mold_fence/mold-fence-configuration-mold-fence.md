@@ -4,7 +4,7 @@ Mold 가상머신을 fencing 처리하기 위한 mold fence agent를 설치하�
 
 ==== [VM1, VM2 실행]
 ```
-wget -P /root/ https://images.ablecloud.io/fence-mold-1.0-1.el9.x86_64.rpm
+wget -P /root/ https://gofile.me/3ThCa/ogK4OTQ9p
 rpm -Uvh /root/fence-mold-1.0-1.el9.x86_64.rpm --force
 ```
 

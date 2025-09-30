@@ -3,12 +3,12 @@
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
 
-ABLESTACK을 설치하기 위해서는 ABLESTACK의 아키텍처를 기본적으로 숙지하고 있어야 하며 해당 아키텍처는 다른 문서를 통하여 제공하고 있습니다.
+ABLESTACK HCI을 설치하기 위해서는 ABLESTACK HCI의 아키텍처를 기본적으로 숙지하고 있어야 하며 해당 아키텍처는 다른 문서를 통하여 제공하고 있습니다.
 
 ## 사전준비 사항
-ABLESTACK을 설치하고 구성하기 위해서는 다음과 같은 구성 요소들이 사전에 준비되어 있어야 합니다
+ABLESTACK HCI을 설치하고 구성하기 위해서는 다음과 같은 구성 요소들이 사전에 준비되어 있어야 합니다
 
-- ABLESTACK이 설치될 최소 3식의 x86 기반의 호스트 서버가 준비 되어 있어야 합니다.
+- ABLESTACK HCI이 설치될 최소 3식의 x86 기반의 호스트 서버가 준비 되어 있어야 합니다.
 - 서버간 네트워크 연결을 위한 10G 스위치 및 10G 용 케이블이 준비 되어 있어야 합니다.
 
 ## 설치 전 확인 사항
@@ -16,18 +16,18 @@ ABLESTACK을 설치하고 구성하기 위해서는 다음과 같은 구성 요�
 - 스위치의 MTU 설정은 최소 9000이상으로 셋팅 되어 있어야 합니다.
 
 !!! Warning
-    호스트와 스위치 연결한 Port의 램프가 정상적으로 점멸되는지 확인을 해야하며, 호스트에 ABLESTACK을 구성하기 전에 스위치의 Glue Network(Cluster, Server, Client) Port는 MTU 9000이상 설정이 되여 있어야 합니다.</br>
+    호스트와 스위치 연결한 Port의 램프가 정상적으로 점멸되는지 확인을 해야하며, 호스트에 ABLESTACK HCI을 구성하기 전에 스위치의 Glue Network(Cluster, Server, Client) Port는 MTU 9000이상 설정이 되여 있어야 합니다.</br>
     셋팅이나 설정이 안되여 있는경우 스토리지 클러스터 구성시 정상적으로 구성되지 않을수도 있습니다.
 
 !!! Tip
-    ABLESTACK 구성시 스위치의 MTU 설정은 9000으로 맞춰서 설정하기보다 스위치에서 허용하는 최대의 MTU 설정하여 구성하도록 권장하고 있습니다.
+    ABLESTACK HCI 구성시 스위치의 MTU 설정은 9000으로 맞춰서 설정하기보다 스위치에서 허용하는 최대의 MTU 설정하여 구성하도록 권장하고 있습니다.
 
 ## 설치 전 준비 사항(사전정의)
 !!! note "IPMI"
-    - ABLESTACK의 표준시는 Asia/Seoul입니다.
+    - ABLESTACK HCI의 표준시는 Asia/Seoul입니다.
     - 서버 시작 전, 서버의 초기 시간 설정을 Asia/Seoul로 변경합니다.
-    ![ABLESTACK IPMI 화면](../assets/images/install-ipmi-timezone.png){ align=center }
-- ABLESTACK을 설치 시 호스트 및 시스템 가상머신들에게 할당할 IP가 필요합니다.
+    ![ABLESTACK HCI IPMI 화면](../assets/images/install-ipmi-timezone.png){ .imgCenter .imgBorder }
+- ABLESTACK HCI을 설치 시 호스트 및 시스템 가상머신들에게 할당할 IP가 필요합니다.
 - 할당될 IP는 관리(Management)용 네트워크에 할당되며, 상호간의 통신이 가능하여야 합니다
 !!! Tip
     관리등을 위하여 일정대역(연속되는 IP범위)를 할당하는게 효율적입니다

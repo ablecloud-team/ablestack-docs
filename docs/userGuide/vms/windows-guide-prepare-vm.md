@@ -70,7 +70,7 @@ Windows 운영체제 기반의 가상머신에는 Cell 하이퍼바이저 상에
 최신의 드라이버 ISO는 다음의 URL을 통해 확인하여 다운로드 할 수 있습니다. 
 
 ```
-http://images.ablecloud.io/virtio-win/
+https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/
 ```
 
 드라이버 ISO는 운영체제 ISO를 등록하는 방법과 동일한 방법을 사용합니다. 

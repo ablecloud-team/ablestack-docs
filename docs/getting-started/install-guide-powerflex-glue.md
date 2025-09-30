@@ -8,14 +8,14 @@
     PowerFlex용 SCVM 템플릿과 PFMP 템플릿 이미지는 내장 되어있지 않습니다.
 
     Glue 설치 진행 전, PowerFlex용 SCVM 템플릿 이미지 및 PFMP 템플릿 이미지를 꼭 확인해주시길 바랍니다.
-    
+
 PowerFlex Glue 설치 진행 가이드 입니다.
 이 문서에서는 PowerFlex Glue 용 가상머신 생성 및 해당 가상머신에서 공용 스토리지 생성절차를 가이드 하고 있습니다.
 PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
 
 ## ABLESTACK 메인 화면
-![ABLESTACK 메인 화면](../assets/images/install-guide-powerflex-glue-01.png){ align=center }
+![ABLESTACK 메인 화면](../assets/images/install-guide-powerflex-glue-01.png){ .imgCenter .imgBorder }
 - 왼쪽 ABLESTACK 메뉴 클릭시 보이는 화면입니다.
 
 !!! note
@@ -23,35 +23,46 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
     이 문서에서는 3식의 호스트를 기준으로 가이드를 제공하고 있습니다.
 
+## 라이선스 관리(1번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
+
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license1-01.png){ .imgCenter .imgBorder }
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license1-02.png){ .imgCenter .imgBorder }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
 
 ## 클러스터 구성 준비(1번 호스트)
 
-
 1. 개요
-    ![클러스터 구성 준비 개요](../assets/images/install-guide-powerflex-glue-02.png){ align=center }
+    ![클러스터 구성 준비 개요](../assets/images/install-guide-powerflex-glue-02.png){ .imgCenter .imgBorder }
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - PowerFlex 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
 2. 클러스터 종류
-    ![클러스터 종류](../assets/images/install-guide-powerflex-glue-03.png){ align=center }
+    ![클러스터 종류](../assets/images/install-guide-powerflex-glue-03.png){ .imgCenter .imgBorder }
     - 클러스터 종류를 설정하는 화면입니다.
     - **ABLESTACK-PowerFlex** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 3. SSH Key 파일(신규생성)
-    ![SSH Key 파일](../assets/images/install-guide-powerflex-glue-04.png){ align=center }
+    ![SSH Key 파일](../assets/images/install-guide-powerflex-glue-04.png){ .imgCenter .imgBorder }
     - 모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.
     - **SSH Key 준비 방법** 에서 **신규 생성** 을 선택하고 **다음** 버튼을 클릭하여 신규 SSH Key 를 생성합니다.
 
 4. 클러스터 구성 파일
-    ![클러스터 구성 파일](../assets/images/install-guide-powerflex-glue-05.png){ align=center }
+    ![클러스터 구성 파일](../assets/images/install-guide-powerflex-glue-05.png){ .imgCenter .imgBorder }
     - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
     - **클러스터 구성 파일 준비** 에서 **신규 생성** 을 선택합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
     - **구성 호스트 수** 3대로 입력합니다.
     - **클러스터 구성 프로파일** 호스트 명 및 IP 정보를 입력 합니다.
-    ![클러스터 구성 파일1](../assets/images/install-guide-powerflex-glue-05-1.png){ align=center }
+    ![클러스터 구성 파일1](../assets/images/install-guide-powerflex-glue-05-1.png){ .imgCenter .imgBorder }
     - **CCVM 관리 IP** 정보를 입력 합니다.
     - **관리 NIC CIDR** 정보를 입력 합니다.
     - **관리 NIC Gateway** 정보를 입력 합니다.
@@ -85,7 +96,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         인터넷등 외부 통신이 가능한 환경이어서 외부 공인된 시간서버(NTP)에 접속이 가능하거나 내부에 별도의 시간서버(NTP)가 존재하는 경우에는 "외부 시간 서버"를 입력하여 진행하고, 없으시면 "다음" 으로 넘어가시면 됩니다.</br>
         폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 PowerFlex에서 자체적으로 시간서버를 구성합니다.
 
-    ![시간 서비](../assets/images/install-guide-powerflex-glue-06.png){ align=center }
+    ![시간 서비](../assets/images/install-guide-powerflex-glue-06.png){ .imgCenter .imgBorder }
 
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
@@ -94,16 +105,16 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
     - 설정된 값을 확인한 후, **다음** 버튼을 클릭합니다.
 
 6. 설정확인
-    ![설정확인](../assets/images/install-guide-powerflex-glue-07.png){ align=center }
+    ![설정확인](../assets/images/install-guide-powerflex-glue-07.png){ .imgCenter .imgBorder }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는 경우 **완료** 버튼을 클릭합니다.
 
 7. 완료
-    ![진행](../assets/images/install-guide-powerflex-glue-07-1.png){ align=center }
+    ![진행](../assets/images/install-guide-powerflex-glue-07-1.png){ .imgCenter .imgBorder }
     - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
     - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
 
-    ![완료](../assets/images/install-guide-powerflex-glue-07-2.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-07-2.png){ .imgCenter .imgBorder }
 
     - 1번 호스트의 사전구성 완료 화면입니다.
     - **Private SSH Key**, **Public SSH Key**, **클러스터 구성 프로파일** 을 재사용하기 위하여 링크를 클릭하여 다운로드 합니다.
@@ -113,11 +124,11 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
 ## 스토리지센터 가상머신 배포(1번 호스트)
 1. 개요
-    ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-powerflex-glue-08.png){ align=center }
+    ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-powerflex-glue-08.png){ .imgCenter .imgBorder }
     - PowerFlex 스토리지센터 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
-    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-09.png){ align=center }
+    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-09.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.
     - **CPU** 는 **16 vCore** 를 선택 하고, **Memory** 는 **32GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
 
@@ -136,7 +147,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
         이 문서는 "LUN Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
 
-    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-10.png){ align=center }
+    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-10.png){ .imgCenter .imgBorder }
 
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
@@ -157,16 +168,26 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
         이 문서는 "NIC-Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
 
-    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-11.png){ align=center }
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-11.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
-    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-1.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 
 5. 추가 네트워크 정보
-    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-12.png){ align=center }
+    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-12.png){ .imgCenter .imgBorder }
     - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
     - **호스트명(SCVM)** 을 입력 및 확인합니다.
     - **관리 NIC IP** 를 입력 및 확인합니다.
@@ -181,7 +202,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
 
 6. SSH Key 정보
-    ![SSH Key 정보](../assets/images/install-guide-powerflex-glue-13.png){ align=center }
+    ![SSH Key 정보](../assets/images/install-guide-powerflex-glue-13.png){ .imgCenter .imgBorder }
     - SSH Key 정보를 확인하는 화면입니다.
     - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
@@ -190,43 +211,54 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         키 파일명을 변경할 경우 등록이 불가능 합니다.
 
 7. 설정확인
-    ![설정확인](../assets/images/install-guide-powerflex-glue-14.png){ align=center }
+    ![설정확인](../assets/images/install-guide-powerflex-glue-14.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.
     - **배포** 버튼을 클릭하면 확인창이 보이며 **실행** 버튼을 눌러 스토리지 가상머신을 배포 합니다.
 
 8. 배포
-    ![배포](../assets/images/install-guide-powerflex-glue-15.png){ align=center }
+    ![배포](../assets/images/install-guide-powerflex-glue-15.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
 
 9.  완료
-    ![완료](../assets/images/install-guide-powerflex-glue-16.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-16.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 완료 후 화면입니다.
 
 10. 스토리지센터 가상머신 상태 확인
-    ![완료](../assets/images/install-guide-powerflex-glue-17.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-17.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
+## 라이선스 관리(2번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
+
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license2-01.png){ .imgCenter .imgBorder }
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license2-02.png){ .imgCenter .imgBorder }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
 
 ## 클러스터 구성 준비(2번  호스트)
-
 
 !!! info
     2번 호스트 구성 방법 입니다. (기본적인 절차는 1번 호스트와 동일합니다)
 
 1. 개요
-   ![클러스터 구성 준비 개요](../assets/images/install-guide-powerflex-glue-18.png){ align=center }
+   ![클러스터 구성 준비 개요](../assets/images/install-guide-powerflex-glue-18.png){ .imgCenter .imgBorder }
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - PowerFlex 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
 2. 클러스터 종류
-    ![클러스터 종류](../assets/images/install-guide-powerflex-glue-18-1.png){ align=center }
+    ![클러스터 종류](../assets/images/install-guide-powerflex-glue-18-1.png){ .imgCenter .imgBorder }
     - 클러스터 종류를 설정하는 화면입니다.
     - **ABLESTACK-PowerFlex** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 3. SSH Key 파일(기존파일사용)
-   ![SSH Key 파일](../assets/images/install-guide-powerflex-glue-19.png){ align=center }
+   ![SSH Key 파일](../assets/images/install-guide-powerflex-glue-19.png){ .imgCenter .imgBorder }
     - 모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.
     - **SSH Key 준비 방법** 에서 **기존 파일 사용** 을 선택하고 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 1번 호스트 클러스터 구성 준비 단계에서
     다운로드한 SSH Key 를 등록합니다.
@@ -236,14 +268,14 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 3. 클러스터 구성 파일
-    ![클러스터 구성 파일](../assets/images/install-guide-powerflex-glue-20.png){ align=center }
+    ![클러스터 구성 파일](../assets/images/install-guide-powerflex-glue-20.png){ .imgCenter .imgBorder }
     - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
     - **클러스터 구성 파일 준비** 에서 **기존 파일 사용** 을 선택합니다.
     - **클러스터 구성 파일** 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
     - **구성 호스트 수** 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.
     - **클러스터 구성 프로파일** 정보를 확인합니다.
-    ![클러스터 구성 파일1](../assets/images/install-guide-powerflex-glue-20-1.png){ align=center }
+    ![클러스터 구성 파일1](../assets/images/install-guide-powerflex-glue-20-1.png){ .imgCenter .imgBorder }
     - **CCVM 관리 IP** 정보를 입력 합니다.
     - **관리 NIC CIDR** 정보를 입력 합니다.
     - **관리 NIC Gateway** 정보를 입력 합니다.
@@ -268,23 +300,23 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         3 | ablecube32-3 | 10.10.32.3 | 10.10.32.13 | 100.100.32.3 | 100.100.32.13 | 100.200.32.13
 
 4. 시간서버
-   ![Host 파일](../assets/images/install-guide-powerflex-glue-21.png){ align=center }
+   ![Host 파일](../assets/images/install-guide-powerflex-glue-21.png){ .imgCenter .imgBorder }
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
     - 설정된 값을 확인한 후, **다음** 버튼을 클릭합니다.
 
 5. 설정확인
-   ![설정확인](../assets/images/install-guide-powerflex-glue-22.png){ align=center }
+   ![설정확인](../assets/images/install-guide-powerflex-glue-22.png){ .imgCenter .imgBorder }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는경우 **완료** 버튼을 클릭합니다.
 
 6. 완료
-    ![진행](../assets/images/install-guide-powerflex-glue-23-1.png){ align=center }
+    ![진행](../assets/images/install-guide-powerflex-glue-23-1.png){ .imgCenter .imgBorder }
     - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
     - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
 
-    ![완료](../assets/images/install-guide-powerflex-glue-23.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-23.png){ .imgCenter .imgBorder }
 
     - 2번 호스트의 사전구성 완료 화면입니다.
 
@@ -293,11 +325,11 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
 ## 스토리지센터 가상머신 배포(2번 호스트)
 1. 개요
-   ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-powerflex-glue-24.png){ align=center }
+   ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-powerflex-glue-24.png){ .imgCenter .imgBorder }
     - PowerFlex 스토리지센터 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
-   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-25.png){ align=center }
+   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-25.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.
     - **CPU** 는 **16 vCore** 를 선택 하고, **Memory** 는 **32GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
 
@@ -307,7 +339,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         ROOT Disk의 크기는 **150GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
 
 3. 가상머신 장치구성 - 디스크
-   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-26.png){ align=center }
+   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-26.png){ .imgCenter .imgBorder }
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
 
@@ -316,14 +348,26 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 PowerFlex Cube 가 삭제가 될 수 있습니다.
 
 4. 가상머신 장치구성 - 네트워크
-   ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-27.png){ align=center }
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
-    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-27.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-1.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
-    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-28.png){ align=center }
+    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-28.png){ .imgCenter .imgBorder }
     - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
     - **호스트명(SCVM)** 을 입력 및 확인합니다.
     - **관리 NIC IP** 를 입력 및 확인합니다.
@@ -338,7 +382,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
 
 6. SSH Key 정보
-    ![SSH Key 정보](../assets/images/install-guide-powerflex-glue-29.png){ align=center }
+    ![SSH Key 정보](../assets/images/install-guide-powerflex-glue-29.png){ .imgCenter .imgBorder }
     - SSH Key 정보를 확인하는 화면입니다.
     - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
@@ -347,43 +391,54 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 7. 설정확인
-    ![설정확인](../assets/images/install-guide-powerflex-glue-30.png){ align=center }
+    ![설정확인](../assets/images/install-guide-powerflex-glue-30.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.
     - **배포** 버튼을 클릭하면 확인창이 보이며 **실행** 버튼을 눌러 스토리지 가상머신을 배포 합니다.
 
 8. 배포
-    ![배포](../assets/images/install-guide-powerflex-glue-31.png){ align=center }
+    ![배포](../assets/images/install-guide-powerflex-glue-31.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
 
 9. 완료
-    ![완료](../assets/images/install-guide-powerflex-glue-32.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-32.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 완료 후 화면입니다.
 
 10. 스토리지센터 가상머신 상태 확인
-    ![완료](../assets/images/install-guide-powerflex-glue-33.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-33.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
+## 라이선스 관리(3번 호스트)
+!!! check
+    라이선스를 등록하기 위해서는 ABLECLOUD로부터 발급된 라이선스 파일이 필요합니다.
+    라이선스 관련 문의 사항은 ABLECLOUD 고객 지원 번호 및 이메일로 문의해 주시기 바랍니다.
+
+1. 라이선스 등록
+    ![라이선스 등록](../assets/images/install-guide-powerflex-glue-license3-01.png){ .imgCenter .imgBorder }
+    - 시스템 구축 전, 발급받은 **트라이얼 또는 정식 라이선스 파일** 을 등록해주시기 바랍니다.
+
+2. 라이선스 확인
+    ![라이선스 확인](../assets/images/install-guide-powerflex-glue-license3-02.png){ .imgCenter .imgBorder }
+    - 등록된 라이선스 정보를 확인할 수 있는 화면입니다.
 
 ## 클러스터 구성 준비(3번  호스트)
-
 
 !!! info
     3번 호스트 구성 방법 입니다. 3번 호스트 구성방법은 IP 설정 및 호스트 이름 제외하고는 2번 호스트와 동일합니다.
 
 1. 개요
-   ![클러스터 구성 준비 개요](../assets/images/install-guide-powerflex-glue-34.png){ align=center }
+   ![클러스터 구성 준비 개요](../assets/images/install-guide-powerflex-glue-34.png){ .imgCenter .imgBorder }
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - PowerFlex 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
 2. 클러스터 종류
-    ![클러스터 종류](../assets/images/install-guide-powerflex-glue-34-1.png){ align=center }
+    ![클러스터 종류](../assets/images/install-guide-powerflex-glue-34-1.png){ .imgCenter .imgBorder }
     - 클러스터 종류를 설정하는 화면입니다.
     - **ABLESTACK-PowerFlex** 를 선택합니다.
     - **다음** 버튼을 클릭하여 클러스터 종류를 선택합니다.
 
 2. SSH Key 파일(기존파일사용)
-   ![SSH Key 파일](../assets/images/install-guide-powerflex-glue-35.png){ align=center }
+   ![SSH Key 파일](../assets/images/install-guide-powerflex-glue-35.png){ .imgCenter .imgBorder }
     - 모든 호스트 및 가상 머신은 동일한 SSH Key 를 공유하고 있어야 구성이 가능합니다.
     - **SSH Key 준비 방법** 에서 **기존 파일 사용** 을 선택하고 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 1번 호스트 클러스터 구성 준비 단계에서
     다운로드한 SSH Key 를 등록합니다.
@@ -393,14 +448,14 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 3. 클러스터 구성 파일
-    ![클러스터 구성 파일](../assets/images/install-guide-powerflex-glue-36.png){ align=center }
+    ![클러스터 구성 파일](../assets/images/install-guide-powerflex-glue-36.png){ .imgCenter .imgBorder }
     - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
     - **클러스터 구성 파일 준비** 에서 **기존 파일 사용** 을 선택합니다.
     - **클러스터 구성 파일** 에서 cluster.json 파일을 업로드 클러스터 정보를 자동입력 합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
     - **구성 호스트 수** 는 기존 파일 사용 선택시 수정 불가능 상태가 됩니다.
     - **클러스터 구성 프로파일** 정보를 확인합니다.
-    ![클러스터 구성 파일1](../assets/images/install-guide-powerflex-glue-36-1.png){ align=center }
+    ![클러스터 구성 파일1](../assets/images/install-guide-powerflex-glue-36-1.png){ .imgCenter .imgBorder }
     - **CCVM 관리 IP** 정보를 확인합니다.
     - **관리 NIC CIDR** 정보를 입력 합니다.
     - **관리 NIC Gateway** 정보를 입력 합니다.
@@ -425,23 +480,23 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         3 | ablecube32-3  | 10.10.32.3 | 10.10.32.13 | 100.100.32.3 | 100.100.32.13 | 100.200.32.13
 
 4. 시간서버
-   ![Host 파일](../assets/images/install-guide-powerflex-glue-37.png){ align=center }
+   ![Host 파일](../assets/images/install-guide-powerflex-glue-37.png){ .imgCenter .imgBorder }
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
     - 설정된 값을 확인한 후, **다음** 버튼을 클릭합니다.
 
 5. 설정확인
-   ![설정확인](../assets/images/install-guide-powerflex-glue-38.png){ align=center }
+   ![설정확인](../assets/images/install-guide-powerflex-glue-38.png){ .imgCenter .imgBorder }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는경우 **완료** 버튼을 클릭합니다.
 
 6. 완료
-    ![진행](../assets/images/install-guide-powerflex-glue-39-1.png){ align=center }
+    ![진행](../assets/images/install-guide-powerflex-glue-39-1.png){ .imgCenter .imgBorder }
     - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
     - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
 
-    ![완료](../assets/images/install-guide-powerflex-glue-39.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-39.png){ .imgCenter .imgBorder }
 
     - 3번 호스트의 사전구성 완료 화면입니다.
 
@@ -450,11 +505,11 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
 
 ## 스토리지센터 가상머신 배포(3번 호스트)
 1. 개요
-   ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-powerflex-glue-40.png){ align=center }
+   ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-powerflex-glue-40.png){ .imgCenter .imgBorder }
     - PowerFlex 스토리지센터 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
-   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-41.png){ align=center }
+   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-41.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.
     - **CPU** 는 **16 vCore** 를 선택 하고, **Memory** 는 **32GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
 
@@ -464,7 +519,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         ROOT Disk의 크기는 **150GiB** 를 디스크가 **Thin Provisioning** 방식으로 제공됩니다.
 
 3. 가상머신 장치구성 - 디스크
-   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-42.png){ align=center }
+   ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-glue-42.png){ .imgCenter .imgBorder }
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
 
@@ -473,14 +528,26 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         만약에 파티션이 구성된 디스크를 선택을 하고 가상 머신을 구성하시면 PowerFlex Cube 가 삭제가 될 수 있습니다.
 
 4. 가상머신 장치구성 - 네트워크
-   ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-43.png){ align=center }
-    - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
-    선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-glue-43.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-glue-network-ovs-1.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
-    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-44.png){ align=center }
+    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-glue-44.png){ .imgCenter .imgBorder }
     - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
     - **호스트명(SCVM)** 을 입력 및 확인합니다.
     - **관리 NIC IP** 를 입력 및 확인합니다.
@@ -495,7 +562,7 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
 
 6. SSH Key 정보
-    ![SSH Key 정보](../assets/images/install-guide-powerflex-glue-45.png){ align=center }
+    ![SSH Key 정보](../assets/images/install-guide-powerflex-glue-45.png){ .imgCenter .imgBorder }
     - SSH Key 정보를 확인하는 화면입니다.
     - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
@@ -504,20 +571,20 @@ PowerFlex Cube 의 웹콘솔과 PowerFlex Glue 웹콘솔을 이용하여 진행�
         다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 7. 설정확인
-    ![설정확인](../assets/images/install-guide-powerflex-glue-46.png){ align=center }
+    ![설정확인](../assets/images/install-guide-powerflex-glue-46.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.
     - **배포** 버튼을 클릭하면 확인창이 보이며 **실행** 버튼을 눌러 스토리지 가상머신을 배포 합니다.
 
 8. 배포
-    ![배포](../assets/images/install-guide-powerflex-glue-47.png){ align=center }
+    ![배포](../assets/images/install-guide-powerflex-glue-47.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
 
 9. 완료
-    ![완료](../assets/images/install-guide-powerflex-glue-48.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-48.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 완료 후 화면입니다.
 
 10. 스토리지센터 가상머신 상태 확인
-    ![완료](../assets/images/install-guide-powerflex-glue-49.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-glue-49.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
 !!! info
@@ -544,12 +611,12 @@ Glue 대시보드에서 설정하기 위해서는 **Bootstrap** 우선 실행해
     호스트 확인 후, **Bootstrap** 을 실행 시키시길 바랍니다.
 
 1. Bootstrap 실행
-    ![Bootstrap 실행 1-3](../assets/images/install-guide-powerflex-glue-50.png){ align=center }
+    ![Bootstrap 실행 1-3](../assets/images/install-guide-powerflex-glue-50.png){ .imgCenter .imgBorder }
     - 1번 호스트의 PowerFlex Cube 웹 콘솔로 이동합니다.
     - 스토리지센터 클러스터 상태 카드의 메뉴 버튼을 클릭하여 **Bootstrap 실행** 버튼을 클릭합니다.
-    ![Bootstrap 실행 2-3](../assets/images/install-guide-powerflex-glue-51.png){ align=center }
+    ![Bootstrap 실행 2-3](../assets/images/install-guide-powerflex-glue-51.png){ .imgCenter .imgBorder }
     - **실행** 버튼을 클릭하여 **Bootstrap** 을 실행시킵니다.
-    ![Bootstrap 실행 3-3](../assets/images/install-guide-powerflex-glue-52.png){ align=center }
+    ![Bootstrap 실행 3-3](../assets/images/install-guide-powerflex-glue-52.png){ .imgCenter .imgBorder }
     - **Bootstrap** 이 정상적으로 실행되면 **ABLESTACK 가상어플라이언스 상태** 에서 **파워플렉스 관리 플랫폼 VM 배포란** 버튼이 나타납니다.
     - 상단 리본에서 **파워플렉스 관리 플랫폼 VM 배포** 버튼을 클릭하여 다음 절차를 수행하세요.
 

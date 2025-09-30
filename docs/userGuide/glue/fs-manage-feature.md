@@ -1,13 +1,15 @@
-!!! note
-    ABLESTACK Glue Service는 호스트가 아닌 Storage Center Virtual Machine(SCVM)에서 제공되고 있습니다.
 
-    접속할 경로는 기존에 구성된 Storage Center Virtual Machine(SCVM) IP로 접속 하시면 됩니다.
 
 # Glue FS 관리
 ABLESTACK Glue Service 에서의 Glue FS 관리 하는 가이드 입니다.
 이 문서에서는 ABLESTACK Glue File System Service 관리 및 제공되는 기능절차를 가이드 하고 있습니다.
 ABLESTACK Cube의 웹콘솔로 진행되며, 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
+
+!!! note
+    ABLESTACK Glue Service는 호스트가 아닌 Storage Center Virtual Machine(SCVM)에서 제공되고 있습니다.
+
+    접속할 경로는 기존에 구성된 Storage Center Virtual Machine(SCVM) IP로 접속 하시면 됩니다.
 
 ## Glue FS 기능 설명
 Glue 파일 시스템( GlueFS )은 Glue의 분산 객체 저장소인 RADOS 위에 구축된 POSIX 호환 파일 시스템입니다.
@@ -18,7 +20,7 @@ GlueFS(Glue File System) Subvolume Group 을 생성, 조회, 절대 경로 가�
 Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 경로(/volumes/볼륨 그룹)를 관리할 수 있습니다.
 
 ## Glue FS 메인 화면
-![Glue FS 메인 화면](../../assets/images/glue-service/install-guide-glue-fs-main-01.png){ align=center }
+![Glue FS 메인 화면](../../assets/images/glue-service/install-guide-glue-fs-main-01.png){ .imgCenter .imgBorder }
 - ABLESTACK 메인 화면에서 상단 GLUE FS 메뉴를 클릭한 화면입니다.
 
 !!! note
@@ -30,13 +32,13 @@ Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 �
     ABLESTACK Glue File System 서비스는 한 번에 여러 서비스를 사용하는 것보다 하나의 서비스를 선호합니다.
 
 1. Glue FS 구성
-    ![Glue FS 구성 준비](../../assets/images/glue-service/install-guide-glue-fs-create-01.png){ align=center }
+    ![Glue FS 구성 준비](../../assets/images/glue-service/install-guide-glue-fs-create-01.png){ .imgCenter .imgBorder }
     - Glue File System 카드란에 **추가** 버튼을 클릭합니다.
-    ![Glue FS 구성](../../assets/images/glue-service/install-guide-glue-fs-create-02.png){ align=center }
+    ![Glue FS 구성](../../assets/images/glue-service/install-guide-glue-fs-create-02.png){ .imgCenter .imgBorder }
     - **GlueFS 이름** 정보를 입력 합니다.
     - **배치 호스트** 정보를 선택 합니다.
     - 위 항목을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue FS 구성 완료](../../assets/images/glue-service/install-guide-glue-fs-create-03.png){ align=center }
+    ![Glue FS 구성 완료](../../assets/images/glue-service/install-guide-glue-fs-create-03.png){ .imgCenter .imgBorder }
     - Glue FS 서비스가 구성된 화면입니다.
 
     !!! info
@@ -53,13 +55,13 @@ Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 �
     Glue FS를 삭제하기 전에 먼저 모든 Subvolume Group을 삭제해야 Glue FS도 함께 삭제됩니다.
 
 1. Glue FS 삭제
-    ![Glue FS 삭제 준비](../../assets/images/glue-service/install-guide-glue-fs-delete-01.png){ align=center }
+    ![Glue FS 삭제 준비](../../assets/images/glue-service/install-guide-glue-fs-delete-01.png){ .imgCenter .imgBorder }
     - Glue File System 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **GlueFS 삭제** 버튼을 클릭 합니다.
-    ![Glue FS 삭제](../../assets/images/glue-service/install-guide-glue-fs-delete-02.png){ align=center }
+    ![Glue FS 삭제](../../assets/images/glue-service/install-guide-glue-fs-delete-02.png){ .imgCenter .imgBorder }
     - **데이터가 삭제됩니다. 예, 확실히 삭제합니다.** 란에 체크를 활성화 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue FS 삭제 완료](../../assets/images/glue-service/install-guide-glue-fs-delete-03.png){ align=center }
+    ![Glue FS 삭제 완료](../../assets/images/glue-service/install-guide-glue-fs-delete-03.png){ .imgCenter .imgBorder }
     - 삭제가 된 화면입니다.
 
 ## Glue FS Subvolume Group 생성
@@ -68,27 +70,27 @@ Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 �
     사용하기 전, Glue FS Service가 사전에 생성되어 있고, active 상태여야 합니다.
 
 1. Glue FS Subvolume Group 생성
-    ![Glue FS Subvolume Group 생성 준비](../../assets/images/glue-service/install-guide-glue-fs-volume-create-01.png){ align=center }
+    ![Glue FS Subvolume Group 생성 준비](../../assets/images/glue-service/install-guide-glue-fs-volume-create-01.png){ .imgCenter .imgBorder }
     - **추가** 버튼을 눌러 Subvolume Group 구성 준비를 시작합니다.
-    ![Glue FS Subvolume Group 생성](../../assets/images/glue-service/install-guide-glue-fs-volume-create-02.png){ align=center }
+    ![Glue FS Subvolume Group 생성](../../assets/images/glue-service/install-guide-glue-fs-volume-create-02.png){ .imgCenter .imgBorder }
     - **Group 이름** 을 입력합니다.
     - **용량(GiB)** 를 입력합니다.
     - **GlueFS 이름 및 데이터 풀** 을 확인합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue FS Subvolume Group 생성 완료](../../assets/images/glue-service/install-guide-glue-fs-volume-create-03.png){ align=center }
+    ![Glue FS Subvolume Group 생성 완료](../../assets/images/glue-service/install-guide-glue-fs-volume-create-03.png){ .imgCenter .imgBorder }
     - Subvolume Group이 생성된 화면입니다.
 
 ## Glue FS Subvolume Group 수정
 
 1. Glue FS Subvolume Group 수정
-    ![Glue FS Subvolume Group 수정 준비](../../assets/images/glue-service/install-guide-glue-fs-volume-update-01.png){ align=center }
+    ![Glue FS Subvolume Group 수정 준비](../../assets/images/glue-service/install-guide-glue-fs-volume-update-01.png){ .imgCenter .imgBorder }
     - Subvolume Group 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **Subvolume Group 수정** 버튼을 눌러 수정 준비를 시작합니다.
-    ![Glue FS Subvolume Group 수정](../../assets/images/glue-service/install-guide-glue-fs-volume-update-02.png){ align=center }
+    ![Glue FS Subvolume Group 수정](../../assets/images/glue-service/install-guide-glue-fs-volume-update-02.png){ .imgCenter .imgBorder }
     - **Group 이름** 을 확인합니다.
     - 변경될 **용량(GiB)** 을 입력합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue FS Subvolume Group 수정 완료](../../assets/images/glue-service/install-guide-glue-fs-volume-update-03.png){ align=center }
+    ![Glue FS Subvolume Group 수정 완료](../../assets/images/glue-service/install-guide-glue-fs-volume-update-03.png){ .imgCenter .imgBorder }
     - Subvolume Group 수정한 화면입니다.
 
 ## Glue FS Subvolume Group 삭제
@@ -97,13 +99,13 @@ Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 �
     Subvolume Group을 삭제하면 그 안에 있던 모든 파일과 폴더가 함께 삭제됩니다. 중요한 데이터가 있다면 삭제 전에 반드시 백업해 두세요.
 
 1. Glue FS Subvolume Group 삭제
-    ![Glue FS Subvolume Group 삭제 준비](../../assets/images/glue-service/install-guide-glue-fs-volume-delete-01.png){ align=center }
+    ![Glue FS Subvolume Group 삭제 준비](../../assets/images/glue-service/install-guide-glue-fs-volume-delete-01.png){ .imgCenter .imgBorder }
     - Subvolume Group 각 정보의 더보기란을 클릭하면 보이는 화면입니다.
     - **Subvolume Group 삭제** 버튼을 눌러 삭제를 시작합니다.
-    ![Glue FS Subvolume Group 삭제](../../assets/images/glue-service/install-guide-glue-fs-volume-delete-02.png){ align=center }
+    ![Glue FS Subvolume Group 삭제](../../assets/images/glue-service/install-guide-glue-fs-volume-delete-02.png){ .imgCenter .imgBorder }
     - **데이터가 삭제됩니다. 예, 확실히 삭제합니다.** 란에 체크를 활성화 합니다.
     - 위 항목들을 입력 및 확인 후에 **실행** 버튼을 클릭합니다.
-    ![Glue FS Subvolume Group 삭제 완료](../../assets/images/glue-service/install-guide-glue-fs-volume-delete-03.png){ align=center }
+    ![Glue FS Subvolume Group 삭제 완료](../../assets/images/glue-service/install-guide-glue-fs-volume-delete-03.png){ .imgCenter .imgBorder }
     - 삭제가 완료된 화면입니다.
 
 ## Glue FS 실사용 방법
@@ -113,7 +115,7 @@ Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 �
 
 ### Glue FS Service 확인 및 Glue FS용 Subvolume Group 확인
 1. Glue FS Service 확인 및 Glue FS용 Subvolume Group 확인
-    ![Glue FS Service 확인 및 Glue FS용 Subvolume Group 확인](../../assets/images/glue-service/install-guide-glue-fs-actual-use-01.png){ align=center }
+    ![Glue FS Service 확인 및 Glue FS용 Subvolume Group 확인](../../assets/images/glue-service/install-guide-glue-fs-actual-use-01.png){ .imgCenter .imgBorder }
     - Glue FS Service 및 Glue FS Subvolume Group을 확인하는 화면입니다.
     - Glue FS 용 **이름** , **경로** , **할당 용량** 정보를 확인 합니다.
 
@@ -143,4 +145,3 @@ Glue FS의 하위 그룹을 생성하여 효율적으로 GlueFS의 그룹 및 �
 
     admin@{fsid}.gluefs=/volumes/gluefs /mnt/gluefs ceph name=admin,secret={secret key},rw,relatime,seclabel,defaults 0 0
     ```
-    

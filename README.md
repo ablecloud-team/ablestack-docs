@@ -25,6 +25,7 @@ Homebrew가 설치되면 다음의 명령을 이용해 MkDocs 패키지를 설�
 ```
 $ brew install mkdocs
 ```
+
 ### 수동으로 MkDocs 설치
 
 만약, 기본적인 운영체제의 패키지 관리자를 이용해 설치하는 MkDocs가 최신의 버전이 아니어서 최신의 MkDocs 패키지를 설치하고자 한다면 Python을 이용해 직접 최신의 패키지를 설치할 수 있습니다. MkDocs 패키지를 설치하기 위해서는 먼저 운영체제에 Python이 설치되어 있어야 합니다. 운영체제별 Python 설치 방법은 별도의 가이드를 참고합니다. 
@@ -65,6 +66,51 @@ $ pip install mike
 다음의 명령을 개발환경에서 실행합니다.
 ```
 $ pip install mkdocs-glightbox
+```
+### Windows에 MkDocs 설치
+다음은 기본 Windows 에서 Windows 패키지 매니저 중 하나인 chocolatery 로 진행합니다. 기설치된 패키지는 생략합니다.
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```
+
+Git 설치
+```
+choco install git
+```
+mkdocs 설치
+```
+choco install mkdocs
+```
+파이썬 설치
+```
+choco install python
+```
+mkdocs 플러그인 설치
+```
+pip install mkdocs-exporter
+```
+```
+pip install mkdocs-macros-plugin
+```
+```
+pip install mike
+```
+```
+pip install mkdocs-glightbox
+```
+```
+playwright install
+```
+ablecloud-team/ablestack-docs 레포지토리를 본인의 레포지토리로 fork 합니다
+```
+git clone <fork 된 ablestack-docs 주소>
+```
+이동 및 mkdocs 실행
+```
+cd ablestack-docs
+```
+```
+mkdocs serve
 ```
 
 ## 개발 참여

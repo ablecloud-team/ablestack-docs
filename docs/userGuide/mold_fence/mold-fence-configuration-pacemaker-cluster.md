@@ -49,7 +49,7 @@ systemctl restart NetworkManager
 ### Pacemaker 클러스터 구성 및 시작
 ==== [VM1 실행]
 ```
-pcs host auth lilo-ha1 lilo-ha2 -u hacluster -p Ablecloud1!
+pcs host auth lilo-ha1 lilo-ha2 -u hacluster -p 비밀번호
 pcs cluster setup hacluster --start lilo-ha1 lilo-ha2
 ```
 

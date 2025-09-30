@@ -3,14 +3,14 @@
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
     해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
-    
+
 ABLESTACK 호스트 추가 설치 진행 가이드 입니다.
 이 문서에서는 기구축된 ABLESTACK 환경에 추가적으로 ABLESTACK 호스트를 추가하기 위한 절차를 가이드 하고 있습니다.
 ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
 
 ## ABLESTACK Cube 메인 화면
-![ABLESTACK 메인 화면](../assets/images/install-guide-add-host-01.png){ align=center }
+![ABLESTACK 메인 화면](../assets/images/install-guide-add-host-01.png){ .imgCenter .imgBorder }
 - 왼쪽 ABLESTACK 메뉴 클릭시 보이는 화면입니다.
 
 !!! note
@@ -22,7 +22,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
 ## 클러스터 설정파일 다운로드
 1. 설정파일 다운로드
-    ![클러스터 설정파일 다운로드](../assets/images/install-guide-add-host-02.png){ align=center }
+    ![클러스터 설정파일 다운로드](../assets/images/install-guide-add-host-02.png){ .imgCenter .imgBorder }
     - 상단 리본의 **설정파일 다운로드** 버튼을 클릭하면 보이는 화면입니다.
     - **Private SSH Key 다운로드** 버튼을 클릭하여 **id_rsa** 파일을 다운로드합니다.
     - **Public SSH Key 다운로드** 버튼을 클릭하여 **id_rsa.pub** 파일을 다운로드합니다.
@@ -33,13 +33,13 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
 
 1. 개요
-    ![클러스터 구성 준비 개요](../assets/images/install-guide-add-host-03.png){ align=center }
+    ![클러스터 구성 준비 개요](../assets/images/install-guide-add-host-03.png){ .imgCenter .imgBorder }
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
 2. SSH Key 파일(신규생성)
-    ![SSH Key 파일](../assets/images/install-guide-add-host-04.png){ align=center }
+    ![SSH Key 파일](../assets/images/install-guide-add-host-04.png){ .imgCenter .imgBorder }
     - 클러스터 설정파일 다운로드 작업에서 받은 id_rsa, id_rsa.pub 파일을 이용하여 등록합니다.
     - **SSH Key 준비 방법** 에서 **기존 파일 사용** 을 선택하고 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 추가 호스트 다운로드한 SSH Key 를 등록합니다.
 
@@ -48,14 +48,14 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
         다운로드한 Key 의 파일 명을 수정할 경우 등록이 불가능 합니다.
 
 3. 클러스터 구성 파일
-    ![클러스터 구성 파일](../assets/images/install-guide-add-host-05.png){ align=center }
+    ![클러스터 구성 파일](../assets/images/install-guide-add-host-05.png){ .imgCenter .imgBorder }
     - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **추가 호스트** 로 선택한다.
     - 추가 호스트 인경우 **클러스터 구성 파일 준비** 는 **기존 파일 사용** 이 자동 선택됩니다.
     - **클러스터 구성 파일** 을 클러스터 설정파일 다운로드 작업에서 받은 cluster.json 파일을 이용하여 등록합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
     - **구성 호스트 수** 자동으로 계산되어 입력합니다.
     - **클러스터 구성 프로파일** 추가 호스트 명 및 IP 정보를 입력 합니다.
-    ![클러스터 구성 파일1](../assets/images/install-guide-add-host-05-1.png){ align=center }
+    ![클러스터 구성 파일1](../assets/images/install-guide-add-host-05-1.png){ .imgCenter .imgBorder }
     - **CCVM 관리 IP** 정보를 확인 합니다.
     - **관리 NIC CIDR** 정보를 확인 합니다.
     - **관리 NIC Gateway** 정보를 확인 합니다.
@@ -93,7 +93,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
         이 문서는 "로컬 시간서버"로 구성하는 방식에 대하여 설명되어 있습니다.
 
-    ![시간 서비](../assets/images/install-guide-add-host-06.png){ align=center }
+    ![시간 서비](../assets/images/install-guide-add-host-06.png){ .imgCenter .imgBorder }
 
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
@@ -102,26 +102,26 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
-    ![설정확인](../assets/images/install-guide-add-host-07.png){ align=center }
+    ![설정확인](../assets/images/install-guide-add-host-07.png){ .imgCenter .imgBorder }
     - 구성 준비에 입력값에 대한 설정을 확인하는 화면입니다.
     - 설정된 값을 확인 후 이상이 없는 경우 **완료** 버튼을 클릭합니다.
 
 6. 완료
-    ![진행](../assets/images/install-guide-add-host-07-1.png){ align=center }
+    ![진행](../assets/images/install-guide-add-host-07-1.png){ .imgCenter .imgBorder }
     - 클러스터 구성 준비 3단계 진행상황을 확인합니다.
     - 정상적으로 끝날 경우 완료 화면이 호출 됩니다.
 
-    ![완료](../assets/images/install-guide-add-host-08.png){ align=center }
+    ![완료](../assets/images/install-guide-add-host-08.png){ .imgCenter .imgBorder }
 
     - 추가 호스트의 경우 설정파일을 다운로드할 필요는 없습니다.
 
 ## 스토리지센터 가상머신 배포
 1. 개요
-    ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-add-host-09.png){ align=center }
+    ![스토리지센터 가상머신 배포 개요](../assets/images/install-guide-add-host-09.png){ .imgCenter .imgBorder }
     - ABLESTACK 스토리지센터 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
-    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-add-host-10.png){ align=center }
+    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-add-host-10.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.
     - **CPU** 는 **8 vCore** 를 선택 하고, **Memory** 는 **16GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
 
@@ -142,7 +142,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
         이 문서는 "LUN Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
 
-    ![가상머신 장치 구성 - 디스크](../assets/images/install-guide-add-host-11.png){ align=center }
+    ![가상머신 장치 구성 - 디스크](../assets/images/install-guide-add-host-11.png){ .imgCenter .imgBorder }
 
     - 스토리지 센터 가상머신 장치의 디스크 구성 화면입니다.
     - **디스크 구성 방식** 은 **LUN Passthrough** 를 선택하고 **Glue 스토리지로 사용할 디스크** 를 선택하고 **다음** 버튼을 클릭 합니다.
@@ -163,7 +163,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
         이 문서는 "NIC-Passthrough"로 구성하는 방식에 대하여 설명되어 있습니다.
 
-    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-add-host-12.png){ align=center }
+    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-add-host-12.png){ .imgCenter .imgBorder }
 
     - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
     - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
@@ -172,12 +172,12 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
 
 5. 추가 네트워크 정보
-    ![추가 네트워크 정보](../assets/images/install-guide-add-host-13.png){ align=center }
+    ![추가 네트워크 정보](../assets/images/install-guide-add-host-13.png){ .imgCenter .imgBorder }
     - **클러스터 구성 파일 준비** 해당 호스트 파일 사용으로 자동 선택되며, ablecube 호스트 설정 정보를 자동으로 읽어와 클러스터 구성 정보 및 네트워크 IP 정보를 세팅합니다.
     - **호스트명(SCVM)** 을 입력 및 확인합니다.
     - **관리 NIC IP** 를 입력 및 확인합니다.
 
-    ![추가 네트워크 정보1](../assets/images/install-guide-add-host-13-1.png){ align=center }
+    ![추가 네트워크 정보1](../assets/images/install-guide-add-host-13-1.png){ .imgCenter .imgBorder }
 
     - **관리 NIC Gateway** 를 입력 및 확인합니다.
     - **관리 NIC DNS** 를 입력 및 확인합니다.
@@ -190,7 +190,7 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
         해당 화면의 IP 정보 는 예제 입니다. IP 정보는 사이트 정보에 맞춰서 수정해야 합니다.
 
 6. SSH Key 정보
-    ![SSH Key 정보](../assets/images/install-guide-add-host-14.png){ align=center }
+    ![SSH Key 정보](../assets/images/install-guide-add-host-14.png){ .imgCenter .imgBorder }
     - SSH Key 정보를 확인하는 화면입니다.
     - 클러스터 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
@@ -199,63 +199,63 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
         키 파일명을 변경할 경우 등록이 불가능 합니다.
 
 7. 설정확인
-    ![설정확인](../assets/images/install-guide-add-host-15.png){ align=center }
+    ![설정확인](../assets/images/install-guide-add-host-15.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포를 위한 구성정보 확인하는 화면입니다.
     - **배포** 버튼을 클릭하면 확인창이 보이며 **실행** 버튼을 눌러 스토리지 가상머신을 배포 합니다.
 
 8. 배포
-    ![배포](../assets/images/install-guide-add-host-16.png){ align=center }
+    ![배포](../assets/images/install-guide-add-host-16.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
 
 9.  완료
-    ![완료](../assets/images/install-guide-add-host-17.png){ align=center }
+    ![완료](../assets/images/install-guide-add-host-17.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 배포 완료 후 화면입니다.
 
 10. 스토리지센터 가상머신 상태 확인
-    ![완료](../assets/images/install-guide-add-host-18.png){ align=center }
+    ![완료](../assets/images/install-guide-add-host-18.png){ .imgCenter .imgBorder }
     - 스토리지센터 가상머신 상태 카드에서 가상머신 상태가 **Running** 인지 확인합니다.
 
 
 ## Glue에 스토리지센터 가상머신 추가
 
 1. Glue 대시보드 연결
-    ![Glue 대시보드 연결](../assets/images/install-guide-add-host-19.png){ align=center }
+    ![Glue 대시보드 연결](../assets/images/install-guide-add-host-19.png){ .imgCenter .imgBorder }
     - 기 구축된 1번 Cube 로 이동하여 로그인 합니다.
     - 상단 리본의 **스토리지센터 대시보드 연결** 링크를 클릭하여 Glue 대시보드로 연결합니다.
 
 2. 스토리지센터 가상머신 추가
-    ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-20.png){ align=center }
+    ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-20.png){ .imgCenter .imgBorder }
     - Glue 대시보드에 로그인하여, 클러스터 > 호스트 메뉴에서 추가버튼을 클릭하면 보이는 화면입니다.
     - **호스트 이름** 항목에 추가되는 스토리지센터 가상머신의 **호스트 명**을 입력합니다.
     - **Network address** 항목에 추가되는 스토리지센터 가상머신의 **scvm pn ip**을 입력합니다.
     - **추가 호스트** 버튼을 클릭하여 Glue 스토리지 클러스터에 추가합니다.
 
 3. 스토리지센터 가상머신 추가 완료
-    ![스토리지센터 가상머신 추가 완료](../assets/images/install-guide-add-host-21.png){ align=center }
+    ![스토리지센터 가상머신 추가 완료](../assets/images/install-guide-add-host-21.png){ .imgCenter .imgBorder }
     - 호스트 목록에 추가된 스토리지센터 가상머신을 확인합니다.
 
 4. 전체 호스트 Glue 설정정보 업데이트
-    ![전체 호스트 Glue 설정정보 업데이트](../assets/images/install-guide-add-host-22.png){ align=center }
+    ![전체 호스트 Glue 설정정보 업데이트](../assets/images/install-guide-add-host-22.png){ .imgCenter .imgBorder }
     - 1번 Cube에서 ABLESTCK > 스토리지센터 클러스터 상태 카드 메뉴의 **전체 호스트 Glue 설정 업데이트** 를 클릭합니다.
 
-    ![전체 호스트 Glue 설정정보 업데이트 실행](../assets/images/install-guide-add-host-23.png){ align=center }
+    ![전체 호스트 Glue 설정정보 업데이트 실행](../assets/images/install-guide-add-host-23.png){ .imgCenter .imgBorder }
     - **실행** 버튼을 클릭하여 모든 호스트에 Glue 설정정보를 업데이트 합니다.
 
 ## Mold에 호스트 추가
 
 1. Mold 대시보드 연결
-    ![Mold 대시보드 연결](../assets/images/install-guide-add-host-24.png){ align=center }
+    ![Mold 대시보드 연결](../assets/images/install-guide-add-host-24.png){ .imgCenter .imgBorder }
     - 1번 Cube 로 이동하여 로그인 합니다.
     - 상단 리본의 **클라우드센터 대시보드 연결** 링크를 클릭하여 Mold 대시보드로 연결합니다.
 
-    ![Mold 대시보드 로그인](../assets/images/install-guide-add-host-25.png){ align=center }
+    ![Mold 대시보드 로그인](../assets/images/install-guide-add-host-25.png){ .imgCenter .imgBorder }
     - IP, Password를 입력하여 로그인합니다.
 
 2. Mold 호스트 추가
-    ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-26.png){ align=center }
+    ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-26.png){ .imgCenter .imgBorder }
     - Mold 대시보드에 로그인하여, 인프라스트럭쳐 > 호스트 메뉴에서 **호스트 추가** 버튼을 클릭합니다.
 
-    ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-27.png){ align=center }
+    ![스토리지센터 가상머신 추가](../assets/images/install-guide-add-host-27.png){ .imgCenter .imgBorder }
 
     - **Zone 이름** 을 입력합니다.
     - **Pod 이름** 을 입력합니다.
@@ -267,22 +267,22 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     - 위 정보를 입력후 **확인** 버튼을 클릭하여 Mold에 컴퓨팅 호스트를 추가합니다.
 
 3. Mold 호스트 추가 완료
-    ![클라우드센터 호스터 추가 완료](../assets/images/install-guide-add-host-28.png){ align=center }
+    ![클라우드센터 호스터 추가 완료](../assets/images/install-guide-add-host-28.png){ .imgCenter .imgBorder }
     - 호스트 목록에 추가된 호스트 정보를 확인할 수 있습니다.
 
 ## 모니터링 정보 업데이트
 
 1. 모니터링 정보 업데이트
-    ![모니터링 정보 업데이트](../assets/images/install-guide-add-host-29.png){ align=center }
+    ![모니터링 정보 업데이트](../assets/images/install-guide-add-host-29.png){ .imgCenter .imgBorder }
     - 1번 Cube 로 이동하여 로그인 합니다.
     - Cube에서 ABLESTCK > 클라우드센터 클러스터 상태 카드 메뉴의 **모니터링센터 수집 정보 업데이트** 를 클릭합니다.
 
 2. 모니터링센터 수집 정보 업데이트
-    ![모니터링센터 수집 정보 업데이트](../assets/images/install-guide-add-host-30.png){ align=center }
+    ![모니터링센터 수집 정보 업데이트](../assets/images/install-guide-add-host-30.png){ .imgCenter .imgBorder }
     - **실행** 버튼을 클릭하여 모니터링 센터에 모든 호스트의 수집정보를 업데이트 합니다.
 
 3. 모니터링센터 수집 정보 업데이트 완료
-    ![모니터링센터 수집 정보 업데이트 완료](../assets/images/install-guide-add-host-31.png){ align=center }
+    ![모니터링센터 수집 정보 업데이트 완료](../assets/images/install-guide-add-host-31.png){ .imgCenter .imgBorder }
     - Wall 대시보드로 이동하여 로그인 합니다.
     - **1. 종합현황대시보드** 에서 호스트 현황에 호스트가 추가되었는지 확인합니다.
 

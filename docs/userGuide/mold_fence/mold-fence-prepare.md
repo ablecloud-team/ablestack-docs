@@ -10,7 +10,7 @@ PCS에서 작동되는 MOLD Fencing Agent(Fence_mold)은 MOLD의 가상머신에
 ## 구성도
 Mysql 이중화를 위해 MOLD에서 제공하는 Shared Volume으로 구성된 Linux 환경의 2개의 가상머신을 생성하고 PCS 클러스터를 구성합니다. Node1에서 VIP, Shared Volume의 리소스 소유권을 가지며 Node1이 fencing 처리 될 경우 해당 리소스의 소유권은 Node2로 이전되는 구조입니다.
 또한 MOLD Agent는 fencing 기능을 수행하기 위해 MOLD와 통신합니다. 
-![rac-prepare](../../../../assets/images/fence_mold/fence-mold-architecture.png){: .center }
+![rac-prepare](../../assets/images/fence_mold/fence-mold-architecture.png){: .center }
 
 ## 전제조건
 - 가상머신과 Mold간의 통신이 가능해야 합니다.

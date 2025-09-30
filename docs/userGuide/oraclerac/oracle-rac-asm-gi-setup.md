@@ -219,8 +219,8 @@ oracleasm scandisks
 ```shell title="grid S/W 설치 ( 노드 : node1 / 계정 : root )"
 mkdir -p /home/STAGE
 cd /home/STAGE
-wget https://images.ablecloud.io/LINUX.X64_193000_grid_home.zip
-wget https://images.ablecloud.io/LINUX.X64_193000_db_home.zip
+wget https://gofile.me/3ThCa/3vK04a0LS
+wget https://gofile.me/3ThCa/XUd4hxJIV
 ( 다운로드 : LINUX.X64_193000_grid_home.zip, LINUX.X64_193000_grid_home.zip 파일은 다운로드 사이트 > https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html  오라클 계정으로 로그인해야 다운로드 가능)  
 ```
 

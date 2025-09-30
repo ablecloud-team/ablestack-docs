@@ -20,15 +20,15 @@ PowerFlex Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 �
     이미지가 실행하는 호스트에 존재하는지 확인합니다.
 
 ## PowerFlex PFMP 가상머신 배포
-![PowerFlex PFMP 가상머신 배포](../assets/images/install-guide-powerflex-pfmp-01.png){ align=center }
+![PowerFlex PFMP 가상머신 배포](../assets/images/install-guide-powerflex-pfmp-01.png){ .imgCenter .imgBorder }
 - PFMP 가상머신을 배포하기 위한 화면입니다. 상단 상태 리본의 **파워플렉스 관리 플랫폼 VM 배포** 링크를 클릭합니다.
 
 1. 개요
-    ![PowerFlex PFMP 가상머신 배포 개요](../assets/images/install-guide-powerflex-pfmp-02.png){ align=center }
+    ![PowerFlex PFMP 가상머신 배포 개요](../assets/images/install-guide-powerflex-pfmp-02.png){ .imgCenter .imgBorder }
     - PowerFlex PFMP 가상머신 배포 마법사 화면입니다.
 
 2. 가상머신 장치 구성 - 컴퓨트
-    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-pfmp-03.png){ align=center }
+    ![가상머신 장치 구성 - 컴퓨트](../assets/images/install-guide-powerflex-pfmp-03.png){ .imgCenter .imgBorder }
     - PFMP 가상머신 장치 구성의 CPU, Memory 구성 화면입니다.
     - **CPU** 는 **8 vCore** 를 선택 하고, **Memory** 는 **16GiB** 를 선택 하고 **다음** 버튼을 클릭합니다.
 
@@ -39,13 +39,26 @@ PowerFlex Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 �
         ROOT 디스크는 100GiB 크기로, Thin Provisioning 방식으로 제공됩니다.
 
 3. 가상머신 장치구성 - 네트워크
-    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-pfmp-04.png){ align=center }
-    - PFMP 가상머신 장치의 네트워크 구성 화면입니다.
-    - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
-    - **PFMP 관리 IP** , **관리 NIC CIDR** , **관리 NIC Gateway** , **관리 NIC DNS** 를 입력합니다.
+
+    ### Intel NIC 사용 시
+    1. Intel NIC 사용 시
+    ![가상머신 장치 구성 - 네트워크](../assets/images/install-guide-powerflex-pfmp-04.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리 NIC 용 Bridge** 선택 박스에서 **관리용 Bridge 네트워크** 를 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
+
+    ### Broadcom NIC 사용 시
+    1. Broadcom NIC 사용 시
+        OpenvSwitch로 네트워크를 구성하는 경우, 생성한 OpenvSwitch 브리지를 네트워크 인터페이스로 지정해야 합니다.
+        ![가상머신 장치 구성 - 네트워크(OVS)](../assets/images/install-guide-powerflex-pfmp-ovs-network.png){ .imgCenter .imgBorder }
+        - 스토리지 센터 가상머신 장치의 네트워크 구성 화면입니다.
+        - **관리네트워크** 선택 박스에서 **ovsbr0** 을 선택합니다.
+        - **스토리지 NIC 구성 방식** 에서 **NIC Passthrough** 를 선택하고 **서버용 NIC** 선택 박스에서는 **서버용으로 사용할 NIC** 를 **복제용 NIC**
+        선택 박스에서는 **복제용으로 사용할 NIC** 을 선택하고 **다음** 버튼을 클릭합니다.
 
 5. 추가 네트워크 정보
-    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-pfmp-05.png){ align=center }
+    ![추가 네트워크 정보](../assets/images/install-guide-powerflex-pfmp-05.png){ .imgCenter .imgBorder }
     - **관리 및 모니터링 IP** , **스토리지 서버용 IP** , **스토리지 복제용 IP** 를 입력합니다.
 
     !!! info
@@ -59,7 +72,7 @@ PowerFlex Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 �
         할당된 5개의 연속 IP가 네트워크 상에서 정상 동작하는 지 확인하세요.
 
 6. SSH Key 정보
-    ![SSH Key 정보](../assets/images/install-guide-powerflex-pfmp-06.png){ align=center }
+    ![SSH Key 정보](../assets/images/install-guide-powerflex-pfmp-06.png){ .imgCenter .imgBorder }
     - SSH Key 정보를 확인하는 화면입니다.
     - PFMP 가상머신 구성시 호스트에 등록된 호스트의 키 정보로 자동세팅됩니다.
 
@@ -68,16 +81,16 @@ PowerFlex Cube 의 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 �
         키 파일명을 변경할 경우 등록이 불가능 합니다.
 
 7. 설정확인
-    ![설정확인](../assets/images/install-guide-powerflex-pfmp-07.png){ align=center }
+    ![설정확인](../assets/images/install-guide-powerflex-pfmp-07.png){ .imgCenter .imgBorder }
     - PFMP 가상머신 배포를 위한 구성정보 확인하는 화면입니다.
     - **배포** 버튼을 클릭하면 확인창이 보이며 **실행** 버튼을 눌러 스토리지 가상머신을 배포 합니다.
 
 8. 배포
-    ![배포](../assets/images/install-guide-powerflex-pfmp-08.png){ align=center }
+    ![배포](../assets/images/install-guide-powerflex-pfmp-08.png){ .imgCenter .imgBorder }
     - PFMP 가상머신 배포 진행상황을 확인 할 수 있는 화면입니다.
 
 9.  완료
-    ![완료](../assets/images/install-guide-powerflex-pfmp-09.png){ align=center }
+    ![완료](../assets/images/install-guide-powerflex-pfmp-09.png){ .imgCenter .imgBorder }
     - PFMP 가상머신 배포 완료 후 화면입니다.
 
 !!! info
@@ -96,21 +109,21 @@ PFMP 설치는 PowerFlex Glue 대시보드 화면을 생성하기 위한 절차�
     3단계: PFMP 가상머신을 삭제하여 설치 절차를 완료합니다.
 
 1. PFMP 설치 실행
-    ![PFMP 실행 1](../assets/images/install-guide-powerflex-pfmp-10.png){ align=center }
+    ![PFMP 실행 1](../assets/images/install-guide-powerflex-pfmp-10.png){ .imgCenter .imgBorder }
     - PFMP 가상머신이 있는 호스트의 PowerFlex Cube 웹 콘솔로 이동합니다.
     - 스토리지센터 클러스터 상태 카드의 메뉴 버튼을 클릭하여 **PFMP 실행** 버튼을 클릭합니다.
-    ![PFMP 실행 2](../assets/images/install-guide-powerflex-pfmp-11.png){ align=center }
+    ![PFMP 실행 2](../assets/images/install-guide-powerflex-pfmp-11.png){ .imgCenter .imgBorder }
     - **실행** 버튼을 클릭하여 **PFMP 설치** 를 실행시킵니다.
-    ![PFMP 실행 3](../assets/images/install-guide-powerflex-pfmp-12.png){ align=center }
+    ![PFMP 실행 3](../assets/images/install-guide-powerflex-pfmp-12.png){ .imgCenter .imgBorder }
     - 1단계 설치 단계 화면입니다.
     - 설치 진행률을 실시간으로 제공합니다.
-    ![PFMP 실행 4](../assets/images/install-guide-powerflex-pfmp-13.png){ align=center }
+    ![PFMP 실행 4](../assets/images/install-guide-powerflex-pfmp-13.png){ .imgCenter .imgBorder }
     - 2단계 설치 단계 화면입니다.
     - 설치 진행률을 실시간으로 제공합니다.
-    ![PFMP 실행 5](../assets/images/install-guide-powerflex-pfmp-14.png){ align=center }
+    ![PFMP 실행 5](../assets/images/install-guide-powerflex-pfmp-14.png){ .imgCenter .imgBorder }
     - 3단계 설치 단계 화면입니다.
     - 설치 진행률을 실시간으로 제공합니다.
-    ![PFMP 실행 완료](../assets/images/install-guide-powerflex-pfmp-15.png){ align=center }
+    ![PFMP 실행 완료](../assets/images/install-guide-powerflex-pfmp-15.png){ .imgCenter .imgBorder }
     - 설치가 완료된 화면입니다.
     - **확인** 버튼을 클릭하여 다음 절차를 진행하세요.
 
@@ -125,11 +138,11 @@ PFMP 설치는 PowerFlex Glue 대시보드 화면을 생성하기 위한 절차�
 
 2. Glue 대시보드 접속 및 비밀번호 변경
     1. Glue 대시보드 접속
-        ![스토리지 대시보드 연결](../assets/images/install-guide-powerflex-pfmp-Glue-dashboard.png){ align=center }
+        ![스토리지 대시보드 연결](../assets/images/install-guide-powerflex-pfmp-Glue-dashboard.png){ .imgCenter .imgBorder }
         - **스토리지 대시보드 연결** 링크를 클릭하여 Glue 대시보드를 접속합니다.
 
     2. Glue 대시보드 로그인 화면
-        ![Glue 대시보드 로그인 화면](../assets/images/install-guide-powerflex-pfmp-Glue-dashboard-login.png){ align=center }
+        ![Glue 대시보드 로그인 화면](../assets/images/install-guide-powerflex-pfmp-Glue-dashboard-login.png){ .imgCenter .imgBorder }
         - Glue 대시보드 로그인 화면입니다.
         - **사용자 이름** 과 **비밀번호** 를 입력하고 **로그인** 버튼을 클릭하여 로그인 합니다.
 
@@ -138,18 +151,18 @@ PFMP 설치는 PowerFlex Glue 대시보드 화면을 생성하기 위한 절차�
         해당 계정 및 비밀번호로 최초 로그인을 하시면 비밀번호를 무조건 변경 하셔야 합니다.
 
     3. Glue 대시보드 비밀번호 변경
-        ![Glue 대시보드 비밀번호 변경](../assets/images/install-guide-powerflex-pfmp-Glue-dashboard-chgpw.png){ align=center }
+        ![Glue 대시보드 비밀번호 변경](../assets/images/install-guide-powerflex-pfmp-Glue-dashboard-chgpw.png){ .imgCenter .imgBorder }
         - 초기 비밀번호 변경하는 화면입니다.
         - **New password** 와 **Confirm password** 입력창에 신규 비밀번호를 입력하고 **Submit** 버튼을 클릭합니다.
 
 ## Glue 대시보드 클러스터 및 스토리지 구성
 1. Glue 클러스터 및 스토리지 구성
-    ![Glue 클러스터 및 스토리지 구성](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-01.png){ align=center }
+    ![Glue 클러스터 및 스토리지 구성](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-01.png){ .imgCenter .imgBorder }
     - 첫 화면에서 보여지는 클러스터 및 스토리지 구성 준비 화면입니다.
     - **Next** 버튼을 클릭하여 다음 절차를 진행합니다.
-    ![Glue 클러스터 및 스토리지 구성2](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-02.png){ align=center }
+    ![Glue 클러스터 및 스토리지 구성2](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-02.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭하여 다음 절차를 진행합니다.
-    ![Glue 클러스터 및 스토리지 구성3](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-03.png){ align=center }
+    ![Glue 클러스터 및 스토리지 구성3](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-03.png){ .imgCenter .imgBorder }
     - **I have a PowerFlex instance to import** 를 클릭하여 **PowerFlex 4.x** 를 클릭합니다.
     - **Metadata Manager (MDM) IP Addresses** 입력란에 모든 **스토리지 가상머신 관리 IP** 를 입력합니다.
     - **System ID** 를 입력합니다.
@@ -160,22 +173,22 @@ PFMP 설치는 PowerFlex Glue 대시보드 화면을 생성하기 위한 절차�
             vi /var/log/scvm_bootstrap.log
             ```
             해당하는 ID를 복사하여 붙여넣기 합니다.
-            ![System ID](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-04.png){ align=center }
+            ![System ID](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-04.png){ .imgCenter .imgBorder }
 
     - **Credentials** 에서 **+** 버튼을 클릭합니다.
-    ![Glue 클러스터 및 스토리지 구성4](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-05.png){ align=center }
+    ![Glue 클러스터 및 스토리지 구성4](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-05.png){ .imgCenter .imgBorder }
     - **Credentials Name** 을 입력합니다.
     - **LIA Password** 및 **Confirm LIA Password** 를 입력합니다.
 
-        !!! check
-            LIA Password는 **Ablecloud1!** 입니다.
+        !!! info
+            LIA 비밀번호는 **Ablestack123!** 입니다.
 
     - **Save** 버튼을 클릭하여 다음 절차를 진행합니다.
-    ![Glue 클러스터 및 스토리지 구성5](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-06.png){ align=center }
+    ![Glue 클러스터 및 스토리지 구성5](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-06.png){ .imgCenter .imgBorder }
     - **Next** 버튼을 클릭하여 다음 절차를 진행합니다.
-    ![Glue 클러스터 및 스토리지 구성6](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-07.png){ align=center }
+    ![Glue 클러스터 및 스토리지 구성6](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-07.png){ .imgCenter .imgBorder }
     - 입력한 정보들이 맞는지 확인 후, **Finish** 버튼을 클릭하여 다음 절차를 진행합니다.
-    ![Glue 클러스터 및 스토리지 구성 완료](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-08.png){ align=center }
+    ![Glue 클러스터 및 스토리지 구성 완료](../assets/images/install-guide-powerflex-pfmp-cluster-configinfo-08.png){ .imgCenter .imgBorder }
     - 등록이 완료되면, PowerFlex Cube 웹 콘솔에서 스토리지센터 클러스터 상태 카드란에 정보가 나타납니다.
     - 등록 완료된 화면입니다.
 

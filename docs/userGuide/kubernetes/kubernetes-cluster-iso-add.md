@@ -5,7 +5,8 @@ ABLESTACK Mold 에서 사용할 Kubernetes ISO를 등록하는 방법을 설명�
 ABLESTACK Mold 에서 사용되는 ISO는 Kubernetes Engin과 Mold의 API 통신을 위한 재빌드가 된 ISO 입니다.
 해당 링크의 ISO를 사용해야 정상적인 Kubernetes 서비스를 사용할 수 있습니다.
 
-[ISO 다운로드 사이트 이동](https://images.ablecloud.io/Koral/){:target='_blank'}
+[ISO 다운로드 사이트 이동](https://gofile.me/3ThCa/mr2Nh95uY){:target='_blank'}
+
 
 !!! Warning
     Kubernetes ISO 등록 버전은 예시 입니다. 해당 사이트에 접속하여 Kubernetes ISO 버전을 확인하고 등록 후 사용가능 하며,
