@@ -518,6 +518,7 @@ nav:
     - 도메인 활용 방안:
       # - 도메인 별 자원 분리 방안: userGuide/using-domain/using-domain-guide.md
       - 학과별 도메인 분리 방안: userGuide/using-domain/using-domain-guide.md
+    - ABLESTACK VM IP 변경 가이드: userGuide/change-ip/ablestack-vm-change-ip-guide.md
   - 릴리즈노트 :
     - Cerato : releaseNote/release-cerato.md
     - Bronto : releaseNote/release-note.md
