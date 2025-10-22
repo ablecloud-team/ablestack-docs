@@ -1,4 +1,4 @@
-# ABLESTACK - HCI
+# ABLESTACK - VM
 
 Cube 웹 콘솔의 ABLESTACK 메뉴에서는 가상화로 구성시 클라우스센터 가상머신 배포와 클러스터를 구성하고 ABLESTACK 가상어플라이언스 관리 및 상태 모니터링을 제공합니다.
 
@@ -13,7 +13,7 @@ Cube 웹 콘솔의 ABLESTACK 메뉴에서는 가상화로 구성시 클라우스
 ![dashboard](../../assets/images/admin-guide/cube/ablestack/vm/dashboard.png)
 
 ## ABLESTACK 요약 리본
-클라우스센터 가상머신의 배포 및 클러스터 구성 여부에 따라 현 상태를 메시지로 표현해 줍니다. 각 단계별 수행해야 되는 필수 구성 정보를 확인하여 설치 마법사 및 대시보드 링크를 제공하며 ABLESTACK 가상 어플라이언스 구성에 편의를 제공합니다.
+클라우스센터 가상머신의 배포 및 클러스터 구성 여부에 따라 현 상태를 메시지로 표현합니다. 각 단계별 수행해야 되는 필수 구성 정보를 확인하여 설치 마법사 및 대시보드 링크를 제공하며 ABLESTACK 가상 어플라이언스 구성에 편의를 제공합니다.
 
 ![ribbon](../../assets/images/admin-guide/cube/ablestack/vm/ribbon.png)
 
@@ -103,7 +103,7 @@ GFS 펜스 장치를 유지보수모드를 해제할 수 있도록 실행하는 
 
 ![gfs-resource-external-storage-sync-confirm](../../assets/images/admin-guide/cube/ablestack/vm/gfs-resource-external-storage-sync-confirm.png)
 
-- **외부 스토리지 설정 확인** 을 활성화 체크하여 실행 버튼을 활성화 합니다. (싱글패스 구성 여부 확인 해야함)
+- **외부 스토리지 설정 확인** 을 활성화 체크하여 실행 버튼을 활성화합니다. (싱글패스 구성 여부 확인 해야함)
 - **실행** 버튼을 클릭하여 외부 스토리지 동기화합니다.
 
 ### WWN 목록 조회
@@ -180,7 +180,7 @@ Mold(클라우드 관리) 제품의 클러스터 현재 상태와 Cloud Center V
 
 ### 클라우드센터 클러스터 클린업
 
-클라우드센터 클러스터 리소스 모니터링 재시작 하기 위한 버튼입니다.
+클라우드센터 클러스터 리소스 모니터링을 재시작하기 위한 버튼입니다.
 
 ![cloud-cluster-cleanup](../../assets/images/admin-guide/cube/ablestack/vm/cloud-cluster-cleanup.png)
 
@@ -215,7 +215,7 @@ Mold(클라우드 관리) 제품의 클러스터 현재 상태와 Cloud Center V
 
 ### Bootstrap 실행
 
-클라우드센터 가상머신(CCVM)이 설치되고 클라우드센터 클러스터 자동구성을 위해 실행하는 버튼입니다.
+클라우드센터 가상머신(CCVM)이 설치되고 난 뒤, 클라우드센터 클러스터 자동구성을 위해 실행하는 버튼입니다.
 
 !!! info
     * 호스트 한 곳에서만 실행하면 됩니다.
@@ -247,13 +247,13 @@ Mold(클라우드 관리) 제품의 클러스터 현재 상태와 Cloud Center V
 - **실행** 버튼을 클릭하여 해당 모니터링센터 수집 정보 업데이트합니다.
 
 ## GFS 디스크 상태 조회
-GFS 디스크의 현재 상태와 마운트 정보를 확인 할 수 있습니다. GFS 및 CLVM 디스크를 관리할 수 있습니다.
+GFS 디스크의 현재 상태와 마운트 정보를 확인할 수 있습니다. GFS 및 CLVM 디스크를 관리할 수 있습니다.
 
 ![gfs-status](../../assets/images/admin-guide/cube/ablestack/vm/gfs-status.png)
 
 ### GFS 디스크 추가
 !!! info
-    GFS 디스크를 추가하려면, 사용되는 디스크를 연결이 선행 되어야 합니다.
+    GFS 디스크를 추가하려면, 사용되는 디스크를 연결이 선행되어야 합니다.
     wwn으로 해당 디스크를 찾아 선택하시면 됩니다.
 !!! warning
     선택한 항목과 관계없이 한 번에 하나의 GFS 디스크만 생성됩니다. 여러 개를 선택하더라도 하나의 디스크만 만들어지니, 이 점을 확인하신 후 선택해 주세요.
@@ -273,10 +273,10 @@ GFS 디스크의 현재 상태와 마운트 정보를 확인 할 수 있습니�
 ### GFS 디스크 삭제
 
 !!! check
-    GFS 디스크를 삭제하려면, Mold에서 사용중인 기본 스토리지, 컴퓨트 오퍼링, 디스크 오퍼링을 먼저 삭제가 선행되어야 합니다.
+    GFS 디스크를 삭제하려면, Mold에서 사용중인 기본 스토리지, 컴퓨트 오퍼링, 디스크 오퍼링 삭제가 선행되어야 합니다.
 
 !!! warning
-    Mold에서 사용중인 기본 스토리지, 컴퓨트 오퍼링, 디스크 오퍼링을 삭제하기 전, 해당 장치들을 사용중인 가상머신의 데이터를 백업 및 복구를 선행 한 후, 삭제하시길 바랍니다.
+    Mold에서 사용중인 기본 스토리지, 컴퓨트 오퍼링, 디스크 오퍼링을 삭제하기 전, 해당 장치들을 사용중인 가상머신의 데이터를 백업 및 복구한 후, 삭제하시길 바랍니다.
 
 ![gfs-status-gfs-disk-delete](../../assets/images/admin-guide/cube/ablestack/vm/gfs-status-gfs-disk-delete.png)
 

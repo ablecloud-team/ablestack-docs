@@ -12,14 +12,14 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
 
 ## Zone추가
 
-1. Zone 추가 버튼 클릭 하여 Zone 추가 팝업을 호출합니다.
+1. Zone 추가 버튼을 클릭 하여 Zone 추가 팝업을 호출합니다.
 
     ![zone 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add-btn.png){ .imgCenter .imgBorder }
 
 2. Zone 구성을 위한 항목을 입력합니다.
 
     !!! info
-        Zone 구성시 네트워크, 스토리지, 호스트 등 실제 구축하는 사이트 환경에 맞는 값을 입력해야합니다.
+        다음은 예시입니다. Zone 구성시 네트워크, 스토리지, 호스트 등 실제 구축하는 사이트 환경에 맞는 값을 입력해야합니다.
 
     ![zone 추가1](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add1.png){ .imgCenter .imgBorder }
 
@@ -44,7 +44,7 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
     ![zone 추가4](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add4.png){ .imgCenter .imgBorder }
 
     * Zone 의 네트워크 정보를 입력하는 화면입니다.
-    * **트래픽 유형** 의 **MANAGEMENT, GUEST, PUBLIC** 각각 편집 버튼을 클릭하여 트랙픽 라벨을 입력합니다.
+    * **트래픽 유형** 의 **MANAGEMENT, GUEST, PUBLIC** 각각 편집 버튼을 클릭하여 트래픽 라벨을 입력합니다.
 
     ![zone 추가5](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add5.png){ .imgCenter .imgBorder }
 
