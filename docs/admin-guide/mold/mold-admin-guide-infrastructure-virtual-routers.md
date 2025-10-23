@@ -24,7 +24,7 @@
 
 ## NIC 탭
 
-1. 가상 라우터에 연결된 네트워크를 조회하는 화면입니다. 해당 가상 라우터 NIC의 장치 ID, 네트워크 이름, MAC 주소, IP 주소, 넷마스트, 등의 정보를 확인할 수 있습니다.
+1. 가상 라우터에 연결된 네트워크를 조회하는 화면입니다. 해당 가상 라우터 NIC의 장치 ID, 네트워크 이름, MAC 주소, IP 주소, 넷마스크 등의 정보를 확인할 수 있습니다.
 
     ![virtual routers 상세 탭](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/virtual-routers-nic-tab.png){ .imgCenter .imgBorder }
 
@@ -36,7 +36,7 @@
 
 ### Health check 결과 가져오기
 
-1. Health check 결과 가져오기 수행할 수 있는 기능입니다.
+1. Health check 결과 가져오기를 수행할 수 있는 기능입니다.
 
     ![Health check 결과 가져오기 버튼](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/health-checks-btn.png){ .imgCenter .imgBorder }
 
@@ -44,7 +44,7 @@
 
     ![Health check 결과 가져오기 화면](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/health-checks.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 Health check 결과 가져오기
+    * **확인** 버튼을 클릭하여 Health check 결과를 가져옵니다.
 
 ## 볼륨 탭
 
@@ -78,7 +78,7 @@
 
 ## 클립보드에 콘솔 URL 복사
 
-1. 가상 라우터의 콘솔에 접근할 수 있는 URL 복사할 수 있습니다.
+1. 가상 라우터의 콘솔에 접근할 수 있는 URL을 복사할 수 있습니다.
 
     ![virtual routers 클립보드에 콘솔 URL 복사](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/virtual-routers-console-url-copy-btn.png){ .imgCenter .imgBorder }
 
@@ -120,7 +120,7 @@
 
 ## 시스템 VM 패치
 
-1. 시스템 VM 패치하여 가상 라우터의 버전을 변경할 수 있습니다.
+1. 시스템 VM을 패치하여 가상 라우터의 버전을 변경할 수 있습니다.
 
     ![시스템 VM 패치 버튼](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/patch-virtual-routers-btn.png){ .imgCenter .imgBorder }
 
@@ -128,8 +128,7 @@
 
     ![시스템 VM 패치 화면](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/patch-virtual-routers.png){ .imgCenter .imgBorder }
 
-    * **호스트** 를 선택합니다.
-    * **확인** 버튼을 클릭하여 시스템 VM 패치합니다.
+    * **확인** 버튼을 클릭하여 시스템 VM을 패치합니다.
 
 ## 최신 템플릿을 사용하도록 라우터 업그레이드
 
@@ -137,7 +136,7 @@
 
     ![최신 템플릿을 사용하도록 라우터 업그레이드 버튼](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/virtual-routers-upgrade-btn.png){ .imgCenter .imgBorder }
 
-    * **최신 템플릿을 사용하도록 라우터 업그레이드** 버튼을 클릭하여 최신 템플릿을 사용하도록 라우터 업그레이드 화면을 호출합니다.
+    * **최신 템플릿을 사용하도록 라우터 업그레이드** 버튼을 클릭하여 라우터 업그레이드 화면을 호출합니다.
 
     ![최신 템플릿을 사용하도록 라우터 업그레이드 화면](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/virtual-routers-upgrade.png){ .imgCenter .imgBorder }
 
@@ -145,7 +144,7 @@
 
 ## 가상 라우터 마이그레이션
 
-1. 가상 라우터 다른 호스트로 마이그레이션할 수 있습니다.
+1. 가상 라우터를 다른 호스트로 마이그레이션할 수 있습니다.
 
     ![가상 라우터 마이그레이션 버튼](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/virtual-routers-migrate-btn.png){ .imgCenter .imgBorder }
 
@@ -158,7 +157,7 @@
 
 ## 진단 실행
 
-1. 가상 라우터이 ping, traceroute, arping 등 진단 실행할 수 있습니다.
+1. 가상 라우터에서 ping, traceroute, arping 등 진단을 실행할 수 있습니다.
 
     ![진단 실행 버튼](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/run-diagnostics-btn.png){ .imgCenter .imgBorder }
 
@@ -166,8 +165,7 @@
 
     ![진단 실행 화면](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/run-diagnostics.png){ .imgCenter .imgBorder }
 
-    * **호스트** 를 선택합니다.
-    * **확인** 버튼을 클릭하여 진단 실행합니다.
+    * **확인** 버튼을 클릭하여 진단을 실행합니다.
 
 ## 진단 가져오기
 
@@ -179,13 +177,12 @@
 
     ![진단 가져오기 화면](../../assets/images/admin-guide/mold/infrastructure/virtual-routers/get-diagnostics-data.png){ .imgCenter .imgBorder }
 
-    * **호스트** 를 선택합니다.
     * **확인** 버튼을 클릭하여 진단 가져오기를 수행합니다.
 
 ##  가상 라우터 삭제
 
 !!! info
-    가상 라우터를 삭제하더라도 Zone이 활성화 되어있으면 다시 생성합니다.
+    가상 라우터를 삭제하더라도 해당 네트워크가 활성화 되어있으면 다시 생성됩니다.
 
 1. 해당 가상 라우터를 삭제합니다.
 

@@ -1,5 +1,5 @@
 # 저장소
-Cube 웹 콘솔의 저장소메뉴는 사용하여 파일 시스템을 관리하는 기능을 제공합니다.
+Cube 웹 콘솔의 저장소메뉴는 파일 시스템을 관리하는 기능을 제공합니다.
 
 ## 파티션 관리
 
@@ -12,11 +12,11 @@ Cube 웹 콘솔의 저장소메뉴는 사용하여 파일 시스템을 관리하
 !!! warning
     디스크 초기화 작업시 데이터 손실이 없도록 신중히 작업하여야 합니다.
 
-파티션 생성 하려면 : 
+파티션을 생성하려면 : 
 
 ![cube_storage1_1_webUI](../../assets/images/admin-guide/cube/repository/cube_storage1_1_webUI.png)
 
-- 저장소에서 파티션을 생성 하려는 볼륨을 클릭합니다.
+- 저장소에서 파티션을 생성하려는 볼륨을 클릭합니다.
 
 ![cube-storage2-webui](../../assets/images/admin-guide/cube/repository/cube_storage2_webUI.png)
 
@@ -24,7 +24,7 @@ Cube 웹 콘솔의 저장소메뉴는 사용하여 파일 시스템을 관리하
 
 ![cube_storage3_webUI](../../assets/images/admin-guide/cube/repository/cube_storage3_webUI.png)
 
-- **파티션** 타입 을 선택햅니다.
+- **파티션** 타입을 선택햅니다.
 - **덮어쓰기** 여부를 선택합니다.
 - **초기화** 를 클릭합니다.
 
@@ -62,7 +62,7 @@ Cube 웹 콘솔의 저장소메뉴는 사용하여 파일 시스템을 관리하
 !!! info
     * 전제 조건 : 파티션의 파일 시스템을 마운트 해제합니다.    
 
-파티션 생성 하려면 : 
+파티션을 생성하려면 : 
 ![cube-storage6-webui](../../assets/images/admin-guide/cube/repository/cube_storage6_webUI.png)
 
 - 파티션 섹션에서 **삭제** 버튼을 클릭합니다.
@@ -79,7 +79,7 @@ Cube 웹 콘솔의 저장소메뉴는 사용하여 파일 시스템을 관리하
 
 파티션을 사용하려면 파티션을 파일 시스템을 장치로 마운트해야 합니다.
 
-파일 시스템 마운트 하려면 : 
+파일 시스템을 마운트 하려면 : 
 
 ![cube-storage9-webui](../../assets/images/admin-guide/cube/repository/cube_storage9_webUI.png)
 
@@ -102,15 +102,15 @@ Cube 웹 콘솔의 저장소메뉴는 사용하여 파일 시스템을 관리하
 
 ![cube_storage10_2_webUI](../../assets/images/admin-guide/cube/repository/cube_storage10_2_webUI.png)
 
-- **적재 해제** 버튼을 클릭하여 적제 해재 합니다.
+- **적재 해제** 버튼을 클릭하여 적재 해재합니다.
 
 ## NFS 마운트 관리
 
-NFS를 사용하면 네트워크에 있는 원격 디렉토리에 도달하여 마운트 할 수 있으며 디렉토리가 실제 드라이브에 있는 것처럼 파일에 대해 작업 할 수 있습니다.
+NFS를 사용하면 네트워크에 있는 원격 디렉토리를 마운트할 수 있으며 디렉토리가 실제 드라이브에 있는 것처럼 파일에 대해 작업할 수 있습니다.
 
 ### 신규 NFS 적재
 
-NFS 마운트 연결 하려면 : 
+NFS 마운트를 연결하려면 : 
 
 ![cube_storage11_1_webUI](../../assets/images/admin-guide/cube/repository/cube_storage11_1_webUI.png)
 
@@ -126,7 +126,7 @@ NFS 마운트 연결 하려면 :
 
 ### NFS 적재 해제
 
-NFS 마운트 적재 해제 하려면 : 
+NFS 마운트 적재 해제하려면 : 
 
 ![cube_storage12_webUI](../../assets/images/admin-guide/cube/repository/cube_storage12_webUI.png)
 
@@ -134,7 +134,7 @@ NFS 마운트 적재 해제 하려면 :
 
 ### NFS 편집
 
-NFS 마운트 정보를 편집 하려면 : 
+NFS 마운트 정보를 편집하려면 : 
 
 ![cube_storage12_1_webUI](../../assets/images/admin-guide/cube/repository/cube_storage12_1_webUI.png)
 
@@ -150,7 +150,7 @@ NFS 마운트 정보를 편집 하려면 :
 
 ### NFS 제거
 
-NFS를 제거 하려면 : 
+NFS를 제거하려면 : 
 
 ![cube_storage12_3_webUI](../../assets/images/admin-guide/cube/repository/cube_storage12_3_webUI.png)
 
@@ -203,7 +203,7 @@ RAID에서 디스크를 사용하려면 먼저 다음을 수행해야 합니다.
 
 시스템에 연결된 실제 디스크입니다. 각 RAID 수준에는 서로 다른 양의 디스크가 필요합니다.
 
-RAID 생성 하려면 : 
+RAID 생성하려면 : 
 
 ![cube_storage13_webUI](../../assets/images/admin-guide/cube/repository/cube_storage13_webUI.png)
 
@@ -227,7 +227,7 @@ RAID 생성 하려면 :
 !!! warning
     초기화하면 저장장치에서 모든 자료가 제거됩니다.
 
-RAID 포멧 하려면 : 
+RAID 포멧하려면 : 
 
 ![cube_storage14_1_webUI](../../assets/images/admin-guide/cube/repository/cube_storage14_1_webUI.png)
 
@@ -262,7 +262,7 @@ RAID를 사용하려면 다른 스토리지 디바이스와 같은 포맷이 필
 - 파티션 없이 RAID 장치 포맷
 - 파티션이 있는 파티션 테이블 만들기
 
-RAID 파티션 테이블 생성 하려면 : 
+RAID 파티션 테이블 생성하려면 : 
 
 ![cube_storage14_3_webUI](../../assets/images/admin-guide/cube/repository/cube_storage14_3_webUI.png)
 
@@ -282,7 +282,7 @@ RAID 파티션 테이블 생성 하려면 :
 
 기존 파티션 테이블에 파티션을 생성합니다.
 
-RAID에 파티션 생성 하려면 : 
+RAID에 파티션을 생성하려면 : 
 
 ![cube_storage14_5_webUI](../../assets/images/admin-guide/cube/repository/cube_storage14_5_webUI.png)
 
@@ -316,7 +316,7 @@ RAID에 파티션 생성 하려면 :
 
 ### RAID 삭제
 
-raid를 삭제 하려면 : 
+raid를 삭제하려면 : 
 
 ![cube_storage14_7_webUI](../../assets/images/admin-guide/cube/repository/cube_storage14_7_webUI.png)
 
@@ -352,7 +352,7 @@ Cube웹 콘솔은 LVM 볼륨 그룹 및 논리적 볼륨을 생성하기 위한 
 
 논리 볼륨은 볼륨 그룹에서 생성됩니다. 각 볼륨 그룹에는 여러 논리 볼륨이 포함될 수 있습니다.
 
-볼륨 그룹 생성 하려면 : 
+볼륨 그룹을 생성하려면 : 
 
 ![cube_storage15_webUI](../../assets/images/admin-guide/cube/repository/cube_storage15_webUI.png)
 
@@ -363,7 +363,7 @@ Cube웹 콘솔은 LVM 볼륨 그룹 및 논리적 볼륨을 생성하기 위한 
 - **이름** 필드에 공백이 없는 그룹의 이름을 입력합니다.
 - 볼륨 그룹을 생성하기 위해 결합할 드라이브를 선택합니다.
 
-- 예상대로 장치를 볼 수 없을 수도 있습니다. RHEL 웹 콘솔에는 사용하지 않는 블록 장치만 표시됩니다. 사용된 장치는 예를 들어 다음을 의미합니다.
+- 예상대로 장치를 볼 수 없을 수도 있습니다. Rocky 웹 콘솔에는 사용하지 않는 블록 장치만 표시됩니다. 사용된 장치는 예를 들어 다음을 의미합니다.
     - 파일 시스템으로 포맷된 장치
     - 다른 볼륨 그룹의 물리적 볼륨
     - 물리적 볼륨이 다른 소프트웨어 RAID 장치의 멤버<br>장치가 보이지 않으면 비어 있고 사용되지 않도록 포맷하십시오.
@@ -376,7 +376,7 @@ Cube웹 콘솔은 LVM 볼륨 그룹 및 논리적 볼륨을 생성하기 위한 
 
 ### 논리 볼륨 생성
 
-논리 볼륨 생성 하려면 : 
+논리 볼륨을 생성하려면 : 
 
 ![cube_storage18_webUI](../../assets/images/admin-guide/cube/repository/cube_storage18_webUI.png)
 
@@ -405,7 +405,7 @@ Cube웹 콘솔은 LVM 볼륨 그룹 및 논리적 볼륨을 생성하기 위한 
 선택한 파일 시스템에 따라 논리 볼륨에 사용할 수 있는 구성 매개 변수가 결정됩니다.<br>
 예를 들어 일부 XFS 파일 시스템은 볼륨 축소를 지원하지 않습니다. 자세한 내용은 웹 콘솔에서 논리 볼륨 크기 조정을 참조하십시오.
 
-논리 볼륨 포멧 하려면 : 
+논리 볼륨을 포멧하려면 : 
 
 ![cube_storage19_webUI](../../assets/images/admin-guide/cube/repository/cube_storage19_webUI.png)
 
@@ -439,7 +439,7 @@ Cube웹 콘솔은 LVM 볼륨 그룹 및 논리적 볼륨을 생성하기 위한 
 !!! warning
     GFS2 또는 XFS 파일 시스템이 포함된 볼륨은 줄일 수 없습니다.
 
-논리 볼륨 축소 하려면 : 
+논리 볼륨을 축소하려면 : 
 
 ![cube_storage21_webUI](../../assets/images/admin-guide/cube/repository/cube_storage21_webUI.png)
 
@@ -450,7 +450,7 @@ Cube웹 콘솔은 LVM 볼륨 그룹 및 논리적 볼륨을 생성하기 위한 
 - **크기** 를 변경합니다.
 - **축소** 버튼을 클릭하여 논리 볼륨을 축소합니다.
 
-논리 볼륨 확장 하려면 : 
+논리 볼륨을 확장하려면 : 
 
 ![cube_storage23_webUI](../../assets/images/admin-guide/cube/repository/cube_storage23_webUI.png)
 
@@ -464,7 +464,7 @@ Cube웹 콘솔은 LVM 볼륨 그룹 및 논리적 볼륨을 생성하기 위한 
 ### thin 논리 볼륨 구성
 씬 프로비저닝된 논리 볼륨을 사용하면 실제 논리 볼륨에 포함된 공간보다 지정된 애플리케이션 또는 서버에 더 많은 공간을 할당할 수 있습니다.
 
-thin 논리 볼륨 Pool 생성 하려면 :
+thin 논리 볼륨 Pool 을 생성하려면 :
 
 ![cube_storage25_webUI](../../assets/images/admin-guide/cube/repository/cube_storage25_webUI.png)
 
@@ -487,7 +487,7 @@ Pool에 thin 논리 볼륨을 만듭니다. Pool에는 여러 개의 thin 볼륨
 !!! info
     씬 볼륨을 사용하려면 논리적 볼륨의 실제 사용 가능한 물리적 공간을 정기적으로 확인해야 합니다.
 
-thin 논리 볼륨 생성 하려면 :
+thin 논리 볼륨을 생성하려면 :
 
 ![cube_storage27_webUI](../../assets/images/admin-guide/cube/repository/cube_storage27_webUI.png)
 
@@ -500,7 +500,7 @@ thin 논리 볼륨 생성 하려면 :
 ### 볼륨 그룹의 물리적 볼륨 추가
 새로운 물리적 드라이브 또는 다른 유형의 볼륨을 기존 논리 볼륨에 추가, 변경할 수 있습니다.
 
-볼륨 그룹에 물리적 볼륨을 추가 하려면 :
+볼륨 그룹에 물리적 볼륨을 추가하려면 :
 
 ![cube_storage29_webUI](../../assets/images/admin-guide/cube/repository/cube_storage29_webUI.png)
 
@@ -517,13 +517,9 @@ thin 논리 볼륨 생성 하려면 :
 
 ### 볼륨 그룹에 물리적 드라이브 삭제
 
-논리 볼륨에 여러 물리적 드라이브가 포함된 경우 온라인에서 물리적 드라이브 중 하나를 제거할 수 있습니다.
+논리 볼륨에 여러 물리적 드라이브가 포함된 경우 온라인에서 물리적 드라이브 중 하나를 제거할 수 있습니다. 시스템은 제거 프로세스 중에 제거할 드라이브의 모든 데이터를 다른 드라이브로 자동으로 이동합니다. 시간이 걸릴 수 있습니다. 또한 웹 콘솔은 물리적 드라이브를 제거할 공간이 충분한지 확인합니다.
 
-시스템은 제거 프로세스 중에 제거할 드라이브의 모든 데이터를 다른 드라이브로 자동으로 이동합니다. 시간이 걸릴 수 있습니다.
-
-또한 웹 콘솔은 물리적 드라이브를 제거할 공간이 충분한지 확인합니다.
-
-볼륨 그룹에 물리적 드라이브 삭제 하려면 :
+볼륨 그룹의 물리적 드라이브를 삭제하려면 :
 
 ![cube_storage31_webUI](../../assets/images/admin-guide/cube/repository/cube_storage31_webUI.png)
 
@@ -551,7 +547,7 @@ VDO는 다양한 유형의 스토리지를 기반으로 생성할 수 있습니�
 
 ### VDO 볼륨 생성
 
-VDO 볼륨 생성하려면 :
+VDO 볼륨을 생성하려면 :
 
 ![cube_storage32_webUI](../../assets/images/admin-guide/cube/repository/cube_storage32_webUI.png)
 
@@ -584,7 +580,7 @@ VDO 볼륨은 물리적 드라이브 역할을 합니다. 파일을 사용하려
 선택한 파일 시스템에 따라 논리 볼륨에 사용할 수 있는 구성 매개 변수가 결정됩니다.<br>
 예를 들어 일부 XFS 파일 시스템은 볼륨 축소를 지원하지 않습니다. 자세한 내용은 웹 콘솔에서 논리 볼륨 크기 조정을 참조하십시오.
 
-VDO 볼륨 포멧하려면 :
+VDO 볼륨을 포멧하려면 :
 
 ![cube_storage33_webUI](../../assets/images/admin-guide/cube/repository/cube_storage33_webUI.png)
 
@@ -644,7 +640,7 @@ Cube 웹 콘솔의 저장소 탭에서 LUKS(Linux Unified Key Setup) 버전2 형
 
 LUKS(Linux Unified Key Setup-on-Disk-format)를 사용하면 블록 장치를 암호화할 수 있으며 암호화된 장치 관리를 간소화하는 도구 집합을 제공합니다. LUKS를 사용하면 여러 사용자 키가 파티션의 대량 암호화에 사용되는 마스터 키를 해독할 수 있습니다.
 
-RHEL은 LUKS를 사용하여 블록 장치 암호화를 수행합니다. 기본적으로 설치 중에 차단 장치를 암호화하는 옵션은 선택 해제되어 있습니다. 디스크를 암호화하는 옵션을 선택하면 시스템을 부팅할 때마다 암호를 입력하라는 메시지가 표시됩니다. 이 암호문은 파티션을 해독하는 대량 암호화 키를 "잠금 해제"합니다. 기본 파티션 테이블을 수정하도록 선택한 경우 암호화할 파티션을 선택할 수 있습니다. 파티션 테이블 설정에서 설정됩니다.
+Rocky Linux는 LUKS를 사용하여 블록 장치 암호화를 수행합니다. 기본적으로 설치 중에 차단 장치를 암호화하는 옵션은 선택 해제되어 있습니다. 디스크를 암호화하는 옵션을 선택하면 시스템을 부팅할 때마다 암호를 입력하라는 메시지가 표시됩니다. 이 암호문은 파티션을 해독하는 대량 암호화 키를 "잠금 해제"합니다. 기본 파티션 테이블을 수정하도록 선택한 경우 암호화할 파티션을 선택할 수 있습니다. 파티션 테이블 설정에서 설정됩니다.
 
 LUKS가 하는 작업 :
 
@@ -670,7 +666,7 @@ LUKS에 사용되는 기본 암호는 aes-xts-plain64입니다. LUKS의 기본 �
 
 LUKS 암호 구성
 
-LUKS 암호 구성하려면 :
+LUKS 암호를 구성하려면 :
 
 ![cube_storage35_webUI](../../assets/images/admin-guide/cube/repository/cube_storage35_webUI.png)
 
@@ -684,7 +680,7 @@ LUKS 암호 구성하려면 :
 
 ### LUKS 암호 변경
 
-LUKS 암호 변경하려면 :
+LUKS 암호를 변경하려면 :
 
 ![cube_storage36_webUI](../../assets/images/admin-guide/cube/repository/cube_storage36_webUI.png)
 

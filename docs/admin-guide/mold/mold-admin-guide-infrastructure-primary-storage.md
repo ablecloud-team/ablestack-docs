@@ -2,7 +2,7 @@
 # 기본 스토리지
 
 ## 개요
-기본 스토리지(Primary Storage)는 가상머신의 ROOT disk(운영 체제), DATA disk(데이터) 등을 저장하는 기본 저장소입니다. 가상머신이 실행될 때 필요한 데이터를 제공하는 중요한 역할을 합니다. 주로 빠른 데이터 접근이 필요한 SSD나 고속 스토리지를 사용하고 Glue Block, Glue FS, NFS, iSCSI와 같은 다양한 스토리지 기술을 지원합니다. 기본 스토리지는 클라우드 환경에서 가상 머신의데이터를 효율적으로 저장하고 관리하는 핵심 자원입니다.
+기본 스토리지(Primary Storage)는 가상머신의 ROOT disk(운영 체제), DATA disk(데이터) 등을 저장하는 기본 저장소입니다. 가상머신이 실행될 때 필요한 데이터를 제공하는 중요한 역할을 합니다. 주로 빠른 데이터 접근이 필요한 SSD나 고속 스토리지를 사용하고 Glue Block, Glue FS, NFS, iSCSI와 같은 다양한 스토리지 기술을 지원합니다. 기본 스토리지는 클라우드 환경에서 가상 머신의 데이터를 효율적으로 저장하고 관리하는 핵심 자원입니다.
 
 ## 목록 조회
 
@@ -12,18 +12,19 @@
 
 ## 기본 스토리지 추가
 
-1. 기본 스토리지 추가 버튼 클릭 하여 기본 스토리지 추가 팝업을 호출합니다.
+1. 기본 스토리지 추가 버튼을 클릭하여 기본 스토리지 추가 팝업을 호출합니다.
 
     ![primary storage 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/primary-storage/primary-storage-add-btn.png){ .imgCenter .imgBorder }
 
 2. 기본 스토리지 추가를 위한 항목을 입력합니다.
+
     !!! info
-        아래 기본 스토리지 추가 화면 이미지에서는 nfs 추가 방식이며, 스토리지 유형에 따라 입력값은 달라질 수 있습니다.
+        아래 기본 스토리지 추가 화면 이미지는 nfs 추가 방식이며, 스토리지 유형에 따라 입력값은 달라질 수 있습니다.
     ![primary storage 추가 화면](../../assets/images/admin-guide/mold/infrastructure/primary-storage/primary-storage-add.png){ .imgCenter .imgBorder }
 
     * **범위:** 범위를 선택합니다.
     * **Zone:** Zone을 선택합니다.
-    * **Pod:** 을 선택합니다.
+    * **Pod:** Pod를 선택합니다.
     * **클러스터:** 클러스터를 선택합니다.
     * **이름:** 이름을 입력합니다.
     * **제공자:** 제공자를 선택합니다.
@@ -76,7 +77,7 @@
 !!! warning
     기본스토리지 유지보수 모드를 실행할 경우 해당 스토리지를 사용하는 가상머신을 모두 정지시킵니다. 확인후 작업이 필요합니다.
 
-1. 해당 기본 스토리지를 유지보수 모드 활성화화합니다.
+1. 해당 기본 스토리지의 유지보수 모드를 활성화합니다.
 
     ![유지보수 모드 활성화 버튼](../../assets/images/admin-guide/mold/infrastructure/primary-storage/primary-storage-maintenance-mode-enable-btn.png){ .imgCenter .imgBorder }
 
@@ -84,11 +85,11 @@
 
     ![유지보수 모드 활성화 화면](../../assets/images/admin-guide/mold/infrastructure/primary-storage/primary-storage-maintenance-mode-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 기본 스토리지 비활성화합니다.
+    * **확인** 버튼을 클릭하여 기본 스토리지를 비활성화합니다.
 
 ## 유지보수 모드 비활성화
 
-1. 해당 기본 스토리지를 유지보수 모드 비활성화합니다.
+1. 해당 기본 스토리지의 유지보수 모드를 비활성화합니다.
 
     ![유지보수 모드 비활성화 버튼](../../assets/images/admin-guide/mold/infrastructure/primary-storage/primary-storage-maintenance-mode-disable-btn.png){ .imgCenter .imgBorder }
 
@@ -96,7 +97,7 @@
 
     ![유지보수 모드 비활성화 화면](../../assets/images/admin-guide/mold/infrastructure/primary-storage/primary-storage-maintenance-mode-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 유지보수 모드 비활성화합니다.
+    * **확인** 버튼을 클릭하여 유지보수 모드를 비활성화합니다.
 
 ##  기본 스토리지 삭제
 
