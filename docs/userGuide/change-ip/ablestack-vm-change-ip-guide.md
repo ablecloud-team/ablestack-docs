@@ -110,8 +110,11 @@
 !!! check
     예시 IP는 실제 환경에 맞게 변경합니다. **CCVM이 실행 중인 호스트에서만** 수행합니다.
 
-1. CCVM 위치 확인 및 콘솔 접속
+
+1. CCVM 실행 및 위치 확인 및 콘솔 접속
 ```
+pcs resource enable cloudcenter_res # CCVM 시작
+
 virsh list --all | grep ccvm    # CCVM이 있는 호스트에서 확인
 virsh console ccvm              # CCVM 콘솔 접속 ( 종료: Ctrl + ] )
 ```
@@ -166,6 +169,18 @@ vi /etc/cluster.json 파일 변경     # 변경된 IP로 수정
 5. extenal_timeserver 변경
 ```
 
+## CCVM DB 파일 수정
+!!! warning
+    이미지의 IP는 예시이며, 실제 환경에 맞게 수정하시길 바랍니다.
+
+1. CCVM DB 파일 수정
+    ![CCVM DB 파일 수정](../../assets/images/user-guide/change-ip/change-ip-ccvm-db-update.png){ .imgCenter .imgBorder }
+    ```
+    1. ssh ccvm    # CCVM SSH 접속
+    2. vi /etc/cloudstack/management/db.properties          # DB 파일 수정
+    3. cluster.node.IP -> 변경된 CCVM Management IP 로 변경     # 변경된 CCVM Management IP로 변경
+    ```
+
 ## Mold 설정
 !!! check
     변경된 IP로 {변경된 CCVM 관리 IP}:8080로 접속합니다.
@@ -204,7 +219,9 @@ vi /etc/cluster.json 파일 변경     # 변경된 IP로 수정
             2. update host_pod_ref set gateway='10.10.0.1' where id=1;  # 변경할 게이트웨이 입력
             3. update host_pod_ref set cidr_size=16 where id=1;         # 변경할 서브넷마스크 입력
             4. update host_pod_ref description='10.10.12.7-10.10.12.8-0-untagged' where id=1;   # 변경할 Pod 사설 IP 주소 입력
-            5. update image_store set url='nfs://10.10.12.10/nfs/secondary' where id=1;         # 변경할 CCVM 관리 IP 입력
+            5. update op_dc_ip_address_alloc set ip_address='10.10.12.7' where id=1; # 기존에 남아 있던 IP를 변경할 사설 IP 중 하나 입력
+            6. update op_dc_ip_address_alloc set ip_address='10.10.12.8' where id=2; # 기존에 남아 있던 IP를 변경할 사설 IP 중 하나 입력
+            7. update image_store set url='nfs://10.10.12.10/nfs/secondary' where id=1;         # 변경할 CCVM 관리 IP 입력
         ```
 
 5. 글로벌 설정 수정
@@ -216,18 +233,6 @@ vi /etc/cluster.json 파일 변경     # 변경된 IP로 수정
         ![CCVM Management IP 수정](../../assets/images/user-guide/change-ip/change-ip-global-update-02.png){ .imgCenter .imgBorder }
         - 구성 메뉴 -> 글로벌 설정 메뉴
         - 오른쪽 상단에서 Host 입력하여 변경된 CCVM Management IP 값으로 변경
-
-## CCVM DB 파일 수정
-!!! warning
-    이미지의 IP는 예시이며, 실제 환경에 맞게 수정하시길 바랍니다.
-
-1. CCVM DB 파일 수정
-    ![CCVM DB 파일 수정](../../assets/images/user-guide/change-ip/change-ip-ccvm-db-update.png){ .imgCenter .imgBorder }
-    ```
-    1. ssh ccvm    # CCVM SSH 접속
-    2. vi /etc/cloudstack/management/db.properties          # DB 파일 수정
-    3. cluster.node.IP -> 변경된 CCVM Management IP 로 변경     # 변경된 CCVM Management IP로 변경
-    ```
 
 ## 서비스 재시작
 1. Mold 서비스 재시작
