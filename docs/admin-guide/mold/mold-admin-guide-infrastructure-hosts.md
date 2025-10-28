@@ -12,7 +12,7 @@
 
 ## 호스트 추가
 
-1. 호스트 추가 버튼 클릭 하여 호스트 추가 팝업을 호출합니다.
+1. 호스트 추가 버튼을 클릭 하여 호스트 추가 팝업을 호출합니다.
 
     ![host 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-add-btn.png){ .imgCenter .imgBorder }
 
@@ -57,7 +57,7 @@
 2. 호스트 디바이스 이관 하기위한 화면입니다.
 
     !!! warning
-        호스트 장치를 가상머신에 이관하기 위해서는 가상머신을 완전히 정지 후 시작하셔야 적용이 됩니다. (글로벌 설정에서 enable.additional.vm.configuratio를 true로 설정해야합니다.)
+        호스트 장치를 가상머신에 이관하기 위해서는 가상머신을 완전히 정지 후 시작하셔야 적용이 됩니다. (글로벌 설정에서 enable.additional.vm.configuration 을 true로 설정해야합니다.)
 
     ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-device-migration.png){ .imgCenter .imgBorder }
 
@@ -103,17 +103,17 @@
 
 ## 호스트 보안 키 프로비저닝
 
-1. 호스트 보안 키 프로비저닝할 수 있습니다.
+1. 호스트 보안 키를 프로비저닝할 수 있습니다.
+
     !!! warning
         새 X509 인증서를 적용한 후 Host Agent 및 libvirtd 프로세스를 다시 시작합니다.
-
     ![호스트 보안 키 프로비저닝 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/provision-host-security-keys-btn.png){ .imgCenter .imgBorder }
 
     * **호스트 보안 키 프로비저닝** 버튼을 클릭하여 호스트 보안 키 프로비저닝 화면을 호출합니다.
 
     ![호스트 보안 키 프로비저닝 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/provision-host-security-keys.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 호스트 보안 키 프로비저닝 업데이트합니다.
+    * **확인** 버튼을 클릭하여 호스트 보안 키 프로비저닝 업데이트를 합니다.
 
 ## 강제 재연결
 
@@ -130,7 +130,7 @@
 ## 호스트 비활성화
 
 !!! info
-    호스트 활성화, 비활성화를 하기 위해서는 enable.kvm.host.auto.enable.disable 설정 값을 true 로 체크해야합니다.
+    호스트를 활성화, 비활성화를 하기 위해서는 enable.kvm.host.auto.enable.disable 설정 값을 true 로 체크해야합니다.
 
 1. 해당 호스트를 비활성화합니다.
 
@@ -140,7 +140,7 @@
 
     ![호스트 비활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 호스트 비활성화합니다.
+    * **확인** 버튼을 클릭하여 호스트를 비활성화합니다.
 
 ## 호스트 활성화
 
@@ -152,14 +152,14 @@
 
     ![호스트 활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 호스트 활성화합니다.
+    * **확인** 버튼을 클릭하여 호스트를 활성화합니다.
 
 ## 유지보수 모드 활성화
 
 !!! info
-    호스트 유지보수 모드로 설정하면 호스트의 모든 가상머신을 다른 호스트로 마이그레이션합니다.
+    호스트를 유지보수 모드로 설정하면 해당 호스트의 모든 가상머신을 다른 호스트로 마이그레이션합니다.
 
-1. 해당 호스트를 유지보수 모드 활성화화합니다.
+1. 해당 호스트를 유지보수 모드 활성화합니다.
 
     ![유지보수 모드 활성화 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-maintenance-mode-enable-btn.png){ .imgCenter .imgBorder }
 
@@ -167,11 +167,11 @@
 
     ![유지보수 모드 활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-maintenance-mode-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 호스트 비활성화합니다.
+    * **확인** 버튼을 클릭하여 유지보수 모드 활성화를 합니다.
 
 ## 유지보수 모드 비활성화
 
-1. 해당 호스트를 유지보수 모드 비활성화합니다.
+1. 해당 호스트를 유지보수 모드를 비활성화합니다.
 
     ![유지보수 모드 비활성화 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-maintenance-mode-disable-btn.png){ .imgCenter .imgBorder }
 
@@ -179,11 +179,11 @@
 
     ![유지보수 모드 비활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-maintenance-mode-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 유지보수 모드 비활성화합니다.
+    * **확인** 버튼을 클릭하여 유지보수 모드를 비활성화합니다.
 
 ## 원격 관리 구성
 
-1. 원격 관리 구성 버튼 클릭 하여 원격 관리 구성 팝업을 호출합니다.
+1. 원격 관리 구성 버튼을 클릭하여 원격 관리 구성 팝업을 호출합니다.
 
     ![원격 관리 구성 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/oobm-management-btn.png){ .imgCenter .imgBorder }
 
@@ -196,12 +196,12 @@
     * **사용자 이름:** 사용자 이름을 입력합니다.
     * **비밀번호:** 비밀번호를 입력합니다.
     * **드라이버:** 드라이버를 선택합니다.
-    * **관리콜솔 프로토콜:** 관리콜솔 프로토콜을 선택합니다.
+    * **관리콘솔 프로토콜:** 관리콘솔 프로토콜을 선택합니다.
     * **확인** 버튼을 클릭하여 원격 관리 구성을 설정합니다.
 
 ## 원격 관리 비활성화
 
-1. 해당 Host 원격 관리 비활성화합니다.
+1. 해당 Host 원격 관리를 비활성화합니다.
 
     ![Host 원격 관리 비활성화 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/out-of-band-disable-btn.png){ .imgCenter .imgBorder }
 
@@ -209,11 +209,14 @@
 
     ![Host 원격 관리 비활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/out-of-band-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 원격 관리 비활성화합니다.
+    * **확인** 버튼을 클릭하여 원격 관리를 비활성화합니다.
 
 ## 원격 관리 활성화
 
-1. 해당 Host 원격 관리 활성화합니다.
+1. 해당 Host 원격 관리를 활성화합니다.
+
+    !!! info
+        원격 관리 활성화를 위해서는 먼저 [원격 관리 구성 정보](./mold-admin-guide-infrastructure-hosts.md#원격-관리-구성)가 입력되어 있어야 합니다.
 
     ![Host 원격 관리 활성화 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/out-of-band-enable-btn.png){ .imgCenter .imgBorder }
 
@@ -221,11 +224,11 @@
 
     ![Host 원격 관리 활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/out-of-band-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 원격 관리 활성화합니다.
+    * **확인** 버튼을 클릭하여 원격 관리를 활성화합니다.
 
 ## 원격 관리 전원 조치 실행
 
-1. 원격 관리 전원 조치 실행 버튼 클릭 하여 호스트를 원격으로 관리할 수 있는 팝업을 호출합니다.
+1. 원격 관리 전원 조치 실행 버튼을 클릭 하여 호스트를 원격으로 관리할 수 있는 팝업을 호출합니다.
 
     ![원격 관리 전원 조치 실행 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/oobm-management-power-action-btn.png){ .imgCenter .imgBorder }
 
@@ -234,7 +237,7 @@
     ![원격 관리 전원 조치 실행 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/oobm-management-power-action.png){ .imgCenter .imgBorder }
 
     * 호스트 원격관리 **동작** 을 선택합니다. ( ON, OFF, CYCLE, RESET, SOFT, STATUS )
-    * **확인** 버튼을 클릭하여 원격 관리 구성을 설정합니다.
+    * **확인** 버튼을 클릭하여 원격 관리 전원 조치를 실행합니다.
 
 ## 원격 관리 비밀번호 변경
 
@@ -247,7 +250,7 @@
     ![원격 관리 비밀번호 변경 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/oobm-passwd-reset.png){ .imgCenter .imgBorder }
 
     * **비밀번호:** 비밀번호를 입력합니다.
-    * **확인** 버튼을 클릭하여 원격 관리 비밀번호 변경합니다.
+    * **확인** 버튼을 클릭하여 원격 관리 비밀번호를 변경합니다.
 
 ## HA 구성
 
@@ -260,7 +263,7 @@
     ![HA 구성 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/ha-config.png){ .imgCenter .imgBorder }
 
     * **제공자:** 제공자를 선택합니다.
-    * **확인** 버튼을 클릭하여 HA 구성합니다.
+    * **확인** 버튼을 클릭하여 HA를 구성합니다.
 
 ## HA 활성화
 
@@ -272,7 +275,7 @@
 
     ![호스트 HA 활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-ha-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 호스트 HA 활성화합니다.
+    * **확인** 버튼을 클릭하여 호스트 HA를 활성화합니다.
 
 ## HA 비활성화
 
@@ -284,7 +287,7 @@
 
     ![호스트 HA 비활성화 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-ha-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 호스트 HA 비활성화합니다.
+    * **확인** 버튼을 클릭하여 호스트 HA를 비활성화합니다.
 
 ## 롤링 유지 관리 시작
 
@@ -296,7 +299,7 @@
 
     ![롤링 유지 관리 시작 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/rolling-maintenance.png){ .imgCenter .imgBorder }
 
-    * **시간초과:** 시간초과를 입력합니다.
+    * **시간초과:** 시간(초 단위)을 입력합니다.
     * **payload:** payload에 실행할 명령을 입력합니다.
     * **확인** 버튼을 클릭하여 롤링 유지 관리 시작합니다.
 

@@ -12,14 +12,14 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
 
 ## Zone추가
 
-1. Zone 추가 버튼 클릭 하여 Zone 추가 팝업을 호출합니다.
+1. Zone 추가 버튼을 클릭 하여 Zone 추가 팝업을 호출합니다.
 
     ![zone 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add-btn.png){ .imgCenter .imgBorder }
 
 2. Zone 구성을 위한 항목을 입력합니다.
 
     !!! info
-        Zone 구성시 네트워크, 스토리지, 호스트 등 실제 구축하는 사이트 환경에 맞는 값을 입력해야합니다.
+        다음은 예시입니다. Zone 구성시 네트워크, 스토리지, 호스트 등 실제 구축하는 사이트 환경에 맞는 값을 입력해야합니다.
 
     ![zone 추가1](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add1.png){ .imgCenter .imgBorder }
 
@@ -44,7 +44,7 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
     ![zone 추가4](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add4.png){ .imgCenter .imgBorder }
 
     * Zone 의 네트워크 정보를 입력하는 화면입니다.
-    * **트래픽 유형** 의 **MANAGEMENT, GUEST, PUBLIC** 각각 편집 버튼을 클릭하여 트랙픽 라벨을 입력합니다.
+    * **트래픽 유형** 의 **MANAGEMENT, GUEST, PUBLIC** 각각 편집 버튼을 클릭하여 트래픽 라벨을 입력합니다.
 
     ![zone 추가5](../../assets/images/admin-guide/mold/infrastructure/zones/zone-add5.png){ .imgCenter .imgBorder }
 
@@ -251,7 +251,7 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
 ## Zone 삭제
 
 !!! warning
-    Zone을 삭제하기 위해서는 이하 pod, cluster, 호스트, 기본스토리지, 2차스토리지가 존재하지 않아야 합니다.
+    Zone을 삭제하기 위해서는 pod, cluster, 호스트, 기본스토리지, 2차스토리지를 먼저 삭제해야 합니다.
 
 1. 해당 Zone을 삭제합니다.
 
@@ -353,7 +353,7 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
 
     ![보기 IPv4 서브넷 버튼](../../assets/images/admin-guide/mold/infrastructure/zones/ipv4-subnet-view.png){ .imgCenter .imgBorder }
 
-    * 선택한 서브넷을 사용중 네트워크를 확인할 수 있도록 **네트워크 > IPv4 서브넷** 메뉴로 이동합니다.
+    * 선택한 서브넷을 사용중인 네트워크를 확인하기 위해 **네트워크 > IPv4 서브넷** 메뉴로 이동합니다.
 
 ### 계정 추가
 
@@ -452,7 +452,7 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
 
     ![보기 네트워크](../../assets/images/admin-guide/mold/infrastructure/zones/bgp-peer-view.png){ .imgCenter .imgBorder }
 
-    * 선택한 BGP 피어가 사용중 네트워크를 확인할 수 있도록 **네트워크 > 가상머신용 네트워크** 메뉴로 이동합니다.
+    * 선택한 BGP 피어가 사용중인 네트워크를 확인할 수 있도록 **네트워크 > 가상머신용 네트워크** 메뉴로 이동합니다.
 
 ### 계정 추가
 
@@ -506,7 +506,7 @@ Zone은 ABLESTACK 인프라의 자원을 관리하고 배치하는 기본 단위
 
 ## 리소스 탭
 
-1. Zone에 할당된 자원의 상태를 조회하는 화면입니다. 해당 Zone에서 할당량과 활당 가능량을 확인 가능하며 메모리, CPU, 기본 스토리지 사용량, 할당된 기본 스토리지, Public 주소, 관리 IP 주소, 2차 스토리지, VLAN/VNI, 직접 IP 주소, GPU, CPU 코어수 등의 정보를 확인할 수 있습니다.
+1. Zone에 할당된 자원의 상태를 조회하는 화면입니다. 해당 Zone에서 현재 할당량과 할당 가능량을 확인 가능하며 메모리, CPU, 기본 스토리지 사용량, 할당된 기본 스토리지, Public 주소, 관리 IP 주소, 2차 스토리지, VLAN/VNI, 직접 IP 주소, GPU, CPU 코어수 등의 정보를 확인할 수 있습니다.
 
     ![리소스 탭](../../assets/images/admin-guide/mold/infrastructure/zones/allocated-resource-tab.png){ .imgCenter .imgBorder }
 
