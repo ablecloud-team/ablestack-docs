@@ -326,6 +326,74 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
         reboot
         ```
 
+### 스토리지 네트워크 설정
+1. ABLESTACK VM Cube 로그인
+    ![ABLESTACK VM Cube 로그인](../assets/images/install-guide-general-virtualization-cube-storage-network-01.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 로그인 화면입니다.
+    - 접속 URL은 **호스트IP:9090** 입니다
+    - 사용자 이름은 **root** 를 암호는 초기 암호를 입력하여, 원하시는 비밀번호로 변경한 후, **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
+
+2. ABLESTACK VM Cube 메인 화면
+    ![ABLESTACK VM Cube 메인 화면](../assets/images/install-guide-general-virtualization-cube-storage-network-02.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 로그인 후 화면입니다.
+
+3. ABLESTACK VM Cube 네트워킹 구성
+    ![ABLESTACK VM Cube 네트워킹 구성](../assets/images/install-guide-general-virtualization-cube-storage-network-03.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
+
+    !!! note
+        인터페이스 목록 및 IP주소 등은 물리적 네트워크의 구성과 하드웨어 벤더사 및 초기 설정한 IP주소에 따라 다르게 표기될 수 있습니다.
+
+    !!! info
+        해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다.
+        이 문서를 바탕으로 설치 사이트에 맞게 구성을 변경 및 IP 주소를 입력 하셔야 합니다.
+
+        그리고 본드(bond) 구성이 필요한 경우 본드(bond)구성 완료 후 진행하셔야 합니다.
+
+        **본 설치 가이드는 Storage Network가 NIC pass-through 이며, 본드구성 없이 단일 NIC로 구성된 형태 입니다.**
+
+    1. Public Storage Network 설정
+        ![Public Storage Network 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-04.png){ .imgCenter .imgBorder }
+        - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **Public Storage** 로 사용할 NIC를 클릭하여 들어온 화면입니다.
+
+
+        1. Public Storage Network IP 설정
+            ![Public Storage Network IP 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-05.png){ .imgCenter .imgBorder }
+            - IPv4 항목의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
+            - 주소 입력 창의 오른쪽에 있는 **자동(DHCP)** 선택 박스를 눌러 **수동** 으로 변경을 합니다.
+            - **Address** 입력창에 **사전에 지정한 IP** 를 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
+            !!! info
+                Storage Network에서 사용하는 IP는 내부적으로만 통신하기 위한 IP입니다.</br>
+                일반적으로 Public Storage Network IP는 100.100.**A**.**B**/24 대역을 사용합니다.</br>
+                관리상 편의를 위해 A는 Management와 동일한 C클래스를 사용하고 B는 호스트와 동일한 Host IP로 구성합니다.</br>
+                만약 스위치를 혼용해서 사용하고 해당 IP 대역이 기존 내부 네트워크와 겹쳐서 충돌이 발생될 수 있을 경우에는 사용하지 않는 대역으로 변경해야 합니다.
+
+        2. Public Storage 자동연결 및 활성화 설정
+            ![Public Storage 자동연결 및 활성화 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-07.png){ .imgCenter .imgBorder }
+            - 입력이 끝난 후 저장 후, **자동으로 연결** 버튼을 클릭하여 활성화 합니다.
+
+        3. Public Storage Network 본드 설정
+            ![Public Storage Network 본드 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-08.png){ .imgCenter .imgBorder }
+            - 화면 중간 버튼그룹 중 **본드 추가** 버튼을 클릭하면 보이는 화면이며, 본드를 설정하는 팝업 화면입니다.
+            ![Public Storage Network 본드 구성](../assets/images/install-guide-general-virtualization-cube-storage-network-09.png){ .imgCenter .imgBorder }
+            - 본드 이름을 **bond 1** 을 입력해주고, 연결장치는 **Public Storage NIC** 를 선택하고 **추가** 버튼을 클릭합니다.
+
+        !!! check "MTU 설정이 필요할 시"
+            1. NIC 인터페이스 MTU 설정
+                ![Public Storage Network MTU 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-06.png){ .imgCenter .imgBorder }
+                - MTU 항목의 **편집** 버튼을 눌러 들어온 MTU 설정 화면입니다.
+                - 라디오 버튼을 **설정** 으로 선택하고 입력값을 **9000** 으로 입력 후에 **적용** 버튼을 클릭합니다.
+            2. 본드 MTU 설정
+                ![Public Storage Network 본드 MTU 설정1](../assets/images/install-guide-general-virtualization-cube-storage-network-10.png){ .imgCenter .imgBorder }
+                - 해당 Public Storage Network 본드에서도 전과 동일하게 MTU를 설정해야 합니다.
+                ![Public Storage Network 본드 MTU 설정2](../assets/images/install-guide-general-virtualization-cube-storage-network-11.png){ .imgCenter .imgBorder }
+                - MTU 설정 화면입니다.
+
+        !!! check
+            Public Storage Network에 MTU를 설정 할 시, 물리 인터페이스 및 본드 MTU 설정 값이 같아야 합니다.
+
+            확인 후 다음 단계로 넘어가시길 바랍니다.
+
 !!! info
     ABLESTACK VM 환경에서는 자체 Glue를 사용하지 않습니다.
 
