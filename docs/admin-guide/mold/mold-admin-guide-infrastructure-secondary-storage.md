@@ -12,13 +12,14 @@
 
 ## 2차 스토리지 추가
 
-1. 2차 스토리지 추가 버튼 클릭 하여 2차 스토리지 추가 팝업을 호출합니다.
+1. 2차 스토리지 추가 버튼을 클릭하여 2차 스토리지 추가 팝업을 호출합니다.
 
     ![secondary storage 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/secondary-storage/secondary-storage-add-btn.png){ .imgCenter .imgBorder }
 
 2. 2차 스토리지 추가를 위한 항목을 입력합니다.
+
     !!! info
-        아래 2차 스토리지 추가 화면 이미지에서는 nfs 추가 방식이며, 스토리지 유형에 따라 입력값은 달라질 수 있습니다.
+        아래 2차 스토리지 추가 화면 이미지는 nfs 추가 방식이며, 스토리지 유형에 따라 입력값은 달라질 수 있습니다.
     ![secondary storage 추가 화면](../../assets/images/admin-guide/mold/infrastructure/secondary-storage/secondary-storage-add.png){ .imgCenter .imgBorder }
 
     * **이름:** 이름을 입력합니다.
@@ -51,7 +52,7 @@
 
     ![2차 스토리지 삭제 화면](../../assets/images/admin-guide/mold/infrastructure/secondary-storage/secondary-storage-remove.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 Pod를 삭제합니다.
+    * **확인** 버튼을 클릭하여 2차 스토리지를 삭제합니다.
 
 ## 상세 탭
 
@@ -71,11 +72,11 @@
 
     ![설정 편집](../../assets/images/admin-guide/mold/infrastructure/secondary-storage/secondary-storage-setting-update-btn.png){ .imgCenter .imgBorder }
 
-    * 설정 값을 수정후 확인 버튼을 클릭하여 해당 2차스토리지에 설정 값을 변경합니다.
+    * 설정 값을 수정후 확인 버튼을 클릭하여 해당 2차스토리지의 설정값을 변경합니다.
 
 ### 기본값으로 재설정
 
-1. 2차 스토리지의 설정 값을 초기값으로 재설정합니다.
+1. 2차 스토리지의 설정값을 초기값으로 재설정합니다.
 
     ![기본값으로 재설정](../../assets/images/admin-guide/mold/infrastructure/secondary-storage/secondary-storage-setting-reset-btn.png){ .imgCenter .imgBorder }
 

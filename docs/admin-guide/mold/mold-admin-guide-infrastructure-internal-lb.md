@@ -2,7 +2,7 @@
 # 내부 LB
 
 ## 개요
-내부 LB는 VPC(Virtual Private Cloud) 내에서만 트래픽을 분배하는 기능입니다. VPC는 가상 네트워크를 만들고 내부 LB는 이 네트워크 내에서 여러 서버들 간에 트래픽을 고르게 분배합니다. 이를 통해 서버의 부하를 분산시키고 한 서버에 장애발생 시 자동으로 다른 서버로 트래픽을 우회시켜 서비스의 안정성을 유지합니다. 또한 외부와 격리된 상태에서만 작동하므로 보안이 강화됩니다. 이를 통해 클라우드 환경에서 효율적이고 안전한 로드 밸런싱을 제공합니다.
+내부 LB는 VPC(Virtual Private Cloud) 내에서만 트래픽을 분배하는 기능입니다. VPC는 가상 네트워크를 만들고 내부 LB는 이 네트워크 내에서 여러 서버들 간에 트래픽을 고르게 분배합니다. 이를 통해 서버의 부하를 분산시키고 한 서버에서 장애발생 시 자동으로 다른 서버로 트래픽을 우회시켜 서비스의 안정성을 유지합니다. 또한 외부와 격리된 상태에서만 작동하므로 보안이 강화됩니다. 이를 통해 클라우드 환경에서 효율적이고 안전한 로드 밸런싱을 제공합니다.
 
 ## 목록 조회
 
@@ -36,7 +36,7 @@
 
 ## 클립보드에 콘솔 URL 복사
 
-1. 내부 LB의 콘솔에 접근할 수 있는 URL 복사할 수 있습니다.
+1. 내부 LB의 콘솔에 접근할 수 있는 URL을 복사할 수 있습니다.
 
     ![internal lb 클립보드에 콘솔 URL 복사](../../assets/images/admin-guide/mold/infrastructure/internal-lb/internal-lb-console-url-copy-btn.png){ .imgCenter .imgBorder }
 
@@ -66,7 +66,7 @@
 
 ## 라우터 마이그레이션
 
-1. 내부 LB 다른 호스트로 마이그레이션할 수 있습니다.
+1. 내부 LB를 다른 호스트로 마이그레이션할 수 있습니다.
 
     ![내부 LB 마이그레이션 버튼](../../assets/images/admin-guide/mold/infrastructure/internal-lb/internal-lb-migrate-btn.png){ .imgCenter .imgBorder }
 
