@@ -1,3 +1,4 @@
+
 ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_4){:target="_blank"} 중, 네 번째 단계인 WAS 구성에 대한 문서입니다.
 
 가상머신에 도커 컨테이너를 이용하여 NodeJS WAS 2개를 구성하고 1 개의 가상머신에 Samba 스토리지를 생성하여 WAS에서 구동시킬 웹소스를 저장, 공유합니다. 이를 하나의 클러스터로 구성하는 방법은 다음과 같은 절차로 수행됩니다.
@@ -18,7 +19,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 
 - 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
 - 설명 : Affinity 그룹에 대한 설명을 입력합니다.
-- 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다. 
+- 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다.
 
 새 Affinity 그룹 추가 대화상자에서의 입력 항목 예제는 다음과 같습니다.
 
@@ -37,7 +38,7 @@ ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공�
 ## 가상머신 생성
 ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
 
-가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
+가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다.
 해당 페이지에서는 **템플릿을 이용한 가상머신 생성** 문서를 참고하여 가상머신을 생성합니다.
 
 !!! info "템플릿을 이용한 가상머신 생성"
@@ -53,8 +54,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 데이터 디스크 : * 디폴트로 생성합니다.
     - 네트워크 : **was** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.2.11**
-    - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : 
+    - SSH 키 쌍 : **3tier_linux_keypair**
+    - 확장 모드 :
         - Affinity 그룹 :  **ablecloud-3tier-linux-was**
     - 이름 : **ablecloud-3tier-linux-was-01**
 
@@ -66,8 +67,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 데이터 디스크 : * 디폴트로 생성합니다.
     - 네트워크 : **was** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.2.12**
-    - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : 
+    - SSH 키 쌍 : **3tier_linux_keypair**
+    - 확장 모드 :
         - Affinity 그룹 :  **ablecloud-3tier-linux-was**
     - 이름 : **ablecloud-3tier-linux-was-02**
 
@@ -76,10 +77,10 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 배포 인프라 선택 : **Zone**
     - 템플릿/ISO : **Rocky Linux 9.0 기본 이미지 템플릿** * Rocky Linux release 9.0 (Blue Onyx)
     - 컴퓨트 오퍼링 : **1C-2GB-RBD-HA**
-    - 데이터 디스크 : **100GB-WB-RBD** 
+    - 데이터 디스크 : **100GB-WB-RBD**
     - 네트워크 : **was** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.2.13**
-    - SSH 키 쌍 : **3tier_linux_keypair** 
+    - SSH 키 쌍 : **3tier_linux_keypair**
     - 확장 모드 : * 디폴트로 생성합니다.
     - 이름 : **ablecloud-3tier-linux-was-storage**
 
@@ -100,11 +101,11 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
 ???+ note
     WAS 가상머신 1, 2 및 스토리지 가상머신에 대해 실행 및 설정을 적용합니다.
 
-### 네트워크 방화벽 해제 
+### 네트워크 방화벽 해제
 방화벽은 들어오고 나가는 네트워크 트래픽을 모니터링하고 필터링하는 방법입니다. 특정 트래픽을 허용할지 차단할지 결정하는 일련의 보안 규칙을 정의하여 작동합니다.
 CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 해당 기능이 제공됩니다.
 
-`firewall-cmd` 명령어를 이용하여 samba 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
+`firewall-cmd` 명령어를 이용하여 samba 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다.
 ```
 firewall-cmd --zone=public --permanent --add-service=samba
 firewall-cmd --reload
@@ -124,7 +125,7 @@ dnf install samba
 
 WAS와 파일을 공유할 SAMBA 스토리지의 공유폴더를 생성하고 적절한 권한을 부여합니다.
 스토리지 공유폴더 경로 예시는 `/mnt/data/shared_folder` 입니다.
-``` 
+```
 mkdir -p /mnt/data/shared_folder
 chmod -R 777 /mnt/data/shared_folder
 ```
@@ -141,7 +142,7 @@ smbpasswd -a user1
 ```
 
 WAS에서 구동할 샘플 소스를 Samba 스토리지의 공유폴더로 다운로드하기 위해 먼저 git 패키지를 설치한 후 생성한 폴더에 Git 샘플 소스를 다운로드하고 경로를 수정합니다.
-``` 
+```
 dnf install git
 git clone https://github.com/ablecloud-team/ablestack-docs-sample.git /mnt/data/shared_folder/
 
@@ -177,7 +178,7 @@ var connection = mysql.createPool({
 WAS 서버 구동을 위한 NodeJS 모듈 패키지를 설치합니다.
 먼저 18.0.0 버전 이상의 NodeJs를 설치하기 위해 make, git, gcc와 같은 개발 도구를 설치한 후 nodejs를 설치합니다.
 ```
-dnf groupinstall "Development Tools" 
+dnf groupinstall "Development Tools"
 dnf module install nodejs:18
 ```
 
@@ -205,26 +206,26 @@ Samba 설정 파일을 열어 Samba 사용자 계정 "user1" 의 정보를 입�
 ```
 
 Samba 스토리지의 공유폴더에 대한 Selinux 보안설정을 합니다.
-``` 
+```
 setsebool -P samba_enable_home_dirs on                # 삼바 홈 디렉토리 읽기/쓰기 권한 부여
 setsebool -P samba_export_all_rw on                   # (읽기, 쓰기) 또는 setsebool -P samba_export_all_ro on (읽기만)
 chcon -R -t samba_share_t /mnt/data/shared_folder     # 하위디렉토리 포함 특정디렉토리 삼바권한부여
 ```
 
 Samba Storage 가상머신의 smb 서비스를 시작합니다.
-``` 
+```
 systemctl enable smb
 systemctl start smb
 ```
 
 ## WAS 가상머신 구성
 WAS 가상머신에서 Samba 패키지를 설치합니다.
-``` 
+```
 dnf install samba samba-client cifs-utils
 ```
 
 Samba 스토리지 가상머신과 파일을 공유할 폴더를 생성합니다.
-``` 
+```
 mkdir -p /mnt/data/shared_folder
 chmod -R 777 /mnt/data/shared_folder
 ```
@@ -245,17 +246,17 @@ Samba 스토리지 마운트 시, 명령줄에 계정 및 패스워드를 노출
 username=user1
 
 # 패스워드를 입력하세요.
-password=PASSWORD 
+password=PASSWORD
 ```
 
 Samba Storage 가상머신의 smb 서비스를 시작합니다.
-``` 
+```
 systemctl enable smb
 systemctl start smb
 ```
 
 Samba 스토리지를 마운트합니다.
-``` 
+```
 mount -t cifs -o credentials=/root/.smb.cred,vers=3.0 //192.168.2.13/user1 /mnt/data/shared_folder
 
 # cifs: 프로토콜
@@ -280,8 +281,8 @@ WAS 가상머신 1,2 에서 실행할 NodeJS 컨테이너 이미지를 다운로
 podman pull docker.io/ablecloudteam/nodejs-server:linux-0.1
 ```
 
-다운로드한 NodeJS 컨테이너 이미지를 실행합니다. 
-WAS가 정상적으로 로드 벨런싱되는 지 확인하기 위해 WAS 가상머신의 이름에 따라 `--hostname` 옵션 값을 지정합니다. 
+다운로드한 NodeJS 컨테이너 이미지를 실행합니다.
+WAS가 정상적으로 로드 벨런싱되는 지 확인하기 위해 WAS 가상머신의 이름에 따라 `--hostname` 옵션 값을 지정합니다.
 ```
 podman run \
 --privileged=true \
@@ -313,7 +314,7 @@ systemctl daemon-reload
 
 ## 로드 밸런서(부하 분산) 설정
 Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당 서브넷 내의 여러 가상머신간에 부하 분산되도록 규칙을 만들 수 있습니다. 예를 들어 WAS 계층에 도달한 트래픽은 해당 WAS 서브넷의 다른 가상머신으로 리디렉션됩니다.
-로드 밸런서를 설정하면 Health Check를 통해 장애 여부를 판단하고 노드에 이상이 발생하면 다른 정상 동작중인 노드로 트래픽을 보내주는 Fail-over가 가능합니다. 
+로드 밸런서를 설정하면 Health Check를 통해 장애 여부를 판단하고 노드에 이상이 발생하면 다른 정상 동작중인 노드로 트래픽을 보내주는 Fail-over가 가능합니다.
 내부 로드 밸런서 규칙 생성을 위해 아래 문서를 참고합니다.
 
 !!! info "내부 로드 밸런서 규칙 생성"
@@ -324,12 +325,10 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 - 이름 : **was-lb**
 - 설명 : **WAS의 내부 로드 밸런서입니다.**
 - 소스 IP 주소 : **192.168.2.26**
-- 소스 포트 : **5000** 
-- 가상머신 포트 : **5000** 
-- 알고리즘 : **최소 접속** 
+- 소스 포트 : **5000**
+- 가상머신 포트 : **5000**
+- 알고리즘 : **최소 접속**
 
 생성된 내부 로드 밸런서 규칙을 선택한 후, **가상머신 할당** 버튼을 클릭하여 WAS 가상머신 1,2 를 할당합니다.
 
 ![가상머신 할당](../../../assets/images/3tier-linux-architecture-was-lb-01.png){: .center }
-
-

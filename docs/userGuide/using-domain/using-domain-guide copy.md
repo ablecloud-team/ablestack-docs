@@ -1,3 +1,4 @@
+
 ## 개요
 도메인은 ABLESTACK 환경에서 계정과 리소스를 계층적으로 관리할 수 있는 최상위 단위로, 학과나 부서 등 조직 단위로 활용할 수 있습니다. 각 도메인은 하위 도메인과 계정(Account) 을 포함할 수 있으며, 이를 통해 멀티테넌시(Multi-tenancy) 구조를 지원합니다. 도메인 간 자원을 격리된 환경에서 독립적으로 사용할 수 있도록 구성함으로써 보안성과 독립성을 동시에 확보할 수 있습니다.
 
@@ -7,7 +8,7 @@
 ## 도메인 활용하기 위한 도메인 생성 및 도메인 관리자 생성
 
 1. admin 관리자로 로그인
-    Mold 로그인 화면으로 접속합니다. 
+    Mold 로그인 화면으로 접속합니다.
     ![로그인 화면](../../assets/images/user-guide/using-domain/admin-login.png){ align=center }
 
     * **사용자 이름 :** 사용자 이름에 admin 을 입력합니다.
@@ -37,16 +38,16 @@
 
 6. 구성(할당 가능 자원) 제한하기
     설정에 따라 도메인(A학과)에 자원을 제한할 수 있습니다.
-    
+
     !!! info
         구성 제한 값이 -1 인 경우 제한 없음을 의미합니다.
-    
+
     ![도메인 구성 제한](../../assets/images/user-guide/using-domain/resource_limit.png){ align=center }
-    
+
     * **구성 제한** 탭을 클릭합니다.
     * 제한할 값을 설정합니다.
     * **보내기** 버튼을 클릭하여 구성 제한 설정합니다.
-    
+
 
 7. 각 도메인(학과)별 도메인 관리자 계정을 생성합니다.
 
@@ -77,7 +78,7 @@
 
 1. 도메인 계정으로 계정 생성
     Mold 로그인 화면에 접속하여 도메인 관리자로 로그인합니다.
- 
+
     ![로그인 화면](../../assets/images/user-guide/using-domain/domain-login.png){ align=center }
 
     * **사용자 이름 :** 사용자 이름에 a-domain 을 입력합니다.
@@ -108,7 +109,7 @@
 
 3. 계정에 자원 제한 하기
     설정에 따라 계정의 구성 자원을 제한할 수 있습니다.
-    
+
     !!! info
         구성 제한 값이 -1 인 경우 제한 없음을 의미합니다.
         도메인 구성 제한을 초과하면 자원 생성을 할 수 없습니다.
@@ -122,21 +123,21 @@
 4. 계정에 사용자 추가하기
 
     ![계정 목록 선택 화면](../../assets/images/user-guide/using-domain/domain-account-list.png){ align=center }
-    
+
     * 계정 목록에서 사용자 추가할 계정 이름을 클릭합니다.
     * 목록에서 **account1** 을 클릭합니다.
 
     ![사용자 보기 버튼](../../assets/images/user-guide/using-domain/domain-account-list-btn.png){ align=center }
-    
+
     * 사용자 보기 버튼을 클릭하여, 계정에 사용자 목록을 확인합니다.
 
     ![사용자 목록 화면](../../assets/images/user-guide/using-domain/account-user-list.png){ align=center }
-    
+
     * 계정에 포함된 사용자 정보를 확인할 수 있습니다.
     * **사용자 추가** 버튼을 클릭하여 사용자 추가 화면을 호출합니다.
 
     ![사용자 추가 화면](../../assets/images/user-guide/using-domain/account-user-add-view.png){ align=center }
-    
+
     * **사용자 이름 :** 사용자 이름을 입력합니다. (영문, 숫자, - 만 인력 해주세요.)
     * **비밀번호 :** 비밀번호를 입력합니다.
     * **비밀번호 확인 입력 :** 비밀번호 확인 입력을 입력합니다.
@@ -170,7 +171,7 @@
 ### 시나리오 1
    하나에 계정에 여러 사용자(학생)를 생성하여, 모든 학생이 자원을 공유 하도록 구성
    ![시나리오 1](../../assets/images/user-guide/using-domain/scenario1.png){ align=center }
-   
+
    * 25학번 계정에 포함된 학생 모두 가상머신, 네트워크, 볼륨 이미지, 템플릿 등 자원 공유
 
 
@@ -199,7 +200,7 @@ Shared 네트워크로 공유할 범위(모두, 도메인, 계정, 프로젝트)
 
     !!! info
         해당 입력값은 예시입니다. 환경에 맞게 구성하세요.
-    
+
     ![네트워크 추가1 화면](../../assets/images/user-guide/using-domain/shared-network-add1.png){ align=center }
 
     * **shared** 탭을 클릭합니다.
@@ -238,7 +239,7 @@ Shared 네트워크로 공유할 범위(모두, 도메인, 계정, 프로젝트)
     * **URL로 템플릿 등록** 버튼을 클릭하여 URL로 템플릿 등록 화면을 호출합니다.
 
 3. 공개 템플릿을 만들기 위한 값을 입력합니다.
-    
+
     ![공개 템플릿 추가1 화면](../../assets/images/user-guide/using-domain/public-templates-add1.png){ align=center }
 
     * **URL :** URL을 입력합니다.
@@ -272,7 +273,7 @@ Shared 네트워크로 공유할 범위(모두, 도메인, 계정, 프로젝트)
     * **ISO 등록** 버튼을 클릭하여 ISO 등록 화면을 호출합니다.
 
 3. 공개 ISO를 만들기 위한 값을 입력합니다.
-    
+
     ![공개 ISO 생성 화면](../../assets/images/user-guide/using-domain/public-iso-add1.png){ align=center }
 
     * **URL :** URL을 입력합니다.
@@ -291,4 +292,3 @@ Shared 네트워크로 공유할 범위(모두, 도메인, 계정, 프로젝트)
     * **공개 :** 공개를 선택합니다.
         * 체크시 등록한 사용자만 선택할 수 있습니다.
     * **확인** 버튼를 클릭하여 공유 ISO을 생성합니다.
-

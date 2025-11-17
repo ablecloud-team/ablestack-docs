@@ -387,7 +387,9 @@ nav:
       - 관리: administration/genie/management.md
       - 설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
-    - ABLESTACK 시스템 재기동: administration/system-restart.md
+    - ABLESTACK 시스템 재기동:
+      - ABLESTACK HCI 재기동 절차: administration/system-restart-hci.md
+      - ABLESTACK VM 재기동 절차: administration/system-restart-vm.md
     # - Cube 가이드:
     #   - 개요:
     #     - 개요: admin-guide/cube/cube-admin-guide-outline.md

@@ -1,3 +1,4 @@
+
 # 호스트 작업
 ## 호스트 추가
 게스트 VM에 더 많은 용량을 제공하기 위해 언제든지 호스트를 추가할 수 있습니다. 요구 사항 및 지침은 호스트 추가를 참조하십시오.
@@ -174,7 +175,7 @@ virtio 드라이버를 지원하려면 모든 VM이 필요합니다. 이러한 �
     사용 가능한 용량의 새 값이 새 VM을 수용할 만큼 충분히 높지 않은 경우 용량 재계산이 진행되는 동안 추가 새 VM을 배포하지 않는 것이 더 안전합니다. 새 사용/사용 가능한 값이 사용 가능해질 때까지 기다리면 원하는 모든 새 VM을위한 공간이 있는지 확인합니다.
 
 기존 클러스터의 오버 프로비저닝 비율을 변경하려면 :
-    
+
 1. Mold UI에 관리자로 로그인하십시오.
 2. 왼쪽 탐색 모음에서 인프라스트럭쳐를 클릭합니다.
 3. 작업할 클러스터를 클릭합니다.
@@ -269,7 +270,7 @@ Mold는 대역 외 관리를 위해 Redfish 프로토콜도 지원합니다. Red
 |redfish.ignore.ssl|True|기본값은 false이며 클라이언트 요청이 SSL을 사용할 때 인증서의 유효성을 검사하도록합니다. true로 설정하면 redfish 클라이언트가 Redfish 서버에 요청을 보낼 때 SSL 인증서 유효성 검사를 무시합니다.|
 |redfish.use.https|True|모든 연결에 HTTPS / SSL을 사용합니다.|
 
-``outofbandmanagement.sync.poolsize`` 설정을 변경하려면 Mold 관리 서버가 시작될 때 로드 시간 동안 스레드 풀 및 백그라운드 (전원 상태) 동기화 스레드가 구성되므로 관리 서버를 다시 시작해야 합니다. 나머지 전역 설정은 관리 서버를 다시 시작하지 않고도 변경할 수 있습니다. 
+``outofbandmanagement.sync.poolsize`` 설정을 변경하려면 Mold 관리 서버가 시작될 때 로드 시간 동안 스레드 풀 및 백그라운드 (전원 상태) 동기화 스레드가 구성되므로 관리 서버를 다시 시작해야 합니다. 나머지 전역 설정은 관리 서버를 다시 시작하지 않고도 변경할 수 있습니다.
 
 ``outofbandmanagement.sync.poolsize``는 한 번에 실행할 수 있는 ipmitool 백그라운드 전원 상태 스캐너의 최대 수입니다. 보유한 최대 호스트 수에 따라 관리 서버 호스트가 견딜 수 있는 스트레스의 정도에 따라 값을 늘리거나 줄일 수 있습니다. 단일 라운드에서 백그라운드 전원 상태 동기화 스캔을 완료하려면 라운드 * ``outofbandmanagement.action.timeout`` / ``outofbandmanagement.sync.poolsize`` 초에서 최대 총 대역 외 관리 활성화 호스트 수가 필요합니다.
 
@@ -328,7 +329,7 @@ keystore-setup <properties file> <keystore file> <passphrase> <validity> <csr fi
 keystore-cert-import <properties file> <keystore file> <mode: ssh|agent> <cert file> <c ert content> <ca-cert file> <ca-cert content> <private-key file> <private key content:optional>
 ```
 
-KVM 호스트는 에이전트 및 libvirtd 프로세스 모두에 대한 키 저장소 및 인증서 설정이 있는 경우 보안된 것으로 간주됩니다. 보안 호스트는 TLS 지원 라이브 VM 마이그레이션 만 허용하고 시작합니다. 이를 위해서는 libvirtd가 기본 포트 16514에서 수신 대기하고 포트가 방화벽 규칙에서 허용되어야합니다. 인증서 갱신 ( ``provisionCertificate`` API 사용)은 새 인증서를 배포한 후 libvirtd 프로세스와 에이전트를 모두 다시 시작합니다. 
+KVM 호스트는 에이전트 및 libvirtd 프로세스 모두에 대한 키 저장소 및 인증서 설정이 있는 경우 보안된 것으로 간주됩니다. 보안 호스트는 TLS 지원 라이브 VM 마이그레이션 만 허용하고 시작합니다. 이를 위해서는 libvirtd가 기본 포트 16514에서 수신 대기하고 포트가 방화벽 규칙에서 허용되어야합니다. 인증서 갱신 ( ``provisionCertificate`` API 사용)은 새 인증서를 배포한 후 libvirtd 프로세스와 에이전트를 모두 다시 시작합니다.
 
 ## KVM Libvirt 후크 스크립트 포함
 <H3>기능 개요</H3>

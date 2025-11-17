@@ -1,3 +1,4 @@
+
 # GLUE 설정 가이드
 GLUE를 설정하는 방법에 대한 안내입니다.
 
@@ -26,7 +27,7 @@ $ ceph dashboard create-self-signed-cert
 
 ```bash
 $ openssl req -new -nodes -x509  \
--subj "/O=IT/CN=ceph-mgr-dashboard" -days 3650 \  
+-subj "/O=IT/CN=ceph-mgr-dashboard" -days 3650 \
 -keyout GLUE.key -out GLUE.crt -extensions v3_ca
 ```
 
@@ -109,7 +110,7 @@ GLUE는 로그인을 하기 위한 사용자를 추가하는 명령어를 제공
 이러한 잠금 설정을 변경하기 위해서 다음 명령어를 사용할 수 있습니다.
 
 ```bash
-$ ceph dashboard get-account-lockout-attempts 
+$ ceph dashboard get-account-lockout-attempts
 $ ceph bashboard set-account-lockout-attempts <value:int>
 ```
 
@@ -151,7 +152,7 @@ $ radosgw-admin user info --uid=<user_id\>
 다음과 같이 인증정보를 GLUE에 등록할 수 있습니다.
 ```shell
 $ echo -n "{'<daemon1.id\>': '<user1-access-key\>', '<daemon2.id\>': '<user2-access-key\>', ...}" > <file-containing-access-key>
-$ echo -n "{'<daemon1.id\>': '<user1-secret-key\>', '<daemon2.id\>': '<user2-secret-key\>', ...}" > <file-containing-secret-key> 
+$ echo -n "{'<daemon1.id\>': '<user1-secret-key\>', '<daemon2.id\>': '<user2-secret-key\>', ...}" > <file-containing-secret-key>
 $ ceph dashboard set-rgw-api-access-key -i <file-containing-access-key>
 $ ceph dashboard set-rgw-api-secret-key -i <file-containing-secret-key>
 ```
@@ -159,7 +160,7 @@ $ ceph dashboard set-rgw-api-secret-key -i <file-containing-secret-key>
 !!! note
     단일 게이트웨이의 경우 다음과 같이 지정할 수 도 있습니다.
     ```shell
-    $ echo -n "<access-key>" > <file-containing-access-key> 
+    $ echo -n "<access-key>" > <file-containing-access-key>
     $ echo -n "<secret-key>" > <file-containing-secret-key>
     ```
 
@@ -168,14 +169,14 @@ $ ceph dashboard set-rgw-api-secret-key -i <file-containing-secret-key>
 만일 여러개의 Object Gateway가 있는경우 아래 작업을 통해 기본값을 설정 해 주어야 합니다.
 
 ```shell
-$ ceph dashboard set-rgw-api-host <host> 
+$ ceph dashboard set-rgw-api-host <host>
 $ ceph dashboard set-rgw-api-port <port>
 ```
 
 추가로 다음 설정이 필요 할 수도 있습니다.
 
 ```shell
-$ ceph dashboard set-rgw-api-scheme <scheme> # http or https 
+$ ceph dashboard set-rgw-api-scheme <scheme> # http or https
 $ ceph dashboard set-rgw-api-admin-resource <admin_resource>
 ```
 
@@ -198,7 +199,7 @@ GLUE는 [`ceph-iscsi`]()로 구성된 iSCSI target을 `rbd-target-api`의 REST A
 
 !!! note
     GLUE의 iSCSI관리 기능은 [`ceph-iscsi`](https://github.com/ceph/ceph-iscsi) 프로젝트의 최종 3개 버전을 지원합니다.
-    
+
 
 `ceph-iscsi` REST API가 HTTPS mode로 설정되고 자체서명인증서를 사용한다면 GLUE가 ceph-iscsi API에 접근할때 거부하지 않도록 방지해야 합니다.
 
@@ -210,16 +211,16 @@ $ ceph dashboard set-iscsi-api-ssl-verification false
 활성화된 iSCSI gateway는 다음과 같이 등록해주어야 합니다.
 
 ```shell
-$ ceph dashboard iscsi-gateway-list 
-$ # 새로운 Gateway URL은 다음과 같은 형식으로 넣습니다. <scheme>://<username>:<password>@<host>[:port] 
-$ ceph dashboard iscsi-gateway-add -i <file-containing-gateway-url> [<gateway_name>] 
+$ ceph dashboard iscsi-gateway-list
+$ # 새로운 Gateway URL은 다음과 같은 형식으로 넣습니다. <scheme>://<username>:<password>@<host>[:port]
+$ ceph dashboard iscsi-gateway-add -i <file-containing-gateway-url> [<gateway_name>]
 $ ceph dashboard iscsi-gateway-rm <gateway_name>
 ```
 
-## GLUE 내장 Grafana 활성화 
+## GLUE 내장 Grafana 활성화
 
 `Grafana`는 [`Prometheus`](https://prometheus.io/) 로 부터 데이터를 받아옵니다.
-`Prometheus`는 [`mgr-prometheus`](under-construction.md) 모듈이 제공하며, 이것은 [`Node exporter`](https://prometheus.io/docs/guides/node-exporter/>)를 사용해 
+`Prometheus`는 [`mgr-prometheus`](under-construction.md) 모듈이 제공하며, 이것은 [`Node exporter`](https://prometheus.io/docs/guides/node-exporter/>)를 사용해
 장비의 측정값을 수집합니다.
 
 !!! note
@@ -251,7 +252,7 @@ exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행
     global:
         scrape_interval: 5s
 
-    scrape_configs: 
+    scrape_configs:
         - job_name: 'prometheus'
           static_configs:
             - targets: ['localhost:9090']
@@ -262,17 +263,17 @@ exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행
           static_configs:
             - targets: ['localhost:9100']
     ```
-    
+
     !!! note
-        
+
         위 예시에서 Prometheus는 자기자신(9090), Ceph manager module `prometheus`의 ceph 내부 정보(9283), Node Exporter의 OS와 하드웨어 정보(9100)을 수집합니다.
         설정에 따라 Node Exporter의 host명을 변경하거나, 추가 설정을 할 수 있습니다.
-        
+
         또한 Ceph의 정보를 얻기 위해 `prometheus` mgr 모듈을 하나 이상 등록할 *필요는* 없습니다. 하지만 모든 Ceph manager를 등록하는것이 권장 되는데, 이것은 내부의
         HA(High Availability)구조를 활성화 하여 일부 Ceph Manager가 중단되더라도 다른 Manager를 통해 정보를 수집할 수 있기 때문입니다.
 
 3.  Prometheus를 Grafana에 [`Grafana Web UI`](https://grafana.com/docs/grafana/latest/features/datasources/add-a-data-source/)를 사용해 데이터 소스로 추가합니다.
-    
+
 
 4.  `vonage-status-panel`과 `grafana-piechart-panel` plugins을 설치합니다.
     ```shell
@@ -286,9 +287,9 @@ exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행
     `wget https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/<GLUE-name>.json`
 
     dashboard JSON 파일은 [여기](https://github.com/ceph/ceph/tree/ master/monitoring/grafana/GLUEs)에서 찾을 수 있습니다.
-    
+
     예를 들어 ceph-cluster overview dashboard를 추가하고자 한다면
-    
+
     `wget https://raw.githubusercontent.com/ceph/ceph/master/monitoring/grafana/GLUEs/ceph-cluster.json` 를 사용할 수 있습니다.
 
     혹은 직접 새로운 dashboard를 생성할 수도 있습니다.
@@ -301,14 +302,14 @@ exporter를 노드에 설치한 다음, 아래 과정을 통해 설정을 진행
     org_name = Main Org.
     org_role = Viewer
     ```
-    
+
     6.2.0-beta1 버전 이상의 Grafana에는 `allow_embedding` 옵션이 추가되었습니다. 이 옵션은 반드시 `true`로 되어 있어야 GLUE에 내장할 수 있습니다.
     기본값은 `false`입니다.
     ```editorconfig
     [security]
     allow_embedding = true
     ```
-    
+
 ### RBD-Image monitoring 활성화
 
 RBD 이미지의 모니터링은 기본적으로 비활성화 되어있고, 성능에 상당한 영향을 줍니다. 자세한 내용은 [`prometheus-rbd-io-statistics`](under-construction.md)을 참고하세요.
@@ -401,7 +402,7 @@ Parameters:
 $ ceph GLUE sso show saml2
 ```
 !!! note
-    
+
     `onelogin_setting`에 대한 자세한 내용은 [`onelogin documentation`](https://github.com/onelogin/python-saml)을 참고하세요.
 
 추가 명령어
@@ -501,7 +502,3 @@ $ ceph dashboard set-prometheus-api-ssl-verify False
 ```shell
 $ ceph dashboard set-alertmanager-api-ssl-verify False
 ```
-
-
-
-

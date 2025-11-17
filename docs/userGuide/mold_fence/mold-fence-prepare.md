@@ -1,3 +1,4 @@
+
 펜싱(Fencing)은 Pacemaker 및 HA(고가용성) 클러스터에서 예기치 않게 작동하거나 응답하지 않는 노드를 격리하거나 전원을 종료하여 split-brain 현상을 방지하는 메커니즘을 말합니다. PCS(Pacemaker Cluster Suite)는 Linux에서 고가용성 클러스터를 관리하고 구성하는 도구로써, 클러스터의 안정성과 일관성을 보장하기 위한 기능을 제공합니다.
 
 PCS에서 작동되는 MOLD Fencing Agent(Fence_mold)은 MOLD의 가상머신에 대한 펜싱 기능을 제공하기 위해 개발되었으며 기존 사용되었던 Fence_ipmilan(IPMI 인터페이스)의 아래 명시된 문제점을 극복하기 위해 개발 되었습니다.
@@ -9,7 +10,7 @@ PCS에서 작동되는 MOLD Fencing Agent(Fence_mold)은 MOLD의 가상머신에
 
 ## 구성도
 Mysql 이중화를 위해 MOLD에서 제공하는 Shared Volume으로 구성된 Linux 환경의 2개의 가상머신을 생성하고 PCS 클러스터를 구성합니다. Node1에서 VIP, Shared Volume의 리소스 소유권을 가지며 Node1이 fencing 처리 될 경우 해당 리소스의 소유권은 Node2로 이전되는 구조입니다.
-또한 MOLD Agent는 fencing 기능을 수행하기 위해 MOLD와 통신합니다. 
+또한 MOLD Agent는 fencing 기능을 수행하기 위해 MOLD와 통신합니다.
 ![rac-prepare](../../assets/images/fence_mold/fence-mold-architecture.png){: .center }
 
 ## 전제조건
@@ -20,7 +21,7 @@ Mysql 이중화를 위해 MOLD에서 제공하는 Shared Volume으로 구성된 
 ## 구성요소
 ### Fencing Agent (Mold Agent)
 - 공유 데이터의 무결성을 보장하기 위해 장애가 발생한 노드를 비활성화시키는 기능을 합니다.
-- MOLD와 통신하여 장애가 발생한 가상머신을 정상적으로 종료시켜 공유 볼륨과 차단합니다. 
+- MOLD와 통신하여 장애가 발생한 가상머신을 정상적으로 종료시켜 공유 볼륨과 차단합니다.
 
 ### Shared Volume
 - Shared Volume은 Mysql Database File을 모든 Node가 공유할 수 있는 공간입니다. 이 때 Shared Volume에 대한 액세스는 PCS 클러스터에 의해 한 Node만 가능하도록 통제됩니다.
@@ -36,4 +37,3 @@ Linux 환경에서의 Pacemaker와 Mold fence agent를 이용한 Mysql 이중화
 3. Shared Volume를 활용한 Mysql 구성
 4. MOLD Fence Agent 설치 및 STONITH 구성
 5. Mysql 이중화를 위한 PCS Resource 구성
-

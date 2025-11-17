@@ -1,3 +1,4 @@
+
 # 템플릿 및 ISO 관리
 템플릿은 가상 머신에 재사용 가능한 구성입니다. 사용자가 VM을 시작할 때 Mold의 템플릿 목록에서 선택할 수 있습니다.
 
@@ -169,7 +170,7 @@ Mold는 직접 다운로드를 위한 인증서를 처리하는 몇 가지 API�
     어디 :
         * CERTIFICATE_FORMATTED는 X509 인증서의 문자열 형식입니다.
         * CERTIFICATE_ALIAS는 각 KVM 호스트에서 인증서를 가져오는 데 사용될 별칭입니다.
-    
+
     참고 : 이러한 인증서는 각 KVM 호스트의 /etc/cloudstack/agent/cloud.jks 키 저장소로 가져옵니다.
 
 * id = ZONE_ID 인 zone에서 'Up' 상태의 모든 호스트에서 인증서를 취소합니다.
@@ -291,7 +292,7 @@ ONBOOT=yes
 
 다음 단계는 템플릿 마스터의 패키지를 업데이트합니다.
 
-* Ubuntu 
+* Ubuntu
     ```
     sudo -i
     apt-get update

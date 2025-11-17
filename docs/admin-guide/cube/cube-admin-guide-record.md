@@ -1,3 +1,4 @@
+
 # 기록
 Cube 웹 콘솔의 기록메뉴는 시스템에 발생하는 로그정보에 접근하여 검토 및 필터링하여 필요한 정보를 확인할 수 있는 방법을 제공합니다.
 
@@ -36,9 +37,9 @@ Cube 웹 콘솔 기록 메뉴는 journalctl 유틸리티의 UI입니다. Cube �
         ![cube-log-filter4-webui](../../assets/images/admin-guide/cube/record/cube_log_filter4_webUI.png)
 
 !!! example
-    * 'service' 가 'cockpit-tls' 이면서 'succeeded' 가 포함된 경우를 필터링합니다.    
+    * 'service' 가 'cockpit-tls' 이면서 'succeeded' 가 포함된 경우를 필터링합니다.
         * `service:cockpit-tls boot:0 succeeded` 검색필드에 입력
-        * 결과 값을 확인합니다.    
+        * 결과 값을 확인합니다.
         ![cube-log-filter5-webui](../../assets/images/admin-guide/cube/record/cube_log_filter5_webUI.png)
 
 **로그 필터링 옵션**
@@ -46,7 +47,7 @@ Cube 웹 콘솔 기록 메뉴는 journalctl 유틸리티의 UI입니다. Cube �
 로그 필터링에 사용할 수 있는 journalctl 옵션이 몇 가지 있습니다. 이 중 일부는 Cube 웹 콘솔 인터페이스의 드롭다운 메뉴의 일부로 이미 포함되어 있습니다.
 
 Option name|Usage
-------------|----- 
+------------|-----
 priority| 메시지 우선 순위별로 출력을 필터링합니다. 단일 숫자 또는 텍스트 로그 수준을 사용합니다. 로그 수준은 일반적인 syslog 로그 수준입니다. 단일 로그 수준이 지정되면 이 로그 수준 또는 더 낮은 (따라서 더 중요한) 로그 수준의 모든 메시지가 표시됩니다.<br>(우선 순위 드롭다운 메뉴에 포함되어 있습니다.)
 identifier| 지정된 syslog 식별자 SYSLOG_IDENTIFIER에 대한 메시지를 표시합니다. 여러번 지정할 수 있습니다.<br>(식별자 드롭다운 메뉴에 포함되어 있습니다.)
 follow| 가장 최근의 저널 항목만 표시하고 저널에 추가 될 때 새 항목을 계속 인쇄합니다.<br>(드롭다운에 포함되지 않습니다.)
