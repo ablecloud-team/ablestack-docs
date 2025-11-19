@@ -1,4 +1,5 @@
-Oracle RAC는 Oracle Database를 구성할 때 고가용성을 보장하기 위해 2대 이상의 노드를 클러스터링 하여 하나의 DATABASE 처럼 사용가능하고, 
+
+Oracle RAC는 Oracle Database를 구성할 때 고가용성을 보장하기 위해 2대 이상의 노드를 클러스터링 하여 하나의 DATABASE 처럼 사용가능하고,
 어떤 노드에 접속하여도 동일한 테이터를 실시간으로 조회, 변경, 저장할 수 있는 기능을 제공한다. 해당 RAC 구성 가이드에서는
 ABLESTACK Mold 가상화 환경에서 Oracle RAC를 구성하는 방법을 제공합니다.
 
@@ -10,11 +11,11 @@ ABLESTACK Mold를 통해 Oracle RAC 구성하는 구조를 보여줍니다. RAC 
 ![rac-prepare](../../assets/images/oraclerac/oracle-rac-architecture.png){: .center }
 
 ## Oracle RAC 구성요소
-### Grid Infrastructure 
+### Grid Infrastructure
 - Oracle Clusterware의 기반하에 여러 Database 서버를 묶어서 하나의 시스템처럼 동작하도록 지원
 - Grid Infrastructure는 Oracle Custerware 및 ASM으로 구성되며 운영체제와 긴밀하게 통합된 소프트웨어 계층이며, 일반적으로 GI와 ASM을 소유하는 전용 OS 계정인 grid 계정을 사용
 
-### 공유 스토리지 
+### 공유 스토리지
 - 각 Instance는 공유 Storage를 통해 물리적인 data를 공유하며 database에서 사용하는 ASM 및 CFS(Cluster File System)를 구성
 - 공유 Storage에서 Database File은 모든 Node에 동등하게 동시에 엑세스 가능
 

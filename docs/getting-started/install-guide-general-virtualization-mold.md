@@ -56,6 +56,7 @@ ABLESTACK VM Cube 의 웹콘솔과 ABLESTACK VM Mold 웹콘솔을 이용하여 �
     - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
     - **클러스터 구성 파일 준비** 에서 **신규 생성** 을 선택합니다.
     - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
+    - **iSCSI 스토리지 전용** 은 비활성화 합니다.
     - **구성 호스트 수** 3대로 입력합니다.
     - **클러스터 구성 프로파일** 호스트 명 및 IP 정보를 입력 합니다.
     ![클러스터 구성 파일1](../assets/images/install-guide-general-virtualization-mold-05-1.png){ .imgCenter .imgBorder }
@@ -79,6 +80,15 @@ ABLESTACK VM Cube 의 웹콘솔과 ABLESTACK VM Mold 웹콘솔을 이용하여 �
         2 | ablecube2 | 10.10.12.2
         3 | ablecube3 | 10.10.12.3
 
+    !!! check "스토리지 전용 네트워크 사용할 시"
+        1. 스토리지 전용 네트워크 구성
+            ![클러스터 구성 파일](../assets/images/install-guide-general-virtualization-mold-05-2.png){ .imgCenter .imgBorder }
+            - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
+            - **클러스터 구성 파일 준비** 에서 **신규 생성** 을 선택합니다.
+            - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
+            - **iSCSI 스토리지 전용** 을 활성화합니다.
+            - **구성 호스트 수** 3대로 입력합니다.
+            - **클러스터 구성 프로파일** 호스트 명 및 IP 정보를 입력 합니다.
 
 5. 시간서버
 
@@ -87,7 +97,7 @@ ABLESTACK VM Cube 의 웹콘솔과 ABLESTACK VM Mold 웹콘솔을 이용하여 �
         시간동기화가 맞지 않으면 스토리지 데이터들의 무결성 확보에 치명적일 수 있습니다.</br>
         따라서 시간서버는 반드시 구성해야합니다.</br>
         인터넷등 외부 통신이 가능한 환경이어서 외부 공인된 시간서버(NTP)에 접속이 가능하거나 내부에 별도의 시간서버(NTP)가 존재하는 경우에는 "외부 시간 서버"를 입력하여 진행하고, 없으시면 "다음" 으로 넘어가시면 됩니다.</br>
-        폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 ABLESTACK VM애서 자체적으로 시간서버를 구성합니다.
+        폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 ABLESTACK VM애서 자체적으로 시간서버를 구성합니다.
 
     ![시간 서비](../assets/images/install-guide-general-virtualization-mold-06.png){ .imgCenter .imgBorder }
 
@@ -183,6 +193,13 @@ ABLESTACK VM Cube 의 웹콘솔과 ABLESTACK VM Mold 웹콘솔을 이용하여 �
         2 | ablecube2 | 10.10.12.2 |
         3 | ablecube3 | 10.10.12.3 |
 
+    !!! check "스토리지 전용 네트워크 사용할 시"
+        1. 스토리지 전용 네트워크 구성
+            ![클러스터 구성 파일](../assets/images/install-guide-general-virtualization-mold-14-1.png){ .imgCenter .imgBorder }
+            - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
+            - **클러스터 구성 파일 준비** 에서 **기존 파일 사용** 을 선택합니다.
+            - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
+            - **iSCSI 스토리지 전용** , **구성 호스트 수** , **클러스터 구성 프로파일** 이 자동으로 활성화 및 입력됩니다.
 4. 시간서버
    ![Host 파일](../assets/images/install-guide-general-virtualization-mold-15.png){ .imgCenter .imgBorder }
     - 시간 서버 구성하는 화면입니다.
@@ -275,6 +292,14 @@ ABLESTACK VM Cube 의 웹콘솔과 ABLESTACK VM Mold 웹콘솔을 이용하여 �
         1 | ablecube1 | 10.10.12.1 |
         2 | ablecube2 | 10.10.12.2 |
         3 | ablecube3 | 10.10.12.3 |
+
+    !!! check "스토리지 전용 네트워크 사용할 시"
+        1. 스토리지 전용 네트워크 구성
+            ![클러스터 구성 파일](../assets/images/install-guide-general-virtualization-mold-23-1.png){ .imgCenter .imgBorder }
+            - 클러스터 구성 설정하는 화면입니다. **클러스터 호스트 구분** 을 **신규 클러스터 호스트** 로 선택한다.
+            - **클러스터 구성 파일 준비** 에서 **기존 파일 사용** 을 선택합니다.
+            - **현재 호스트명** 은 해당 호스트의 이름을 자동으로 불러옵니다.
+            - **iSCSI 스토리지 전용** , **구성 호스트 수** , **클러스터 구성 프로파일** 이 자동으로 활성화 및 입력됩니다.
 
 4. 시간서버
    ![Host 파일](../assets/images/install-guide-general-virtualization-mold-24.png){ .imgCenter .imgBorder }

@@ -1,6 +1,7 @@
-# ABLESTACK 시스템 재기동
+
+# ABLESTACK HCI 시스템 재기동
  ABLESTACK HCI의 전체시스템을 안정적으로 재기동하기 위해서는 규정된 절차에 따라 시행되어야 합니다.
- 재기동 절차 및 방법은 다음과 같습니다. 
+ 재기동 절차 및 방법은 다음과 같습니다.
 
 ### 재기동 절차 대상
 ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
@@ -32,29 +33,29 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
   5. 기본스토리지를 유지보수 모드로 설정합니다.
      1. 기본 스토리지 (ha) 유지보수 모드 설정
      ![restart-maintenace-storage](../assets/images/restart-maintenace-storage.png)
-    
+
   6. 호스트를 유지보수 모드로 설정합니다.
   ![restart-set-host-maintenance-mode-1](../assets/images/restart-set-host-maintenance-mode-1.png)
   ![restart-set-host-maintenance-mode-2](../assets/images/restart-set-host-maintenance-mode-2.png)
-    
+
     !!! info
         유지보수 모드 설정한 호스트가 변경 완료 되었을 때 다음 호스트 유지보수 모드 설정을 진행해야 합니다.
 
 #### Cube
 
-  7. "전체 시스템 자동종료" 기능으로 전체 시스템을 종료합니다. 
+  7. "전체 시스템 자동종료" 기능으로 전체 시스템을 종료합니다.
   전체 시스템을 종료합니다. 이 기능에는 아래의 절차가 자동으로 실행됩니다.
      1. 클라우드센터 가상머신 정지
      2. 모든 스토리지센터 클러스터 유지보수 모드 설정
      3. 모든 스토리지센터 가상머신 정지
      4. 모든 호스트 종료
-  
+
     !!! warning
         해당기능을 실행하기 전 반드시 각 호스트에 Mount된 볼륨을 작업 수행자가 직접 해제해야 합니다.
 
     ```shell
     # 각 호스트에서 아래 명령어를 실행하여 'nfs' 타입으로 마운트된 볼륨을 검색합니다.
-    $ {경로} = findmnt | awk '{print $2}' | sort -u | grep 'nfs' 
+    $ {경로} = findmnt | awk '{print $2}' | sort -u | grep 'nfs'
 
     # 위 명령어 실행 결과에 따라 볼륨 해제를 합니다.
     $ umount {경로}
@@ -169,20 +170,13 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
       systemctl status cockpit.soket
    ```
     * active (running) 상태인 경우: 서비스는 정상 작동 중입니다.
-    * inactive, failed, dead 등으로 표시되는 경우: 서비스가 중지되었거나 오류가 발생한 것입니다.       
+    * inactive, failed, dead 등으로 표시되는 경우: 서비스가 중지되었거나 오류가 발생한 것입니다.
 
 2. Cube 서비스를 재기동
     * Cube 서비스에 이상이 발견되었거나, 설정 변경 후 적용이 필요한 경우에는 아래 명령어로 서비스를 재기동합니다.
    ```title="bash"
-      systemctl restart cockpit.soket 
-   ```   
+      systemctl restart cockpit.soket
+   ```
     * 재기동 시 약 2~5초간 일시적인 중단이 있을 수 있습니다.
     * restart는 내부적으로 stop → start 순으로 실행됩니다.
     * active (running) 상태로 복귀했는지 확인합니다.
-
-
-
-
-
-
-

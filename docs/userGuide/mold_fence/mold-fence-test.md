@@ -1,3 +1,4 @@
+
 상기 기술된 'Linux 환경에서의 Pacemaker와 Mold fence agent를 이용한 Mysql 이중화 구성' 가이드에 따라 pcs 클러스터를 구성한 상태에서 VM1(Master)을 다른 호스트로 마이그레이션 할 경우를 테스트 합니다.
 
 ## 테스트 절차
@@ -11,4 +12,3 @@
 ## 테스트 결과
 - 마이그레이션 시점부터 완료시점까지 pcs resource를 VM1(Master)가 fence 처리되지 않고 계속 소유합니다. 즉 VM1(Master)이 Slave로 전환되지 않습니다.
 - 마이그레이션으로 인한 서비스 중단은 발생되지 않습니다.
-

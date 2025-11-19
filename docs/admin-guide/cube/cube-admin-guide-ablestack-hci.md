@@ -1,3 +1,4 @@
+
 # ABLESTACK - HCI
 
 Cube 웹 콘솔의 ABLESTACK 메뉴에서는 HCI로 구성시 스토리지센터 가상머신, 클라우드센터 가상머신 배포와 클러스터를 구성하여 ABLESTACK 가상어플라이언스 관리 및 상태 모니터링을 제공합니다.
@@ -30,7 +31,7 @@ Cube 웹 콘솔의 ABLESTACK 메뉴에서는 HCI로 구성시 스토리지센터
 
 * 모든 호스트, 가상머신 IP 세팅을 위한 Hosts 파일 생성
 * SSH Key 생성
-* 시간서버 등록  
+* 시간서버 등록
 
 **클라우드센터 VM 배포**
 
@@ -65,7 +66,7 @@ Cube 웹 콘솔의 ABLESTACK 메뉴에서는 HCI로 구성시 스토리지센터
 
 스토리지센터 클러스터 유지보수모드 설정을 할 수 있도록 실행하는 버튼입니다.
 
-!!! info    
+!!! info
     * 현 상태가 유지보수모드일 경우 버튼이 비활성화됩니다.
 
 ![storage-cluster-maintenance-mode-enable](../../assets/images/admin-guide/cube/ablestack/hci/storage-cluster-maintenance-mode-enable.png)
@@ -81,7 +82,7 @@ Cube 웹 콘솔의 ABLESTACK 메뉴에서는 HCI로 구성시 스토리지센터
 
 스토리지센터 클러스터를 유지보수모드 해제 할 수 있도록 실행하는 버튼입니다.
 
-!!! info    
+!!! info
     * 현 상태가 유지보수모드 해제된 경우 버튼이 비활성화됩니다.
 
 ![storage-cluster-maintenance-mode-disable](../../assets/images/admin-guide/cube/ablestack/hci/storage-cluster-maintenance-mode-disable.png)
@@ -99,7 +100,7 @@ Cube 웹 콘솔의 ABLESTACK 메뉴에서는 HCI로 구성시 스토리지센터
 
 !!! info
     * Bootstrap 실행 버튼이 활성화 중일 때 버튼이 숨겨집니다.
-    * Bootstrap 실행 후 버튼이 활성화됩니다. 
+    * Bootstrap 실행 후 버튼이 활성화됩니다.
 
 ![storage-cluster-storage-center-link](../../assets/images/admin-guide/cube/ablestack/hci/storage-cluster-storage-center-link.png)
 
@@ -222,7 +223,7 @@ ABLESTACK 전체 시스템을 종료하기 위한 기능으로, CUBE에서 실�
     * 각 호스트에 Mount된 볼륨을 관리자가 직접 Umount한 후 해당 기능을 실행해야 합니다.
 
 !!! note
-    [Mold 재기동 절차] 
+    [Mold 재기동 절차]
 
     1.  클라우드센터 HA 비활성화
     2.  모든 가상머신 종료

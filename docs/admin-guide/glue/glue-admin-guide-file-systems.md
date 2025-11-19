@@ -1,3 +1,4 @@
+
 # 파일 시스템
 
 ## 개요
@@ -141,7 +142,7 @@
 2. File System 디렉토리의 최대 크기 설정 해제 위한 항목을 입력합니다.
 
     ![fs-dir-unset-maxsize](../../assets/images/admin-guide/glue/fs/fs-dir-unset-maxsize.png){ .imgCenter .imgBorder }
-    
+
     * **설정 해제** 버튼을 클릭하여 설정을 해제합니다.
 
 ### 최대 파일 설정
@@ -182,10 +183,10 @@
 2. File System 디렉토리의 최대 파일 설정 해제 위한 항목을 입력합니다.
 
     ![fs-dir-unset-maxfile](../../assets/images/admin-guide/glue/fs/fs-dir-unset-maxfile.png){ .imgCenter .imgBorder }
-    
+
     * **설정 해제** 버튼을 클릭하여 설정을 해제합니다.
 
-### 스냅샷 생성 
+### 스냅샷 생성
 
 1. 선택한 File System의 디렉토리의 스냅샷을 생성합니다.
     ![fs-dir-create-snap-btn](../../assets/images/admin-guide/glue/fs/fs-dir-create-snap-btn.png){ .imgCenter .imgBorder }
@@ -209,7 +210,7 @@
 2. File System 디렉토리의 스냅샷 삭제 항목을 입력합니다.
 
     ![fs-dir-delete-snap](../../assets/images/admin-guide/glue/fs/fs-dir-delete-snap.png){ .imgCenter .imgBorder }
-    
+
     * **Delete CephFs 스냅샷** 버튼을 클릭하여 스냅샷을 삭제합니다.
 
 ## Subvolumes

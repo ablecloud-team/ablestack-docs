@@ -1,3 +1,4 @@
+
 # SELinux
 
 ## 개요
@@ -17,7 +18,7 @@ SELinux 메뉴는 시스템의 SELinux(Security-Enhanced Linux) 정책을 확인
 ### 시스템 수정
 * SELinux 정책 예외 규칙을 추가할 수 있는 항목입니다.
 * 각 항목은 특정 서비스나 기능이 SELinux 제약을 넘어서 작동할 수 있도록 예외를 부여합니다.
-* 자동 스크립트 보기: 
+* 자동 스크립트 보기:
      ![SELinux 자동 스크립트 보기](../../assets/images/admin-guide/cube/selinux/cube-admin-guide-selinux-2-1.png){ .imgCenter .imgBorder }
      * 우측 상단의 자동 스크립트 보기 버튼을 클릭하면, 해당 규칙들을 적용하기 위한 명령어 또는 스크립트를 확인할 수 있습니다. 자동 스크립트 기능은 사용자가 설정한 SELinux 정책 예외 항목을 기반으로 자동으로 적용 가능한 스크립트를 생성해줍니다. 시스템 관리자나 DevOps 담당자가 CLI 또는 자동화 도구를 통해 빠르게 동일 설정을 반영할 수 있도록 도와줍니다.
           * 연서블 탭: Ansible 플레이북 형식으로 출력됩니다.

@@ -1,3 +1,4 @@
+
 # Event 관리
 이벤트는 클라우드 환경과 관련된 가상 및 물리적 리소스의 상태에서 중요하거나 의미 있는 변화를 말합니다. 이벤트는 모니터링 시스템, 사용량 및 청구 시스템 또는 기타 이벤트 기반 워크플로 시스템에서 패턴을 식별하고 올바른 비즈니스 결정을 내리는 데 사용됩니다. Mold 에서 이벤트는 가상 또는 물리적 리소스의 상태 변경, 사용자가 수행한 작업(작업 이벤트) 또는 정책 기반 이벤트(경고)를 뜻합니다.
 
@@ -33,7 +34,7 @@ Mold 관리자는 다음 일회성 구성을 수행하여 이벤트 알림 프�
     - username : RabbitMQ 서버에 엑세스하기 위한 계정과 관련된 사용자 이름입니다.
     - password : RabbitMQ 서버에 엑세스하기 위한 계정의 사용자 이름과 관련된 암호입니다.
     - exchange : Mold 이벤트가 게시되는 RabbitMQ 서버의 교환 이름입니다.
-    
+
     샘플 bean은 다음과 같습니다.
     ```
     <beans xmlns="http://www.springframework.org/schema/beans"
@@ -55,13 +56,13 @@ Mold 관리자는 다음 일회성 구성을 수행하여 이벤트 알림 프�
         </bean>
     </beans>
     ```
-    
+
     eventNotificationBus bean은 org.apache.cloudstack.mom.rabbitmq.RabbitMQEventBus 클래스를 대표합니다.
-    
+
     사용자 이름과 암호에 암호화된 값을 사용하려면 자격 증명 파일의 변수로 전달하기 위해 Bean을 포함해야 합니다.
-    
+
     아래에 샘플이 제공됩니다.
-    
+
     ```
     <beans xmlns="http://www.springframework.org/schema/beans"
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -73,7 +74,7 @@ Mold 관리자는 다음 일회성 구성을 수행하여 이벤트 알림 프�
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context-3.0.xsd"
     >
-    
+
        <bean id="eventNotificationBus" class="org.apache.cloudstack.mom.rabbitmq.RabbitMQEventBus">
           <property name="name" value="eventNotificationBus"/>
           <property name="server" value="127.0.0.1"/>
@@ -82,27 +83,27 @@ Mold 관리자는 다음 일회성 구성을 수행하여 이벤트 알림 프�
           <property name="password" value="${password}"/>
           <property name="exchange" value="cloudstack-events"/>
        </bean>
-    
+
        <bean id="environmentVariablesConfiguration" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
           <property name="algorithm" value="PBEWithMD5AndDES" />
           <property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD" />
        </bean>
-    
+
        <bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
           <property name="config" ref="environmentVariablesConfiguration" />
        </bean>
-    
+
        <bean id="propertyConfigurer" class="org.jasypt.spring3.properties.EncryptablePropertyPlaceholderConfigurer">
           <constructor-arg ref="configurationEncryptor" />
           <property name="location" value="classpath:/cred.properties" />
        </bean>
     </beans>
     ```
-    
+
     cred.properties 라는 동일한 이름의 폴더에 새 파일을 만들고 사용자 이름 및 암호 값을 jasypt 암호화 문자열로 지정합니다.
-    
+
     샘플 : 두 필드의 값으로 guest 가 있는 샘플
-    
+
     ```
     username=nh2XrM7jWHMG4VQK18iiBQ==
     password=nh2XrM7jWHMG4VQK18iiBQ==
@@ -171,8 +172,8 @@ Mold는 더 이상 구현하지 않을 기존 경고 및 이벤트를 삭제하�
 세부 정보 페이지를 사용하여:
 
 - 개별 경고 또는 이벤트를 삭제하거나 보관할 수 있습니다.
-- 여러 경고 또는 이벤트를 동시에 삭제하려면 해당 컨텍스트 메뉴를 사용할 수 있습니다. 
-- 일정 기간 동안 범주별로 경고 또는 이벤트를 삭제할 수 있습니다. 예를 들어 USER.LOGOUT , VM.DESTROY , VM.AG.UPDATE , CONFIGURATION.VALUE.EDI 등과 같은 범주를 선택할 수 있습니다 . 
+- 여러 경고 또는 이벤트를 동시에 삭제하려면 해당 컨텍스트 메뉴를 사용할 수 있습니다.
+- 일정 기간 동안 범주별로 경고 또는 이벤트를 삭제할 수 있습니다. 예를 들어 USER.LOGOUT , VM.DESTROY , VM.AG.UPDATE , CONFIGURATION.VALUE.EDI 등과 같은 범주를 선택할 수 있습니다 .
 - 보관되거나 삭제 된 이벤트 또는 경고 수를 볼 수 있습니다.
 
 삭제 또는 아카이브 알림을 지원하기 위해 다음 글로벌 매개 변수가 추가되었습니다.
