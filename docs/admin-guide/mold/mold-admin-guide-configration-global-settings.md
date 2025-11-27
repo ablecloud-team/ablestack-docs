@@ -398,10 +398,533 @@ Mold 환경 전체에 적용되는 글로벌 설정 항목을 확인하고 수�
         <th>Ldap username attribute (ldap.username.attribute)</th>
         <th>LDAP 에서 사용할 유저명의 속성값</th>
     </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 append idpdomain (saml2.append.idpdomain)</th>
+        <th>SAML SSO 로 계정/유저 생성시 IdP 를 표시합니다.</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 check signature (saml2.check.signature)</th>
+        <th>SAML2 서명을 확인합니다. 검증 실패시 로그인 예외가 발생합니다. 권장되지 않으나 리스크를 감수하고 이전 버전과의 호환성이 필요한 경우 비활성화합니다.</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 default idpid (saml2.default.idpid)</th>
+        <th>여러 개의 IdP 가 있을 경우, 기본으로 사용할 IdP entity ID 를 정합니다.</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Ldap username attribute (ldap.username.attribute)</th>
+        <th>LDAP 에서 사용할 유저명의 속성값</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 enabled (saml2.enabled)</th>
+        <th>SAML2 를 사용합니다.</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 failed login redirect url (saml2.failed.login.redirect.url)</th>
+        <th>SAML2 로그인 실패시 리다이렉트될 페이지</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 force authn (saml2.force.authn)</th>
+        <th>SAML2 의 로그인시 새로운 인증이 강제됩니다. 하나의 앱(크롬 등)에서 여러 앱이 다른 saml 로그인을 할때 유용합니다.</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 idp metadata url (saml2.idp.metadata.url)</th>
+        <th>SAML2 IdP 서비스 메타데이터 XML URL</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 redirect url (saml2.redirect.url)</th>
+        <th>SSO 로그인이 성공할 경우 연결할 UI 페이지</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 sigalg (saml2.sigalg)</th>
+        <th>SAML 요청시 사용할 알고리즘. 기본은 SHA1, 추가 알고리즘: SHA256, SHA384, SHA512</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 sp contact email (saml2.sp.contact.email)</th>
+        <th>SAML2 서비스 문의 메일</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 sp contact person (saml2.sp.contact.person)</th>
+        <th>SAML2 서비스 담당자</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 sp id (saml2.sp.id)</th>
+        <th>SAML2 서비스 Id</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 sp org name (saml2.sp.org.name)</th>
+        <th>SAML2 서비스 조직명</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 sp org url (saml2.sp.org.url)</th>
+        <th>SAML2 ABLESTACK 로그아웃 URL</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 sp sso url (saml2.sp.sso.url)</th>
+        <th>SAML2 ABLESTACK 로그인 URL</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>SSaml2 timeout (saml2.timeout)</th>
+        <th>SAML2 IDP 메타데이터 새로고침 간격, 최소 300 초</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 user attribute (saml2.user.attribute)</th>
+        <th>SAML2 응답 처리시 사용자 이름에 사용할 속성명</th>
+    </tr>     
+    <tr>
+        <th>SAML</th>
+        <th>Saml2 user sessionkey path (saml2.user.sessionkey.path)</th>
+        <th>SAML 유저가 로그인할 때, 세션키 쿠기의 경로 속성명. 없을 경우 (saml2.redirect.url) </th>
+    </tr>     
                    
 </table>    
 * Compute
     * CPU, 메모리 관리 등 컴퓨팅 자원 관련 설정 항목입니다.
+<table>
+    <tr>
+        <th>분류</th>
+        <th>옵션명</th>
+        <th>설명</th>
+    </tr>
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Affinity processors exclude (affinity.processors.exclude)</th>
+        <th>가상머신 할당에서 제외할 호스트 코어를 지정합니다. 호스트 OS와 에이전트 동작이나 네트워크/스토리지 IO를 처리하여 안정적인 관리를 가능하게 하고, 가상머신에 인터럽트없는 코어 집합을 할당할 수 있습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Affinity processors order (affinity.processors.order)</th>
+        <th>호스트 CPU를 가상머신에 할당할 때 어떤 순서로 코어를 배치할지 정합니다. </th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow admin vm on disabled resources (allow.admin.vm.on.disabled.resources)</th>
+        <th>비활성화된 클러스터, 파드, 존에 어드민이 가상머신을 배포할 수 있도록 합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow deploy vm if deploy on given host fails (allow.deploy.vm.if.deploy.on.given.host.fails)</th>
+        <th>가상머신이 주어진 호스트에서 배포에 실패했을 때, 다른 호스트에서 배포될 수 있게 합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow user expunge recover vm (allow.user.expunge.recover.vm)</th>
+        <th>일반 사용자가 가상머신을 완전히 파기하거나 복구할 수 있게 합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow user force stop vm (allow.user.force.stop.vm)</th>
+        <th>일반 사용자가 가상머신을 강제로 정지할 수 있게 합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow user view destroyed vm (allow.user.view.destroyed.vm)</th>
+        <th>일반 유저가 파기되거나 강제 종료된 자신의 가상머신을 볼 수 있게 합니다. </th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Cluster cpu allocated capacity disablethreshold (cluster.cpu.allocated.capacity.disablethreshold)</th>
+        <th>(0과 1사이의 비율로)설정한 값 이상이 되면 해당 클러스터는 더이상 가상머신이 배치되지 않습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Cluster cpu allocated capacity notificationthreshold (cluster.cpu.allocated.capacity.notificationthreshold)</th>
+        <th>(0과 1사이의 비율로)설정한 값 이상이 되면 가상머신 배치가 중지될 수 있다는 경고가 뜹니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Cpu overprovisioning factor (cpu.overprovisioning.factor)</th>
+        <th>CPU 오버프로비전 비율입니다; 사용가능한 CPU 수는 (실제 CPU 자원)*(오버프로비전 비율) 입니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Enable additional vm configuration (enable.additional.vm.configuration)</th>
+        <th>가상머신에 추가적인 설정을 허용합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow additional vm configuration list kvm (allow.additional.vm.configuration.list.kvm)</th>
+        <th>KVM에서 허용되는 추가 구성입니다. 쉼표로 구분합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow additional vm configuration list vmware (allow.additional.vm.configuration.list.vmware)</th>
+        <th>VMware에서 허용되는 추가 구성입니다. 쉼표로 구분합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Allow additional vm configuration list xenserver (allow.additional.vm.configuration.list.xenserver)</th>
+        <th>Xen server에서 허용되는 추가 구성입니다. 쉼표로 구분합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Enable dynamic scale vm (enable.dynamic.scale.vm)</th>
+        <th>활성/비활성 운영중 가상머신 확장</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Enable vm network filter allow all traffic (enable.vm.network.filter.allow.all.traffic)</th>
+        <th>true로 설정할 경우, 네트워크 ACL/보안 그룹 규칙을 무시하고 unrestricted 상태가 되어 모든 트래픽을 허용합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Instance name (instance.name)</th>
+        <th>가상머신이 배포될 때의 명칭.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>List vm default details stats (list.vm.default.details.stats)</th>
+        <th>listVirtualMachines API 요청에 명시되지 않은 경우 가상머신 상세 통계를 제공할지 결정합니다. false일 경우, 세부 정보는 기본적으로 [group, nic, secgrp, tmpl, servoff, diskoff, backoff, iso, volume, min, affgrp] 이 됩니다. true일 경우, 통계를 포함한 모든 상세 정보가 반환됩니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Migrate vm across clusters (migrate.vm.across.clusters)</th>
+        <th>동일한 클러스터에서 호스트를 찾을 수 없는 경우 가상머신이 다른 클러스터로 마이그레이션될 수 있는지 결정합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Monitoring wall portal vm uri (monitoring.wall.portal.vm.uri)</th>
+        <th>모니터링 서비스 Wall 가상머신 URI</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Resource count running vms only (resource.count.running.vms.only)</th>
+        <th>자원 제한이 있는 경우 운영 중인 가상머신의 자원만 계산합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Ssh key length (ssh.key.length)</th>
+        <th>사용자 SSH 키의 길이를 지정합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>System vm auto reserve capacity (system.vm.auto.reserve.capacity)</th>
+        <th>시스템VM 대기용량을 예약할지 결정합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>System vm default hypervisor (system.vm.default.hypervisor)</th>
+        <th>시스템VM을 생성하는데 사용할 하이퍼바이저 종류: XenServer, KVM, Hyperv, VirtualBox, Parralels, BareMetal, Ovm, LXC, Any</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>System vm management ip reservation mode strictness (system.vm.management.ip.reservation.mode.strictness)</th>
+        <th>활성화될 경우, 시스템VM의 관리 IP 할당이 예약범위 내에서만 할당되며, IP가 부족하거나 충돌할 경우 배포에 실패합니다.(운영 환경 권장) 비활성화될 경우, 범위 밖의 IP 할당이 가능하지만, 예상치 못한 IP 충돌이나 예측 불가능한 배치가 나타날 수 있습니다.(임시/테스트 환경에서만 권장)</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>System vm public ip reservation mode strictness (system.vm.public.ip.reservation.mode.strictness)</th>
+        <th>활성화될 경우, 시스템VM의 관리 퍼블릭 IP 할당이 예약범위 내에서만 할당되며, IP가 부족하거나 충돌할 경우 배포에 실패합니다.(운영 환경 권장) 비활성화될 경우, 범위 밖의 IP 할당이 가능하지만, 예상치 못한 IP 충돌이나 예측 불가능한 배치가 나타날 수 있습니다.(임시/테스트 환경에서만 권장)</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>System vm random password (system.vm.random.password)</th>
+        <th>관리서버 시작시 시스템VM 비밀번호를 무작위로 설정합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>System vm use local storage (system.vm.use.local.storage)</th>
+        <th>시스템VM 을 로컬 스토리지 풀에 배치합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Unmanage vm preserve nics (unmanage.vm.preserve.nics)</th>
+        <th>true일 경우, 가상머신을 관리해제할 때, nic(와 MAC 주소)를 제거하지 않습니다. 할당상태이며 예약된 상태는 아닙니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>User vm denied details (user.vm.denied.details)</th>
+        <th>일반 사용자가 볼 수 있는 가상머신 설정값입니다. 비어있는 경우, 기본값이 사용됩니다: rootdisksize, cpuOvercommitRatio, memoryOvercommitRatio, Message.ReservedCapacityFreed.Flag</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>User vm readonly details (user.vm.readonly.details)</th>
+        <th>콤마로 구분되는 읽기 전용 가상머신 설정/상세 목록</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm allocation algorithm (vm.allocation.algorithm)</th>
+        <th>가상머신 배치시 고려되는 호스트 순서 알고리즘입니다. 값은 'random(랜덤)', 'firstfit(조건을 만족하는 첫번째 호스트)', 'userdispersing(분산배치)', 'userconcentratedpod_random(같은 사용자 가상머신을 랜덤 호스트에 모으기)', 'userconcentratedpod_firstfit(같은 사용자의 가상머신을 조건만족하는 첫번째 호스트에 모으기)', 'firstfitleastconsumed(조건을 만족하는 호스트 중 가장 적은 자원을 소비하고 있는 호스트)' 중에 하나입니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm configdrive force host cache use (vm.configdrive.force.host.cache.use)</th>
+        <th>true일 경우, ConfigDrive 를 호스트 캐시 스토리지에 생성하도록 강제합니다. 현재 KVM 만 지원합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm configdrive primarypool enabled (vm.configdrive.primarypool.enabled)</th>
+        <th>ConfigDrive를 기본 스토리지 풀에 생성해야할 경우. 현재 KVM 만 지원합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm configdrive use host cache on unsupported pool (vm.configdrive.use.host.cache.on.unsupported.pool)</th>
+        <th>true일 경우, vm.configdrive.primarypool.enabled 가 true 이고, 기본 스토리지 풀이 ConfigDrive를 지원하지 않으면, ConfigDrive가 호스트 캐시 스토리지에 생성됩니다. </th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm deployment planner (vm.deployment.planner)</th>
+        <th>가상머신을 배치하는 배치플래너 알고리즘입니다. 'FirstFitPlanner(조건만족 첫번째 호스트)', 'UserDispersingPlanner(동일 사용자 가상머신 분산배치)', 'UserConcentratedPodPlanner(동일 사용자 가상머신을 하나의 Pod에 집중배치)'</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm destroy forcestop (vm.destroy.forcestop)</th>
+        <th>가상머신 삭제시 강제 종료</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk bytes maximum read length (vm.disk.bytes.maximum.read.length)</th>
+        <th>디스크의 읽기 요청 한번에 허용되는 최대 길이. 0일 경우 적용되지 않습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk bytes maximum write length (vm.disk.bytes.maximum.write.length)</th>
+        <th>디스크의 쓰기 요청 한번에 허용되는 최대 길이. 0일 경우 적용되지 않습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk iops maximum read length (vm.disk.iops.maximum.read.length)</th>
+        <th>디스크의 읽기 요청 한번에 허용되는 최대 IOPS. 0일 경우 적용되지 않습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk iops maximum write length (vm.disk.iops.maximum.write.length)</th>
+        <th>디스크의 읽기 요청 한번에 허용되는 최대 IOPS. 0일 경우 적용되지 않습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk stats interval (vm.disk.stats.interval)</th>
+        <th>가상머신 디스크 통계를 보고하는 간격(초 단위)입니다. 0이나 0보다 작은 값의 경우 비활성화됩니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk stats interval min (vm.disk.stats.interval.min)</th>
+        <th>가상머신 디스크 통계를 보고하는 최소 간격(초 단위)입니다. vm.disk.stats.interval 이 이 값보다 작은 경우, 이 값을 사용합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk stats max retention time (vm.disk.stats.max.retention.time)</th>
+        <th>가상머신 디스크 통계 기록을 데이터베이스에 기록해두는 최대 시간(분 단위)입니다. 0이나 0보다 작은 값일 경우 비활성화됩니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk stats retention enabled (vm.disk.stats.retention.enabled)</th>
+        <th>활성화될 경우, 가상머신 디스크의 통계정보가 데이터베이스에 저장됩니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk throttling bytes_read_rate (vm.disk.throttling.bytes_read_rate)</th>
+        <th>사용자 가상머신의 기본 읽기 디스크 IO byte/s</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk throttling bytes_write_rate (vm.disk.throttling.bytes_write_rate)</th>
+        <th>사용자 가상머신의 기본 쓰기 디스크 IO byte/s</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk throttling iops_read_rate (vm.disk.throttling.iops_read_rate)</th>
+        <th>사용자 가상머신의 기본 읽기 디스크 IO request/s</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm disk throttling iops_write_rate (vm.disk.throttling.iops_write_rate)</th>
+        <th>사용자 가상머신의 기본 쓰기 디스크 IO request/s</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm display ovf properties (vm.display.ovf.properties)</th>
+        <th>가상머신의 OVF(Open Virtualization Format) 속성을 세부화면에 표시합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm ha alerts enabled (vm.ha.alerts.enabled)</th>
+        <th>가상머신 HA 작업에 대한 경고를 활성화합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm ha enabled (vm.ha.enabled)</th>
+        <th>가상머신 HA 매니저 활성화, 가상머신 HA 작업(정지, 재시작, 이관, 파기)은 생성될 수 있고 예약된 작업은 실행됩니다; 비활성화된 경우, 새로운 가상머신 HA 작업은 허용되지 않고 예약된 작업은 HA가 재활성화되면 'vm.ha.migration.max.retries' 에 설정된 횟수만큼 재시도됩니다. 'time.between.failures'에 설정된 시간만큼 유지된 후 'time.between.cleanup' 마다 실행되는 클린업 스레드에 의해 파기됩니다. </th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm ha migration max retries (vm.ha.migration.max.retries)</th>
+        <th>HA 작업시 가상머신 마이그레이션 최대 시도 횟수</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm instancename flag (vm.instancename.flag)</th>
+        <th>가상머신의 호스트명이 하이퍼바이저에 표시됩니다. VMware only</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm job check interval (vm.job.check.interval)</th>
+        <th>작업이 완료되었는지 확인하는 간격을 밀리초 단위로 나타냅니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm job lock timeout (vm.job.lock.timeout)</th>
+        <th>가상머신 관련 작업(시작, 정지, 이관 등)은 동시성 제어를 위해 락을 필요로 합니다. 이때 락을 획득하기 위해 대기하는 시간을 초 단위로 나타냅니다. 지정된 시간 내에 락을 얻지 못하면 해당 작업은 로직에 따라 실패하거나 재시도합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm job report interval (vm.job.report.interval)</th>
+        <th>비동기 가상머신 작업(시작, 정지, 이관, 파기 등)을 처리하는 워커 스레드가 Job의 상태를 보고하는 간격입니다. </th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm job timeout (vm.job.timeout)</th>
+        <th>가상머신 작업을 취소 요청하기 전 기다리는 밀리 초 단위 시간입니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm metadata manufacturer (vm.metadata.manufacturer)</th>
+        <th>인스턴스 메타데이터에 기록되는 제조사 정보입니다. 임의의 값 변경은 올바른 기능 동작을 방해할 수 있습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm metadata product (vm.metadata.product)</th>
+        <th>인스턴스 메타데이터 기록되는 제품 정보입니다. 임의의 값 변경은 올바른 기능 동작을 방해할 수 있습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm min cpu speed equals cpu speed divided by cpu overprovisioning factor (vm.min.cpu.speed.equals.cpu.speed.divided.by.cpu.overprovisioning.factor)</th>
+        <th>서비스오퍼링에서 제시하는 최소 속도에 상관없이 최소 CPU 속도를 가상머신에 보장합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm min memory equals memory divided by mem overprovisioning factor (vm.min.memory.equals.memory.divided.by.mem.overprovisioning.factor)</th>
+        <th>서비스오퍼링에서 제시하는 최소 메모리 용량에 상관없이 최소 메모리 용량을 가상머신에 보장합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm network nic max secondary ipaddresses (vm.network.nic.max.secondary.ipaddresses)</th>
+        <th>가상머신 nic 당 지정가능한 보조 ip 수를 정합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm network stats interval (vm.network.stats.interval)</th>
+        <th>가상머신 공유 네트워크 통계 보고 간격(초 단위). 0이나 그 이하의 경우 비활성화</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm network stats interval min (vm.network.stats.interval.min)</th>
+        <th>가상머신 공유 네트워크 통계 보고 최소 간격(초 단위). vm.network.stats.interval 의 값이 더 작을 경우, 이 값을 사용합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm network throttling rate (vm.network.throttling.rate)</th>
+        <th>사용자 가상머신의 기본 네트워크에 적용되는 Mbps/s </th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm op cancel interval (vm.op.cancel.interval)</th>
+        <th>작업이 취소되지 않았을 때, 다시 취소 요청하는 간격(초 단위)</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm op cleanup interval (vm.op.cleanup.interval)</th>
+        <th>작업을 클린업하는 스레드를 작동시키는 간격(초 단위)</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm op cleanup wait (vm.op.cleanup.wait)</th>
+        <th>가상머신 작업이 끝난 후 기록이 삭제되기 전 대기하는 시간(초 단위)</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm op lock state retry (vm.op.lock.state.retry)</th>
+        <th>가상머신 작업을 위한 락을 얻기 위해 시도하는 횟수, -1은 무한대</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm op wait interval (vm.op.wait.interval)/th>
+        <th>작업이 성공했을 경우 확인하기 위해 기다리는 시간(초 단위)</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm password length (vm.password.length)</th>
+        <th>자동으로 생성되는 무작위 비밀번호 길이</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm serviceoffering cpu cores max (vm.serviceoffering.cpu.cores.max)</th>
+        <th>서비스오퍼링에서 설정가능한 최대 CPU 코어수. 0은 제한없음</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm serviceoffering ram size max (vm.serviceoffering.ram.size.max)</th>
+        <th>서비스오퍼링에서 설정가능한 최대 램 용량. 0은 제한없음</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm stats increment metrics (vm.stats.increment.metrics)</th>
+        <th>하이퍼바이저에서 수집하는 가상머신 메트릭(NetworkReadKBs, NetworkWriteKBs, DiskWriteKBs, DiskReadIOs, DiskWriteIOs) 이 누적됩니다. false일 경우 최근 수집된 정보만 표시됩니다. </th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm stats interval (vm.stats.interval)</th>
+        <th>가상머신 통계가 에이전트에 의해 수집되는 간격(밀리 초 단위)</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm stats max retention time (vm.stats.max.retention.time)</th>
+        <th>가상머신 통계가 데이터베이스에 저장되는 최대 시간. 0이거나 그보다 작은 경우 클린업되지 않음</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm stats user vm only (vm.stats.user.vm.only)</th>
+        <th>사용자 가상머신 통계만 수집하고 시스템VM은 제외합니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm strict host tags (vm.strict.host.tags)</th>
+        <th>서비스오퍼링의 호스트 태그와 반드시 일치해야 배포하는 태그.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm strict resource limit host tag check (vm.strict.resource.limit.host.tag.check)</th>
+        <th>서비스오퍼링의 호스트 태그와 일치하는 호스트에서만 자원제한을 체크하여 가상머신을 배포합니다.false일 경우 태그가 맞지 않아도 자원제한을 확인하여 배포될 수 있습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm tranisition wait interval (vm.tranisition.wait.interval)</th>
+        <th>가상머신이 상태 전환 중일때 확인하기 위해 기다리는 시간. 너무 짧게 설정하며 상태가 반영되지 않은 시점에 확인을 시도해 잘못된 판정을 내릴 수 있습니다.</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm user dispersion weight (vm.user.dispersion.weight)</th>
+        <th>가상머신 배포시 유저에 따른 분산배치와 자원사용량 기준 가중치. 0에 가까울수록 유저에 따른 분산배치에 가중치, 100에 가까울수록 자원사용량 기준 가중치</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vm userdata max length (vm.userdata.max.length)</th>
+        <th>base64로 인코딩된 가상머신 유저데이터의 최대 길이. 기본값은 32768, 최대값은 1048576</th>
+    </tr>  
+    <tr>
+        <th>Virtual Machine</th>
+        <th>Vmscheduler jobs expire interval (vmscheduler.jobs.expire.interval)</th>
+        <th>가상머신 작업이 대기 중일때 만료처리되는 시간</th>
+    </tr>  
+
+</table>
 * Storage
     * 스토리지 관리, 볼륨 관리 등 저장소 관련 설정 항목입니다.
 * Network

@@ -5,3 +5,4 @@ site
 venv/
 /docs/versions.json
 /mkdocs.yml
+mkdocs.yml
