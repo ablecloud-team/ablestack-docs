@@ -4,5 +4,6 @@ site
 .python-version
 venv/
 /docs/versions.json
+__pycache__
 /mkdocs.yml
 mkdocs.yml
