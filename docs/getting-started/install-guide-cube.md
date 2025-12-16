@@ -175,6 +175,10 @@ ABLESTACK HCI Cube를 설치 진행 가이드 입니다.
         ![Management Network 브릿지 구성](../assets/images/install-guide-cube-18.png){ .imgCenter .imgBorder }
         - 브릿지 이름을 **bridge0** 을 입력해주고, 연결장치는 **bond 0** 를 선택하고 **저장** 버튼을 클릭합니다.
 
+        !!! check
+            본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
+            ![ABLESTACK Cube 본드 네트워킹 구성](../assets/images/install-guide-cube-bond.png){ .imgCenter .imgBorder }
+
         !!! info
             해당 과정은 물리적인 Management Network를 SystemVM 및 다른 가상머신에서 사용할 수 있게 브릿지를 하는 과정입니다.
 
@@ -225,6 +229,9 @@ ABLESTACK HCI Cube를 설치 진행 가이드 입니다.
             - 해당 Public Storage Network 브릿지에서도 전과 동일하게 MTU를 설정해야 합니다.
             ![Public Storage Network 브릿지 MTU 설정2](../assets/images/install-guide-cube-22-4.png){ .imgCenter .imgBorder }
             - MTU 설정 화면입니다.
+
+            !!! check
+                본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
 
             !!! info
                 해당 과정은 물리적인 Public Storage Network를 Gateway VM에서 사용할 수 있게 브릿지를 하는 과정입니다.
@@ -462,6 +469,9 @@ ABLESTACK HCI Cube를 설치 진행 가이드 입니다.
             - 해당 Public Storage Network 브릿지에서도 전과 동일하게 MTU를 설정해야 합니다.
             ![Public Storage Network 브릿지 MTU 설정2](../assets/images/install-guide-cube-22-4.png){ .imgCenter .imgBorder }
             - MTU 설정 화면입니다.
+
+            !!! check
+                본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
 
             !!! info
                 해당 과정은 물리적인 Public Storage Network를 Gateway VM에서 사용할 수 있게 브릿지를 하는 과정입니다.

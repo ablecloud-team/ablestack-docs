@@ -209,6 +209,7 @@ nav:
         - Mold 설치 가이드: getting-started/install-guide-general-virtualization-mold.md
         - Wall 설치 가이드: getting-started/install-guide-general-virtualization-wall.md
       - ABLESTACK VM 구성관리:
+        - 호스트 추가 가이드 : getting-started/install-guide-general-virtualization-host-add.md
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
     - ABLESTACK STANALONE 설치 가이드:

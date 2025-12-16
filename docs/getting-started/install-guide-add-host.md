@@ -1,11 +1,11 @@
 
-# ABLESTACK 호스트 추가 작업진행
+# ABLESTACK HCI 호스트 추가 작업진행
 
 !!! danger
     이 문서는 기술지원 용도의 문서입니다. 기술지원 엔지니어가 아닌 사용자가 조작할 때 시스템에 문제가 발생할 수 있습니다.
     해당 설치과정에 사용되는 IP 및 입력 정보는 예시이며, 현장에 맞게 수정하시기 바랍니다.
 
-ABLESTACK 호스트 추가 설치 진행 가이드 입니다.
+ABLESTACK HCI 호스트 추가 설치 진행 가이드 입니다.
 이 문서에서는 기구축된 ABLESTACK 환경에 추가적으로 ABLESTACK 호스트를 추가하기 위한 절차를 가이드 하고 있습니다.
 ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔을 이용하여 진행이 되며 웹 접속 IP는 별도의 표시를 하지 않고 진행됩니다.
 기존에 구성된 IP 정보에 맞게 웹콘솔을 접속 하시면 됩니다.
@@ -32,14 +32,18 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 
 ## 클러스터 구성 준비(추가 호스트)
 
-
 1. 개요
     ![클러스터 구성 준비 개요](../assets/images/install-guide-add-host-03.png){ .imgCenter .imgBorder }
     - 상단 리본의 **클러스터 구성 준비** 링크를 클릭하면 보이는 화면입니다.
     - ABLESTACK 구성을 하는데 필요한 정보를 입력 받아 클러스터 구성을 준비하는 마법사 화면입니다.
     - **다음** 버튼을 눌러 클러스터 구성 준비를 시작합니다.
 
-2. SSH Key 파일(신규생성)
+2. 클러스터 종류
+    ![클러스터 종류](../assets/images/install-guide-add-host-03-1.png){ .imgCenter .imgBorder }
+    - **ABLESTACK-HCI** 를 선택합니다.
+    - **다음** 버튼을 클릭하여 다음 단계를 진행합니다.
+
+2. SSH Key 파일(기존 파일 사용)
     ![SSH Key 파일](../assets/images/install-guide-add-host-04.png){ .imgCenter .imgBorder }
     - 클러스터 설정파일 다운로드 작업에서 받은 id_rsa, id_rsa.pub 파일을 이용하여 등록합니다.
     - **SSH Key 준비 방법** 에서 **기존 파일 사용** 을 선택하고 **SSH 개인 Key** 와 **SSH 공개 Key** 를 **파일 선택** 버튼을 눌러 추가 호스트 다운로드한 SSH Key 를 등록합니다.
@@ -84,23 +88,14 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
 4. 시간서버
 
     !!! info
-        ABLESTACK에서 시간서버는 매우 중요한 역할을 합니다. </br>
-        시간동기화가 맞지 않으면 스토리지 데이터들의 무결성 확보에 치명적일 수 있습니다.</br>
-        따라서 시간서버는 반드시 구성해야하며 시간서버 구성에는 두가지 방식이 있습니다.</br>
-        인터넷등 외부 통신이 가능한 환경이어서 외부 공인된 시간서버(NTP)에 접속이 가능하거나 내부에 별도의 시간서버(NTP)가 존재하는 경우에는 "외부시간서버"를 선택하여 진행하고,</br>
-        폐쇄적인 네트워크 환경으로 외부 공인된 시간서버와 통신이 불가하고 내부에 별도의 시간서버가 없을 경우에는 ABLESTACK에서 자체적으로 시간서버를 구성합니다. 이때에는 "로컬 시간서버"를 선택하여 진행하면 됩니다.
-
-        기존 클러스터의 구성방식과 동일한 방법으로 시간서버를 구성해 주세요.
-
-        이 문서는 "로컬 시간서버"로 구성하는 방식에 대하여 설명되어 있습니다.
+        기존에 클러스터링된 시간 서버(NTP) 정보를 가져와 자동으로 설정합니다.
 
     ![시간 서비](../assets/images/install-guide-add-host-06.png){ .imgCenter .imgBorder }
 
     - 시간 서버 구성하는 화면입니다.
     - 클러스터 구성 정보를 토대로 시간 서버 입력값을 기본 세팅합니다.
-    - **시간서버 종류** 에서 **로컬 시간서버** 를 선택하고 **현재 Host** 를 **Master Server** 를 선택합니다.
     - 기본적으로 idx1 = Master Server, idx2 = Second Server, idx3 이상 = Other Server로 설정 됩니다.
-    - **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 입력하고 **다음** 버튼을 클릭합니다.
+    - **외부 시간 서버** 및 **시간서버 1** 에는 **1번 호스트의 Public Storage IP**, **시간서버 2** 에는 **2번 호스트의 Public Storage IP** 을 확인하고 **다음** 버튼을 클릭합니다.
 
 5. 설정확인
     ![설정확인](../assets/images/install-guide-add-host-07.png){ .imgCenter .imgBorder }
@@ -271,6 +266,20 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Glue 웹콘솔, ABLESTACK Mold 웹콘솔
     ![클라우드센터 호스터 추가 완료](../assets/images/install-guide-add-host-28.png){ .imgCenter .imgBorder }
     - 호스트 목록에 추가된 호스트 정보를 확인할 수 있습니다.
 
+4. 원격 관리 구성 및 활성화
+    ![원격 관리 구성](../assets/images/install-guide-general-virtualization-add-host-15.png){ .imgCenter .imgBorder }
+    - 호스트에 대한 원격 관리 구성을 설정합니다.
+    - **주소** 를 입력합니다.
+    - **포트** 를 **623** 으로 입력합니다.
+    - **사용자 이름** 을 입력합니다.
+    - **비밀번호** 를 입력합니다.
+    - **드라이버** 를 **ipmitool** 로 선택합니다.
+    - **관리콘솔 프로토콜** 을 **https** 를 선택합니다.
+    - **관리 콘솔 포트** 는 비우고 넘어갑니다.
+    - **확인** 을 눌러 구성합니다.
+
+    ![원격 관리 활성화](../assets/images/install-guide-general-virtualization-add-host-16.png){ .imgCenter .imgBorder }
+    - 원격 관리 활성화하여 전원 상태가 **활성화** 인지 확인합니다.
 ## 모니터링 정보 업데이트
 
 1. 모니터링 정보 업데이트
