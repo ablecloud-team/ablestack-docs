@@ -28,7 +28,8 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Mold 웹콘솔을 이용하여 진행이
     - Management 대역으로 사용할 NIC는 브릿지(bridge) 형태로 생성합니다.
 
 !!! check
-    본드(bond) 구성이 필요할 경우에는 먼저 본드(bond) 구성을 완료한 뒤, 해당 본드를 기반으로 브릿지(bridge)를 생성해야 합니다.
+    본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
+    ![ABLESTACK Cube 본드 네트워킹 구성](../assets/images/install-guide-cube-bond.png){ .imgCenter .imgBorder }
 
 ## 외부 스토리지 확인
 1. 외부 스토리지 확인
@@ -191,4 +192,4 @@ ABLESTACK Cube 의 웹콘솔, ABLESTACK Mold 웹콘솔을 이용하여 진행이
     호스트 추가에 대한 작업이 마무리 되었습니다.
 
 
-추가 호스트가 여러대인경우 해당 작업을 반복하십시오.
+추가 호스트가 여러대인 경우 해당 작업을 반복하십시오.

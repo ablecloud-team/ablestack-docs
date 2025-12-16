@@ -157,8 +157,6 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
         해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다.
         이 문서를 바탕으로 설치 사이트에 맞게 구성을 변경 및 IP 주소를 입력 하셔야 합니다.
 
-    !!! check
-        본드(bond) 구성이 필요한 경우에는 본드(bond) 구성을 생성해 사용해야 합니다. 이때 본드 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
 
     1. Management Network 본드 설정
         ![Management Network 본드 설정](../assets/images/install-guide-general-virtualization-cube-3.png){ .imgCenter .imgBorder }
@@ -171,6 +169,10 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
         - 화면 중간 버튼그룹 중 **브릿지 추가** 버튼을 클릭하면 보이는 화면이며, 브릿지를 설정하는 팝업 화면입니다.
         ![Management Network 브릿지 구성](../assets/images/install-guide-general-virtualization-cube-4-1.png){ .imgCenter .imgBorder }
         - 브릿지 이름을 **bridge0** 을 입력해주고, 연결장치는 **bond 0** 를 선택하고 **저장** 버튼을 클릭합니다.
+
+        !!! check
+            본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
+            ![ABLESTACK Cube 본드 네트워킹 구성](../assets/images/install-guide-cube-bond.png){ .imgCenter .imgBorder }
 
         !!! info
             해당 과정은 물리적인 Management Network를 SystemVM 및 다른 가상머신에서 사용할 수 있게 브릿지를 하는 과정입니다.
@@ -355,10 +357,6 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
 
         **본 설치 가이드는 Storage Network가 NIC pass-through 이며, 본드구성 없이 단일 NIC로 구성된 형태 입니다.**
 
-    !!! check
-        본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
-        ![ABLESTACK Cube 본드 네트워킹 구성](../assets/images/install-guide-cube-bond.png){ .imgCenter .imgBorder }
-
     1. Public Storage Network 설정
         ![Public Storage Network 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-04.png){ .imgCenter .imgBorder }
         - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **Public Storage** 로 사용할 NIC를 클릭하여 들어온 화면입니다.
@@ -384,6 +382,9 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
             - 화면 중간 버튼그룹 중 **본드 추가** 버튼을 클릭하면 보이는 화면이며, 본드를 설정하는 팝업 화면입니다.
             ![Public Storage Network 본드 구성](../assets/images/install-guide-general-virtualization-cube-storage-network-09.png){ .imgCenter .imgBorder }
             - 본드 이름을 **bond 1** 을 입력해주고, 연결장치는 **Public Storage NIC** 를 선택하고 **추가** 버튼을 클릭합니다.
+
+        !!! check
+            본드(bond) 구성이 필요한 경우에는 본드 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
 
         !!! check "MTU 설정이 필요할 시"
             1. NIC 인터페이스 MTU 설정
