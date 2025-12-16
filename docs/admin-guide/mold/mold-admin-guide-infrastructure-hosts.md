@@ -42,27 +42,139 @@
 
     ![host 원격 관리 탭](../../assets/images/admin-guide/mold/infrastructure/hosts/host-oobm-tab.png){ .imgCenter .imgBorder }
 
-## 호스트 디바이스
+## 호스트 장치
 
-1. Host에 디바이스를 가상머신에 직접 할당(Pass-through) 하는 기능을 제공합니다.
+1. Host에 장치를 가상머신에 직접 할당(Pass-through) 하는 기능을 제공합니다.
 
-    ![호스트 디바이스 탭](../../assets/images/admin-guide/mold/infrastructure/hosts/host-device-tab.png){ .imgCenter .imgBorder }
+    ![호스트 장치](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices.png){ .imgCenter .imgBorder }
 
-### 호스트 디바이스 이관
+### PCI 장치 할당
 
-1. 이관할 장치를 **+** 버튼을 클릭 하여 호스트 디바이스 이관 팝업을 호출합니다.
+1. 할당할 장치를 **+** 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
 
-    ![호스트 디바이스 이관 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-device-migration-btn.png){ .imgCenter .imgBorder }
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-pci-list.png){ .imgCenter .imgBorder }
 
-2. 호스트 디바이스 이관 하기위한 화면입니다.
+2. 호스트 장치 할당 하기위한 화면입니다.
 
     !!! warning
-        호스트 장치를 가상머신에 이관하기 위해서는 가상머신을 완전히 정지 후 시작하셔야 적용이 됩니다. (글로벌 설정에서 enable.additional.vm.configuration 을 true로 설정해야합니다.)
+        호스트 장치를 가상머신에 할당하기 위해서는 가상머신을 완전히 정지 후 시작하셔야 적용이 됩니다. (글로벌 설정에서 enable.additional.vm.configuration 을 true로 설정해야합니다.)
 
-    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-device-migration.png){ .imgCenter .imgBorder }
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-pci.png){ .imgCenter .imgBorder }
 
     * **가상머신:** 가상머신을 선택합니다.
-    * **확인** 버튼을 클릭하여 가상머신에 호스트 디바이스를 이관합니다.
+    * **확인** 버튼을 클릭하여 가상머신에 호스트 장치를 할당합니다.
+
+1. 할당할 장치를 **+** 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-pci-del.png){ .imgCenter .imgBorder }
+
+    !!! warning
+        호스트 장치를 가상머신에서 해제하기 위해서는 가상머신을 완전히 정지한 후 해제할 수 있습니다.
+
+    ### HBA 장치 할당
+
+1. 할당할 장치를 **+** 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-hba-list.png){ .imgCenter .imgBorder }
+
+2. 호스트 장치 할당 하기위한 화면입니다.
+
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-hba.png){ .imgCenter .imgBorder }
+
+    * **가상머신:** 가상머신을 선택합니다.
+    * **확인** 버튼을 클릭하여 가상머신에 호스트 장치를 할당합니다.
+
+    ### vHBA 장치 할당
+
+1. 할당할 장치를 vHBA 생성 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-vhba-create.png){ .imgCenter .imgBorder }
+
+2. vHBA 생성을 하기위한 화면입니다.
+
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-vhba-cre.png){ .imgCenter .imgBorder }
+
+    * **확인** 버튼을 클릭하여 vHBA를 생성합니다.
+
+3. vHBA를 볼 수 있는 리스트 화면입니다.
+
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-vhba-plus.png){ .imgCenter .imgBorder }
+
+    * **+** 버튼을 클릭하여 vHBA 리스트를 확인 할 수 있습니다.
+
+4. 할당할 장치를 + 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-vhba.png){ .imgCenter .imgBorder }
+
+5. 호스트 장치 할당 하기위한 화면입니다.
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-vhba-true.png){ .imgCenter .imgBorder }
+
+    * **가상머신:** 가상머신을 선택합니다.
+    * **확인** 버튼을 클릭하여 가상머신에 호스트 장치를 할당합니다.
+
+6. vHBA를 삭제하기 위해 휴지통 아이콘을 클릭합니다.
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-vhba-del.png){ .imgCenter .imgBorder }
+
+7. vHBA를 삭제하기위한 화면입니다.
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-vhba-delete.png){ .imgCenter .imgBorder }
+
+    * **확인** 버튼을 클릭하여 vHBA를 삭제합니다.
+
+    ### USB 장치 할당
+
+1. 할당할 장치를 **+** 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-usb-list.png){ .imgCenter .imgBorder }
+
+2. 호스트 장치 할당 하기위한 화면입니다.
+
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-usb.png){ .imgCenter .imgBorder }
+
+    * **가상머신:** 가상머신을 선택합니다.
+    * **확인** 버튼을 클릭하여 가상머신에 호스트 장치를 할당합니다.
+
+3. 휴지통 아이콘 클릭해서 USB 장치를 해제 합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-usb-del.png){ .imgCenter .imgBorder }
+
+    ### LUN 장치 할당
+
+1. 할당할 장치를 **+** 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-lun-list.png){ .imgCenter .imgBorder }
+
+2. 호스트 장치 할당 하기위한 화면입니다.
+
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-lun.png){ .imgCenter .imgBorder }
+
+    * **가상머신:** 가상머신을 선택합니다.
+    * **확인** 버튼을 클릭하여 가상머신에 호스트 장치를 할당합니다.
+
+3. LUN 장치를 삭제하기 위해 휴지통 아이콘을 클릭합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-lun-del.png){ .imgCenter .imgBorder }
+
+    !!! warning
+        호스트 장치를 가상머신에서 해제하기 위해서는 가상머신을 완전히 정지한 후 해제할 수 있습니다.
+
+    ### SCSI 장치 할당
+
+1. 할당할 장치를 **+** 버튼을 클릭 하여 호스트 장치에 할당 팝업을 호출합니다.
+
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-scsi-list.png){ .imgCenter .imgBorder }
+
+2. 호스트 장치 할당 하기위한 화면입니다.
+
+    ![host 추가 화면](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-scsi.png){ .imgCenter .imgBorder }
+
+    * **가상머신:** 가상머신을 선택합니다.
+    * **확인** 버튼을 클릭하여 가상머신에 호스트 장치를 할당합니다.
+
+3. SCSI 장치를 삭제하기 위해 휴지통 아이콘을 클릭합니다.
+    ![호스트 장치 할당 버튼](../../assets/images/admin-guide/mold/infrastructure/hosts/host-devices-scsi-del.png){ .imgCenter .imgBorder }
+
+    !!! warning
+        호스트 장치를 가상머신에서 해제하기 위해서는 가상머신을 완전히 정지한 후 해제할 수 있습니다.
+
 
 ## 이벤트 탭
 
