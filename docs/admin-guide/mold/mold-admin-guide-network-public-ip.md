@@ -10,6 +10,9 @@ ABLESTACK 인프라에서 외부와의 통신을 가능하게 하는 고유한 I
     Zone에 Public IP 주소의 할당 상태, 사용중인 가상머신 등의 다양한 정보를 확인할 수 있습니다.
     ![Public IP 주소 목록 조회](../../assets/images/admin-guide/mold/network/publicip/publicip-list.png){ .imgCenter .imgBorder }
 
+2. Public IP 주소의 상세 화면을 확인할 수 있습니다.
+    ![Public IP 주소 목록 조회](../../assets/images/admin-guide/mold/network/publicip/publicip-detail.png){ .imgCenter .imgBorder }
+
 ## 용어사전
 
 * Public IP
