@@ -159,6 +159,10 @@ ABLESTACK STANDALONE Cube를 설치 진행 가이드 입니다.
 
         그리고 본드(bond) 구성이 필요한 경우 본드(bond)구성 완료 후 진행하셔야 합니다.
 
+    !!! check
+        본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
+        ![ABLESTACK Cube 본드 네트워킹 구성](../assets/images/install-guide-cube-bond.png){ .imgCenter .imgBorder }
+
     1. Management Network 본드 설정
         ![Management Network 본드 설정](../assets/images/install-guide-cube-16.png){ .imgCenter .imgBorder }
         - 화면 중간 버튼 그룹 중 **본드 추가** 버튼을 클릭하면 보이는 화면이며, 본드을 설정하는 팝업 화면입니다.

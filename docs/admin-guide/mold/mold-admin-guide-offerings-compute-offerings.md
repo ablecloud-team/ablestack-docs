@@ -49,6 +49,26 @@
     - **QoS 유형:** QoS 유형을 선택합니다.
     - **스토리지 태그:** 스토리지 태그를 입력합니다.
 
+### 공유 파일 시스템 전용 컴퓨트 오퍼링 추가
+1. 공유 파일 시스템 전용 컴퓨트 오퍼링은 사용자지정 제한이 아닌 고정 오퍼링으로 생성하셔야 합니다.
+    ![공유 파일 시스템 전용 컴퓨트 오퍼링 추가1](../../assets/images/admin-guide/mold/offering/compute/shared-filesystem-compute-offering-add-01.png){ .imgCenter .imgBorder }
+    - **이름:** 이름을 입력합니다.
+    - **설명:** 설명을 입력합니다.
+    - **컴퓨트 오퍼링 유형:** **고정 오퍼링** 유형을 선택합니다.
+    - **CPU 코어:** CPU 코어를 입력합니다.
+    - **CPU(MHz):** CPU(MHz)를 입력합니다.
+    - **메모리(MB):** 메모리(MB)를 입력합니다.
+    - **네트워크 속도(Mb/s):** 네트워크 속도(Mb/s)를 입력합니다.
+    - **HA제공:** HA제공을 활성화합니다.
+    - **공개:** 공개를 활성화합니다.
+    - **컴퓨팅 전용 디스크 제공:** 컴퓨팅 전용 디스크 제공을 활성화합니다.
+    ![공유 파일 시스템 전용 컴퓨트 오퍼링 추가2](../../assets/images/admin-guide/mold/offering/compute/shared-filesystem-compute-offering-add-02.png){ .imgCenter .imgBorder }
+    - **스토리지 유형:** **shared** 유형을 선택합니다.
+    - **프로비저닝 유형:** 프로비저닝 유형을 선택합니다.
+    - **압축/중복제거** 압축/중복제거가 필요할 경우, 활성화합니다.
+    - **Write-cache 유형:** **디스크 캐시 없음** 유형을 선택합니다. **(HCI 일 경우 Write-back 디스크 캐싱을 선택합니다.)**
+    - **QoS 유형:** **없음** 유형을 선택합니다.
+    - **스토리지 태그:** **기본 스토리지 태그** 를 입력합니다.
 ## 편집
 1. 컴퓨트 오퍼링 상세 오른쪽 상단의 편집 버튼을 클릭합니다.
     ![편집 버튼](../../assets/images/admin-guide/mold/offering/compute/compute-offering-update-01.png){ .imgCenter .imgBorder }

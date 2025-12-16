@@ -74,6 +74,20 @@ Shared Network는 여러 사용자와 VM이 동일한 VLAN을 공유하는 네�
     * **DNS 1:** DNS 1을 입력합니다.
     * **확인** 버튼을 클릭하여 Shared 네트워크를 생성합니다.
 
+### 공유 파일 시스템 전용 네트워크 생성
+공유 파일 시스템 환경에서 L2 네트워크를 생성할 때는 "with ConfigDrive" 로 되어 있는 L2 네트워크 오퍼링을 선택해야하며, 이를 통해 VM에 IP/게이트웨이/DNS 등의 네트워크 설정이 주입됩니다.
+
+1. 공유 파일 시스템 전용 네트워크 생성 정보 입력
+    ![공유 파일 시스템 전용 네트워크 생성](../../assets/images/admin-guide/mold/network/guest-networks/guest-networks-add-shared-filesystem.png){ .imgCenter .imgBorder }
+
+    * **L2** 를 선택합니다.
+    * **이름:** 이름을 입력합니다.
+    * **설명:** 설명을 입력합니다.
+    * **Zone:** Zone을 선택합니다.
+    * **네트워크 오퍼링:** **기본 L2 VLAN 네트워크오퍼링(with CoinfigDrive)** 를 선택합니다.
+    * **VLAN/VNI:** VLAN을 입력합니다. (VLAN이 없을 시 **untagged** 를 입력합니다.)
+    * **확인** 버튼을 클릭하여 공유 파일 시스템 전용 네트워크를 생성합니다.
+
 ## 네트워크 업데이트 (Isolated)
 
 1. 해당 네트워크의 정보를 업데이트합니다.
