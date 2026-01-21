@@ -19,8 +19,7 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
   ![restart-disable-ha-2](../assets/images/restart-disable-ha-2.png)
 
   2. 모든 가상머신을 종료합니다.
-     1. HA 용도의 가상머신 종료
-     2. 사용자 가상머신 종료
+     1. 모든 사용자 가상머신을 종료합니다.
 
   3. Zone을 비활성화합니다.
   ![restart-disable-zone](../assets/images/restart-disable-zone.png)
@@ -31,7 +30,7 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
   ![restart-shutdown-vm-3](../assets/images/restart-shutdown-vm-3.png)
 
   5. 기본스토리지를 유지보수 모드로 설정합니다.
-     1. 기본 스토리지 (ha) 유지보수 모드 설정
+     1. 기본 스토리지를 유지보수 모드로 설정합니다.
      ![restart-maintenace-storage](../assets/images/restart-maintenace-storage.png)
 
   6. 호스트를 유지보수 모드로 설정합니다.
@@ -98,7 +97,6 @@ ABLESTACK 재기동에 필요한 설정 대상은 다음과 같습니다.
   ![restart-start-system-vm](../assets/images/restart-start-system-vm.png)
 
   9. 가상머신을 시작합니다.
-     1. HA 용도의 가상머신을 시작합니다.
      2. 사용자 가상머신 시작합니다.
 
   10.	HA 기능을 활성화합니다.
