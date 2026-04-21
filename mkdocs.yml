@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 ABLECLOUD Co. Ltd.
+# Copyright (c) 2021-2026 ABLECLOUD Co. Ltd.
 
 # 이 파일은 Mold Docs의 도큐먼트 설정 및 테마 설정을 위한 설정 파일입니다.
 # 최초 작성일 : 2021. 03. 18
@@ -13,7 +13,7 @@ repo_name: ablecloud-team/ablestack-docs
 repo_url: https://github.com/ablecloud-team/ablestack-docs
 
 # Copyright
-copyright: Copyright &copy; 2021-2025 ABLECLOUD Co. Ltd.
+copyright: Copyright &copy; 2021-2026 ABLECLOUD Co. Ltd.
 
 validation:
   absolute_links: ignore
@@ -218,6 +218,13 @@ nav:
         - Cube 설치 가이드: getting-started/install-guide-standalone-cube.md
         - Mold 설치 가이드: getting-started/install-guide-standalone-mold.md
         - Wall 설치 가이드: getting-started/install-guide-standalone-wall.md
+    - ABLESTACK HCI Filesystem 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-hci-filesystem-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-hci-filesystem-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-hci-filesystem-glue.md
+        - Mold 설치 가이드: getting-started/install-guide-hci-filesystem-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-hci-filesystem-wall.md
   - 관리 가이드:
     - Cube 가이드:
       - 개요: admin-guide/cube/cube-admin-guide-outline.md
