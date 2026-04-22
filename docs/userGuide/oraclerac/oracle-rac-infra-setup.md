@@ -96,7 +96,7 @@ ABLESTACK Mold 화면에서 **서비스 오퍼링 > 디스크 오퍼링** 화면
 - 100GB-WB와 100GB-shareable 디스크 오퍼링이 정상적으로 생성되었는지 확인
 
 ## 컴퓨트 오퍼링 생성
-ABLESTACK Mold 화면에서 **서비스 오퍼링 > 컴퓨트 오퍼링** 화면에서 **컴퓨트 오퍼링 추가 버튼**을 클릭하여 컴퓨트 오퍼링 추가 화면으로 이동합니다.
+ABLESTACK Mold 화면에서 **서비스 오퍼링 > 컴퓨트 오퍼링** 화면에서 **컴퓨트 오퍼링 추가 버튼** 을 클릭하여 컴퓨트 오퍼링 추가 화면으로 이동합니다.
 
 ![infra-setup-10-1](../../assets/images/oraclerac/oracle-rac-infta-setup-10-1.png){:class="imgCenter"}
 ![infra-setup-10-2](../../assets/images/oraclerac/oracle-rac-infta-setup-10-2.png){:class="imgCenter"}
@@ -106,7 +106,7 @@ ABLESTACK Mold 화면에서 **서비스 오퍼링 > 컴퓨트 오퍼링** 화면
 - CPU 코어 : 4
 - CPU(MHz) : 2000
 - 메모리 (MB) : 16384
-- Write-cache 유형 : Write-back 디스크 캐싱 선택
+- 공유 볼륨 : 공유 볼륨 옵션 선택
 - 루트 디스크 크기(GB) : 100
 - 스토리지 태그 : ps 선택
 - 확인 버튼을 클릭하여 컴퓨트 오퍼링 생성

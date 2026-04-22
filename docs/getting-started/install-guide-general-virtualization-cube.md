@@ -135,6 +135,11 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
     - 설치가 정상적으로 완료되면 ABLESTACK VM 콘솔 로그인 화면이 보이게 됩니다.
 
 ## ABLESTACK VM Cube Network 셋팅
+!!! check
+    Broadcom NIC 환경에서는 Isolated 네트워크를 구성할 때만 해당 항목을 설정합니다.
+    기본 L2 네트워크만 사용하는 경우에는 이 항목을 설정하지 않습니다.
+    따라서 Isolated 사용 여부에 따라 설정이 필요 여부가 결정됩니다.
+
 ### Intel NIC 일 경우
 1. ABLESTACK VM Cube 로그인
     ![ABLESTACK VM Cube 로그인](../assets/images/install-guide-general-virtualization-cube-1.png){ .imgCenter .imgBorder }
@@ -180,17 +185,17 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
             브릿지의 IP 설정은 ABLESTACK VM Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
 
 ### Broadcom NIC 일 경우
+!!! info
+    **Isolated 네트워크** 를 구성할 때 ABLESTACK에서 Broadcom NIC을 사용한다면, 반드시 Open vSwitch(OVS) 기반으로 설정해야 합니다.
+    이는 Broadcom NIC의 드라이버 및 기능 호환성 문제로 인해, Isolated 환경에서 OVS로만 안정적인 구성이 가능하기 때문입니다.
+    **※ 기본 L2 네트워크 구성에는 해당되지 않습니다.**
+
 !!! check "OpenvSwitch 구성 가이드"
     본 문서는 OpenvSwitch 설치 및 설정 방법을 단계별로 설명합니다.
 
     또한, 사용자의 이해를 돕기 위해 **프레젠테이션 자료(PPT)** 형식도 함께 제공합니다.
 
     해당 링크 클릭 시, 다운로드 됩니다.    <span style="font-size:1.5em;">&nbsp;&nbsp;👉 &nbsp;&nbsp; 🔗[OpenvSwitch 구성 가이드](../downloads/OpenvSwitch-Configuration-Guide.pptx)</span>
-
-!!! info
-    ABLESTACK 제품에서 Broadcom NIC를 사용할 경우, 드라이버 및 기능 호환성 문제로 인해 OpenvSwtich로 구성하셔야 합니다.
-
-    현재 Broadcom NIC에 대해 별도의 UI 기반 구성 기능은 제공되지 않기 때문에, 모든 설정은 CLI를 통해 직접 수행해야 합니다.
 
 1. ABLESTACK 콘솔 화면
     ![ABLESTACK 콘솔 화면](../assets/images/install-guide-cube-console.png){ .imgCenter .imgBorder }
@@ -284,19 +289,19 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
     # 4. 본딩 포트 ovs-bond0를 생성하여 브리지에 연결합니다.
     nmcli con add type ovs-port conn.interface ovs-bond0 master ovsbr0 con-name ovs-bond0
 
-    # 5. 본딩 포트(ovs-bond0)에 active-backup 모드와 기타 세부 본딩 옵션을 설정합니다.
+    # 5. 본딩 그룹에 물리 NIC(ens1f0np0, ens1f1np1)를 추가하여 연결합니다.
+    nmcli con add type ethernet conn.interface ens1f0np0 master ovs-bond0 con-name ovs-slave-ens1f0np0
+    nmcli con add type ethernet conn.interface ens1f1np1 master ovs-bond0 con-name ovs-slave-ens1f1np1
+
+    # 6. 본딩 포트(ovs-bond0)에 active-backup 모드와 기타 세부 본딩 옵션을 설정합니다.
     nmcli con modify ovs-bond0 ovs-port.bond-mode active-backup
     nmcli con modify ovs-bond0 ovs-port.bond-updelay 0
     nmcli con modify ovs-bond0 ovs-port.bond-downdelay 0
     ovs-vsctl set port ovs-bond0 other_config:bond-detect-mode=miimon
     ovs-vsctl set port ovs-bond0 other_config:miimon=100
 
-    # 6. 본딩 설정 확인
+    # 7. 본딩 설정 확인
     ovs-vsctl get port ovs-bond0 other_config
-
-    # 7. 본딩 그룹에 물리 NIC(ens1f0np0, ens1f1np1)를 추가하여 연결합니다.
-    nmcli con add type ethernet conn.interface ens1f0np0 master ovs-bond0 con-name ovs-slave-ens1f0np0
-    nmcli con add type ethernet conn.interface ens1f1np1 master ovs-bond0 con-name ovs-slave-ens1f1np1
 
     # 8. 본딩의 기본(primary) NIC을 ens1f0np0으로 지정합니다.
     ovs-vsctl set port ovs-bond0 other-config:bond-primary=ens1f0np0
