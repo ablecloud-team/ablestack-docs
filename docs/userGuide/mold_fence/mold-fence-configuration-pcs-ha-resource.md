@@ -1,4 +1,5 @@
-두 가상머신에 Shared Volume을 LVM으로 구성한 후 Mysql-server를 각각 설치하고 DB의 데이터 경로를 Shared Volumed 경로로 변경합니다.  
+
+두 가상머신에 Shared Volume을 LVM으로 구성한 후 Mysql-server를 각각 설치하고 DB의 데이터 경로를 Shared Volumed 경로로 변경합니다.
 
 lvm, file system, mysql을 pcs resource로 등록하고 그룹화하여 한 Node에서만 실행되고 이동되도록 구성합니다.
 

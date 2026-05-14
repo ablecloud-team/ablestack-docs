@@ -1,3 +1,4 @@
+
 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조" 구성 단계 중, 세 번째 단계인 WAS 구성에 대한 문서입니다.
 
 WAS 서버의 이중화 구성은 NodeJS와 SMB 스토리지를 활용하며 구성하는 단계는 다음과 같은 절차로 실행됩니다.
@@ -200,7 +201,7 @@ Git을 다운로드 및 설치합니다.
 
 cmd 창에서 소스를 다운로드 받을 위치로 이동한 후 소스를 다운로드합니다.
 
-``` 
+```
 C:\Users\Administrator>Z:
 Z:\>cd shared
 Z:\shared>git clone https://github.com/ablecloud-team/ablestack-docs-sample.git
@@ -218,7 +219,7 @@ NodeJS를 다운로드 및 설치합니다.
 
 NodeJS를 실행합니다.
 
-``` 
+```
 Z:\shared\ablestack-docs-sample>cd windows-3tier-example
 Z:\shared\ablestack-docs-sample\windows-3tier-example>node server.js
 ```

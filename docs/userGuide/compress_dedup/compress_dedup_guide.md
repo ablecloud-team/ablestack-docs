@@ -1,3 +1,4 @@
+
 !!! info
     ABLESTACK HCI 에서 제공하는 압축/중복제거 볼륨 기능입니다.
     해당기능은 하이퍼바이저가 CELL 또는 KVM 이면서 기본스토리지가 Glue Block 인 경우에 사용가능합니다.

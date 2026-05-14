@@ -15,7 +15,7 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
 ## 재난 복구 클러스터 추가
 
-1. 재난 복구 클러스터 추가 버튼 클릭 하여 재난 복구 클러스터 추가 팝업을 호출합니다.
+1. 재난 복구 클러스터 추가을 버튼 클릭 하여 재난 복구 클러스터 추가 팝업을 호출합니다.
 
     ![재난 복구 클러스터 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-add-btn.png){ .imgCenter .imgBorder }
 
@@ -125,7 +125,7 @@ ABLESTACK의 가상 인프라 및 애플리케이션에서 발생할 수 있는 
 
     ![설정 편집](../../assets/images/admin-guide/mold/infrastructure/dr-cluster/dr-cluster-setting-update-btn.png){ .imgCenter .imgBorder }
 
-    * 설정 값을 수정후 확인 버튼을 클릭하여 해당 재난 복구 클러스에 설정 값을 변경합니다.
+    * 설정 값을 수정후 확인 버튼을 클릭하여 해당 재난 복구 클러스터의 설정 값을 변경합니다.
 
 ### 기본값으로 재설정
 

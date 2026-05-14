@@ -1,3 +1,4 @@
+
 # 호스트
 
 ## 개요
@@ -93,4 +94,3 @@
 ## 통합 성능(Overall Performance)
 1. 시간 변화에 따라 클러스터에 포함된 호스트들 및 클러스터에 대한 통합 성능 지표를 확인 할 수 있습니다.
     ![통합 성능](../../assets/images/admin-guide/glue/cluster/host/glue-host-integrated-performance.png){ .imgCenter .imgBorder }
-    

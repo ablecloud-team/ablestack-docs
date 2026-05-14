@@ -1,3 +1,4 @@
+
 # iSCSI
 
 ## 개요
@@ -9,13 +10,13 @@ iSCSI는 RBD를 iSCSI 프로토콜로 외부 서버에 제공하기 위한 설�
     iSCSI 서비스를 사용하기 위해서는 **클러스터 > 서비스** 에서 iSCSI 서비스를 생성하야 합니다.
 
 1. iSCSI 서비스를 위한 게이트웨이 정보 및 이미지 정보를 확인할 수 있습니다.
-    
+
     ![iscsi-overview](../../assets/images/admin-guide/glue/block/iscsi/iscsi-overview.png){ .imgCenter .imgBorder }
-    
+
     - 게이트웨이
         - iSCSI 서비스를 제공하는 게이트웨이 정보를 확인할 수 있습니다.
         - 게이트웨이의 이름, 상태, 대상(타겟) 수, 세션 수를 확인 할 수 있습니다.
-    
+
     - 이미지
         - iSCSI 서비스를 제공하는 이미지 정보를 확인 할 수 있습니다.
         - 이미지의 데이터 풀, 이미지 명, 백스토어, 읽기 바이트, 쓰기 바이트, 읽기 Ops, 쓰기 Ops, A/O 이후를 확인할 수 있습니다.

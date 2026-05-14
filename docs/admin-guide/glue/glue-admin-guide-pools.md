@@ -1,3 +1,4 @@
+
 # 데이터 풀
 
 ## 개요
@@ -78,4 +79,3 @@
 
 1. 데이터 풀의 통합 성능 정보를 대시보드로 확인할 수 있습니다.
     ![pools-integrated-dashboard-tab](../../assets/images/admin-guide/glue/pools/pools-integrated-dashboard-tab.png){ .imgCenter .imgBorder }
-

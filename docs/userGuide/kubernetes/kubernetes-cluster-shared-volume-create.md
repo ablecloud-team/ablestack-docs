@@ -1,3 +1,4 @@
+
 # 공유 볼륨 설정
 
 Kubernetes Node에서 사용할 공유 볼륨 설정을 설명합니다. 볼륨 공유는 NFS Protocol을 이용하여 공유하며, Ubuntu Desktop을
@@ -21,7 +22,7 @@ Mold에서 **네트워크 > 가상머신용 네트워크** 화면에서 Kubernet
 ![kubernetes-cluster-shared-volume-create-01](../../assets/images/kubernetes-cluster-shared-volume-create-01.png){:class="imgCenter imgBorder"}
 
 **포트 포워딩** 탭에서 **사설 포트**, **Public 포트** 각각 입력란에 **22**, **2221** 입력 후 **추가** 버튼을 클릭 하여 Ubuntu Desktop 을 선택 후 **확인** 버튼을 클릭 합니다.
-   
+
 ![kubernetes-cluster-shared-volume-create-02](../../assets/images/kubernetes-cluster-shared-volume-create-02.png){:class="imgCenter imgBorder"}
 
 ![kubernetes-cluster-shared-volume-create-03](../../assets/images/kubernetes-cluster-shared-volume-create-03.png){:class="imgCenter imgBorder"}
@@ -149,4 +150,3 @@ NAME             CAPACITY   ACCESSMODES   RECLAIMPOLICY   STATUS      CLAIM     
 redis-pv         300Gi      RWO           Retain          Available             manual                   4s
 minos-pv         300Gi      RWO           Retain          Available             manual                   4s
 ```
-

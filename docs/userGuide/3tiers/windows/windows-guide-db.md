@@ -1,3 +1,4 @@
+
 ABLESTACK Mold를 이용한 "이중화를 통한 고가용성 기능을 제공하는 3계층 구조" 구성 단계 중, 두 번째 단계인 DB 구성에 대한 문서입니다.
 
 DB 서버의 이중화 구성은 MSCS(Microsoft Cluster Service)를 활용한 Failover Cluster 방식으로 구성합니다.
@@ -1105,7 +1106,7 @@ sql 사용자 계정의 이름 및 암호를 입력하고 'OK' 버튼을 클릭�
 
 NodeJS 샘플코드 작동을 위해 관련 스키마를 실행합니다.
 
-``` 
+```
 -- create database
 CREATE DATABASE testdb;
 

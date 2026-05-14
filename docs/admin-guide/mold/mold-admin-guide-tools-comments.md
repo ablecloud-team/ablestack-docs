@@ -1,3 +1,4 @@
+
 # 코멘트
 
 ## 개요
@@ -16,4 +17,3 @@
 코멘트를 선택하면 해당 코멘트가 작성된 가상머신의 코멘트 탭으로 이동되어 코멘트를 확인할 수 있습니다.
 
 ![코멘트 상세 탭](../../assets/images/admin-guide/mold/tools/comments/mold-admin-guide-tools-comments-1-2.png){ .imgCenter .imgBorder }
-

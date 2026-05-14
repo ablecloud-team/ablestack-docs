@@ -135,6 +135,11 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
     - 설치가 정상적으로 완료되면 ABLESTACK VM 콘솔 로그인 화면이 보이게 됩니다.
 
 ## ABLESTACK VM Cube Network 셋팅
+!!! check
+    Broadcom NIC 환경에서는 Isolated 네트워크를 구성할 때만 해당 항목을 설정합니다.
+    기본 L2 네트워크만 사용하는 경우에는 이 항목을 설정하지 않습니다.
+    따라서 Isolated 사용 여부에 따라 설정이 필요 여부가 결정됩니다.
+
 ### Intel NIC 일 경우
 1. ABLESTACK VM Cube 로그인
     ![ABLESTACK VM Cube 로그인](../assets/images/install-guide-general-virtualization-cube-1.png){ .imgCenter .imgBorder }
@@ -157,6 +162,7 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
         해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다.
         이 문서를 바탕으로 설치 사이트에 맞게 구성을 변경 및 IP 주소를 입력 하셔야 합니다.
 
+
     1. Management Network 본드 설정
         ![Management Network 본드 설정](../assets/images/install-guide-general-virtualization-cube-3.png){ .imgCenter .imgBorder }
         - 화면 중간 버튼 그룹 중 **본드 추가** 버튼을 클릭하면 보이는 화면이며, 본드을 설정하는 팝업 화면입니다.
@@ -169,23 +175,27 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
         ![Management Network 브릿지 구성](../assets/images/install-guide-general-virtualization-cube-4-1.png){ .imgCenter .imgBorder }
         - 브릿지 이름을 **bridge0** 을 입력해주고, 연결장치는 **bond 0** 를 선택하고 **저장** 버튼을 클릭합니다.
 
+        !!! check
+            본드(bond) 구성이 필요한 경우에는 먼저 본드(bond) 구성을 완료한 뒤 브릿지(bridge)를 생성해 사용해야 합니다. 이때 브릿지 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
+            ![ABLESTACK Cube 본드 네트워킹 구성](../assets/images/install-guide-cube-bond.png){ .imgCenter .imgBorder }
+
         !!! info
             해당 과정은 물리적인 Management Network를 SystemVM 및 다른 가상머신에서 사용할 수 있게 브릿지를 하는 과정입니다.
 
             브릿지의 IP 설정은 ABLESTACK VM Cube 구성하면서 입력된 IP 정보가 상속되여 자동으로 설정됩니다.
 
 ### Broadcom NIC 일 경우
+!!! info
+    **Isolated 네트워크** 를 구성할 때 ABLESTACK에서 Broadcom NIC을 사용한다면, 반드시 Open vSwitch(OVS) 기반으로 설정해야 합니다.
+    이는 Broadcom NIC의 드라이버 및 기능 호환성 문제로 인해, Isolated 환경에서 OVS로만 안정적인 구성이 가능하기 때문입니다.
+    **※ 기본 L2 네트워크 구성에는 해당되지 않습니다.**
+
 !!! check "OpenvSwitch 구성 가이드"
     본 문서는 OpenvSwitch 설치 및 설정 방법을 단계별로 설명합니다.
 
     또한, 사용자의 이해를 돕기 위해 **프레젠테이션 자료(PPT)** 형식도 함께 제공합니다.
 
     해당 링크 클릭 시, 다운로드 됩니다.    <span style="font-size:1.5em;">&nbsp;&nbsp;👉 &nbsp;&nbsp; 🔗[OpenvSwitch 구성 가이드](../downloads/OpenvSwitch-Configuration-Guide.pptx)</span>
-
-!!! info
-    ABLESTACK 제품에서 Broadcom NIC를 사용할 경우, 드라이버 및 기능 호환성 문제로 인해 OpenvSwtich로 구성하셔야 합니다.
-
-    현재 Broadcom NIC에 대해 별도의 UI 기반 구성 기능은 제공되지 않기 때문에, 모든 설정은 CLI를 통해 직접 수행해야 합니다.
 
 1. ABLESTACK 콘솔 화면
     ![ABLESTACK 콘솔 화면](../assets/images/install-guide-cube-console.png){ .imgCenter .imgBorder }
@@ -279,19 +289,19 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
     # 4. 본딩 포트 ovs-bond0를 생성하여 브리지에 연결합니다.
     nmcli con add type ovs-port conn.interface ovs-bond0 master ovsbr0 con-name ovs-bond0
 
-    # 5. 본딩 포트(ovs-bond0)에 active-backup 모드와 기타 세부 본딩 옵션을 설정합니다.
+    # 5. 본딩 그룹에 물리 NIC(ens1f0np0, ens1f1np1)를 추가하여 연결합니다.
+    nmcli con add type ethernet conn.interface ens1f0np0 master ovs-bond0 con-name ovs-slave-ens1f0np0
+    nmcli con add type ethernet conn.interface ens1f1np1 master ovs-bond0 con-name ovs-slave-ens1f1np1
+
+    # 6. 본딩 포트(ovs-bond0)에 active-backup 모드와 기타 세부 본딩 옵션을 설정합니다.
     nmcli con modify ovs-bond0 ovs-port.bond-mode active-backup
     nmcli con modify ovs-bond0 ovs-port.bond-updelay 0
     nmcli con modify ovs-bond0 ovs-port.bond-downdelay 0
     ovs-vsctl set port ovs-bond0 other_config:bond-detect-mode=miimon
     ovs-vsctl set port ovs-bond0 other_config:miimon=100
 
-    # 6. 본딩 설정 확인
+    # 7. 본딩 설정 확인
     ovs-vsctl get port ovs-bond0 other_config
-
-    # 7. 본딩 그룹에 물리 NIC(ens1f0np0, ens1f1np1)를 추가하여 연결합니다.
-    nmcli con add type ethernet conn.interface ens1f0np0 master ovs-bond0 con-name ovs-slave-ens1f0np0
-    nmcli con add type ethernet conn.interface ens1f1np1 master ovs-bond0 con-name ovs-slave-ens1f1np1
 
     # 8. 본딩의 기본(primary) NIC을 ens1f0np0으로 지정합니다.
     ovs-vsctl set port ovs-bond0 other-config:bond-primary=ens1f0np0
@@ -325,6 +335,77 @@ ABLESTACK VM Cube를 설치 진행 가이드 입니다.
 
         reboot
         ```
+
+### 스토리지 네트워크 설정
+1. ABLESTACK VM Cube 로그인
+    ![ABLESTACK VM Cube 로그인](../assets/images/install-guide-general-virtualization-cube-storage-network-01.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 로그인 화면입니다.
+    - 접속 URL은 **호스트IP:9090** 입니다
+    - 사용자 이름은 **root** 를 암호는 초기 암호를 입력하여, 원하시는 비밀번호로 변경한 후, **로그인** 버튼을 클릭하면 로그인 하실 수 있습니다.
+
+2. ABLESTACK VM Cube 메인 화면
+    ![ABLESTACK VM Cube 메인 화면](../assets/images/install-guide-general-virtualization-cube-storage-network-02.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 로그인 후 화면입니다.
+
+3. ABLESTACK VM Cube 네트워킹 구성
+    ![ABLESTACK VM Cube 네트워킹 구성](../assets/images/install-guide-general-virtualization-cube-storage-network-03.png){ .imgCenter .imgBorder }
+    - ABLESTACK VM Cube 네트워킹 구성 화면입니다. </br>해당 화면에서 방화벽 설정 및 본드(bond), 브릿지(bridge), VLAN 구성을 진행합니다.
+
+    !!! note
+        인터페이스 목록 및 IP주소 등은 물리적 네트워크의 구성과 하드웨어 벤더사 및 초기 설정한 IP주소에 따라 다르게 표기될 수 있습니다.
+
+    !!! info
+        해당 문서의 네트워크 구성은 기본적인 네트워크 구성입니다.
+        이 문서를 바탕으로 설치 사이트에 맞게 구성을 변경 및 IP 주소를 입력 하셔야 합니다.
+
+        그리고 본드(bond) 구성이 필요한 경우 본드(bond)구성 완료 후 진행하셔야 합니다.
+
+        **본 설치 가이드는 Storage Network가 NIC pass-through 이며, 본드구성 없이 단일 NIC로 구성된 형태 입니다.**
+
+    1. Public Storage Network 설정
+        ![Public Storage Network 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-04.png){ .imgCenter .imgBorder }
+        - Public Storage Network 설정하기 위한 절차 입니다. 네트워킹 화면에서 **Public Storage** 로 사용할 NIC를 클릭하여 들어온 화면입니다.
+
+
+        1. Public Storage Network IP 설정
+            ![Public Storage Network IP 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-05.png){ .imgCenter .imgBorder }
+            - IPv4 항목의 **편집** 버튼을 눌러 들어온 IPv4 설정 화면입니다.
+            - 주소 입력 창의 오른쪽에 있는 **자동(DHCP)** 선택 박스를 눌러 **수동** 으로 변경을 합니다.
+            - **Address** 입력창에 **사전에 지정한 IP** 를 입력하고, **접두 길이 또는 넷마스크** 입력창에 **24** 를 입력하고 **적용** 버튼을 클릭합니다.
+            !!! info
+                Storage Network에서 사용하는 IP는 내부적으로만 통신하기 위한 IP입니다.</br>
+                일반적으로 Public Storage Network IP는 100.100.**A**.**B**/24 대역을 사용합니다.</br>
+                관리상 편의를 위해 A는 Management와 동일한 C클래스를 사용하고 B는 호스트와 동일한 Host IP로 구성합니다.</br>
+                만약 스위치를 혼용해서 사용하고 해당 IP 대역이 기존 내부 네트워크와 겹쳐서 충돌이 발생될 수 있을 경우에는 사용하지 않는 대역으로 변경해야 합니다.
+
+        2. Public Storage 자동연결 및 활성화 설정
+            ![Public Storage 자동연결 및 활성화 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-07.png){ .imgCenter .imgBorder }
+            - 입력이 끝난 후 저장 후, **자동으로 연결** 버튼을 클릭하여 활성화 합니다.
+
+        3. Public Storage Network 본드 설정
+            ![Public Storage Network 본드 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-08.png){ .imgCenter .imgBorder }
+            - 화면 중간 버튼그룹 중 **본드 추가** 버튼을 클릭하면 보이는 화면이며, 본드를 설정하는 팝업 화면입니다.
+            ![Public Storage Network 본드 구성](../assets/images/install-guide-general-virtualization-cube-storage-network-09.png){ .imgCenter .imgBorder }
+            - 본드 이름을 **bond 1** 을 입력해주고, 연결장치는 **Public Storage NIC** 를 선택하고 **추가** 버튼을 클릭합니다.
+
+        !!! check
+            본드(bond) 구성이 필요한 경우에는 본드 설정에서 IPv6 활성화 항목은 반드시 **사용 안함** 으로 설정해야 합니다.
+
+        !!! check "MTU 설정이 필요할 시"
+            1. NIC 인터페이스 MTU 설정
+                ![Public Storage Network MTU 설정](../assets/images/install-guide-general-virtualization-cube-storage-network-06.png){ .imgCenter .imgBorder }
+                - MTU 항목의 **편집** 버튼을 눌러 들어온 MTU 설정 화면입니다.
+                - 라디오 버튼을 **설정** 으로 선택하고 입력값을 **9000** 으로 입력 후에 **적용** 버튼을 클릭합니다.
+            2. 본드 MTU 설정
+                ![Public Storage Network 본드 MTU 설정1](../assets/images/install-guide-general-virtualization-cube-storage-network-10.png){ .imgCenter .imgBorder }
+                - 해당 Public Storage Network 본드에서도 전과 동일하게 MTU를 설정해야 합니다.
+                ![Public Storage Network 본드 MTU 설정2](../assets/images/install-guide-general-virtualization-cube-storage-network-11.png){ .imgCenter .imgBorder }
+                - MTU 설정 화면입니다.
+
+        !!! check
+            Public Storage Network에 MTU를 설정 할 시, 물리 인터페이스 및 본드 MTU 설정 값이 같아야 합니다.
+
+            확인 후 다음 단계로 넘어가시길 바랍니다.
 
 !!! info
     ABLESTACK VM 환경에서는 자체 Glue를 사용하지 않습니다.

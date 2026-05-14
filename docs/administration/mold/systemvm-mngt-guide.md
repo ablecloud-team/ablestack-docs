@@ -1,3 +1,4 @@
+
 # 시스템 VM 관리
 Mold는 여러 유형의 시스템 가상 머신을 사용하여 클라우드에서 작업을 수행합니다. 일반적으로 Mold는 이러한 시스템 VM을 관리하고 규모와 즉각적인 요구 사항에 따라 필요에 따라 생성, 시작 및 중지합니다. 그러나 관리자는 문제를 디버깅하는 데 도움이되도록 이들과 그 역할을 알고 있어야합니다.
 
@@ -57,18 +58,18 @@ SSVM (Secondary Storage VM) 연결 문제가 발생하는 경우와 같이 특�
 
     1. 시스템 VM이 실행 중인 호스트에 연결합니다.
     2. VM이 실행 중인 호스트에서 시스템 VM의 '링크 로컬 IP 주소'에 SSH를 사용합니다.
-       
+
         형식 : ssh -i <path-to-private-key> <link-local-ip> -p 3922
-       
+
         예 : root @ kvm01 : ~ # ssh -i /root/.ssh/id_rsa.cloud 169.254.3.93 -p 3922
 
 3. ESXi 하이퍼 바이저
 
     1. Mold 관리 서버에 연결합니다.
     2. ESXi 사용자는 시스템 VM의 개인 IP 주소로 SSH를 수행해야합니다.
-    
+
         형식 : ssh -i <path-to-private-key> <vm-private-ip> -p 3922
-    
+
         예 : root @ management : ~ # ssh -i /var/lib/cloudstack/management/.ssh/id_rsa 172.16.0.250 -p 3922
 
 ## Console Proxy
@@ -91,31 +92,31 @@ Mold 관리자는 SSL로 콘솔 프록시 통신을 보호하는 두 가지 방�
 - 특정 FQDN에 대한 SSL 인증서 설정 및 부하 분산 장치 구성
 ### 콘솔 프록시 SSL 인증서 및 도메인 변경
 관리자는 도메인을 선택하고 새 SSL 인증서와 개인 키를 업로드하여 SSL 암호화를 구성 할 수 있습니다. 도메인은 aaa-bbb-ccc-ddd.your.domain 형식의 주소에 대한 쿼리를 aaa.bbb.ccc.ddd 형식의 IPv4 IP 주소로 확인할 수있는 DNS 서비스를 실행해야합니다.
-    
-예 : 202.8.44.1. 
+
+예 : 202.8.44.1.
 
 콘솔 프록시 도메인, SSL 인증서 및 개인 키를 변경하려면 :
 
 1. 동적 이름 확인을 설정하거나 공용 IP 범위의 가능한 모든 DNS 이름을 aaa-bbb-ccc-ddd.consoleproxy.company.com-> aaa.bbb.ccc.ddd 형식으로 기존 DNS 서버에 채웁니다.
-    
+
     !!! Note
         이 단계에서 consoleproxy.company.com을 확인할 수 있습니다 .- 보안 모범 사례를 위해 별도의 하위 도메인에 와일드 카드 SSL 인증서를 생성하는 것이 좋습니다. 따라서 인증서가 손상된 경우 악의적인 사용자가 company.com 도메인을 가장 할 수 없습니다.
 
 2. 개인 키 및 인증서 서명 요청 (CSR)을 생성하십시오. openssl을 사용하여 개인 / 공개 키 쌍 및 CSR을 생성하는 경우 Mold UI에 붙여 넣을 개인 키에 대해 PKCS # 8 형식으로 변환해야합니다.
-    
+
     1.새로운 2048 비트 개인 키 생성
-    
+
     ````
     openssl genrsa -des3 -out yourprivate.key 2048
     ````
-       
+
     2.새 인증서 CSR을 생성합니다. 와일드 카드 인증서 생성 확인, 예 :
- 
+
     "*.consoleproxy.company.com
-   
+
     ````
     openssl req -new -key yourprivate.key -out yourcertificate.csr
-    ````  
+    ````
 
     3.가장 신뢰할 수 있는 인증 기관의 웹 사이트로 이동하여 SSL 인증서를 구입하고 CSR을 제출하십시오. 반환 시 유효한 인증서를 받아야 합니다.
 
@@ -123,25 +124,25 @@ Mold 관리자는 SSL로 콘솔 프록시 통신을 보호하는 두 가지 방�
     ````
     openssl pkcs8 -topk8 -in yourprivate.key -out yourprivate.pkcs8.encrypted.key
     ````
-       
+
     5.PKCS # 8 암호화된 개인 키를 Mold과 호환되는 PKCS # 8 형식으로 변환합니다.
     ````
     openssl pkcs8 -in yourprivate.pkcs8.encrypted.key -out yourprivate.pkcs8.key
     ````
-   
+
 3. Mold UI의 SSL 인증서 업데이트 화면에서 다음을 붙여 넣습니다.
     - Certificate: 생성 한 인증서.
     - PKCS#8 private Key: 생성 한 개인 키.
-    - DNS Domain Suffix: *.;로 시작하는 원하는 도메인 이름 
-     
+    - DNS Domain Suffix: *.;로 시작하는 원하는 도메인 이름
+
         예: *.consoleproxy.company.com
-   
+
 4. 이렇게하면 현재 실행 중인 모든 콘솔 프록시 VM이 중지된 다음 새 인증서 및 키로 다시 시작됩니다. 사용자는 콘솔 가용성이 잠시 중단되는 것을 알 수 있습니다.
 
 관리 서버는 이러한 변경이 수행 된 후 "aaa-bbb-ccc-ddd.consoleproxy.company.com"형식의 URL을 생성합니다. 새 콘솔 요청은 새 DNS 도메인 이름, 인증서 및 키와 함께 제공됩니다.
 
 ### ROOT CA 및 중간 CA 업로드
-ROOT CA 및 중간 CA로 사용자 지정 인증서를 업로드해야하는 경우 https://cwiki.apache.org/confluence/display/CLOUDSTACK/Procedure+to+Replace+realhostip.com+with+Your+Own+Domain+Name, (2021. 04. 23)에서 자세한 내용을 확인할 수 있습니다. 
+ROOT CA 및 중간 CA로 사용자 지정 인증서를 업로드해야하는 경우 https://cwiki.apache.org/confluence/display/CLOUDSTACK/Procedure+to+Replace+realhostip.com+with+Your+Own+Domain+Name, (2021. 04. 23)에서 자세한 내용을 확인할 수 있습니다.
 
 중요 사항 :
 
@@ -190,14 +191,14 @@ Mold는 가상 라우터를 생성할 때 기본 시스템 서비스 오퍼링�
 
 ### 가상 라우터에 대한 모범 사례
 - 경고 : 하이퍼 바이저 콘솔에서 가상 라우터를 다시 시작하면 모든 iptables 규칙이 삭제됩니다. 이 문제를 해결하려면 가상 라우터를 중지하고 Mold UI에서 시작하십시오.
-    
+
     !!! Warning
         cleanup = false 매개 변수가 있는 restartNetwork API는 나중에 다시 생성할 수 없으므로 네트워크에서 하나의 라우터 만 사용할 수 있는 경우 destroyRouter API를 사용하지 마십시오. 네트워크에서 사용 가능한 단일 라우터를 파괴하고 다시 생성하려면 cleanup = true 매개 변수와 함께 restartNetwork API를 사용하십시오.
 
 ### 가상 라우터 용 서비스 모니터링 도구
 Mold 가상 라우터에서 실행되는 다양한 서비스는 서비스 모니터링 도구를 사용하여 모니터링할  수 있습니다. 이 도구는 Mold이 의도적으로 비활성화할 때까지 서비스가 성공적으로 실행되도록 합니다. 서비스가 중단되면 도구는 자동으로 서비스를 다시 시작하려고 시도하고 서비스를 시작하는 데 도움이 되지 않는 경우 오류를 나타내는 경고와 이벤트가 생성됩니다. 이 기능을 제어하기 위해 새로운 전역 매개 변수인 network.router.enableservicemonitoring이 도입되었습니다. 기본값은 false이며 모니터링이 사용되지 않음을 의미합니다. 활성화할 때 관리 서버와 라우터가 다시 시작되었는지 확인하십시오.
 
-모니터링 도구는 예기치 않은 이유로 인해 충돌이 발생한 VR 서비스를 시작하는 데 도움이 될 수 있습니다. 
+모니터링 도구는 예기치 않은 이유로 인해 충돌이 발생한 VR 서비스를 시작하는 데 도움이 될 수 있습니다.
 
 예를 들면 :
 
@@ -260,7 +261,7 @@ VR에서 모니터링되는 서비스는 다음과 같습니다.
     - 상태 확인 스크립트는 '/ root / health_checks /'디렉토리 내에서 모든 언어로 실행 가능하지만 ( 'chmod a + x'사용) 실행할 수 있습니다. 배치 된 스크립트는 다음을 수행해야합니다.
 
         * 검사 유형 (기본 또는 고급)에 대한 명령 줄 매개 변수를 수락합니다.이 매개 변수는 VR (/etc/cron.d/process)의 내부 크론 작업에 의해 전송됩니다.
-            1. 검사 유형 (기본 또는 고급)에 따라 진행 및 검사 수행 
+            1. 검사 유형 (기본 또는 고급)에 따라 진행 및 검사 수행
         * 상태 확인으로 인식되고 상태 확인 결과 목록에 표시되기 위해서는 관리 서버에 메시지로 다시 전달되는 일부 메시지를 STDOUT에 인쇄해야합니다. 스크립트가 STDOUT에서 아무것도 반환하지 않으면 상태 확인으로 등록되지 않았거나 상태 확인 결과 목록에 표시되지 않습니다.
         * 확인이 성공하면 상태 0으로 종료하고 확인이 실패하면 상태 1로 종료
             ````
@@ -280,35 +281,35 @@ VR에서 모니터링되는 서비스는 다음과 같습니다.
     실행하고 읽을 수 있습니다. false 인 경우 예약 된 모든 검사 및 주문형 검사에 대한 API 호출이 비활성화됩니다. 기본값은 true입니다.
 
 * __router.health.checks.basic.interval__ -기본 간격 (분)
-    
+
     라우터 상태 검사가 수행됩니다. 0으로 설정하면 테스트가 예약되지 않습니다. 기본값은 4.14 이전 모니터 서비스에 따라 3 분입니다.
 
 * __router.health.checks.advanced.interval__ -간격 (분)
-    
+
     고급 라우터 상태 검사가 수행됩니다. 0으로 설정하면 테스트가 예약되지 않습니다. 기본값은 10 분입니다.
 
 * __router.health.checks.config.refresh.interval__ -간격 (분)
-    
+
     예약 간격, 제외 된 검사 등과 같은 라우터 상태 검사 구성은 관리 서버에 의해 가상 라우터에서 업데이트됩니다. 이 값은 전달 된 데이터에 대한 새 결과 생성 사이에 시간이 있도록 router.health.checks.basic.interval 및 router.health.checks.advanced.interval에서 충분히 높아야합니다 (예 : 2x). 기본값은 10 분입니다.
 
 * __router.health.checks.results.fetch.interval__ -간격 (분)
-    
+
     라우터 상태 확인 결과는 관리 서버에서 가져옵니다. 각 결과 가져오기에서 관리 서버는 'router.health.checks.failures.to.recreate.vr'의 구성에 따라 VR을 다시 생성해야 하는지를 평가합니다. 이 값은 'router.health.checks.basic.interval'및 'router.health.checks.advanced.interval'에서 2x와 같이 충분히 높아야 새 결과 생성과 가져오기 사이에 시간이 있습니다.
 
 * __router.health.checks.failures.to.recreate.vr__ -정의된 상태 확인 실패
-    
+
     이 구성은 라우터 재생성을 유발해야하는 검사입니다. 비어있는 경우 상태 확인 실패에 대해 재 작성이 시도되지 않습니다. 가능한 값은 systemvm의 / root / health_scripts /에서 쉼표로 구분된 스크립트 이름입니다 (즉-cpu_usage_check.py, dhcp_check.py, disk_space_check.py, dns_check.py, gateways_check.py, haproxy_check.py, iptables_check.py, memory_usage_check.py, router_version_check). .py), connectivity.test 또는 서비스 (즉-loadbalancing.service, webserver.service, dhcp.service)
 
 * __router.health.checks.to.exclude__ -다음에 제외해야 하는 상태 검사
-    
+
     라우터에서 예약 된 검사를 실행합니다. '/ root / health_checks /'폴더에있는 쉼표로 구분된 스크립트 이름 목록 일 수 있습니다. 현재 다음 스크립트는 기본 systemvm 템플릿에 있습니다-cpu_usage_check.py, disk_space_check.py, gateways_check.py, iptables_check.py, router_version_check.py, dhcp_check.py, dns_check.py, haproxy_check.py, memory_usage_check.py.
 
 * __router.health.checks.free.disk.space.threshold__ -여유 디스크 공간 임계 값
-    
+
     확인이 실패로 간주되는 VR에서 (MB 단위). 기본값은 100MB입니다.
 
 * __router.health.checks.max.cpu.usage.threshold__ -최대 CPU 사용량 임계 값
-    
+
     검사가 실패로 간주되는 %.
 
 * __router.health.checks.max.memory.usage.threshold__ -최대 메모리 사용량 임계 값
@@ -378,14 +379,14 @@ VR을 업그레이드하지 않아도 다음 서비스를 이용할 수 있습�
     3. 가상 라우터에서 더보기를 클릭합니다.
         모든 VR이 가상 라우터 페이지에 나열됩니다.
     4. 보기 선택 드롭 다운에서 요구 사항에 따라 원하는 그룹을 선택합니다.
-       
+
         다음 중 하나를 사용할 수 있습니다.
-       
+
         - 영역 별 그룹화
         - 포드별로 그룹화
         - 클러스터별로 그룹화
         - 계정별로 그룹화
-       
+
     5. 업그레이드 할 VR이있는 그룹을 클릭합니다.
         예를 들어 영역 별 그룹화를 선택한 경우 원하는 영역의 이름을 선택합니다.
     6. 모든 VR을 업그레이드하려면 업그레이드 버튼을 클릭하십시오.
@@ -407,9 +408,9 @@ Mold UI를 통해 ping, traceroute 또는 arping을 실행하려면 :
 
 1. 관리자로 Mold UI에 로그인하십시오.
 2. 인프라> 시스템 VM 또는 가상 라우터로 이동합니다.
-3. 진단 실행 버튼을 클릭합니다. 
+3. 진단 실행 버튼을 클릭합니다.
 4. 이와 유사한 양식이 나타납니다.
-   
+
     ![mold-systemvm-diagnostics-form](../../assets/images/mold-systemvm-diagnostics-form.png)
 
 5. 세부 정보를 입력하고 확인을 클릭합니다.

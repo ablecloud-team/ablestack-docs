@@ -1,3 +1,4 @@
+
 Oracle RAC를 구성하기위해 ASM 및 Grid Infrastructure를 설치 및 구성하는 가이드입니다.
 
 !!! info
@@ -7,7 +8,7 @@ Oracle RAC를 구성하기위해 ASM 및 Grid Infrastructure를 설치 및 구�
 Oracle에서 만든 자동으로 스토리지를 관리하는 소프트웨어로써, 데이터 베이스에서 사용하는 모든 파일(Contorl File, Archive log file, Redolog File, DataDump File, DataFile, SPFILE 등) 에 대해 자동저장공간 관리를 위해 ASM을 구성합니다.
 
 ```shell title="네트워크 IP 세팅 확인 ( 노드 : 전체 / 계정 : root )"
-ip a 
+ip a
 ```
 
 결과 값
@@ -203,7 +204,7 @@ grid > dba > y > y 순으로 입력
 ```shell title="사용할 수 있는 Disk 확인 및 파티션 생성 ( 노드 : node1 / 계정 : root )"
 lsblk
 fdisk /dev/sdb (n > 엔터 > 엔터 > 엔터 > w) 파티션 생성
-pvcreate /dev/sdb1    
+pvcreate /dev/sdb1
 ```
 
 ```shell title="ASM disk scan ( 노드 : 전체 / 계정 : root )"
@@ -221,7 +222,7 @@ mkdir -p /home/STAGE
 cd /home/STAGE
 wget https://gofile.me/3ThCa/3vK04a0LS
 wget https://gofile.me/3ThCa/XUd4hxJIV
-( 다운로드 : LINUX.X64_193000_grid_home.zip, LINUX.X64_193000_grid_home.zip 파일은 다운로드 사이트 > https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html  오라클 계정으로 로그인해야 다운로드 가능)  
+( 다운로드 : LINUX.X64_193000_grid_home.zip, LINUX.X64_193000_grid_home.zip 파일은 다운로드 사이트 > https://www.oracle.com/database/technologies/oracle19c-linux-downloads.html  오라클 계정으로 로그인해야 다운로드 가능)
 ```
 
 ```shell title="grid 계정 bash_profile 수정 ( 노드 : node1 / 계정 : grid )"

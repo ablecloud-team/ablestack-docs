@@ -1,5 +1,6 @@
+
 # 탐색
-탐색 메뉴는 원천 데이터소스로 부터 사용자가 직접 쿼리를 작성하여 데이터를 확인하는 기능을 제공합니다. 
+탐색 메뉴는 원천 데이터소스로 부터 사용자가 직접 쿼리를 작성하여 데이터를 확인하는 기능을 제공합니다.
 
 ![wall-dashboard-dashboard-explore-meun](../../assets/images/wall-dashboard-dashboard-explore-meun.png)
 
@@ -8,13 +9,13 @@
 
 ![wall-dashboard-dashboard-explore](../../assets/images/wall-dashboard-dashboard-explore.png)
 
-1) 데이터소스를 선택  
-2) Split : 검색 결과 화면을 분할  
-3) Clear all : 모든 검색 결과를 초기화  
-4) Run query : 쿼리 실행  
-5) Add query : 실행 쿼리를 추가  
-6) Query history : 쿼리 실행 이력 출력  
-7) Inspector : 쿼리 결과 (Stats, Query, JSON, Data) 정보 조사  
+1) 데이터소스를 선택
+2) Split : 검색 결과 화면을 분할
+3) Clear all : 모든 검색 결과를 초기화
+4) Run query : 쿼리 실행
+5) Add query : 실행 쿼리를 추가
+6) Query history : 쿼리 실행 이력 출력
+7) Inspector : 쿼리 결과 (Stats, Query, JSON, Data) 정보 조사
 
 ## 쿼리 실행
 

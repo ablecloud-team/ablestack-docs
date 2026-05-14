@@ -12,7 +12,7 @@
 
 ## 클러스터 추가
 
-1. 클러스터 추가 버튼 클릭 하여 클러스터 추가 팝업을 호출합니다.
+1. 클러스터 추가 버튼을 클릭 하여 클러스터 추가 팝업을 호출합니다.
 
     ![cluster 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-add-btn.png){ .imgCenter .imgBorder }
 
@@ -38,7 +38,7 @@
     ![cluster 편집 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-update.png){ .imgCenter .imgBorder }
 
     * 수정할 **항목** 을 입력합니다.
-    * **확인** 버튼을 클릭하여 Cluster 업데이트합니다.
+    * **확인** 버튼을 클릭하여 Cluster를 업데이트합니다.
 
 ## 클러스터 비활성화
 
@@ -50,7 +50,7 @@
 
     ![클러스터 비활성화 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 클러스터 비활성화합니다.
+    * **확인** 버튼을 클릭하여 클러스터를 비활성화합니다.
 
 ## 클러스터 활성화
 
@@ -62,7 +62,7 @@
 
     ![클러스터 활성화 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 클러스터 활성화합니다.
+    * **확인** 버튼을 클릭하여 클러스터를 활성화합니다.
 
 ## 클러스터 관리 해제
 
@@ -74,7 +74,7 @@
 
     ![클러스터 관리 해제 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-unmanage.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 클러스터 관리해제합니다.
+    * **확인** 버튼을 클릭하여 클러스터를 관리해제합니다.
 
 ## 클러스터 관리
 
@@ -86,11 +86,11 @@
 
     ![클러스터 관리 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-manage.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 클러스터 관리합니다.
+    * **확인** 버튼을 클릭하여 클러스터를 관리합니다.
 
 ## 원격 관리 비활성화
 
-1. 해당 Cluster 원격 관리 비활성화합니다.
+1. 해당 Cluster 원격 관리를 비활성화합니다.
 
     ![Cluster 원격 관리 비활성화 버튼](../../assets/images/admin-guide/mold/infrastructure/clusters/out-of-band-disable-btn.png){ .imgCenter .imgBorder }
 
@@ -98,7 +98,7 @@
 
     ![Cluster 원격 관리 비활성화 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/out-of-band-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 원격 관리 비활성화합니다.
+    * **확인** 버튼을 클릭하여 원격 관리를 비활성화합니다.
 
 ## 원격 관리 활성화
 
@@ -110,11 +110,11 @@
 
     ![Cluster 원격 관리 활성화 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/out-of-band-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 원격 관리 활성화합니다.
+    * **확인** 버튼을 클릭하여 원격 관리를 활성화합니다.
 
 ## 롤링 유지 관리 시작
 
-1. 해당 클러스터에 호스트에 대하여 롤링 유지 관리하는 기능입니다.
+1. 해당 클러스터의 호스트에 대하여 롤링 유지 관리하는 기능입니다.
 
     ![롤링 유지 관리 시작 버튼](../../assets/images/admin-guide/mold/infrastructure/clusters/rolling-maintenance-btn.png){ .imgCenter .imgBorder }
 
@@ -122,9 +122,9 @@
 
     ![롤링 유지 관리 시작 화면](../../assets/images/admin-guide/mold/infrastructure/clusters/rolling-maintenance.png){ .imgCenter .imgBorder }
 
-    * **시간초과:** 을 입력합니다.
+    * **시간초과:** 시간(초 단위)을 입력합니다.
     * **payload:** payload에 실행할 명령을 입력합니다.
-    * **확인** 버튼을 클릭하여 롤링 유지 관리 시작합니다.
+    * **확인** 버튼을 클릭하여 롤링 유지 관리를 시작합니다.
 
 ## 클러스터 삭제
 
@@ -146,7 +146,7 @@
 
 ## 리소스 탭
 
-1. 클러스터에 할당된 자원의 상태를 조회하는 화면입니다. 해당 클러스터에서 할당량과 활당 가능량을 확인 가능하며 메모리, CPU, 기본 스토리지 사용량, 할당된 기본 스토리지, GPU, CPU 코어수 등의 정보를 확인할 수 있습니다.
+1. 클러스터에 할당된 자원의 상태를 조회하는 화면입니다. 해당 클러스터에서 현재 할당량과 할당 가능량을 확인 가능하며 메모리, CPU, 기본 스토리지 사용량, 할당된 기본 스토리지, GPU, CPU 코어수 등의 정보를 확인할 수 있습니다.
 
     ![리소스 탭](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-allocated-resource-tab.png){ .imgCenter .imgBorder }
 
@@ -173,7 +173,7 @@
 ## DRS 탭
 
 !!! info
-    DRS로 가상머신이 재분배 될때 라이브 마이그레이션으로 동작합니다.
+    DRS로 가상머신이 재분배될 때 라이브 마이그레이션으로 동작합니다.
 
 1. 클러스터내 가상머신 자원 CPU, Memory 사용량을 토대로 자원을 분산하는 스케줄을 만들어 클러스터내 모든 호스트에 고르게 분배합니다.
 
@@ -181,7 +181,7 @@
 
 ### DRS 계획 생성
 
-1. DRS 계획을 생성하여 배포계획을 보여줍니다. 배포 계획이 없는 DRS 설정 기준치에 적절하게 배포되어 있는 상태입니다.
+1. DRS 계획을 생성하여 배포계획을 보여줍니다. 배포 계획이 없는 DRS는 설정 기준치에 적절하게 배포되어 있는 상태입니다.
 
     ![cluster DRS 계획 생성](../../assets/images/admin-guide/mold/infrastructure/clusters/cluster-drs-btn.png){ .imgCenter .imgBorder }
 

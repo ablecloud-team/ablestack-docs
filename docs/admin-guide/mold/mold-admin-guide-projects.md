@@ -47,7 +47,7 @@
 
     ![프로젝트 일시정지 화면](../../assets/images/admin-guide/mold/projects/project-disable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 프로젝트 일시정지합니다.
+    * **확인** 버튼을 클릭하여 프로젝트를 일시정지합니다.
 
 ## 프로젝트 활성화
 
@@ -59,7 +59,7 @@
 
     ![프로젝트 활성화 화면](../../assets/images/admin-guide/mold/projects/project-enable.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 프로젝트 활성화합니다.
+    * **확인** 버튼을 클릭하여 프로젝트를 활성화합니다.
 
 ## 프로젝트에 계정 추가
 

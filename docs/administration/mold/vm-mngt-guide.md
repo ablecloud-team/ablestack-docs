@@ -1,3 +1,4 @@
+
 # 가상머신 관리
 Mold는 클라우드에서 실행되는 모든 가상머신(VM)의 생명주기(lifecycle) 완벽하게 관리할 수 있는 권한을 제공합니다. Mold는 최종 사용자와 관리자를 위한 여러 관리 작업을 제공합니다. VM은 중지, 시작, 재부팅 및 삭제될 수 있습니다.
 
@@ -18,7 +19,7 @@ Mold는 클라우드에서 실행되는 모든 가상머신(VM)의 생명주기(
     Mold 관리자는 각 클러스터의 총 VM 인스턴스 수를 모니터링하고 총계가 하이퍼바이저가 처리할 수 있는 최대 값에 가까워지면 클러스터에 대한 할당을 제한하거나 재구성해야 합니다. 하나 이상의 호스트가 장애가 발생할 가능성을 고려하여 여유를 두어야 합니다. 이 경우 VM이 자동으로 재배치되므로 다른 호스트에서 VM로드가 증가합니다. 선택한 하이퍼바이저의 설명서를 참조하여 호스트당 허용되는 최대 VM 수를 찾은 다음 자원할당을 기본 제한으로 설정합니다. 클러스터의 VM 활동을 모니터링하여 호스트 장애를 허용하는 안전한 수준 이하로 총 VM 수를 유지합니다. 예를 들어 클러스터에 N 개의 호스트가 있고 클러스터에 의한 호스트가 주어진 시간에 다운되도록 허용하려는 경우 클러스터에서 허용할 수 있는 총 VM 인스턴스 수는 최대 (N-1 ) * (호스트당 제한). 클러스터가 이 VM 수에 도달하면 자원증설 혹은 재배치를 고려해야 합니다.
 
 ## VM lifecycle 관리
-사용자 VM은 다음과 같은 작업이 완료된 혹은 작업중인 상태가 표시됩니다. 
+사용자 VM은 다음과 같은 작업이 완료된 혹은 작업중인 상태가 표시됩니다.
 
 - 작업이 완료된 상태
     - Created : 생성완료
@@ -414,7 +415,7 @@ VMware 템플릿은 OVF 설명자 파일에서 다양한 배포 옵션을 제공
 
 ## 가상 머신 관리 해제
 <H3>관리되지 않는 가상 머신 정보</H3>
-Mold에는 관리되지 않는 가상 머신의 개념이 있습니다. 이들은 Mold 관리 호스트에 있지만 Mold의 데이터베이스에 없는 가상머신이므로 Mold는 어떤 식으로든 제어(관리)할 수 없습니다. 
+Mold에는 관리되지 않는 가상 머신의 개념이 있습니다. 이들은 Mold 관리 호스트에 있지만 Mold의 데이터베이스에 없는 가상머신이므로 Mold는 어떤 식으로든 제어(관리)할 수 없습니다.
 
 Mold는 listUnmanagedInstances API 명령을 통해 이러한 VM을 나열한 다음 importUnmanagedInstance API를 통해 관리되지 않는 VM을 가져와 (수집이라고도 함) Mold 관리 게스트 인스턴스가 되도록 할 수 있습니다.
 
@@ -501,26 +502,26 @@ Mold에 호스트/클러스터의 Mold에서 관리하지 않는 인스턴스를
 ```
 - clusterid
 - hostid
-- name 
-- osdisplayname 
-- memory 
+- name
+- osdisplayname
+- memory
 - powerstate
-- cpuCoresPerSocket 
-- cpunumber 
-- cpuspeed 
-- disk 
-   - id 
+- cpuCoresPerSocket
+- cpunumber
+- cpuspeed
+- disk
+   - id
    - capacity (바이트)
-   - controller 
-   - controllerunit 
+   - controller
+   - controllerunit
    - imagepath
    - position
-- NIC 
-   - id 
+- NIC
+   - id
    - macaddress
    - networkname
-   - vlanid 
-   - pcislot 
+   - vlanid
+   - pcislot
    - adaptertype (가능한 경우)
    - ipaddress (VMware 도구가 인스턴스에서 실행 중인 경우에만 반환됩니다.)
 ```
@@ -530,11 +531,11 @@ Mold에 호스트/클러스터의 Mold에서 관리하지 않는 인스턴스를
 ```
 - 클러스터 ID (클러스터의 Mold UUID)
 - 이름 (vSphere 인스턴스 이름)
-- 표시 이름 
-- 호스트 이름 
+- 표시 이름
+- 호스트 이름
 - 계정 (가상 머신에 대한 옵션 계정 이름이 domainid 매개 변수와 함께 사용할 수 있어야 합니다)
 - domainid (가상 머신에 대한 옵션 도메인 ID는 계정 매개 변수와 함께 사용해야 합니다.)
-- projectid 
+- projectid
 - templateId
 - serviceofferingid
 - nicnetworklist (NIC ID 용 맵 및 해당 네트워크 UUID)
@@ -1011,8 +1012,7 @@ Mold는 아래 작업 순서에 따라 VM에 대한 GPU/vGPU 지원을 제공합
     * VM을 배포합니다.<br/>적절한 서비스 제공을 선택하여 GPU / vGPU를 지원하는 VM을 배포합니다. Mold는 다음 기준에 따라 VM 배포를 위해 선택할 호스트를 결정합니다.
         * 호스트에는 GPU 카드가 있습니다. vGPU의 경우 Mold는 카드에 필요한 vGPU 유형 지원과 사용 가능한 충분한 용량이 있는지 확인합니다. 적절한 호스트가 없으면 InsufficientServerCapacity 예외가 발생합니다.
         * 또는 GPU 지원 없이 VM을 배포하도록 선택할 수 있으며 나중에 시스템 제품을 변경할 수 있습니다. 오프라인 업그레이드로 이를 달성할 수 있습니다. VM을 중지하고 서비스 제공을 vGPU가 있는 서비스로 업그레이드한 다음 VM을 시작합니다. 이 경우 Mold는 VM을 호스팅하기에 충분한 용량이 있는 호스트 목록을 가져옵니다. GPU 지원 호스트가 있는 경우 Mold는 이 호스트 목록을 재정렬하고 GPU 지원 호스트를 목록 맨 아래에 배치합니다.
-    
+
     * VM을 마이그레이션합니다.<br/>Mold는 GPU 요구 사항을 충족하는 VM 마이그레이션에 사용할 수 있는 호스트를 검색합니다. 호스트를 사용할 수 있는 경우 현재 호스트에서 VM을 중지하고 VM 마이그레이션 작업을 수행합니다. VM 마이그레이션이 성공하면 나머지 GPU 용량이 그에 따라 두 호스트 모두에 대해 업데이트됩니다.
 
     * VM을 제거합니다.<br/>VM을 중지하면 GPU 리소스가 자동으로 해제됩니다. VM 제거가 성공하면 Mold는 호스트에 리소스를 호출하여 카드의 남은 GPU 용량을 가져오고 그에 따라 데이터베이스를 업데이트합니다.
-    

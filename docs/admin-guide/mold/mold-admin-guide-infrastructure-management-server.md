@@ -2,7 +2,7 @@
 # 관리 서버
 
 ## 개요
-관리 서버는 ABLESTACK 클라우드 인프라의 중앙 관리 서버로, 클라우드 자원(가상 머신, 네트워크 등)을 관리하고 사용자 요청을 처리합니다. 관리 서버는 리소스를 할당하고 상태를 모니터링하며, 장애 발생 시 알림을 제공합니다. 또한 네트워크와 보안 설정, API 처리, 서비스 배포를 담당하며 클라우드 환경의 효율적인 운영을 지원합니다. Management Server는 데이터베이스와 연동하여 클라우드 환경의 상태 정보를 저장하고 관리합니다.
+관리 서버는 ABLESTACK 클라우드 인프라의 중앙 관리 서버로, 클라우드 자원(가상 머신, 네트워크 등)을 관리하고 사용자 요청을 처리합니다. 관리 서버는 리소스를 할당하고 상태를 모니터링하며, 장애 발생 시 알림을 제공합니다. 또한 네트워크와 보안 설정, API 처리, 서비스 배포를 담당하며 클라우드 환경의 효율적인 운영을 지원합니다. 관리 서버는 데이터베이스와 연동하여 클라우드 환경의 상태 정보를 저장하고 관리합니다.
 
 ## 목록 조회
 
@@ -20,12 +20,12 @@
 
     ![shutdown 준비 화면](../../assets/images/admin-guide/mold/infrastructure/management-server/prepare-for-shutdown.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 관리 서버를 Shutdown 준비합니다.
+    * **확인** 버튼을 클릭하여 관리 서버 Shutdown을 준비합니다.
 
 ## 안전 종료 트리거
 
 !!! warning
-    이 작업을 수행하면 Mold 서비스가 종료 됩니다. 재시작은 Cube에 접속하여 Mold를 시작하거나, systemctl start mold 명령을 통해 시작 가능합니다.
+    이 작업을 수행하면 Mold 서비스가 종료 됩니다. 재시작은 Cube에 접속하여 Mold를 시작하거나, 클라우드센터 VM 내에서 systemctl start mold 명령을 통해 시작 가능합니다.
 
 1. 관리 서버의 서비스를 정지시킵니다.
 
@@ -63,7 +63,7 @@
 
 ## 상세 탭
 
-1. 관리 서버에 대한 상세정보를 조회하는 화면입니다. 해당 관리 서버의 수집 시간, 사용 서버가 로컬에 설치됨, DB가 로컬에서 실행, 관리서버의 마지막 시작 시간, 관리서버의 마지막 정지 시간, 관리서버 시스템의 부팅 시간, 버전, 로그 파일 정보, 모든 코어의 전체 CPU 용량(MHz), 1, 5, 15분 로드 평균, 사용자, 시스템 및 Idle 주기, 전체 시스템 메모리, 사용 가능한 시스템 메모리, 가상 전체 프로세스 크기, 사용 가능한 프로세서 코어, Java Runtime 배포, Java Runtime Version, OS 배포, Kernel Version, 연결된 에이전트 수, Active 클라이언트 세션, 사용 Heap-memory, 사용가능 Heap-memory, 차단된 스레드, 실행 가능한 스레드, 전체 스레드 수, 대기 중인 스레드 등의 정보를 확인할 수 있습니다.
+1. 관리 서버에 대한 상세정보를 조회하는 화면입니다. 해당 관리 서버의 수집 시간, 사용 서버가 로컬에 설치됨, DB가 로컬에서 실행, 관리서버의 마지막 시작 시간, 관리서버의 마지막 정지 시간, 관리서버 시스템의 부팅 시간, 버전, 로그 파일 정보, 모든 코어의 전체 CPU 용량(MHz), 1-5-15분 로드 평균, 사용자, 시스템 및 Idle 주기, 전체 시스템 메모리, 사용 가능한 시스템 메모리, 가상 전체 프로세스 크기, 사용 가능한 프로세서 코어, Java Runtime 배포, Java Runtime Version, OS 배포, Kernel Version, 연결된 에이전트 수, Active 클라이언트 세션, 사용 Heap-memory, 사용가능 Heap-memory, 차단된 스레드, 실행 가능한 스레드, 전체 스레드 수, 대기 중인 스레드 등의 정보를 확인할 수 있습니다.
 
     ![management server 상세 탭](../../assets/images/admin-guide/mold/infrastructure/management-server/management-server-detail-tab.png){ .imgCenter .imgBorder }
 
@@ -105,6 +105,6 @@
 
 ## 코멘트 탭
 
-1. 관리 서버에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 가상 라우터에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
+1. 관리 서버에 관련된 코멘트 정보를 확인하는 화면입니다. 각 사용자별로 해당 관리 서버에 대한 코멘트 정보를 조회 및 관리할 수 있는 화면입니다.
 
     ![관리 서버 코멘트 탭](../../assets/images/admin-guide/mold/infrastructure/management-server/management-server-comments-tab.png){ .imgCenter .imgBorder }

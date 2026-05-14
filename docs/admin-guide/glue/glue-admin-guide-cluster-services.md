@@ -1,3 +1,4 @@
+
 # 서비스
 
 ## 개요
@@ -54,4 +55,3 @@
     ![서비스 삭제2](../../assets/images/admin-guide/glue/cluster/service/glue-service-delete-2.png){ .imgCenter .imgBorder }
     - 삭제 대상 서비스를 다시 한번 확인하신 후, **예,확실합니다.** 버튼을 클릭하여 삭제를 진행해 주세요.
     - **Delete 서비스** 를 클릭합니다.
-    

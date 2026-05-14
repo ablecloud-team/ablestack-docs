@@ -1,3 +1,4 @@
+
 ABLESTACK Mold를 이용한 **이중화를 통한 고가용성 기능을 제공하는 리눅스 기반의 3계층 구조** 의 [구성 단계](../3tiers-linux-guide-prepare#_4){:target="_blank"} 중, 세 번째 단계인 DB 구성에 대한 문서입니다.
 
 MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 클러스터(Galera Cluster)를 활용하여 3개의 DB 가상머신을 한 클러스터로 이중화 구성하는 방법은 다음과 같은 절차로 수행됩니다.
@@ -17,7 +18,7 @@ MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 �
 
 - 이름 : 서브넷을 분별할 수 있는 Affinity 그룹 이름을 입력합니다.
 - 설명 : Affinity 그룹에 대한 설명을 입력합니다.
-- 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다. 
+- 유형 : Affinity 그룹에 대한 유형을 선택합니다. Anti 여부를 선택할 수 있습니다.
 
 새 Affinity 그룹 추가 대화상자에서의 입력 항목 예시는 다음과 같습니다.
 
@@ -30,18 +31,18 @@ MariaDB를 구성하고 동기방식으로 데이터를 복제하는 갈레라 �
 
     host affinity: 가능한 한 동일한 호스트에 인스턴스를 배포합니다.
 
-    * Non-Strict 옵션은 마지막으로 해당 가상머신을 실행했던 호스트를 고려하지 않고 가상머신을 시작합니다. 
+    * Non-Strict 옵션은 마지막으로 해당 가상머신을 실행했던 호스트를 고려하지 않고 가상머신을 시작합니다.
 
 
 ## 가상머신 생성
 ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성하고 사용하는 것을 권장합니다. 따라서 가상머신을 생성하기 전에 먼저 "[가상머신 사용 준비](../../vms/centos-guide-prepare-vm.md){:target="_blank"}" 단계를 통해 CentOS 기반의 가상머신 템플릿 이미지를 생성하여 등록하는 절차를 수행한 후 가상머신을 생성해야 합니다.
 
 !!! note "갈레라 클러스터 구성에 필요한 노드 개수"
-    갈레라 클러스터가 안정적으로 동작하기 위해서는 **적어도 3개의 노드(가상머신)** 가 필요합니다. 3개 이상의 노드로 구성하여 **스플릿 브레인 (Split Brain)** 현상을 방지합니다. 이 현상은 2개의 노드로 클러스터를 구성했을 때 네트워크가 일시적으로 동시에 단절되거나 기타 시스템상의 이유로, 클러스터 상의 모든 노드들이 각자 자신이 Primary라고 인식하게 되는 상황을 뜻합니다. 
-    
+    갈레라 클러스터가 안정적으로 동작하기 위해서는 **적어도 3개의 노드(가상머신)** 가 필요합니다. 3개 이상의 노드로 구성하여 **스플릿 브레인 (Split Brain)** 현상을 방지합니다. 이 현상은 2개의 노드로 클러스터를 구성했을 때 네트워크가 일시적으로 동시에 단절되거나 기타 시스템상의 이유로, 클러스터 상의 모든 노드들이 각자 자신이 Primary라고 인식하게 되는 상황을 뜻합니다.
+
     스플릿 브레인 현상이 발생하면, 각 노드가 동시에 Primary가 되면서 이중 가동 현상이 발생하게 되는데 이 때 각 노드들은 동시에 스토리지에 접근하여 동기화 및 복제에 비정상 적인 트랜잭션이 발생할 수 있으며, 예상하지 못한 다양한 문제로 전체 서비스가 불능 상태에 빠질 수 있습니다. 이를 방지하기 위해 3개 이상의 노드로 클러스터를 구성하는 것을 권장합니다.
 
-가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다. 
+가상머신을 추가하기 위해 **컴퓨트 > 가상머신** 화면으로 이동하여 **가상머신 추가** 버튼을 클릭합니다. **새 가상머신** 마법사 페이지가 표시됩니다.
 해당 페이지에서는 **템플릿을 이용한 가상머신 생성** 문서를 참고하여 가상머신을 생성합니다.
 
 !!! info "템플릿을 이용한 가상머신 생성"
@@ -57,8 +58,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 데이터 디스크 : **100GB-WB-RBD** * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
     - 네트워크 : **db** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.3.11**
-    - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : 
+    - SSH 키 쌍 : **3tier_linux_keypair**
+    - 확장 모드 :
         - Affinity 그룹 :  **ablecloud-3tier-linux-db**
     - 이름 : **ablecloud-3tier-linux-db-01**
 
@@ -70,8 +71,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 데이터 디스크 : **100GB-WB-RBD** * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
     - 네트워크 : **db** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.3.12**
-    - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : 
+    - SSH 키 쌍 : **3tier_linux_keypair**
+    - 확장 모드 :
         - Affinity 그룹 :  **ablecloud-3tier-linux-db**
     - 이름 : **ablecloud-3tier-linux-db-02**
 
@@ -83,8 +84,8 @@ ABLESTACK Mold는 기본적으로 템플릿을 이용해 가상머신을 생성�
     - 데이터 디스크 : **100GB-WB-RBD** * MariaDB의 데이터가 저장되는 경로로 사용됩니다.
     - 네트워크 : **db** * VPC명이 일치하는지 확인합니다.
         - IP: **192.168.3.13**
-    - SSH 키 쌍 : **3tier_linux_keypair** 
-    - 확장 모드 : 
+    - SSH 키 쌍 : **3tier_linux_keypair**
+    - 확장 모드 :
         - Affinity 그룹 :  **ablecloud-3tier-linux-db**
     - 이름 : **ablecloud-3tier-linux-db-03**
 
@@ -127,22 +128,22 @@ fdisk /dev/sdb
 ```
 
 **n** 을 입력하여 새로운 파티션을 생성하고 **p** 를 입력하여 주 파티션으로 선택합니다.
-``` linenums="1" 
+``` linenums="1"
 Command (m for help): n
 Partition type:
    p   primary (0 primary, 0 extended, 4 free)
    e   extended
-Select (default p): 
+Select (default p):
 ```
 
 파티션 번호를 설정하는 단계입니다. 기본 값인 **1** 을 입력하거나 엔터로 넘어갈 수 있습니다.
 ``` linenums="1"
-Partition number (1-4, default 1): 
+Partition number (1-4, default 1):
 ```
 
 시작할 섹터를 지정할 수 있습니다. 기본 값을 입력하거나 엔터로 넘어갈 수 있습니다.
 ``` linenums="1"
-First sector (2048-143305919, default 2048): 
+First sector (2048-143305919, default 2048):
 Using default value 2048
 ```
 
@@ -160,7 +161,7 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-`fdisk -l` 명령어 실행하여 변경된 파티션 정보를 확인합니다. 
+`fdisk -l` 명령어 실행하여 변경된 파티션 정보를 확인합니다.
 ``` linenums="1"
 fdisk -l
 ```
@@ -180,35 +181,35 @@ Device     Boot Start       End   Sectors Size Id Type
 ```
 
 `mkfs` 명령어를 이용하여 `/dev/sdb1` 파티션에 xfs 파일 시스템을 생성합니다.
-``` linenums="1" 
+``` linenums="1"
 mkfs.xfs /dev/sdb1
 ```
 
 정상적으로 파일 시스템이 생성되었는지 `fsck -N`  명령어를 통해 확인합니다.
-``` linenums="1" 
+``` linenums="1"
 fsck -N /dev/sdb1
 ```
 
 xfs 파일 시스템이 있는 것을 확인할 수 있습니다.
-``` linenums="1" 
+``` linenums="1"
 fsck from util-linux 2.37.4
 [/usr/sbin/fsck.xfs (1) -- /dev/sdb1] fsck.xfs /dev/sdb1
 ```
 
 `/dev/sdb1` 파티션을 `/mnt/data` 경로에 마운트를 적용합니다. 마운트할 경로에 폴더가 없다면 먼저 생성한 후 적절한 권한을 부여한 후 마운트를 적용합니다.
-``` linenums="1" 
+``` linenums="1"
 mkdir /mnt/data
 chmod -R 1777 /mnt/data
 mount /dev/sdb1 /mnt/data
 ```
 
 정상 적으로 마운트가 적용되었는지 확인합니다.
-``` linenums="1" 
+``` linenums="1"
 mount | grep "sdb1"
 ```
 
 `/mnt/data`에 적상적으로 마운트 적용된 것을 확인할 수 있습니다.
-``` linenums="1" 
+``` linenums="1"
 /dev/sdb1 on /mnt/data type xfs (rw,relatime,seclabel,attr2,inode64,logbufs=8,logbsize=32k,noquota)
 ```
 
@@ -226,11 +227,11 @@ mount | grep "sdb1"
 ???+ note
     DB 가상머신 1, 2, 3에 대해 실행 및 설정을 적용합니다.
 
-### 네트워크 방화벽 해제 
+### 네트워크 방화벽 해제
 방화벽은 들어오고 나가는 네트워크 트래픽을 모니터링하고 필터링하는 방법입니다. 특정 트래픽을 허용할지 차단할지 결정하는 일련의 보안 규칙을 정의하여 작동합니다.
 CentOS 운영체제에서는 firewald라는 이름의 방화벽 데몬과 함께 해당 기능이 제공됩니다.
 
-`firewall-cmd` 명령어를 이용하여 galera 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다. 
+`firewall-cmd` 명령어를 이용하여 galera 서비스에 대한 방화벽을 해제하고 `--permanent` 옵션을 사용하여 영구적으로 적용합니다.
 ```
 firewall-cmd --zone=public --permanent --add-service=galera
 firewall-cmd --reload
@@ -294,7 +295,7 @@ systemctl start mariadb.service
 ### MariaDB 보안 설정
 MariaDB 서비스를 시작한 후 아래의 명령어를 통해 MariaDB의 초기 권한 설정을 시작합니다.
 
-``` linenums="1" 
+``` linenums="1"
 mariadb-secure-installation
 ```
 
@@ -313,7 +314,7 @@ mariadb-secure-installation
     You already have your root account protected, so you can safely answer 'n'.
     Switch to unix_socket authentication [Y/n] Y  [MariaDB 실행 시 통신 소켓 생성 여부를 선택합니다. Y를 선택합니다.]
 
-    
+
 
     Enabled successfully!
     Reloading privilege tables..
@@ -377,15 +378,15 @@ mariadb-secure-installation
 
 외부에서 DB에 접속 가능하도록 아래의 쿼리를 통해 설정합니다.
 
-`mariadb -u root -p` 명령어를 실행한 후 패스워드를 입력하여 MariaDB에 접속합니다. 
-``` 
+`mariadb -u root -p` 명령어를 실행한 후 패스워드를 입력하여 MariaDB에 접속합니다.
+```
 mariadb -u root -p
 
 Enter password: 패스워드 입력
 ```
 
 모든 DB 및 테이블에 대한 접근권한을 설정합니다. 보안을 위해 특정 IP 대역 접근만을 허용합니다.
-``` 
+```
 MariaDB [(none)]> use mysql;
 MariaDB [(none)]> grant all privileges on *.* to 'root'@'192.168.%.%'identified by '패스워드 입력';
 MariaDB [(none)]> flush privileges;
@@ -395,7 +396,7 @@ MariaDB [(none)]> flush privileges;
 추가한 데이터 디스크로 DB 폴더를 변경하기 위해 먼저 기존 DB data 폴더 경로를 확인합니다.
 
 MariaDB에 접속합니다.
-``` 
+```
 mariadb -u root -p
 
 Enter password: 패스워드 입력
@@ -403,17 +404,17 @@ Enter password: 패스워드 입력
 
 DB data 경로를 확인합니다.
 
-``` 
+```
 MariaDB [(none)]> select @@datadir;
 ```
 
 MariaDB에서 로그아웃한 후 MariaDB 서비스를 정지합니다.
-``` 
+```
 systemctl stop mariadb
 ```
 
 새로운 Data 디렉토리에 데이터를 복사합니다. 현 예시에서는 경로가 `/var/lib/mysqld`에서 `/mnt/data/mysql` 로 변경합니다.
-``` 
+```
 rsync -av /var/lib/mysql /mnt/data/
 chown -R mysql:mysql /mnt/data/mysql
 ```
@@ -430,23 +431,23 @@ socket=/mnt/data/mysql/mysql.sock
 ```
 
 SELinux 보안 설정 및 context 추가
-``` 
+```
 semanage fcontext -a -t mysqld_db_t "/mnt/data/mysql(/.*)?"
 restorecon -R /mnt/data/mysql
 ```
 
 MariaDB 서비스를 시작합니다.
-``` 
+```
 systemctl restart mariadb
 ```
 
 MariaDB에 접속한 후 변경된 DB data 경로를 확인합니다.
-``` 
+```
 MariaDB [(none)]> select @@datadir;
 ```
 
 경로가 정상적으로 변경되었다면 기존 data 폴더를 삭제합니다.
-``` 
+```
 rm -R /var/lib/mysql
 ```
 
@@ -457,7 +458,7 @@ MariaDB는 기존의 Replication 방식이 아닌 Galera를 이용한 클러스�
 MariaDB에서 제공하는 Galera Cluster를 사용하기 위해 아래의 절차를 통해 설정합니다.
 
 MariaDB 서비스를 중지합니다.
-``` 
+```
 systemctl stop mariadb.service
 ```
 
@@ -494,8 +495,8 @@ Galera Cluster의 모든 DB Node들이 Master DB(Primery)의 역활을 하지만
 galera_new_cluster
 ```
 
-???+ Warning 
-    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. Donor Node인 가상머신이 가장 먼저 시작되어야 합니다. 
+???+ Warning
+    DB 가상머신의 시작 순서에 유의하여 아래 명령어를 실행합니다. Donor Node인 가상머신이 가장 먼저 시작되어야 합니다.
 
 DB 가상머신 2와 3의 MariaDB 서비스를 시작합니다.
 ```
@@ -514,7 +515,7 @@ Enter password: 패스워드 입력
 ```
 MariaDB [(none)]> show variables like 'wsrep_cluster_address';
 ```
-출력된 결과 값을 확인합니다. 
+출력된 결과 값을 확인합니다.
 
 ```
 +-----------------------+--------------------------------------------------+
@@ -550,29 +551,29 @@ MariaDB [(none)]> create table testdb.member
         2. 동일 노드에서 `systemctl start mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
 
     - Donor 노드 또는 클러스터 전체에 장애 발생한 경우
-    
+
         1. grastate.dat 확인
-            - "seqno" 값이 가장 높고 "safe_to_bootstrap" 값이 "1"인 노드가 가장 마지막에 종료된 노드이므로 이 노드를 Donor로 설정하고 복구를 진행합니다. 모든 노드의 safe_to_bootstrap값이 -1로 동일하면 하나의 노드를 특정하여 1로 수정합니다. 
+            - "seqno" 값이 가장 높고 "safe_to_bootstrap" 값이 "1"인 노드가 가장 마지막에 종료된 노드이므로 이 노드를 Donor로 설정하고 복구를 진행합니다. 모든 노드의 safe_to_bootstrap값이 -1로 동일하면 하나의 노드를 특정하여 1로 수정합니다.
             ```
             $ cat /mnt/data/mysql/grastate.dat
 
             # GALERA saved state
             version: 2.1
             uuid:    UUID값
-            seqno:   -1 => 0 으로 수정                     
+            seqno:   -1 => 0 으로 수정
             safe_to_bootstrap: 0 => 1 (Doner 노드일 경우), 0 (Joner 노드일 경우)
             ```
         2. Galera Cluster 재시작
              - 복구 기준이 되는 노드(새로운 Donor Node)에서 `galera_new_cluster` 명령으로 Galera Cluster를 재시작합니다.
-             - 복구 기준이 되는 Donor노드가 가장 앞에 오도록 모든 Node의 `server.cnf`의  `wsrep_cluster_address` IP 주소 값의 순서를 변경합니다. 
+             - 복구 기준이 되는 Donor노드가 가장 앞에 오도록 모든 Node의 `server.cnf`의  `wsrep_cluster_address` IP 주소 값의 순서를 변경합니다.
                 ```
                 $ cat /etc/my.cnf.d/server.cnf
                 ...
                 wsrep_cluster_address = gcomm://192.168.3.13(새로운 Donor Node), 192.168.3.12, 192.168.3.11
                 ...
-                ``` 
+                ```
              - 나머지 각 노드에서 `systemctl restart mariadb.service` 명령으로 Mariadb 서비스를 다시 시작합니다.
-    
+
     "grastate.dat" 파일에서의 uuid 값이 0000000 일 경우에는 `--wsrep-cluster-address` 옵션을 실행하여 노드가 현재 클러스터에 대한 연결을 닫고 새 주소에 다시 연결하도록 합니다. 사용 예시는 아래와 같습니다.
     ```
     mysqld -u root --wsrep-cluster-address='gcomm://192.168.3.11,192.168.3.12,192.168.3.13'
@@ -581,7 +582,7 @@ MariaDB [(none)]> create table testdb.member
 
 ## 로드 밸런서(부하 분산) 설정
 Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당 서브넷 내의 여러 가상머신간에 부하 분산되도록 규칙을 만들 수 있습니다. 예를 들어 DataBase 계층에 도달한 트래픽은 해당 DB 서브넷의 다른 가상머신으로 리디렉션됩니다.
-로드 밸런서를 설정하면 Health Check를 통해 장애 여부를 판단하고 노드에 이상이 발생하면 다른 정상 동작중인 노드로 트래픽을 보내주는 Fail-over가 가능합니다. 
+로드 밸런서를 설정하면 Health Check를 통해 장애 여부를 판단하고 노드에 이상이 발생하면 다른 정상 동작중인 노드로 트래픽을 보내주는 Fail-over가 가능합니다.
 내부 로드 밸런서 규칙 생성을 위해 아래 문서를 참고합니다.
 
 !!! info "내부 로드 밸런서 규칙 생성"
@@ -592,9 +593,9 @@ Mold 사용자 또는 관리자는 서브넷에서 수신된 트래픽을 해당
 - 이름 : **db-lb**
 - 설명 : **DataBase의 내부 로드 밸런서입니다.**
 - 소스 IP 주소 : **192.168.3.26**
-- 소스 포트 : **3306** 
-- 가상머신 포트 : **3306** 
-- 알고리즘 : **최소 접속** 
+- 소스 포트 : **3306**
+- 가상머신 포트 : **3306**
+- 알고리즘 : **최소 접속**
 
 생성된 내부 로드 밸런서 규칙을 선택한 후, **가상머신 할당** 버튼을 클릭하여 DB 가상머신을 할당합니다.
 

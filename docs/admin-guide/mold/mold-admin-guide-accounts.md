@@ -12,7 +12,7 @@
 
 ## 계정 추가
 
-1. 계정 추가 버튼 클릭 하여 계정 추가 팝업을 호출합니다.
+1. 계정 추가 버튼을 클릭하여 계정 추가 팝업을 호출합니다.
 
     ![accounts 추가 버튼](../../assets/images/admin-guide/mold/accounts/accounts-add-btn.png){ .imgCenter .imgBorder }
 
@@ -23,7 +23,7 @@
     * **역할:** 역할을 선택합니다.
     * **사용자 이름:** 사용자 이름을 입력합니다.
     * **비밀번호:** 비밀번호를 입력합니다.
-    * **비밀번호 확인 입력:** 비밀번호 확인 입력을 입력합니다.
+    * **비밀번호 확인 입력:** 비밀번호을 다시 입력합니다.
     * **이메일:** 이메일을 입력합니다.
     * **이름:** 이름을 입력합니다.
     * **성:** 성을 입력합니다.
@@ -53,12 +53,12 @@
 
     ![리소스 수 업데이트 화면](../../assets/images/admin-guide/mold/accounts/accounts-resource-update.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 리소스 수 업데이트합니다.
+    * **확인** 버튼을 클릭하여 리소스 수를 업데이트합니다.
 
 ## 계정 비활성화
 
 !!! warning
-    해당 계정의 모든 사용자가 클라우드 리소스에 접근 할 수 없게 됩니다. 실행중인 모든 가상머신은 바로 종료 됩니다.
+    해당 계정의 모든 사용자가 클라우드 리소스에 접근 할 수 없게 됩니다. 실행 중인 모든 가상머신은 바로 종료 됩니다.
 
 1. 해당 계정을 비활성화합니다.
 
@@ -85,9 +85,9 @@
 ## 계정 잠금
 
 !!! warning
-    해당 계정의 모든 사용자가 클라우드 리소스를 관리할 수 없게 됩니다. 그 후도 기존 Zone 리소스에는 접근 할 수 있습니다.
+    해당 계정의 모든 사용자가 클라우드 리소스를 관리할 수 없게 됩니다. 그 후에도 기존 Zone 리소스에는 접근 할 수 있습니다.
 
-1. 해당 계정을 잠금 설정니다.
+1. 해당 계정을 잠금 설정합니다.
 
     ![계정 잠금 버튼](../../assets/images/admin-guide/mold/accounts/accounts-lock-btn.png){ .imgCenter .imgBorder }
 
@@ -139,11 +139,11 @@
 
     ![계정 구성제한 탭](../../assets/images/admin-guide/mold/accounts/account-limits-tab1.png){ .imgCenter .imgBorder }
 
-    * 자원 할당 수를 확인 하거나 변경합니다.
+    * 자원 할당 수를 확인하거나 변경합니다.
 
     ![계정 구성제한 탭](../../assets/images/admin-guide/mold/accounts/account-limits-tab2.png){ .imgCenter .imgBorder }
 
-    * **보내기** 버튼을 클릭하여 구성 제한을 편경합니다.
+    * **보내기** 버튼을 클릭하여 구성 제한을 변경합니다.
 
 ## 인증서 탭
 
@@ -163,7 +163,7 @@
 
     ![계정 설정 편집](../../assets/images/admin-guide/mold/accounts/accounts-setting-update-btn.png){ .imgCenter .imgBorder }
 
-    * 설정 값을 수정후 확인 버튼을 클릭하여 해당 계정에 설정 값을 변경합니다.
+    * 설정 값을 수정 후 확인 버튼을 클릭하여 해당 계정에 설정 값을 변경합니다.
 
 ### 기본값으로 재설정
 

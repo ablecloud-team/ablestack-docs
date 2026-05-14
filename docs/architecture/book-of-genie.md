@@ -1,3 +1,4 @@
+
 Genie는 개발형 하이브리드 클라우드 배포 자동화 플랫폼으로, ABLESTACK에 대한 자동화 뿐 아니라 퍼블릭/프라이빗 클라우드 환경에 대한 자동화 기능을 제공합니다.
 
 Genie는 범용 언어를 기반으로 수행되는 자동화 도구로, 어려운 작업을 반복적으로 수행할 수 있도록 미리 생성한 플레이북을 기반으로 에이전트 없이 버튼 하나만 누르면 전사적으로 가상머신, 컨테이너, 네트워크, 애플리케이션 등을 배포할 수 있습니다.
@@ -29,7 +30,7 @@ Genie는 다음과 같은 주요 특징을 보유하고 있습니다.
 
 Genie는 자동화 플랫폼으로, ABLESTACK Mold로 구성된 가상화 서비스에서 오토메이션 서비스를 제공할 수 있습니다. Mold에서 오토메이션 서비스를 활성화 시키고, Mold를 통하여 오토메이션 컨트롤러를 계정별로 배포할 수 있습니다. 배포된 오토메이션 컨트롤러에 내장된 Genie 대시보드를 이용하여 ABLESTACK의 자동화 기능을 이용할 수 있습니다.
 
-Genie의 아키텍처는 다음과 같습니다. 
+Genie의 아키텍처는 다음과 같습니다.
 
 <center>
 ![genie-architecture-1](../assets/images/genie-architecture-1.png)
@@ -46,6 +47,3 @@ Genie 사용자는 Mold에서 생성한 오토메이션 컨트롤러의 대시�
 <center>
 ![genie-dashboard](../assets/images/genie-dashboard.png)
 </center>
-
-
-

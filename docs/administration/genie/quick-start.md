@@ -1,18 +1,19 @@
+
 # Genie Quick Start
 
 ## Genie 템플릿
-템플릿은 플레이북과 이를 실행하는데 필요한 리소스들의 집합입니다. 
+템플릿은 플레이북과 이를 실행하는데 필요한 리소스들의 집합입니다.
 템플릿을 생성하려면 인증 정보, 프로젝트, 인벤토리, 호스트를 사전에 생성해야 합니다.
 
 ABLESTACK Genie에서는 이러한 구성요소들과 템플릿을 자동으로 생성할 수 있습니다.
 
-왼쪽 메뉴에서 **템플릿** 을 클릭하여 페이지에 액세스합니다. 
+왼쪽 메뉴에서 **템플릿** 을 클릭하여 페이지에 액세스합니다.
 ![genie-templates-info](../../assets/images/genie-templates-info.png)
 
  **"Genie 템플릿 리스트 불러오기 및 업데이트"** 템플릿을 "시작" 버튼을 클릭하여 실행합니다. 이 템플릿은 Genie 서비스를 이용하기 위해 ABLESTACK에서 제공하는 자동화 템플릿을 불러옵니다. 또한, 다시 실행하게 되면 템플릿에 변경사항이 있을 경우 업데이트됩니다.
 ![genie-templates-auto-deployment](../../assets/images/genie-templates-auto-deployment.png)
 
-템플릿이 시작되면 **작업** 메뉴의 출력화면으로 전환되며 실행 중인 템플릿에 대한 실행 정보 및 로그를 실시간으로 확인할 수 있습니다. 
+템플릿이 시작되면 **작업** 메뉴의 출력화면으로 전환되며 실행 중인 템플릿에 대한 실행 정보 및 로그를 실시간으로 확인할 수 있습니다.
 ![genie-templates-auto-deployment-log](../../assets/images/genie-templates-auto-deployment-log.png)
 
 정상적으로 작업이 종료된 후 추가된 템플릿을 볼 수 있습니다. 또한 각 리소스 메뉴에서 인증 정보, 프로젝트, 인벤토리, 호스트를 확인할 수 있습니다.
@@ -27,7 +28,7 @@ ABLESTACK Genie에서 기본 제공되는 템플릿은 애플리케이션 배포
 !!! important
     배포 작업을 실행하기 전, Mold에 아래와 같은 이름과 조건으로 생성된 요소가 **반드시 준비** 되어야 합니다.
 
-    **VM 탬플릿** : 
+    **VM 탬플릿** :
     ```
     이름: Rocky-9-cloudinit
     OS: Rocky-9.2
@@ -74,4 +75,3 @@ ABLESTACK Genie에서 기본 제공되는 템플릿은 애플리케이션 배포
 ![genie-templates-destory-result-2](../../assets/images/genie-templates-destory-result-2.png)
 
 배포된 서비스가 석제 되었습니다.
-

@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2025 ABLECLOUD Co. Ltd.
+# Copyright (c) 2021-2026 ABLECLOUD Co. Ltd.
 
 # 이 파일은 Mold Docs의 도큐먼트 설정 및 테마 설정을 위한 설정 파일입니다.
 # 최초 작성일 : 2021. 03. 18
@@ -13,7 +13,7 @@ repo_name: ablecloud-team/ablestack-docs
 repo_url: https://github.com/ablecloud-team/ablestack-docs
 
 # Copyright
-copyright: Copyright &copy; 2021-2025 ABLECLOUD Co. Ltd.
+copyright: Copyright &copy; 2021-2026 ABLECLOUD Co. Ltd.
 
 validation:
   absolute_links: ignore
@@ -209,6 +209,7 @@ nav:
         - Mold 설치 가이드: getting-started/install-guide-general-virtualization-mold.md
         - Wall 설치 가이드: getting-started/install-guide-general-virtualization-wall.md
       - ABLESTACK VM 구성관리:
+        - 호스트 추가 가이드 : getting-started/install-guide-general-virtualization-host-add.md
         - CLVM 관리 가이드: getting-started/install-guide-general-virtualization-clvm-disk-management.md
         - GFS 관리 가이드: getting-started/install-guide-general-virtualization-gfs-disk-management.md
     - ABLESTACK STANALONE 설치 가이드:
@@ -217,6 +218,13 @@ nav:
         - Cube 설치 가이드: getting-started/install-guide-standalone-cube.md
         - Mold 설치 가이드: getting-started/install-guide-standalone-mold.md
         - Wall 설치 가이드: getting-started/install-guide-standalone-wall.md
+    - ABLESTACK HCI Filesystem 설치 가이드:
+      - 설치전 준비사항: getting-started/install-guide-hci-filesystem-overview.md
+      - 구성요소별 설치 가이드:
+        - Cube 설치 가이드: getting-started/install-guide-hci-filesystem-cube.md
+        - Glue 설치 가이드: getting-started/install-guide-hci-filesystem-glue.md
+        - Mold 설치 가이드: getting-started/install-guide-hci-filesystem-mold.md
+        - Wall 설치 가이드: getting-started/install-guide-hci-filesystem-wall.md
   - 관리 가이드:
     - Cube 가이드:
       - 개요: admin-guide/cube/cube-admin-guide-outline.md
@@ -266,6 +274,7 @@ nav:
       - 스토리지:
         - 볼륨: admin-guide/mold/mold-admin-guide-storage-volume.md
         - 스냅샷: admin-guide/mold/mold-admin-guide-storage-snapshot.md
+        - 백업: admin-guide/mold/mold-admin-guide-storage-backup.md
         - 버킷: admin-guide/mold/mold-admin-guide-storage-bucket.md
         - 공유 파일 시스템: admin-guide/mold/mold-admin-guide-storage-shared-file-system.md
       - 네트워크:
@@ -318,6 +327,7 @@ nav:
       - 서비스 오퍼링:
         - 컴퓨트 오퍼링: admin-guide/mold/mold-admin-guide-offerings-compute-offerings.md
         - 디스크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-disk-offerings.md
+        - 백업 오퍼링: admin-guide/mold/mold-admin-guide-offerings-backup-offerings.md
         - 시스템 오퍼링: admin-guide/mold/mold-admin-guide-offerings-system-offerings.md
         - 네트워크 오퍼링: admin-guide/mold/mold-admin-guide-offerings-network-offerings.md
         - VPC 오퍼링: admin-guide/mold/mold-admin-guide-offerings-vpc-offerings.md
@@ -325,6 +335,7 @@ nav:
         - 글로벌 설정: admin-guide/mold/mold-admin-guide-configration-global-settings.md
         - LDAP 구성: admin-guide/mold/mold-admin-guide-configration-ldap.md
         - OAuth 구성: admin-guide/mold/mold-admin-guide-configration-oauth.md
+        - 백업 저장소: admin-guide/mold/mold-admin-guide-configration-backup-repository.md
         - 하이퍼바이저 기능: admin-guide/mold/mold-admin-guide-configration-hypervisor-capability.md
         - 게스트 OS: admin-guide/mold/mold-admin-guide-configration-guest-os.md
         - 게스트 OS 매핑: admin-guide/mold/mold-admin-guide-configration-guest-os-hypervisor-mapping.md
@@ -384,7 +395,9 @@ nav:
       - 관리: administration/genie/management.md
       - 설정: administration/genie/configuration.md
     - ABLESTACK 시스템점검: administration/system-check.md
-    - ABLESTACK 시스템 재기동: administration/system-restart.md
+    - ABLESTACK 시스템 재기동:
+      - ABLESTACK HCI 재기동 절차: administration/system-restart-hci.md
+      - ABLESTACK VM 재기동 절차: administration/system-restart-vm.md
     # - Cube 가이드:
     #   - 개요:
     #     - 개요: admin-guide/cube/cube-admin-guide-outline.md
@@ -518,6 +531,7 @@ nav:
     - 도메인 활용 방안:
       # - 도메인 별 자원 분리 방안: userGuide/using-domain/using-domain-guide.md
       - 학과별 도메인 분리 방안: userGuide/using-domain/using-domain-guide.md
+    - ABLESTACK VM IP 변경 가이드: userGuide/change-ip/ablestack-vm-change-ip-guide.md
   - 릴리즈노트 :
     - Cerato : releaseNote/release-cerato.md
     - Bronto : releaseNote/release-note.md

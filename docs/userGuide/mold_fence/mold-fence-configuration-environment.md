@@ -1,3 +1,4 @@
+
 Linux 환경에서의 Pacemaker와 Mold fence agent를 이용한 Mysql 이중화를 구성 환경은 다음과 같으며 가상머신 사양과 IP 주소는 예시입니다.
 
 ### 가상머신 구성 정보

@@ -1,5 +1,6 @@
+
 # Kubernetes Cluster 생성
-ABLESTACK Mold 에서의 Kubernetes Cluster 생성 하는 가이드 입니다. 
+ABLESTACK Mold 에서의 Kubernetes Cluster 생성 하는 가이드 입니다.
 
 ## SSH 키 쌍 생성
 Mold 에서 생성된 Kubernetes Cluster Node 에는 계정과 비밀번호를 이용한 SSH 접속은 제한을 하고 있습니다.
@@ -8,7 +9,7 @@ Node에 직접 접속 하기 위해서는 SSH 키를 이용하여 접속해야 �
 1. **컴퓨트 > SSH 키 쌍** 으로 이동 후 **SSH 키 쌍 생성** 버튼을 클릭하여 SSH 키 생성 화면으로 이동합니다.
 
 2. 입력 항목을 입력 후 **확인** 버튼을 클릭 합니다.
-    
+
     ![kubernetes-guide-kubernetes-cluster-create-02](../../assets/images/kubernetes-guide-kubernetes-cluster-create-02.png){:class="imgCenter imgBorder"}
 
     - 이름 : SSH 생성 이름을 입력 합니다.
@@ -18,7 +19,7 @@ Node에 직접 접속 하기 위해서는 SSH 키를 이용하여 접속해야 �
 3. **다운로드** 버튼을 클릭하여 생성된 키를 다운로드 합니다.
 
     !!! warning
-        Mold 에서 생성된 SSH 키는 해당 화면에서만 클립보드 복사 또는 다운로드 기능을 제공 합니다. 
+        Mold 에서 생성된 SSH 키는 해당 화면에서만 클립보드 복사 또는 다운로드 기능을 제공 합니다.
         닫기 버튼을 클릭 후에는 다시 클립보드에 복사 또는 다운로드 기능을 제공하지 않습니다.
         또한 클립보드에 복사 또는 다운로드한 키를 분실한경우 가상머신 또는 Node에 접속이 제한될수 있습니다.
 

@@ -2,7 +2,7 @@
 # 시스템 VM
 
 ## 개요
-시스템 VM은 ABLESTACK 클라우드 환경의 관리 및 운영을 지원하는 가상 머신입니다. 주요 역할로는 가상머신에 원격 접속을 제공하는 Console Proxy VM, 템플릿 및 스냅샷을 관리하는 Secondary Storage VM이 있습니다.시스템 VM은 Zone이 활성화 되면 자동으로 생성되고, ABLESTACK 클라우드 인프라의 관리에 중요한 역할을 합니다.
+시스템 VM은 ABLESTACK 클라우드 환경의 관리 및 운영을 지원하는 가상 머신입니다. 주요 역할로는 가상머신에 원격 접속을 제공하는 Console Proxy VM, 템플릿 및 스냅샷을 관리하는 Secondary Storage VM이 있습니다. 시스템 VM은 Zone이 활성화 되면 자동으로 생성되고, ABLESTACK 클라우드 인프라의 관리에 중요한 역할을 합니다.
 
 ## 목록 조회
 
@@ -24,7 +24,7 @@
 
 ## 클립보드에 콘솔 URL 복사
 
-1. 시스템 VM의 콘솔에 접근할 수 있는 URL 복사할 수 있습니다.
+1. 시스템 VM의 콘솔에 접근할 수 있는 URL을 복사할 수 있습니다.
 
     ![system vms 클립보드에 콘솔 URL 복사](../../assets/images/admin-guide/mold/infrastructure/system-vms/system-vms-console-url-copy-btn.png){ .imgCenter .imgBorder }
 
@@ -66,7 +66,7 @@
 
 ## 시스템 VM 마이그레이션
 
-1. 시스템 VM 다른 호스트로 마이그레이션할 수 있습니다.
+1. 시스템 VM을 다른 호스트로 마이그레이션할 수 있습니다.
 
     ![시스템 VM 마이그레이션 버튼](../../assets/images/admin-guide/mold/infrastructure/system-vms/system-vms-migrate-btn.png){ .imgCenter .imgBorder }
 
@@ -79,7 +79,7 @@
 
 ## 진단 실행
 
-1. 시스템 VM이 ping, traceroute, arping 등 진단 실행할 수 있습니다.
+1. 시스템 VM이 ping, traceroute, arping 등 진단을 실행할 수 있습니다.
 
     ![진단 실행 버튼](../../assets/images/admin-guide/mold/infrastructure/system-vms/run-diagnostics-btn.png){ .imgCenter .imgBorder }
 
@@ -88,7 +88,7 @@
     ![진단 실행 화면](../../assets/images/admin-guide/mold/infrastructure/system-vms/run-diagnostics.png){ .imgCenter .imgBorder }
 
     * **호스트:** 호스트를 선택합니다.
-    * **확인** 버튼을 클릭하여 진단 실행합니다.
+    * **확인** 버튼을 클릭하여 진단을 실행합니다.
 
 ## 진단 가져오기
 
@@ -105,7 +105,7 @@
 
 ## 시스템 VM 패치
 
-1. 시스템 VM 패치하여 버전을 변경할 수 있습니다.
+1. 시스템 VM을 패치하여 버전을 변경할 수 있습니다.
 
     ![시스템 VM 패치 버튼](../../assets/images/admin-guide/mold/infrastructure/system-vms/patch-system-vm-btn.png){ .imgCenter .imgBorder }
 
@@ -114,12 +114,12 @@
     ![시스템 VM 패치 화면](../../assets/images/admin-guide/mold/infrastructure/system-vms/patch-system-vm.png){ .imgCenter .imgBorder }
 
     * **호스트:** 를 선택합니다.
-    * **확인** 버튼을 클릭하여 시스템 VM 패치합니다.
+    * **확인** 버튼을 클릭하여 시스템 VM을 패치합니다.
 
 ##  시스템 VM 삭제
 
 !!! info
-    시스템 VM을 삭제하더라도 Zone이 활성화 되어있으면 다시 생성합니다.
+    시스템 VM을 삭제하더라도 Zone이 활성화 되어있으면 다시 생성됩니다.
 
 1. 해당 시스템 VM를 삭제합니다.
 

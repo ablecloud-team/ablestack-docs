@@ -1,4 +1,5 @@
-두 가상머신에 Shared Volume을 LVM으로 구성한 후 Mysql-server를 각각 설치하고 DB의 데이터 경로를 Shared Volumed 경로로 변경합니다.  
+
+두 가상머신에 Shared Volume을 LVM으로 구성한 후 Mysql-server를 각각 설치하고 DB의 데이터 경로를 Shared Volumed 경로로 변경합니다.
 
 ==== [VM1, VM2 실행]
 - Mold에서 Shared Disk를 구성합니다.
@@ -24,7 +25,7 @@ mkfs.xfs -f /dev/able/lv_data
 
 LVM-activate를 등록할 때 해당 system_id를 사용하기 때문에 /etc/lvm/lvm.conf 구성 파일에서 system_id_source 구성 옵션을 uname 으로 설정합니다.
 ```
-vi /etc/lvm/lvm.conf 
+vi /etc/lvm/lvm.conf
 ```
 system-id 확인
 ```

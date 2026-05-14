@@ -1,3 +1,4 @@
+
 # 데이터 볼륨 가져오기
 
 ## 개요
@@ -32,4 +33,3 @@
     ![데이터 볼륨 가져오기 비관리 볼륨](../../assets/images/admin-guide/mold/tools/import-data-volumes/mold-admin-guide-tools-import-data-volumes-1-3.png){ .imgCenter .imgBorder }
     * 가상머신과 연결되지 않은 볼륨을 선택합니다.
     * 비관리 인스턴스 버튼을 클릭하여 관리 상태를 해제합니다.
-

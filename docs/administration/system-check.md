@@ -1,7 +1,8 @@
+
 # ABLESTACK 시스템 점검
  ABLESTACK HCI를 안정적으로 운영을 하기 위하서는 시스템에 대한 점검이 필요합니다.
  정기 혹은 비정기적인 점검을 통하여 시스템의 상태를 확인하여 장애를 미리 예방할 수 있으며, 자원에 대한 사용율을 확인하여 증설 혹은 재배치 계획등을 통하여 서비스의 연속성을 확보 할 수 있습니다
- 점검대상 및 방법은 다음과 같습니다. 
+ 점검대상 및 방법은 다음과 같습니다.
 
 ## 점검대상
 ABLESTACK은 다음과 같이 크게 5가지의 구성요소로 이루어져 있습니다.
@@ -25,7 +26,7 @@ ABLESTACK은 다음과 같이 크게 5가지의 구성요소로 이루어져 있
   - 전원 및 네크워크 케이블의 연결 상태 및 점등 여부를 육안으로 점검
 #### IPMI 원격 콘솔 접속을 통한 상태 점검
 
-  - 대시보드의 하드웨어 상태 점검 
+  - 대시보드의 하드웨어 상태 점검
 !!! tip
     IPMI 원격 콘솔은 하드웨어 벤더사 별로 제공되는 UI 및 정보는 상이 할 수 있습니다.
 
@@ -95,7 +96,7 @@ tmpfs                                 6.3G   48K  6.3G   1% /run/user/1000
 !!! info "Cell"
     Cell은 서버 가상화를 지원하는 가상화 하이퍼바이저 입니다.
     해당 구성 요소를 점검하기 위해서는 하이퍼바이저 상태 및 Process들이 정상인지 확인을 해야 합니다.
-#### 
+####
 
 
 ### Glue
@@ -112,14 +113,14 @@ tmpfs                                 6.3G   48K  6.3G   1% /run/user/1000
 ![ceph-health-ok-WebUI](../assets/images/ceph_health_ok_webUI.png)
 !!! result "상태확인"
     대시보드의 Cluster Status가 HEALTH_OK이면 클러스터의 전체 상태가 정상이라는 뜻이며 문제가 있을 경우에는 HEALTH_Warning 혹은 HEALTH_ERR라고 출력됩니다.
-    
+
 `CLI를 통하여 확인 하는 방법`
 : SCVM 가상머신에 접속 후 다음과 같이 명령어를 입력합니다
 
 ``` shell
-ceph -s 
+ceph -s
 ```
-``` 
+```
 [root@scvm1 ~]# ceph -s
   cluster:
     id:     b9c88c1e-92ad-11eb-8a92-00248158f481
@@ -138,12 +139,12 @@ ceph -s
 
   io:
     client:   4.4 KiB/s wr, 0 op/s rd, 0 op/s wr
-``` 
+```
 !!! result "상태확인"
     출력 결과에서 health의 값이 HEALTH_OK이면 클러스터의 전체 상태가 정상이라는 뜻이며 문제가 있을 경우에는 HEALTH_Warning 혹은 HEALTH_ERR라고 출력됩니다.
 
 #### OSD 상태 점검
-  
+
 OSD는 스토리지 클러스터를 구성하는 Disk로 각 OSD의 상태 및 사용율을 점검해야 합니다.
 확인하는 방법으로는 웹 UI를 통하여 상태를 확인하는 방법과 Glue 가상머신에 접속하여 명령어를 통해서 확인하는 방법이 있습니다
 웹 UI를 통하여 확인 하는 방법
@@ -161,9 +162,9 @@ OSD는 스토리지 클러스터를 구성하는 Disk로 각 OSD의 상태 및 �
 : SCVM 가상머신에 접속 후 다음과 같이 명령어를 입력합니다
 
 ``` shell
-ceph osd tree 
-``` 
-``` 
+ceph osd tree
+```
+```
 [root@scvm1 ~]# ceph osd tree
 ID  CLASS  WEIGHT    TYPE NAME       STATUS  REWEIGHT  PRI-AFF
 -1         10.47949  root default
@@ -186,7 +187,7 @@ ID  CLASS  WEIGHT    TYPE NAME       STATUS  REWEIGHT  PRI-AFF
 !!! result "상태확인"
     각 OSD별 Status가 `up` 상태이고 REWEIGHT가 `1.0` 일 경우 정상
 ``` shell
-ceph osd df 
+ceph osd df
 ```
 ```
 [root@scvm1 ~]# ceph osd df
@@ -224,8 +225,8 @@ CLI를 통하여 확인 하는 방법
 SCVM 가상머신에 접속 후 다음과 같이 명령어를 입력합니다
 
 ``` shell
-ceph df detail 
-``` 
+ceph df detail
+```
 ```
 [root@scvm1 ~]# ceph df detail
 --- RAW STORAGE ---
@@ -246,8 +247,8 @@ rbd                     2   32  155 GiB  155 GiB   34 KiB   41.25k  311 GiB  311
 
 SCVM 가상머신에 접속 후 다음과 같이 명령어를 입력 합니다.
 ``` shell
-ping -M do -s 8972 scvm2 
-``` 
+ping -M do -s 8972 scvm2
+```
 ```
 [root@scvm1 ~]# ping -M do -s 8972 scvm2
 PING scvm2 (***.***.***.***) 8972(9000) bytes of data.
@@ -282,14 +283,14 @@ rtt min/avg/max/mdev = 0.154/0.394/0.794/0.213 ms
 
             clock skew detected on scvm1, scvm2, scvm3
 
-            Monitor clock skew detected 
+            Monitor clock skew detected
     ```
     이와 같은 상태가 일정시간 지속이 되면 클러스터에 장애가 생길 수 있으며, NTP등의 설정을 확인하여 정상화 시켜야 합니다
 
 호스트 및 SCVM에 접속 후 다음과 같이 명령어를 입력합니다
 ``` shell
-timedatectl 
-``` 
+timedatectl
+```
 ```
 [root@scvm1 ~]# timedatectl
                Local time: 수 2021-04-07 16:12:49 KST
@@ -307,17 +308,17 @@ System clock synchronized: yes
     NTP는 기본적으로 인터넷을 통한 공인 NTP 서버를 사용하거나 별도로 구축된 내부 NTP를 사용합니다. 경우에 따라서 외부 통신과 단절되어있거나 내부 NTP 서버가 없을 경우 ABLECLOUD 자체에 NTP 서버를 구성하여 NTP 동기화를 구성합니다
 
 #### root(/) 영역 디스크 사용량 점검
-Glue 가상머신의 root(/) 디스트 영역에는 프로세스들의 로그 등이 기록 됩니다. 해당 영역에 사용공간이 있어야 프로세스들이 정상적으로 동작 됩니다 
+Glue 가상머신의 root(/) 디스트 영역에는 프로세스들의 로그 등이 기록 됩니다. 해당 영역에 사용공간이 있어야 프로세스들이 정상적으로 동작 됩니다
 !!! warning
     디스크 사용량이 70% 이상일 경우 클러스터의 상태가 warning 상태가 되며 다음과 같은 메시지가 출력됩니다.
     ``` shell
      health HEALTH_WARN
 
-            scvm1, scvm2, scvm3  is low on available space 
+            scvm1, scvm2, scvm3  is low on available space
     ```
     이와 같은 상태가 계속되어 사용량이 100%에 도달할 경우 클러스터에 장애가 발생 할 수 있으며, 데이터를 확인하여 공간을 확보하여야 합니다.
 
-다음과 같이 root(/)영역의 사용량을 확인하여 점검 할 수 있습니다 
+다음과 같이 root(/)영역의 사용량을 확인하여 점검 할 수 있습니다
 ``` shell
 df -h
 ```
@@ -341,11 +342,11 @@ tmpfs                                 6.3G   48K  6.3G   1% /run/user/1000
     루트(/) 영역이 100%가 되면 프로세스들의 로깅등이 동작하지 못하게되여 장애가 발생할 수 있습니다.
 
 !!! tip
-    ``` du -h --max-depth=1 ``` 
+    ``` du -h --max-depth=1 ```
 
     명령어를 통하여 각 디렉토리별 사용량을 확인하고 데이터를 정리할 수 있습니다.
 
- 
+
 ### Mold
 !!! info "Mold"
     Mold는 가상머신 관리 및 소프트웨어 정의 네트워크, 오케스트레이션 및 오토메이션을 제공하는 클라우드 플랫폼 입니다.
@@ -370,10 +371,3 @@ Cube 웹 UI에 접속하여 AblecStack 클러스터 상태를 확인합니다.
 
 #### SSVM(Secondary Stroage VM) 에이전트 상태가 disconnect 일 경우 확인 방법
 대시보드의 secondary storage 용량이 0으로 표기되며 연결이 안되는 경우에는 Secondary Storage VM에 접속해서 로그를 확인 후 조치를 취해야 합니다.
-
-
-
-
-
-
-

@@ -1,4 +1,5 @@
-본 문서에서는 ABLESTACK OO를 이용해 "OOOOOOOOO"를 구성하는 방법에 대해 설명합니다. 
+
+본 문서에서는 ABLESTACK OO를 이용해 "OOOOOOOOO"를 구성하는 방법에 대해 설명합니다.
 이를 위해 OOOOO를 구성하고 OOOOOO 구성에 필요한 OOO를 적용해아합니다.
 
 ## 아키텍처
@@ -24,7 +25,7 @@
     - WEB
         - CIDR: 192.168.1.0/16
         - 게이트웨이: 192.168.1.1
-- LB 
+- LB
     - DB
         - Public IP: 10.10.1.80:3306
     - WAS

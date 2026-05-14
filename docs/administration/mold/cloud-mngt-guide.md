@@ -1,3 +1,4 @@
+
 # Cloud 관리
 
 ## 태그를 사용하여 클라우드에서 리소스 구성
@@ -41,7 +42,7 @@ Mold는 하나 이상의 물리적 CPU 소켓을 포함하는 여러 유형의 �
 1. Mold UI에 로그인합니다.
 2. 왼쪽 메뉴에서 인프라스트럭쳐를 클릭합니다.
 3. CPU 소켓을 클릭합니다.
-   
+
     CPU 소켓 페이지가 표시됩니다. 이 페이지에는 하이퍼 바이저 유형에 따라 호스트 및 CPU 소켓 수가 표시됩니다.
 
 ## 데이터베이스 구성 변경
@@ -59,9 +60,9 @@ Mold에서 사용하는 MySQL 계정의 비밀번호를 변경해야 할 수 있
     ````
     # mysql -u root -p
     ````
-   
+
     MySQL 셸에서 비밀번호를 변경하고 권한을 플러시합니다.
-   
+
     ````
     update mysql.user set password=PASSWORD("newpassword123") where User='cloud';
     flush privileges;
@@ -80,7 +81,7 @@ Mold에서 사용하는 MySQL 계정의 비밀번호를 변경해야 할 수 있
     db.cloud.password=ENC(encrypted_password_from_above)
     db.usage.password=ENC(encrypted_password_from_above)
     ````
-2. 새 비밀번호를 복사 한 후 이제 Mold(필요하다면 usage engine도 함께)을 시작할 수 있습니다. 
+2. 새 비밀번호를 복사 한 후 이제 Mold(필요하다면 usage engine도 함께)을 시작할 수 있습니다.
     ````
     # service cloudstack-management start
     # service cloud-usage start
@@ -214,7 +215,7 @@ Mold에서 경고를 수신하도록 하나 이상의 SNMP 관리자 또는 Sysl
 # vi /etc/cloudstack/management/log4j-cloud.xml
 ````
 3. 아래 표시된 구문을 사용하여 항목을 추가하십시오. SNMP 관리자를 추가하는지 아니면 Syslog 관리자를 추가하는지에 따라 적절한 예를 따르십시오. 여러 외부 관리자를 지정하려면 IP 주소 및 기타 구성 값을 쉼표 (,)로 구분하십시오.
-    
+
     !!! Note
         권장되는 최대 SNMP 또는 Syslog 관리자 수는 각각 20 개입니다.
 
@@ -281,8 +282,3 @@ Mold에서 더 이상 경고를 수신하지 않도록 외부 SNMP 관리자 또
 ````
 # service cloudstack-management start
 ````
-
-
-
-
-

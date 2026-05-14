@@ -1,3 +1,4 @@
+
 # Netdive
 
 ## Netdive 소개
@@ -35,7 +36,7 @@ Netdive Analyzer는 Agent로부터 네트워크 이벤트를 수신하여 아래
           admin [standalone: master] # configure terminal
           admin [standalone: master] (config) # lldp				## lldp 활성화
           admin [standalone: master] (config) # show lldp local	## lldp 활성화 확인
-          ~~~      
+          ~~~
         - Cisco
           ~~~
           switch# configure terminal
@@ -51,7 +52,7 @@ Netdive Analyzer는 Agent로부터 네트워크 이벤트를 수신하여 아래
  - 트래픽 캡처
     - 캡처가 시작되면 캡처된 인터페이스에 캡처가 활성 상태임을 나타내는 '카메라 모양'이 표시됩니다.
        ![netdive-capture-camera](../../assets/images/netdive-capture-camera.png)<br/><br/>
-   
+
     - 캡처를 설정하기 위해서는 해당 노드를 오른쪽 마우스로 클릭하여 "Capture"를 선택하거나 우측 상단에 위치한 "카메라 모양"을 클릭하여 설정합니다.
     ![netdive-capture-mouse-click-button](../../assets/images/netdive-capture.png)
     <br/><br/>
@@ -60,7 +61,7 @@ Netdive Analyzer는 Agent로부터 네트워크 이벤트를 수신하여 아래
     - 캡처 삭제는 캡처가 활성화된 노드를 오른쪽 마우스로 클릭하여 "Delete Captures"를 선택하거나 UI 우측에 있는 아코디언 메뉴 중 "Captures"를 클릭한 후 삭제할 캡처를 선택하여 삭제합니다.
     !!! info
         캡처를 삭제하지 않고 네트워크 정보가 변경되어 서비스를 재시작할 경우 Error 메시지가 발생할 수 있으므로 사용하지 않는 캡처는 사전에 삭제되어야 합니다.
-   
+
   - Flow table
     - 캡처가 정상적으로 활성화되면 우측 아코디언 메뉴에 Flow table이 나타납니다.
     - Flow table 메뉴 상단에 "View Columns"를 클릭하면 테이블에 표시할 컬럼을 선택할 수 있습니다.
@@ -76,4 +77,3 @@ Netdive Analyzer는 Agent로부터 네트워크 이벤트를 수신하여 아래
         - 클라우드센터 클러스터 상태 카드의 메뉴에서 "모니터링센터 수집 정보 업데이트"를 실행합니다.
         ![netdive-restart-1](../../assets/images/netdive-restart-1.png)
         ![netdive-restart-2](../../assets/images/netdive-restart-2.png)
-

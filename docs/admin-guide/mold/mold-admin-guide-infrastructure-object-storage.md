@@ -2,7 +2,7 @@
 # Object 스토리지
 
 ## 개요
-Object 스토리지는 대용량 비정형 데이터를 저장하는 시스템으로, 주로 이미지, 비디오, 로그 파일 등을 관리하는 데 사용됩니다. 데이터는 객체 단위로 저장되며 각 객체는 메타데이터와 고유 식별자를 가집니다. Object 스토리지는 높은 확장성과 고가용성을 제공하고, HTTP 기반의 REST API를 통해 데이터를 쉽게 접근할 수 있습니다. 이를 통해 ABLESTACK 클라우드 애플리케이션에서 대용량 파일 저장과 관리가 용이해집니다.
+Object 스토리지는 대용량 비정형 데이터를 저장하는 시스템으로, 주로 이미지, 비디오, 로그 파일 등을 관리하는 데 사용됩니다. 데이터는 객체 단위로 저장되며 각 객체는 메타데이터와 고유 식별자를 가집니다. Object 스토리지는 높은 확장성과 고가용성을 제공하고, HTTP 기반의 REST API를 통해 데이터에 쉽게 접근할 수 있습니다. 이를 통해 ABLESTACK 클라우드 애플리케이션에서 대용량 파일 저장과 관리가 용이해집니다.
 
 ## 목록 조회
 
@@ -12,7 +12,7 @@ Object 스토리지는 대용량 비정형 데이터를 저장하는 시스템�
 
 ## Object 스토리지 추가
 
-1. Object 스토리지 추가 버튼 클릭 하여 Object 스토리지 추가 팝업을 호출합니다.
+1. Object 스토리지 추가 버튼을 클릭하여 Object 스토리지 추가 팝업을 호출합니다.
 
     ![object storage 추가 버튼](../../assets/images/admin-guide/mold/infrastructure/object-storage/object-storage-add-btn.png){ .imgCenter .imgBorder }
 
@@ -50,7 +50,7 @@ Object 스토리지는 대용량 비정형 데이터를 저장하는 시스템�
 
     ![Object 스토리지 삭제 화면](../../assets/images/admin-guide/mold/infrastructure/object-storage/object-storage-remove.png){ .imgCenter .imgBorder }
 
-    * **확인** 버튼을 클릭하여 Pod를 삭제합니다.
+    * **확인** 버튼을 클릭하여 Object 스토리지를 삭제합니다.
 
 ## 상세 탭
 
