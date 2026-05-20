@@ -225,6 +225,7 @@ nav:
         - Glue 설치 가이드: getting-started/install-guide-hci-filesystem-glue.md
         - Mold 설치 가이드: getting-started/install-guide-hci-filesystem-mold.md
         - Wall 설치 가이드: getting-started/install-guide-hci-filesystem-wall.md
+    - 구성 확인: getting-started/checklist.md
   - 관리 가이드:
     - Cube 가이드:
       - 개요: admin-guide/cube/cube-admin-guide-outline.md
