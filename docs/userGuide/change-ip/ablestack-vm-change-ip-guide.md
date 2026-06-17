@@ -20,19 +20,15 @@
 !!! warning
     이 작업은 **IP 변경 전 반드시 수행해야 할 주의사항 체크리스트** 를 반드시 완료한 뒤 진행합니다.
 
-1. 펜스 장치 유지보수 설정
-    ![펜스 장치 유지보수 설정](../../assets/images/user-guide/change-ip/change-ip-cluster-01.png){ .imgCenter .imgBorder }
-    - Cube 대시보드에서 **펜스 장치 유지보수 설정** 을 클릭하고, 펜스 장치 상태가 **Stopped** 상태인지 확인합니다.
-
-2. 클라우드센터VM 정지
+1. 클라우드센터VM 정지
     ![클라우드센터VM 정지](../../assets/images/user-guide/change-ip/change-ip-cluster-02.png){ .imgCenter .imgBorder }
     - Cube 대시보드에서 **클라우드센터 VM 정지** 를 클릭한 뒤, VM 상태와 클러스터 상태가 정지로 표시되는지 확인합니다.
 
-3. 클러스터 정지
+2. 클러스터 정지
     ![클러스터 정지](../../assets/images/user-guide/change-ip/change-ip-cluster-03.png){ .imgCenter .imgBorder }
     - 마스터 호스트 웹 콘솔에서 왼쪽 하단의 **터미널** 을 클릭하여 열고 `pcs cluster stop --all` 명령를 실행합니다.
 
-4. 클러스터 확인
+3. 클러스터 확인
     ![클러스터 확인](../../assets/images/user-guide/change-ip/change-ip-cluster-04.png){ .imgCenter .imgBorder }
     - 터미널에서 `pcs status` 를 실행해 위 화면과 동일한 출력이 표시되는지 확인합니다. 동일하면 클러스터 정지가 정상적으로 완료된 것입니다.
 
