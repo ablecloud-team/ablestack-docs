@@ -1,3 +1,5 @@
+
+
 # Copyright (c) 2021-2026 ABLECLOUD Co. Ltd.
 
 # 이 파일은 Mold Docs의 도큐먼트 설정 및 테마 설정을 위한 설정 파일입니다.
@@ -129,6 +131,7 @@ markdown_extensions:
   - def_list
   - footnotes
   - md_in_html
+  - pymdownx.snippets
   - toc:
       permalink: true
   - pymdownx.arithmatex:
@@ -226,6 +229,8 @@ nav:
         - Mold 설치 가이드: getting-started/install-guide-hci-filesystem-mold.md
         - Wall 설치 가이드: getting-started/install-guide-hci-filesystem-wall.md
     - 구성 확인: getting-started/checklist.md
+    - 퀵 가이드:
+      - Mold 퀵 가이드: admin-guide/mold/quick-guide-mold.md
   - 관리 가이드:
     - Cube 가이드:
       - 개요: admin-guide/cube/cube-admin-guide-outline.md
