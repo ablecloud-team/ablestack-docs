@@ -1,177 +1,147 @@
+# ABLESTACK Online Docs
 
-# Ablestack 사용자 가이드
+ABLESTACK Online Docs는 ABLESTACK의 아키텍처, 설치, 운영, 사용자 가이드를 제공하는 문서 저장소입니다. 문서는 [MkDocs](https://www.mkdocs.org/)와 [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)로 빌드하며, 운영 배포본은 `mike`를 사용해 버전별 정적 사이트 구조로 관리합니다.
 
-Ablestack는 일반적인 x86 기반 서버를 클러스터링하여 스토리지, 가상화, 클라우드 환경을 통합하여 제공할 수 있도록 오픈소스를 기반으로 만들어진 HCI 배포판입니다. 본 리파지터리는 이러한 Ablestack의 전반적인 아키텍처 및 사용법, 그리고 각 구성요소에 대한 사용자 설명서를 제공하기 위한 공간입니다.
+현재 운영 배포 구조는 단일 `site/` 디렉터리를 웹 서버 루트에 복사하는 방식이 아니라, `versions.json`, `latest` alias, 버전별 디렉터리를 포함하는 `mike` 산출물 구조입니다. 따라서 운영 배포 시에는 `mkdocs build` 결과물만 복사하지 않고 `mike` 기반 배포 절차를 사용해야 합니다.
 
-## 개발환경 준비
+## 문서 구조
 
-Ablestack 사용자 가이드는 [MkDocs](https://www.mkdocs.org/)를 사용하여 도큐먼트를 빌드합니다. 따라서 개발을 위해서는 해당 환경을 준비해야 합니다. MkDocs는 다양한 환경에 설치하여 개발환경을 만들 수 있습니다. 각각의 운영체제에서 지원하는 패키지 관리자를 사용할 수 있으며 지원되는 패키지 관리자는 다음과 같습니다.
+- `docs/`: Markdown 문서와 정적 자산
+- `docs/assets/`: 이미지, CSS, drawio 등 문서 자산
+- `resources/`: PDF export용 스타일시트와 cover 템플릿
+- `mkdocs.yml`: MkDocs 사이트, 테마, 플러그인, 목차 설정
+- `pdf-title-hook.py`: H1 제목이 없는 페이지에 제목을 자동 추가하는 MkDocs hook
+- `markdown-format.md`: 문서 작성 형식 예시
 
-- apt-get : Debian, Ubuntu 계열
-- dnf, yum : fedora, RHEL, CentOS 계열
-- homebrew : MacOS 계열
-- chocolatey : Windows OS 계열
+## 로컬 개발 환경
 
-각 운영체제의 패키지 관리자를 이용해 설치 명령을 이용하면 MkDocs 패키지를 빠르게 설치할 수 있습니다.
-### MacOS에 MkDocs 설치
+Python 가상환경을 만들고 저장소에서 관리하는 의존성 파일을 기준으로 패키지를 설치합니다. OS 패키지 매니저로 MkDocs를 직접 설치하면 운영 빌드와 버전이 달라질 수 있으므로 권장하지 않습니다.
 
-MacOS에서 개발환경을 준비하기 위해서는 먼저 Homebrew 설치가 필요합니다. 다음과 같은 명령을 실행합니다.
-
-```
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-Homebrew가 설치되면 다음의 명령을 이용해 MkDocs 패키지를 설치합니다.
-
-```
-$ brew install mkdocs
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+playwright install chromium
 ```
 
-### 수동으로 MkDocs 설치
+Windows PowerShell에서는 가상환경 활성화 명령만 다음과 같이 실행합니다.
 
-만약, 기본적인 운영체제의 패키지 관리자를 이용해 설치하는 MkDocs가 최신의 버전이 아니어서 최신의 MkDocs 패키지를 설치하고자 한다면 Python을 이용해 직접 최신의 패키지를 설치할 수 있습니다. MkDocs 패키지를 설치하기 위해서는 먼저 운영체제에 Python이 설치되어 있어야 합니다. 운영체제별 Python 설치 방법은 별도의 가이드를 참고합니다.
-
-MkDocs는 Python 3.5 이상을 지원합니다. 또한 패키지 설치를 위해 PIP가 필요합니다. PIP를 최신으로 업그레이드 하기 위해 다음의 명령을 실행합니다.
-
-```
-$ pip install --upgrade pip
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
 
-MkDocs를 다음의 명령을 이용해 설치합니다.
+PDF export까지 로컬에서 확인해야 하는 경우 Playwright 브라우저가 필요합니다. GitHub Actions에서는 `playwright install --with-deps chromium` 방식으로 필요한 런타임을 함께 설치합니다.
 
-```
-$ pip install mkdocs
-```
-### Docs Theme 설치
+## 로컬 미리보기
 
-Ablestack Docs 사이트는 MkDocs의 Third Party 테마인 Material Theme을 사용합니다. 해당 테마를 개발환경에 설치하여 테마를 적용해야 합니다.
+문서를 작성하는 동안에는 MkDocs 개발 서버로 결과를 확인합니다.
 
-다음의 명령을 개발환경에서 실행합니다.
-
-```
-$ pip install mkdocs-material
-```
-
-## 플러그인 설치
-### mike
-여러 버전의 MkDocs 기반 문서를 쉽게 배포할 수 있게 해주는 플러그인 입니다.
-
-다음의 명령을 개발환경에서 실행합니다.
-```
-$ pip install mike
-```
-
-### glightbox (Image Lightbox)
-이미지 확대/축소 기능을 사용할 수 있는 플러그인 입니다.
-
-다음의 명령을 개발환경에서 실행합니다.
-```
-$ pip install mkdocs-glightbox
-```
-### Windows에 MkDocs 설치
-다음은 기본 Windows 에서 Windows 패키지 매니저 중 하나인 chocolatery 로 진행합니다. 기설치된 패키지는 생략합니다.
-```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-```
-
-Git 설치
-```
-choco install git
-```
-mkdocs 설치
-```
-choco install mkdocs
-```
-파이썬 설치
-```
-choco install python
-```
-mkdocs 플러그인 설치
-```
-pip install mkdocs-exporter
-```
-```
-pip install mkdocs-macros-plugin
-```
-```
-pip install mike
-```
-```
-pip install mkdocs-glightbox
-```
-```
-playwright install
-```
-ablecloud-team/ablestack-docs 레포지토리를 본인의 레포지토리로 fork 합니다
-```
-git clone <fork 된 ablestack-docs 주소>
-```
-이동 및 mkdocs 실행
-```
-cd ablestack-docs
-```
-```
+```bash
 mkdocs serve
 ```
 
-## 개발 참여
+브라우저에서 다음 주소로 접속합니다.
 
-개발환경을 설정했다면 Mold 사용자 가이드 소스를 GitHub 사용자 계정애 Fork하여 개발에 참여할 수 있습니다. GitHub 소스를 Fork 하고, 사용자 개발 환경에 Clone하여 개발에 참여하는 것은 GitHub의 사용자 가이드를 참고합니다.
-
-## 테스트
-
-Ablestack Docs 소스를 Clone 한 디렉토리로 이동하면 mkdocs.yml 파일을 확인할 수 있습니다. 해당 파일이 있는 위치에서 다음의 명령을 실행합니다.
-
-```
-$ mkdocs serve
-```
-
-> jinja2.exceptions.TemplateNotFound 에러 처리
->
-> ```
-> # Material의 language 템플릿 파일 ko.html를 kr.html로 이름을 변경합니다.
-> $ cd /opt/homebrew/lib/python3.10/site-packages/material/partials/languages/
-> $ mv ko.html kr.html
-> ```
-
-
-변경된 소스가 바로 반영되어 웹 브라우저에서 결과를 확인할 수 있으며 다음의 주소를 주소창에 입력하여 작성된 문서의 내용을 확인할 수 있습니다.
-
-```
+```text
 http://127.0.0.1:8000
 ```
 
-> mkdocs serve 명령은 개발환경의 로컬 IP를 이용해 테스트용으로 확인하기 위해 사용하는 명령입니다. 만약 외부에서 테스트를 하고자 하는 경우 -a 옵션 뒤에 0.0.0.0:8000 을 설정하여 테스트 서버를 실행할 수 있습니다. 예를 들어 다음과 같습니다.
->
-> $ mkdocs serve -a 0.0.0.0:8000
+다른 장비에서 접속해 확인해야 하는 경우 다음과 같이 실행합니다.
 
-## 사용자 가이드 빌드
-
-가이드를 작성한 후에는 일반 웹 서버에서 가이드 페이지를 서비스할 수 있도록 빌드해야 합니다. 빌드를 하기 위해서는 빌드 결과 파일이 만들어질 디렉토리를 먼저 만들어야 합니다. 예를 들어 다음과 같습니다.
-
-```
-$ mkdir -p ~/Documents/mkdocs-sites/ablestack-docs
+```bash
+mkdocs serve -a 0.0.0.0:8000
 ```
 
-> 빌드 결과를 소스 디렉토리에 생성하지 않도록 주의해야 합니다.
+## 로컬 빌드 검증
 
-빌드는 mkdocs.yml이 있는 디렉토리에서 다음과 같은 명령을 실행합니다.
+HTML 정적 사이트만 검증할 때는 다음 명령을 사용합니다.
 
+```bash
+mkdocs build
 ```
-$ mkdocs build -t material -d ~/Documents/mkdocs-sites/ablestack-docs
+
+운영 배포와 동일하게 PDF export까지 포함해 검증하려면 `MKDOCS_EXPORTER_PDF` 환경변수를 활성화합니다.
+
+```bash
+MKDOCS_EXPORTER_PDF=true mkdocs build
 ```
 
-정상적으로 실행되면 개발자가 작성한 문서에 따라 HTML, CSS 등의 파일이 자동으로 만들어진 것을 확인할 수 있습니다.
+Windows PowerShell에서는 다음과 같이 실행합니다.
 
-## 배포
+```powershell
+$env:MKDOCS_EXPORTER_PDF = "true"
+mkdocs build
+```
 
-빌드가 완료된 소스는 일반 웹서버의 루트 디렉토리에 바로 업로드 하여 배포할 수 있습니다. 웹 서버의 루트디렉토리는 웹서버 제품에 따라 다르기 때문에 해당 웹 서버의 가이드를 참고해야 합니다.
+문서 링크 품질까지 엄격하게 확인할 때는 `mkdocs build --strict`를 별도로 실행합니다. `--strict`는 경고도 실패로 처리하므로, 운영 배포 전 품질 게이트로 사용하는 것을 권장합니다.
 
-예를 들어 CentOS에서 기본적으로 사용하는 Apache Http Server(httpd)의 경우 /var/www/html이 기본적인 루트 디렉토리입니다. 해당 디렉토리에 빌드 완료된 결과를 배포하면 웹 서버를 통해 바로 결과를 확인할 수 있습니다.
+## 버전 배포 방식
+
+운영 사이트는 `mike`를 사용해 문서 버전과 alias를 관리합니다. 루트 `index.html`은 기본 alias로 redirect하고, `versions.json`과 버전별 디렉터리는 `mike`가 생성합니다.
+
+예를 들어 `4.0 Diplo` 버전을 `latest` alias로 배포하려면 다음과 같은 형태를 사용합니다.
+
+```bash
+MKDOCS_EXPORTER_PDF=true mike deploy --update-aliases "4.0 Diplo" latest
+mike set-default latest
+```
+
+자동 배포에서는 버전명과 alias를 workflow에 직접 하드코딩하지 않고 설정 파일 또는 GitHub Actions 수동 실행 입력값으로 처리합니다. 기본값은 `.github/docs-deploy.yml`에서 관리하고, 수동 실행 시 입력값이 있으면 해당 값을 우선 적용합니다.
+
+## GitHub Actions 자동 배포
+
+자동 배포는 다음 흐름을 기준으로 구성합니다.
+
+1. `master` 브랜치 변경 또는 수동 실행으로 workflow 시작
+2. Python, MkDocs, Material, `mike`, PDF export 의존성 설치
+3. `.github/docs-deploy.yml`과 수동 입력값을 병합해 배포 설정 해석
+4. `MKDOCS_EXPORTER_PDF=true`로 PDF 포함 빌드
+5. `mike deploy`로 `gh-pages` 브랜치에 버전 산출물 반영
+6. `mike set-default`로 기본 alias 설정
+7. `gh-pages` 산출물을 운영 nginx 서버의 문서 루트로 동기화
+8. HTTP 응답과 PDF 링크 검증
+
+운영 서버 접속 정보와 SSH 개인키는 GitHub Secrets로만 관리합니다. 비밀번호, API key, SSH key 등 민감한 값은 저장소 파일에 기록하지 않습니다.
+
+필요한 Secrets 예시는 다음과 같습니다.
+
+- `DOCS_DEPLOY_SSH_KEY`: 운영 서버 배포용 SSH private key
+- `DOCS_DEPLOY_KNOWN_HOSTS`: 운영 서버 host key
+
+배포 대상 host, port, user, path와 `mike` 버전/alias 기본값은 `.github/docs-deploy.yml`에서 관리합니다.
+
+## 운영 배포 구조
+
+운영 nginx 서버의 문서 루트는 `/usr/share/nginx/html/`입니다. 이 디렉터리는 `mike` 산출물 전용으로 관리합니다.
+
+대표 구조는 다음과 같습니다.
+
+```text
+/usr/share/nginx/html/
+├── index.html
+├── versions.json
+├── latest -> 4.0 Diplo
+├── 1.0 Allo/
+├── 2.0 Bronto/
+├── 3.0 Cerato/
+└── 4.0 Diplo/
+```
+
+`site/` 디렉터리만 직접 복사하면 버전 목록, 기본 alias, PDF 링크, 과거 버전 유지 구조가 깨질 수 있습니다. 운영 반영은 GitHub Actions에서 생성한 `mike` 산출물을 기준으로 수행합니다.
+
+## 문서 작성 형식
+
+이미지 정렬, 이미지 테두리, 코드블록, admonition 등 문서 작성 형식은 `markdown-format.md`를 참고합니다.
+
+```markdown
+![이미지 이름](이미지 상대경로){:class="imgCenter"}
+```
+
+문서 작성 시 기본 Markdown과 MkDocs Material 확장 문법을 함께 사용할 수 있습니다.
 
 ## 참고
 
-문서 작성 시 스타일, 구성요소 등을 적용하기 위해 기본 Markdown 및 확장 Markdown의 문법 등을 참고하고자 하는 경우 다음의 도움말을 참고합니다.
-
 - [MkDocs 가이드](https://www.mkdocs.org/)
 - [Material for MkDocs 가이드](https://squidfunk.github.io/mkdocs-material/)
+- [mike](https://github.com/jimporter/mike)

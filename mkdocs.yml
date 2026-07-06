@@ -85,7 +85,7 @@ plugins:
       formats:
         pdf:
           enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
-          concurrency: 16
+          concurrency: 1
           stylesheets:
             - resources/stylesheets/pdf.scss
           covers:
