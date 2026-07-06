@@ -91,7 +91,13 @@ mike set-default latest
 
 ## GitHub Actions 자동 배포
 
-자동 배포는 다음 흐름을 기준으로 구성합니다.
+자동 배포는 `.github/workflows/deploy-docs.yml`에서 수행합니다. 이 workflow는 문서 빌드, `mike` 버전 산출물 생성, nginx 운영 서버 동기화, air-gapped 환경용 nginx 컨테이너 이미지 생성을 한 흐름으로 검증합니다.
+
+실행 모드는 다음과 같습니다.
+
+- `codex/**` 브랜치 push: 빌드 검증, `mike` 산출물 생성, nginx 컨테이너 이미지 빌드/검증, 이미지 artifact 업로드
+- `master` 브랜치 push: 위 검증 흐름에 더해 `gh-pages` 반영 및 운영 서버 동기화
+- `workflow_dispatch`: 수동 입력값을 사용해 버전, alias, 기본 alias, `dry_run` 값을 override
 
 1. `master` 브랜치 변경 또는 수동 실행으로 workflow 시작
 2. Python, MkDocs, Material, `mike`, PDF export 의존성 설치
@@ -102,6 +108,8 @@ mike set-default latest
 7. `gh-pages` 산출물을 운영 nginx 서버의 문서 루트로 동기화
 8. SSH 파일 검증과, 설정된 경우 HTTP 응답 및 PDF 링크 검증
 
+`codex/**` 브랜치에서는 운영 반영을 수행하지 않습니다. 이 모드에서는 `mike` 산출물을 로컬 브랜치로 생성해 Docker 이미지까지 검증하고, 운영 서버 SSH/rsync 단계는 건너뜁니다. 기능 브랜치에서 workflow 자체를 먼저 안전하게 확인하기 위한 모드입니다.
+
 운영 서버 접속 비밀번호는 GitHub Secrets로만 관리합니다. 비밀번호, API key, SSH key 등 민감한 값은 저장소 파일에 기록하지 않습니다.
 
 필요한 Secrets 예시는 다음과 같습니다.
@@ -110,13 +118,65 @@ mike set-default latest
 
 배포 대상 host, port, user, path와 `mike` 버전/alias 기본값은 `.github/docs-deploy.yml`에서 관리합니다. 기본 설정은 실제 반영 전 검증을 위해 `dry_run: true`이며, GitHub Actions 수동 실행 입력값으로 `dry_run=false`를 지정하면 운영 서버에 동기화합니다. 운영 서비스 검증은 `https://docs.ablecloud.io`를 기준으로 수행합니다.
 
+주요 설정 항목은 다음과 같습니다.
+
+```yaml
+mike:
+  version: "4.0 Diplo"
+  aliases:
+    - latest
+  default: latest
+  branch: gh-pages
+
+build:
+  strict: true
+  pdf: true
+
+deploy:
+  host: 211.115.222.251
+  port: 10022
+  user: root
+  path: /usr/share/nginx/html
+  dry_run: true
+
+image:
+  enabled: true
+  name: ablestack-docs-nginx
+  tag_aliases:
+    - latest
+  archive: true
+
+verify:
+  base_url: https://docs.ablecloud.io
+```
+
 ## Air-gapped 이미지
 
 GitHub Actions는 `mike`로 생성한 `gh-pages` 산출물을 그대로 포함하는 nginx Docker 이미지를 함께 생성합니다. 이 이미지는 Python, MkDocs, `mike` 없이 컨테이너 실행만으로 문서 사이트를 제공합니다.
 
-이미지 산출물 기본값은 `.github/docs-deploy.yml`의 `image` 섹션에서 관리합니다. 기본 이미지 이름은 `ablestack-docs-nginx`이며, `mike.version` 값을 Docker tag로 변환한 태그와 `latest` 태그를 함께 생성합니다.
+이미지 산출물 기본값은 `.github/docs-deploy.yml`의 `image` 섹션에서 관리합니다. 기본 이미지 이름은 `ablestack-docs-nginx`이며, `mike.version` 값을 Docker tag로 변환한 태그와 `latest` 태그를 함께 생성합니다. 예를 들어 `4.0 Diplo`는 `4.0-Diplo` tag로 변환됩니다. GitHub Actions 환경에서는 commit 추적을 위해 `sha-<short-sha>` tag도 함께 생성합니다.
 
-폐쇄망 환경에서는 Actions artifact로 제공되는 tar.gz 파일을 옮긴 뒤 다음과 같이 실행합니다.
+컨테이너 이미지는 `docker/nginx/Dockerfile`과 `docker/nginx/default.conf`를 사용합니다. 이미지에는 `mike` 산출물 전체가 `/usr/share/nginx/html/`로 복사되며, `latest` alias는 컨테이너 안에서 바로 서비스되도록 실제 디렉터리로 풀어 복사합니다.
+
+workflow는 이미지를 만든 뒤 컨테이너를 직접 실행해서 다음 경로를 검증합니다. 컨테이너 내부 nginx는 80 포트를 사용하고, 기본 호스트 노출 포트는 8090입니다.
+
+- `http://127.0.0.1:8090/`
+- `http://127.0.0.1:8090/latest/`
+- `http://127.0.0.1:8090/latest/index.pdf`
+
+검증이 끝나면 `docker save | gzip`으로 air-gapped 전달용 tar.gz를 만들고 GitHub Actions artifact로 업로드합니다. artifact 이름은 기본적으로 다음 형태입니다.
+
+```text
+ablestack-docs-nginx-4.0-Diplo.tar.gz
+```
+
+GitHub Actions 화면에서 artifact를 다운로드하면 zip 파일로 내려받아질 수 있습니다. 이 경우 먼저 압축을 풀어 내부의 tar.gz 파일을 꺼냅니다.
+
+```bash
+unzip ablestack-docs-nginx-4.0-Diplo.tar.gz.zip
+```
+
+폐쇄망 환경에서는 tar.gz 파일을 옮긴 뒤 다음과 같이 이미지를 로드하고 실행합니다.
 
 ```bash
 docker load -i ablestack-docs-nginx-4.0-Diplo.tar.gz
@@ -124,8 +184,16 @@ docker load -i ablestack-docs-nginx-4.0-Diplo.tar.gz
 docker run -d \
   --name ablestack-docs \
   --restart unless-stopped \
-  -p 80:80 \
+  -p 8090:80 \
   ablestack-docs-nginx:4.0-Diplo
+```
+
+컨테이너 실행 후에는 다음 명령으로 기본 페이지와 최신 버전 PDF를 확인합니다.
+
+```bash
+curl -fI http://127.0.0.1:8090/
+curl -fI http://127.0.0.1:8090/latest/
+curl -fI http://127.0.0.1:8090/latest/index.pdf
 ```
 
 ## 운영 배포 구조

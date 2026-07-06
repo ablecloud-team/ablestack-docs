@@ -166,15 +166,15 @@ jobs:
           PDF_ENABLED: ${{ steps.config.outputs.pdf }}
         run: |
           docker rm -f ablestack-docs-nginx-test >/dev/null 2>&1 || true
-          docker run -d --name ablestack-docs-nginx-test -p 8080:80 "$IMAGE_REF"
+          docker run -d --name ablestack-docs-nginx-test -p 8090:80 "$IMAGE_REF"
           trap 'docker rm -f ablestack-docs-nginx-test >/dev/null 2>&1 || true' EXIT
           docker exec ablestack-docs-nginx-test find /usr/share/nginx/html -maxdepth 2 -type f \
             \( -name index.html -o -name index.pdf -o -name versions.json \) | sort
 
-          curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8080/
-          curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8080/latest/
+          curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8090/
+          curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8090/latest/
           if [ "$PDF_ENABLED" = "true" ]; then
-            curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8080/latest/index.pdf
+            curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8090/latest/index.pdf
           fi
 
       - name: Save nginx image archive
