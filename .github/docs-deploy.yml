@@ -1,0 +1,28 @@
+mike:
+  version: "4.0 Diplo"
+  aliases:
+    - latest
+  default: latest
+  branch: gh-pages
+
+build:
+  strict: true
+  pdf: true
+
+deploy:
+  host: 211.115.222.251
+  port: 10022
+  user: root
+  path: /usr/share/nginx/html
+  dry_run: true
+  auth: password
+
+image:
+  enabled: true
+  name: ablestack-docs-nginx
+  tag_aliases:
+    - latest
+  archive: true
+
+verify:
+  base_url: https://docs.ablecloud.io

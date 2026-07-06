@@ -100,16 +100,33 @@ mike set-default latest
 5. `mike deploy`로 `gh-pages` 브랜치에 버전 산출물 반영
 6. `mike set-default`로 기본 alias 설정
 7. `gh-pages` 산출물을 운영 nginx 서버의 문서 루트로 동기화
-8. HTTP 응답과 PDF 링크 검증
+8. SSH 파일 검증과, 설정된 경우 HTTP 응답 및 PDF 링크 검증
 
-운영 서버 접속 정보와 SSH 개인키는 GitHub Secrets로만 관리합니다. 비밀번호, API key, SSH key 등 민감한 값은 저장소 파일에 기록하지 않습니다.
+운영 서버 접속 비밀번호는 GitHub Secrets로만 관리합니다. 비밀번호, API key, SSH key 등 민감한 값은 저장소 파일에 기록하지 않습니다.
 
 필요한 Secrets 예시는 다음과 같습니다.
 
-- `DOCS_DEPLOY_SSH_KEY`: 운영 서버 배포용 SSH private key
-- `DOCS_DEPLOY_KNOWN_HOSTS`: 운영 서버 host key
+- `DOCS_DEPLOY_PASSWORD`: 운영 서버 SSH 접속 비밀번호
 
-배포 대상 host, port, user, path와 `mike` 버전/alias 기본값은 `.github/docs-deploy.yml`에서 관리합니다.
+배포 대상 host, port, user, path와 `mike` 버전/alias 기본값은 `.github/docs-deploy.yml`에서 관리합니다. 기본 설정은 실제 반영 전 검증을 위해 `dry_run: true`이며, GitHub Actions 수동 실행 입력값으로 `dry_run=false`를 지정하면 운영 서버에 동기화합니다. 운영 서비스 검증은 `https://docs.ablecloud.io`를 기준으로 수행합니다.
+
+## Air-gapped 이미지
+
+GitHub Actions는 `mike`로 생성한 `gh-pages` 산출물을 그대로 포함하는 nginx Docker 이미지를 함께 생성합니다. 이 이미지는 Python, MkDocs, `mike` 없이 컨테이너 실행만으로 문서 사이트를 제공합니다.
+
+이미지 산출물 기본값은 `.github/docs-deploy.yml`의 `image` 섹션에서 관리합니다. 기본 이미지 이름은 `ablestack-docs-nginx`이며, `mike.version` 값을 Docker tag로 변환한 태그와 `latest` 태그를 함께 생성합니다.
+
+폐쇄망 환경에서는 Actions artifact로 제공되는 tar.gz 파일을 옮긴 뒤 다음과 같이 실행합니다.
+
+```bash
+docker load -i ablestack-docs-nginx-4.0-Diplo.tar.gz
+
+docker run -d \
+  --name ablestack-docs \
+  --restart unless-stopped \
+  -p 80:80 \
+  ablestack-docs-nginx:4.0-Diplo
+```
 
 ## 운영 배포 구조
 
