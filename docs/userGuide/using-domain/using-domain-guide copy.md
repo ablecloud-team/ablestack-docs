@@ -9,14 +9,14 @@
 
 1. admin 관리자로 로그인
     Mold 로그인 화면으로 접속합니다.
-    ![로그인 화면](../../assets/images/user-guide/using-domain/admin-login.png){ align=center }
+    ![로그인 화면](../../assets/images/user-guide/using-domain/domain-login.png){ align=center }
 
     * **사용자 이름 :** 사용자 이름에 admin 을 입력합니다.
     * **비밀번호 :** 비밀번호를 입력합니다.
     * **로그인** 버튼을 클릭하여 admin 계정으로 로그인 합니다.
 
 2. 로그인이 완료 되면 대시보드 화면을 확인합니다.
-    ![대시보드 조회](../../assets/images/user-guide/using-domain/dashboard.png){ align=center }
+    ![대시보드 조회](../../assets/images/user-guide/using-domain/domain-list.png){ align=center }
 
 3. 추가할 도메인을 확인후 도메인 추가 버튼을 클릭합니다.
     ![도메인 추가 버튼](../../assets/images/user-guide/using-domain/domain-add-btn.png){ align=center }

@@ -1,0 +1,268 @@
+name: Build and Deploy Docs
+
+on:
+  push:
+    branches:
+      - master
+      - "codex/**"
+  workflow_dispatch:
+    inputs:
+      mike_version:
+        description: "mike version, for example: 4.0 Diplo"
+        required: false
+      mike_aliases:
+        description: "Space-separated mike aliases, for example: latest stable"
+        required: false
+      mike_default:
+        description: "Default mike alias or version, for example: latest"
+        required: false
+      dry_run:
+        description: "Override deploy dry-run mode: true or false"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-docs
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install system deploy tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y rsync sshpass
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright Chromium
+        run: playwright install --with-deps chromium
+
+      - name: Resolve deployment config
+        id: config
+        env:
+          INPUT_MIKE_VERSION: ${{ github.event.inputs.mike_version || '' }}
+          INPUT_MIKE_ALIASES: ${{ github.event.inputs.mike_aliases || '' }}
+          INPUT_MIKE_DEFAULT: ${{ github.event.inputs.mike_default || '' }}
+          INPUT_DRY_RUN: ${{ github.event.inputs.dry_run || '' }}
+        run: python scripts/resolve_docs_deploy_config.py
+
+      - name: Resolve run mode
+        id: mode
+        run: |
+          publish_site=false
+          if [ "$GITHUB_REF" = "refs/heads/master" ] || [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            publish_site=true
+          fi
+
+          echo "publish_site=${publish_site}" >> "$GITHUB_OUTPUT"
+
+      - name: Validate docs strictly
+        if: steps.config.outputs.strict == 'true'
+        env:
+          DOCS_RELEASE_VERSION: ${{ steps.config.outputs.release_version }}
+          DOCS_RELEASE_BUILT_AT: ${{ steps.config.outputs.release_built_at }}
+          DOCS_RELEASE_COMMIT: ${{ steps.config.outputs.release_commit }}
+        run: mkdocs build --strict --clean --site-dir /tmp/ablestack-docs-strict
+
+      - name: Configure git author
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Build and publish versioned docs
+        env:
+          MKDOCS_EXPORTER_PDF: ${{ steps.config.outputs.pdf }}
+          MIKE_VERSION: ${{ steps.config.outputs.version }}
+          MIKE_ALIASES_JSON: ${{ steps.config.outputs.aliases_json }}
+          MIKE_DEFAULT: ${{ steps.config.outputs.default }}
+          MIKE_BRANCH: ${{ steps.config.outputs.branch }}
+          DOCS_RELEASE_VERSION: ${{ steps.config.outputs.release_version }}
+          DOCS_RELEASE_BUILT_AT: ${{ steps.config.outputs.release_built_at }}
+          DOCS_RELEASE_COMMIT: ${{ steps.config.outputs.release_commit }}
+        run: |
+          mapfile -t ALIASES < <(
+            python -c 'import json, os; print("\n".join(json.loads(os.environ["MIKE_ALIASES_JSON"])))'
+          )
+
+          PUSH_ARGS=()
+          if [ "${{ steps.mode.outputs.publish_site }}" = "true" ]; then
+            PUSH_ARGS=(--push --remote origin)
+          fi
+
+          mike deploy \
+            "${PUSH_ARGS[@]}" \
+            --branch "$MIKE_BRANCH" \
+            --update-aliases \
+            "$MIKE_VERSION" \
+            "${ALIASES[@]}"
+
+          mike set-default \
+            "${PUSH_ARGS[@]}" \
+            --branch "$MIKE_BRANCH" \
+            "$MIKE_DEFAULT"
+
+      - name: Checkout published site
+        run: |
+          if [ "${{ steps.mode.outputs.publish_site }}" = "true" ]; then
+            git fetch origin "${{ steps.config.outputs.branch }}:refs/remotes/origin/${{ steps.config.outputs.branch }}"
+            git worktree add public "origin/${{ steps.config.outputs.branch }}"
+          else
+            git worktree add public "${{ steps.config.outputs.branch }}"
+          fi
+
+      - name: Build nginx image
+        id: image
+        if: steps.config.outputs.image_enabled == 'true'
+        env:
+          IMAGE_NAME: ${{ steps.config.outputs.image_name }}
+          IMAGE_TAGS_JSON: ${{ steps.config.outputs.image_tags_json }}
+        run: |
+          mkdir -p /tmp/ablestack-docs-nginx/public
+          cp docker/nginx/Dockerfile /tmp/ablestack-docs-nginx/Dockerfile
+          cp docker/nginx/default.conf /tmp/ablestack-docs-nginx/default.conf
+          cp -aL public/. /tmp/ablestack-docs-nginx/public/
+          rm -rf /tmp/ablestack-docs-nginx/public/.git
+
+          mapfile -t IMAGE_TAGS < <(
+            python -c 'import json, os; print("\n".join(json.loads(os.environ["IMAGE_TAGS_JSON"])))'
+          )
+
+          if [ "${#IMAGE_TAGS[@]}" -eq 0 ]; then
+            echo "::error::At least one Docker image tag is required"
+            exit 1
+          fi
+
+          TAG_ARGS=()
+          IMAGE_REFS=()
+          for tag in "${IMAGE_TAGS[@]}"; do
+            TAG_ARGS+=("-t" "${IMAGE_NAME}:${tag}")
+            IMAGE_REFS+=("${IMAGE_NAME}:${tag}")
+          done
+
+          docker build "${TAG_ARGS[@]}" /tmp/ablestack-docs-nginx
+
+          ARCHIVE_BASENAME="$(echo "${IMAGE_NAME}-${IMAGE_TAGS[0]}" | sed 's#[/:]#-#g')"
+          {
+            echo "primary_ref=${IMAGE_REFS[0]}"
+            echo "archive_name=${ARCHIVE_BASENAME}.tar.gz"
+            echo "image_refs=${IMAGE_REFS[*]}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Verify nginx image
+        if: steps.config.outputs.image_enabled == 'true'
+        env:
+          IMAGE_REF: ${{ steps.image.outputs.primary_ref }}
+          PDF_ENABLED: ${{ steps.config.outputs.pdf }}
+        run: |
+          docker rm -f ablestack-docs-nginx-test >/dev/null 2>&1 || true
+          docker run -d --name ablestack-docs-nginx-test -p 8090:80 "$IMAGE_REF"
+          trap 'docker rm -f ablestack-docs-nginx-test >/dev/null 2>&1 || true' EXIT
+          docker exec ablestack-docs-nginx-test find /usr/share/nginx/html -maxdepth 2 -type f \
+            \( -name index.html -o -name index.pdf -o -name versions.json \) | sort
+
+          curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8090/
+          curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8090/latest/
+          if [ "$PDF_ENABLED" = "true" ]; then
+            curl --retry 10 --retry-delay 2 --retry-connrefused -fI http://127.0.0.1:8090/latest/index.pdf
+          fi
+
+      - name: Save nginx image archive
+        if: steps.config.outputs.image_enabled == 'true' && steps.config.outputs.image_archive == 'true'
+        env:
+          IMAGE_REFS: ${{ steps.image.outputs.image_refs }}
+          ARCHIVE_NAME: ${{ steps.image.outputs.archive_name }}
+        run: |
+          docker save $IMAGE_REFS | gzip > "$ARCHIVE_NAME"
+          ls -lh "$ARCHIVE_NAME"
+
+      - name: Upload nginx image archive
+        if: steps.config.outputs.image_enabled == 'true' && steps.config.outputs.image_archive == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.image.outputs.archive_name }}
+          path: ${{ steps.image.outputs.archive_name }}
+          if-no-files-found: error
+
+      - name: Prepare SSH known hosts
+        if: steps.mode.outputs.publish_site == 'true'
+        env:
+          DEPLOY_HOST: ${{ steps.config.outputs.deploy_host }}
+          DEPLOY_PORT: ${{ steps.config.outputs.deploy_port }}
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -p "$DEPLOY_PORT" "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy to nginx server
+        if: steps.mode.outputs.publish_site == 'true'
+        env:
+          SSHPASS: ${{ secrets.DOCS_DEPLOY_PASSWORD }}
+          DEPLOY_HOST: ${{ steps.config.outputs.deploy_host }}
+          DEPLOY_PORT: ${{ steps.config.outputs.deploy_port }}
+          DEPLOY_USER: ${{ steps.config.outputs.deploy_user }}
+          DEPLOY_PATH: ${{ steps.config.outputs.deploy_path }}
+          DRY_RUN: ${{ steps.config.outputs.dry_run }}
+        run: |
+          if [ -z "$SSHPASS" ]; then
+            echo "::error::DOCS_DEPLOY_PASSWORD secret is required"
+            exit 1
+          fi
+
+          DRY_RUN_FLAG=""
+          if [ "$DRY_RUN" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+          fi
+
+          sshpass -e rsync -az --delete --itemize-changes $DRY_RUN_FLAG \
+            -e "ssh -p ${DEPLOY_PORT}" \
+            public/ \
+            "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+
+      - name: Verify deployed files over SSH
+        if: steps.mode.outputs.publish_site == 'true' && steps.config.outputs.dry_run != 'true'
+        env:
+          SSHPASS: ${{ secrets.DOCS_DEPLOY_PASSWORD }}
+          DEPLOY_HOST: ${{ steps.config.outputs.deploy_host }}
+          DEPLOY_PORT: ${{ steps.config.outputs.deploy_port }}
+          DEPLOY_USER: ${{ steps.config.outputs.deploy_user }}
+          DEPLOY_PATH: ${{ steps.config.outputs.deploy_path }}
+          PDF_ENABLED: ${{ steps.config.outputs.pdf }}
+        run: |
+          sshpass -e ssh -p "$DEPLOY_PORT" "${DEPLOY_USER}@${DEPLOY_HOST}" \
+            "test -f '${DEPLOY_PATH}/index.html' && \
+             test -f '${DEPLOY_PATH}/versions.json' && \
+             test -e '${DEPLOY_PATH}/latest' && \
+             test -f '${DEPLOY_PATH}/latest/index.html'"
+
+          if [ "$PDF_ENABLED" = "true" ]; then
+            sshpass -e ssh -p "$DEPLOY_PORT" "${DEPLOY_USER}@${DEPLOY_HOST}" \
+              "test -f '${DEPLOY_PATH}/latest/index.pdf'"
+          fi
+
+      - name: Verify deployed site over HTTP
+        if: steps.mode.outputs.publish_site == 'true' && steps.config.outputs.dry_run != 'true' && steps.config.outputs.verify_base_url != ''
+        env:
+          PDF_ENABLED: ${{ steps.config.outputs.pdf }}
+        run: |
+          curl -fI "${{ steps.config.outputs.verify_base_url }}/"
+          curl -fI "${{ steps.config.outputs.verify_base_url }}/latest/"
+          if [ "$PDF_ENABLED" = "true" ]; then
+            curl -fI "${{ steps.config.outputs.verify_base_url }}/latest/index.pdf"
+          fi

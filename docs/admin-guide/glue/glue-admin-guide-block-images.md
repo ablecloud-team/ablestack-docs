@@ -84,7 +84,7 @@
 
 2. RBD 이미지 복제를 위한 항목을 입력합니다.
 
-    ![block-images-snap-clone](../../assets/images/admin-guide/glue/block/images/block-snap-images-clone.png){ .imgCenter .imgBorder }
+    ![block-images-snap-clone](../../assets/images/admin-guide/glue/block/images/block-images-snap-clone.png){ .imgCenter .imgBorder }
 
     * **이름:** 이름을 입력합니다.
     * **데이터 풀:** 데이터 풀을 선택합니다.

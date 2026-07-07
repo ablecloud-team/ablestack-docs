@@ -85,7 +85,7 @@ plugins:
       formats:
         pdf:
           enabled: !ENV [MKDOCS_EXPORTER_PDF, false]
-          concurrency: 16
+          concurrency: 1
           stylesheets:
             - resources/stylesheets/pdf.scss
           covers:
@@ -119,6 +119,10 @@ extra:
       link: https://github.com/ablecloud-team
   version:
     provider: mike
+  release:
+    version: !ENV [DOCS_RELEASE_VERSION, "local"]
+    built_at: !ENV [DOCS_RELEASE_BUILT_AT, "local build"]
+    commit: !ENV [DOCS_RELEASE_COMMIT, "local"]
 
 extra_css:
   - assets/css/basic.css
