@@ -272,3 +272,86 @@ jobs:
           if [ "$PDF_ENABLED" = "true" ]; then
             curl -fI "${{ steps.config.outputs.verify_base_url }}/latest/index.pdf"
           fi
+
+      - name: Write GitHub release notes
+        if: steps.mode.outputs.publish_site == 'true' && steps.config.outputs.release == 'true' && steps.config.outputs.dry_run != 'true' && steps.config.outputs.github_release == 'true'
+        env:
+          RELEASE_ID: ${{ steps.config.outputs.release_id }}
+          RELEASE_VERSION: ${{ steps.config.outputs.release_version }}
+          RELEASE_BUILT_AT: ${{ steps.config.outputs.release_built_at }}
+          RELEASE_COMMIT: ${{ steps.config.outputs.release_commit }}
+          VERIFY_BASE_URL: ${{ steps.config.outputs.verify_base_url }}
+          IMAGE_ENABLED: ${{ steps.config.outputs.image_enabled }}
+          IMAGE_ARCHIVE: ${{ steps.config.outputs.image_archive }}
+          IMAGE_ARCHIVE_NAME: ${{ steps.image.outputs.archive_name }}
+          IMAGE_REFS: ${{ steps.image.outputs.image_refs }}
+        run: |
+          {
+            echo "# ${RELEASE_ID}"
+            echo
+            echo "ABLESTACK 문서 자동 릴리즈입니다."
+            echo
+            echo "## 릴리즈 정보"
+            echo
+            echo "- 문서 버전: ${RELEASE_VERSION}"
+            echo "- 릴리즈 ID: ${RELEASE_ID}"
+            echo "- 빌드 일시: ${RELEASE_BUILT_AT}"
+            echo "- 커밋: ${RELEASE_COMMIT}"
+            if [ -n "$VERIFY_BASE_URL" ]; then
+              echo "- 배포 URL: ${VERIFY_BASE_URL}/latest/"
+            fi
+            echo
+            echo "## 검증"
+            echo
+            echo "- MkDocs strict build"
+            echo "- mike version publish"
+            echo "- nginx 컨테이너 이미지 빌드 및 로컬 HTTP 검증"
+            echo "- 운영 nginx 서버 배포"
+            echo "- 운영 URL HTTP 검증"
+          } > release-notes.md
+
+          if [ "$IMAGE_ENABLED" = "true" ] && [ "$IMAGE_ARCHIVE" = "true" ]; then
+            {
+              echo
+              echo "## 컨테이너 이미지"
+              echo
+              echo "- 첨부 파일: ${IMAGE_ARCHIVE_NAME}"
+              echo "- 이미지 태그: ${IMAGE_REFS}"
+              echo
+              echo '```bash'
+              echo "docker load -i ${IMAGE_ARCHIVE_NAME}"
+              echo "docker run -d --name ablestack-docs --restart unless-stopped -p 8090:80 ${IMAGE_REFS%% *}"
+              echo '```'
+            } >> release-notes.md
+          fi
+
+      - name: Publish GitHub release
+        if: steps.mode.outputs.publish_site == 'true' && steps.config.outputs.release == 'true' && steps.config.outputs.dry_run != 'true' && steps.config.outputs.github_release == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_ID: ${{ steps.config.outputs.release_id }}
+          IMAGE_ARCHIVE_NAME: ${{ steps.image.outputs.archive_name }}
+          IMAGE_ENABLED: ${{ steps.config.outputs.image_enabled }}
+          IMAGE_ARCHIVE: ${{ steps.config.outputs.image_archive }}
+        run: |
+          if gh release view "$RELEASE_ID" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release edit "$RELEASE_ID" \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "$RELEASE_ID" \
+              --notes-file release-notes.md \
+              --latest
+          else
+            gh release create "$RELEASE_ID" \
+              --repo "$GITHUB_REPOSITORY" \
+              --target "$GITHUB_SHA" \
+              --title "$RELEASE_ID" \
+              --notes-file release-notes.md \
+              --latest
+          fi
+
+          if [ "$IMAGE_ENABLED" = "true" ] && [ "$IMAGE_ARCHIVE" = "true" ] && [ -f "$IMAGE_ARCHIVE_NAME" ]; then
+            gh release upload "$RELEASE_ID" "$IMAGE_ARCHIVE_NAME" \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber
+          fi
