@@ -2,9 +2,7 @@
   {
     "version": "4.0-Diplo-20260707-130842",
     "title": "4.0-Diplo-20260707-130842",
-    "aliases": [
-      "latest"
-    ]
+    "aliases": []
   },
   {
     "version": "4.0-Diplo-20260707-124829",
@@ -15,6 +13,13 @@
     "version": "4.0-Diplo-20260707-121239",
     "title": "4.0-Diplo-20260707-121239",
     "aliases": []
+  },
+  {
+    "version": "4.0 Diplo",
+    "title": "4.0 Diplo",
+    "aliases": [
+      "latest"
+    ]
   },
   {
     "version": "3.0 Cerato",

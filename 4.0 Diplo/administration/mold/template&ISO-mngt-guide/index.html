@@ -1,0 +1,4069 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ABLECLOUD Co. Ltd" name="author"/>
+<link href="../../../assets/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.2" name="generator"/>
+<title>template&amp;ISO mngt guide - ABLESTACK Online Docs</title>
+<link href="../../../assets/stylesheets/main.d7758b05.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CCutive+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"Cutive Mono"}</style>
+<link href="../../../assets/css/basic.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#iso">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="ABLESTACK Online Docs" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            ABLESTACK Online Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              template&amp;ISO mngt guide
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../..">
+        
+  
+    
+  
+  환영합니다
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../architecture/architecture-overview/">
+          
+  
+  아키텍처
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../getting-started/getting-started-overview/">
+          
+  
+  시작하기
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../admin-guide/cube/cube-admin-guide-outline/">
+          
+  
+  관리 가이드
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../userGuide/vms/centos-guide-prepare-vm/">
+          
+  
+  레퍼런스 가이드
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../releaseNote/release-cerato/">
+          
+  
+  릴리즈노트
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../troubleshooting/troubleshooting/">
+          
+  
+  지식베이스
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="ABLESTACK Online Docs" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="ABLESTACK Online Docs">
+<img alt="logo" src="../../../assets/logo.png"/>
+</a>
+    ABLESTACK Online Docs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ablecloud-team/ablestack-docs" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"></path></svg>
+</div>
+<div class="md-source__repository">
+    ablecloud-team/ablestack-docs
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../..">
+<span class="md-ellipsis">
+    환영합니다
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    아키텍처
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            아키텍처
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK의 탄생
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK의 탄생
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/architecture-overview/">
+<span class="md-ellipsis">
+    데이터센터의 역사와 문제점
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/birth-of-ablestack/">
+<span class="md-ellipsis">
+    문제해결방법-ABLESTACK
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/product-and-component/">
+<span class="md-ellipsis">
+    ABLESTACK 제품 및 구성
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK 물리 아키텍처
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK 물리 아키텍처
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/ablestack-basic-structure/">
+<span class="md-ellipsis">
+    ABLESTACK의 기본구조
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/host-architecture/">
+<span class="md-ellipsis">
+    호스트 아키텍처
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/network-architecture/">
+<span class="md-ellipsis">
+    네트워크 아키텍처
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK 구성요소
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK 구성요소
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-cube/">
+<span class="md-ellipsis">
+    Cube 알아보기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-cell/">
+<span class="md-ellipsis">
+    Cell 알아보기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Glue 알아보기
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+            Glue 알아보기
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-glue/">
+<span class="md-ellipsis">
+    Glue (ABLESTACK HCI)
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-powerflex/">
+<span class="md-ellipsis">
+    Glue (ABLESTACK PowerFlex)
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-mold/">
+<span class="md-ellipsis">
+    Mold 알아보기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-wall/">
+<span class="md-ellipsis">
+    Wall 알아보기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-koral/">
+<span class="md-ellipsis">
+    Koral 알아보기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../architecture/book-of-genie/">
+<span class="md-ellipsis">
+    Genie 알아보기
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    시작하기
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            시작하기
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK HCI 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_1">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK HCI 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/getting-started-overview/">
+<span class="md-ellipsis">
+    설치전 준비사항
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_2" id="__nav_3_1_2_label" tabindex="0">
+<span class="md-ellipsis">
+    구성요소별 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_2">
+<span class="md-nav__icon md-icon"></span>
+            구성요소별 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-cube/">
+<span class="md-ellipsis">
+    Cube 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-glue/">
+<span class="md-ellipsis">
+    Glue 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-mold/">
+<span class="md-ellipsis">
+    Mold 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-wall/">
+<span class="md-ellipsis">
+    Wall 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-genie/">
+<span class="md-ellipsis">
+    Genie 설치 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_1_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_1_3" id="__nav_3_1_3_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK HCI 구성관리
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_1_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_1_3">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK HCI 구성관리
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-add-host/">
+<span class="md-ellipsis">
+    호스트 추가 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK VM 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK VM 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-general-virtualization-overview/">
+<span class="md-ellipsis">
+    설치전 준비사항
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    구성요소별 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            구성요소별 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-general-virtualization-cube/">
+<span class="md-ellipsis">
+    Cube 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-general-virtualization-mold/">
+<span class="md-ellipsis">
+    Mold 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-general-virtualization-wall/">
+<span class="md-ellipsis">
+    Wall 설치 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK VM 구성관리
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK VM 구성관리
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-general-virtualization-host-add/">
+<span class="md-ellipsis">
+    호스트 추가 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-general-virtualization-clvm-disk-management/">
+<span class="md-ellipsis">
+    CLVM 관리 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-general-virtualization-gfs-disk-management/">
+<span class="md-ellipsis">
+    GFS 관리 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK STANALONE 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK STANALONE 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-standalone-overview/">
+<span class="md-ellipsis">
+    설치전 준비사항
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    구성요소별 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            구성요소별 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-standalone-cube/">
+<span class="md-ellipsis">
+    Cube 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-standalone-mold/">
+<span class="md-ellipsis">
+    Mold 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-standalone-wall/">
+<span class="md-ellipsis">
+    Wall 설치 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK HCI Filesystem 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_4">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK HCI Filesystem 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-hci-filesystem-overview/">
+<span class="md-ellipsis">
+    설치전 준비사항
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_4_2" id="__nav_3_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    구성요소별 설치 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_4_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_4_2">
+<span class="md-nav__icon md-icon"></span>
+            구성요소별 설치 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-hci-filesystem-cube/">
+<span class="md-ellipsis">
+    Cube 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-hci-filesystem-glue/">
+<span class="md-ellipsis">
+    Glue 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-hci-filesystem-mold/">
+<span class="md-ellipsis">
+    Mold 설치 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/install-guide-hci-filesystem-wall/">
+<span class="md-ellipsis">
+    Wall 설치 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../getting-started/checklist/">
+<span class="md-ellipsis">
+    구성 확인
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+<span class="md-ellipsis">
+    퀵 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_6">
+<span class="md-nav__icon md-icon"></span>
+            퀵 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/quick-guide-mold/">
+<span class="md-ellipsis">
+    Mold 퀵 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    관리 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            관리 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+<span class="md-ellipsis">
+    Cube 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_1">
+<span class="md-nav__icon md-icon"></span>
+            Cube 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-outline/">
+<span class="md-ellipsis">
+    개요
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-record/">
+<span class="md-ellipsis">
+    기록
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-repository/">
+<span class="md-ellipsis">
+    저장소
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-networking/">
+<span class="md-ellipsis">
+    네트워킹
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-account/">
+<span class="md-ellipsis">
+    계정
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-service/">
+<span class="md-ellipsis">
+    서비스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_1_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_1_7" id="__nav_4_1_7_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_1_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_1_7">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-ablestack-hci/">
+<span class="md-ellipsis">
+    ABLESTACK HCI
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-ablestack-vm/">
+<span class="md-ellipsis">
+    ABLESTACK VM
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-software-updates/">
+<span class="md-ellipsis">
+    소프트웨어 최신화
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-application/">
+<span class="md-ellipsis">
+    응용프로그램
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-diagnostic-report/">
+<span class="md-ellipsis">
+    진단 보고서
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-kernel-dump/">
+<span class="md-ellipsis">
+    커널 덤프
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-terminal/">
+<span class="md-ellipsis">
+    터미널
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/cube/cube-admin-guide-selinux/">
+<span class="md-ellipsis">
+    SELinux
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Mold 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            Mold 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+<span class="md-ellipsis">
+    대시보드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_1">
+<span class="md-nav__icon md-icon"></span>
+            대시보드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-dashboard/">
+<span class="md-ellipsis">
+    대시보드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+<span class="md-ellipsis">
+    컴퓨트
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            컴퓨트
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-vm/">
+<span class="md-ellipsis">
+    가상머신
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-vm-snapshots/">
+<span class="md-ellipsis">
+    VM 스냅샷
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-kubernetes/">
+<span class="md-ellipsis">
+    쿠버네티스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-autoscale/">
+<span class="md-ellipsis">
+    오토스케일 VM 그룹
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-vm-group/">
+<span class="md-ellipsis">
+    가상머신 그룹
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-sshkeypairs/">
+<span class="md-ellipsis">
+    SSH 키 쌍
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-userdata/">
+<span class="md-ellipsis">
+    사용자 데이터
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-compute-affinity-group/">
+<span class="md-ellipsis">
+    Affinity 그룹
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+<span class="md-ellipsis">
+    스토리지
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            스토리지
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-storage-volume/">
+<span class="md-ellipsis">
+    볼륨
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-storage-snapshot/">
+<span class="md-ellipsis">
+    스냅샷
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-storage-backup/">
+<span class="md-ellipsis">
+    백업
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-storage-bucket/">
+<span class="md-ellipsis">
+    버킷
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-storage-shared-file-system/">
+<span class="md-ellipsis">
+    공유 파일 시스템
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+<span class="md-ellipsis">
+    네트워크
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_4">
+<span class="md-nav__icon md-icon"></span>
+            네트워크
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-guest-networks/">
+<span class="md-ellipsis">
+    가상머신용 네트워크
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-vpc/">
+<span class="md-ellipsis">
+    VPC
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-security-group/">
+<span class="md-ellipsis">
+    보안그룹
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-vnf/">
+<span class="md-ellipsis">
+    VNF 기기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-public-ip/">
+<span class="md-ellipsis">
+    Public IP 주소
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-as-numbers/">
+<span class="md-ellipsis">
+    AS Numbers
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-sitetosite-vpn/">
+<span class="md-ellipsis">
+    사이트간 사설네트워크(VPN)
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-vpn-users/">
+<span class="md-ellipsis">
+    VPN 사용자
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-vpn-customer-gateway/">
+<span class="md-ellipsis">
+    VPN 고객 게이트웨이
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-guest-vlan/">
+<span class="md-ellipsis">
+    게스트 VLAN
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-network-ipv4-subnets/">
+<span class="md-ellipsis">
+    IPv4 서브넷
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_5" id="__nav_4_2_5_label" tabindex="0">
+<span class="md-ellipsis">
+    이미지
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_5">
+<span class="md-nav__icon md-icon"></span>
+            이미지
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-image-template/">
+<span class="md-ellipsis">
+    템플릿
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-image-iso/">
+<span class="md-ellipsis">
+    ISO
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-image-kubernetes-iso/">
+<span class="md-ellipsis">
+    쿠버네티스 ISO
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_6" id="__nav_4_2_6_label" tabindex="0">
+<span class="md-ellipsis">
+    오토메이션
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_6">
+<span class="md-nav__icon md-icon"></span>
+            오토메이션
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-automation-controller-templates/">
+<span class="md-ellipsis">
+    컨트롤러 템플릿
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-automation-controller/">
+<span class="md-ellipsis">
+    오토메이션 컨트롤러
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-automation-deployed-packages/">
+<span class="md-ellipsis">
+    배포된 패키지
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_7" id="__nav_4_2_7_label" tabindex="0">
+<span class="md-ellipsis">
+    이벤트
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_7">
+<span class="md-nav__icon md-icon"></span>
+            이벤트
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-events/">
+<span class="md-ellipsis">
+    이벤트
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_8" id="__nav_4_2_8_label" tabindex="0">
+<span class="md-ellipsis">
+    프로젝트
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_8_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_8">
+<span class="md-nav__icon md-icon"></span>
+            프로젝트
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-projects/">
+<span class="md-ellipsis">
+    프로젝트
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_9" id="__nav_4_2_9_label" tabindex="0">
+<span class="md-ellipsis">
+    역할
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_9_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_9">
+<span class="md-nav__icon md-icon"></span>
+            역할
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-roles/">
+<span class="md-ellipsis">
+    역할
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_10" id="__nav_4_2_10_label" tabindex="0">
+<span class="md-ellipsis">
+    계정
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_10_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_10">
+<span class="md-nav__icon md-icon"></span>
+            계정
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-accounts/">
+<span class="md-ellipsis">
+    계정
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_11" id="__nav_4_2_11_label" tabindex="0">
+<span class="md-ellipsis">
+    도메인
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_11_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_11">
+<span class="md-nav__icon md-icon"></span>
+            도메인
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-domains/">
+<span class="md-ellipsis">
+    도메인
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_12" id="__nav_4_2_12_label" tabindex="0">
+<span class="md-ellipsis">
+    인프라스트럭쳐
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_12_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_12">
+<span class="md-nav__icon md-icon"></span>
+            인프라스트럭쳐
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-summary/">
+<span class="md-ellipsis">
+    요약
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-zones/">
+<span class="md-ellipsis">
+    Zone
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-pods/">
+<span class="md-ellipsis">
+    Pods
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-clusters/">
+<span class="md-ellipsis">
+    클러스터
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-hosts/">
+<span class="md-ellipsis">
+    호스트
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-primary-storage/">
+<span class="md-ellipsis">
+    기본 스토리지
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-secondary-storage/">
+<span class="md-ellipsis">
+    2차 스토리지
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-object-storage/">
+<span class="md-ellipsis">
+    Object 스토리지
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-system-vms/">
+<span class="md-ellipsis">
+    시스템 VM
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-virtual-routers/">
+<span class="md-ellipsis">
+    가상 라우터
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-internal-lb/">
+<span class="md-ellipsis">
+    내부 LB
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-management-server/">
+<span class="md-ellipsis">
+    관리 서버
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-dr-cluster/">
+<span class="md-ellipsis">
+    재난 복구 클러스터
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-cpu-sockets/">
+<span class="md-ellipsis">
+    CPU 소켓
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-db-usage-server/">
+<span class="md-ellipsis">
+    DB/Usage 서버
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-infrastructure-alerts/">
+<span class="md-ellipsis">
+    알림
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_13" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_13" id="__nav_4_2_13_label" tabindex="0">
+<span class="md-ellipsis">
+    서비스 오퍼링
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_13_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_13">
+<span class="md-nav__icon md-icon"></span>
+            서비스 오퍼링
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-offerings-compute-offerings/">
+<span class="md-ellipsis">
+    컴퓨트 오퍼링
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-offerings-disk-offerings/">
+<span class="md-ellipsis">
+    디스크 오퍼링
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-offerings-backup-offerings/">
+<span class="md-ellipsis">
+    백업 오퍼링
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-offerings-system-offerings/">
+<span class="md-ellipsis">
+    시스템 오퍼링
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-offerings-network-offerings/">
+<span class="md-ellipsis">
+    네트워크 오퍼링
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-offerings-vpc-offerings/">
+<span class="md-ellipsis">
+    VPC 오퍼링
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_14" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_14" id="__nav_4_2_14_label" tabindex="0">
+<span class="md-ellipsis">
+    구성
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_14_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_14">
+<span class="md-nav__icon md-icon"></span>
+            구성
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-configration-global-settings/">
+<span class="md-ellipsis">
+    글로벌 설정
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-configration-ldap/">
+<span class="md-ellipsis">
+    LDAP 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-configration-oauth/">
+<span class="md-ellipsis">
+    OAuth 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-configration-backup-repository/">
+<span class="md-ellipsis">
+    백업 저장소
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-configration-hypervisor-capability/">
+<span class="md-ellipsis">
+    하이퍼바이저 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-configration-guest-os/">
+<span class="md-ellipsis">
+    게스트 OS
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-configration-guest-os-hypervisor-mapping/">
+<span class="md-ellipsis">
+    게스트 OS 매핑
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_2_15" id="__nav_4_2_15_label" tabindex="0">
+<span class="md-ellipsis">
+    도구
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_15_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_15">
+<span class="md-nav__icon md-icon"></span>
+            도구
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-tools-comments/">
+<span class="md-ellipsis">
+    코멘트
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-tools-usage/">
+<span class="md-ellipsis">
+    사용량
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-tools-import-export-instances/">
+<span class="md-ellipsis">
+    인스턴스 가져오기-내보내기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-tools-import-data-volumes/">
+<span class="md-ellipsis">
+    데이터 볼륨 가져오기
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/mold/mold-admin-guide-tools-webhooks/">
+<span class="md-ellipsis">
+    Webhooks
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Glue 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            Glue 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
+<span class="md-ellipsis">
+    대시보드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_1_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_1">
+<span class="md-nav__icon md-icon"></span>
+            대시보드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-dashboard/">
+<span class="md-ellipsis">
+    대시보드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+<span class="md-ellipsis">
+    클러스터
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_2">
+<span class="md-nav__icon md-icon"></span>
+            클러스터
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-hosts/">
+<span class="md-ellipsis">
+    호스트
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-physical-disks/">
+<span class="md-ellipsis">
+    물리디스크
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-monitors/">
+<span class="md-ellipsis">
+    모니터
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-services/">
+<span class="md-ellipsis">
+    서비스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-osds/">
+<span class="md-ellipsis">
+    스토리지 디바이스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-configuration/">
+<span class="md-ellipsis">
+    설정
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-crush-map/">
+<span class="md-ellipsis">
+    크러쉬 맵
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-manager-modules/">
+<span class="md-ellipsis">
+    매니저 모듈
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-ceph-users/">
+<span class="md-ellipsis">
+    Ceph User
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-logs/">
+<span class="md-ellipsis">
+    로그
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-alerts/">
+<span class="md-ellipsis">
+    경고
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-cluster-upgrade/">
+<span class="md-ellipsis">
+    Upgrade
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_3" id="__nav_4_3_3_label" tabindex="0">
+<span class="md-ellipsis">
+    데이터 풀
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_3">
+<span class="md-nav__icon md-icon"></span>
+            데이터 풀
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-pools/">
+<span class="md-ellipsis">
+    데이터 풀
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_4" id="__nav_4_3_4_label" tabindex="0">
+<span class="md-ellipsis">
+    블럭 디바이스
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_4">
+<span class="md-nav__icon md-icon"></span>
+            블럭 디바이스
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-block-images/">
+<span class="md-ellipsis">
+    이미지
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-block-mirroring/">
+<span class="md-ellipsis">
+    미러링
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-block-iscsi/">
+<span class="md-ellipsis">
+    iSCSI
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_5" id="__nav_4_3_5_label" tabindex="0">
+<span class="md-ellipsis">
+    NFS
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_5_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_5">
+<span class="md-nav__icon md-icon"></span>
+            NFS
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-nfs/">
+<span class="md-ellipsis">
+    NFS
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_6" id="__nav_4_3_6_label" tabindex="0">
+<span class="md-ellipsis">
+    파일 시스템
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_6_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_6">
+<span class="md-nav__icon md-icon"></span>
+            파일 시스템
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-file-systems/">
+<span class="md-ellipsis">
+    파일 시스템
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_3_7" id="__nav_4_3_7_label" tabindex="0">
+<span class="md-ellipsis">
+    오브젝트 게이트웨이
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_7_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_7">
+<span class="md-nav__icon md-icon"></span>
+            오브젝트 게이트웨이
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-og-overview/">
+<span class="md-ellipsis">
+    개요
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-og-gateways/">
+<span class="md-ellipsis">
+    게이트웨이
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-og-users/">
+<span class="md-ellipsis">
+    사용자
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-og-buckets/">
+<span class="md-ellipsis">
+    버킷
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../admin-guide/glue/glue-admin-guide-og-multi-site/">
+<span class="md-ellipsis">
+    Multi-Site
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Wall 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_4">
+<span class="md-nav__icon md-icon"></span>
+            Wall 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/userinterface-guide/">
+<span class="md-ellipsis">
+    사용자 인터페이스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/dashboard-search/">
+<span class="md-ellipsis">
+    대시보드 검색
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/create/">
+<span class="md-ellipsis">
+    생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/dashboard/">
+<span class="md-ellipsis">
+    대시보드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/explore/">
+<span class="md-ellipsis">
+    탐색
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/alerting/">
+<span class="md-ellipsis">
+    경고
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/preferences/">
+<span class="md-ellipsis">
+    환경 설정
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../wall/netdive-guide/">
+<span class="md-ellipsis">
+    Netdive
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Genie 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_5">
+<span class="md-nav__icon md-icon"></span>
+            Genie 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../genie/userinterface-guide/">
+<span class="md-ellipsis">
+    사용자 인터페이스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../genie/quick-start/">
+<span class="md-ellipsis">
+    Quick Start
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../genie/views/">
+<span class="md-ellipsis">
+    Views
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../genie/resources/">
+<span class="md-ellipsis">
+    리소스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../genie/access/">
+<span class="md-ellipsis">
+    액세스
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../genie/management/">
+<span class="md-ellipsis">
+    관리
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../genie/configuration/">
+<span class="md-ellipsis">
+    설정
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../system-check/">
+<span class="md-ellipsis">
+    ABLESTACK 시스템점검
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="0">
+<span class="md-ellipsis">
+    ABLESTACK 시스템 재기동
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            ABLESTACK 시스템 재기동
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../system-restart-hci/">
+<span class="md-ellipsis">
+    ABLESTACK HCI 재기동 절차
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../system-restart-vm/">
+<span class="md-ellipsis">
+    ABLESTACK VM 재기동 절차
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-ellipsis">
+    레퍼런스 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            레퍼런스 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+<span class="md-ellipsis">
+    CentOS 가상머신 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_1">
+<span class="md-nav__icon md-icon"></span>
+            CentOS 가상머신 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/centos-guide-prepare-vm/">
+<span class="md-ellipsis">
+    ISO를 이용한 VM/템플릿 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/centos-guide-add-and-use-vm/">
+<span class="md-ellipsis">
+    템플릿을 이용한 VM 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/centos-guide-ssh-key-use/">
+<span class="md-ellipsis">
+    비밀번호/SSH Key 관리기능 추가
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/centos-guide-userdata/">
+<span class="md-ellipsis">
+    UserData 적용 기능 추가
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/centos-guide-storage/">
+<span class="md-ellipsis">
+    가상머신 볼륨 사용
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/centos-guide-nics/">
+<span class="md-ellipsis">
+    가상머신 NIC 사용
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-ellipsis">
+    Ubuntu 가상머신 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            Ubuntu 가상머신 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/ubuntu-guide-prepare-vm/">
+<span class="md-ellipsis">
+    ISO를 이용한 VM/템플릿 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/ubuntu-guide-add-and-use-vm/">
+<span class="md-ellipsis">
+    템플릿을 이용한 VM 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/ubuntu-guide-ssh-key-use/">
+<span class="md-ellipsis">
+    비밀번호/SSH Key 관리기능 추가
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/ubuntu-guide-userdata/">
+<span class="md-ellipsis">
+    UserData 적용 기능 추가
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/ubuntu-guide-storage/">
+<span class="md-ellipsis">
+    가상머신 볼륨 사용
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/ubuntu-guide-nics/">
+<span class="md-ellipsis">
+    가상머신 NIC 사용
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+<span class="md-ellipsis">
+    Windows 가상머신 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_3">
+<span class="md-nav__icon md-icon"></span>
+            Windows 가상머신 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/windows-guide-prepare-vm/">
+<span class="md-ellipsis">
+    ISO를 이용한 VM/템플릿 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/windows-guide-add-and-use-vm/">
+<span class="md-ellipsis">
+    템플릿을 이용한 VM 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/windows-guide-password-userdata/">
+<span class="md-ellipsis">
+    가상머신 설정 자동화 적용
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/windows-guide-storage/">
+<span class="md-ellipsis">
+    가상머신 볼륨 사용
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/vms/windows-guide-nics/">
+<span class="md-ellipsis">
+    가상머신 NIC 사용
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+<span class="md-ellipsis">
+    Windows 기반 3Tier 구성 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_4">
+<span class="md-nav__icon md-icon"></span>
+            Windows 기반 3Tier 구성 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/windows/windows-guide-architecture/">
+<span class="md-ellipsis">
+    구성 개요
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/windows/windows-guide-network/">
+<span class="md-ellipsis">
+    네트워크 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/windows/windows-guide-db/">
+<span class="md-ellipsis">
+    DB 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/windows/windows-guide-was/">
+<span class="md-ellipsis">
+    WAS 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/windows/windows-guide-web/">
+<span class="md-ellipsis">
+    WEB 구성
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+<span class="md-ellipsis">
+    Linux 기반 3Tier 구성 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_5">
+<span class="md-nav__icon md-icon"></span>
+            Linux 기반 3Tier 구성 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/linux/3tiers-linux-guide-prepare/">
+<span class="md-ellipsis">
+    구성 개요
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/linux/3tiers-linux-guide-network/">
+<span class="md-ellipsis">
+    네트워크 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/linux/3tiers-linux-guide-add-manage-vm/">
+<span class="md-ellipsis">
+    관리 가상머신 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/linux/3tiers-linux-guide-db/">
+<span class="md-ellipsis">
+    DB 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/linux/3tiers-linux-guide-was/">
+<span class="md-ellipsis">
+    WAS 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/3tiers/linux/3tiers-linux-guide-web/">
+<span class="md-ellipsis">
+    WEB 서버 구성
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dr-mngt-guide/">
+<span class="md-ellipsis">
+    재난 복구(DR) 관리
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_7" id="__nav_5_7_label" tabindex="0">
+<span class="md-ellipsis">
+    Kubernete 구성 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_7">
+<span class="md-nav__icon md-icon"></span>
+            Kubernete 구성 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/kubernetes/kubernetes-cluster-prepare/">
+<span class="md-ellipsis">
+    구성 개요
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/kubernetes/kubernetes-cluster-network-create/">
+<span class="md-ellipsis">
+    네트워크 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/kubernetes/kubernetes-cluster-iso-add/">
+<span class="md-ellipsis">
+    Kubernetes ISO 등록
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/kubernetes/kubernetes-cluster-create/">
+<span class="md-ellipsis">
+    Cluster 생성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/kubernetes/kubernetes-cluster-setting/">
+<span class="md-ellipsis">
+    Cluster 설정
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/kubernetes/kubernetes-cluster-shared-volume-create/">
+<span class="md-ellipsis">
+    공유 볼륨 설정
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/kubernetes/kubernetes-cluster-service-add/">
+<span class="md-ellipsis">
+    서비스 배포
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_8" id="__nav_5_8_label" tabindex="0">
+<span class="md-ellipsis">
+    Oracle RAC 구성 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_8">
+<span class="md-nav__icon md-icon"></span>
+            Oracle RAC 구성 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/oraclerac/oracle-rac-prepare/">
+<span class="md-ellipsis">
+    구성 개요
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/oraclerac/oracle-rac-infra-setup/">
+<span class="md-ellipsis">
+    가상환경 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/oraclerac/oracle-rac-asm-gi-setup/">
+<span class="md-ellipsis">
+    ASM 및 GI 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/oraclerac/oracle-rac-db-setup/">
+<span class="md-ellipsis">
+    Oracle 데이터베이스 구성
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+<span class="md-ellipsis">
+    Glue Service 관리 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_9">
+<span class="md-nav__icon md-icon"></span>
+            Glue Service 관리 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/gwvm-manage-feature/">
+<span class="md-ellipsis">
+    게이트웨이 가상머신 관리 및 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/fs-manage-feature/">
+<span class="md-ellipsis">
+    Glue FS 관리 및 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/nfs-manage-feature/">
+<span class="md-ellipsis">
+    Glue NFS 관리 및 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/rgw-manage-feature/">
+<span class="md-ellipsis">
+    Glue Object Gateway 관리 및 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/ingress-manage-feature/">
+<span class="md-ellipsis">
+    Glue Ingress 관리 및 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/iscsi-manage-feature/">
+<span class="md-ellipsis">
+    Glue iSCSI 관리 및 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/nvmeof-manage-feature/">
+<span class="md-ellipsis">
+    Glue NVMe-oF 관리 및 기능
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/glue/samba-manage-feature/">
+<span class="md-ellipsis">
+    Glue Samba 관리 및 기능
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_10" id="__nav_5_10_label" tabindex="0">
+<span class="md-ellipsis">
+    Mold Fence Agent 활용한 HA 구성 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_10">
+<span class="md-nav__icon md-icon"></span>
+            Mold Fence Agent 활용한 HA 구성 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/mold_fence/mold-fence-prepare/">
+<span class="md-ellipsis">
+    구성 개요
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/mold_fence/mold-fence-configuration-environment/">
+<span class="md-ellipsis">
+    구성 환경
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/mold_fence/mold-fence-configuration-pacemaker-cluster/">
+<span class="md-ellipsis">
+    Pacemaker 클러스터 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/mold_fence/mold-fence-configuration-shared-volume/">
+<span class="md-ellipsis">
+    Shared Volume를 활용한 Mysql 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/mold_fence/mold-fence-configuration-mold-fence/">
+<span class="md-ellipsis">
+    MOLD Fence Agent 설치 및 STONITH 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/mold_fence/mold-fence-configuration-pcs-ha-resource/">
+<span class="md-ellipsis">
+    Mysql 이중화를 위한 PCS Resource 구성
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/mold_fence/mold-fence-test/">
+<span class="md-ellipsis">
+    마이그레이션 및 Agent 정상 동작 테스트
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_11" id="__nav_5_11_label" tabindex="0">
+<span class="md-ellipsis">
+    압축/중복제거 볼륨 사용방법 가이드
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_11">
+<span class="md-nav__icon md-icon"></span>
+            압축/중복제거 볼륨 사용방법 가이드
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/compress_dedup/compress_dedup_guide/">
+<span class="md-ellipsis">
+    압축/중복제거 볼륨 사용방법
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_12" id="__nav_5_12_label" tabindex="0">
+<span class="md-ellipsis">
+    도메인 활용 방안
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_12_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_12">
+<span class="md-nav__icon md-icon"></span>
+            도메인 활용 방안
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/using-domain/using-domain-guide/">
+<span class="md-ellipsis">
+    학과별 도메인 분리 방안
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/change-ip/ablestack-vm-change-ip-guide/">
+<span class="md-ellipsis">
+    ABLESTACK VM IP 변경 가이드
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../userGuide/nas-backup/nas-backup-guide/">
+<span class="md-ellipsis">
+    NAS 백업 구성 가이드
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-ellipsis">
+    릴리즈노트
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            릴리즈노트
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../releaseNote/release-cerato/">
+<span class="md-ellipsis">
+    Cerato
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../releaseNote/release-note/">
+<span class="md-ellipsis">
+    Bronto
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    지식베이스
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            지식베이스
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../troubleshooting/troubleshooting/">
+<span class="md-ellipsis">
+    문제해결사례
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      템플릿 생성 : 개요
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      템플릿 요구 사항
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      템플릿 모범 사례
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      기본 템플릿
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kvm">
+<span class="md-ellipsis">
+      KVM 템플릿 용 보조 스토리지 우회
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iso_1">
+<span class="md-ellipsis">
+      로컬 컴퓨터에서 템플릿 및 ISO 업로드
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      템플릿 내보내기
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linux">
+<span class="md-ellipsis">
+      Linux 템플릿 생성
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows">
+<span class="md-ellipsis">
+      Windows 템플릿 만들기
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#amazon">
+<span class="md-ellipsis">
+      Amazon 머신 이미지 가져 오기
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hyper-v-vm">
+<span class="md-ellipsis">
+      Hyper-V VM을 템플릿으로 변환
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      템플릿에 암호 관리 추가
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+<span class="md-ellipsis">
+      템플릿 삭제
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#iso_2">
+<span class="md-ellipsis">
+      ISO 작업
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset"><a class="md-content__button md-icon" download="template&amp;ISO mngt guide.pdf" href="../template&amp;ISO-mngt-guide/index.pdf" title="Download as PDF"><html><body><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14 2 6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm4 18V9h-5V4H6v16zm-6-1-4-4h2.5v-3h3v3H16z"></path></svg></body></html></a><a class="md-content__button md-icon" href="../template&amp;ISO-mngt-guide/index.pdf" target="_blank" title="View as PDF"><html><body><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 .41.12.8.34 1.12.07.11.16.21.25.29.36.37.86.59 1.41.59h7.53c-.53-.58-.92-1.25-1.18-2H6V4h7v5h5v3c.7 0 1.37.12 2 .34V8zm4 21 5-4.5-3-2.7-2-1.8v3h-4v3h4z"></path></svg></body></html></a>
+
+<h1 id="iso">템플릿 및 ISO 관리<a class="headerlink" href="#iso" title="Permanent link">¶</a></h1>
+<p>템플릿은 가상 머신에 재사용 가능한 구성입니다. 사용자가 VM을 시작할 때 Mold의 템플릿 목록에서 선택할 수 있습니다.</p>
+<p>특히 템플릿은 다양한 운영 체제 중 하나, 사무실 응용 프로그램과 같은 선택적 추가 소프트웨어, 템플릿을 사용할 수 있는 사용자를 결정하는 액세스 제어와 같은 설정을 포함하는 가상 디스크 이미지입니다. 각 템플릿은 템플릿이 Mold에 추가될 때 지정되는 특정 유형의 하이퍼바이저와 연결됩니다.</p>
+<p>Mold는 기본 템플릿과 함께 제공됩니다. 사용자에게 더 많은 선택 사항을 제공하기 위해 Mold 관리자와 사용자는 템플릿을 생성하고 이를 Mold에 추가할 수 있습니다.</p>
+<h2 id="_1">템플릿 생성 : 개요<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>Mold는 CentOS 운영 체제용 기본 템플릿과 함께 제공됩니다. 더 많은 템플릿을 추가하는 다양한 방법이 있습니다. 관리자와 최종 사용자는 템플릿을 추가할 수 있습니다. 일반적인 이벤트 순서는 다음과 같습니다.</p>
+<ul>
+<li>원하는 운영체제가 있는 VM 인스턴스를 시작합니다. VM에 대한 기타 원하는 구성 변경을 수행합니다.</li>
+<li>VM을 중지합니다.</li>
+<li>볼륨을 템플릿으로 변환합니다.</li>
+</ul>
+<p>Mold에 템플릿을 추가하는 다른 방법이 있습니다. 예를 들어 VM 볼륨의 스냅샷을 만들고 스냅샷에서 템플릿을 만들거나 다른 시스템에서 Mold로 VHD를 가져올 수 있습니다.</p>
+<p>템플릿을 만드는 다양한 기술은 다음 몇 섹션에서 설명합니다.</p>
+<h2 id="_2">템플릿 요구 사항<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<ul>
+<li>XenServer의 경우 생성하는 각 템플릿에 PV 드라이버/Xen 도구를 설치합니다. 이렇게 하면 실시간 마이그레이션 및 게스트 종료가 가능합니다.</li>
+<li>vSphere의 경우 생성하는 각 템플릿에 VMware Tools를 설치합니다. 이렇게 하면 콘솔보기가 제대로 작동합니다.</li>
+</ul>
+<h2 id="_3">템플릿 모범 사례<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>대형 템플릿 (100GB 이상)을 사용하려는 경우 대형 템플릿을 지원하는 10 기가비트 네트워크가 있는지 확인하십시오. 네트워크 속도가 느리면 큰 템플릿을 사용할 때 시간 초과 및 기타 오류가 발생할 수 있습니다.</p>
+<h2 id="_4">기본 템플릿<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>Mold에는 CentOS 템플릿이 포함되어 있습니다. 이 템플릿은 기본 및 보조 스토리지가 구성된 후 보조 스토리지 VM에서 다운로드됩니다. 프로덕션 배포에서 이 템플릿을 사용하거나 이를 삭제하고 사용자 지정 템플릿을 사용할 수 있습니다.</p>
+<p>기본 템플릿의 루트 암호는 "password"입니다.</p>
+<p>XenServer, KVM 및 vSphere 각각에 대해 기본 템플릿이 제공됩니다. 다운로드되는 템플릿은 클라우드에서 사용 가능한 하이퍼바이저 유형에 따라 다릅니다. 각 템플릿의 실제 크기는 약 2.5GB입니다.</p>
+<p>기본 템플릿에는 ssh를 제외한 템플릿에 대한 대부분의 액세스를 차단하는 표준 iptables 규칙이 포함됩니다.</p>
+<div class="highlight"><pre><span></span><code># iptables --list
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+RH-Firewall-1-INPUT  all  --  anywhere             anywhere
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+RH-Firewall-1-INPUT  all  --  anywhere             anywhere
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain RH-Firewall-1-INPUT (2 references)
+target     prot opt source               destination
+ACCEPT     all  --  anywhere             anywhere
+ACCEPT     icmp --  anywhere        anywhere       icmp any
+ACCEPT     esp  --  anywhere        anywhere
+ACCEPT     ah   --  anywhere        anywhere
+ACCEPT     udp  --  anywhere        224.0.0.251    udp dpt:mdns
+ACCEPT     udp  --  anywhere        anywhere       udp dpt:ipp
+ACCEPT     tcp  --  anywhere        anywhere       tcp dpt:ipp
+ACCEPT     all  --  anywhere        anywhere       state RELATED,ESTABLISHED
+ACCEPT     tcp  --  anywhere        anywhere       state NEW tcp dpt:ssh
+REJECT     all  --  anywhere        anywhere       reject-with icmp-host-
+</code></pre></div>
+<h3>개인 및 공용 템플릿</h3>
+<p>사용자가 템플릿을 만들 때 비공개 또는 공개로 지정할 수 있습니다.</p>
+<p>개인 템플릿은 해당 템플릿을 만든 사용자만 사용할 수 있습니다. 기본적으로 업로드된 템플릿은 비공개입니다.</p>
+<p>사용자가 템플릿을 "공개"로 표시하면 사용자 도메인의 모든 계정에 있는 모든 사용자와 템플릿이 저장된 zone에 액세스할 수 있는 다른 도메인의 사용자가 템플릿을 사용할 수 있습니다. 이는 Zone이 개인 또는 공용으로 정의되었는지 여부에 따라 다릅니다. 비공개 zone은 단일 도메인에 할당되고 공개 zone은 모든 도메인에 액세스할 수 있습니다. 공개 템플릿이 비공개 zone에 생성된 경우 해당 zone에 할당된 도메인의 사용자만 사용할 수 있습니다. 공용 zone에 공용 템플릿이 생성되면 모든 도메인의 모든 사용자가 사용할 수 있습니다.</p>
+<h3>기존 가상 머신에서 템플릿 생성</h3>
+<p>원하는 방식으로 하나 이상의 VM을 설정하면 다른 VM의 프로토 타입으로 사용할 수 있습니다.</p>
+<ol>
+<li>"VM 만들기"에 제공된 기술 중 하나를 사용하여 가상 머신을 만들고 시작합니다.</li>
+<li>실행 중인 VM에서 원하는 구성을 변경한 다음 중지를 클릭합니다.</li>
+<li>VM이 중지될 때까지 기다립니다. 상태가 중지됨으로 표시되면 다음 단계로 이동합니다.</li>
+<li>"View Volumes"로 이동하여 "ROOT"유형의 볼륨을 선택합니다.</li>
+<li>
+<p>템플릿 만들기를 클릭하고 다음을 제공합니다.</p>
+<ul>
+<li>이름 및 표시 텍스트. UI에 표시되므로 설명이 포함된 항목을 선택하세요.</li>
+<li>
+<p>OS 유형. (VMware 제외). 이는 Mold 및 하이퍼바이저가 특정 작업을 수행하고 게스트의 성능을 향상시키는 가정을 하는 데 도움이 됩니다. 다음 중 하나를 선택하십시오.</p>
+<ul>
+<li>중지된 VM의 운영 체제가 나열되면 선택합니다.</li>
+<li>중지된 VM의 OS 유형이 나열되지 않으면 기타를 선택합니다.</li>
+<li>PV 모드에서 이 템플릿에서 부팅하려면 기타 PV (32 비트) 또는 기타 PV (64 비트)를 선택합니다. 이 선택 사항은 XenServere에서만 사용할 수 있습니다.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>일반적으로 이미지에 있는 버전보다 이전 버전의 OS를 선택해서는 안 됩니다. 예를 들어 CentOS 6.2 이미지를 지원하기 위해 CentOS 5.4를 선택하면 일반적으로 작동하지 않습니다. 이 경우 기타를 선택해야 합니다.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VMware 템플릿은 사용자 또는 관리자가 템플릿을 등록할 때 OS 유형을 선택하는 것을 허용하지 않습니다. OS 유형은 등록된 후 템플릿에서 가져옵니다.</p>
+</div>
+</li>
+<li>
+<p>공개. 예를 선택하여 이 Mold 설치의 모든 사용자가 이 템플릿에 액세스할 수 있도록 합니다. 템플릿이 커뮤니티 템플릿 목록에 나타납니다. “개인 및 공용 템플릿"을 참조하십시오.</p>
+</li>
+<li>암호 사용. 템플릿에 Mold 비밀번호 변경 스크립트가 설치된 경우 예를 선택합니다. 템플릿에 암호 관리 추가를 참조하십시오.</li>
+<li>추가를 클릭하십시오.</li>
+</ul>
+</li>
+</ol>
+<p>템플릿 생성 프로세스가 완료되면 새 템플릿이 템플릿 섹션에 표시됩니다. 그러면 새 VM을 만들 때 템플릿을 사용할 수 있습니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>템플릿 생성 프로세스가 완료되면 새 템플릿이 템플릿 섹션에 표시됩니다. 그러면 새 VM을 만들 때 템플릿을 사용할 수 있습니다.</p>
+</div>
+<h3>스냅 샷에서 템플릿 생성</h3>
+<p>Create Template 메뉴 항목을 사용하기 위해 VM을 중지하지 않으려면 ( “기존 가상 머신에서 템플릿 생성"에 설명 된대로 ) Mold UI를 통해 스냅 샷에서 직접 템플릿을 생성할 수 있습니다.</p>
+<h3>원격 HTTP 서버에서 템플릿 업로드</h3>
+<h4>vSphere 템플릿 및 ISO</h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>vSphere Client를 사용하여 생성한 템플릿을 업로드하는 경우 OVA 파일에 ISO가 포함되어 있지 않은지 확인하십시오. 그렇다면 템플릿에서 VM 배포가 실패합니다.</p>
+</div>
+<p>URL을 기반으로 템플릿이 업로드됩니다. HTTP는 지원되는 액세스 프로토콜입니다. 템플릿은 종종 큰 파일입니다. 선택적으로 gzip을 사용하여 업로드 시간을 줄일 수 있습니다.</p>
+<p>템플릿을 업로드하려면 :</p>
+<ol>
+<li>왼쪽 탐색 모음에서 템플릿을 클릭합니다.</li>
+<li>템플릿 등록을 클릭합니다.</li>
+<li>
+<p>다음을 제공하십시오.</p>
+<ul>
+<li>이름 및 설명. UI에 표시되므로 설명이 포함된 항목을 선택하세요.</li>
+<li>URL. 관리 서버는 지정된 URL에서 파일을 다운로드합니다 <a href="http://my.web.server/filename.vhd.gz">http://my.web.server/filename.vhd.gz</a>.</li>
+<li>zone. 템플릿을 사용할 수 있는 zone을 선택하거나 Mold 전체에서 사용할 수 있도록 하려면 모든 zone을 선택합니다.</li>
+<li>
+<p>OS 유형 : (VMware 제외). 이는 Mold 및 하이퍼바이저가 특정 작업을 수행하고 게스트의 성능을 향상시키는 가정을 하는 데 도움이 됩니다. 다음 중 하나를 선택하십시오.</p>
+<ul>
+<li>중지된 VM의 운영 체제가 나열되면 선택합니다.</li>
+<li>중지된 VM의 OS 유형이 나열되지 않으면 기타를 선택합니다.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>이미지의 버전보다 이전 버전의 OS를 선택해서는 안됩니다. 예를 들어 CentOS 6.2 이미지를 지원하기 위해 CentOS 5.4를 선택하면 일반적으로 작동하지 않습니다. 이 경우 기타를 선택해야 합니다.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VMware 템플릿은 사용자 또는 관리자가 템플릿을 등록할 때 OS 유형을 선택하는 것을 허용하지 않습니다. OS 유형은 등록된 후 템플릿에서 가져옵니다.</p>
+</div>
+</li>
+<li>
+<p>하이퍼바이저 : 지원되는 하이퍼바이저가 나열됩니다. 원하는 것을 선택하십시오.</p>
+</li>
+<li>형식. VHD 또는 OVA와 같은 템플릿 업로드 파일의 형식입니다.</li>
+<li>암호 사용. 템플릿에 Mold 비밀번호 변경 스크립트가 설치된 경우 예를 선택합니다. 템플릿에 암호 관리 추가를 참조하십시오.</li>
+<li>추출 가능. 템플릿을 추출할 수 있는 경우 예를 선택합니다. 이 옵션을 선택하면 최종 사용자가 템플릿의 전체 이미지를 다운로드할 수 있습니다.</li>
+<li>공개. 예를 선택하여 이 Mold 설치의 모든 사용자가 이 템플릿에 액세스할 수 있도록합니다. 템플릿이 커뮤니티 템플릿 목록에 나타납니다. “개인 및 공용 템플릿"을 참조하십시오.</li>
+<li>추천. 사용자가 선택할 수 있도록 이 템플릿을 더 눈에 띄게 하려면 예를 선택합니다. 템플릿이 추천 템플릿 목록에 나타납니다. 관리자 만 템플릿을 추천으로 만들 수 있습니다.</li>
+</ul>
+</li>
+</ol>
+<p>다중 디스크 템플릿 업로드도 지원됩니다.
+    !!! note
+        VMware에만 해당 : 선택한 템플릿에 OVF 속성, 다른 배포 옵션 또는 구성, 여러 NIC 또는 최종 사용자 라이센스 계약이 포함된 경우 마법사에 이러한 속성이 표시됩니다. "가상 어플라이언스 지원"을 참조하십시오.</p>
+<h2 id="kvm">KVM 템플릿 용 보조 스토리지 우회<a class="headerlink" href="#kvm" title="Permanent link">¶</a></h2>
+<p>Mold는 KVM에서 템플릿을 등록하고 사용하는 추가 방법을 제공합니다.</p>
+<p>템플릿을 등록하고 보조 스토리지에 저장하는 대신 사용자는 템플릿 등록 시 KVM 용 보조 스토리지에 템플릿 다운로드를 건너뛰도록 선택할 수 있습니다. 배포 시 템플릿은 보조 스토리지에서 복사되는 대신 등록된 소스에서 기본 스토리지로 직접 다운로드됩니다.</p>
+<p>지원되는 프로토콜 : HTTP/HTTPS, NFS 및 메탈 링크. 프로토콜은 템플릿 URL에서 가져옵니다.</p>
+<p>템플릿에 대해 이 옵션을 활성화하려면 :</p>
+<ol>
+<li>왼쪽 탐색 모음에서 템플릿을 클릭합니다.</li>
+<li>템플릿 등록을 클릭합니다.</li>
+<li>하이퍼바이저로 KVM을 선택하십시오.
+    <center><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../../../assets/images/mold_url_template_hypervisor.png"><img alt="mold_url_template_hypervisor" src="../../../assets/images/mold_url_template_hypervisor.png"/></a></center>
+    직접 다운로드. 이 옵션은 KVM이 하이퍼바이저로 선택될 때 UI에 표시됩니다. 예를 선택하여 보조 스토리지 우회 옵션을 활성화합니다.</li>
+</ol>
+<p>템플릿이 등록되면 VM 배포에 자동으로 사용할 수 있습니다.</p>
+<p>시스템 VM 템플릿은 직접 다운로드도 지원합니다. 관리자는 직접 다운로드 플래그를 사용하여 새 시스템 VM 템플릿을 ROUTING 또는 USER 유형으로 등록할 수 있으며, 업그레이드 중 또는 대역 외 데이터베이스 변경을 통해 SYSTEM 유형으로 변경할 수 있습니다. 새로 등록된 템플릿의 유형은 다음과 유사한 SQL 쿼리를 사용하여 데이터베이스에서 SYSTEM으로 변경할 수 있습니다.</p>
+<div class="highlight"><pre><span></span><code>UPDATE cloud.vm_template SET type='SYSTEM' WHERE uuid='UUID_OF_NEW_TEMPLATE';
+</code></pre></div>
+<p>HTTPS를 통한 직접 다운로드의 경우 KVM 호스트에 유효한 인증서가 있어야 합니다. 이러한 인증서는 자체 서명되거나 서명될 수 있으며 KVM 호스트가 템플릿/ISO에 액세스하여 다운로드할 수 있도록합니다.</p>
+<p>Mold는 직접 다운로드를 위한 인증서를 처리하는 몇 가지 API를 제공합니다.</p>
+<ul>
+<li>
+<p>id = ZONE_ID 인 zone에서 'Up' 상태의 호스트에 인증서를 업로드합니다.
+    </p><div class="highlight"><pre><span></span><code>upload templatedirectdownloadcertificate hypervisor=KVM name=CERTIFICATE_ALIAS zoneid=ZONE_ID certificate=CERTIFICATE_FORMATTED
+</code></pre></div><p></p>
+<p>어디 :
+    * CERTIFICATE_FORMATTED는 X509 인증서의 문자열 형식입니다.
+    * CERTIFICATE_ALIAS는 각 KVM 호스트에서 인증서를 가져오는 데 사용될 별칭입니다.</p>
+<p>참고 : 이러한 인증서는 각 KVM 호스트의 /etc/cloudstack/agent/cloud.jks 키 저장소로 가져옵니다.</p>
+</li>
+<li>
+<p>id = ZONE_ID 인 zone에서 'Up' 상태의 모든 호스트에서 인증서를 취소합니다.
+    </p><div class="highlight"><pre><span></span><code>revoke templatedirectdownloadcertificate hypervisor=KVM name=CERTIFICATE_ALIAS zoneid=ZONE_ID
+</code></pre></div><p></p>
+</li>
+<li>
+<p>zone 내의 특정 호스트에서 인증서를 취소할 수도 있습니다.
+    </p><div class="highlight"><pre><span></span><code>revoke templatedirectdownloadcertificate hypervisor=KVM name=CERTIFICATE_ALIAS zoneid=ZONE_ID hostid=HOST_ID
+</code></pre></div><p></p>
+</li>
+<li>
+<p>zone 내의 호스트에서 인증서가 해지된 후 호스트에 다시 업로드할 수 있습니다.
+    </p><div class="highlight"><pre><span></span><code>upload templatedirectdownloadcertificate hypervisor=KVM name=CERTIFICATE_ALIAS zoneid=ZONE_ID certificate=CERTIFICATE_FORMATTED hostid=HOST_ID
+</code></pre></div><p></p>
+</li>
+</ul>
+<p>이전에 기존 호스트에 업로드된 인증서를 포함하지 않는 zone에 새 호스트를 추가할 수 있습니다.</p>
+<p>Mold는 각 zone의 연결된 모든 호스트에서 인증서를 동기화하는 방법을 제공합니다. 글로벌 설정 'direct.download.certificate.background.task.interval'은 동기화 작업이 실행되는 간격을 정의합니다. 이 작업은 다음을 수행합니다.</p>
+<ul>
+<li>활성화된 각 zone을 반복합니다.</li>
+<li>zone에서 연결된 호스트 열거</li>
+<li>이미 다른 호스트에 업로드된 인증서가 누락된 호스트를 확인하십시오.</li>
+<li>누락된 인증서를 호스트에 업로드</li>
+</ul>
+<p>템플릿을 직접 다운로드하기 위해 다른 시간 제한 값을 구성하는 기능이 추가되었습니다. 이를 위해 세 가지 새로운 글로벌 설정이 추가되었습니다.</p>
+<ul>
+<li>direct.download.connect.timeout - 직접 다운로드를 위한 연결 설정 제한 시간 (밀리 초)입니다. 기본값 : 5000 밀리 초.</li>
+<li>direct.download.socket.timeout - 직접 다운로드를 위한 소켓 제한 시간 (SO_TIMEOUT) (밀리 초). 기본값 : 5000 밀리 초.</li>
+<li>direct.download.connection.request.timeout - 직접 다운로드를 위해 연결 관리자 제한 시간 (밀리 초)에서 연결 요청. 기본값 : 5000 밀리 초. 이 설정은 숨겨져 있으며 UI에 표시되지 않습니다.</li>
+</ul>
+<h2 id="iso_1">로컬 컴퓨터에서 템플릿 및 ISO 업로드<a class="headerlink" href="#iso_1" title="Permanent link">¶</a></h2>
+<p>이미 준비된 템플릿이나 로컬 컴퓨터에서 ISO를 업로드할 수도 있습니다. 단계는 PC에서 로컬 템플릿/ISO 파일을 선택해야 한다는 점을 제외하면 원격 HTTP 서버에서 템플릿/ISO를 업로드할 때와 유사합니다. 이 기능이 작동하려면 SSVM이 HTTPS를 지원해야합니다 (자세한 내용은 "콘솔 프록시에 SSL 인증서 사용"참조 ).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VMware 템플릿은 사용자 또는 관리자가 템플릿을 업로드할 때 OS 유형을 선택하는 것을 허용하지 않습니다. OS 유형은 업로드 후 템플릿에서 가져옵니다.</p>
+</div>
+<p>로컬 (브라우저)에서 템플릿/ISO를 업로드하는 GUI 대화 상자의 예는 다음과 같습니다.</p>
+<center>![mold_template_from_local](../../assets/images/mold_template_from_local.png)</center>
+<center>![mold_iso_from_local](../../assets/images/mold_iso_from_local.png)</center>
+<p>다중 디스크 템플릿 업로드도 지원됩니다.</p>
+<h3>다른 계정 / 프로젝트와 템플릿 및 ISO 공유</h3>
+<p>템플릿/ISO를 추가할 때 소유자는 템플릿/ISO를 공개하거나 비공개로 유지하도록 선택할 수 있습니다. 템플릿/ISO가 생성되면 소유자는 다른 계정/프로젝트도 템플릿/ISO를 사용할 수 있도록 이 템플릿/ISO를 공유하도록 선택할 수 있습니다.</p>
+<p>현재 소유자는 자신의 템플릿/ISO를 다음과 공유할 수 있습니다.</p>
+<ul>
+<li>자신의 도메인 내의 다른 계정 (즉, 자신의 도메인 또는 다른 도메인의 하위 도메인에 있는 다른 계정과 템플릿 / ISO를 공유할 수 없음)
+그가 속한 프로젝트 (예 : 그가 소유자 / 창작자인 프로젝트 또는 그가 참여한 다른 프로젝트)</li>
+<li>그가 속한 프로젝트 (예 : 그가 소유자 / 창작자인 프로젝트 또는 그가 참여한 다른 프로젝트)</li>
+</ul>
+<p>템플릿/ISO 권한은 updateTemplatePermissions / updateIsoPermissions API 호출 또는 GUI를 통해 변경할 수 있습니다. 템플릿/ISO 권한을 추가, 제거 또는 재설정 (모두 제거)할 수 있습니다.</p>
+<p>템플릿/ISO에서 권한을 추가하거나 제거할 때 템플릿/ISO 권한에서 추가/제거되는 계정/프로젝트 이름을 지정해야 합니다.</p>
+<p>글로벌 설정 "allow.user.view.all.domain.accounts"의 기본값은 "false"입니다. 이렇게 하면 일반 사용자가 GUI를 통해 템플릿/ISO를 공유하려고 할 때 도메인의 모든 계정 목록이 표시되지 않으며 대상의 이름을 알아야 합니다. 템플릿/ISO를 공유하는 계정입니다. 이는 단일 도메인의 각 계정이 서로 다른 테넌트/고객이고 개인 정보 보호가 필수적인 퍼블릭 클라우드에서 의미가 있습니다. 이 경우 아래 이미지와 같이 사용자에게 계정 이름을 입력할 수 있는 입력 필드가 표시됩니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>아래에 표시된 이미지는 템플릿 권한을 참조하지만, ISO 권한에도 동일하게 적용됩니다.</p>
+</div>
+<center>![mold_update_template](../../assets/images/mold_update_template.png)</center>
+<p>선택한 계정과 템플릿 공유 (다중 선택 가능)</p>
+<center>![mold_update_template_remove](../../assets/images/mold_update_template_remove.png)</center>
+<p>선택한 계정과 템플릿 공유 취소</p>
+<p>그러나 도메인 내의 개인 정보가 문제가되지 않는 환경에서 "allow.user.view.all.domain.accounts" 설정을 "true"로 설정하면 템플릿을 공유하는 사용자에게 더 많은 정보가 표시됩니다. 자신의 도메인에있는 모든 계정을 나열하는 사용자 친화적인 다중 선택 목록. 이것은 아래 이미지에 나와 있습니다.</p>
+<center>![mold_update_template_add_user](../../assets/images/mold_update_template_add_user.png)</center>
+<p>"user2"계정으로 만 템플릿 공유</p>
+<center>![mold_update_template_add_2_project](../../assets/images/mold_update_template_add_2_project.png)</center>
+<p>2 개의 특정 프로젝트와 템플릿 공유</p>
+<center>![mold_update_template_remove_user](../../assets/images/mold_update_template_remove_user.png)</center>
+<p>"user2"계정에서 권한 취소</p>
+<center>![mold_update_template_remove_2_project](../../assets/images/mold_update_template_remove_2_project.png)</center>
+<p>이전에 추가된 두 프로젝트 모두에서 권한 취소</p>
+<p>마지막으로 템플릿 권한을 재설정할 수 있습니다.</p>
+<center>![mold_update_template_reset_project](../../assets/images/mold_update_template_reset_project.png)</center>
+<p>권한 재설정 (모두 제거)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>프로젝트 소유 템플릿은 프로젝트 외부에서 공유할 수 없으며 그렇게 하려고하면 적절한 오류 메시지가 표시됩니다.</p>
+</div>
+<h2 id="_5">템플릿 내보내기<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>최종 사용자와 관리자는 Mold에서 템플릿을 내보낼 수 있습니다. UI에서 템플릿으로 이동하고 작업 메뉴에서 다운로드 기능을 선택합니다.</p>
+<h2 id="linux">Linux 템플릿 생성<a class="headerlink" href="#linux" title="Permanent link">¶</a></h2>
+<p>템플릿 배포를 위해 Linux VM을 준비하려면 이 설명서를 사용하여 Linux 템플릿을 준비해야 합니다. 문서화의 편의를 위해 템플릿을 구성하는 VM을 "템플릿 마스터"라고 합니다. 이 가이드는 현재 UserData 및 cloud-init를 활용하지 않는 레거시 설정을 다루며 설치 중에 openssh-server가 설치되었다고 가정합니다.</p>
+<p>절차의 개요는 다음과 같습니다.</p>
+<ol>
+<li>Linux ISO를 업로드하십시오. 자세한 내용은 "ISO 추가"를 참조하십시오.</li>
+<li>이 ISO로 VM 인스턴스를 만듭니다. 자세한 내용은 “VM 만들기"를 참조하십시오.</li>
+<li>Linux VM 준비</li>
+<li>VM에서 템플릿을 만듭니다. 자세한 내용은 "기존 가상 머신에서 템플릿 생성"을 참조하십시오.</li>
+</ol>
+<p>다음 단계에서는 템플릿을 위한 기본 Linux 설치를 준비합니다.</p>
+<ol>
+<li>설치</li>
+</ol>
+<p>설치 중에 VM의 이름을 일반적인 이름으로 지정하는 것이 좋습니다. 이렇게 하면 LVM과 같은 구성 요소가 컴퓨터에 고유하게 표시되지 않습니다. 설치에는 "localhost" 이름을 사용하는 것이 좋습니다.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>CentOS의 경우 인터페이스 구성 파일에서 고유한 ID를 가져와야 합니다. 이 편집은 /etc/sysconfig/network-scripts/ifcfg-eth0 이고 내용을 다음과 같이 변경합니다.</p>
+</div>
+<div class="highlight"><pre><span></span><code>DEVICE=eth0
+TYPE=Ethernet
+BOOTPROTO=dhcp
+ONBOOT=yes
+</code></pre></div>
+<p>다음 단계는 템플릿 마스터의 패키지를 업데이트합니다.</p>
+<ul>
+<li>
+<p>Ubuntu
+    </p><div class="highlight"><pre><span></span><code>sudo -i
+apt-get update
+apt-get upgrade -y
+apt-get install -y acpid ntp
+reboot
+</code></pre></div><p></p>
+</li>
+<li>
+<p>CentOS
+    </p><div class="highlight"><pre><span></span><code>ifup eth0
+yum update -y
+reboot
+</code></pre></div><p></p>
+</li>
+<li>
+<p>비밀번호 관리</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>원하는 경우 사용자 정의 사용자 (예 : Ubuntu 설치 중에 생성된 사용자)를 제거해야합니다. 먼저 암호를 제공하여 루트 사용자 계정이 활성화되었는지 확인한 다음 계속하려면 루트로 로그인하십시오.</p>
+</div>
+<div class="highlight"><pre><span></span><code>sudo passwd root
+logout
+</code></pre></div>
+<p>루트 권한으로 설치 프로세스 중에 생성된 모든 사용자 지정 사용자 계정을 제거합니다.</p>
+<div class="highlight"><pre><span></span><code>deluser myuser --remove-home
+</code></pre></div>
+<p>암호 관리 스크립트를 설정하는 방법은 템플릿에 암호 관리 추가를 참조하십시오. 그러면 Mold 웹 인터페이스에서 루트 암호를 변경할 수 있습니다.</p>
+<ol>
+<li>
+<p>호스트 이름 관리
+CentOS는 부팅 시 기본적으로 호스트 이름을 구성합니다. 불행히도 Ubuntu에는 이 기능이 없으므로 Ubuntu 설치의 경우 다음 단계를 사용하십시오.</p>
+</li>
+<li>
+<p>Ubuntu
+템플릿 기반 VM의 호스트 이름은 /etc/dhcp/dhclient-exit-hooks.d의 사용자 지정 스크립트에 의해 설정됩니다. 이 스크립트는 먼저 현재 호스트 이름이 localhost인지 확인하고 true이면 호스트 이름, domain-name을 가져옵니다. DHCP 임대 파일에서 name 및 fixed-ip를 사용하고 해당 값을 사용하여 호스트 이름을 설정하고 로컬 호스트 이름 확인을 위해 /etc/hosts 파일을 추가합니다. 이 스크립트 또는 사용자가 localhost에서 호스트 이름을 변경하면 새 호스트 이름에 관계없이 더 이상 시스템 파일을 조정하지 않습니다. 스크립트는 또한 템플릿 작성 전에 삭제해야 하는 openssh-server 키를 다시 만듭니다 (아래 참조). 다음 스크립트를 /etc/dhcp/dhclient-exit-hooks.d/sethostname에 저장하고 권한을 조정합니다.
+</p><div class="highlight"><pre><span></span><code>#!/bin/sh
+# dhclient change hostname script for Ubuntu
+oldhostname=$(hostname -s)
+if [ $oldhostname = 'localhost' ]
+then
+    sleep 10 # Wait for configuration to be written to disk
+    hostname=$(cat /var/lib/dhcp/dhclient.eth0.leases  |  awk ' /host-name/ { host = $3 }  END { printf host } ' | sed     's/[";]//g' )
+    fqdn="$hostname.$(cat /var/lib/dhcp/dhclient.eth0.leases  |  awk ' /domain-name/ { domain = $3 }  END { printf     domain } ' | sed 's/[";]//g')"
+    ip=$(cat /var/lib/dhcp/dhclient.eth0.leases  |  awk ' /fixed-address/ { lease = $2 }  END { printf lease } ' | sed     's/[";]//g')
+    echo "cloudstack-hostname: Hostname _localhost_ detected. Changing hostname and adding hosts."
+    printf " Hostname: $hostname\n FQDN: $fqdn\n IP: $ip"
+    # Update /etc/hosts
+    awk -v i="$ip" -v f="$fqdn" -v h="$hostname" "/^127/{x=1} !/^127/ &amp;&amp; x { x=0; print i,f,h; } { print $0; }" /etc/hosts &gt; /etc/hosts.dhcp.tmp
+    mv /etc/hosts /etc/hosts.dhcp.bak
+    mv /etc/hosts.dhcp.tmp /etc/hosts
+    # Rename Host
+    echo $hostname &gt; /etc/hostname
+    hostname -b -F /etc/hostname
+    echo $hostname &gt; /proc/sys/kernel/hostname
+    # Recreate SSH2
+    export DEBIAN_FRONTEND=noninteractive
+    dpkg-reconfigure openssh-server
+fi
+### End of Script ###
+
+chmod 774  /etc/dhcp/dhclient-exit-hooks.d/sethostname
+</code></pre></div><p></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>템플릿 마스터를 템플릿할 준비가되면 다음 단계를 실행해야합니다. 이 단계에서 템플릿 마스터가 재부팅되면 모든 단계를 다시 실행해야합니다. 이 프로세스가 끝나면 템플릿 마스터를 종료하고 템플릿을 생성하여 최종 템플릿을 만들고 배포해야합니다.</p>
+</div>
+<ol>
+<li>
+<p>udev 영구 장치 규칙 제거
+이 단계는 네트워크 MAC 주소, 임대 파일 및 CD 블록 장치와 같은 템플릿 마스터에 고유 한 정보를 제거하고 다음 부팅 시 파일이 자동으로 생성됩니다.</p>
+</li>
+<li>
+<p>Ubuntu
+</p><div class="highlight"><pre><span></span><code>rm -f /etc/udev/rules.d/70*
+rm -f /var/lib/dhcp/dhclient.*
+</code></pre></div><p></p>
+</li>
+<li>
+<p>CentOS
+</p><div class="highlight"><pre><span></span><code>rm -f /etc/udev/rules.d/70*
+rm -f /var/lib/dhclient/*
+</code></pre></div><p></p>
+</li>
+<li>
+<p>SSH 키 제거
+이 단계는 모든 템플릿 VM에 동일한 SSH 키가 없어서 시스템의 보안이 크게 저하되지 않도록하는 것입니다.
+</p><div class="highlight"><pre><span></span><code>rm -f /etc/ssh/*key*
+</code></pre></div><p></p>
+</li>
+<li>
+<p>로그 파일 정리
+템플릿 마스터에서 오래된 로그를 제거하는 것이 좋습니다.
+</p><div class="highlight"><pre><span></span><code>cat /dev/null &gt; /var/log/audit/audit.log 2&gt;/dev/null
+cat /dev/null &gt; /var/log/wtmp 2&gt;/dev/null
+logrotate -f /etc/logrotate.conf 2&gt;/dev/null
+rm -f /var/log/*-* /var/log/*.gz 2&gt;/dev/null.
+</code></pre></div><p></p>
+</li>
+<li>
+<p>호스트 이름 설정
+Ubuntu DHCP 스크립트가 작동하고 CentOS dhclient가 VM 호스트 이름을 설정하려면 둘 다 템플릿 마스터의 호스트 이름이 "localhost"여야합니다. 다음 명령을 실행하여 호스트 이름을 변경합니다.
+</p><div class="highlight"><pre><span></span><code>hostname localhost
+echo "localhost" &gt; /etc/hostname
+</code></pre></div><p></p>
+</li>
+<li>
+<p>만료할 사용자 암호 설정
+이 단계에서는 템플릿이 배포된 후 사용자가 VM의 암호를 변경해야합니다.
+</p><div class="highlight"><pre><span></span><code>passwd --expire root
+</code></pre></div><p></p>
+</li>
+<li>
+<p>사용자 기록 지우기
+다음 단계에서는 방금 실행 한 bash 명령을 지 웁니다.
+</p><div class="highlight"><pre><span></span><code>history -c
+unset HISTFILE
+</code></pre></div><p></p>
+</li>
+<li>
+<p>VM 종료
+이제 템플릿 마스터를 종료하고 템플릿을 만들 준비가되었습니다!
+</p><div class="highlight"><pre><span></span><code>halt -p
+</code></pre></div><p></p>
+</li>
+<li>
+<p>템플릿을 만드세요!
+이제 템플릿을 생성할 준비가되었습니다. 자세한 내용은 "기존 가상 머신에서 템플릿 생성"을 참조하십시오.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ubuntu 및 CentOS 모두에 대한 템플릿화된 VM은 호스트 이름을 가져 오기 위해 프로비저닝 후 재부팅해야할 수 있습니다.</p>
+</div>
+<h2 id="windows">Windows 템플릿 만들기<a class="headerlink" href="#windows" title="Permanent link">¶</a></h2>
+<p>Windows 템플릿은 여러 시스템에서 프로비저닝하기 전에 Sysprep을 사용하여 준비해야 합니다. Sysprep을 사용하면 일반 Windows 템플릿을 만들고 가능한 SID 충돌을 방지할 수 있습니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>(XenServer) XenServer에서 실행되는 Windows VM에는 템플릿에 제공되거나 VM이 생성된 후에 추가될 수 있는 PV 드라이버가 필요합니다. PV 드라이버는 추가 볼륨 및 ISO 이미지 마운트, 라이브 마이그레이션 및 정상 종료와 같은 필수 관리 기능에 필요합니다.</p>
+</div>
+<p>절차의 개요는 다음과 같습니다.</p>
+<ol>
+<li>Windows ISO를 업로드하십시오.</li>
+<li>자세한 내용은 "ISO 추가"를 참조하십시오. 이 ISO로 VM 인스턴스를 만듭니다.</li>
+<li>자세한 내용은 “VM 만들기"를 참조하십시오. Windows Server 버전에 따라 Windows Server 2008 R2 용 Sysprep (아래) 또는 Windows Server 2003 R2 용 Sysprep의 단계를 따릅니다.</li>
+<li>준비 단계가 완료되었습니다. 이제 Windows 템플릿 만들기에 설명된 대로 실제로 템플릿을 만들 수 있습니다.</li>
+</ol>
+<p>Windows 2008 R2의 경우 Windows 시스템 이미지 관리자를 실행하여 사용자 지정 sysprep 응답 XML 파일을 만듭니다. Windows 시스템 이미지 관리자는 Windows AIK (자동 설치 키트)의 일부로 설치됩니다. Windows AIK는 Microsoft 다운로드 센터에서 다운로드할 수 있습니다.</p>
+<p>다음 단계를 사용하여 Windows 2008 R2 용 sysprep을 실행하십시오.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>여기에 설명된 단계는 원래 Windows Server 2008 Sysprep Mini-Setup에 게시된 Charity Shelbourne의 훌륭한 가이드에서 파생되었습니다.</p>
+</div>
+<ol>
+<li>Windows AIK 다운로드 및 설치</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>방금 만든 Windows 2008 R2 VM에 Windows AIK를 설치하면 안 됩니다. Windows AIK는 사용자가 만든 템플릿의 일부가 아니어야 합니다. sysprep 응답 파일을 만드는 데만 사용됩니다.</p>
+</div>
+<ol>
+<li>Windows 2008 R2 설치 DVD의 \sources 디렉터리에 있는 install.wim 파일을 하드 디스크에 복사합니다. 이것은 매우 큰 파일이며 복사하는 데 시간이 오래 걸릴 수 있습니다. Windows AIK를 사용하려면 WIM 파일이 쓰기 가능해야 합니다.</li>
+<li>Windows AIK의 일부인 Windows 시스템 이미지 관리자를 시작합니다.</li>
+<li>Windows 이미지 창에서 Windows 이미지 또는 카탈로그 파일 선택 옵션을 마우스 오른쪽 단추로 클릭하여 방금 복사한 install.wim 파일을로드합니다.</li>
+<li>Windows 2008 R2 Edition을 선택합니다. 카탈로그 파일을 열 수 없다는 경고 메시지가 표시될 수 있습니다. 예를 클릭하여 새 카탈로그 파일을 만듭니다.</li>
+<li>응답 파일 창에서 마우스 오른쪽 단추를 클릭하여 새 응답 파일을 만듭니다.</li>
+<li>
+<p>다음 단계를 사용하여 Windows 시스템 이미지 관리자에서 응답 파일을 생성합니다.</p>
+<ol>
+<li>
+<p>자동화해야하는 첫 번째 페이지는 언어 및 국가 또는 지역 선택 페이지입니다. 이를 자동화하려면 Windows 이미지 창에서 구성 요소를 확장하고 마우스 오른쪽 단추를 클릭한 다음 Microsoft-Windows-International-Core 설정을 Pass 7 oobeSystem에 추가합니다. 응답 파일 창에서 언어와 국가 또는 지역에 대한 적절한 설정을 사용하여 InputLocale, SystemLocale, UILanguage 및 UserLocale을 구성합니다. 이러한 설정에 대한 질문이 있는 경우 특정 설정을 마우스 오른쪽 단추로 클릭하고 도움말을 선택할 수 있습니다. 구성하려는 설정에 대한 예를 포함하여 자세한 정보가 포함된 적절한 CHM 도움말 파일이 열립니다.
+</p><center><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../../../assets/images/mold_windows_sysmanager.png"><img alt="mold_windows_sysmanager" src="../../../assets/images/mold_windows_sysmanager.png"/></a></center><p></p>
+</li>
+<li>
+<p>EULA (최종 사용자 사용권 계약)이라고도 하는 소프트웨어 사용 조건 선택 페이지를 자동화해야 합니다. 이렇게 하려면 Microsoft-Windows-Shell-Setup 구성 요소를 확장합니다. OOBE 설정을 강조 표시하고 설정을 Pass 7 oobeSystem에 추가합니다. 설정에서 HideEULAPage를 true로 설정하십시오.
+</p><center><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../../../assets/images/mold_windows_software_license.png"><img alt="mold_windows_software_license" src="../../../assets/images/mold_windows_software_license.png"/></a></center><p></p>
+</li>
+<li>
+<p>라이센스 키가 올바르게 설정되었는지 확인하십시오. MAK 키를 사용하는 경우 Windows 2008 R2 VM에 MAK 키를 입력하기만 하면 됩니다. Windows 시스템 이미지 관리자에 MAK를 입력할 필요가 없습니다. 정품 인증에 KMS 호스트를 사용하는 경우 제품 키를 입력할 필요가 없습니다. Windows 볼륨 정품 인증에 대한 자세한 내용은 <a href="http://technet.microsoft.com/en-us/library/bb892849.aspx">http://technet.microsoft.com/en-us/library/bb892849.aspx</a> 에서 찾을 수 있습니다.</p>
+</li>
+<li>
+<p>자동화해야 할 것은 Change Administrator Password 페이지입니다. Microsoft-Windows-Shell-Setup 구성 요소 (아직 확장되지 않은 경우)를 확장하고 UserAccounts를 확장한 다음 AdministratorPassword를 마우스 오른쪽 단추로 클릭하고 응답 파일의 Pass 7 oobeSystem 구성 단계에 설정을 추가합니다. 설정에서 값 옆에 암호를 지정합니다.
+</p><center><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="80%" href="../../../assets/images/mold_windows_change_admin_password.png"><img alt="mold_windows_change_admin_password" src="../../../assets/images/mold_windows_change_admin_password.png"/></a></center><p></p>
+</li>
+</ol>
+<p>AIK 설명서를 읽고 배포에 적합한 더 많은 옵션을 설정할 수 있습니다. 위의 단계는 Windows 무인 설치 작업에 필요한 최소한의 단계입니다.</p>
+</li>
+<li>
+<p>응답 파일을 unattend.xml로 저장합니다. 유효성 검사 창에 나타나는 경고 메시지는 무시할 수 있습니다.</p>
+</li>
+<li>
+<p>unattend.xml 파일을 Windows 2008 R2 가상 머신의 c:\windows\system32\sysprep 디렉터리에 복사합니다.</p>
+</li>
+<li>
+<p>unattend.xml 파일을 c:\windows\system32\sysprep 디렉터리에 배치하면 다음과 같이 sysprep 도구를 실행합니다.
+</p><div class="highlight"><pre><span></span><code>cd c:\Windows\System32\sysprep
+sysprep.exe /oobe/generalize/shutdown
+</code></pre></div>
+Windows 2008 R2 VM은 sysprep이 완료된 후 자동으로 종료됩니다.<p></p>
+</li>
+</ol>
+<p>이전 버전의 Windows에는 다른 sysprep 도구가 있습니다. Windows Server 2003 R2의 경우 다음 단계를 따르십시오.</p>
+<ol>
+<li>Windows 설치 CD에 있는 \support\tools\deploy.cab의 내용을 Windows 2003 R2 VM의 c:\sysprep 디렉터리에 추출합니다.</li>
+<li>
+<p>c:\sysprep\setupmgr.exe를 실행하여 sysprep.inf 파일을 만듭니다.</p>
+<ol>
+<li>새 응답 파일을 만들려면 새로 만들기를 선택합니다.</li>
+<li>Type of Setup으로“Sysprep setup"을 입력합니다.</li>
+<li>적절한 OS 버전과 에디션을 선택하십시오.</li>
+<li>라이센스 계약 화면에서 "Yes fully automate the installation"를 선택하십시오.</li>
+<li>귀하의 이름과 조직을 제공하십시오.</li>
+<li>디스플레이 설정을 기본값으로 둡니다.</li>
+<li>적절한 시간대를 설정하십시오.</li>
+<li>제품 키를 제공하십시오.</li>
+<li>배포에 적합한 라이센스 모드를 선택하십시오.</li>
+<li>"컴퓨터 이름 자동 생성"을 선택합니다.</li>
+<li>기본 관리자 암호를 입력하십시오. 암호 재설정 기능을 활성화하면 사용자는 실제로 이 암호를 사용하지 않습니다. 이 비밀번호는 게스트가 부팅된 후 인스턴스 관리자에 의해 재설정됩니다.</li>
+<li>네트워크 구성 요소는 "일반 설정"으로 둡니다.</li>
+<li>“WORKGROUP"옵션을 선택합니다.</li>
+<li>전화 통신 옵션은 기본값으로 둡니다.</li>
+<li>적절한 지역 설정을 선택합니다.</li>
+<li>적절한 언어 설정을 선택하십시오.</li>
+<li>프린터를 설치하지 마십시오.</li>
+<li>"한 번 실행 명령"을 지정하지 마십시오.</li>
+<li>식별 문자열을 지정할 필요가 없습니다.</li>
+<li>응답 파일을 c:\sysprep\sysprep.inf로 저장합니다.</li>
+</ol>
+</li>
+<li>
+<p>다음 명령을 실행하여 이미지를 sysprep합니다.
+</p><div class="highlight"><pre><span></span><code>c:\sysprep\sysprep.exe -reseal -mini -activated
+</code></pre></div>
+이 단계가 끝나면 기계가 자동으로 종료됩니다.<p></p>
+</li>
+</ol>
+<h2 id="amazon">Amazon 머신 이미지 가져 오기<a class="headerlink" href="#amazon" title="Permanent link">¶</a></h2>
+<p>다음 절차에서는 XenServer 하이퍼바이저를 사용할 때 Amazon 머신 이미지 (AMI)를 Mold로 가져오는 방법을 설명합니다.</p>
+<p>AMI 파일이 있고 이 파일을 CentOS_6.2_x64라고 가정합니다. CentOS 호스트에서 작업하고 있다고 가정하십시오. AMI가 Fedora 이미지인 경우 처음에 Fedora 호스트에서 작업해야 합니다.</p>
+<p>이미지 파일이 Centos/Fedora 호스트에서 사용자 지정되면 VHD로 변환하려면 파일 기반 저장소 (로컬 ext3 SR 또는 NFS SR)가 있는 XenServer 호스트가 있어야 합니다.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>명령을 복사하여 붙여 넣을 때 실행하기 전에 명령을 한 줄로 붙여 넣었는지 확인하십시오. 일부 문서 뷰어는 복사된 텍스트에 원하지 않는 줄 바꿈을 도입할 수 있습니다.</p>
+</div>
+<ol>
+<li>
+<p>이미지 파일에 대한 루프백 설정 :
+</p><div class="highlight"><pre><span></span><code># mkdir -p /mnt/loop/centos62
+# mount -o loop  CentOS_6.2_x64 /mnt/loop/centos54
+</code></pre></div><p></p>
+</li>
+<li>
+<p>kernel-xen 패키지를 이미지에 설치합니다. 이렇게 하면 PV 커널과 ramdisk가 이미지로 다운로드됩니다.
+</p><div class="highlight"><pre><span></span><code># yum -c /mnt/loop/centos54/etc/yum.conf --installroot=/mnt/loop/centos62/ -y install kernel-xen
+</code></pre></div><p></p>
+</li>
+<li>
+<p>/boot/grub/grub.conf에 grub 항목을 만듭니다.
+</p><div class="highlight"><pre><span></span><code># mkdir -p /mnt/loop/centos62/boot/grub
+# touch /mnt/loop/centos62/boot/grub/grub.conf
+# echo "" &gt; /mnt/loop/centos62/boot/grub/grub.conf
+</code></pre></div><p></p>
+</li>
+<li>
+<p>이미지에 설치된 PV 커널의 이름을 확인합니다.
+</p><div class="highlight"><pre><span></span><code># cd /mnt/loop/centos62
+# ls lib/modules/
+2.6.16.33-xenU  2.6.16-xenU  2.6.18-164.15.1.el5xen  2.6.18-164.6.1.el5.centos.plus  2.6.18-xenU-ec2-v1.0  2.6.21.7-2.fc8xen  2.6.31-302-ec2
+# ls boot/initrd*
+boot/initrd-2.6.18-164.6.1.el5.centos.plus.img boot/initrd-2.6.18-164.15.1.el5xen.img
+# ls boot/vmlinuz*
+boot/vmlinuz-2.6.18-164.15.1.el5xen  boot/vmlinuz-2.6.18-164.6.1.el5.centos.plus  boot/vmlinuz-2.6.18-xenU-ec2-v1.0  boot/vmlinuz-2.6.21-2952.fc8xen
+</code></pre></div>
+Xen 커널/ramdisk는 항상 "xen"으로 끝납니다. 선택한 커널 버전의 경우 lib/modules 아래에 해당 버전에 대한 항목이 있어야하며 이에 해당하는 initrd 및 vmlinuz가 있어야 합니다. 위에서 이 조건을 만족하는 유일한 커널은 2.6.18-164.15.1.el5xen입니다.<p></p>
+</li>
+<li>
+<p>찾은 결과에 따라 grub.conf 파일에 항목을 만듭니다. 아래는 예제 항목입니다.
+</p><div class="highlight"><pre><span></span><code>default=0
+timeout=5
+hiddenmenu
+title CentOS (2.6.18-164.15.1.el5xen)
+   root (hd0,0)
+   kernel /boot/vmlinuz-2.6.18-164.15.1.el5xen ro root=/dev/xvda
+   initrd /boot/initrd-2.6.18-164.15.1.el5xen.img
+</code></pre></div><p></p>
+</li>
+<li>
+<p>etc/fstab을 편집하여 "sda1"을 "xvda"로 변경하고 "sdb"를 "xvdb"로 변경합니다.
+</p><div class="highlight"><pre><span></span><code># cat etc/fstab
+/dev/xvda  /         ext3    defaults        1 1
+/dev/xvdb  /mnt      ext3    defaults        0 0
+none       /dev/pts  devpts  gid=5,mode=620  0 0
+none       /proc     proc    defaults        0 0
+none       /sys      sysfs   defaults        0 0
+</code></pre></div><p></p>
+</li>
+<li>
+<p>콘솔을 통해 로그인을 활성화합니다. XenServer 시스템의 기본 콘솔 장치는 xvc0입니다. etc/inittab 및 etc/securetty에 각각 다음 행이 있는지 확인하십시오.
+</p><div class="highlight"><pre><span></span><code># grep xvc0 etc/inittab
+co:2345:respawn:/sbin/agetty xvc0 9600 vt100-nav
+# grep xvc0 etc/securetty
+xvc0
+</code></pre></div><p></p>
+</li>
+<li>
+<p>ramdisk가 PV 디스크 및 PV 네트워크를 지원하는지 확인하십시오. 위에서 결정한 커널 버전에 맞게 사용자 정의하십시오.
+</p><div class="highlight"><pre><span></span><code># chroot /mnt/loop/centos54
+# cd /boot/
+# mv initrd-2.6.18-164.15.1.el5xen.img initrd-2.6.18-164.15.1.el5xen.img.bak
+# mkinitrd -f /boot/initrd-2.6.18-164.15.1.el5xen.img --with=xennet --preload=xenblk --omit-scsi-modules 2.6.18-164.15.1.el5xen
+</code></pre></div><p></p>
+</li>
+<li>
+<p>비밀번호를 변경하십시오.
+</p><div class="highlight"><pre><span></span><code># passwd
+Changing password for user root.
+New UNIX password:
+Retype new UNIX password:
+passwd: all authentication tokens updated successfully.
+</code></pre></div><p></p>
+</li>
+<li>
+<p>chroot를 종료합니다.
+</p><div class="highlight"><pre><span></span><code># exit
+</code></pre></div><p></p>
+</li>
+<li>
+<p>etc/ssh/sshd_config 에서 비밀번호를 사용하여 ssh 로그인을 허용하는 행을 확인하십시오.
+</p><div class="highlight"><pre><span></span><code># egrep "PermitRootLogin|PasswordAuthentication" /mnt/loop/centos54/etc/ssh/sshd_config
+PermitRootLogin yes
+PasswordAuthentication yes
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Mold UI 또는 API에서 비밀번호를 재설정하기 위해 템플릿을 활성화해야하는 경우 이 시점에서 비밀번호 변경 스크립트를 이미지에 설치합니다. 템플릿에 암호 관리 추가를 참조하십시오.</p>
+</li>
+<li>
+<p>루프백 마운트를 마운트 해제하고 삭제합니다.
+</p><div class="highlight"><pre><span></span><code># umount /mnt/loop/centos54
+# losetup -d /dev/loop0
+</code></pre></div><p></p>
+</li>
+<li>
+<p>이미지 파일을 XenServer 호스트의 파일 기반 저장소 저장소에 복사합니다. 아래 예에서 Xenserver는 "xenhost"입니다. 이 XenServer에는 uuid가 a9c5b8c8-536b-a193-a6dc-51af3e5ff799 인 NFS 리포지토리가 있습니다.
+</p><div class="highlight"><pre><span></span><code># scp CentOS_6.2_x64 xenhost:/var/run/sr-mount/a9c5b8c8-536b-a193-a6dc-51af3e5ff799/
+</code></pre></div><p></p>
+</li>
+<li>
+<p>Xenserver에 로그인하고 이미지와 동일한 크기의 VDI를 만듭니다.
+</p><div class="highlight"><pre><span></span><code>[root@xenhost ~]# cd /var/run/sr-mount/a9c5b8c8-536b-a193-a6dc-51af3e5ff799
+[root@xenhost a9c5b8c8-536b-a193-a6dc-51af3e5ff799]#  ls -lh CentOS_6.2_x64
+-rw-r--r-- 1 root root 10G Mar 16 16:49 CentOS_6.2_x64
+[root@xenhost a9c5b8c8-536b-a193-a6dc-51af3e5ff799]# xe vdi-create virtual-size=10GiB sr-uuid=a9c5b8c8-536b-a193-a6dc-51af3e5ff799 type=user name-label="Centos 6.2 x86_64"
+cad7317c-258b-4ef7-b207-cdf0283a7923
+</code></pre></div><p></p>
+</li>
+<li>
+<p>이미지 파일을 VDI로 가져옵니다. 이 과정은 10-20 분 정도 소요됩니다.
+</p><div class="highlight"><pre><span></span><code>[root@xenhost a9c5b8c8-536b-a193-a6dc-51af3e5ff799]# xe vdi-import filename=CentOS_6.2_x64 uuid=cad7317c-258b-4ef7-b207-cdf0283a7923
+</code></pre></div><p></p>
+</li>
+<li>
+<p>VHD 파일을 찾습니다. 이름이 VDI의 UUID 인 파일입니다. 그것을 압축하고 웹 서버에 업로드하십시오.
+</p><div class="highlight"><pre><span></span><code>[root@xenhost a9c5b8c8-536b-a193-a6dc-51af3e5ff799]# bzip2 -c cad7317c-258b-4ef7-b207-cdf0283a7923.vhd &gt; CentOS_6.2_x64.vhd.bz2
+[root@xenhost a9c5b8c8-536b-a193-a6dc-51af3e5ff799]# scp CentOS_6.2_x64.vhd.bz2 webserver:/var/www/html/templates/
+</code></pre></div><p></p>
+</li>
+</ol>
+<h2 id="hyper-v-vm">Hyper-V VM을 템플릿으로 변환<a class="headerlink" href="#hyper-v-vm" title="Permanent link">¶</a></h2>
+<p>Hyper-V VM을 XenServer 호환 Mold 템플릿으로 변환하려면 NFS VHD SR이 연결된 독립 실행형 XenServer 호스트가 필요합니다. Mold와 함께 사용 중인 XenServer 버전을 사용하되 XenCenter 5.6 FP1 또는 SP2를 사용합니다 (5.6과 역 호환됨) 또한 NFS ISO SR을 연결하면 도움이 될 수 있습니다.</p>
+<p>Linux VM의 경우 VM이 XenServer에서 작동하도록 하기 전에 Hyper-V에서 몇 가지 준비 작업을 수행해야 할 수 있습니다. Hyper-V에서 VM을 계속 사용하려는 경우 VM을 복제하고 복제 작업을 수행합니다. Hyper-V 통합 구성 요소를 제거하고 /etc/fstab에서 장치 이름에 대한 참조를 확인합니다.</p>
+<ol>
+<li>linux_ic/drivers/dist 디렉터리에서 make uninstall을 실행합니다 (여기서 "linux_ic"는 복사된 Hyper-V 통합 구성 요소 파일의 경로임)</li>
+<li>/boot/ 의 백업에서 원래 initrd를 복원합니다 (백업 이름은 *.backup0).</li>
+<li>/boot/grub/menu.lst에서 "hdX = noprobe"항목을 제거합니다.</li>
+<li>/etc/fstab에서 장치 이름으로 마운트된 파티션을 확인하십시오. 해당 항목 (있는 경우)을 LABEL 또는 UUID로 마운트하도록 변경하십시오. blkid 명령으로 해당 정보를 얻을 수 있습니다.</li>
+</ol>
+<p>다음 단계는 VM이 ​​Hyper-V에서 실행되고 있지 않은지 확인한 다음 VHD를 XenServer로 가져오는 것입니다. 이를 위한 두 가지 옵션이 있습니다.</p>
+<p>옵션 1 :</p>
+<ol>
+<li>XenCenter를 사용하여 VHD를 가져옵니다. XenCenter에서 Tools&gt; Virtual Appliance Tools&gt; Disk Image Import로 이동합니다.</li>
+<li>VHD를 선택하고 다음을 클릭합니다.</li>
+<li>VM의 이름을 지정하고 스토리지에서 NFS VHD SR을 선택하고 "운영 체제 수정 실행"을 활성화하고 NFS ISO SR을 선택합니다.</li>
+<li>다음을 클릭한 후 완료를 클릭하십시오. VM을 만들어야 합니다.</li>
+</ol>
+<p>옵션 2 :</p>
+<ol>
+<li>XenConvert를 실행하고 From choose VHD, To choose XenServer에서. 다음을 클릭하십시오.</li>
+<li>VHD를 선택하고 다음을 클릭합니다.</li>
+<li>XenServer 호스트 정보를 입력하고 다음을 클릭합니다.</li>
+<li>VM의 이름을 지정하고 다음, 변환을 차례로 클릭합니다. VM을 만들어야 합니다.</li>
+</ol>
+<p>Hyper-V VHD에서 만든 VM이 있으면 다음 단계를 사용하여 준비합니다.</p>
+<ol>
+<li>VM을 부팅하고 Hyper-V 통합 서비스를 제거한 다음 재부팅합니다.</li>
+<li>XenServer Tools를 설치 한 다음 재부팅합니다.</li>
+<li>원하는대로 VM을 준비합니다. 예를 들어 Windows VM에서 sysprep를 실행합니다. “Windows 템플릿 만들기"를 참조하십시오.</li>
+</ol>
+<p>위의 옵션 중 하나는 HVM 모드에서 VM을 생성합니다. Windows VM에는 문제가 없지만 Linux VM은 최적으로 작동하지 않을 수 있습니다. Linux VM을 PV 모드로 변환하려면 추가 단계가 필요하며 배포에 따라 다릅니다.</p>
+<ol>
+<li>VM을 종료하고 NFS 스토리지에서 웹 서버로 VHD를 복사합니다. 예를 들어 웹 서버에 NFS 공유를 마운트하고 복사하거나 XenServer 호스트에서 sftp 또는 scp를 사용하여 웹 서버에 업로드합니다.</li>
+<li>Mold에서 다음 값을 사용하여 새 템플릿을 만듭니다.<ul>
+<li>URL. VHD에 대한 URL 제공</li>
+<li>OS 유형. 적절한 OS를 사용하십시오. CentOS의 PV 모드의 경우 기타 PV (32 비트) 또는 기타 PV (64 비트)를 선택합니다. 이 선택은 XenServer에서만 사용할 수 있습니다.</li>
+<li>하이퍼바이저. XenServer</li>
+<li>체재. VHD</li>
+</ul>
+</li>
+</ol>
+<p>템플릿이 생성되고 여기에서 인스턴스를 생성할 수 있습니다.</p>
+<h2 id="_6">템플릿에 암호 관리 추가<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<p>Mold는 사용자가 임시 관리자 또는 루트 비밀번호를 설정하고 Mold UI에서 기존 관리자 또는 루트 비밀번호를 재설정할 수 있는 선택적 비밀번호 재설정 기능을 제공합니다.</p>
+<p>비밀번호 재설정 기능을 활성화하려면 템플릿을 패치할 추가 스크립트를 다운로드해야 합니다. 나중에 템플릿을 Mold에 업로드할 때 이 템플릿에 대해 관리자/루트 비밀번호 재설정 기능을 활성화할지 여부를 지정할 수 있습니다.</p>
+<p>암호 관리 기능은 항상 인스턴스 부팅 시 계정 암호를 재설정합니다. 스크립트는 설정해야 하는 계정 암호를 검색하기 위해 가상 라우터에 대한 HTTP 호출을 수행합니다. 가상 라우터에 액세스할 수 있는 한 게스트는 사용해야 하는 계정 암호에 액세스할 수 있습니다. 사용자가 암호 재설정을 요청하면 관리 서버가 계정의 가상 라우터에 새 암호를 생성하여 보냅니다. 따라서 암호 변경을 적용하려면 인스턴스 재부팅이 필요합니다.</p>
+<p>인스턴스 부팅 중에 스크립트가 가상 라우터에 연결할 수없는 경우 비밀번호를 설정하지 않지만, 부팅은 정상적으로 계속됩니다.</p>
+<p>다음 단계를 사용하여 Linux OS 설치를 시작하십시오.</p>
+<ol>
+<li>저장소에서 최신 버전의 cloud-set-guest-password 스크립트를 다운로드합니다.<ul>
+<li><a href="https://github.com/apache/cloudstack/blob/master/setup/bindir/cloud-set-guest-password.in">https://github.com/apache/cloudstack/blob/master/setup/bindir/cloud-set-guest-password.in</a></li>
+</ul>
+</li>
+<li>
+<p>파일 이름 변경 :
+</p><div class="highlight"><pre><span></span><code>mv cloud-set-guest-password.in cloud-set-guest-password
+</code></pre></div><p></p>
+</li>
+<li>
+<p>이 파일을 /etc/init.d에 복사하십시오. <br/>일부 Linux 배포에서는 파일을 /etc/rc.d/init.d에 복사합니다.</p>
+</li>
+<li>다음 명령을 실행하여 스크립트를 실행 가능하게 만듭니다.
+<div class="highlight"><pre><span></span><code>chmod +x /etc/init.d/cloud-set-guest-password
+</code></pre></div></li>
+<li>Linux 배포에 따라 적절한 단계를 계속합니다.<br/>Fedora, CentOS / RHEL 및 Debian에서 다음을 실행합니다.
+<div class="highlight"><pre><span></span><code>chkconfig --add cloud-set-guest-password
+</code></pre></div></li>
+</ol>
+<p>다운로드 페이지 에서 설치 프로그램 CloudInstanceManager.msi를 다운로드 하고 새로 생성된 Windows VM에서 설치 프로그램을 실행합니다.</p>
+<h2 id="_7">템플릿 삭제<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<p>템플릿이 삭제될 수 있습니다. 일반적으로 템플릿이 여러 zone에 걸쳐 있는 경우 삭제를 위해 선택한 복사본만 삭제됩니다. 다른 Zone에 있는 동일한 템플릿은 삭제되지 않습니다. 제공된 CentOS 템플릿은 예외입니다. 제공된 CentOS 템플릿이 삭제되면 모든 Zone에서 삭제됩니다.</p>
+<p>템플릿이 삭제되면 템플릿에서 인스턴스화된 VM이 계속 실행됩니다. 그러나 삭제된 템플릿을 기반으로 새 VM을 만들 수 없습니다.</p>
+<h2 id="iso_2">ISO 작업<a class="headerlink" href="#iso_2" title="Permanent link">¶</a></h2>
+<p>Mold는 ISO 및 게스트 VM에 대한 연결을 지원합니다. ISO는 ISO/CD-ROM 스타일 파일 시스템이 있는 읽기 전용 파일입니다. 사용자는 자신의 ISO를 업로드하고 게스트 VM에 마운트할 수 있습니다.</p>
+<p>ISO는 URL을 기반으로 업로드됩니다. HTTP는 지원되는 프로토콜입니다. HTTP를 통해 ISO를 사용할 수 있게 되면 <a href="http://my.web.server/filename.iso">http://my.web.server/filename.iso</a> 와 같은 업로드 URL을 지정합니다.</p>
+<p>ISO는 템플릿처럼 공개 또는 비공개 일 수 있으며, 하이퍼바이저와 관련이 없습니다. 즉, vSphere의 게스트는 KVM의 게스트가 마운트할 수 있는 것과 동일한 이미지를 마운트할 수 있습니다.</p>
+<p>ISO 이미지는 시스템에 저장될 수 있으며 템플릿과 유사한 개인 정보 보호 수준으로 사용할 수 있습니다. ISO 이미지는 부팅 가능 또는 부팅 불가능으로 분류됩니다. 부팅 가능한 ISO 이미지는 OS 이미지가 포함된 이미지입니다. Mold를 사용하면 사용자가 ISO 이미지에서 게스트 VM을 부팅할 수 있습니다. 사용자는 게스트 VM에 ISO 이미지를 연결할 수도 있습니다. 예를 들어 Windows에 PV 드라이버를 설치할 수 있습니다. ISO 이미지는 하이퍼바이저와 관련이 없습니다.</p>
+<h3>ISO 추가</h3>
+<p>게스트 VM에서 사용할 수 있는 추가 운영 체제 또는 기타 소프트웨어를 만들기 위해 ISO를 추가할 수 있습니다. ISO는 일반적으로 운영 체제 이미지로 간주되지만, 템플릿의 일부로 설치하려는 데스크톱 응용 프로그램과 같은 다른 유형의 소프트웨어에 대해 ISO를 추가할 수도 있습니다.</p>
+<ol>
+<li>관리자 또는 최종 사용자로 Mold UI에 로그인합니다.</li>
+<li>왼쪽 탐색 모음에서 템플릿을 클릭합니다.</li>
+<li>보기 선택에서 ISO를 선택합니다.</li>
+<li>ISO 추가를 클릭합니다.</li>
+<li>ISO 추가 화면에서 다음을 제공하십시오.<ul>
+<li>이름 : ISO 이미지의 짧은 이름입니다. 예 : CentOS 6.2 64 비트.</li>
+<li>설명 : ISO 이미지에 대한 디스플레이 테스트입니다. 예 : CentOS 6.2 64 비트.</li>
+<li>URL : ISO 이미지를 호스팅하는 URL입니다. 관리 서버는 HTTP를 통해 이 위치에 액세스할 수 있어야 합니다. 필요한 경우 관리 서버에 직접 ISO 이미지를 배치할 수 있습니다.</li>
+<li>zone : ISO를 사용할 수 있는 zone을 선택하거나 Mold 전체에서 사용할 수 있도록 하려면 모든 zone을 선택합니다.</li>
+<li>부팅 가능 : 게스트가 이 ISO 이미지를 부팅할 수 있는지 여부입니다. 예를 들어 CentOS ISO는 부팅 가능하고 Microsoft Office ISO는 부팅할 수 없습니다.</li>
+<li>OS 유형 : Mold 및 하이퍼바이저가 특정 작업을 수행하고 게스트의 성능을 향상시키는 가정을 하는 데 도움이 됩니다. 다음 중 하나를 선택하십시오.<ul>
+<li>원하는 ISO 이미지의 운영 체제가 나열되면 선택합니다.</li>
+<li>ISO의 OS 유형이 나열되지 않거나 ISO를 부팅할 수없는 경우 기타를 선택합니다.</li>
+<li>(XenServer 만 해당) PV 모드에서 이 ISO에서 부팅하려면 기타 PV (32 비트) 또는 기타 PV (64 비트)를 선택합니다.</li>
+<li>(KVM 만 해당) PV 지원 OS를 선택하는 경우 이 ISO에서 생성된 VM에는 SCSI (virtio) 루트 디스크가 있습니다. OS가 PV를 지원하지 않는 경우 VM에는 IDE 루트 디스크가 있습니다. PV 지원 유형은 다음과 같습니다.<ul>
+<li>Fedora 13</li>
+<li>Fedora 12</li>
+<li>Fedora 11</li>
+<li>Fedora 10</li>
+<li>Fedora 9</li>
+<li>Other PV</li>
+<li>Debian GNU/linux</li>
+<li>CentOS 5.3</li>
+<li>CentOS 5.4</li>
+<li>CentOS 5.5</li>
+<li>Red Hat Enterprise Linux 5.3</li>
+<li>Red Hat Enterprise Linux 5.4</li>
+<li>Red Hat Enterprise Linux 5.5</li>
+<li>Red Hat Enterprise Linux 6</li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>이미지의 버전보다 이전 버전의 OS를 선택하지 않는 것이 좋습니다. 예를 들어 CentOS 6.2 이미지를 지원하기 위해 CentOS 5.4를 선택하면 일반적으로 작동하지 않습니다. 이 경우 기타를 선택합니다.</p>
+</div>
+<p>추출 가능 : ISO를 추출에 사용할 수 있어야 하는 경우 예를 선택합니다.
+공개 : 이 ISO를 다른 사용자에게 제공하려면 예를 선택합니다.
+추천 : 사용자가 이 ISO를 더 눈에 띄게 하려면 예를 선택합니다. ISO는 주요 ISO 목록에 나타납니다. 관리자 만 ISO 추천을 만들 수 있습니다.</p>
+</li>
+</ul>
+</li>
+<li>확인을 클릭하십시오.<br/>관리 서버가 ISO를 다운로드합니다. ISO 크기에 따라 시간이 오래 걸릴 수 있습니다. 보조 스토리지로 성공적으로 다운로드되면 ISO 상태 열에 준비가 표시됩니다. 새로 고침을 클릭하면 다운로드 비율이 업데이트됩니다.</li>
+<li>중요 : ISO 다운로드가 완료될 때까지 기다리십시오. 다음 작업으로 이동하여 즉시 ISO를 사용하려고 하면 실패한 것처럼 보입니다. Mold에서 작업하려면 전체 ISO를 사용할 수 있어야 합니다.</li>
+</ol>
+<h3>VM에 ISO 연결</h3>
+<ol>
+<li>왼쪽 탐색에서 인스턴스를 클릭합니다.</li>
+<li>작업할 가상 머신을 선택하십시오.</li>
+<li>ISO 첨부 버튼을 클릭합니다. |iso.png|</li>
+<li>ISO 첨부 대화 상자에서 원하는 ISO를 선택합니다.</li>
+<li>확인을 클릭하십시오.</li>
+</ol>
+
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2021-2026 ABLECLOUD Co. Ltd.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ablecloud-team" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.top", "navigation.tracking", "content.code.annotate", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+<script src="../../../assets/javascripts/bundle.f13b1293.min.js"></script>
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
