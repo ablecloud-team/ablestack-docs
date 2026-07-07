@@ -114,9 +114,9 @@ def main():
     aliases = shlex.split(aliases_input) if aliases_input else mike.get("aliases", [])
     default = env_override("INPUT_MIKE_DEFAULT") or mike.get("default")
     built_at = release_datetime(release)
+    release_id = release_version(release, built_at) if use_release else version
 
     if use_release:
-        version = release_version(release, built_at)
         aliases = release.get("aliases", aliases)
         default = release.get("default", default)
 
@@ -141,7 +141,8 @@ def main():
     if image_enabled and not image_name:
         raise ValueError("image.name is required when image.enabled is true")
 
-    image_tags = [docker_tag(version)]
+    primary_image_tag = release_id if use_release else version
+    image_tags = [docker_tag(primary_image_tag)]
     image_tags.extend(docker_tag(alias) for alias in image_tag_aliases)
     github_sha = os.environ.get("GITHUB_SHA", "").strip()
     github_sha_short = github_sha[:7] if github_sha else ""
@@ -162,8 +163,10 @@ def main():
         "dry_run": str(dry_run).lower(),
         "release": str(use_release).lower(),
         "release_version": version,
+        "release_id": release_id,
         "release_built_at": display_datetime(built_at),
         "release_commit": github_sha_short,
+        "prune_version_pattern": str(release.get("prune_version_pattern") or ""),
         "image_enabled": str(image_enabled).lower(),
         "image_name": image_name,
         "image_tags_json": json.dumps(unique_values(image_tags), ensure_ascii=False),

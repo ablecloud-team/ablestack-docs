@@ -110,17 +110,17 @@ mike set-default latest
 
 `codex/**` 브랜치에서는 운영 반영을 수행하지 않습니다. 이 모드에서는 `mike` 산출물을 로컬 브랜치로 생성해 Docker 이미지까지 검증하고, 운영 서버 SSH/rsync 단계는 건너뜁니다. 기능 브랜치에서 workflow 자체를 먼저 안전하게 확인하기 위한 모드입니다.
 
-PR이 병합되어 `master` 브랜치에 push되면 자동 release mode가 적용됩니다. 이때 `mike.version` 기본값을 그대로 쓰지 않고 `release` 설정을 기준으로 `4.0-Diplo-YYYYMMDD-HHmmss` 형식의 새 version을 생성합니다. 시간대는 `Asia/Seoul` 기준입니다.
+PR이 병합되어 `master` 브랜치에 push되면 자동 release mode가 적용됩니다. 이때 `mike.version`은 `.github/docs-deploy.yml`의 `mike.version` 값(`4.0 Diplo`)을 그대로 사용합니다. 따라서 상단 버전 선택기와 운영 서버 버전 디렉터리는 날짜/시간이 붙지 않은 `4.0 Diplo` 기준으로 유지되고, 같은 version이 이미 있으면 새 빌드 결과로 덮어씁니다.
 
-예를 들어 2026년 7월 7일 14시 30분 15초에 병합된 경우 다음 version이 생성됩니다.
+날짜/시간이 필요한 릴리즈 식별자는 `mike.version`과 분리해 `release.id`로 생성합니다. 예를 들어 2026년 7월 7일 14시 30분 15초에 병합된 경우 다음 release id가 생성됩니다.
 
 ```text
 4.0-Diplo-20260707-143015
 ```
 
-자동 release mode에서는 이 version을 `latest` alias로 배포하고 `latest`를 기본 alias로 설정합니다. 또한 `release.dry_run: false` 설정을 사용하므로 `DOCS_DEPLOY_PASSWORD` Secret이 준비되어 있으면 운영 nginx 서버까지 자동 동기화합니다.
+자동 release mode에서는 `4.0 Diplo` version을 `latest` alias로 배포하고 `latest`를 기본 alias로 설정합니다. 기존 날짜형 release version 디렉터리는 배포 payload에서 제거하므로 운영 서버에 `4.0-Diplo-YYYYMMDD-HHmmss` 디렉터리가 계속 누적되지 않습니다. 또한 `release.dry_run: false` 설정을 사용하므로 `DOCS_DEPLOY_PASSWORD` Secret이 준비되어 있으면 운영 nginx 서버까지 자동 동기화합니다.
 
-release version, 빌드 일시, commit 정보는 workflow에서 `DOCS_RELEASE_VERSION`, `DOCS_RELEASE_BUILT_AT`, `DOCS_RELEASE_COMMIT` 환경변수로 MkDocs에 전달됩니다. `mkdocs.yml`은 이 값을 `extra.release`로 주입하고, 시작 페이지(`docs/index.md`)는 해당 값을 사용해 문서 릴리즈 정보를 표시합니다.
+release version, release id, 빌드 일시, commit 정보는 workflow에서 `DOCS_RELEASE_VERSION`, `DOCS_RELEASE_ID`, `DOCS_RELEASE_BUILT_AT`, `DOCS_RELEASE_COMMIT` 환경변수로 MkDocs에 전달됩니다. `mkdocs.yml`은 이 값을 `extra.release`로 주입합니다. 시작 페이지(`docs/index.md`)에는 날짜형 release id 대신 version, 빌드 일시, commit만 표시하고, release id는 이미지/artifact 식별에 사용합니다.
 
 운영 서버 접속 비밀번호는 GitHub Secrets로만 관리합니다. 비밀번호, API key, SSH key 등 민감한 값은 저장소 파일에 기록하지 않습니다.
 
@@ -149,6 +149,7 @@ release:
   timezone: Asia/Seoul
   version_prefix: 4.0-Diplo
   timestamp_format: "%Y%m%d-%H%M%S"
+  prune_version_pattern: "^4\\.0-Diplo-[0-9]{8}-[0-9]{6}$"
   aliases:
     - latest
   default: latest
@@ -176,7 +177,7 @@ verify:
 
 GitHub Actions는 `mike`로 생성한 `gh-pages` 산출물을 그대로 포함하는 nginx Docker 이미지를 함께 생성합니다. 이 이미지는 Python, MkDocs, `mike` 없이 컨테이너 실행만으로 문서 사이트를 제공합니다.
 
-이미지 산출물 기본값은 `.github/docs-deploy.yml`의 `image` 섹션에서 관리합니다. 기본 이미지 이름은 `ablestack-docs-nginx`이며, 실제 `mike.version` 값을 Docker tag로 변환한 태그와 `latest` 태그를 함께 생성합니다. 예를 들어 자동 release version `4.0-Diplo-20260707-143015`는 같은 이름의 Docker tag로 사용됩니다. GitHub Actions 환경에서는 commit 추적을 위해 `sha-<short-sha>` tag도 함께 생성합니다.
+이미지 산출물 기본값은 `.github/docs-deploy.yml`의 `image` 섹션에서 관리합니다. 기본 이미지 이름은 `ablestack-docs-nginx`이며, release mode에서는 `release.id` 값을 Docker tag로 변환한 태그와 `latest` 태그를 함께 생성합니다. 예를 들어 자동 release id `4.0-Diplo-20260707-143015`는 같은 이름의 Docker tag로 사용됩니다. GitHub Actions 환경에서는 commit 추적을 위해 `sha-<short-sha>` tag도 함께 생성합니다.
 
 컨테이너 이미지는 `docker/nginx/Dockerfile`과 `docker/nginx/default.conf`를 사용합니다. 이미지에는 `mike` 산출물 전체가 `/usr/share/nginx/html/`로 복사되며, `latest` alias는 컨테이너 안에서 바로 서비스되도록 실제 디렉터리로 풀어 복사합니다.
 

@@ -78,6 +78,7 @@ jobs:
         if: steps.config.outputs.strict == 'true'
         env:
           DOCS_RELEASE_VERSION: ${{ steps.config.outputs.release_version }}
+          DOCS_RELEASE_ID: ${{ steps.config.outputs.release_id }}
           DOCS_RELEASE_BUILT_AT: ${{ steps.config.outputs.release_built_at }}
           DOCS_RELEASE_COMMIT: ${{ steps.config.outputs.release_commit }}
         run: mkdocs build --strict --clean --site-dir /tmp/ablestack-docs-strict
@@ -95,6 +96,7 @@ jobs:
           MIKE_DEFAULT: ${{ steps.config.outputs.default }}
           MIKE_BRANCH: ${{ steps.config.outputs.branch }}
           DOCS_RELEASE_VERSION: ${{ steps.config.outputs.release_version }}
+          DOCS_RELEASE_ID: ${{ steps.config.outputs.release_id }}
           DOCS_RELEASE_BUILT_AT: ${{ steps.config.outputs.release_built_at }}
           DOCS_RELEASE_COMMIT: ${{ steps.config.outputs.release_commit }}
         run: |
@@ -127,6 +129,10 @@ jobs:
           else
             git worktree add public "${{ steps.config.outputs.branch }}"
           fi
+
+      - name: Prune timestamped release versions from deploy payload
+        if: steps.config.outputs.prune_version_pattern != ''
+        run: python scripts/prune_docs_release_versions.py public '${{ steps.config.outputs.prune_version_pattern }}'
 
       - name: Build nginx image
         id: image

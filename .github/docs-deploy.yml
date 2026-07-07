@@ -14,6 +14,7 @@ release:
   timezone: Asia/Seoul
   version_prefix: 4.0-Diplo
   timestamp_format: "%Y%m%d-%H%M%S"
+  prune_version_pattern: "^4\\.0-Diplo-[0-9]{8}-[0-9]{6}$"
   aliases:
     - latest
   default: latest
