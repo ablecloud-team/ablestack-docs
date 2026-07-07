@@ -121,6 +121,7 @@ extra:
     provider: mike
   release:
     version: !ENV [DOCS_RELEASE_VERSION, "local"]
+    id: !ENV [DOCS_RELEASE_ID, "local"]
     built_at: !ENV [DOCS_RELEASE_BUILT_AT, "local build"]
     commit: !ENV [DOCS_RELEASE_COMMIT, "local"]
 
