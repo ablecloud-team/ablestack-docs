@@ -1,10 +1,15 @@
 [
   {
-    "version": "4.0-Diplo-20260707-124829",
-    "title": "4.0-Diplo-20260707-124829",
+    "version": "4.0-Diplo-20260707-130842",
+    "title": "4.0-Diplo-20260707-130842",
     "aliases": [
       "latest"
     ]
+  },
+  {
+    "version": "4.0-Diplo-20260707-124829",
+    "title": "4.0-Diplo-20260707-124829",
+    "aliases": []
   },
   {
     "version": "4.0-Diplo-20260707-121239",
