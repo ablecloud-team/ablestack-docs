@@ -16,4 +16,11 @@ ABLESTACK은 상용(Off-the-Shelf) x86 서버와
 이제 단 1시간 이내에 사용자 사이트에 일반 서버 가상화 또는 HCI 인프라를 구성하고
 클라우드 서비스를 바로 시작하십시오.
 
+<div class="release-info">
+  <strong>문서 릴리즈</strong>
+  <span>버전: {{ config.extra.release.version }}</span>
+  <span>빌드 일시: {{ config.extra.release.built_at }}</span>
+  <span>커밋: {{ config.extra.release.commit }}</span>
+</div>
+
 [아키텍처 살펴보기](architecture/architecture-overview.md){ .md-button } [ABLESTACK 시작하기](getting-started/getting-started-overview.md){ .md-button .md-button--primary }

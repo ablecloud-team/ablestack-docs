@@ -76,6 +76,10 @@ jobs:
 
       - name: Validate docs strictly
         if: steps.config.outputs.strict == 'true'
+        env:
+          DOCS_RELEASE_VERSION: ${{ steps.config.outputs.release_version }}
+          DOCS_RELEASE_BUILT_AT: ${{ steps.config.outputs.release_built_at }}
+          DOCS_RELEASE_COMMIT: ${{ steps.config.outputs.release_commit }}
         run: mkdocs build --strict --clean --site-dir /tmp/ablestack-docs-strict
 
       - name: Configure git author
@@ -90,6 +94,9 @@ jobs:
           MIKE_ALIASES_JSON: ${{ steps.config.outputs.aliases_json }}
           MIKE_DEFAULT: ${{ steps.config.outputs.default }}
           MIKE_BRANCH: ${{ steps.config.outputs.branch }}
+          DOCS_RELEASE_VERSION: ${{ steps.config.outputs.release_version }}
+          DOCS_RELEASE_BUILT_AT: ${{ steps.config.outputs.release_built_at }}
+          DOCS_RELEASE_COMMIT: ${{ steps.config.outputs.release_commit }}
         run: |
           mapfile -t ALIASES < <(
             python -c 'import json, os; print("\n".join(json.loads(os.environ["MIKE_ALIASES_JSON"])))'

@@ -64,3 +64,38 @@ article ul ul {
 article ul ul ul {
     list-style-type: square !important;
 }
+
+.release-info {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    align-items: center;
+    margin: 18px 0 22px;
+    padding: 10px 14px;
+    border: 1px solid #d7dde4;
+    border-radius: 6px;
+    background: #f8fafc;
+    color: #374151;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.release-info strong {
+    color: #111827;
+}
+
+.release-info span {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .release-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .release-info span {
+        white-space: normal;
+    }
+}

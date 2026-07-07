@@ -9,6 +9,16 @@ build:
   strict: true
   pdf: true
 
+release:
+  enabled_on_master: true
+  timezone: Asia/Seoul
+  version_prefix: 4.0-Diplo
+  timestamp_format: "%Y%m%d-%H%M%S"
+  aliases:
+    - latest
+  default: latest
+  dry_run: false
+
 deploy:
   host: 211.115.222.251
   port: 10022
