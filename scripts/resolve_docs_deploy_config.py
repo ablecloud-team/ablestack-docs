@@ -167,6 +167,7 @@ def main():
         "release_built_at": display_datetime(built_at),
         "release_commit": github_sha_short,
         "prune_version_pattern": str(release.get("prune_version_pattern") or ""),
+        "github_release": str(parse_bool(release.get("github_release"), False)).lower(),
         "image_enabled": str(image_enabled).lower(),
         "image_name": image_name,
         "image_tags_json": json.dumps(unique_values(image_tags), ensure_ascii=False),
